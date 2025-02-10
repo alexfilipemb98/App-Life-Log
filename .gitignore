@@ -396,3 +396,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+Released/Temp/*
+Released/*.dll
+Released/*.xml
