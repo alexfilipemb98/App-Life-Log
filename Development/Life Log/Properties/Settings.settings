@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Life_Log.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConfigFileName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ConfigDb.dat</Value>
+    </Setting>
+    <Setting Name="SqlLitePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Database.db</Value>
+    </Setting>
+    <Setting Name="GeralSettings" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ConfigsApp.json</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
