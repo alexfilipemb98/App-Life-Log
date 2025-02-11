@@ -29,7 +29,7 @@ namespace Data.Entities
         [XmlElement("Text")]
         [DataType(DataType.Text)]
         [Size(SizeAttribute.Unlimited)]
-        [DbType("nvarchar(max)")]
+        [DbType("nvarchar(4000)")]
         public string Text
         {
             get => fText;

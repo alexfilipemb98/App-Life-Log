@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using Data.Entities;
+using DevExpress.XtraEditors;
 using DevExpress.XtraRichEdit.Fields.Expression;
 using Life_Log.Helpers;
 using System;
@@ -23,7 +24,7 @@ namespace Life_Log.Views.Home.Passwords
         //PUBLIC
 
         public PasswordsView _PasswordsView;
-
+       
         //PRIVATE
 
         /// <summary>
@@ -42,7 +43,11 @@ namespace Life_Log.Views.Home.Passwords
         /// <param name="e"></param>
         private void gridView_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            _PasswordsView.popupMenu.ShowPopup(MousePosition);
+            if (gridView.GetRow(e.RowHandle) is PasswordsEntity passwords)
+            {
+                _PasswordsView._CrtPassword = passwords;
+                _PasswordsView.popupMenu.ShowPopup(MousePosition);
+            }
         }
 
         #endregion

@@ -85,7 +85,7 @@
             this.npDbSettings.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.sql_reporting;
             this.npDbSettings.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
             this.npDbSettings.Name = "npDbSettings";
-            this.npDbSettings.Size = new System.Drawing.Size(782, 501);
+            this.npDbSettings.Size = new System.Drawing.Size(796, 515);
             // 
             // databaseSettingsView
             // 
@@ -93,7 +93,7 @@
             this.databaseSettingsView.Location = new System.Drawing.Point(0, 0);
             this.databaseSettingsView.Margin = new System.Windows.Forms.Padding(0);
             this.databaseSettingsView.Name = "databaseSettingsView";
-            this.databaseSettingsView.Size = new System.Drawing.Size(782, 501);
+            this.databaseSettingsView.Size = new System.Drawing.Size(796, 515);
             this.databaseSettingsView.TabIndex = 1;
             // 
             // SettingsView

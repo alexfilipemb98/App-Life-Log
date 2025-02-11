@@ -11,11 +11,14 @@ using System.Windows.Forms;
 
 namespace Life_Log.Views.Settings
 {
+    /// <summary>
+    /// Geral Settings
+    /// </summary>
     public partial class GeralSettingsView : DevExpress.XtraEditors.XtraUserControl
     {
-        public GeralSettingsView()
-        {
-            InitializeComponent();
-        }
+        /// <summary>
+        /// Construtor
+        /// </summary>
+        public GeralSettingsView() => InitializeComponent();
     }
 }

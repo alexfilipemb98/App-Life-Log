@@ -1,4 +1,5 @@
-﻿using Data.Entities;
+﻿using Core.Enums;
+using Data.Entities;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
@@ -24,7 +25,10 @@ namespace Life_Log.Views.Home.Passwords
     {
         #region MAIN
 
-        //PRIVATES
+        //PUBLIC
+
+        public ViewTypeEnum _viewType;
+        public PasswordsEntity _CrtPassword;
 
         /// <summary>
         /// Constructor to initialize the view
@@ -66,6 +70,51 @@ namespace Life_Log.Views.Home.Passwords
             passwordsDetailView.SaveData();
         }
 
+        /// <summary>
+        /// Go back
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiBack_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ShowView();
+        }
+
+        /// <summary>
+        /// Edit data click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ShowDetailView(_CrtPassword);
+        }
+
+        #endregion
+
+        #region CHECKED
+
+        private void bciListView_CheckedChanged(object sender, ItemClickEventArgs e)
+        {
+            if (bciListView.Checked)
+            {
+                bciDefaultView.Checked = false;
+                _viewType = ViewTypeEnum.List;
+                navigationFrame.SelectedPage = npList;
+                passwordsListView.LoadData();
+            }
+        }
+
+        private void bciDefaultView_CheckedChanged(object sender, ItemClickEventArgs e)
+        {
+            if (bciDefaultView.Checked)
+            {
+                bciListView.Checked = false;
+                _viewType = ViewTypeEnum.Main;
+                navigationFrame.SelectedPage = npMain;
+            }
+        }
+
         #endregion
 
         #region FUNCTIONS
@@ -92,24 +141,29 @@ namespace Life_Log.Views.Home.Passwords
                 bbiSave.Visibility = BarItemVisibility.Always;
                 bbiBack.Visibility = BarItemVisibility.Always;
                 bbiEdit.Visibility = BarItemVisibility.Never;
+                bsiMenuViews.Visibility = BarItemVisibility.Never;
 
                 navigationFrame.SelectedPage = npEditor;
-                passwordsDetailView.LoadData();
+                passwordsDetailView.LoadData(password);
             }
             catch (Exception ex)
             {
                 ErrorHelper.Handler(ex);
             }
-
         }
 
         /// <summary>
         /// Show list view
         /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
-        public void ShowListView()
+        public void ShowView()
         {
-            throw new NotImplementedException();
+            bbiNew.Visibility = BarItemVisibility.Always;
+            bbiEdit.Visibility = BarItemVisibility.Always;
+            bbiBack.Visibility = BarItemVisibility.Never;
+            bbiSave.Visibility = BarItemVisibility.Never;
+            bsiMenuViews.Visibility = BarItemVisibility.Always;
+
+            navigationFrame.SelectedPage = _viewType == ViewTypeEnum.Main ? npMain : npList;
         }
 
         #endregion

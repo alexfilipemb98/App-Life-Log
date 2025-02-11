@@ -93,7 +93,7 @@ namespace Data.Entities
         [DataType(DataType.Text)]
         [Size(SizeAttribute.Unlimited)]
         [Nullable(false)]
-        [DbType("nvarchar(max)")]
+        [DbType("nvarchar(4000)")]
         public string Command
         {
             get => fCommand;

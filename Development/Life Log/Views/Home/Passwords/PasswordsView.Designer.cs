@@ -38,9 +38,9 @@
             this.bbiNew = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSave = new DevExpress.XtraBars.BarButtonItem();
             this.bbiReload = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.bbiViewDefault = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiViewList = new DevExpress.XtraBars.BarButtonItem();
+            this.bsiMenuViews = new DevExpress.XtraBars.BarSubItem();
+            this.bciDefaultView = new DevExpress.XtraBars.BarCheckItem();
+            this.bciListView = new DevExpress.XtraBars.BarCheckItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -83,6 +83,7 @@
             this.bbiEdit.Id = 4;
             this.bbiEdit.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.actions_edit;
             this.bbiEdit.Name = "bbiEdit";
+            this.bbiEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEdit_ItemClick);
             // 
             // bbiDelele
             // 
@@ -107,11 +108,11 @@
             this.bbiBack,
             this.bbiEdit,
             this.bbiDelele,
-            this.barSubItem1,
-            this.bbiViewDefault,
-            this.bbiViewList});
+            this.bsiMenuViews,
+            this.bciDefaultView,
+            this.bciListView});
             this.barManager.MainMenu = this.bar;
-            this.barManager.MaxItemId = 9;
+            this.barManager.MaxItemId = 11;
             // 
             // bar
             // 
@@ -126,7 +127,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiDelele, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiReload, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barSubItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bsiMenuViews, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar.OptionsBar.AllowQuickCustomization = false;
             this.bar.OptionsBar.DrawBorder = false;
             this.bar.OptionsBar.DrawDragBorder = false;
@@ -141,6 +142,7 @@
             this.bbiBack.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.undo;
             this.bbiBack.Name = "bbiBack";
             this.bbiBack.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bbiBack.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBack_ItemClick);
             // 
             // bbiNew
             // 
@@ -168,31 +170,34 @@
             this.bbiReload.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.actions_refresh;
             this.bbiReload.Name = "bbiReload";
             // 
-            // barSubItem1
+            // bsiMenuViews
             // 
-            this.barSubItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barSubItem1.Caption = "View Mode";
-            this.barSubItem1.Id = 6;
-            this.barSubItem1.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.viewmergeddata;
-            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiViewDefault),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiViewList)});
-            this.barSubItem1.Name = "barSubItem1";
+            this.bsiMenuViews.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bsiMenuViews.Caption = "View Mode";
+            this.bsiMenuViews.Id = 6;
+            this.bsiMenuViews.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.viewmergeddata;
+            this.bsiMenuViews.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bciDefaultView),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bciListView)});
+            this.bsiMenuViews.Name = "bsiMenuViews";
             // 
-            // bbiViewDefault
+            // bciDefaultView
             // 
-            this.bbiViewDefault.Caption = "Default";
-            this.bbiViewDefault.Id = 7;
-            this.bbiViewDefault.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.inserttreeview;
-            this.bbiViewDefault.Name = "bbiViewDefault";
+            this.bciDefaultView.BindableChecked = true;
+            this.bciDefaultView.Caption = "Default";
+            this.bciDefaultView.Checked = true;
+            this.bciDefaultView.Id = 9;
+            this.bciDefaultView.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.inserttreeview;
+            this.bciDefaultView.Name = "bciDefaultView";
+            this.bciDefaultView.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bciDefaultView_CheckedChanged);
             // 
-            // bbiViewList
+            // bciListView
             // 
-            this.bbiViewList.Caption = "List";
-            this.bbiViewList.Id = 8;
-            this.bbiViewList.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.listbullets;
-            this.bbiViewList.Name = "bbiViewList";
-            this.bbiViewList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiViewList_ItemClick);
+            this.bciListView.Caption = "List";
+            this.bciListView.Id = 10;
+            this.bciListView.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.listbullets;
+            this.bciListView.Name = "bciListView";
+            this.bciListView.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bciListView_CheckedChanged);
             // 
             // barDockControlTop
             // 
@@ -266,7 +271,6 @@
             // 
             // npEditor
             // 
-            this.npEditor.Caption = "npEditor";
             this.npEditor.Controls.Add(this.passwordsDetailView);
             this.npEditor.Name = "npEditor";
             this.npEditor.Size = new System.Drawing.Size(785, 508);
@@ -281,7 +285,6 @@
             // 
             // npList
             // 
-            this.npList.Caption = "npList";
             this.npList.Controls.Add(this.passwordsListView);
             this.npList.Name = "npList";
             this.npList.Size = new System.Drawing.Size(785, 508);
@@ -296,7 +299,6 @@
             // 
             // npMain
             // 
-            this.npMain.Caption = "npMain";
             this.npMain.Name = "npMain";
             this.npMain.Size = new System.Drawing.Size(785, 508);
             // 
@@ -372,9 +374,9 @@
         private DevExpress.XtraBars.Navigation.NavigationPage npMain;
         private PasswordsDetailView passwordsDetailView;
         private PasswordsListView passwordsListView;
-        private DevExpress.XtraBars.BarSubItem barSubItem1;
-        private DevExpress.XtraBars.BarButtonItem bbiViewDefault;
-        private DevExpress.XtraBars.BarButtonItem bbiViewList;
+        private DevExpress.XtraBars.BarSubItem bsiMenuViews;
         public DevExpress.XtraBars.PopupMenu popupMenu;
+        private DevExpress.XtraBars.BarCheckItem bciDefaultView;
+        private DevExpress.XtraBars.BarCheckItem bciListView;
     }
 }

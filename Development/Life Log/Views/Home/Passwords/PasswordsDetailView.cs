@@ -58,6 +58,13 @@ namespace Life_Log.Views.Home.Passwords
                     password.CreatedAt = DateTime.Now;
                 }
 
+                if (password.Image == null)
+                {
+                    password.Image = new ImagesEntity();
+                    password.Image.Id = Guid.NewGuid();
+                    password.Image.CreatedAt = DateTime.Now;
+                }
+
                 _crtPassword = password;
 
                 //Main Data
@@ -89,7 +96,7 @@ namespace Life_Log.Views.Home.Passwords
             {
                 //Main Data
                 _crtPassword.Name = teName.EditValue.ToString();
-                _crtPassword.LoginPassword = teLoginUsername.EditValue.ToString();
+                _crtPassword.LoginUsername = teLoginUsername.EditValue.ToString();
                 _crtPassword.LoginPassword = beLoginPassword.EditValue.ToString();
                 _crtPassword.WebSite = beWebSite.EditValue.ToString();
                 _crtPassword.Notes = neNotes.EditValue.ToString();
@@ -118,7 +125,7 @@ namespace Life_Log.Views.Home.Passwords
                     else
                         _PasswordsListView.gridView.UpdateCurrentRow();
 
-                    _PasswordsView.ShowListView();
+                    _PasswordsView.ShowView();
                     
                     ResetForm();
                 }
