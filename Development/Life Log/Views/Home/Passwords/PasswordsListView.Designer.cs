@@ -66,8 +66,11 @@
             this.colWebSite,
             this.colCreatedAt,
             this.colUpdatedAt});
+            this.gridView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
+            this.gridView.OptionsBehavior.Editable = false;
+            this.gridView.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView.OptionsView.ShowGroupPanel = false;
             this.gridView.OptionsView.ShowIndicator = false;
             this.gridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView_RowClick);

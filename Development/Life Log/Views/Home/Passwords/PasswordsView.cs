@@ -168,5 +168,9 @@ namespace Life_Log.Views.Home.Passwords
 
         #endregion
 
+        private void bbiDelele_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
     }
 }

@@ -69,7 +69,7 @@ namespace Life_Log.Views.Home.Passwords
 
                 //Main Data
                 teName.EditValue = _crtPassword.Name;
-                teLoginUsername.EditValue = _crtPassword.LoginPassword;
+                teLoginUsername.EditValue = _crtPassword.LoginUsername;
                 beLoginPassword.EditValue = _crtPassword.LoginPassword;
                 beWebSite.EditValue = _crtPassword.WebSite;
                 neNotes.EditValue = _crtPassword.Notes;
@@ -130,7 +130,7 @@ namespace Life_Log.Views.Home.Passwords
                     ResetForm();
                 }
 
-                AppHelper.StatusMessage(saved ? "External program saved!" : "Unable to save the external program!", saved ? ForeColors.Information : ForeColors.Critical);
+                AppHelper.StatusMessage(saved ? "Password saved!" : "Unable to save password!", saved ? ForeColors.Information : ForeColors.Critical);
 
                 return saved;
             }

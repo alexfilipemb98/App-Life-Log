@@ -91,6 +91,7 @@
             this.bbiDelele.Id = 5;
             this.bbiDelele.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.delete;
             this.bbiDelele.Name = "bbiDelele";
+            this.bbiDelele.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDelele_ItemClick);
             // 
             // barManager
             // 
