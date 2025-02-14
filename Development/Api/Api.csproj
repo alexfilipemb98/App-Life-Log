@@ -1,18 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F023255E-769D-48DE-8FAA-3F5639EB3B68}</ProjectGuid>
+    <ProjectGuid>{38E1A752-E193-48E3-AF5F-CED855572ABF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core</RootNamespace>
-    <AssemblyName>Core</AssemblyName>
+    <RootNamespace>Api</RootNamespace>
+    <AssemblyName>Api</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,20 +23,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
+    <DebugType>embedded</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DebugSymbols>false</DebugSymbols>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,35 +43,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Atributes\EmailValidatorAttribute.cs" />
-    <Compile Include="Atributes\RequiredAttribute.cs" />
-    <Compile Include="Atributes\RequiredIfAttribute.cs" />
-    <Compile Include="Atributes\StringLengthAttribute.cs" />
-    <Compile Include="Atributes\UrlValidatorAttribute.cs" />
-    <Compile Include="Atributes\ValidDateAttribute.cs" />
-    <Compile Include="Enums\DatabaseTypeEnum.cs" />
-    <Compile Include="Enums\MessageTypeEnum.cs" />
-    <Compile Include="Enums\OperatorsEnum.cs" />
-    <Compile Include="Enums\ThemeEnum.cs" />
-    <Compile Include="Enums\ViewTypeEnum.cs" />
-    <Compile Include="Exceptions\ValidationException.cs" />
-    <Compile Include="Extensions\ModelsExtension.cs" />
-    <Compile Include="Extensions\StringExtension.cs" />
-    <Compile Include="Interfaces\IBaseQuery.cs" />
-    <Compile Include="Models\AppConfigsModel.cs" />
-    <Compile Include="Models\DatabaseConfigModel.cs" />
-    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Engine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\FilesUtil.cs" />
-    <Compile Include="Utils\ImagesUtil.cs" />
-    <Compile Include="Utils\ModelUtil.cs" />
-    <Compile Include="Utils\SecurityUtil.cs" />
-    <Compile Include="Utils\ValidationUtil.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.3</Version>
+    <PackageReference Include="Microsoft.AspNet.WebApi">
+      <Version>5.3.0</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.WebApi.SelfHost">
+      <Version>5.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Hosting">
+      <Version>4.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle">
+      <Version>5.6.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

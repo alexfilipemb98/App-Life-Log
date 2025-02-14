@@ -22,6 +22,7 @@ namespace Life_Log.Helpers
         #region PROPERTIES
 
         public static Data.Engine DataEngine { get; set; }
+        public static LoginForm LoginFormInstance { get; set; }
         public static MainForm MainFormInstance { get; set; }
         public static AppConfigsModel AppConfigs { get; set; }
         public static DatabaseConfigModel DbConfigs { get; set; }
@@ -114,23 +115,22 @@ namespace Life_Log.Helpers
         /// <param name="color"></param>
         public static void StatusMessage(string message, Color color)
         {
-            XtraMessageBox.Show(message);
-            //if (LoginFormInstance != null && !LoginFormInstance.Disposing && !LoginFormInstance.IsDisposed)
-            //{
-            //    LoginFormInstance.Invoke(new Action(() =>
-            //    {
-            //        LoginFormInstance.bsiStatusLabel.Caption = text;
-            //        LoginFormInstance.bsiStatusLabel.ItemAppearance.Normal.ForeColor = color;
-            //    }));
-            //}
-            //else if (FrmMain != null && !FrmMain.Disposing && !FrmMain.IsDisposed)
-            //{
-            MainFormInstance.Invoke(new Action(() =>
+            if (LoginFormInstance != null && !LoginFormInstance.Disposing && !LoginFormInstance.IsDisposed)
             {
-                MainFormInstance.bsiStatusLabel.Caption = message;
-                MainFormInstance.bsiStatusLabel.ItemAppearance.Normal.ForeColor = color;
-            }));
-            //}
+                LoginFormInstance.Invoke(new Action(() =>
+                {
+                    LoginFormInstance.bsiStatusLabel.Caption = message;
+                    LoginFormInstance.bsiStatusLabel.ItemAppearance.Normal.ForeColor = color;
+                }));
+            }
+            else if (MainFormInstance != null && !MainFormInstance.Disposing && !MainFormInstance.IsDisposed)
+            {
+                MainFormInstance.Invoke(new Action(() =>
+                {
+                    MainFormInstance.bsiStatusLabel.Caption = message;
+                    MainFormInstance.bsiStatusLabel.ItemAppearance.Normal.ForeColor = color;
+                }));
+            }
         }
 
         /// <summary>

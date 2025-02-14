@@ -8,7 +8,7 @@ namespace Core.Atributes
     /// Validate email atribute
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    public class UrlValidator : ValidationAttribute
+    public class UrlValidatorAttribute : ValidationAttribute
     {
         #region OVERRIDES
 

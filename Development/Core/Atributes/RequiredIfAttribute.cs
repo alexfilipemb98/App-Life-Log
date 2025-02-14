@@ -8,7 +8,7 @@ namespace Core.Atributes
     /// This is an atribute that set a property to requiered if a condition
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
-    public class RequiredIf : ValidationAttribute
+    public class RequiredIfAttribute : ValidationAttribute
     {
         #region MAIN
 
@@ -24,7 +24,7 @@ namespace Core.Atributes
         /// <param fName="otherPropertyName"></param>
         /// <param fName="operator"></param>
         /// <param fName="otherPropertyValue"></param>
-        public RequiredIf(string otherPropertyName, OperatorsEnum @operator, object otherPropertyValue)
+        public RequiredIfAttribute(string otherPropertyName, OperatorsEnum @operator, object otherPropertyValue)
         {
             _otherPropertyName = otherPropertyName;
             _otherPropertyValue = otherPropertyValue;

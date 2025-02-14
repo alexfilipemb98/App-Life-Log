@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace Core.Atributes
+﻿namespace Core.Atributes
 {
     /// <summary>
     /// Requiered atribute with a auto message

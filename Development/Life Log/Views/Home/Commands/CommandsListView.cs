@@ -144,6 +144,26 @@ namespace Life_Log.Views.Home.Commands
             }
         }
 
+        /// <summary>
+        /// Run as admin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiRunAdmin_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!(tileView.GetFocusedRow() is Data.Entities.CommandsEntity model))
+                    return;
+
+                ExecuteFile(model, true);
+            }
+            catch (Exception ex)
+            {
+                ErrorHelper.Handler(ex);
+            }
+        }
+
         #endregion
 
         #region OTHERS EVENTS
@@ -195,6 +215,7 @@ namespace Life_Log.Views.Home.Commands
         public void LoadData()
         {
             commandsBindingSource.DataSource = AppHelper.DataEngine.Commands.GetAll();
+            externalProgramsEntityBindingSource.DataSource = AppHelper.DataEngine.ExternalPrograms.GetAll();
         }
 
         /// <summary>

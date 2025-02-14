@@ -6,7 +6,7 @@ namespace Core.Atributes
     /// <summary>
     /// Validate date atribute
     /// </summary>
-    public class ValidDate : ValidationAttribute
+    public class ValidDateAttribute : ValidationAttribute
     {
         #region OVERRIDES
 

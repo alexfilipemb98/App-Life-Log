@@ -7,7 +7,7 @@ namespace Core.Atributes
     /// <summary>
     /// String lengh with a auto message
     /// </summary>
-    public class StringLength : System.ComponentModel.DataAnnotations.StringLengthAttribute
+    public class StringLengthAttribute : System.ComponentModel.DataAnnotations.StringLengthAttribute
     {
         #region MAIN
 
@@ -18,7 +18,7 @@ namespace Core.Atributes
         /// Contructor
         /// </summary>
         /// <param name="maximumLength"></param>
-        public StringLength(int maximumLength) : base(maximumLength)
+        public StringLengthAttribute(int maximumLength) : base(maximumLength)
         {
         }
 
