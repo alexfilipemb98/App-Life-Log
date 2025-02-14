@@ -398,6 +398,11 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
+#MY EXCLUED
 Released/Temp/*
 Released/*.dll
 Released/*.xml
+
+Installer/Setup Files/*
+Installer/Prerequisites/*
+Installer/LifeLogInstaller-cache/*
