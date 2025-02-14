@@ -4,6 +4,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Tile;
 using Life_Log.Helpers;
+using Life_Log.Properties;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -72,7 +73,20 @@ namespace Life_Log.Views.Home.Commands
         /// <param name="e"></param>
         private void tileView_ItemRightClick(object sender, TileViewItemClickEventArgs e)
         {
-            popupMenu.ShowPopup(Control.MousePosition);
+            try
+            {
+
+                CommandsEntity extProgram = GridHelper.GetObjectByRowHandle<CommandsEntity>(tileView, tileView.FocusedRowHandle);
+                BarItemLink bbiEnable = popupMenu.ItemLinks.FirstOrDefault(w => w.Item.Name == "bbiEnable");
+                bbiEnable.ImageOptions.SvgImage = extProgram.IsEnabled ? Resources.actions_deletecircled : Resources.actions_checkcircled;
+                bbiEnable.Caption = extProgram.IsEnabled ? "Disable" : "Enable";
+
+                popupMenu.ShowPopup(Control.MousePosition);
+            }
+            catch (Exception ex)
+            {
+                ErrorHelper.Handler(ex);
+            }
         }
 
         /// <summary>
@@ -132,7 +146,7 @@ namespace Life_Log.Views.Home.Commands
         {
             try
             {
-                Data.Entities.CommandsEntity extProgram = GridHelper.GetObjectByRowHandle<Data.Entities.CommandsEntity>(tileView, tileView.FocusedRowHandle);
+                CommandsEntity extProgram = GridHelper.GetObjectByRowHandle<CommandsEntity>(tileView, tileView.FocusedRowHandle);
                 if (extProgram != null)
                 {
                     ShowDetailView(extProgram);
@@ -157,6 +171,28 @@ namespace Life_Log.Views.Home.Commands
                     return;
 
                 ExecuteFile(model, true);
+            }
+            catch (Exception ex)
+            {
+                ErrorHelper.Handler(ex);
+            }
+        }
+
+        /// <summary>
+        /// Enable command
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiEnable_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                CommandsEntity commnad = GridHelper.GetObjectByRowHandle<CommandsEntity>(tileView, tileView.FocusedRowHandle);
+                if (commnad != null)
+                {
+                    bool isEnabled = AppHelper.DataEngine.Commands.ToggleState(commnad);
+                    tileView.UpdateCurrentRow();
+                }
             }
             catch (Exception ex)
             {
@@ -347,6 +383,5 @@ namespace Life_Log.Views.Home.Commands
         }
 
         #endregion
-
     }
 }

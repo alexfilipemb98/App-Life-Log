@@ -43,6 +43,7 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.bbiRunAdmin = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiEnable = new DevExpress.XtraBars.BarButtonItem();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.npMain = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -102,9 +103,10 @@
             this.bbiEdit,
             this.bbiSave,
             this.bbiDelete,
-            this.bbiRunAdmin});
+            this.bbiRunAdmin,
+            this.bbiEnable});
             this.barManager.MainMenu = this.bar;
-            this.barManager.MaxItemId = 7;
+            this.barManager.MaxItemId = 8;
             // 
             // bar
             // 
@@ -212,6 +214,14 @@
             this.bbiRunAdmin.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.bo_attention;
             this.bbiRunAdmin.Name = "bbiRunAdmin";
             this.bbiRunAdmin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRunAdmin_ItemClick);
+            // 
+            // bbiEnable
+            // 
+            this.bbiEnable.Caption = "Disable";
+            this.bbiEnable.Id = 7;
+            this.bbiEnable.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.actions_deletecircled;
+            this.bbiEnable.Name = "bbiEnable";
+            this.bbiEnable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEnable_ItemClick);
             // 
             // layoutControl1
             // 
@@ -446,6 +456,7 @@
             // 
             this.popupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiEdit),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiEnable),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiRunAdmin),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiDelete)});
             this.popupMenu.Manager = this.barManager;
@@ -523,5 +534,6 @@
         private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
         private DevExpress.Utils.Html.HtmlTemplate htmlTemplate1;
         private System.Windows.Forms.BindingSource externalProgramsEntityBindingSource;
+        private DevExpress.XtraBars.BarButtonItem bbiEnable;
     }
 }

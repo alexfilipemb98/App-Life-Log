@@ -44,5 +44,19 @@ namespace Data.Queries
         }
 
         #endregion
+
+        #region METHODS
+
+        public bool ToggleState(CommandsEntity command)
+        {
+            command.IsEnabled = !command.IsEnabled;
+
+            _UOW.Save(command);
+            _UOW.CommitChanges();
+
+            return command.IsEnabled;
+        }
+
+        #endregion
     }
 }

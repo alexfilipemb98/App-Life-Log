@@ -93,7 +93,6 @@ namespace Data.Bases
             else
                 obj.CreatedAt = DateTime.Now;
 
-
             _UOW.Save(obj);
             _UOW.CommitChanges();
 
