@@ -38,15 +38,20 @@
             this.bbiDelete = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSave = new DevExpress.XtraBars.BarButtonItem();
             this.bbiRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiSearch = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemSearchControl1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchControl();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.bbiRunAdmin = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEnable = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiCreateFile = new DevExpress.XtraBars.BarButtonItem();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.npMain = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.commandsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tileView = new DevExpress.XtraGrid.Views.Tile.TileView();
@@ -62,25 +67,35 @@
             this.colEditingMode = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colIcon = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colIdExternalProgram = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
+            this.listboxPrograms = new DevExpress.XtraEditors.ListBoxControl();
             this.externalProgramsEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.htmlTemplate1 = new DevExpress.Utils.Html.HtmlTemplate();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.npEditor = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.commandsDetailView = new Life_Log.Views.Home.Commands.CommandsDetailView();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.popupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).BeginInit();
             this.navigationFrame.SuspendLayout();
             this.npMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
+            this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commandsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listboxPrograms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalProgramsEntityBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.npEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -104,9 +119,14 @@
             this.bbiSave,
             this.bbiDelete,
             this.bbiRunAdmin,
-            this.bbiEnable});
+            this.bbiEnable,
+            this.bbiSearch,
+            this.bbiCreateFile});
             this.barManager.MainMenu = this.bar;
-            this.barManager.MaxItemId = 8;
+            this.barManager.MaxItemId = 11;
+            this.barManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemTextEdit1,
+            this.repositoryItemSearchControl1});
             // 
             // bar
             // 
@@ -120,7 +140,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiEdit, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiRefresh, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiRefresh, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiSearch, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar.OptionsBar.DrawBorder = false;
             this.bar.OptionsBar.DrawDragBorder = false;
             this.bar.OptionsBar.MultiLine = true;
@@ -158,6 +179,7 @@
             this.bbiDelete.Id = 5;
             this.bbiDelete.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.delete;
             this.bbiDelete.Name = "bbiDelete";
+            this.bbiDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDelete_ItemClick);
             // 
             // bbiSave
             // 
@@ -174,6 +196,26 @@
             this.bbiRefresh.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.actions_refresh;
             this.bbiRefresh.Name = "bbiRefresh";
             this.bbiRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRefresh_ItemClick);
+            // 
+            // bbiSearch
+            // 
+            this.bbiSearch.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bbiSearch.Caption = "Search";
+            this.bbiSearch.Edit = this.repositoryItemSearchControl1;
+            this.bbiSearch.EditWidth = 250;
+            this.bbiSearch.Id = 9;
+            this.bbiSearch.MaxWidth = 250;
+            this.bbiSearch.MinWidth = 250;
+            this.bbiSearch.Name = "bbiSearch";
+            // 
+            // repositoryItemSearchControl1
+            // 
+            this.repositoryItemSearchControl1.AutoHeight = false;
+            this.repositoryItemSearchControl1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Repository.ClearButton(),
+            new DevExpress.XtraEditors.Repository.SearchButton()});
+            this.repositoryItemSearchControl1.Client = this.gridControl;
+            this.repositoryItemSearchControl1.Name = "repositoryItemSearchControl1";
             // 
             // barDockControlTop
             // 
@@ -223,6 +265,19 @@
             this.bbiEnable.Name = "bbiEnable";
             this.bbiEnable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEnable_ItemClick);
             // 
+            // bbiCreateFile
+            // 
+            this.bbiCreateFile.Caption = "Create File";
+            this.bbiCreateFile.Id = 10;
+            this.bbiCreateFile.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.addfile;
+            this.bbiCreateFile.Name = "bbiCreateFile";
+            this.bbiCreateFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCreateFile_ItemClick);
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.navigationFrame);
@@ -238,34 +293,46 @@
             // 
             this.navigationFrame.Controls.Add(this.npMain);
             this.navigationFrame.Controls.Add(this.npEditor);
-            this.navigationFrame.Location = new System.Drawing.Point(8, 13);
+            this.navigationFrame.Location = new System.Drawing.Point(5, 10);
             this.navigationFrame.Margin = new System.Windows.Forms.Padding(0);
             this.navigationFrame.Name = "navigationFrame";
             this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.npMain,
             this.npEditor});
             this.navigationFrame.SelectedPage = this.npMain;
-            this.navigationFrame.Size = new System.Drawing.Size(876, 510);
+            this.navigationFrame.Size = new System.Drawing.Size(882, 516);
             this.navigationFrame.TabIndex = 4;
             this.navigationFrame.Text = "navigationFrame1";
             // 
             // npMain
             // 
-            this.npMain.Controls.Add(this.gridControl);
-            this.npMain.Controls.Add(this.listBoxControl1);
+            this.npMain.Controls.Add(this.layoutControl2);
             this.npMain.Margin = new System.Windows.Forms.Padding(0);
             this.npMain.Name = "npMain";
-            this.npMain.Size = new System.Drawing.Size(876, 510);
+            this.npMain.Size = new System.Drawing.Size(882, 516);
+            // 
+            // layoutControl2
+            // 
+            this.layoutControl2.Controls.Add(this.gridControl);
+            this.layoutControl2.Controls.Add(this.listboxPrograms);
+            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl2.Name = "layoutControl2";
+            this.layoutControl2.Root = this.layoutControlGroup1;
+            this.layoutControl2.Size = new System.Drawing.Size(882, 516);
+            this.layoutControl2.TabIndex = 2;
+            this.layoutControl2.Text = "layoutControl2";
             // 
             // gridControl
             // 
+            this.gridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl.DataSource = this.commandsBindingSource;
-            this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl.Location = new System.Drawing.Point(143, 0);
+            this.gridControl.Location = new System.Drawing.Point(93, 3);
             this.gridControl.MainView = this.tileView;
+            this.gridControl.Margin = new System.Windows.Forms.Padding(0);
             this.gridControl.MenuManager = this.barManager;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(733, 510);
+            this.gridControl.Size = new System.Drawing.Size(786, 510);
             this.gridControl.TabIndex = 0;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView});
@@ -393,20 +460,25 @@
             this.colIdExternalProgram.Visible = true;
             this.colIdExternalProgram.VisibleIndex = 11;
             // 
-            // listBoxControl1
+            // listboxPrograms
             // 
-            this.listBoxControl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.listBoxControl1.DataSource = this.externalProgramsEntityBindingSource;
-            this.listBoxControl1.DisplayMember = "Name";
-            this.listBoxControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.listBoxControl1.HtmlTemplates.AddRange(new DevExpress.Utils.Html.HtmlTemplate[] {
+            this.listboxPrograms.Cursor = System.Windows.Forms.Cursors.Default;
+            this.listboxPrograms.DataSource = this.externalProgramsEntityBindingSource;
+            this.listboxPrograms.DisplayMember = "Name";
+            this.listboxPrograms.HotTrackSelectMode = DevExpress.XtraEditors.HotTrackSelectMode.SelectItemOnClick;
+            this.listboxPrograms.HtmlTemplates.AddRange(new DevExpress.Utils.Html.HtmlTemplate[] {
             this.htmlTemplate1});
-            this.listBoxControl1.ItemAutoHeight = true;
-            this.listBoxControl1.Location = new System.Drawing.Point(0, 0);
-            this.listBoxControl1.Name = "listBoxControl1";
-            this.listBoxControl1.Size = new System.Drawing.Size(143, 510);
-            this.listBoxControl1.TabIndex = 1;
-            this.listBoxControl1.ValueMember = "Id";
+            this.listboxPrograms.ItemHeight = 75;
+            this.listboxPrograms.Location = new System.Drawing.Point(3, 8);
+            this.listboxPrograms.Margin = new System.Windows.Forms.Padding(0);
+            this.listboxPrograms.MinimumSize = new System.Drawing.Size(84, 84);
+            this.listboxPrograms.Name = "listboxPrograms";
+            this.listboxPrograms.Size = new System.Drawing.Size(84, 500);
+            this.listboxPrograms.StyleController = this.layoutControl2;
+            this.listboxPrograms.TabIndex = 1;
+            this.listboxPrograms.ValueMember = "Id";
+            this.listboxPrograms.SelectedIndexChanged += new System.EventHandler(this.listboxPrograms_SelectedIndexChanged);
+            this.listboxPrograms.CustomItemTemplate += new DevExpress.XtraEditors.CustomItemTemplateEventHandler(this.listBoxControl1_CustomItemTemplate);
             // 
             // externalProgramsEntityBindingSource
             // 
@@ -416,20 +488,51 @@
             // 
             this.htmlTemplate1.Name = "htmlTemplate1";
             this.htmlTemplate1.Styles = resources.GetString("htmlTemplate1.Styles");
-            this.htmlTemplate1.Template = resources.GetString("htmlTemplate1.Template");
+            this.htmlTemplate1.Template = "<div class=\"contact\">\r\n    <div class=\"contact-avatar\">\r\n        <img class=\"phot" +
+    "o\" src=\"${Icon}\" />\r\n    </div>\r\n</div>\r\n<div class=\'selection\'></div>";
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem2,
+            this.layoutControlItem3});
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(882, 516);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.listboxPrograms;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(90, 516);
+            this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.gridControl;
+            this.layoutControlItem3.Location = new System.Drawing.Point(90, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(792, 516);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
             // 
             // npEditor
             // 
             this.npEditor.Controls.Add(this.commandsDetailView);
             this.npEditor.Name = "npEditor";
-            this.npEditor.Size = new System.Drawing.Size(876, 510);
+            this.npEditor.Size = new System.Drawing.Size(882, 516);
             // 
             // commandsDetailView
             // 
             this.commandsDetailView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.commandsDetailView.Location = new System.Drawing.Point(0, 0);
             this.commandsDetailView.Name = "commandsDetailView";
-            this.commandsDetailView.Size = new System.Drawing.Size(876, 510);
+            this.commandsDetailView.Size = new System.Drawing.Size(882, 516);
             this.commandsDetailView.TabIndex = 0;
             // 
             // Root
@@ -448,6 +551,7 @@
             this.layoutControlItem1.Control = this.navigationFrame;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlItem1.Size = new System.Drawing.Size(882, 516);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -457,8 +561,9 @@
             this.popupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiEdit),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiEnable),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiCreateFile, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiRunAdmin),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiDelete)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiDelete, true)});
             this.popupMenu.Manager = this.barManager;
             this.popupMenu.Name = "popupMenu";
             // 
@@ -474,16 +579,23 @@
             this.Name = "CommandsListView";
             this.Size = new System.Drawing.Size(892, 570);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).EndInit();
             this.navigationFrame.ResumeLayout(false);
             this.npMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
+            this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commandsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listboxPrograms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalProgramsEntityBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.npEditor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -531,9 +643,17 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn colIcon;
         private DevExpress.XtraGrid.Columns.TileViewColumn colIdExternalProgram;
         private DevExpress.XtraBars.BarButtonItem bbiRunAdmin;
-        private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
+        private DevExpress.XtraEditors.ListBoxControl listboxPrograms;
         private DevExpress.Utils.Html.HtmlTemplate htmlTemplate1;
         private System.Windows.Forms.BindingSource externalProgramsEntityBindingSource;
         private DevExpress.XtraBars.BarButtonItem bbiEnable;
+        private DevExpress.XtraLayout.LayoutControl layoutControl2;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraBars.BarEditItem bbiSearch;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchControl repositoryItemSearchControl1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraBars.BarButtonItem bbiCreateFile;
     }
 }

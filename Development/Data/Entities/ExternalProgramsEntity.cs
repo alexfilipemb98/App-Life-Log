@@ -24,7 +24,7 @@ namespace Data.Entities
         [Nullable(false)]
         public Guid IdImage
         {
-            get => fIdImage == Guid.Empty && fImage != null ? fImage.Id : Guid.Empty;
+            get => fIdImage == Guid.Empty ? fImage == null ? Guid.Empty: fImage.Id : fIdImage;
             set => fIdImage = value;
         }
 
@@ -117,5 +117,17 @@ namespace Data.Entities
 
         #endregion
 
+        #region NOT MAPPED
+
+        private dynamic fIcon;
+        [NotMapped]
+        [NonPersistent]
+        public dynamic Icon
+        {
+            get => fIcon;
+            set => fIcon = value;
+        }
+
+        #endregion
     }
 }

@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static DevExpress.LookAndFeel.DXSkinColors;
 
 namespace Life_Log.Views.Home.Notes
 {
@@ -108,9 +109,12 @@ namespace Life_Log.Views.Home.Notes
 
                 if (page != null && result == DialogResult.Yes)
                 {
-                    bool deleted = AppHelper.DataEngine.Notes.Delete(Guid.Parse(page.Tag.ToString()));
+                    bool deleted = AppHelper.DataEngine.Notes.Delete(Guid.Parse(page.Tag.ToString()), out string message);
                     if (deleted)
+                    {
                         xtraTabControl.TabPages.Remove(page);
+                        AppHelper.StatusMessage(message, ForeColors.Critical);
+                    }
                 }
 
                 return;
@@ -199,7 +203,7 @@ namespace Life_Log.Views.Home.Notes
                         }
                     }
 
-                    bool saved = AppHelper.DataEngine.Notes.Save(note);
+                    bool saved = AppHelper.DataEngine.Notes.Save(note, out _);
                 }
 
                 AppHelper.StatusMessage("Notes saved!", Color.Green);
@@ -300,8 +304,8 @@ namespace Life_Log.Views.Home.Notes
                     }
                 }
 
-                if (AppHelper.DataEngine.Notes.Save(note))
-                    AppHelper.StatusMessage($"Note '{note.Name}' saved!", Color.Green);
+                bool saved = AppHelper.DataEngine.Notes.Save(note, out string message);
+                AppHelper.StatusMessage(message, saved ? ForeColors.Information : ForeColors.Critical);
             }
             catch (Exception ex)
             {

@@ -221,7 +221,12 @@
     <EmbeddedResource Include="Forms\Loading\SplashScreenForm.resx">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
+    <None Include="Properties\DataSources\Data.Entities.CommandsEntity.datasource" />
+    <None Include="Properties\DataSources\Data.Entities.ExternalProgramsEntity.datasource" />
+    <None Include="Properties\DataSources\Data.Entities.ImagesEntity.datasource" />
+    <None Include="Properties\DataSources\Data.Entities.NotesEntity.datasource" />
+    <None Include="Properties\DataSources\Data.Entities.PasswordsEntity.datasource" />
+    <None Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -278,11 +283,6 @@
       <DependentUpon>SqlBrowserView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="Properties\DataSources\Data.Entities.CommandsEntity.datasource" />
-    <None Include="Properties\DataSources\Data.Entities.ExternalProgramsEntity.datasource" />
-    <None Include="Properties\DataSources\Data.Entities.ImagesEntity.datasource" />
-    <None Include="Properties\DataSources\Data.Entities.NotesEntity.datasource" />
-    <None Include="Properties\DataSources\Data.Entities.PasswordsEntity.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -376,6 +376,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\addfile.svg" />
+    <None Include="Resources\clear-filters.svg" />
     <None Include="Resources\actions_deletecircled.svg" />
     <None Include="Resources\actions_checkcircled.svg" />
     <None Include="Resources\bo_attention.svg" />

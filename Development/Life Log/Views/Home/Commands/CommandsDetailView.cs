@@ -94,7 +94,7 @@ namespace Life_Log.Views.Home.Commands
             if (!Helpers.ValidationHelper.ValidateModelAndSetError(_crtCommand, dxErrorProvider, layoutControl))
                 return false;
 
-            bool saved = AppHelper.DataEngine.Commands.Save(_crtCommand);
+            bool saved = AppHelper.DataEngine.Commands.Save(_crtCommand, out _);
 
             return saved;
         }

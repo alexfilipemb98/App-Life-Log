@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="Notes" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>Data.Entities.Notes, Data, Version=1.0.0.2, Culture=neutral, PublicKeyToken=null</TypeInfo>
+<GenericObjectDataSource DisplayName="NotesEntity" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>Data.Entities.NotesEntity, Data, Version=1.0.0.4, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

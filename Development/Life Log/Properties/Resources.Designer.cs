@@ -121,6 +121,16 @@ namespace Life_Log.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage addfile {
+            get {
+                object obj = ResourceManager.GetObject("addfile", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap app_background {
@@ -186,6 +196,16 @@ namespace Life_Log.Properties {
         internal static DevExpress.Utils.Svg.SvgImage business_world {
             get {
                 object obj = ResourceManager.GetObject("business_world", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage clear_filters {
+            get {
+                object obj = ResourceManager.GetObject("clear-filters", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

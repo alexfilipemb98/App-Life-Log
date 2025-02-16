@@ -200,6 +200,85 @@ namespace Life_Log.Views.Home.Commands
             }
         }
 
+        /// <summary>
+        /// Create a file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiCreateFile_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!(tileView.GetFocusedRow() is CommandsEntity model))
+                    return;
+
+                bool created = SaveCommandToFile(model);
+                AppHelper.StatusMessage(created ? "File created!" : "Failed to create!", created ? ForeColors.Information : ForeColors.Critical);
+            }
+            catch (Exception ex)
+            {
+                ErrorHelper.Handler(ex);
+            }
+        }
+
+        /// <summary>
+        /// Delete command
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiDelete_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!(tileView.GetFocusedRow() is CommandsEntity model))
+                    return;
+
+                DialogResult result = DialogHelper.ShowDeleteDialog("Delete Command", $"Do you really want to delete {model.Name}?");
+
+                if (result == DialogResult.Yes)
+                {
+                    bool deleted = AppHelper.DataEngine.Commands.Delete(model.Id, out string message);
+                    
+                    if (deleted)
+                        commandsBindingSource.Remove(model);
+
+                    AppHelper.StatusMessage(message, ForeColors.Critical);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorHelper.Handler(ex);
+            }
+        }
+
+        #endregion
+
+        #region SELECTED INDEX CHANGED
+
+        /// <summary>
+        /// Selected index changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listboxPrograms_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listboxPrograms.SelectedItem is ExternalProgramsEntity programsEntity)
+                {
+                    if (programsEntity.Id == Guid.Empty)
+                        commandsBindingSource.DataSource = AppHelper.DataEngine.Commands.GetAll();
+                    else
+                        commandsBindingSource.DataSource = AppHelper.DataEngine.Commands.GetByProgram(programsEntity.Id);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorHelper.Handler(ex);
+            }
+        }
+
         #endregion
 
         #region OTHERS EVENTS
@@ -213,7 +292,7 @@ namespace Life_Log.Views.Home.Commands
         {
             try
             {
-                Data.Entities.CommandsEntity model = GridHelper.GetObjectByRowHandle<Data.Entities.CommandsEntity>(tileView, e.RowHandle);
+                CommandsEntity model = GridHelper.GetObjectByRowHandle<CommandsEntity>(tileView, e.RowHandle);
 
                 if (model == null)
                     return;
@@ -223,11 +302,11 @@ namespace Life_Log.Views.Home.Commands
                     model.IsEnabled ? "cardBorderEnabled"
                                   : "cardBorderDisabled");
 
-                Data.Entities.ExternalProgramsEntity externalProgram = model.ExternalProgram;
+                ExternalProgramsEntity externalProgram = model.ExternalProgram;
 
-                if ((externalProgram != null) && (externalProgram.Image != null))
+                if (externalProgram != null && externalProgram.Image != null)
                 {
-                    Data.Entities.ImagesEntity iconData = externalProgram.Image;
+                    ImagesEntity iconData = externalProgram.Image;
 
                     if (iconData.IsSvg)
                         model.Icon = iconData.SvgImage;
@@ -241,6 +320,22 @@ namespace Life_Log.Views.Home.Commands
             }
         }
 
+        /// <summary>
+        /// Listbox custom item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listBoxControl1_CustomItemTemplate(object sender, CustomItemTemplateEventArgs e)
+        {
+            if (e.Item is ExternalProgramsEntity programsEntity && programsEntity.Image != null)
+            {
+                if (programsEntity.Image.IsSvg)
+                    programsEntity.Icon = programsEntity.Image.SvgImage;
+                else
+                    programsEntity.Icon = programsEntity.Image.BitImage;
+            }
+        }
+
         #endregion
 
         #region FUNCTIONS
@@ -250,35 +345,44 @@ namespace Life_Log.Views.Home.Commands
         /// </summary>
         public void LoadData()
         {
-            commandsBindingSource.DataSource = AppHelper.DataEngine.Commands.GetAll();
             externalProgramsEntityBindingSource.DataSource = AppHelper.DataEngine.ExternalPrograms.GetAll();
+            externalProgramsEntityBindingSource.Insert(0, new ExternalProgramsEntity
+            {
+                Id = Guid.Empty,
+                IdImage = Guid.Empty,
+                Icon = Resources.clear_filters,
+            });
+
+            listboxPrograms.SelectedIndex = 0;
         }
 
         /// <summary>
         /// Shows the detail view
         /// </summary>
-        private void ShowDetailView(Data.Entities.CommandsEntity model = null)
+        private void ShowDetailView(CommandsEntity command = null)
         {
             try
             {
-                if (model == null)
+                if (command == null)
                 {
-                    model = new Data.Entities.CommandsEntity();
-                    model.Id = Guid.NewGuid();
-                    model.EditingMode = false;
+                    command = new CommandsEntity();
+                    command.Id = Guid.NewGuid();
+                    command.EditingMode = false;
 
                     _createNew = true;
                 }
 
-                _crtCommand = model;
+                _crtCommand = command;
 
                 bbiNew.Visibility = BarItemVisibility.Never;
                 bbiSave.Visibility = BarItemVisibility.Always;
                 bbiBack.Visibility = BarItemVisibility.Always;
                 bbiEdit.Visibility = BarItemVisibility.Never;
+                bbiRefresh.Visibility = BarItemVisibility.Never;
+                bbiSearch.Visibility = BarItemVisibility.Never;
 
                 navigationFrame.SelectedPage = npEditor;
-                commandsDetailView.LoadData(model);
+                commandsDetailView.LoadData(command);
             }
             catch (Exception ex)
             {
@@ -297,6 +401,8 @@ namespace Life_Log.Views.Home.Commands
                 bbiEdit.Visibility = BarItemVisibility.Always;
                 bbiBack.Visibility = BarItemVisibility.Never;
                 bbiSave.Visibility = BarItemVisibility.Never;
+                bbiRefresh.Visibility = BarItemVisibility.Always;
+                bbiSearch.Visibility = BarItemVisibility.Always;
 
                 navigationFrame.SelectedPage = npMain;
                 commandsDetailView.ResetForm();
@@ -310,11 +416,11 @@ namespace Life_Log.Views.Home.Commands
         /// <summary>
         /// Execute File
         /// </summary>
-        /// <param name="file"></param>
+        /// <param name="command"></param>
         /// <returns></returns>
-        private void ExecuteFile(Data.Entities.CommandsEntity file, bool runInAdmin = false)
+        private void ExecuteFile(CommandsEntity command, bool runInAdmin = false)
         {
-            if (!file.IsEnabled)
+            if (!command.IsEnabled)
             {
                 AppHelper.StatusMessage("Command is disabled!", ForeColors.Critical);
                 return;
@@ -333,7 +439,7 @@ namespace Life_Log.Views.Home.Commands
 
                     batchFilePath = Path.Combine("Temp", $"temp_{Guid.NewGuid()}");
 
-                    ExternalProgramsEntity program = file.ExternalProgram;
+                    ExternalProgramsEntity program = command.ExternalProgram;
 
                     program.FileExtension = program.FileExtension.Replace(".", string.Empty);
                     batchFilePath += $".{program.FileExtension}";
@@ -341,7 +447,7 @@ namespace Life_Log.Views.Home.Commands
                     arguments = $"{program.Arguments} {batchFilePath}";
 
                     Encoding utf8WithBom = new UTF8Encoding(encoderShouldEmitUTF8Identifier: true);
-                    File.WriteAllText(batchFilePath, file.Command, utf8WithBom);
+                    File.WriteAllText(batchFilePath, command.Command, utf8WithBom);
 
                     ProcessStartInfo startInfo = new ProcessStartInfo
                     {
@@ -362,7 +468,7 @@ namespace Life_Log.Views.Home.Commands
                     process.Start();
                     process.WaitForExit();
 
-                    AppHelper.StatusMessage($"Command '{file.Name}' executed!", ForeColors.Information);
+                    AppHelper.StatusMessage($"Command '{command.Name}' executed!", ForeColors.Information);
 
                 }
                 catch (Exception ex)
@@ -382,6 +488,34 @@ namespace Life_Log.Views.Home.Commands
             });
         }
 
+        /// <summary>
+        /// Create a file for the command
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        public static bool SaveCommandToFile(CommandsEntity command)
+        {
+            string typeStr = command.ExternalProgram.FileExtension;
+
+            SaveFileDialog saveFile = new SaveFileDialog
+            {
+                Filter = $"{typeStr} Files (*.{typeStr})|*.{typeStr}",
+                DefaultExt = typeStr,
+                Title = $"Save {typeStr} File",
+                FileName = command.Name
+            };
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                Encoding utf8WithBom = new UTF8Encoding(encoderShouldEmitUTF8Identifier: true);
+                File.WriteAllText(saveFile.FileName, command.Command, utf8WithBom);
+                return true;
+            }
+
+            return false;
+        }
+
         #endregion
+
     }
 }

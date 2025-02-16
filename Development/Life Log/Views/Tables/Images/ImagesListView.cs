@@ -1,6 +1,8 @@
-﻿using DevExpress.XtraBars;
+﻿using Data.Entities;
+using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraPrinting.Native;
 using Life_Log.Helpers;
 using Life_Log.Views.Tables.ExternalPrograms;
 using System;
@@ -12,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DevExpress.LookAndFeel.DXSkinColors;
 
 namespace Life_Log.Views.Tables.Images
 {
@@ -24,7 +27,6 @@ namespace Life_Log.Views.Tables.Images
 
         //PRIVATE
 
-        private Data.Entities.ImagesEntity _crtImage;
         private bool _createNew = false;
 
         /// <summary>
@@ -73,7 +75,7 @@ namespace Life_Log.Views.Tables.Images
         /// <param name="e"></param>
         private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Data.Entities.ImagesEntity model = GridHelper.GetObjectByRowHandle<Data.Entities.ImagesEntity>(gridView, gridView.FocusedRowHandle);
+            ImagesEntity model = GridHelper.GetObjectByRowHandle<ImagesEntity>(gridView, gridView.FocusedRowHandle);
             if (model != null)
             {
                 ShowDetailView(model);
@@ -99,7 +101,22 @@ namespace Life_Log.Views.Tables.Images
         {
             try
             {
+                ImagesEntity imageData = GridHelper.GetObjectByRowHandle<ImagesEntity>(gridView, gridView.FocusedRowHandle);
+                
+                if (imageData == null)
+                    return;
+                
+                DialogResult result = DialogHelper.ShowDeleteDialog("Delete Image", $"Do you really want to delete {imageData.Name}?");
 
+                if (result == DialogResult.Yes)
+                {
+                    bool isDeleted = AppHelper.DataEngine.Images.Delete(imageData.Id, out string message);
+                    
+                    if (isDeleted)
+                        imagesBindingSource.Remove(imageData);
+
+                    AppHelper.StatusMessage(message, ForeColors.Critical);
+                }
             }
             catch (Exception ex)
             {
@@ -116,11 +133,11 @@ namespace Life_Log.Views.Tables.Images
         {
             try
             {
-                if (imagesDetailView.Save())
+                if (imagesDetailView.Save(out ImagesEntity image))
                 {
                     if (_createNew)
                     {
-                        imagesBindingSource.Add(_crtImage);
+                        imagesBindingSource.Add(image);
                         _createNew = false;
                     }
                     else
@@ -146,7 +163,9 @@ namespace Life_Log.Views.Tables.Images
         {
             try
             {
-                imagesBindingSource.DataSource = AppHelper.DataEngine.Images.GetAll();
+                List<ImagesEntity> data = AppHelper.DataEngine.Images.GetAll();
+                imagesBindingSource.DataSource = data;
+                AppHelper.StatusMessage($"Found {data.Count} images!", Color.Green);
             }
             catch (Exception ex)
             {
@@ -158,27 +177,29 @@ namespace Life_Log.Views.Tables.Images
         /// Show detail view 
         /// </summary>
         /// <param name="imageDt"></param>
-        private void ShowDetailView(Data.Entities.ImagesEntity imageDt = null)
+        private void ShowDetailView(ImagesEntity imageDt = null)
         {
             try
             {
                 if (imageDt == null)
                 {
-                    imageDt = new Data.Entities.ImagesEntity();
-                    imageDt.Id = Guid.NewGuid();
-                    imageDt.EditingMode = false;
+                    imageDt = new ImagesEntity
+                    {
+                        Id = Guid.NewGuid(),
+                        EditingMode = false
+                    };
                     _createNew = true;
                 }
-
-                _crtImage = imageDt;
 
                 bbiNew.Visibility = BarItemVisibility.Never;
                 bbiSave.Visibility = BarItemVisibility.Always;
                 bbiBack.Visibility = BarItemVisibility.Always;
                 bbiEdit.Visibility = BarItemVisibility.Never;
+                bbiReload.Visibility = BarItemVisibility.Never;
+                bbiSearch.Visibility = BarItemVisibility.Never;
 
                 navigationFrame.SelectedPage = npEditor;
-                imagesDetailView.LoadData(_crtImage);
+                imagesDetailView.LoadData(imageDt);
             }
             catch (Exception ex)
             {
@@ -197,6 +218,8 @@ namespace Life_Log.Views.Tables.Images
                 bbiEdit.Visibility = BarItemVisibility.Always;
                 bbiBack.Visibility = BarItemVisibility.Never;
                 bbiSave.Visibility = BarItemVisibility.Never;
+                bbiReload.Visibility = BarItemVisibility.Always;
+                bbiSearch.Visibility = BarItemVisibility.Always;
 
                 navigationFrame.SelectedPage = npMain;
                 imagesDetailView.ResetForm();

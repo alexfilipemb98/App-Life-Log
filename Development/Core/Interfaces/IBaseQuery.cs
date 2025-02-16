@@ -48,7 +48,7 @@ namespace Core.Interfaces
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        bool Save(Entity obj);
+        bool Save(Entity obj, out string message);
 
         /// <summary>
         /// /// Duplicates the object by key and returns the duplicated
@@ -62,6 +62,6 @@ namespace Core.Interfaces
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        bool Delete(Key key);
+        bool Delete(Key key, out string message);
     }
 }

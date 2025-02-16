@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Dapper.SqlMapper;
 
 namespace Data.Queries
 {
@@ -46,6 +47,13 @@ namespace Data.Queries
         #endregion
 
         #region METHODS
+
+        public List<CommandsEntity> GetByProgram(Guid idProgram)
+        {
+            List<CommandsEntity> results = QueryBase.Where(w=>w.IdExternalProgram == idProgram).ToList();
+            results.ForEach(w => w.EditingMode = true);
+            return results;
+        }
 
         public bool ToggleState(CommandsEntity command)
         {

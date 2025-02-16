@@ -57,6 +57,10 @@
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.popupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.bbiSearch = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemSearchControl1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -72,6 +76,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager
@@ -89,9 +96,14 @@
             this.bbiReload,
             this.bbiBack,
             this.bbiEdit,
-            this.bbiDelele});
+            this.bbiDelele,
+            this.bbiSearch});
             this.barManager.MainMenu = this.bar;
-            this.barManager.MaxItemId = 6;
+            this.barManager.MaxItemId = 9;
+            this.barManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemTextEdit1,
+            this.repositoryItemTextEdit2,
+            this.repositoryItemSearchControl1});
             // 
             // bar
             // 
@@ -105,7 +117,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiEdit, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiDelele, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiReload, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiReload, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiSearch, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar.OptionsBar.AllowQuickCustomization = false;
             this.bar.OptionsBar.DrawBorder = false;
             this.bar.OptionsBar.DrawDragBorder = false;
@@ -363,6 +376,35 @@
             this.popupMenu.Manager = this.barManager;
             this.popupMenu.Name = "popupMenu";
             // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // repositoryItemTextEdit2
+            // 
+            this.repositoryItemTextEdit2.AutoHeight = false;
+            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
+            // 
+            // bbiSearch
+            // 
+            this.bbiSearch.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bbiSearch.Caption = "Search";
+            this.bbiSearch.Edit = this.repositoryItemSearchControl1;
+            this.bbiSearch.EditWidth = 250;
+            this.bbiSearch.Id = 8;
+            this.bbiSearch.MaxWidth = 250;
+            this.bbiSearch.MinWidth = 250;
+            this.bbiSearch.Name = "bbiSearch";
+            // 
+            // repositoryItemSearchControl1
+            // 
+            this.repositoryItemSearchControl1.AutoHeight = false;
+            this.repositoryItemSearchControl1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Repository.ClearButton(),
+            new DevExpress.XtraEditors.Repository.SearchButton()});
+            this.repositoryItemSearchControl1.Name = "repositoryItemSearchControl1";
+            // 
             // ExternalProgramsListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -389,6 +431,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,5 +469,9 @@
         private DevExpress.XtraBars.PopupMenu popupMenu;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraBars.BarEditItem bbiSearch;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchControl repositoryItemSearchControl1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
     }
 }

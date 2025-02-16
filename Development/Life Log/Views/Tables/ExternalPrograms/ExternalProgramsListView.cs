@@ -158,6 +158,8 @@ namespace Life_Log.Views.Tables.ExternalPrograms
                 bbiSave.Visibility = BarItemVisibility.Always;
                 bbiBack.Visibility = BarItemVisibility.Always;
                 bbiEdit.Visibility = BarItemVisibility.Never;
+                bbiReload.Visibility = BarItemVisibility.Never;
+                bbiSearch.Visibility = BarItemVisibility.Never;
 
                 navigationFrame.SelectedPage = npEditor;
                 externalProgramsDetailView.LoadData(extProgram);
@@ -179,6 +181,8 @@ namespace Life_Log.Views.Tables.ExternalPrograms
                 bbiEdit.Visibility = BarItemVisibility.Always;
                 bbiBack.Visibility = BarItemVisibility.Never;
                 bbiSave.Visibility = BarItemVisibility.Never;
+                bbiReload.Visibility = BarItemVisibility.Always;
+                bbiSearch.Visibility = BarItemVisibility.Always;
 
                 navigationFrame.SelectedPage = npMain;
                 externalProgramsDetailView.ResetForm();

@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using Data.Entities;
+using DevExpress.XtraEditors;
 using Life_Log.Helpers;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace Life_Log.Views.Tables.Images
 
         //PRIVATE
 
-        private Data.Entities.ImagesEntity _crtImage;
+        private ImagesEntity _crtImage;
 
         /// <summary>
         /// Images Detail View
@@ -66,6 +67,7 @@ namespace Life_Log.Views.Tables.Images
 
                                 teName.Text = _crtImage.Name;
                                 teExt.Text = _crtImage.FileExtension;
+                                tsIsSvg.IsOn = _crtImage.IsSvg;
 
                                 if (_crtImage.IsSvg)
                                     peImage.SvgImage = _crtImage.SvgImage;
@@ -92,6 +94,16 @@ namespace Life_Log.Views.Tables.Images
             }
         }
 
+        /// <summary>
+        /// Copy id to clipboard
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void beId_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            Clipboard.SetText(beId.Text);
+        }
+
         #endregion
 
         #region FUNCTIONS
@@ -100,15 +112,11 @@ namespace Life_Log.Views.Tables.Images
         /// Load data
         /// </summary>
         /// <param name="model"></param>
-        public void LoadData(Data.Entities.ImagesEntity model)
+        public void LoadData(ImagesEntity model)
         {
             _crtImage = model;
 
-            teName.Text = _crtImage.Name;
-            teCreatedAt.Text = _crtImage.CreatedAt.ToString();
-            teUpdatedAt.Text = _crtImage.UpdatedAt.ToString();
-            beId.Text = _crtImage.Id.ToString();
-            teExt.Text = _crtImage.FileExtension;
+            imagesEntityBindingSource.DataSource = _crtImage;
 
             if (_crtImage.IsSvg)
                 peImage.SvgImage = _crtImage.SvgImage;
@@ -121,32 +129,27 @@ namespace Life_Log.Views.Tables.Images
         /// </summary>
         public void ResetForm()
         {
-            teName.ResetText();
-            teCreatedAt.ResetText();
-            teUpdatedAt.ResetText();
-            beId.ResetText();
-            peImage.Reset();
+            imagesEntityBindingSource.DataSource = new ImagesEntity();
             peImage.SvgImage = null;
             peImage.Image = null;
+            dataLayoutControl.ResetText();
         }
 
         /// <summary>
         /// Save data
         /// </summary>
         /// <returns></returns>
-        public bool Save()
+        public bool Save(out ImagesEntity image)
         {
             _crtImage.Name = teName.Text;
+            image = _crtImage;  
 
-            if (!ValidationHelper.ValidateModelAndSetError(_crtImage, dxErrorProvider, layoutControl))
+            if (!ValidationHelper.ValidateModelAndSetError(_crtImage, dxErrorProvider, dataLayoutControl))
                 return false;
 
-            bool saved = AppHelper.DataEngine.Images.Save(_crtImage);
-
-            if (saved)
-                ResetForm();
-
-            AppHelper.StatusMessage(saved ? "Image saved!" : "Unable to save the image!", saved ? ForeColors.Information : ForeColors.Critical);
+            bool saved = AppHelper.DataEngine.Images.Save(_crtImage, out string message);
+            
+            AppHelper.StatusMessage(message, saved ? ForeColors.Information : ForeColors.Critical);
 
             return saved;
         }

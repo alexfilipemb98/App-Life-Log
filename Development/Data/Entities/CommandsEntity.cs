@@ -113,13 +113,13 @@ namespace Data.Entities
 
         #region NOT MAPPED
 
-        private dynamic icon;
+        private dynamic fIcon;
         [NotMapped]
         [NonPersistent]
         public dynamic Icon
         {
-            get => icon;
-            set => icon = value;
+            get => fIcon;
+            set => fIcon = value;
         }
 
         #endregion

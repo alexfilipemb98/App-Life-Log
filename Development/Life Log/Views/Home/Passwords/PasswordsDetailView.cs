@@ -107,7 +107,7 @@ namespace Life_Log.Views.Home.Passwords
                 bool saved = false;
                 if (!string.IsNullOrWhiteSpace(_crtPassword.Image.Name) && _crtPassword.Image.ImageData.Length > 0)
                 {
-                    saved = AppHelper.DataEngine.Images.Save(_crtPassword.Image);
+                    saved = AppHelper.DataEngine.Images.Save(_crtPassword.Image, out _);
                     _crtPassword.IdImage = _crtPassword.Image.Id;
                 }
                 else
@@ -116,7 +116,7 @@ namespace Life_Log.Views.Home.Passwords
                         _crtPassword.Image = null;
                 }
 
-                saved = AppHelper.DataEngine.Passwords.Save(_crtPassword);
+                saved = AppHelper.DataEngine.Passwords.Save(_crtPassword, out _);
 
                 if (saved)
                 {

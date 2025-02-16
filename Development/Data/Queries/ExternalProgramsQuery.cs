@@ -30,7 +30,7 @@ namespace Data.Queries
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public override bool Save(ExternalProgramsEntity obj)
+        public override bool Save(ExternalProgramsEntity obj, out string message)
         {
             if (obj.Image != null)
             {
@@ -40,7 +40,7 @@ namespace Data.Queries
                     obj.Image.CreatedAt = DateTime.Now;
             }
 
-            return base.Save(obj);
+            return base.Save(obj, out message);
         }
 
         #endregion

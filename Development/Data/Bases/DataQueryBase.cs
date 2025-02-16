@@ -1,11 +1,14 @@
 ﻿using Core.Extensions;
 using Core.Interfaces;
 using DevExpress.Xpo;
+using DevExpress.Xpo.Metadata;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
+using static Dapper.SqlMapper;
 
 namespace Data.Bases
 {
@@ -48,7 +51,9 @@ namespace Data.Bases
         public virtual Entity GetByKey(Guid key)
         {
             Entity entity = _UOW.GetObjectByKey<Entity>(key);
-            entity.EditingMode = true;
+            if (entity != null)
+                entity.EditingMode = true;
+
             return entity;
         }
 
@@ -83,8 +88,10 @@ namespace Data.Bases
         /// </summary>
         /// <param name="obj">The entity object to save.</param>
         /// <returns>True if the object exists after saving; otherwise, false.</returns>
-        public virtual bool Save(Entity obj)
+        public virtual bool Save(Entity obj, out string message)
         {
+            message = string.Empty;
+
             if (!obj.IsValid(out List<ValidationResult> results))
                 throw new Core.Exceptions.ValidationException(results);
 
@@ -98,7 +105,9 @@ namespace Data.Bases
 
             obj.EditingMode = true;
 
-            return Exists(obj.Id);
+            bool saved = Exists(obj.Id);
+            message = saved ? $"{obj.GetType().Name} has been saved." : $"Unable to save the {obj.GetType().Name}!";
+            return saved;
         }
 
         /// <summary>
@@ -130,19 +139,46 @@ namespace Data.Bases
         /// <param name="key"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public virtual bool Delete(Guid key)
+        public virtual bool Delete(Guid key, out string message)
         {
-            Entity entity;
+            message = string.Empty;
 
             if (!Exists(key))
-                throw new Exception("The object does not exist");
+            {
+                message = "The object does not exist";
+                return false;
+            }
 
-            entity = _UOW.GetObjectByKey<Entity>(key);
+            Entity entity = _UOW.GetObjectByKey<Entity>(key);
+
+            if (entity == null)
+            {
+                message = "The object could not be retrieved";
+                return false;
+            }
+
+            XPClassInfo classInfo = _UOW.GetClassInfo(entity.GetType());
+
+            foreach (XPMemberInfo member in classInfo.Members)
+            {
+                if (member.IsAssociation)
+                {
+                    IEnumerable associatedCollection = member.GetValue(entity) as IEnumerable;
+
+                    if (associatedCollection != null && associatedCollection.Cast<object>().Any())
+                    {
+                        message = $"Cannot delete the object because it has related entities in {member.Name}.";
+                        return false;
+                    }
+                }
+            }
 
             _UOW.Delete(entity);
             _UOW.CommitChanges();
 
-            return !Exists(key);
+            bool deleted = !Exists(key);
+            message = deleted ? $"{entity.GetType().Name} has been deleted." : $"Unable to delete the {entity.GetType().Name}!";
+            return deleted;
         }
 
         #endregion

@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using Core.Extensions;
+using DevExpress.XtraEditors;
 using Life_Log.Helpers;
 using System;
 using System.IO;
@@ -105,6 +106,16 @@ namespace Life_Log.Views.Tables.ExternalPrograms
             }
         }
 
+        /// <summary>
+        /// Copies the id
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void beId_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            Clipboard.SetText(beId.Text);
+        }
+
         #endregion
 
         #region FUNCTIONS
@@ -116,23 +127,16 @@ namespace Life_Log.Views.Tables.ExternalPrograms
         public void LoadData(Data.Entities.ExternalProgramsEntity extProgram)
         {
             _crtExtProgram = extProgram;
-
-            teName.Text = _crtExtProgram.Name;
-            bePath.Text = _crtExtProgram.PathToProgram;
-            teArguments.Text = _crtExtProgram.Arguments;
-            teFileExt.Text = _crtExtProgram.FileExtension;
-            teCreatedAt.Text = _crtExtProgram.CreatedAt.ToString();
-            teUpdatedAt.Text = _crtExtProgram.UpdatedAt.ToString();
-            beId.Text = _crtExtProgram.Id.ToString();
-
-            if (_crtExtProgram.Image == null)
+            externalProgramsEntityBindingSource.DataSource = extProgram;
+           
+            if (_crtExtProgram.IdImage == Guid.Empty)
             {
                 _crtExtProgram.Image = new Data.Entities.ImagesEntity();
                 _crtExtProgram.Image.Id = Guid.NewGuid();
             }
             else
             {
-                _crtExtProgram.Image = AppHelper.DataEngine.Images.GetByKey(_crtExtProgram.Image.Id);
+                _crtExtProgram.Image = AppHelper.DataEngine.Images.GetByKey(_crtExtProgram.IdImage);
                 _crtExtProgram.Image.EditingMode = true;
                 if (_crtExtProgram.Image.IsSvg)
                     peImage.SvgImage = _crtExtProgram.Image.SvgImage;
@@ -152,27 +156,37 @@ namespace Life_Log.Views.Tables.ExternalPrograms
             _crtExtProgram.Arguments = teArguments.Text;
             _crtExtProgram.FileExtension = teFileExt.Text;
 
-            if (!ValidationHelper.ValidateModelAndSetError(_crtExtProgram, dxErrorProvider, layoutControl1))
+            if (!ValidationHelper.ValidateModelAndSetError(_crtExtProgram, dxErrorProvider, dataLayoutControl))
                 return false;
 
             bool saved = false;
-            if (!string.IsNullOrWhiteSpace(_crtExtProgram.Image.Name) && _crtExtProgram.Image.ImageData.Length > 0)
+            string message = string.Empty;
+
+            if (_crtExtProgram.Image != null)
             {
-                saved = AppHelper.DataEngine.Images.Save(_crtExtProgram.Image);
-                _crtExtProgram.IdImage = _crtExtProgram.Image.Id;
+                if (_crtExtProgram.Image.ImageData == null  || _crtExtProgram.Image.ImageData.Length <= 0)
+                {
+                    _crtExtProgram.IdImage = Guid.Empty;
+                    _crtExtProgram.Image = null;
+                }
+                else
+                {
+                    saved = AppHelper.DataEngine.Images.Save(_crtExtProgram.Image, out message);
+                    if (!saved)
+                    {
+                        AppHelper.StatusMessage(message, ForeColors.Critical);
+                        return false;
+                    }
+                }
+
+                saved = AppHelper.DataEngine.ExternalPrograms.Save(_crtExtProgram, out message);
+                AppHelper.StatusMessage(message, saved ? ForeColors.Information : ForeColors.Critical);
             }
             else
             {
-                if (!AppHelper.DataEngine.Images.Exists(_crtExtProgram.Image.Id))
-                    _crtExtProgram.Image = null;
+                saved = AppHelper.DataEngine.ExternalPrograms.Save(_crtExtProgram, out  message);
+                AppHelper.StatusMessage(message, saved ? ForeColors.Information : ForeColors.Critical);
             }
-
-            saved = AppHelper.DataEngine.ExternalPrograms.Save(_crtExtProgram);
-
-            if (saved)
-                ResetForm();
-
-            AppHelper.StatusMessage(saved ? "External program saved!" : "Unable to save the external program!", saved ? ForeColors.Information : ForeColors.Critical);
 
             return saved;
         }
@@ -195,5 +209,6 @@ namespace Life_Log.Views.Tables.ExternalPrograms
         }
 
         #endregion
+
     }
 }
