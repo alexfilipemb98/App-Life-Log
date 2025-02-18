@@ -138,7 +138,8 @@ namespace Life_Log.Views.Tools
         {
             try
             {
-                popupMenuGridResults.ShowPopup(Control.MousePosition);
+                if (e.Button == MouseButtons.Right)
+                    popupMenuGridResults.ShowPopup(Control.MousePosition);
             }
             catch (Exception ex)
             {

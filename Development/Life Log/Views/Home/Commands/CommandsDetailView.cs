@@ -84,6 +84,9 @@ namespace Life_Log.Views.Home.Commands
         /// <returns></returns>
         public bool Save()
         {
+            if (_crtCommand == null)
+                return false;
+
             _crtCommand.Name = teName.Text;
             _crtCommand.Description = teDescription.Text;
             _crtCommand.Command = recMain.Text;

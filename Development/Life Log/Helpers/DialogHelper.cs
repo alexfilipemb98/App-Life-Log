@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Life_Log.Helpers
 {
@@ -44,6 +45,12 @@ namespace Life_Log.Helpers
             return result;
         }
 
+        /// <summary>
+        /// Dialog result to show a question dialog
+        /// </summary>
+        /// <param name="caption"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static DialogResult ShowQuestionDialog(string caption, string text)
         {
             HtmlTemplate htmlTemplate = GetHtmlTemplate(MessageTypeEnum.Question);
@@ -63,10 +70,36 @@ namespace Life_Log.Helpers
             return result;
         }
 
+        /// <summary>
+        /// Show a notification dialog
+        /// </summary>
+        /// <param name="caption"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static DialogResult ShowNotificationDialog(string caption, string text)
+		{
+            HtmlTemplate htmlTemplate = GetHtmlTemplate(MessageTypeEnum.Notification);
+
+            XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+            args.HtmlImages = GetImageColection();
+            args.HtmlTemplate.Assign(htmlTemplate);
+            args.Caption = caption;
+            args.Text = text;
+            args.DefaultButtonIndex = 0;
+            args.ImageOptions.SvgImage = Resources.question_mark;
+            args.AllowHtmlText = DefaultBoolean.True;
+            args.AllowTrimCaption = true;
+
+            DialogResult result = XtraMessageBox.Show(args);
+
+            return result;
+
+        }
+
         public static void ShowToast(string caption, string text, MessageBoxIcon icon)
         {
             AlertControl alertControl = new AlertControl(AppHelper.MainFormInstance.Container);
-            HtmlTemplate htmlTemplate = GetHtmlTemplate(icon);
+            HtmlTemplate htmlTemplate = GetHtmlTemplate(MessageTypeEnum.Toast);
             AlertInfo info = new AlertInfo(caption, text);
             info.Caption = caption;
             info.Text = text;
@@ -91,7 +124,8 @@ namespace Life_Log.Helpers
         {
             SvgImageCollection svgImages = new SvgImageCollection
             {
-                { "close", Properties.Resources.delete }
+                { "close", Resources.delete },
+                { "information", Resources.about }
             };
 
             return svgImages;
@@ -108,6 +142,98 @@ namespace Life_Log.Helpers
 
             switch (type)
             {
+				case MessageTypeEnum.Toast:
+                    htmlTemplate.Template = @"
+						<div class=""container"">
+							<div class=""popup"">        	
+    							<div class=""stripe""></div>
+    							<div class=""content"">
+    								<div class=""icon-container"">
+        								<img class=""icon"" src='${SvgImage}'>
+    								</div>
+        							<div class=""message"">
+            							<div class=""caption"">${Caption}</div>
+            							<div class=""text"">${Text}</div>
+        							</div>
+    								<div id=""closeButton"" class=""close-button"">
+        								<img class=""close-icon"" src=""message_close"">
+    								</div>
+    							</div>
+							</div>
+						</div>
+					";
+
+                    htmlTemplate.Styles = @"
+						.container{
+							width: 378px;
+							height: auto;
+							padding: 7px 12px 12px 7px;
+						}
+						.popup{
+							background-color: @Window/0.95;
+							border-radius: 6px;
+							border-style: solid;
+							border-width: 1px 1px 1px 0px;
+							box-shadow: 2px 2px 12px @Black/0.2;
+							border-color: @Black/0.3;
+							display: flex;
+							flex-direction: row;
+						}
+						.content{
+							width: 100%;
+							display: flex;
+							flex-direction: row;
+							align-items: center;
+							background-color: @Black/0.015;
+						}
+						.stripe{
+							width: 3px;
+							background-color: @Black/0.8;
+							height: 100%;
+							border-radius: 6px 0px 0px 6px;
+						}
+						.message{
+							display: flex;
+							flex-direction: column;
+							padding: 8px;
+							font-family: 'Segoe UI';
+							color: @WindowText;
+							width: 100%;
+						}
+						.icon-container{
+							padding: 8px;
+						}
+						.icon{
+							width: 22px;
+							height: 22px;
+						}
+						.caption{
+							font-size: 11pt;
+							font-weight: bold;
+							padding: 6px;
+						}
+						.text{
+							font-size: 10.5pt;
+							padding: 0px 6px 6px 6px;
+						}
+						.close-button{
+							padding: 8px;
+							border-radius: 4px 0px 0px 4px;
+							cursor: pointer;
+						}
+						.close-button:hover{
+							background-color: @Black/0.1;
+						}
+						.close-button:active{
+							background-color: @Black/0.2;
+						}
+						.close-icon{
+							width: 22px;
+							height: 22px;
+						}
+					";
+					break;
+
                 case MessageTypeEnum.Delete:
                     htmlTemplate.Template = @"
                         <div class=""frame"" id=""frame"">
@@ -124,6 +250,7 @@ namespace Life_Log.Helpers
 	                        </div>
                         </div>
                     ";
+
                     htmlTemplate.Styles = @"
                        body{
 	                        padding: 15px;
@@ -233,7 +360,7 @@ namespace Life_Log.Helpers
 						}
 						.frame{
 							color: @ControlText;
-							background-color: @White;
+							background-color: @Window;
 							border: 1px solid @Black/0.2;
 							border-radius: 10px;
 							min-width: 350px;
@@ -246,7 +373,6 @@ namespace Life_Log.Helpers
 						}
 						.content {
 							padding: 5px;
-							background-color: #fff;
 							border-radius: 10px;
 						}
 						.text {
@@ -273,7 +399,7 @@ namespace Life_Log.Helpers
 						}
 						.button {
 							color: @WindowText;
-							background-color: @White;
+							background-color: @Control;
 							min-width: 80px;
 							margin: 0px 5px;
 							padding: 5px;
@@ -287,111 +413,109 @@ namespace Life_Log.Helpers
 						.button:focus {
 							background-color: @HighlightAlternate;
 							border: 1px solid @HighlightAlternate;
-							color: @White;
 						}
                     ";
+                    break;
+
+				case MessageTypeEnum.Notification:
+                    htmlTemplate.Template = @"
+						<div class=""frame"" id=""frame"">
+							<div class=""header"">
+								<div class=""caption"">${Caption}</div>
+    							<div class=""close-button"" id=""closebutton"">
+									<img src=""close"" class=""close-button-img"" id=""close"">
+								</div>
+							</div>
+							<div class=""content"" id=""content"">
+    							<img src=""information"" class=""message icon"">
+    							<div class=""message text"">${MessageText}</div>
+    							<div class=""message button"" tabindex=""1"" id=""dialogresult-ok"">OK</div>
+							</div>
+						</div>
+					";
+
+					htmlTemplate.Styles = @"
+						body{	
+							padding: 20px;
+							font-size: 14px;
+							font-family: 'Segoe UI';
+						}
+						.frame {
+							width: 450px;
+							color: @ControlText;
+							background-color: @Window;
+							border: 1px solid @Primary;
+							border-radius: 16px;
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							box-shadow: 0px 8px 16px @Primary/0.6;
+						}
+						.header {
+							padding: 8px;
+							color: @White;
+							background-color: @Primary;
+							border-radius: 15px 15px 0px 0px;
+							display: flex;
+							justify-content: space-between;
+							align-items: center;
+						}
+						.caption {
+							margin: 0px 10px;
+							font-weight: bold;
+						}
+						.close-button {
+							padding: 8px;
+							border-radius: 5px;
+						}
+						.close-button:hover {
+							background-color: @WindowText/0.1;
+						}
+						.close-button:active {
+							background-color: @ControlText/0.05;
+						}
+						.close-button-img {
+							fill: White;
+							width: 18px;
+							height: 18px;
+							opacity: 0.8;
+						}
+						.content {
+							display: flex;
+							align-items: center;
+							flex-direction: column;
+							padding: 10px;
+						}
+						.message {
+							margin: 7px;
+						}
+						.icon {
+							width: 48px;
+							height: 48px;
+							opacity: 0.8;
+						}
+						.text {
+							color: @ControlText;
+							text-align: center;
+						}
+						.button {
+							color: @Primary;
+							padding: 8px 24px;
+							border: 1px solid @Primary;
+							border-radius: 5px;
+						}
+						.button:hover {
+							color: @White;
+							background-color: @Primary;
+							box-shadow: 0px 0px 10px @Primary/0.5;
+						}
+					";
                     break;
             }
 
             return htmlTemplate;
         }
 
-        private static HtmlTemplate GetHtmlTemplate(MessageBoxIcon type)
-        {
-            HtmlTemplate htmlTemplate = new HtmlTemplate();
-
-            htmlTemplate.Template = @"
-				<div class=""container"">
-					<div class=""popup"">        	
-    					<div class=""stripe""></div>
-    					<div class=""content"">
-    						<div class=""icon-container"">
-        						<img class=""icon"" src='${SvgImage}'>
-    						</div>
-        					<div class=""message"">
-            					<div class=""caption"">${Caption}</div>
-            					<div class=""text"">${Text}</div>
-        					</div>
-    						<div id=""closeButton"" class=""close-button"">
-        						<img class=""close-icon"" src=""message_close"">
-    						</div>
-    					</div>
-					</div>
-				</div>
-			";
-
-            htmlTemplate.Styles = @"
-				.container{
-					width: 378px;
-					height: auto;
-					padding: 7px 12px 12px 7px;
-				}
-				.popup{
-					background-color: @Window/0.95;
-					border-radius: 6px;
-					border-style: solid;
-					border-width: 1px 1px 1px 0px;
-					box-shadow: 2px 2px 12px @Black/0.2;
-					border-color: @Black/0.3;
-					display: flex;
-					flex-direction: row;
-				}
-				.content{
-					width: 100%;
-					display: flex;
-					flex-direction: row;
-					align-items: center;
-					background-color: @Black/0.015;
-				}
-				.stripe{
-					width: 3px;
-					background-color: @Black/0.8;
-					height: 100%;
-					border-radius: 6px 0px 0px 6px;
-				}
-				.message{
-					display: flex;
-					flex-direction: column;
-					padding: 8px;
-					font-family: 'Segoe UI';
-					color: @WindowText;
-					width: 100%;
-				}
-				.icon-container{
-					padding: 8px;
-				}
-				.icon{
-					width: 22px;
-					height: 22px;
-				}
-				.caption{
-					font-size: 11pt;
-					font-weight: bold;
-					padding: 6px;
-				}
-				.text{
-					font-size: 10.5pt;
-					padding: 0px 6px 6px 6px;
-				}
-				.close-button{
-					padding: 8px;
-					border-radius: 4px 0px 0px 4px;
-					cursor: pointer;
-				}
-				.close-button:hover{
-					background-color: @Black/0.1;
-				}
-				.close-button:active{
-					background-color: @Black/0.2;
-				}
-				.close-icon{
-					width: 22px;
-					height: 22px;
-				}
-			";
-
-            return htmlTemplate;
-        }
         #endregion
     }
 }

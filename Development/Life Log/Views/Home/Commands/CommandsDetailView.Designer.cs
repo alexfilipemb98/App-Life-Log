@@ -45,6 +45,7 @@
             this.teUpdatedAt = new DevExpress.XtraEditors.TextEdit();
             this.beId = new DevExpress.XtraEditors.ButtonEdit();
             this.cbeProgram = new DevExpress.XtraEditors.LookUpEdit();
+            this.externalProgramsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -60,7 +61,6 @@
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.externalProgramsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcCommandText)).BeginInit();
@@ -73,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.teUpdatedAt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbeProgram.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalProgramsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
@@ -88,7 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.externalProgramsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl
@@ -131,6 +131,7 @@
             this.recMain.Size = new System.Drawing.Size(894, 201);
             this.recMain.TabIndex = 1;
             this.recMain.Tag = "Command";
+            this.recMain.Views.SimpleView.AdjustColorsToSkins = true;
             // 
             // teType
             // 
@@ -232,6 +233,10 @@
             this.cbeProgram.StyleController = this.layoutControl;
             this.cbeProgram.TabIndex = 14;
             this.cbeProgram.Tag = "ExternalProgram";
+            // 
+            // externalProgramsBindingSource
+            // 
+            this.externalProgramsBindingSource.DataSource = typeof(Data.Entities.ExternalProgramsEntity);
             // 
             // Root
             // 
@@ -409,10 +414,6 @@
             // 
             this.dxErrorProvider.ContainerControl = this;
             // 
-            // externalProgramsBindingSource
-            // 
-            this.externalProgramsBindingSource.DataSource = typeof(Data.Entities.ExternalProgramsEntity);
-            // 
             // CommandsDetailView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -432,6 +433,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.teUpdatedAt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbeProgram.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalProgramsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
@@ -447,7 +449,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.externalProgramsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

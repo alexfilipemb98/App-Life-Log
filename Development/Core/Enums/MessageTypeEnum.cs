@@ -12,11 +12,15 @@ namespace Core.Enums
     /// </summary>
     public enum MessageTypeEnum
     {
-        [Description("(q) Question")]
+        [Description("(Q) Question")]
         Question,
-        [Description("(d) Delete")]
+        [Description("(D) Delete")]
         Delete,
-        [Description("(c) Confirm")]
-        Confirm
+        [Description("(C) Confirm")]
+        Confirm,
+        [Description("(M) Message")]
+        Notification,
+        [Description("(T) Toast")]
+        Toast
     }
 }

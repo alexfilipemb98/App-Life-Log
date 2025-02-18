@@ -187,6 +187,7 @@
             this.bbiSave.Id = 4;
             this.bbiSave.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.save;
             this.bbiSave.Name = "bbiSave";
+            this.bbiSave.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
             // 
             // bbiRefresh
@@ -443,6 +444,7 @@
             // 
             // npMain
             // 
+            this.npMain.Caption = "npMain";
             this.npMain.Controls.Add(this.layoutControl2);
             this.npMain.Margin = new System.Windows.Forms.Padding(0);
             this.npMain.Name = "npMain";
@@ -527,6 +529,7 @@
             // 
             // npEditor
             // 
+            this.npEditor.Caption = "npEditor";
             this.npEditor.Controls.Add(this.commandsDetailView);
             this.npEditor.Name = "npEditor";
             this.npEditor.Size = new System.Drawing.Size(882, 516);

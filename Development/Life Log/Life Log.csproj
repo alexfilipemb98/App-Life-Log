@@ -377,6 +377,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\managedatasource.svg" />
+    <None Include="Resources\actions_send.svg" />
+    <None Include="Resources\actions_user.svg" />
+    <None Include="Resources\about.svg" />
     <None Include="Resources\actions_navigationbar.svg" />
     <None Include="Resources\open21.svg" />
     <None Include="Resources\addfile.svg" />

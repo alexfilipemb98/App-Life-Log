@@ -65,7 +65,8 @@ namespace Life_Log.Views.Tables.Images
         /// <param name="e"></param>
         private void gridView_RowClick(object sender, RowClickEventArgs e)
         {
-            popupMenu.ShowPopup(Control.MousePosition);
+            if (e.Button == MouseButtons.Right)
+                popupMenu.ShowPopup(Control.MousePosition);
         }
 
         /// <summary>
@@ -102,16 +103,16 @@ namespace Life_Log.Views.Tables.Images
             try
             {
                 ImagesEntity imageData = GridHelper.GetObjectByRowHandle<ImagesEntity>(gridView, gridView.FocusedRowHandle);
-                
+
                 if (imageData == null)
                     return;
-                
+
                 DialogResult result = DialogHelper.ShowDeleteDialog("Delete Image", $"Do you really want to delete {imageData.Name}?");
 
                 if (result == DialogResult.Yes)
                 {
                     bool isDeleted = AppHelper.DataEngine.Images.Delete(imageData.Id, out string message);
-                    
+
                     if (isDeleted)
                         imagesBindingSource.Remove(imageData);
 

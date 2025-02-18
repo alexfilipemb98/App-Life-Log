@@ -105,10 +105,11 @@ namespace Life_Log.Helpers
 #if !DEBUG
             if (checkProcess != null)
             {
+                DialogHelper.ShowNotificationDialog("Application", "This app is already open!");
+                
                 IntPtr hWnd = IntPtr.Zero;
                 hWnd = checkProcess.MainWindowHandle;
                 SetForegroundWindow(hWnd);
-
                 Environment.Exit(0);
             }
 #endif
