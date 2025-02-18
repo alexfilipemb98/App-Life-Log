@@ -72,6 +72,12 @@ namespace Life_Log.Helpers
             if (File.Exists(Properties.Settings.Default.ConfigFileName))
             {
                 config = FilesUtil.LoadFileWithEncryption<DatabaseConfigModel>(Properties.Settings.Default.ConfigFileName);
+
+                //TODO REMOVER DEPOIS DE TER AS CONFIGS CONFIGURAVEIS
+                if (config.SQlLitePath != Properties.Settings.Default.SqlLitePath)
+                {
+                    config.SQlLitePath = Properties.Settings.Default.SqlLitePath;
+                }
             }
             else
             {

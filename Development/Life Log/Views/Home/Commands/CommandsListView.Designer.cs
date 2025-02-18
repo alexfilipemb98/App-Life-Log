@@ -40,18 +40,6 @@
             this.bbiRefresh = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSearch = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemSearchControl1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchControl();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.bbiRunAdmin = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiEnable = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiCreateFile = new DevExpress.XtraBars.BarButtonItem();
-            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
-            this.npMain = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.commandsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tileView = new DevExpress.XtraGrid.Views.Tile.TileView();
@@ -67,6 +55,18 @@
             this.colEditingMode = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colIcon = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colIdExternalProgram = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.bbiRunAdmin = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiEnable = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiCreateFile = new DevExpress.XtraBars.BarButtonItem();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
+            this.npMain = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.listboxPrograms = new DevExpress.XtraEditors.ListBoxControl();
             this.externalProgramsEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.htmlTemplate1 = new DevExpress.Utils.Html.HtmlTemplate();
@@ -80,6 +80,9 @@
             this.popupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commandsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -88,9 +91,6 @@
             this.npMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.commandsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listboxPrograms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalProgramsEntityBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -217,115 +217,9 @@
             this.repositoryItemSearchControl1.Client = this.gridControl;
             this.repositoryItemSearchControl1.Name = "repositoryItemSearchControl1";
             // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Manager = this.barManager;
-            this.barDockControlTop.Size = new System.Drawing.Size(892, 39);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 570);
-            this.barDockControlBottom.Manager = this.barManager;
-            this.barDockControlBottom.Size = new System.Drawing.Size(892, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 39);
-            this.barDockControlLeft.Manager = this.barManager;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 531);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(892, 39);
-            this.barDockControlRight.Manager = this.barManager;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 531);
-            // 
-            // bbiRunAdmin
-            // 
-            this.bbiRunAdmin.Caption = "Run Admin";
-            this.bbiRunAdmin.Id = 6;
-            this.bbiRunAdmin.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.bo_attention;
-            this.bbiRunAdmin.Name = "bbiRunAdmin";
-            this.bbiRunAdmin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRunAdmin_ItemClick);
-            // 
-            // bbiEnable
-            // 
-            this.bbiEnable.Caption = "Disable";
-            this.bbiEnable.Id = 7;
-            this.bbiEnable.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.actions_deletecircled;
-            this.bbiEnable.Name = "bbiEnable";
-            this.bbiEnable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEnable_ItemClick);
-            // 
-            // bbiCreateFile
-            // 
-            this.bbiCreateFile.Caption = "Create File";
-            this.bbiCreateFile.Id = 10;
-            this.bbiCreateFile.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.addfile;
-            this.bbiCreateFile.Name = "bbiCreateFile";
-            this.bbiCreateFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCreateFile_ItemClick);
-            // 
-            // repositoryItemTextEdit1
-            // 
-            this.repositoryItemTextEdit1.AutoHeight = false;
-            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-            // 
-            // layoutControl1
-            // 
-            this.layoutControl1.Controls.Add(this.navigationFrame);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 39);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(892, 531);
-            this.layoutControl1.TabIndex = 4;
-            this.layoutControl1.Text = "layoutControl1";
-            // 
-            // navigationFrame
-            // 
-            this.navigationFrame.Controls.Add(this.npMain);
-            this.navigationFrame.Controls.Add(this.npEditor);
-            this.navigationFrame.Location = new System.Drawing.Point(5, 10);
-            this.navigationFrame.Margin = new System.Windows.Forms.Padding(0);
-            this.navigationFrame.Name = "navigationFrame";
-            this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.npMain,
-            this.npEditor});
-            this.navigationFrame.SelectedPage = this.npMain;
-            this.navigationFrame.Size = new System.Drawing.Size(882, 516);
-            this.navigationFrame.TabIndex = 4;
-            this.navigationFrame.Text = "navigationFrame1";
-            // 
-            // npMain
-            // 
-            this.npMain.Controls.Add(this.layoutControl2);
-            this.npMain.Margin = new System.Windows.Forms.Padding(0);
-            this.npMain.Name = "npMain";
-            this.npMain.Size = new System.Drawing.Size(882, 516);
-            // 
-            // layoutControl2
-            // 
-            this.layoutControl2.Controls.Add(this.gridControl);
-            this.layoutControl2.Controls.Add(this.listboxPrograms);
-            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl2.Name = "layoutControl2";
-            this.layoutControl2.Root = this.layoutControlGroup1;
-            this.layoutControl2.Size = new System.Drawing.Size(882, 516);
-            this.layoutControl2.TabIndex = 2;
-            this.layoutControl2.Text = "layoutControl2";
-            // 
             // gridControl
             // 
-            this.gridControl.Cursor = System.Windows.Forms.Cursors.Default;
+            this.gridControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gridControl.DataSource = this.commandsBindingSource;
             this.gridControl.Location = new System.Drawing.Point(93, 3);
             this.gridControl.MainView = this.tileView;
@@ -460,6 +354,112 @@
             this.colIdExternalProgram.Visible = true;
             this.colIdExternalProgram.VisibleIndex = 11;
             // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager;
+            this.barDockControlTop.Size = new System.Drawing.Size(892, 39);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 570);
+            this.barDockControlBottom.Manager = this.barManager;
+            this.barDockControlBottom.Size = new System.Drawing.Size(892, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 39);
+            this.barDockControlLeft.Manager = this.barManager;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 531);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(892, 39);
+            this.barDockControlRight.Manager = this.barManager;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 531);
+            // 
+            // bbiRunAdmin
+            // 
+            this.bbiRunAdmin.Caption = "Run Admin";
+            this.bbiRunAdmin.Id = 6;
+            this.bbiRunAdmin.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.bo_attention;
+            this.bbiRunAdmin.Name = "bbiRunAdmin";
+            this.bbiRunAdmin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRunAdmin_ItemClick);
+            // 
+            // bbiEnable
+            // 
+            this.bbiEnable.Caption = "Disable";
+            this.bbiEnable.Id = 7;
+            this.bbiEnable.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.actions_deletecircled;
+            this.bbiEnable.Name = "bbiEnable";
+            this.bbiEnable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEnable_ItemClick);
+            // 
+            // bbiCreateFile
+            // 
+            this.bbiCreateFile.Caption = "Create File";
+            this.bbiCreateFile.Id = 10;
+            this.bbiCreateFile.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.addfile;
+            this.bbiCreateFile.Name = "bbiCreateFile";
+            this.bbiCreateFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCreateFile_ItemClick);
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.navigationFrame);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 39);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(892, 531);
+            this.layoutControl1.TabIndex = 4;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // navigationFrame
+            // 
+            this.navigationFrame.Controls.Add(this.npMain);
+            this.navigationFrame.Controls.Add(this.npEditor);
+            this.navigationFrame.Location = new System.Drawing.Point(5, 10);
+            this.navigationFrame.Margin = new System.Windows.Forms.Padding(0);
+            this.navigationFrame.Name = "navigationFrame";
+            this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.npMain,
+            this.npEditor});
+            this.navigationFrame.SelectedPage = this.npMain;
+            this.navigationFrame.Size = new System.Drawing.Size(882, 516);
+            this.navigationFrame.TabIndex = 4;
+            this.navigationFrame.Text = "navigationFrame1";
+            // 
+            // npMain
+            // 
+            this.npMain.Controls.Add(this.layoutControl2);
+            this.npMain.Margin = new System.Windows.Forms.Padding(0);
+            this.npMain.Name = "npMain";
+            this.npMain.Size = new System.Drawing.Size(882, 516);
+            // 
+            // layoutControl2
+            // 
+            this.layoutControl2.Controls.Add(this.gridControl);
+            this.layoutControl2.Controls.Add(this.listboxPrograms);
+            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl2.Name = "layoutControl2";
+            this.layoutControl2.Root = this.layoutControlGroup1;
+            this.layoutControl2.Size = new System.Drawing.Size(882, 516);
+            this.layoutControl2.TabIndex = 2;
+            this.layoutControl2.Text = "layoutControl2";
+            // 
             // listboxPrograms
             // 
             this.listboxPrograms.Cursor = System.Windows.Forms.Cursors.Default;
@@ -471,6 +471,7 @@
             this.listboxPrograms.ItemHeight = 75;
             this.listboxPrograms.Location = new System.Drawing.Point(3, 8);
             this.listboxPrograms.Margin = new System.Windows.Forms.Padding(0);
+            this.listboxPrograms.MaximumSize = new System.Drawing.Size(84, 0);
             this.listboxPrograms.MinimumSize = new System.Drawing.Size(84, 84);
             this.listboxPrograms.Name = "listboxPrograms";
             this.listboxPrograms.Size = new System.Drawing.Size(84, 500);
@@ -506,8 +507,11 @@
             // 
             this.layoutControlItem2.Control = this.listboxPrograms;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(90, 0);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(90, 100);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(90, 516);
+            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -580,6 +584,9 @@
             this.Size = new System.Drawing.Size(892, 570);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commandsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -588,9 +595,6 @@
             this.npMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.commandsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listboxPrograms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalProgramsEntityBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
