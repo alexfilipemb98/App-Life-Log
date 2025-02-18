@@ -221,6 +221,7 @@
     <EmbeddedResource Include="Forms\Loading\SplashScreenForm.resx">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Core.Models.DatabaseConfigModel.datasource" />
     <None Include="Properties\DataSources\Data.Entities.CommandsEntity.datasource" />
     <None Include="Properties\DataSources\Data.Entities.ExternalProgramsEntity.datasource" />
     <None Include="Properties\DataSources\Data.Entities.ImagesEntity.datasource" />
@@ -376,6 +377,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\actions_navigationbar.svg" />
+    <None Include="Resources\open21.svg" />
     <None Include="Resources\addfile.svg" />
     <None Include="Resources\clear-filters.svg" />
     <None Include="Resources\actions_deletecircled.svg" />

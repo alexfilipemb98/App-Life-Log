@@ -1,9 +1,9 @@
 ﻿using Core.Enums;
 using Core.Models;
 using Core.Utils;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors;
 using Life_Log.Forms;
-using Life_Log.Models;
 using Microsoft.Win32;
 using System;
 using System.Diagnostics;
@@ -167,6 +167,17 @@ namespace Life_Log.Helpers
         {
             string jsonFile = Properties.Settings.Default.GeralSettings;
             FilesUtil.SaveToJsonFile(jsonFile, AppConfigs);
+        }
+
+        /// <summary>
+        /// Toggle password visibility  
+        /// </summary>
+        /// <param name="button"></param>
+        /// <param name="e"></param>
+        public static void ButtonTogglePassword(ButtonEdit button, ButtonPressedEventArgs e)
+        {
+            button.Properties.UseSystemPasswordChar = !button.Properties.UseSystemPasswordChar;
+            e.Button.ImageOptions.SvgImage = button.Properties.UseSystemPasswordChar ? Properties.Resources.security_visibilityoff : Properties.Resources.security_visibility;
         }
 
         #endregion

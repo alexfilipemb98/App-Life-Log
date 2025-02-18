@@ -1,7 +1,7 @@
 ﻿using Core.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace Life_Log.Models
+namespace Core.Models
 {
     /// <summary>
     /// Login object model

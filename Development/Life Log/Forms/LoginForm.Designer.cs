@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.bsiStatusLabel = new DevExpress.XtraBars.BarStaticItem();
+            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
+            this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.sbLogin = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
+            this.navigationFrame1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbon
@@ -45,22 +49,14 @@
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 2;
             this.ribbon.Name = "ribbon";
-            this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(964, 209);
+            this.ribbon.Size = new System.Drawing.Size(964, 85);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
-            // ribbonPage1
+            // bsiStatusLabel
             // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ribbonPage1";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            this.bsiStatusLabel.Caption = "barStaticItem1";
+            this.bsiStatusLabel.Id = 1;
+            this.bsiStatusLabel.Name = "bsiStatusLabel";
             // 
             // ribbonStatusBar
             // 
@@ -70,17 +66,46 @@
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(964, 39);
             // 
-            // bsiStatusLabel
+            // navigationFrame1
             // 
-            this.bsiStatusLabel.Caption = "barStaticItem1";
-            this.bsiStatusLabel.Id = 1;
-            this.bsiStatusLabel.Name = "bsiStatusLabel";
+            this.navigationFrame1.Controls.Add(this.navigationPage1);
+            this.navigationFrame1.Controls.Add(this.navigationPage2);
+            this.navigationFrame1.Location = new System.Drawing.Point(144, 154);
+            this.navigationFrame1.Name = "navigationFrame1";
+            this.navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.navigationPage1,
+            this.navigationPage2});
+            this.navigationFrame1.SelectedPage = this.navigationPage1;
+            this.navigationFrame1.Size = new System.Drawing.Size(300, 150);
+            this.navigationFrame1.TabIndex = 2;
+            this.navigationFrame1.Text = "navigationFrame1";
+            // 
+            // navigationPage1
+            // 
+            this.navigationPage1.Name = "navigationPage1";
+            this.navigationPage1.Size = new System.Drawing.Size(300, 150);
+            // 
+            // navigationPage2
+            // 
+            this.navigationPage2.Name = "navigationPage2";
+            this.navigationPage2.Size = new System.Drawing.Size(300, 150);
+            // 
+            // sbLogin
+            // 
+            this.sbLogin.Location = new System.Drawing.Point(425, 170);
+            this.sbLogin.Name = "sbLogin";
+            this.sbLogin.Size = new System.Drawing.Size(387, 131);
+            this.sbLogin.TabIndex = 3;
+            this.sbLogin.Text = "simpleButton1";
+            this.sbLogin.Click += new System.EventHandler(this.sbLogin_Click);
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 531);
+            this.Controls.Add(this.sbLogin);
+            this.Controls.Add(this.navigationFrame1);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.Name = "LoginForm";
@@ -88,6 +113,8 @@
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "LoginForm";
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
+            this.navigationFrame1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,9 +123,11 @@
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         public DevExpress.XtraBars.BarStaticItem bsiStatusLabel;
+        private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
+        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
+        private DevExpress.XtraEditors.SimpleButton sbLogin;
     }
 }

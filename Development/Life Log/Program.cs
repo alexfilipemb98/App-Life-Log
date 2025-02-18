@@ -38,14 +38,36 @@ namespace Life_Log
                 AppHelper.DataEngine.SQLLiteBackUp();
                 AppHelper.DataEngine.Connect();
 
-                AppHelper.MainFormInstance = new MainForm();
+                LoginForm loginForm = new LoginForm();
 
-                AppHelper.MainFormInstance.Shown += (object sender, EventArgs e) =>
+                loginForm.Shown += (s, e) =>
                 {
                     SplashScreenManager.CloseForm();
                 };
 
-                Application.Run(AppHelper.MainFormInstance);
+                loginForm.FormClosing += (s, e) =>
+                {
+                    if (loginForm.DialogResult == DialogResult.Yes)
+                        SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
+                };
+
+                DialogResult loginResult = loginForm.ShowDialog();
+
+                if (loginResult == DialogResult.Yes)
+                {
+                    AppHelper.MainFormInstance = new MainForm();
+
+                    AppHelper.MainFormInstance.Shown += (s, e) =>
+                    {
+                        SplashScreenManager.CloseForm();
+                    };
+
+                    Application.Run(AppHelper.MainFormInstance);
+                }
+                else
+                {
+
+                }
             }
             catch (Exception ex)
             {

@@ -247,4 +247,10 @@
   <data name="addfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\addfile.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="open21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\open21.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="actions_navigationbar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actions_navigationbar.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
 </root>

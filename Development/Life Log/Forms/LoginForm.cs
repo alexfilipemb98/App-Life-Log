@@ -17,5 +17,10 @@ namespace Life_Log.Forms
 		{
             InitializeComponent();
 		}
-	}
+
+        private void sbLogin_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Yes;
+        }
+    }
 }

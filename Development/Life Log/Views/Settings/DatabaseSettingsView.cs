@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using Life_Log.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +13,28 @@ using System.Windows.Forms;
 
 namespace Life_Log.Views.Settings
 {
-    public partial class DatabaseSettingsView : DevExpress.XtraEditors.XtraUserControl
+    /// <summary>
+    /// Database settings View
+    /// </summary>
+    public partial class DatabaseSettingsView : XtraUserControl
     {
-        public DatabaseSettingsView()
+        /// <summary>
+        /// Construtor
+        /// </summary>
+        public DatabaseSettingsView() => InitializeComponent();
+        
+        #region CLICK
+
+        /// <summary>
+        /// Password button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void beSqlPassword_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            InitializeComponent();
+            AppHelper.ButtonTogglePassword(sender as ButtonEdit, e);
         }
+        
+        #endregion
     }
 }

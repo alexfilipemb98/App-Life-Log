@@ -1,16 +1,15 @@
 ﻿using Core.Enums;
+using Core.Models;
 using Data.Bases;
 using Data.Queries;
 using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
 using DevExpress.Xpo.Metadata;
-using Life_Log.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SQLite;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;

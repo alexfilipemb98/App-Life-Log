@@ -113,6 +113,16 @@ namespace Life_Log.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_navigationbar {
+            get {
+                object obj = ResourceManager.GetObject("actions_navigationbar", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage actions_refresh {
             get {
                 object obj = ResourceManager.GetObject("actions_refresh", resourceCulture);
@@ -326,6 +336,16 @@ namespace Life_Log.Properties {
         internal static DevExpress.Utils.Svg.SvgImage open2 {
             get {
                 object obj = ResourceManager.GetObject("open2", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage open21 {
+            get {
+                object obj = ResourceManager.GetObject("open21", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

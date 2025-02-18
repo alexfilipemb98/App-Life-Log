@@ -516,6 +516,5 @@ namespace Life_Log.Views.Home.Commands
         }
 
         #endregion
-
     }
 }

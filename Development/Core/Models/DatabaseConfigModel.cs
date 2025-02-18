@@ -3,7 +3,7 @@ using Core.Extensions;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Life_Log.Models
+namespace Core.Models
 {
     /// <summary>
     /// Database config object model
