@@ -313,6 +313,16 @@ namespace Life_Log.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage icon_svg {
+            get {
+                object obj = ResourceManager.GetObject("icon_svg", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage inserttable {
             get {
                 object obj = ResourceManager.GetObject("inserttable", resourceCulture);
@@ -406,6 +416,16 @@ namespace Life_Log.Properties {
         internal static DevExpress.Utils.Svg.SvgImage planet {
             get {
                 object obj = ResourceManager.GetObject("planet", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage prioritized {
+            get {
+                object obj = ResourceManager.GetObject("prioritized", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

@@ -4,6 +4,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraLayout;
 using Life_Log.Helpers;
+using Life_Log.Views.Others;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,7 @@ namespace Life_Log.Forms
 #if DEBUG
             bsiAppVersion.Caption = $"v{Application.ProductVersion} (DEBUG!)";
             bsiAppVersion.ItemAppearance.Normal.ForeColor = Color.Red;
+            rpgTestButtons.Visible = true;
 #else
             bsiAppVersion.Caption = $"v{Application.ProductVersion}";
             bsiAppVersion.ItemAppearance.Normal.ForeColor = Color.Green;
@@ -140,6 +142,7 @@ namespace Life_Log.Forms
         /// <param name="e"></param>
         private void bbiHomeNotes_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ribbon.ApplicationDocumentCaption = "Notes";
             navigationFrame.SelectedPage = npHomeNotesView;
             notesView.LoadData();
         }
@@ -187,6 +190,7 @@ namespace Life_Log.Forms
         /// <param name="e"></param>
         private void bbiToolsSqlBrowser_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ribbon.ApplicationDocumentCaption = "Sql Browser";
             navigationFrame.SelectedPage = npSqlBrowserView;
         }
 
@@ -197,6 +201,7 @@ namespace Life_Log.Forms
         /// <param name="e"></param>
         private void bbiHomePasswords_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ribbon.ApplicationDocumentCaption = "Passwords";
             navigationFrame.SelectedPage = npHomePasswordsView;
             passwordsView.LoadData();
         }
@@ -208,6 +213,7 @@ namespace Life_Log.Forms
         /// <param name="e"></param>
         private void bbiToolsGenereatePassword_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ribbon.ApplicationDocumentCaption = "Genereate Passwords";
             navigationFrame.SelectedPage = npToolsPasswordGeneratorView;
         }
 
@@ -218,6 +224,7 @@ namespace Life_Log.Forms
         /// <param name="e"></param>
         private void bbiSettingsApp_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ribbon.ApplicationDocumentCaption = "App Settings";
             navigationFrame.SelectedPage = npSettingsView;
         }
 
@@ -278,6 +285,11 @@ namespace Life_Log.Forms
             bciThemeLight.Checked = false;
             AppHelper.AppConfigs.Theme = ThemeEnum.SYSTEM;
             UserLookAndFeel.Default.ActiveLookAndFeel.SetSkinStyle(SkinStyle.WXI, AppHelper.GetTheme().ToString());
+        }
+
+        private void bbiTestCode_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DialogResult dialogResult = DialogHelper.ShowFlyout("New note name", new TextInputView(), MessageBoxButtons.OKCancel);
         }
     }
 

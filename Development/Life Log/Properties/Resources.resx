@@ -265,4 +265,10 @@
   <data name="managedatasource" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\managedatasource.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="icon_svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_svg.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="prioritized" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prioritized.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
 </root>

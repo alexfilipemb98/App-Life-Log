@@ -155,6 +155,12 @@
     <Compile Include="Views\Home\Passwords\PasswordsView.Designer.cs">
       <DependentUpon>PasswordsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Others\TextInputView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Others\TextInputView.Designer.cs">
+      <DependentUpon>TextInputView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Settings\DatabaseSettingsView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Home\Passwords\PasswordsView.resx">
       <DependentUpon>PasswordsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Others\TextInputView.resx">
+      <DependentUpon>TextInputView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Settings\DatabaseSettingsView.resx">
       <DependentUpon>DatabaseSettingsView.cs</DependentUpon>
@@ -377,6 +386,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\prioritized.svg" />
+    <None Include="Resources\icon_svg.svg" />
     <None Include="Resources\managedatasource.svg" />
     <None Include="Resources\actions_send.svg" />
     <None Include="Resources\actions_user.svg" />

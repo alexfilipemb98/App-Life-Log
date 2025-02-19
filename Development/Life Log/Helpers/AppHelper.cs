@@ -106,7 +106,7 @@ namespace Life_Log.Helpers
             if (checkProcess != null)
             {
                 DialogHelper.ShowNotificationDialog("Application", "This app is already open!");
-                
+
                 IntPtr hWnd = IntPtr.Zero;
                 hWnd = checkProcess.MainWindowHandle;
                 SetForegroundWindow(hWnd);
@@ -126,7 +126,7 @@ namespace Life_Log.Helpers
             {
                 LoginFormInstance.Invoke(new Action(() =>
                 {
-                    LoginFormInstance.bsiStatusLabel.Caption = message;
+                    LoginFormInstance.bsiStatusLabel.Caption = $"{DateTime.Now:HH/mm/ss}|{message}";
                     LoginFormInstance.bsiStatusLabel.ItemAppearance.Normal.ForeColor = color;
                 }));
             }
@@ -134,7 +134,7 @@ namespace Life_Log.Helpers
             {
                 MainFormInstance.Invoke(new Action(() =>
                 {
-                    MainFormInstance.bsiStatusLabel.Caption = message;
+                    MainFormInstance.bsiStatusLabel.Caption = $"{DateTime.Now:HH/mm/ss}|{message}";
                     MainFormInstance.bsiStatusLabel.ItemAppearance.Normal.ForeColor = color;
                 }));
             }

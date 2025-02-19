@@ -101,6 +101,7 @@
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.progressPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.InactiveGlowColor = System.Drawing.Color.Transparent;
             this.Name = "SplashScreenForm";
             this.Text = "frmSplashScreen";

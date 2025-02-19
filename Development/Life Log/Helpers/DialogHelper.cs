@@ -4,10 +4,13 @@ using DevExpress.Utils.About;
 using DevExpress.Utils.Html;
 using DevExpress.Utils.Svg;
 using DevExpress.XtraBars.Alerter;
+using DevExpress.XtraBars.Docking2010.Customization;
+using DevExpress.XtraBars.Docking2010.Views.WindowsUI;
 using DevExpress.XtraEditors;
 using Life_Log.Properties;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +24,107 @@ namespace Life_Log.Helpers
     /// </summary>
     public static class DialogHelper
     {
+        #region FLYOUTS
+
+        /// <summary>
+        /// Shows a flyout message
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public static DialogResult ShowFlyout(string title, UserControl content, MessageBoxButtons buttons)
+        {
+            FlyoutAction action = new FlyoutAction
+            {
+                Caption = title
+            };
+
+            int minHeight = content.Height;
+            int maxHeight = AppHelper.MainFormInstance.layoutControl.Height - 100;
+            int finalHeight = Math.Max(minHeight, Math.Min(content.Height, maxHeight));
+
+            content.Size = new Size(AppHelper.MainFormInstance.layoutControl.Width, finalHeight);
+            content.MaximumSize = new Size(AppHelper.MainFormInstance.layoutControl.Width, maxHeight);
+            content.Padding = new Padding(0);
+            content.Margin = new Padding(0);
+            content.Dock = DockStyle.Fill;
+
+            Panel containerPanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                Padding = new Padding(0),
+                Margin = new Padding(0),
+                Height = finalHeight,
+                BackColor = content.BackColor
+            };
+
+            FlyoutCommand btnCancel = new FlyoutCommand()
+            {
+                Text = "Cancel",
+                Result = DialogResult.Cancel
+            };
+
+            FlyoutCommand btnYes = new FlyoutCommand()
+            {
+                Text = "Yes",
+                Result = DialogResult.Yes
+            };
+
+            FlyoutCommand btnNo = new FlyoutCommand()
+            {
+                Text = "No",
+                Result = DialogResult.No
+            };
+
+            FlyoutCommand btnOk = new FlyoutCommand()
+            {
+                Text = "OK",
+                Result = DialogResult.OK
+            };
+
+            switch (buttons)
+            {
+                case MessageBoxButtons.OK:
+                    action.Commands.Add(btnOk);
+                    break;
+                case MessageBoxButtons.OKCancel:
+                    action.Commands.Add(btnOk);
+                    action.Commands.Add(btnCancel);
+                    break;
+                case MessageBoxButtons.YesNoCancel:
+                    action.Commands.Add(btnYes);
+                    action.Commands.Add(btnNo);
+                    action.Commands.Add(btnCancel);
+                    break;
+                case MessageBoxButtons.YesNo:
+                    action.Commands.Add(btnYes);
+                    action.Commands.Add(btnNo);
+                    break;
+            }
+
+            containerPanel.Controls.Add(content);
+
+            // Calcula a posição do flyout considerando a altura do RibbonControl e do RibbonStatusBar
+            int ribbonHeight = AppHelper.MainFormInstance.ribbon.Height;
+            int statusBarHeight = AppHelper.MainFormInstance.ribbonStatusBar.Height;
+            int offsetY = ribbonHeight + statusBarHeight;
+
+            FlyoutDialog flyout = new FlyoutDialog(AppHelper.MainFormInstance, action, containerPanel)
+            {
+                FormBorderEffect = FormBorderEffect.None,
+                Padding = new Padding(0),
+                BackColor = content.BackColor,
+				Top = offsetY
+            };
+
+            return flyout.ShowDialog();
+        }
+
+
+        #endregion
+
+        #region DIALOGS
+
         /// <summary>
         /// Show delete dialog
         /// </summary>
@@ -77,7 +181,7 @@ namespace Life_Log.Helpers
         /// <param name="text"></param>
         /// <returns></returns>
         public static DialogResult ShowNotificationDialog(string caption, string text)
-		{
+        {
             HtmlTemplate htmlTemplate = GetHtmlTemplate(MessageTypeEnum.Notification);
 
             XtraMessageBoxArgs args = new XtraMessageBoxArgs();
@@ -96,6 +200,16 @@ namespace Life_Log.Helpers
 
         }
 
+        #endregion
+
+        #region TOAST
+
+        /// <summary>
+        /// Shows a toast message
+        /// </summary>
+        /// <param name="caption"></param>
+        /// <param name="text"></param>
+        /// <param name="icon"></param>
         public static void ShowToast(string caption, string text, MessageBoxIcon icon)
         {
             AlertControl alertControl = new AlertControl(AppHelper.MainFormInstance.Container);
@@ -113,6 +227,8 @@ namespace Life_Log.Helpers
 
             alertControl.Show(AppHelper.MainFormInstance, info);
         }
+
+        #endregion
 
         #region FUNCTIONS
 
@@ -142,7 +258,7 @@ namespace Life_Log.Helpers
 
             switch (type)
             {
-				case MessageTypeEnum.Toast:
+                case MessageTypeEnum.Toast:
                     htmlTemplate.Template = @"
 						<div class=""container"">
 							<div class=""popup"">        	
@@ -232,7 +348,7 @@ namespace Life_Log.Helpers
 							height: 22px;
 						}
 					";
-					break;
+                    break;
 
                 case MessageTypeEnum.Delete:
                     htmlTemplate.Template = @"
@@ -417,7 +533,7 @@ namespace Life_Log.Helpers
                     ";
                     break;
 
-				case MessageTypeEnum.Notification:
+                case MessageTypeEnum.Notification:
                     htmlTemplate.Template = @"
 						<div class=""frame"" id=""frame"">
 							<div class=""header"">
@@ -434,7 +550,7 @@ namespace Life_Log.Helpers
 						</div>
 					";
 
-					htmlTemplate.Styles = @"
+                    htmlTemplate.Styles = @"
 						body{	
 							padding: 20px;
 							font-size: 14px;

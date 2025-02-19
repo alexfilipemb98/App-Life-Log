@@ -101,6 +101,7 @@
             this.bsiStatusLabel,
             this.bbiGoBack});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.ribbon.MaxItemId = 5;
             this.ribbon.Name = "ribbon";
             this.ribbon.QuickToolbarItemLinks.Add(this.bbiGoBack);
@@ -144,6 +145,7 @@
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.bsiStatusLabel);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 319);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(748, 39);
@@ -154,6 +156,7 @@
             this.navigationFrame1.Controls.Add(this.navigationPage2);
             this.navigationFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationFrame1.Location = new System.Drawing.Point(0, 49);
+            this.navigationFrame1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.navigationFrame1.Name = "navigationFrame1";
             this.navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.navigationPage1,
@@ -166,6 +169,7 @@
             // navigationPage1
             // 
             this.navigationPage1.Controls.Add(this.dataLayoutControl1);
+            this.navigationPage1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.navigationPage1.Name = "navigationPage1";
             this.navigationPage1.Size = new System.Drawing.Size(748, 270);
             // 
@@ -179,6 +183,7 @@
             this.dataLayoutControl1.Controls.Add(this.sbLogin);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1236, 328, 650, 400);
             this.dataLayoutControl1.Root = this.Root;
@@ -190,6 +195,7 @@
             // 
             this.toggleSwitch1.AutoSizeInLayoutControl = true;
             this.toggleSwitch1.Location = new System.Drawing.Point(412, 8);
+            this.toggleSwitch1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.toggleSwitch1.MenuManager = this.ribbon;
             this.toggleSwitch1.Name = "toggleSwitch1";
             this.toggleSwitch1.Properties.AutoHeight = false;
@@ -205,6 +211,7 @@
             // 
             this.pictureEdit1.EditValue = global::Life_Log.Properties.Resources.app_background;
             this.pictureEdit1.Location = new System.Drawing.Point(483, 5);
+            this.pictureEdit1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.pictureEdit1.MaximumSize = new System.Drawing.Size(260, 260);
             this.pictureEdit1.MenuManager = this.ribbon;
             this.pictureEdit1.MinimumSize = new System.Drawing.Size(260, 260);
@@ -219,6 +226,7 @@
             // buttonEdit1
             // 
             this.buttonEdit1.Location = new System.Drawing.Point(49, 152);
+            this.buttonEdit1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.buttonEdit1.MenuManager = this.ribbon;
             this.buttonEdit1.Name = "buttonEdit1";
             this.buttonEdit1.Properties.AdvancedModeOptions.Label = "Password";
@@ -232,6 +240,7 @@
             // teUsername
             // 
             this.teUsername.Location = new System.Drawing.Point(49, 44);
+            this.teUsername.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.teUsername.MenuManager = this.ribbon;
             this.teUsername.Name = "teUsername";
             this.teUsername.Properties.AdvancedModeOptions.Label = "Username";
@@ -242,6 +251,7 @@
             // teEmail
             // 
             this.teEmail.Location = new System.Drawing.Point(49, 98);
+            this.teEmail.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.teEmail.MenuManager = this.ribbon;
             this.teEmail.Name = "teEmail";
             this.teEmail.Properties.AdvancedModeOptions.Label = "Email";
@@ -257,6 +267,7 @@
             this.sbLogin.Appearance.Options.UseFont = true;
             this.sbLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sbLogin.Location = new System.Drawing.Point(121, 214);
+            this.sbLogin.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.sbLogin.MaximumSize = new System.Drawing.Size(0, 48);
             this.sbLogin.MinimumSize = new System.Drawing.Size(0, 48);
             this.sbLogin.Name = "sbLogin";
@@ -424,6 +435,7 @@
             // 
             this.navigationPage2.Caption = "navigationPage2";
             this.navigationPage2.Controls.Add(this.databaseSettingsView1);
+            this.navigationPage2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.navigationPage2.Name = "navigationPage2";
             this.navigationPage2.Size = new System.Drawing.Size(748, 270);
             // 
@@ -431,6 +443,7 @@
             // 
             this.databaseSettingsView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.databaseSettingsView1.Location = new System.Drawing.Point(0, 0);
+            this.databaseSettingsView1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.databaseSettingsView1.Name = "databaseSettingsView1";
             this.databaseSettingsView1.Size = new System.Drawing.Size(748, 270);
             this.databaseSettingsView1.TabIndex = 0;
@@ -444,6 +457,8 @@
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.IconOptions.SvgImage = global::Life_Log.Properties.Resources.icon_svg;
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "LoginForm";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
