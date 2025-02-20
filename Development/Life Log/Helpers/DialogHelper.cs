@@ -32,93 +32,63 @@ namespace Life_Log.Helpers
         /// <param name="title"></param>
         /// <param name="content"></param>
         /// <returns></returns>
-        public static DialogResult ShowFlyout(string title, UserControl content, MessageBoxButtons buttons)
+        public static DialogResult ShowCustomFlyout(string title, UserControl content, MessageBoxButtons buttons)
         {
-            FlyoutAction action = new FlyoutAction
+            Form mainForm = AppHelper.MainFormInstance;
+            Control layoutControl = AppHelper.MainFormInstance.layoutControl;
+
+            // Obter posição do layoutControl em relação à tela
+            Point layoutScreenPos = layoutControl.PointToScreen(Point.Empty);
+            Size layoutSize = layoutControl.Size;
+
+            // Criar um Form que imita um FlyoutDialog
+            Form flyoutForm = new Form
             {
-                Caption = title
+                FormBorderStyle = FormBorderStyle.None,
+                StartPosition = FormStartPosition.Manual,
+                Location = layoutScreenPos,
+                Size = layoutSize,
+                BackColor = content.BackColor,
+                ShowInTaskbar = false,
+                Owner = mainForm // Define o MainForm como dono para comportamento modal
             };
 
-            int minHeight = content.Height;
-            int maxHeight = AppHelper.MainFormInstance.layoutControl.Height - 100;
-            int finalHeight = Math.Max(minHeight, Math.Min(content.Height, maxHeight));
-
-            content.Size = new Size(AppHelper.MainFormInstance.layoutControl.Width, finalHeight);
-            content.MaximumSize = new Size(AppHelper.MainFormInstance.layoutControl.Width, maxHeight);
-            content.Padding = new Padding(0);
-            content.Margin = new Padding(0);
+            // Ajustar o conteúdo para preencher o Flyout
             content.Dock = DockStyle.Fill;
+            flyoutForm.Controls.Add(content);
 
-            Panel containerPanel = new Panel
+            // Criar botões como num FlyoutDialog
+            FlowLayoutPanel buttonPanel = new FlowLayoutPanel
             {
-                Dock = DockStyle.Fill,
-                Padding = new Padding(0),
-                Margin = new Padding(0),
-                Height = finalHeight,
-                BackColor = content.BackColor
+                Dock = DockStyle.Bottom,
+                FlowDirection = FlowDirection.RightToLeft,
+                Padding = new Padding(10)
             };
 
-            FlyoutCommand btnCancel = new FlyoutCommand()
-            {
-                Text = "Cancel",
-                Result = DialogResult.Cancel
-            };
+            Dictionary<MessageBoxButtons, (string, DialogResult)[]> buttonsMap = new Dictionary<MessageBoxButtons, (string, DialogResult)[]>()
+			{
+				{ MessageBoxButtons.OK, new[] { ("OK", DialogResult.OK) } },
+				{ MessageBoxButtons.OKCancel, new[] { ("OK", DialogResult.OK), ("Cancel", DialogResult.Cancel) } },
+				{ MessageBoxButtons.YesNo, new[] { ("Yes", DialogResult.Yes), ("No", DialogResult.No) } },
+				{ MessageBoxButtons.YesNoCancel, new[] { ("Yes", DialogResult.Yes), ("No", DialogResult.No), ("Cancel", DialogResult.Cancel) } }
+			};
 
-            FlyoutCommand btnYes = new FlyoutCommand()
+            if (buttonsMap.TryGetValue(buttons, out var buttonConfigs))
             {
-                Text = "Yes",
-                Result = DialogResult.Yes
-            };
-
-            FlyoutCommand btnNo = new FlyoutCommand()
-            {
-                Text = "No",
-                Result = DialogResult.No
-            };
-
-            FlyoutCommand btnOk = new FlyoutCommand()
-            {
-                Text = "OK",
-                Result = DialogResult.OK
-            };
-
-            switch (buttons)
-            {
-                case MessageBoxButtons.OK:
-                    action.Commands.Add(btnOk);
-                    break;
-                case MessageBoxButtons.OKCancel:
-                    action.Commands.Add(btnOk);
-                    action.Commands.Add(btnCancel);
-                    break;
-                case MessageBoxButtons.YesNoCancel:
-                    action.Commands.Add(btnYes);
-                    action.Commands.Add(btnNo);
-                    action.Commands.Add(btnCancel);
-                    break;
-                case MessageBoxButtons.YesNo:
-                    action.Commands.Add(btnYes);
-                    action.Commands.Add(btnNo);
-                    break;
+                foreach (var (text, result) in buttonConfigs)
+                {
+                    Button btn = new Button { Text = text, DialogResult = result };
+                    btn.Click += (s, e) => flyoutForm.DialogResult = result;
+                    buttonPanel.Controls.Add(btn);
+                }
             }
 
-            containerPanel.Controls.Add(content);
+            flyoutForm.Controls.Add(buttonPanel);
 
-            // Calcula a posição do flyout considerando a altura do RibbonControl e do RibbonStatusBar
-            int ribbonHeight = AppHelper.MainFormInstance.ribbon.Height;
-            int statusBarHeight = AppHelper.MainFormInstance.ribbonStatusBar.Height;
-            int offsetY = ribbonHeight + statusBarHeight;
-
-            FlyoutDialog flyout = new FlyoutDialog(AppHelper.MainFormInstance, action, containerPanel)
-            {
-                FormBorderEffect = FormBorderEffect.None,
-                Padding = new Padding(0),
-                BackColor = content.BackColor,
-				Top = offsetY
-            };
-
-            return flyout.ShowDialog();
+            // Mostrar como um diálogo modal
+            return flyoutForm.ShowDialog();
         }
+
 
 
         #endregion
