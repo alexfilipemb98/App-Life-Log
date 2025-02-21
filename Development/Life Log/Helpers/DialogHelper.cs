@@ -1,21 +1,14 @@
 ﻿using Core.Enums;
 using DevExpress.Utils;
-using DevExpress.Utils.About;
 using DevExpress.Utils.Html;
-using DevExpress.Utils.Svg;
 using DevExpress.XtraBars.Alerter;
 using DevExpress.XtraBars.Docking2010.Customization;
 using DevExpress.XtraBars.Docking2010.Views.WindowsUI;
 using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 using Life_Log.Properties;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Life_Log.Helpers
 {
@@ -32,63 +25,67 @@ namespace Life_Log.Helpers
         /// <param name="title"></param>
         /// <param name="content"></param>
         /// <returns></returns>
-        public static DialogResult ShowCustomFlyout(string title, UserControl content, MessageBoxButtons buttons)
+        public static DialogResult ShowFlyout(string title, UserControl content, MessageBoxButtons buttons)
         {
-            Form mainForm = AppHelper.MainFormInstance;
-            Control layoutControl = AppHelper.MainFormInstance.layoutControl;
-
-            // Obter posição do layoutControl em relação à tela
-            Point layoutScreenPos = layoutControl.PointToScreen(Point.Empty);
-            Size layoutSize = layoutControl.Size;
-
-            // Criar um Form que imita um FlyoutDialog
-            Form flyoutForm = new Form
+            FlyoutAction action = new FlyoutAction
             {
-                FormBorderStyle = FormBorderStyle.None,
-                StartPosition = FormStartPosition.Manual,
-                Location = layoutScreenPos,
-                Size = layoutSize,
-                BackColor = content.BackColor,
-                ShowInTaskbar = false,
-                Owner = mainForm // Define o MainForm como dono para comportamento modal
+                Caption = title,
             };
 
-            // Ajustar o conteúdo para preencher o Flyout
-            content.Dock = DockStyle.Fill;
-            flyoutForm.Controls.Add(content);
-
-            // Criar botões como num FlyoutDialog
-            FlowLayoutPanel buttonPanel = new FlowLayoutPanel
+            // Botões do MessageBox
+            FlyoutCommand btnCancel = new FlyoutCommand()
             {
-                Dock = DockStyle.Bottom,
-                FlowDirection = FlowDirection.RightToLeft,
-                Padding = new Padding(10)
+                Text = "Cancel",
+                Result = DialogResult.Cancel
             };
 
-            Dictionary<MessageBoxButtons, (string, DialogResult)[]> buttonsMap = new Dictionary<MessageBoxButtons, (string, DialogResult)[]>()
-			{
-				{ MessageBoxButtons.OK, new[] { ("OK", DialogResult.OK) } },
-				{ MessageBoxButtons.OKCancel, new[] { ("OK", DialogResult.OK), ("Cancel", DialogResult.Cancel) } },
-				{ MessageBoxButtons.YesNo, new[] { ("Yes", DialogResult.Yes), ("No", DialogResult.No) } },
-				{ MessageBoxButtons.YesNoCancel, new[] { ("Yes", DialogResult.Yes), ("No", DialogResult.No), ("Cancel", DialogResult.Cancel) } }
-			};
-
-            if (buttonsMap.TryGetValue(buttons, out var buttonConfigs))
+            FlyoutCommand btnYes = new FlyoutCommand()
             {
-                foreach (var (text, result) in buttonConfigs)
-                {
-                    Button btn = new Button { Text = text, DialogResult = result };
-                    btn.Click += (s, e) => flyoutForm.DialogResult = result;
-                    buttonPanel.Controls.Add(btn);
-                }
+                Text = "Yes",
+                Result = DialogResult.Yes
+            };
+
+            FlyoutCommand btnNo = new FlyoutCommand()
+            {
+                Text = "No",
+                Result = DialogResult.No
+            };
+
+            FlyoutCommand btnOk = new FlyoutCommand()
+            {
+                Text = "OK",
+                Result = DialogResult.OK
+            };
+
+            // Adicionando os botões de acordo com o tipo MessageBox
+            switch (buttons)
+            {
+                case MessageBoxButtons.OK:
+                    action.Commands.Add(btnOk);
+                    break;
+                case MessageBoxButtons.OKCancel:
+                    action.Commands.Add(btnOk);
+                    action.Commands.Add(btnCancel);
+                    break;
+                case MessageBoxButtons.YesNoCancel:
+                    action.Commands.Add(btnYes);
+                    action.Commands.Add(btnNo);
+                    action.Commands.Add(btnCancel);
+                    break;
+                case MessageBoxButtons.YesNo:
+                    action.Commands.Add(btnYes);
+                    action.Commands.Add(btnNo);
+                    break;
             }
 
-            flyoutForm.Controls.Add(buttonPanel);
+            FlyoutDialog flyout = new FlyoutDialog(AppHelper.MainFormInstance, action, content)
+            {
+                
 
-            // Mostrar como um diálogo modal
-            return flyoutForm.ShowDialog();
+            };
+
+            return flyout.ShowDialog();
         }
-
 
 
         #endregion
