@@ -49,7 +49,7 @@ namespace Life_Log.Views.Home.Notes
             try
             {
                 string nameNote = $"New Note ({_notesList.Count + 1})";
-                DialogResult form = TextInputDialogForm.SD(ref nameNote, 3, 50);
+                DialogResult form = TextInputDialogForm.Dialog(ref nameNote, 3, 50);
 
                 if (form != DialogResult.OK)
                     return;
@@ -147,7 +147,7 @@ namespace Life_Log.Views.Home.Notes
                 XtraTabPage xtraTabPage = xtraTabControl.SelectedTabPage;
                 Data.Entities.NotesEntity note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(xtraTabPage.Tag?.ToString()));
                 string nameNote = note.Name;
-                DialogResult form = TextInputDialogForm.SD(ref nameNote, 3, 50);
+                DialogResult form = TextInputDialogForm.Dialog(ref nameNote, 3, 50);
 
                 if (form != DialogResult.OK)
                     return;

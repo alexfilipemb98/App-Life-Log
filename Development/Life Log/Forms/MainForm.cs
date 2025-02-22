@@ -2,16 +2,10 @@
 using DevExpress.LookAndFeel;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraLayout;
+using Life_Log.Forms.Dialogs;
 using Life_Log.Helpers;
-using Life_Log.Views.Others;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -225,7 +219,29 @@ namespace Life_Log.Forms
         private void bbiSettingsApp_ItemClick(object sender, ItemClickEventArgs e)
         {
             ribbon.ApplicationDocumentCaption = "App Settings";
-            navigationFrame.SelectedPage = npSettingsView;
+            navigationFrame.SelectedPage = npSettingsView;navigationFrame.SelectedPage = npSettingsView;
+        }
+
+        /// <summary>
+        /// Show three simple rule form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiToolsThreeSimpleRule_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ThreeSimpleRuleForm.Dialog();
+        }
+
+        /// <summary>
+        /// Show hosts editor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiToolsHostsEditor_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ribbon.ApplicationDocumentCaption = "Hosts Editor";
+            navigationFrame.SelectedPage = npToolsHotsEditorView;
+            hostsEditorView.LoadData();
         }
 
         #endregion
@@ -250,7 +266,7 @@ namespace Life_Log.Forms
         private void bciThemeLight_CheckedChanged(object sender, ItemClickEventArgs e)
         {
             if (!bciThemeLight.Checked) return;
-            
+
             bciThemeSystem.Checked = false;
             bciThemeDark.Checked = false;
             AppHelper.AppConfigs.Theme = ThemeEnum.LIGHT;
@@ -287,11 +303,17 @@ namespace Life_Log.Forms
             UserLookAndFeel.Default.ActiveLookAndFeel.SetSkinStyle(SkinStyle.WXI, AppHelper.GetTheme().ToString());
         }
 
+        #endregion
+
+        /// <summary>
+        /// Show test buttons checked changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiTestCode_ItemClick(object sender, ItemClickEventArgs e)
         {
-            DialogResult dialogResult = DialogHelper.ShowFlyout("New note name", new TextInputView(), MessageBoxButtons.OKCancel);
         }
+
     }
 
-    #endregion
 }

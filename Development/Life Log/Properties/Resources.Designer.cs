@@ -83,6 +83,16 @@ namespace Life_Log.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_arrow1right {
+            get {
+                object obj = ResourceManager.GetObject("actions_arrow1right", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage actions_checkcircled {
             get {
                 object obj = ResourceManager.GetObject("actions_checkcircled", resourceCulture);
@@ -193,6 +203,16 @@ namespace Life_Log.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage bo_category {
+            get {
+                object obj = ResourceManager.GetObject("bo_category", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage bo_customer {
             get {
                 object obj = ResourceManager.GetObject("bo_customer", resourceCulture);
@@ -236,6 +256,16 @@ namespace Life_Log.Properties {
         internal static DevExpress.Utils.Svg.SvgImage business_world {
             get {
                 object obj = ResourceManager.GetObject("business_world", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage chartstockopenhighlowclose {
+            get {
+                object obj = ResourceManager.GetObject("chartstockopenhighlowclose", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
@@ -436,6 +466,16 @@ namespace Life_Log.Properties {
         internal static DevExpress.Utils.Svg.SvgImage question_mark {
             get {
                 object obj = ResourceManager.GetObject("question-mark", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage richeditbookmark {
+            get {
+                object obj = ResourceManager.GetObject("richeditbookmark", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

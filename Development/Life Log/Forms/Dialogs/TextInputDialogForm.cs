@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars.Ribbon;
+using Life_Log.Helpers;
 using System;
 using System.Windows.Forms;
 
@@ -25,7 +26,7 @@ namespace Life_Log.Forms.Dialogs
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static DialogResult SD(ref string text, int minLength = 0, int maxLength = int.MaxValue)
+        public static DialogResult Dialog(ref string text, int minLength = 0, int maxLength = int.MaxValue)
         {
             using (TextInputDialogForm form = new TextInputDialogForm())
             {
@@ -35,7 +36,7 @@ namespace Life_Log.Forms.Dialogs
                 form._minLength = minLength;
                 form._maxLength = maxLength;
 
-                DialogResult result = form.ShowDialog();
+                DialogResult result = form.ShowDialog(AppHelper.MainFormInstance);
                 text = form.teText.Text;
                 return result;
             }

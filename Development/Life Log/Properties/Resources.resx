@@ -271,4 +271,16 @@
   <data name="prioritized" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prioritized.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="bo_category" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bo_category.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="actions_arrow1right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actions_arrow1right.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="chartstockopenhighlowclose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chartstockopenhighlowclose.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="richeditbookmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\richeditbookmark.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
 </root>

@@ -94,6 +94,12 @@
     <Compile Include="Forms\Dialogs\TextInputDialogForm.Designer.cs">
       <DependentUpon>TextInputDialogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dialogs\ThreeSimpleRuleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\ThreeSimpleRuleForm.Designer.cs">
+      <DependentUpon>ThreeSimpleRuleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,12 +161,6 @@
     <Compile Include="Views\Home\Passwords\PasswordsView.Designer.cs">
       <DependentUpon>PasswordsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Others\TextInputView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\Others\TextInputView.Designer.cs">
-      <DependentUpon>TextInputView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Settings\DatabaseSettingsView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,6 +191,12 @@
     <Compile Include="Views\Tables\ExternalPrograms\ExternalProgramsListView.Designer.cs">
       <DependentUpon>ExternalProgramsListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Tables\HostsEditor\HostsEditorView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Tables\HostsEditor\HostsEditorView.Designer.cs">
+      <DependentUpon>HostsEditorView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tables\Images\ImagesDetailView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\Dialogs\TextInputDialogForm.resx">
       <DependentUpon>TextInputDialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\ThreeSimpleRuleForm.resx">
+      <DependentUpon>ThreeSimpleRuleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -262,9 +271,6 @@
     <EmbeddedResource Include="Views\Home\Passwords\PasswordsView.resx">
       <DependentUpon>PasswordsView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Others\TextInputView.resx">
-      <DependentUpon>TextInputView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Settings\DatabaseSettingsView.resx">
       <DependentUpon>DatabaseSettingsView.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tables\ExternalPrograms\ExternalProgramsListView.resx">
       <DependentUpon>ExternalProgramsListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tables\HostsEditor\HostsEditorView.resx">
+      <DependentUpon>HostsEditorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tables\Images\ImagesDetailView.resx">
       <DependentUpon>ImagesDetailView.cs</DependentUpon>
@@ -386,6 +395,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\richeditbookmark.svg" />
+    <None Include="Resources\chartstockopenhighlowclose.svg" />
+    <None Include="Resources\actions_arrow1right.svg" />
+    <None Include="Resources\bo_category.svg" />
     <None Include="Resources\prioritized.svg" />
     <None Include="Resources\icon_svg.svg" />
     <None Include="Resources\managedatasource.svg" />
