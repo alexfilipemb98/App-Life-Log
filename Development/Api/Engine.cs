@@ -8,14 +8,20 @@ namespace Api
     /// </summary>
     public class Engine : IDisposable
     {
+        //INTERNAL
+
+        internal static Data.Engine _engine;
+
+        //PRIVATE
         private IDisposable _api;
 
         /// <summary>
         /// Engine Data
         /// </summary>
         /// <param name="url"></param>
-        public Engine(string url)
+        public Engine(string url , Data.Engine engine)
         {
+            _engine = engine;   
             _api = WebApp.Start<Startup>(url);
         }
 

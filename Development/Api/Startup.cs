@@ -1,8 +1,11 @@
-﻿using Owin;
+﻿using System.Web.Http;
+using Microsoft.Owin;
+using Owin;
 using Swashbuckle.Application;
-using System.Linq;
 using System.Net.Http.Headers;
-using System.Web.Http;
+using System.Linq;
+
+[assembly: OwinStartup(typeof(Api.Startup))]
 
 namespace Api
 {
@@ -34,7 +37,7 @@ namespace Api
             config.MapHttpAttributeRoutes();
 
             // Usa o Web API com OWIN
-            appBuilder.Use(config);
+            appBuilder.UseWebApi(config);
         }
     }
 }

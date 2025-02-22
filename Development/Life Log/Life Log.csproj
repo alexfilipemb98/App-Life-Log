@@ -322,6 +322,10 @@
     <None Include="Resources\HomeSolid.svg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Api\Api.csproj">
+      <Project>{38e1a752-e193-48e3-af5f-ced855572abf}</Project>
+      <Name>Api</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{f023255e-769d-48de-8faa-3f5639eb3b68}</Project>
       <Name>Core</Name>
