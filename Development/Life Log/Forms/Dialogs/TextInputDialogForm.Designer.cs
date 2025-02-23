@@ -122,7 +122,7 @@
             this.sbOk.Dock = System.Windows.Forms.DockStyle.Right;
             this.sbOk.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.markcomplete;
             this.sbOk.Location = new System.Drawing.Point(293, 5);
-            this.sbOk.MaximumSize = new System.Drawing.Size(0, 48);
+            this.sbOk.MaximumSize = new System.Drawing.Size(150, 48);
             this.sbOk.MinimumSize = new System.Drawing.Size(150, 48);
             this.sbOk.Name = "sbOk";
             this.sbOk.Size = new System.Drawing.Size(150, 48);

@@ -1,5 +1,6 @@
 ﻿using Core.Extensions;
 using Data.Entities;
+using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
 using Life_Log.Forms;
 using Life_Log.Forms.Loading;
@@ -38,7 +39,7 @@ namespace Life_Log
                 AppHelper.DataEngine.SQLLiteBackUp();
                 AppHelper.DataEngine.Connect();
 
-                new Api.Engine("http://localhost:9000/", AppHelper.DataEngine);
+                //new Api.Engine("http://localhost:9000/", AppHelper.DataEngine);
 
                 LoginForm loginForm = new LoginForm();
 

@@ -283,4 +283,16 @@
   <data name="richeditbookmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\richeditbookmark.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="tictactoe_playerX" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tictactoe_playerX.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tictactoe_playerO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tictactoe_playerO.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="tic-tac-toe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tic-tac-toe.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="Game" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Game.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
 </root>

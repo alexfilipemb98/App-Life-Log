@@ -51,12 +51,15 @@
             this.bbiTestCode = new DevExpress.XtraBars.BarButtonItem();
             this.bbiToolsThreeSimpleRule = new DevExpress.XtraBars.BarButtonItem();
             this.bbiToolsHostsEditor = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiEntertainmentTicTacToe = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgHomeMain = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -83,11 +86,14 @@
             this.npSettingsView = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.settingsView1 = new Life_Log.Views.Settings.SettingsView();
             this.npToolsHotsEditorView = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.hostsEditorView = new Life_Log.Views.Tables.HostsEditor.HostsEditorView();
+            this.npEntertainmentTicTacToeView = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.ticTacToeGameView = new Life_Log.Views.Entertainment.TicTacToe.TicTacToeGameView();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.hostsEditorView = new Life_Log.Views.Tables.HostsEditor.HostsEditorView();
+            this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -104,6 +110,7 @@
             this.npToolsPasswordGeneratorView.SuspendLayout();
             this.npSettingsView.SuspendLayout();
             this.npToolsHotsEditorView.SuspendLayout();
+            this.npEntertainmentTicTacToeView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
@@ -135,10 +142,11 @@
             this.bbiSettingsApp,
             this.bbiTestCode,
             this.bbiToolsThreeSimpleRule,
-            this.bbiToolsHostsEditor});
+            this.bbiToolsHostsEditor,
+            this.bbiEntertainmentTicTacToe});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.ribbon.MaxItemId = 22;
+            this.ribbon.MaxItemId = 23;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsSearchMenu.SearchItemPosition = DevExpress.XtraBars.Ribbon.SearchItemPosition.Caption;
             this.ribbon.PageHeaderItemLinks.Add(this.btsiSetTopMost);
@@ -146,8 +154,9 @@
             this.ribbonPage1,
             this.ribbonPage4,
             this.ribbonPage2,
+            this.ribbonPage6,
             this.ribbonPage5});
-            this.ribbon.Size = new System.Drawing.Size(997, 194);
+            this.ribbon.Size = new System.Drawing.Size(998, 202);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // bbiHomeNotes
@@ -188,6 +197,7 @@
             this.bbiTablesExternalPrograms.Id = 6;
             this.bbiTablesExternalPrograms.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.inserttable;
             this.bbiTablesExternalPrograms.Name = "bbiTablesExternalPrograms";
+            this.bbiTablesExternalPrograms.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             this.bbiTablesExternalPrograms.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTablesExternalPrograms_ItemClick);
             // 
             // bsiTime
@@ -229,6 +239,7 @@
             this.bbiTablesImages.Id = 11;
             this.bbiTablesImages.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.inserttable;
             this.bbiTablesImages.Name = "bbiTablesImages";
+            this.bbiTablesImages.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             this.bbiTablesImages.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTablesImages_ItemClick);
             // 
             // bbiToolsSqlBrowser
@@ -311,6 +322,14 @@
             this.bbiToolsHostsEditor.Name = "bbiToolsHostsEditor";
             this.bbiToolsHostsEditor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiToolsHostsEditor_ItemClick);
             // 
+            // bbiEntertainmentTicTacToe
+            // 
+            this.bbiEntertainmentTicTacToe.Caption = "Tic Tac Toe";
+            this.bbiEntertainmentTicTacToe.Id = 22;
+            this.bbiEntertainmentTicTacToe.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.tic_tac_toe;
+            this.bbiEntertainmentTicTacToe.Name = "bbiEntertainmentTicTacToe";
+            this.bbiEntertainmentTicTacToe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEntertainmentTicTacToe_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -362,6 +381,20 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Tables";
             // 
+            // ribbonPage6
+            // 
+            this.ribbonPage6.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup5});
+            this.ribbonPage6.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.Game;
+            this.ribbonPage6.Name = "ribbonPage6";
+            this.ribbonPage6.Text = " Entertainment";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.bbiEntertainmentTicTacToe);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "Actions";
+            // 
             // ribbonPage5
             // 
             this.ribbonPage5.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -401,21 +434,21 @@
             this.ribbonStatusBar.ItemLinks.Add(this.bsiAppVersion);
             this.ribbonStatusBar.ItemLinks.Add(this.bsiSizse);
             this.ribbonStatusBar.ItemLinks.Add(this.bsiStatusLabel);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 660);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 610);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(997, 39);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(998, 39);
             // 
             // layoutControl
             // 
             this.layoutControl.Controls.Add(this.panelControl);
             this.layoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl.Location = new System.Drawing.Point(0, 194);
+            this.layoutControl.Location = new System.Drawing.Point(0, 202);
             this.layoutControl.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.layoutControl.Name = "layoutControl";
             this.layoutControl.Root = this.Root;
-            this.layoutControl.Size = new System.Drawing.Size(997, 466);
+            this.layoutControl.Size = new System.Drawing.Size(998, 408);
             this.layoutControl.TabIndex = 2;
             this.layoutControl.Text = "layoutControl1";
             // 
@@ -425,7 +458,7 @@
             this.panelControl.Location = new System.Drawing.Point(16, 16);
             this.panelControl.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panelControl.Name = "panelControl";
-            this.panelControl.Size = new System.Drawing.Size(965, 434);
+            this.panelControl.Size = new System.Drawing.Size(966, 376);
             this.panelControl.TabIndex = 5;
             // 
             // navigationFrame
@@ -440,6 +473,7 @@
             this.navigationFrame.Controls.Add(this.npToolsPasswordGeneratorView);
             this.navigationFrame.Controls.Add(this.npSettingsView);
             this.navigationFrame.Controls.Add(this.npToolsHotsEditorView);
+            this.navigationFrame.Controls.Add(this.npEntertainmentTicTacToeView);
             this.navigationFrame.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationFrame.Location = new System.Drawing.Point(2, 2);
             this.navigationFrame.Margin = new System.Windows.Forms.Padding(0);
@@ -454,9 +488,10 @@
             this.npSqlBrowserView,
             this.npHomePasswordsView,
             this.npToolsPasswordGeneratorView,
-            this.npToolsHotsEditorView});
+            this.npToolsHotsEditorView,
+            this.npEntertainmentTicTacToeView});
             this.navigationFrame.SelectedPage = this.npHomeDashboardView;
-            this.navigationFrame.Size = new System.Drawing.Size(961, 430);
+            this.navigationFrame.Size = new System.Drawing.Size(962, 372);
             this.navigationFrame.TabIndex = 4;
             this.navigationFrame.Text = "Navigation Frame";
             // 
@@ -466,7 +501,7 @@
             this.npHomeNotesView.Controls.Add(this.notesView);
             this.npHomeNotesView.Margin = new System.Windows.Forms.Padding(0);
             this.npHomeNotesView.Name = "npHomeNotesView";
-            this.npHomeNotesView.Size = new System.Drawing.Size(961, 430);
+            this.npHomeNotesView.Size = new System.Drawing.Size(962, 372);
             // 
             // notesView
             // 
@@ -474,7 +509,7 @@
             this.notesView.Location = new System.Drawing.Point(0, 0);
             this.notesView.Margin = new System.Windows.Forms.Padding(0);
             this.notesView.Name = "notesView";
-            this.notesView.Size = new System.Drawing.Size(961, 430);
+            this.notesView.Size = new System.Drawing.Size(962, 372);
             this.notesView.TabIndex = 0;
             // 
             // npTableExternalPrograms
@@ -483,7 +518,7 @@
             this.npTableExternalPrograms.Controls.Add(this.externalProgramsListView);
             this.npTableExternalPrograms.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.npTableExternalPrograms.Name = "npTableExternalPrograms";
-            this.npTableExternalPrograms.Size = new System.Drawing.Size(961, 430);
+            this.npTableExternalPrograms.Size = new System.Drawing.Size(962, 372);
             // 
             // externalProgramsListView
             // 
@@ -491,14 +526,14 @@
             this.externalProgramsListView.Location = new System.Drawing.Point(0, 0);
             this.externalProgramsListView.Margin = new System.Windows.Forms.Padding(0);
             this.externalProgramsListView.Name = "externalProgramsListView";
-            this.externalProgramsListView.Size = new System.Drawing.Size(961, 430);
+            this.externalProgramsListView.Size = new System.Drawing.Size(962, 372);
             this.externalProgramsListView.TabIndex = 0;
             // 
             // npHomeDashboardView
             // 
             this.npHomeDashboardView.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.npHomeDashboardView.Name = "npHomeDashboardView";
-            this.npHomeDashboardView.Size = new System.Drawing.Size(961, 430);
+            this.npHomeDashboardView.Size = new System.Drawing.Size(962, 372);
             // 
             // npTableImages
             // 
@@ -506,7 +541,7 @@
             this.npTableImages.Controls.Add(this.imagesListView);
             this.npTableImages.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.npTableImages.Name = "npTableImages";
-            this.npTableImages.Size = new System.Drawing.Size(961, 430);
+            this.npTableImages.Size = new System.Drawing.Size(962, 372);
             // 
             // imagesListView
             // 
@@ -514,7 +549,7 @@
             this.imagesListView.Location = new System.Drawing.Point(0, 0);
             this.imagesListView.Margin = new System.Windows.Forms.Padding(0);
             this.imagesListView.Name = "imagesListView";
-            this.imagesListView.Size = new System.Drawing.Size(961, 430);
+            this.imagesListView.Size = new System.Drawing.Size(962, 372);
             this.imagesListView.TabIndex = 0;
             // 
             // npHomeCommadsView
@@ -523,7 +558,7 @@
             this.npHomeCommadsView.Controls.Add(this.commandsListView);
             this.npHomeCommadsView.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.npHomeCommadsView.Name = "npHomeCommadsView";
-            this.npHomeCommadsView.Size = new System.Drawing.Size(961, 430);
+            this.npHomeCommadsView.Size = new System.Drawing.Size(962, 372);
             // 
             // commandsListView
             // 
@@ -531,7 +566,7 @@
             this.commandsListView.Location = new System.Drawing.Point(0, 0);
             this.commandsListView.Margin = new System.Windows.Forms.Padding(0);
             this.commandsListView.Name = "commandsListView";
-            this.commandsListView.Size = new System.Drawing.Size(961, 430);
+            this.commandsListView.Size = new System.Drawing.Size(962, 372);
             this.commandsListView.TabIndex = 0;
             // 
             // npSqlBrowserView
@@ -540,7 +575,7 @@
             this.npSqlBrowserView.Controls.Add(this.sqlBrowserView);
             this.npSqlBrowserView.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.npSqlBrowserView.Name = "npSqlBrowserView";
-            this.npSqlBrowserView.Size = new System.Drawing.Size(961, 430);
+            this.npSqlBrowserView.Size = new System.Drawing.Size(962, 372);
             // 
             // sqlBrowserView
             // 
@@ -548,7 +583,7 @@
             this.sqlBrowserView.Location = new System.Drawing.Point(0, 0);
             this.sqlBrowserView.Margin = new System.Windows.Forms.Padding(0);
             this.sqlBrowserView.Name = "sqlBrowserView";
-            this.sqlBrowserView.Size = new System.Drawing.Size(961, 430);
+            this.sqlBrowserView.Size = new System.Drawing.Size(962, 372);
             this.sqlBrowserView.TabIndex = 0;
             // 
             // npHomePasswordsView
@@ -557,7 +592,7 @@
             this.npHomePasswordsView.Controls.Add(this.passwordsView);
             this.npHomePasswordsView.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.npHomePasswordsView.Name = "npHomePasswordsView";
-            this.npHomePasswordsView.Size = new System.Drawing.Size(961, 430);
+            this.npHomePasswordsView.Size = new System.Drawing.Size(962, 372);
             // 
             // passwordsView
             // 
@@ -565,7 +600,7 @@
             this.passwordsView.Location = new System.Drawing.Point(0, 0);
             this.passwordsView.Margin = new System.Windows.Forms.Padding(0);
             this.passwordsView.Name = "passwordsView";
-            this.passwordsView.Size = new System.Drawing.Size(961, 430);
+            this.passwordsView.Size = new System.Drawing.Size(962, 372);
             this.passwordsView.TabIndex = 0;
             // 
             // npToolsPasswordGeneratorView
@@ -574,7 +609,7 @@
             this.npToolsPasswordGeneratorView.Controls.Add(this.passwordGeneratorView);
             this.npToolsPasswordGeneratorView.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.npToolsPasswordGeneratorView.Name = "npToolsPasswordGeneratorView";
-            this.npToolsPasswordGeneratorView.Size = new System.Drawing.Size(961, 430);
+            this.npToolsPasswordGeneratorView.Size = new System.Drawing.Size(962, 372);
             // 
             // passwordGeneratorView
             // 
@@ -582,7 +617,7 @@
             this.passwordGeneratorView.Location = new System.Drawing.Point(0, 0);
             this.passwordGeneratorView.Margin = new System.Windows.Forms.Padding(0);
             this.passwordGeneratorView.Name = "passwordGeneratorView";
-            this.passwordGeneratorView.Size = new System.Drawing.Size(961, 430);
+            this.passwordGeneratorView.Size = new System.Drawing.Size(962, 372);
             this.passwordGeneratorView.TabIndex = 0;
             // 
             // npSettingsView
@@ -591,7 +626,7 @@
             this.npSettingsView.Controls.Add(this.settingsView1);
             this.npSettingsView.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.npSettingsView.Name = "npSettingsView";
-            this.npSettingsView.Size = new System.Drawing.Size(961, 430);
+            this.npSettingsView.Size = new System.Drawing.Size(962, 372);
             // 
             // settingsView1
             // 
@@ -599,14 +634,40 @@
             this.settingsView1.Location = new System.Drawing.Point(0, 0);
             this.settingsView1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.settingsView1.Name = "settingsView1";
-            this.settingsView1.Size = new System.Drawing.Size(961, 430);
+            this.settingsView1.Size = new System.Drawing.Size(962, 372);
             this.settingsView1.TabIndex = 0;
             // 
             // npToolsHotsEditorView
             // 
+            this.npToolsHotsEditorView.Caption = "npToolsHotsEditorView";
             this.npToolsHotsEditorView.Controls.Add(this.hostsEditorView);
             this.npToolsHotsEditorView.Name = "npToolsHotsEditorView";
-            this.npToolsHotsEditorView.Size = new System.Drawing.Size(961, 430);
+            this.npToolsHotsEditorView.Size = new System.Drawing.Size(962, 372);
+            // 
+            // hostsEditorView
+            // 
+            this.hostsEditorView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hostsEditorView.Location = new System.Drawing.Point(0, 0);
+            this.hostsEditorView.Margin = new System.Windows.Forms.Padding(0);
+            this.hostsEditorView.Name = "hostsEditorView";
+            this.hostsEditorView.Size = new System.Drawing.Size(962, 372);
+            this.hostsEditorView.TabIndex = 0;
+            // 
+            // npEntertainmentTicTacToeView
+            // 
+            this.npEntertainmentTicTacToeView.Caption = "npEntertainmentTicTacToeView";
+            this.npEntertainmentTicTacToeView.Controls.Add(this.ticTacToeGameView);
+            this.npEntertainmentTicTacToeView.Name = "npEntertainmentTicTacToeView";
+            this.npEntertainmentTicTacToeView.Size = new System.Drawing.Size(962, 372);
+            // 
+            // ticTacToeGameView
+            // 
+            this.ticTacToeGameView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ticTacToeGameView.Location = new System.Drawing.Point(0, 0);
+            this.ticTacToeGameView.Margin = new System.Windows.Forms.Padding(0);
+            this.ticTacToeGameView.Name = "ticTacToeGameView";
+            this.ticTacToeGameView.Size = new System.Drawing.Size(962, 372);
+            this.ticTacToeGameView.TabIndex = 0;
             // 
             // Root
             // 
@@ -615,7 +676,7 @@
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(997, 466);
+            this.Root.Size = new System.Drawing.Size(998, 408);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem2
@@ -623,7 +684,7 @@
             this.layoutControlItem2.Control = this.panelControl;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(971, 440);
+            this.layoutControlItem2.Size = new System.Drawing.Size(972, 382);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -638,21 +699,17 @@
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // hostsEditorView
+            // ribbonPage7
             // 
-            this.hostsEditorView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hostsEditorView.Location = new System.Drawing.Point(0, 0);
-            this.hostsEditorView.Margin = new System.Windows.Forms.Padding(0);
-            this.hostsEditorView.Name = "hostsEditorView";
-            this.hostsEditorView.Size = new System.Drawing.Size(961, 430);
-            this.hostsEditorView.TabIndex = 0;
+            this.ribbonPage7.Name = "ribbonPage7";
+            this.ribbonPage7.Text = "ribbonPage7";
             // 
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 699);
+            this.ClientSize = new System.Drawing.Size(998, 649);
             this.Controls.Add(this.layoutControl);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
@@ -666,7 +723,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.Resize += new System.EventHandler(this.MainForm_Resize);
+            this.ResizeEnd += new System.EventHandler(this.MainForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
             this.layoutControl.ResumeLayout(false);
@@ -683,6 +740,7 @@
             this.npToolsPasswordGeneratorView.ResumeLayout(false);
             this.npSettingsView.ResumeLayout(false);
             this.npToolsHotsEditorView.ResumeLayout(false);
+            this.npEntertainmentTicTacToeView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
@@ -749,5 +807,11 @@
         private DevExpress.XtraBars.BarButtonItem bbiToolsHostsEditor;
         private DevExpress.XtraBars.Navigation.NavigationPage npToolsHotsEditorView;
         private Views.Tables.HostsEditor.HostsEditorView hostsEditorView;
+        private DevExpress.XtraBars.BarButtonItem bbiEntertainmentTicTacToe;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage6;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage7;
+        private DevExpress.XtraBars.Navigation.NavigationPage npEntertainmentTicTacToeView;
+        private Views.Entertainment.TicTacToe.TicTacToeGameView ticTacToeGameView;
     }
 }

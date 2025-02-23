@@ -333,6 +333,16 @@ namespace Life_Log.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage Game {
+            get {
+                object obj = ResourceManager.GetObject("Game", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage HomeSolid {
             get {
                 object obj = ResourceManager.GetObject("HomeSolid", resourceCulture);
@@ -556,6 +566,36 @@ namespace Life_Log.Properties {
         internal static DevExpress.Utils.Svg.SvgImage sun {
             get {
                 object obj = ResourceManager.GetObject("sun", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage tic_tac_toe {
+            get {
+                object obj = ResourceManager.GetObject("tic-tac-toe", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage tictactoe_playerO {
+            get {
+                object obj = ResourceManager.GetObject("tictactoe_playerO", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage tictactoe_playerX {
+            get {
+                object obj = ResourceManager.GetObject("tictactoe_playerX", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

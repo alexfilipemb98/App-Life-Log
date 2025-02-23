@@ -71,6 +71,8 @@
             // 
             // ribbonControl
             // 
+            this.ribbonControl.ApplicationCaption = "Life Log";
+            this.ribbonControl.ApplicationDocumentCaption = "Three Simple Rule";
             this.ribbonControl.DrawGroupCaptions = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(35, 37, 35, 37);
             this.ribbonControl.ExpandCollapseItem.Id = 0;

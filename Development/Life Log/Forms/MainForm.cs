@@ -219,7 +219,7 @@ namespace Life_Log.Forms
         private void bbiSettingsApp_ItemClick(object sender, ItemClickEventArgs e)
         {
             ribbon.ApplicationDocumentCaption = "App Settings";
-            navigationFrame.SelectedPage = npSettingsView;navigationFrame.SelectedPage = npSettingsView;
+            navigationFrame.SelectedPage = npSettingsView; navigationFrame.SelectedPage = npSettingsView;
         }
 
         /// <summary>
@@ -242,6 +242,17 @@ namespace Life_Log.Forms
             ribbon.ApplicationDocumentCaption = "Hosts Editor";
             navigationFrame.SelectedPage = npToolsHotsEditorView;
             hostsEditorView.LoadData();
+        }
+
+        /// <summary>
+        /// Show entertainment tic tac toe game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiEntertainmentTicTacToe_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ribbon.ApplicationDocumentCaption = "Tic Tac Toe";
+            navigationFrame.SelectedPage = npEntertainmentTicTacToeView;
         }
 
         #endregion
