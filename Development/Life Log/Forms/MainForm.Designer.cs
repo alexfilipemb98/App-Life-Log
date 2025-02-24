@@ -78,7 +78,7 @@
             this.npHomeCommadsView = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.commandsListView = new Life_Log.Views.Home.Commands.CommandsListView();
             this.npSqlBrowserView = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.sqlBrowserView = new Life_Log.Views.Tools.SqlBrowserView();
+            this.sqlBrowserView = new Life_Log.Views.Tools.SqlBrowser.SqlBrowserView();
             this.npHomePasswordsView = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.passwordsView = new Life_Log.Views.Home.Passwords.PasswordsView();
             this.npToolsPasswordGeneratorView = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -86,7 +86,7 @@
             this.npSettingsView = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.settingsView1 = new Life_Log.Views.Settings.SettingsView();
             this.npToolsHotsEditorView = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.hostsEditorView = new Life_Log.Views.Tables.HostsEditor.HostsEditorView();
+            this.hostsEditorView = new Life_Log.Views.Tools.HostsEditor.HostsEditorView();
             this.npEntertainmentTicTacToeView = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.ticTacToeGameView = new Life_Log.Views.Entertainment.TicTacToe.TicTacToeGameView();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -782,7 +782,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Navigation.NavigationPage npSqlBrowserView;
-        private Views.Tools.SqlBrowserView sqlBrowserView;
+        private Views.Tools.SqlBrowser.SqlBrowserView sqlBrowserView;
         private DevExpress.XtraBars.BarButtonItem bbiHomePasswords;
         private DevExpress.XtraBars.Navigation.NavigationPage npHomePasswordsView;
         private Views.Home.Passwords.PasswordsView passwordsView;
@@ -806,7 +806,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiToolsThreeSimpleRule;
         private DevExpress.XtraBars.BarButtonItem bbiToolsHostsEditor;
         private DevExpress.XtraBars.Navigation.NavigationPage npToolsHotsEditorView;
-        private Views.Tables.HostsEditor.HostsEditorView hostsEditorView;
+        private Views.Tools.HostsEditor.HostsEditorView hostsEditorView;
         private DevExpress.XtraBars.BarButtonItem bbiEntertainmentTicTacToe;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage6;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;

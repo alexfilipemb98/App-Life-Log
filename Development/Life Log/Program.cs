@@ -34,7 +34,7 @@ namespace Life_Log
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
-                AppHelper.GetDatabaseConfigs();
+                AppHelper.DbConfigs = AppHelper.GetDatabaseConfigs();
                 AppHelper.DataEngine = new Data.Engine(AppHelper.DbConfigs);
                 AppHelper.DataEngine.SQLLiteBackUp();
                 AppHelper.DataEngine.Connect();

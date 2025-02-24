@@ -90,8 +90,6 @@ namespace Life_Log.Helpers
                 FilesUtil.SaveFileWithEncryption(config, Properties.Settings.Default.ConfigFileName);
             }
 
-            DbConfigs = config;
-
             return config;
         }
 

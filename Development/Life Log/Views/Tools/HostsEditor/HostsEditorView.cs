@@ -11,7 +11,7 @@ using DevExpress.XtraEditors;
 using System.IO;
 using Life_Log.Helpers;
 
-namespace Life_Log.Views.Tables.HostsEditor
+namespace Life_Log.Views.Tools.HostsEditor
 {
     /// <summary>
     /// Hosts editor view

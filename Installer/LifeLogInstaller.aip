@@ -20,10 +20,10 @@
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="Manufacturer" Value="Scorpions"/>
-    <ROW Property="ProductCode" Value="2057:{2A3C999E-688E-4841-AC31-69AD5DC0B9F2} 2070:{2A3C999E-688E-4841-AC31-69AD5DC0B9F2} " Type="16"/>
+    <ROW Property="ProductCode" Value="2057:{6759F2C9-262C-4AA0-9EDE-29B93C91B3DD} 2070:{6759F2C9-262C-4AA0-9EDE-29B93C91B3DD} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Life Log"/>
-    <ROW Property="ProductVersion" Value="0.0.3.10" Options="16"/>
+    <ROW Property="ProductVersion" Value="0.0.3.11" Options="16"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{17F3D3F4-ECE3-4402-9F90-8417822D14F6}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -52,6 +52,7 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="AI_ExePath" ComponentId="{38837859-2D20-403F-8D43-8F8B81A99661}" Directory_="APPDIR" Attributes="260" KeyPath="AI_ExePath"/>
     <ROW Component="APPDIR" ComponentId="{A19373F9-59F9-4A52-8AB9-D8496C78843C}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="Api.dll" ComponentId="{E7793F17-A991-49D8-95BB-04D55D5AF0C8}" Directory_="APPDIR" Attributes="0" KeyPath="Api.dll"/>
     <ROW Component="Core.dll" ComponentId="{3B0CA497-D272-4B6F-AB79-7A4A6ABC7A19}" Directory_="APPDIR" Attributes="0" KeyPath="Core.dll"/>
     <ROW Component="Dapper.dll" ComponentId="{4790608F-3506-4459-BDEF-3A36CE379F58}" Directory_="APPDIR" Attributes="0" KeyPath="Dapper.dll"/>
     <ROW Component="Data.dll" ComponentId="{1D47BB15-95DE-4E3E-B88C-7E703AB1CB5F}" Directory_="APPDIR" Attributes="0" KeyPath="Data.dll"/>
@@ -81,14 +82,32 @@
     <ROW Component="EntityFramework.SqlServer.dll" ComponentId="{E09C6106-AFFD-45F4-A9CD-CC913997173C}" Directory_="APPDIR" Attributes="0" KeyPath="EntityFramework.SqlServer.dll"/>
     <ROW Component="EntityFramework.dll" ComponentId="{8E1AD569-84ED-4A9B-B81F-7CF364903ED8}" Directory_="APPDIR" Attributes="0" KeyPath="EntityFramework.dll"/>
     <ROW Component="LifeLog.exe" ComponentId="{0BC32004-F31B-4861-9DAC-644D52AEA0D3}" Directory_="APPDIR" Attributes="0" KeyPath="LifeLog.exe"/>
+    <ROW Component="Microsoft.Owin.Host.HttpListener.dll" ComponentId="{8D9155B4-6B22-4A11-BBDD-A5C92975F525}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Owin.Host.HttpListener.dll"/>
+    <ROW Component="Microsoft.Owin.Hosting.dll" ComponentId="{B9F9739C-DC64-40F4-BBF6-EDEBB7926E50}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Owin.Hosting.dll"/>
+    <ROW Component="Microsoft.Owin.dll" ComponentId="{9C9901E2-9444-4064-A092-5A85F5A5571C}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Owin.dll"/>
+    <ROW Component="Microsoft.Web.Infrastructure.dll" ComponentId="{DC74D53B-9D5C-4326-BCAB-D7DBFDD4817B}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Web.Infrastructure.dll"/>
+    <ROW Component="Newtonsoft.Json.Bson.dll" ComponentId="{BD883C5F-361F-45D4-83EB-C332FDA035AF}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.Bson.dll"/>
     <ROW Component="Newtonsoft.Json.dll" ComponentId="{77E8EA4F-C9AD-4AD8-858D-5F8F2E2152C9}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
+    <ROW Component="Owin.dll" ComponentId="{1BC541E7-184E-4973-B8B2-D7A21EA8F842}" Directory_="APPDIR" Attributes="0" KeyPath="Owin.dll"/>
     <ROW Component="ProductInformation" ComponentId="{7FC1F998-EDC9-41EB-BE0F-44E39C2B3E42}" Directory_="APPDIR" Attributes="260" KeyPath="Version"/>
     <ROW Component="SHORTCUTDIR" ComponentId="{A60FF44C-714A-4CD4-A2FF-38764649C834}" Directory_="SHORTCUTDIR" Attributes="0"/>
     <ROW Component="SQLite.Interop.dll" ComponentId="{7864A13C-4DAC-490B-BD7E-66B40BE0C157}" Directory_="x64_Dir" Attributes="256" KeyPath="SQLite.Interop.dll"/>
     <ROW Component="SQLite.Interop.dll_1" ComponentId="{154B5740-2894-4700-B832-F38CC605E2EA}" Directory_="x86_Dir" Attributes="0" KeyPath="SQLite.Interop.dll_1"/>
+    <ROW Component="Swashbuckle.Core.dll" ComponentId="{5A230EB7-7427-4CD8-B713-D2DA03F5B40E}" Directory_="APPDIR" Attributes="0" KeyPath="Swashbuckle.Core.dll"/>
+    <ROW Component="System.Buffers.dll" ComponentId="{F6F3DE8D-9C37-4EE6-85AF-40AC1DC4245C}" Directory_="APPDIR" Attributes="0" KeyPath="System.Buffers.dll"/>
     <ROW Component="System.Data.SQLite.EF6.dll" ComponentId="{389B64EE-011E-4FF2-B589-AFD1172C7FF8}" Directory_="APPDIR" Attributes="0" KeyPath="System.Data.SQLite.EF6.dll"/>
     <ROW Component="System.Data.SQLite.Linq.dll" ComponentId="{C7188752-59A1-4615-B272-3896F4720C16}" Directory_="APPDIR" Attributes="0" KeyPath="System.Data.SQLite.Linq.dll"/>
     <ROW Component="System.Data.SQLite.dll" ComponentId="{E647376D-6EDB-48A4-B118-26B1081C4EC2}" Directory_="APPDIR" Attributes="0" KeyPath="System.Data.SQLite.dll"/>
+    <ROW Component="System.Memory.dll" ComponentId="{36AC1797-90BE-4362-B839-A3D5A0297C56}" Directory_="APPDIR" Attributes="0" KeyPath="System.Memory.dll"/>
+    <ROW Component="System.Net.Http.Formatting.dll" ComponentId="{07C74BDE-F3FC-4B94-B010-1B1EC1F939ED}" Directory_="APPDIR" Attributes="0" KeyPath="System.Net.Http.Formatting.dll"/>
+    <ROW Component="System.Numerics.Vectors.dll" ComponentId="{9DB6D8AA-7AA8-4FAE-A6F9-EC2446F9AED0}" Directory_="APPDIR" Attributes="0" KeyPath="System.Numerics.Vectors.dll"/>
+    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll" ComponentId="{37738FEE-0A90-4E82-ACA9-3A9DAE1D3D7E}" Directory_="APPDIR" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Component="System.Threading.Tasks.Extensions.dll" ComponentId="{50B1616A-269E-45CD-B319-22107E74B32C}" Directory_="APPDIR" Attributes="0" KeyPath="System.Threading.Tasks.Extensions.dll"/>
+    <ROW Component="System.Web.Http.Owin.dll" ComponentId="{9575FE3F-0E40-44FE-ABBC-17B5AFFA8B1E}" Directory_="APPDIR" Attributes="0" KeyPath="System.Web.Http.Owin.dll"/>
+    <ROW Component="System.Web.Http.SelfHost.dll" ComponentId="{23821DCD-7A45-429D-8ADB-D51FE9EE3A48}" Directory_="APPDIR" Attributes="0" KeyPath="System.Web.Http.SelfHost.dll"/>
+    <ROW Component="System.Web.Http.WebHost.dll" ComponentId="{40908EAA-A9CB-4708-B1AF-BB536C56720E}" Directory_="APPDIR" Attributes="0" KeyPath="System.Web.Http.WebHost.dll"/>
+    <ROW Component="System.Web.Http.dll" ComponentId="{AA62BEF6-9169-4ACD-ACA3-DCD2FB23A10F}" Directory_="APPDIR" Attributes="0" KeyPath="System.Web.Http.dll"/>
+    <ROW Component="WebActivatorEx.dll" ComponentId="{BC6DDCEB-ACC5-48F3-841C-AE0D1107FEC5}" Directory_="APPDIR" Attributes="0" KeyPath="WebActivatorEx.dll"/>
     <ROW Component="regid.199509.com.example" ComponentId="{373A841D-944D-4B9C-8969-1922641E5325}" Directory_="regid.199509.com.example_Dir" Attributes="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
@@ -151,6 +170,26 @@
     <ROW File="System.Data.SQLite.Linq.dll" Component_="System.Data.SQLite.Linq.dll" FileName="SYSTEM~3.DLL|System.Data.SQLite.Linq.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\System.Data.SQLite.Linq.dll" SelfReg="false"/>
     <ROW File="SQLite.Interop.dll" Component_="SQLite.Interop.dll" FileName="SQLITE~1.DLL|SQLite.Interop.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\x64\SQLite.Interop.dll" SelfReg="false"/>
     <ROW File="SQLite.Interop.dll_1" Component_="SQLite.Interop.dll_1" FileName="SQLITE~1.DLL|SQLite.Interop.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\x86\SQLite.Interop.dll" SelfReg="false"/>
+    <ROW File="Api.dll" Component_="Api.dll" FileName="Api.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\Api.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Owin.dll" Component_="Microsoft.Owin.dll" FileName="MICROS~1.DLL|Microsoft.Owin.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\Microsoft.Owin.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Owin.Host.HttpListener.dll" Component_="Microsoft.Owin.Host.HttpListener.dll" FileName="MICROS~2.DLL|Microsoft.Owin.Host.HttpListener.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\Microsoft.Owin.Host.HttpListener.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Owin.Hosting.dll" Component_="Microsoft.Owin.Hosting.dll" FileName="MICROS~3.DLL|Microsoft.Owin.Hosting.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\Microsoft.Owin.Hosting.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Web.Infrastructure.dll" Component_="Microsoft.Web.Infrastructure.dll" FileName="MICROS~4.DLL|Microsoft.Web.Infrastructure.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\Microsoft.Web.Infrastructure.dll" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.Bson.dll" Component_="Newtonsoft.Json.Bson.dll" FileName="NEWTON~2.DLL|Newtonsoft.Json.Bson.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\Newtonsoft.Json.Bson.dll" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.Bson.pdb" Component_="Newtonsoft.Json.Bson.dll" FileName="NEWTON~1.PDB|Newtonsoft.Json.Bson.pdb" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\Newtonsoft.Json.Bson.pdb" SelfReg="false"/>
+    <ROW File="Owin.dll" Component_="Owin.dll" FileName="Owin.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\Owin.dll" SelfReg="false"/>
+    <ROW File="Swashbuckle.Core.dll" Component_="Swashbuckle.Core.dll" FileName="SWASHB~1.DLL|Swashbuckle.Core.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\Swashbuckle.Core.dll" SelfReg="false"/>
+    <ROW File="System.Buffers.dll" Component_="System.Buffers.dll" FileName="SYSTEM~4.DLL|System.Buffers.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\System.Buffers.dll" SelfReg="false"/>
+    <ROW File="System.Memory.dll" Component_="System.Memory.dll" FileName="SYSTEM~5.DLL|System.Memory.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\System.Memory.dll" SelfReg="false"/>
+    <ROW File="System.Net.Http.Formatting.dll" Component_="System.Net.Http.Formatting.dll" FileName="SYSTEM~6.DLL|System.Net.Http.Formatting.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\System.Net.Http.Formatting.dll" SelfReg="false"/>
+    <ROW File="System.Numerics.Vectors.dll" Component_="System.Numerics.Vectors.dll" FileName="SYSTEM~7.DLL|System.Numerics.Vectors.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\System.Numerics.Vectors.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Unsafe.dll" Component_="System.Runtime.CompilerServices.Unsafe.dll" FileName="SYSTEM~8.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
+    <ROW File="System.Threading.Tasks.Extensions.dll" Component_="System.Threading.Tasks.Extensions.dll" FileName="SYSTEM~9.DLL|System.Threading.Tasks.Extensions.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\System.Threading.Tasks.Extensions.dll" SelfReg="false"/>
+    <ROW File="System.Web.Http.dll" Component_="System.Web.Http.dll" FileName="SYSTE~10.DLL|System.Web.Http.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\System.Web.Http.dll" SelfReg="false"/>
+    <ROW File="System.Web.Http.Owin.dll" Component_="System.Web.Http.Owin.dll" FileName="SYSTE~11.DLL|System.Web.Http.Owin.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\System.Web.Http.Owin.dll" SelfReg="false"/>
+    <ROW File="System.Web.Http.SelfHost.dll" Component_="System.Web.Http.SelfHost.dll" FileName="SYSTE~12.DLL|System.Web.Http.SelfHost.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\System.Web.Http.SelfHost.dll" SelfReg="false"/>
+    <ROW File="System.Web.Http.WebHost.dll" Component_="System.Web.Http.WebHost.dll" FileName="SYSTE~13.DLL|System.Web.Http.WebHost.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\System.Web.Http.WebHost.dll" SelfReg="false"/>
+    <ROW File="WebActivatorEx.dll" Component_="WebActivatorEx.dll" FileName="WEBACT~1.DLL|WebActivatorEx.dll" Attributes="0" SourcePath="..\Development\Life Log\bin\Release\WebActivatorEx.dll" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.AiPersistentDataComponent">
     <ROW PersistentRow="LifeLog.exe.config" Type="0" Condition="1"/>
@@ -343,6 +382,25 @@
     <ROW Feature_="MainFeature" Component_="SHORTCUTDIR"/>
     <ROW Feature_="MainFeature" Component_="AI_ExePath"/>
     <ROW Feature_="MainFeature" Component_="regid.199509.com.example"/>
+    <ROW Feature_="MainFeature" Component_="Api.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Owin.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Owin.Host.HttpListener.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Owin.Hosting.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Web.Infrastructure.dll"/>
+    <ROW Feature_="MainFeature" Component_="Newtonsoft.Json.Bson.dll"/>
+    <ROW Feature_="MainFeature" Component_="Owin.dll"/>
+    <ROW Feature_="MainFeature" Component_="Swashbuckle.Core.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Buffers.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Memory.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Net.Http.Formatting.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Numerics.Vectors.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Threading.Tasks.Extensions.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Web.Http.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Web.Http.Owin.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Web.Http.SelfHost.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Web.Http.WebHost.dll"/>
+    <ROW Feature_="MainFeature" Component_="WebActivatorEx.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="LifeLog.exe" SourcePath="..\Development\Life Log\bin\Release\Life Log.exe" Index="0"/>
@@ -467,7 +525,7 @@
     <ROW XmlElement="swidregid" ParentElement="swidsoftware_creator" Name="swid:regid" Condition="1" Order="1" Flags="14" Text="regid.1995-09.com.example" UpdateIndexInParent="0"/>
     <ROW XmlElement="swidregid_1" ParentElement="swidsoftware_licensor" Name="swid:regid" Condition="1" Order="1" Flags="14" Text="regid.1995-09.com.example" UpdateIndexInParent="0"/>
     <ROW XmlElement="swidregid_2" ParentElement="swidtag_creator" Name="swid:regid" Condition="1" Order="1" Flags="14" Text="regid.1995-09.com.example" UpdateIndexInParent="0"/>
-    <ROW XmlElement="swidreview" ParentElement="swidnumeric" Name="swid:review" Condition="1" Order="3" Flags="14" Text="10" UpdateIndexInParent="0"/>
+    <ROW XmlElement="swidreview" ParentElement="swidnumeric" Name="swid:review" Condition="1" Order="3" Flags="14" Text="11" UpdateIndexInParent="0"/>
     <ROW XmlElement="swidsoftware_creator" ParentElement="swidsoftware_identification_tag" Name="swid:software_creator" Condition="1" Order="3" Flags="14" UpdateIndexInParent="0"/>
     <ROW XmlElement="swidsoftware_id" ParentElement="swidsoftware_identification_tag" Name="swid:software_id" Condition="1" Order="5" Flags="14" UpdateIndexInParent="0"/>
     <ROW XmlElement="swidsoftware_identification_tag" Name="swid:software_identification_tag" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>

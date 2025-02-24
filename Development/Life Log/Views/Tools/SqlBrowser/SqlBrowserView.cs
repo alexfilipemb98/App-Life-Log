@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Life_Log.Views.Tools
+namespace Life_Log.Views.Tools.SqlBrowser
 {
     /// <summary>
     /// SQL Browser view

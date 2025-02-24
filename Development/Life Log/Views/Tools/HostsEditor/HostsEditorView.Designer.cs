@@ -1,4 +1,4 @@
-﻿namespace Life_Log.Views.Tables.HostsEditor
+﻿namespace Life_Log.Views.Tools.HostsEditor
 {
     partial class HostsEditorView
     {

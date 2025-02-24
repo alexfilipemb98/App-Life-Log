@@ -203,10 +203,10 @@
     <Compile Include="Views\Tables\ExternalPrograms\ExternalProgramsListView.Designer.cs">
       <DependentUpon>ExternalProgramsListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Tables\HostsEditor\HostsEditorView.cs">
+    <Compile Include="Views\Tools\HostsEditor\HostsEditorView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Tables\HostsEditor\HostsEditorView.Designer.cs">
+    <Compile Include="Views\Tools\HostsEditor\HostsEditorView.Designer.cs">
       <DependentUpon>HostsEditorView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Tables\Images\ImagesDetailView.cs">
@@ -252,6 +252,7 @@
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Core.Models.DatabaseConfigModel.datasource" />
+    <None Include="Properties\DataSources\Core.Models.LoginModel.datasource" />
     <None Include="Properties\DataSources\Data.Entities.CommandsEntity.datasource" />
     <None Include="Properties\DataSources\Data.Entities.ExternalProgramsEntity.datasource" />
     <None Include="Properties\DataSources\Data.Entities.ImagesEntity.datasource" />
@@ -304,7 +305,7 @@
     <EmbeddedResource Include="Views\Tables\ExternalPrograms\ExternalProgramsListView.resx">
       <DependentUpon>ExternalProgramsListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Tables\HostsEditor\HostsEditorView.resx">
+    <EmbeddedResource Include="Views\Tools\HostsEditor\HostsEditorView.resx">
       <DependentUpon>HostsEditorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tables\Images\ImagesDetailView.resx">

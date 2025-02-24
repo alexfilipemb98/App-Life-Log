@@ -1,4 +1,4 @@
-﻿namespace Life_Log.Views.Tools
+﻿namespace Life_Log.Views.Tools.SqlBrowser
 {
     partial class SqlBrowserView
     {
