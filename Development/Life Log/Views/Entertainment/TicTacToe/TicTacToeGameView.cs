@@ -85,6 +85,8 @@ namespace Life_Log.Views.Entertainment.TicTacToe
             int h1 = layoutControl.Height;
             int newHeight = (h1 - 125) / 3;
             Size size = new Size(newHeight, newHeight);
+            int wt = (esiTopLeft.Width + esiTopRight.Width) / 2;
+            int widthFinal = (esiLeft.Width + esiRight.Width) / 2;
 
             //1
             lciPe1_1.MaxSize = size;
@@ -125,11 +127,11 @@ namespace Life_Log.Views.Entertainment.TicTacToe
             lciPe3_3.MinSize = size;
             lciPe3_3.Size = size;
 
-            //with of empty to center
-            int widthFinal = (esiLeft.Width + esiRight.Width) / 2;
             esiLeft.Width = widthFinal;
             esiRight.Width = widthFinal;
 
+            esiTopLeft.Width = wt;
+            esiTopRight.Width = wt;
         }
 
         #endregion

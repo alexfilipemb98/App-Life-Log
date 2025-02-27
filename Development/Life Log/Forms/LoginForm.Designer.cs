@@ -171,7 +171,6 @@
             // 
             // npLogin
             // 
-            this.npLogin.Caption = "npLogin";
             this.npLogin.Controls.Add(this.dataLayoutControl1);
             this.npLogin.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.npLogin.Name = "npLogin";
@@ -280,6 +279,7 @@
             this.sbLogin.Appearance.Options.UseBackColor = true;
             this.sbLogin.Appearance.Options.UseFont = true;
             this.sbLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sbLogin.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.font_icon61548;
             this.sbLogin.Location = new System.Drawing.Point(121, 214);
             this.sbLogin.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.sbLogin.MaximumSize = new System.Drawing.Size(0, 48);

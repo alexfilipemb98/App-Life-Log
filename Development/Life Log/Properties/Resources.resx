@@ -295,4 +295,37 @@
   <data name="Game" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Game.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="font-icon61548" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\font-icon61548.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="coin-tails" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coin-tails.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="coin-heads" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coin-heads.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="coin-flip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coin-flip.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dice-dice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice-dice.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dice-6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice-6.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dice-5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice-5.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dice-4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice-4.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dice-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice-3.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dice-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice-2.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dice-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dice-1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
 </root>

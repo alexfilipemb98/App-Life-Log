@@ -52,6 +52,8 @@
             this.bbiToolsThreeSimpleRule = new DevExpress.XtraBars.BarButtonItem();
             this.bbiToolsHostsEditor = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEntertainmentTicTacToe = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiEntretainmentCoinFlip = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiEntretainmentDice = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgHomeMain = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -89,11 +91,15 @@
             this.hostsEditorView = new Life_Log.Views.Tools.HostsEditor.HostsEditorView();
             this.npEntertainmentTicTacToeView = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.ticTacToeGameView = new Life_Log.Views.Entertainment.TicTacToe.TicTacToeGameView();
+            this.npEntertainmentCoinFlipView = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.coinFlipGameView = new Life_Log.Views.Entertainment.Games.CoinFlip.CoinFlipGameView();
+            this.npEntertainmentDiceView = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.diceGameView1 = new Life_Log.Views.Entertainment.Games.Dice.DiceGameView();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -111,6 +117,8 @@
             this.npSettingsView.SuspendLayout();
             this.npToolsHotsEditorView.SuspendLayout();
             this.npEntertainmentTicTacToeView.SuspendLayout();
+            this.npEntertainmentCoinFlipView.SuspendLayout();
+            this.npEntertainmentDiceView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
@@ -143,10 +151,12 @@
             this.bbiTestCode,
             this.bbiToolsThreeSimpleRule,
             this.bbiToolsHostsEditor,
-            this.bbiEntertainmentTicTacToe});
+            this.bbiEntertainmentTicTacToe,
+            this.bbiEntretainmentCoinFlip,
+            this.bbiEntretainmentDice});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.ribbon.MaxItemId = 23;
+            this.ribbon.MaxItemId = 25;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsSearchMenu.SearchItemPosition = DevExpress.XtraBars.Ribbon.SearchItemPosition.Caption;
             this.ribbon.PageHeaderItemLinks.Add(this.btsiSetTopMost);
@@ -330,6 +340,22 @@
             this.bbiEntertainmentTicTacToe.Name = "bbiEntertainmentTicTacToe";
             this.bbiEntertainmentTicTacToe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEntertainmentTicTacToe_ItemClick);
             // 
+            // bbiEntretainmentCoinFlip
+            // 
+            this.bbiEntretainmentCoinFlip.Caption = "Coin Flip";
+            this.bbiEntretainmentCoinFlip.Id = 23;
+            this.bbiEntretainmentCoinFlip.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.coin_flip;
+            this.bbiEntretainmentCoinFlip.Name = "bbiEntretainmentCoinFlip";
+            this.bbiEntretainmentCoinFlip.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEntretainmentCoinFlip_ItemClick);
+            // 
+            // bbiEntretainmentDice
+            // 
+            this.bbiEntretainmentDice.Caption = "Dice";
+            this.bbiEntretainmentDice.Id = 24;
+            this.bbiEntretainmentDice.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.dice_dice;
+            this.bbiEntretainmentDice.Name = "bbiEntretainmentDice";
+            this.bbiEntretainmentDice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEntretainmentDice_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -392,6 +418,8 @@
             // ribbonPageGroup5
             // 
             this.ribbonPageGroup5.ItemLinks.Add(this.bbiEntertainmentTicTacToe);
+            this.ribbonPageGroup5.ItemLinks.Add(this.bbiEntretainmentCoinFlip);
+            this.ribbonPageGroup5.ItemLinks.Add(this.bbiEntretainmentDice);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "Actions";
             // 
@@ -474,6 +502,8 @@
             this.navigationFrame.Controls.Add(this.npSettingsView);
             this.navigationFrame.Controls.Add(this.npToolsHotsEditorView);
             this.navigationFrame.Controls.Add(this.npEntertainmentTicTacToeView);
+            this.navigationFrame.Controls.Add(this.npEntertainmentCoinFlipView);
+            this.navigationFrame.Controls.Add(this.npEntertainmentDiceView);
             this.navigationFrame.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationFrame.Location = new System.Drawing.Point(2, 2);
             this.navigationFrame.Margin = new System.Windows.Forms.Padding(0);
@@ -489,7 +519,9 @@
             this.npHomePasswordsView,
             this.npToolsPasswordGeneratorView,
             this.npToolsHotsEditorView,
-            this.npEntertainmentTicTacToeView});
+            this.npEntertainmentTicTacToeView,
+            this.npEntertainmentCoinFlipView,
+            this.npEntertainmentDiceView});
             this.navigationFrame.SelectedPage = this.npHomeDashboardView;
             this.navigationFrame.Size = new System.Drawing.Size(962, 372);
             this.navigationFrame.TabIndex = 4;
@@ -669,6 +701,28 @@
             this.ticTacToeGameView.Size = new System.Drawing.Size(962, 372);
             this.ticTacToeGameView.TabIndex = 0;
             // 
+            // npEntertainmentCoinFlipView
+            // 
+            this.npEntertainmentCoinFlipView.Caption = "npEntertainmentCoinFlipView";
+            this.npEntertainmentCoinFlipView.Controls.Add(this.coinFlipGameView);
+            this.npEntertainmentCoinFlipView.Name = "npEntertainmentCoinFlipView";
+            this.npEntertainmentCoinFlipView.Size = new System.Drawing.Size(962, 372);
+            // 
+            // coinFlipGameView
+            // 
+            this.coinFlipGameView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.coinFlipGameView.Location = new System.Drawing.Point(0, 0);
+            this.coinFlipGameView.Margin = new System.Windows.Forms.Padding(0);
+            this.coinFlipGameView.Name = "coinFlipGameView";
+            this.coinFlipGameView.Size = new System.Drawing.Size(962, 372);
+            this.coinFlipGameView.TabIndex = 0;
+            // 
+            // npEntertainmentDiceView
+            // 
+            this.npEntertainmentDiceView.Controls.Add(this.diceGameView1);
+            this.npEntertainmentDiceView.Name = "npEntertainmentDiceView";
+            this.npEntertainmentDiceView.Size = new System.Drawing.Size(962, 372);
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -703,6 +757,15 @@
             // 
             this.ribbonPage7.Name = "ribbonPage7";
             this.ribbonPage7.Text = "ribbonPage7";
+            // 
+            // diceGameView1
+            // 
+            this.diceGameView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.diceGameView1.Location = new System.Drawing.Point(0, 0);
+            this.diceGameView1.Margin = new System.Windows.Forms.Padding(0);
+            this.diceGameView1.Name = "diceGameView1";
+            this.diceGameView1.Size = new System.Drawing.Size(962, 372);
+            this.diceGameView1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -741,6 +804,8 @@
             this.npSettingsView.ResumeLayout(false);
             this.npToolsHotsEditorView.ResumeLayout(false);
             this.npEntertainmentTicTacToeView.ResumeLayout(false);
+            this.npEntertainmentCoinFlipView.ResumeLayout(false);
+            this.npEntertainmentDiceView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
@@ -813,5 +878,11 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage7;
         private DevExpress.XtraBars.Navigation.NavigationPage npEntertainmentTicTacToeView;
         private Views.Entertainment.TicTacToe.TicTacToeGameView ticTacToeGameView;
+        private DevExpress.XtraBars.BarButtonItem bbiEntretainmentCoinFlip;
+        private DevExpress.XtraBars.Navigation.NavigationPage npEntertainmentCoinFlipView;
+        private Views.Entertainment.Games.CoinFlip.CoinFlipGameView coinFlipGameView;
+        private DevExpress.XtraBars.BarButtonItem bbiEntretainmentDice;
+        private DevExpress.XtraBars.Navigation.NavigationPage npEntertainmentDiceView;
+        private Views.Entertainment.Games.Dice.DiceGameView diceGameView1;
     }
 }

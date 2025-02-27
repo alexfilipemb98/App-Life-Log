@@ -255,6 +255,28 @@ namespace Life_Log.Forms
             navigationFrame.SelectedPage = npEntertainmentTicTacToeView;
         }
 
+        /// <summary>
+        /// Show entertainment coin flip
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiEntretainmentCoinFlip_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ribbon.ApplicationDocumentCaption = "Coin Flip";
+            navigationFrame.SelectedPage = npEntertainmentCoinFlipView;
+        }
+
+        /// <summary>
+        /// Show entertainment dice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiEntretainmentDice_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ribbon.ApplicationDocumentCaption = "Dice";
+            navigationFrame.SelectedPage = npEntertainmentDiceView;
+        }
+
         #endregion
 
         #region CHECKED CHANGED
@@ -324,6 +346,7 @@ namespace Life_Log.Forms
         private void bbiTestCode_ItemClick(object sender, ItemClickEventArgs e)
         {
         }
+
 
     }
 

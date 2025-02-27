@@ -44,11 +44,12 @@
             this.lcTieScore = new DevExpress.XtraEditors.LabelControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.esiTopLeft = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.esiTopRight = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcigGameBoard = new DevExpress.XtraLayout.LayoutControlGroup();
             this.esiLeft = new DevExpress.XtraLayout.EmptySpaceItem();
             this.esiRight = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -70,7 +71,6 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pe_3_2.Properties)).BeginInit();
@@ -84,11 +84,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pe_1_1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.esiTopLeft)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.esiTopRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcigGameBoard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.esiLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.esiRight)).BeginInit();
@@ -103,7 +104,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciPe3_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPe3_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl
@@ -145,7 +145,7 @@
             // 
             // pe_3_2
             // 
-            this.pe_3_2.Location = new System.Drawing.Point(397, 422);
+            this.pe_3_2.Location = new System.Drawing.Point(310, 422);
             this.pe_3_2.Margin = new System.Windows.Forms.Padding(4);
             this.pe_3_2.Name = "pe_3_2";
             this.pe_3_2.Properties.NullText = " ";
@@ -158,7 +158,7 @@
             // 
             // pe_2_2
             // 
-            this.pe_2_2.Location = new System.Drawing.Point(397, 272);
+            this.pe_2_2.Location = new System.Drawing.Point(310, 272);
             this.pe_2_2.Margin = new System.Windows.Forms.Padding(4);
             this.pe_2_2.Name = "pe_2_2";
             this.pe_2_2.Properties.NullText = " ";
@@ -171,7 +171,7 @@
             // 
             // pe_1_2
             // 
-            this.pe_1_2.Location = new System.Drawing.Point(397, 122);
+            this.pe_1_2.Location = new System.Drawing.Point(310, 122);
             this.pe_1_2.Margin = new System.Windows.Forms.Padding(4);
             this.pe_1_2.Name = "pe_1_2";
             this.pe_1_2.Properties.NullText = " ";
@@ -184,7 +184,7 @@
             // 
             // pe_3_3
             // 
-            this.pe_3_3.Location = new System.Drawing.Point(547, 422);
+            this.pe_3_3.Location = new System.Drawing.Point(460, 422);
             this.pe_3_3.Margin = new System.Windows.Forms.Padding(4);
             this.pe_3_3.Name = "pe_3_3";
             this.pe_3_3.Properties.NullText = " ";
@@ -197,7 +197,7 @@
             // 
             // pe_3_1
             // 
-            this.pe_3_1.Location = new System.Drawing.Point(247, 422);
+            this.pe_3_1.Location = new System.Drawing.Point(160, 422);
             this.pe_3_1.Margin = new System.Windows.Forms.Padding(4);
             this.pe_3_1.Name = "pe_3_1";
             this.pe_3_1.Properties.NullText = " ";
@@ -210,7 +210,7 @@
             // 
             // pe_2_3
             // 
-            this.pe_2_3.Location = new System.Drawing.Point(547, 272);
+            this.pe_2_3.Location = new System.Drawing.Point(460, 272);
             this.pe_2_3.Margin = new System.Windows.Forms.Padding(4);
             this.pe_2_3.Name = "pe_2_3";
             this.pe_2_3.Properties.NullText = " ";
@@ -223,7 +223,7 @@
             // 
             // pe_2_1
             // 
-            this.pe_2_1.Location = new System.Drawing.Point(247, 272);
+            this.pe_2_1.Location = new System.Drawing.Point(160, 272);
             this.pe_2_1.Margin = new System.Windows.Forms.Padding(4);
             this.pe_2_1.Name = "pe_2_1";
             this.pe_2_1.Properties.NullText = " ";
@@ -236,7 +236,7 @@
             // 
             // pe_1_3
             // 
-            this.pe_1_3.Location = new System.Drawing.Point(547, 122);
+            this.pe_1_3.Location = new System.Drawing.Point(460, 122);
             this.pe_1_3.Margin = new System.Windows.Forms.Padding(4);
             this.pe_1_3.Name = "pe_1_3";
             this.pe_1_3.Properties.AllowFocused = false;
@@ -250,7 +250,7 @@
             // 
             // pe_1_1
             // 
-            this.pe_1_1.Location = new System.Drawing.Point(247, 122);
+            this.pe_1_1.Location = new System.Drawing.Point(160, 122);
             this.pe_1_1.Margin = new System.Windows.Forms.Padding(4);
             this.pe_1_1.Name = "pe_1_1";
             this.pe_1_1.Properties.NullText = " ";
@@ -307,8 +307,8 @@
             this.layoutControlGroup2.GroupStyle = DevExpress.Utils.GroupStyle.Title;
             this.layoutControlGroup2.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.emptySpaceItem2,
-            this.emptySpaceItem3,
+            this.esiTopLeft,
+            this.esiTopRight,
             this.layoutControlGroup3});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
@@ -320,18 +320,36 @@
             this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup2.Text = "Scores";
             // 
-            // layoutControlItem1
+            // esiTopLeft
             // 
-            this.layoutControlItem1.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem1.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem1.BestFitWeight = 50;
-            this.layoutControlItem1.Control = this.lcPlayerXSocre;
-            this.layoutControlItem1.Location = new System.Drawing.Point(237, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(140, 35);
-            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
-            this.layoutControlItem1.Text = "Player X: ";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(114, 29);
+            this.esiTopLeft.AllowHotTrack = false;
+            this.esiTopLeft.BestFitWeight = 105;
+            this.esiTopLeft.Location = new System.Drawing.Point(0, 0);
+            this.esiTopLeft.Name = "esiTopLeft";
+            this.esiTopLeft.Size = new System.Drawing.Size(266, 35);
+            this.esiTopLeft.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // esiTopRight
+            // 
+            this.esiTopRight.AllowHotTrack = false;
+            this.esiTopRight.BestFitWeight = 105;
+            this.esiTopRight.Location = new System.Drawing.Point(643, 0);
+            this.esiTopRight.Name = "esiTopRight";
+            this.esiTopRight.Size = new System.Drawing.Size(269, 35);
+            this.esiTopRight.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.BestFitWeight = 75;
+            this.layoutControlGroup3.GroupBordersVisible = false;
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem1});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(266, 0);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(377, 35);
+            this.layoutControlGroup3.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             // 
             // layoutControlItem2
             // 
@@ -363,23 +381,18 @@
             this.layoutControlItem3.Text = "Ties: ";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(64, 29);
             // 
-            // emptySpaceItem2
+            // layoutControlItem1
             // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.BestFitWeight = 105;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(266, 35);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem3
-            // 
-            this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.BestFitWeight = 105;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(643, 0);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(269, 35);
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem1.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem1.BestFitWeight = 50;
+            this.layoutControlItem1.Control = this.lcPlayerXSocre;
+            this.layoutControlItem1.Location = new System.Drawing.Point(237, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(140, 35);
+            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
+            this.layoutControlItem1.Text = "Player X: ";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(114, 29);
             // 
             // lcigGameBoard
             // 
@@ -401,16 +414,16 @@
             this.esiLeft.BestFitWeight = 75;
             this.esiLeft.Location = new System.Drawing.Point(0, 0);
             this.esiLeft.Name = "esiLeft";
-            this.esiLeft.Size = new System.Drawing.Size(239, 492);
+            this.esiLeft.Size = new System.Drawing.Size(152, 492);
             this.esiLeft.TextSize = new System.Drawing.Size(0, 0);
             // 
             // esiRight
             // 
             this.esiRight.AllowHotTrack = false;
             this.esiRight.BestFitWeight = 75;
-            this.esiRight.Location = new System.Drawing.Point(689, 0);
+            this.esiRight.Location = new System.Drawing.Point(602, 0);
             this.esiRight.Name = "esiRight";
-            this.esiRight.Size = new System.Drawing.Size(223, 492);
+            this.esiRight.Size = new System.Drawing.Size(310, 492);
             this.esiRight.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup1
@@ -427,7 +440,7 @@
             this.lciPe3_1,
             this.lciPe3_2,
             this.lciPe3_3});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(239, 0);
+            this.layoutControlGroup1.Location = new System.Drawing.Point(152, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(450, 492);
             this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
@@ -622,19 +635,6 @@
             this.barButtonItem1.Id = 1;
             this.barButtonItem1.Name = "barButtonItem1";
             // 
-            // layoutControlGroup3
-            // 
-            this.layoutControlGroup3.BestFitWeight = 75;
-            this.layoutControlGroup3.GroupBordersVisible = false;
-            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem1});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(266, 0);
-            this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(377, 35);
-            this.layoutControlGroup3.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            // 
             // TicTacToeGameView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -661,11 +661,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pe_1_1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.esiTopLeft)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.esiTopRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcigGameBoard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.esiLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.esiRight)).EndInit();
@@ -680,7 +681,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lciPe3_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciPe3_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -727,8 +727,8 @@
         private DevExpress.XtraLayout.LayoutControlItem lciPe3_1;
         private DevExpress.XtraLayout.LayoutControlItem lciPe3_2;
         private DevExpress.XtraLayout.LayoutControlItem lciPe3_3;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private DevExpress.XtraLayout.EmptySpaceItem esiTopLeft;
+        private DevExpress.XtraLayout.EmptySpaceItem esiTopRight;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
     }
 }
