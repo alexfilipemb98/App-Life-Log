@@ -23,6 +23,20 @@ namespace Life_Log.Views.Settings
         /// </summary>
         public SettingsView() => InitializeComponent();
 
+
         #endregion
+
+        /// <summary>
+        /// Selected page changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void navigationPaneEx_SelectedPageChanged(object sender, DevExpress.XtraBars.Navigation.SelectedPageChangedEventArgs e)
+        {
+            if (e.Page  == npDbSettings)
+            {
+                databaseSettingsView.LoadData();
+            }
+        }
     }
 }

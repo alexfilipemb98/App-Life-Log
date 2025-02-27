@@ -436,6 +436,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\updatedataextract.svg" />
     <None Include="Resources\dice-1.svg" />
     <None Include="Resources\dice-2.svg" />
     <None Include="Resources\dice-3.svg" />

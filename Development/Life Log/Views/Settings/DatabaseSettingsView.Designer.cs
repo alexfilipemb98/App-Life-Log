@@ -44,6 +44,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.bar = new DevExpress.XtraBars.Bar();
             this.bbiSave = new DevExpress.XtraBars.BarButtonItem();
@@ -52,10 +57,10 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cbSQLDatabase = new DevExpress.XtraEditors.ComboBoxEdit();
             this.databaseConfigModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.beSqlPassword = new DevExpress.XtraEditors.ButtonEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.teSqlUsername = new DevExpress.XtraEditors.TextEdit();
             this.bePathSqlLite = new DevExpress.XtraEditors.ButtonEdit();
             this.beSqlAddress = new DevExpress.XtraEditors.ButtonEdit();
             this.cbDatabaseType = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -72,10 +77,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSQLDatabase.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseConfigModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beSqlPassword.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teSqlUsername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bePathSqlLite.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beSqlAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbDatabaseType.Properties)).BeginInit();
@@ -127,6 +132,7 @@
             this.bbiSave.Id = 3;
             this.bbiSave.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.save;
             this.bbiSave.Name = "bbiSave";
+            this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -166,9 +172,9 @@
             // 
             // dataLayoutControl1
             // 
-            this.dataLayoutControl1.Controls.Add(this.comboBoxEdit2);
+            this.dataLayoutControl1.Controls.Add(this.cbSQLDatabase);
             this.dataLayoutControl1.Controls.Add(this.beSqlPassword);
-            this.dataLayoutControl1.Controls.Add(this.textEdit1);
+            this.dataLayoutControl1.Controls.Add(this.teSqlUsername);
             this.dataLayoutControl1.Controls.Add(this.bePathSqlLite);
             this.dataLayoutControl1.Controls.Add(this.beSqlAddress);
             this.dataLayoutControl1.Controls.Add(this.cbDatabaseType);
@@ -181,17 +187,22 @@
             this.dataLayoutControl1.TabIndex = 10;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
-            // comboBoxEdit2
+            // cbSQLDatabase
             // 
-            this.comboBoxEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlDatabase", true));
-            this.comboBoxEdit2.Location = new System.Drawing.Point(82, 241);
-            this.comboBoxEdit2.MenuManager = this.barManager;
-            this.comboBoxEdit2.Name = "comboBoxEdit2";
-            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit2.Size = new System.Drawing.Size(671, 30);
-            this.comboBoxEdit2.StyleController = this.dataLayoutControl1;
-            this.comboBoxEdit2.TabIndex = 9;
+            this.cbSQLDatabase.CausesValidation = false;
+            this.cbSQLDatabase.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlDatabase", true));
+            this.cbSQLDatabase.Location = new System.Drawing.Point(82, 241);
+            this.cbSQLDatabase.MenuManager = this.barManager;
+            this.cbSQLDatabase.Name = "cbSQLDatabase";
+            editorButtonImageOptions1.SvgImage = global::Life_Log.Properties.Resources.updatedataextract;
+            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.cbSQLDatabase.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "LISTDB", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cbSQLDatabase.Size = new System.Drawing.Size(671, 30);
+            this.cbSQLDatabase.StyleController = this.dataLayoutControl1;
+            this.cbSQLDatabase.TabIndex = 9;
+            this.cbSQLDatabase.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cbSQLDatabase_ButtonClick);
             // 
             // databaseConfigModelBindingSource
             // 
@@ -199,59 +210,65 @@
             // 
             // beSqlPassword
             // 
+            this.beSqlPassword.CausesValidation = false;
             this.beSqlPassword.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlPassword", true));
             this.beSqlPassword.Location = new System.Drawing.Point(457, 205);
             this.beSqlPassword.MenuManager = this.barManager;
             this.beSqlPassword.Name = "beSqlPassword";
-            editorButtonImageOptions1.SvgImage = global::Life_Log.Properties.Resources.security_visibilityoff;
-            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(24, 24);
+            editorButtonImageOptions2.SvgImage = global::Life_Log.Properties.Resources.security_visibilityoff;
+            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(24, 24);
             this.beSqlPassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.beSqlPassword.Properties.UseSystemPasswordChar = true;
             this.beSqlPassword.Size = new System.Drawing.Size(296, 30);
             this.beSqlPassword.StyleController = this.dataLayoutControl1;
             this.beSqlPassword.TabIndex = 8;
             this.beSqlPassword.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beSqlPassword_ButtonClick);
             // 
-            // textEdit1
+            // teSqlUsername
             // 
-            this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlUsername", true));
-            this.textEdit1.Location = new System.Drawing.Point(82, 205);
-            this.textEdit1.MenuManager = this.barManager;
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(295, 30);
-            this.textEdit1.StyleController = this.dataLayoutControl1;
-            this.textEdit1.TabIndex = 7;
+            this.teSqlUsername.CausesValidation = false;
+            this.teSqlUsername.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlUsername", true));
+            this.teSqlUsername.Location = new System.Drawing.Point(82, 205);
+            this.teSqlUsername.MenuManager = this.barManager;
+            this.teSqlUsername.Name = "teSqlUsername";
+            this.teSqlUsername.Size = new System.Drawing.Size(295, 30);
+            this.teSqlUsername.StyleController = this.dataLayoutControl1;
+            this.teSqlUsername.TabIndex = 7;
             // 
             // bePathSqlLite
             // 
+            this.bePathSqlLite.CausesValidation = false;
             this.bePathSqlLite.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SQlLitePath", true));
             this.bePathSqlLite.Location = new System.Drawing.Point(49, 91);
             this.bePathSqlLite.MenuManager = this.barManager;
             this.bePathSqlLite.Name = "bePathSqlLite";
-            editorButtonImageOptions2.SvgImage = global::Life_Log.Properties.Resources.open21;
-            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(24, 24);
+            editorButtonImageOptions3.SvgImage = global::Life_Log.Properties.Resources.open21;
+            editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(24, 24);
             this.bePathSqlLite.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bePathSqlLite.Size = new System.Drawing.Size(704, 30);
             this.bePathSqlLite.StyleController = this.dataLayoutControl1;
             this.bePathSqlLite.TabIndex = 6;
             // 
             // beSqlAddress
             // 
+            this.beSqlAddress.CausesValidation = false;
             this.beSqlAddress.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlAddress", true));
             this.beSqlAddress.Location = new System.Drawing.Point(82, 169);
             this.beSqlAddress.MenuManager = this.barManager;
             this.beSqlAddress.Name = "beSqlAddress";
-            editorButtonImageOptions3.SvgImage = global::Life_Log.Properties.Resources.actions_navigationbar;
-            editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(24, 24);
+            editorButtonImageOptions4.SvgImage = global::Life_Log.Properties.Resources.actions_navigationbar;
+            editorButtonImageOptions4.SvgImageSize = new System.Drawing.Size(20, 20);
             this.beSqlAddress.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.beSqlAddress.Size = new System.Drawing.Size(671, 30);
             this.beSqlAddress.StyleController = this.dataLayoutControl1;
             this.beSqlAddress.TabIndex = 4;
             // 
             // cbDatabaseType
             // 
+            this.cbDatabaseType.CausesValidation = false;
             this.cbDatabaseType.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "DatabaseType", true));
             this.cbDatabaseType.Location = new System.Drawing.Point(119, 13);
             this.cbDatabaseType.MenuManager = this.barManager;
@@ -356,7 +373,7 @@
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.textEdit1;
+            this.layoutControlItem4.Control = this.teSqlUsername;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 36);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(375, 36);
@@ -365,7 +382,7 @@
             // 
             // layoutControlItem6
             // 
-            this.layoutControlItem6.Control = this.comboBoxEdit2;
+            this.layoutControlItem6.Control = this.cbSQLDatabase;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(751, 36);
@@ -395,10 +412,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbSQLDatabase.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseConfigModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beSqlPassword.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teSqlUsername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bePathSqlLite.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beSqlAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbDatabaseType.Properties)).EndInit();
@@ -438,10 +455,10 @@
         private System.Windows.Forms.BindingSource databaseConfigModelBindingSource;
         private DevExpress.XtraEditors.ButtonEdit beSqlAddress;
         private DevExpress.XtraEditors.ButtonEdit beSqlPassword;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit teSqlUsername;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
+        private DevExpress.XtraEditors.ComboBoxEdit cbSQLDatabase;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraEditors.ComboBoxEdit cbDatabaseType;
     }

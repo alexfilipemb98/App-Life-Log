@@ -57,6 +57,7 @@
             this.navigationPaneEx.State = DevExpress.XtraBars.Navigation.NavigationPaneState.Expanded;
             this.navigationPaneEx.TabIndex = 4;
             this.navigationPaneEx.Text = "Settigns";
+            this.navigationPaneEx.SelectedPageChanged += new DevExpress.XtraBars.Navigation.SelectedPageChangedEventHandler(this.navigationPaneEx_SelectedPageChanged);
             // 
             // npGeralSettings
             // 

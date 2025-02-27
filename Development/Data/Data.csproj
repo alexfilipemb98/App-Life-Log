@@ -54,6 +54,7 @@
     <Compile Include="Entities\ExternalProgramsEntity.cs" />
     <Compile Include="Entities\ImagesEntity.cs" />
     <Compile Include="Entities\NotesEntity.cs" />
+    <Compile Include="Helpers\DbHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\CommandsQuery.cs" />
     <Compile Include="Queries\ExternalProgramsQuery.cs" />
