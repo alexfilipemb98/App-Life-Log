@@ -124,7 +124,7 @@ namespace Life_Log.Helpers
             {
                 LoginFormInstance.Invoke(new Action(() =>
                 {
-                    LoginFormInstance.bsiStatusLabel.Caption = $"{DateTime.Now:HH/mm/ss}|{message}";
+                    LoginFormInstance.bsiStatusLabel.Caption = $"{DateTime.Now:HH:mm:ss} | {message}";
                     LoginFormInstance.bsiStatusLabel.ItemAppearance.Normal.ForeColor = color;
                 }));
             }
@@ -132,7 +132,7 @@ namespace Life_Log.Helpers
             {
                 MainFormInstance.Invoke(new Action(() =>
                 {
-                    MainFormInstance.bsiStatusLabel.Caption = $"{DateTime.Now:HH/mm/ss}|{message}";
+                    MainFormInstance.bsiStatusLabel.Caption = $"{DateTime.Now:HH:mm:ss} | {message}";
                     MainFormInstance.bsiStatusLabel.ItemAppearance.Normal.ForeColor = color;
                 }));
             }

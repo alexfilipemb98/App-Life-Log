@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.LookAndFeel;
+using DevExpress.Skins;
 
 namespace Life_Log.Forms.Dialogs
 {
@@ -35,12 +30,23 @@ namespace Life_Log.Forms.Dialogs
                 int w1 = (form.esibuttonLeft.Width + form.esiButtonRight.Width) / 2;
                 form.esibuttonLeft.Width = w1;
                 form.esiButtonRight.Width = w1;
+                form.ribbon.ApplicationDocumentCaption = caption;
+                form.lblCaption.Text = message;
 
-                form.lblCaption.Text = caption;
+                Skin skin = CommonSkins.GetSkin(UserLookAndFeel.Default);
+                form.BackColor = skin.Colors["Window"];
+                form.lcButtons.BackColor = skin.Colors["Control"];
 
                 if (string.IsNullOrWhiteSpace(details))
                 {
-
+                    form.lcgDetails.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    form.Height = form.Height - form.lcgDetails.Height + 5;
+                }
+                else
+                {
+                    form.lcMessage.Text = details;
+                    Size preferredSize = TextRenderer.MeasureText(form.lcMessage.Text, form.lcMessage.Font);
+                    form.Height = Math.Min(form.Size.Height + (form.lcMessage.Size.Height), form.MaximumSize.Height);
                 }
 
                 DialogResult reuslt = form.ShowDialog();
@@ -50,9 +56,22 @@ namespace Life_Log.Forms.Dialogs
             }
         }
 
+
+
         #endregion
 
+        #region CLICK
 
+        /// <summary>
+        /// Copy details to clipboard
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lcgDetails_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.BaseButtonEventArgs e)
+        {
+            Clipboard.SetText(lcMessage.Text);
+        }
 
+        #endregion
     }
 }

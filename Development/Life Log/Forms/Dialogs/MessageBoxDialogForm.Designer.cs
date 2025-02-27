@@ -31,7 +31,7 @@
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions1 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.sbNo = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.lcButtons = new DevExpress.XtraLayout.LayoutControl();
             this.sbYes = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.esibuttonLeft = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -40,17 +40,19 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.lcMain = new DevExpress.XtraLayout.LayoutControl();
+            this.lblCaption = new DevExpress.XtraEditors.LabelControl();
+            this.lcMessage = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lblCaption = new DevExpress.XtraLayout.SimpleLabelItem();
             this.lcgDetails = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lcButtons)).BeginInit();
+            this.lcButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.esibuttonLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.esiButtonRight)).BeginInit();
@@ -58,15 +60,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
-            this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
+            this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblCaption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -97,27 +99,29 @@
             this.sbNo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sbNo.DialogResult = System.Windows.Forms.DialogResult.No;
             this.sbNo.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.delete;
-            this.sbNo.Location = new System.Drawing.Point(347, 5);
+            this.sbNo.Location = new System.Drawing.Point(347, 0);
             this.sbNo.MaximumSize = new System.Drawing.Size(150, 48);
             this.sbNo.MinimumSize = new System.Drawing.Size(150, 48);
             this.sbNo.Name = "sbNo";
             this.sbNo.Size = new System.Drawing.Size(150, 48);
-            this.sbNo.StyleController = this.layoutControl1;
+            this.sbNo.StyleController = this.lcButtons;
             this.sbNo.TabIndex = 3;
             this.sbNo.Text = "NO";
             // 
-            // layoutControl1
+            // lcButtons
             // 
-            this.layoutControl1.Controls.Add(this.sbYes);
-            this.layoutControl1.Controls.Add(this.sbNo);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 341);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1270, 352, 650, 400);
-            this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(628, 58);
-            this.layoutControl1.TabIndex = 10;
-            this.layoutControl1.Text = "layoutControl1";
+            this.lcButtons.Controls.Add(this.sbYes);
+            this.lcButtons.Controls.Add(this.sbNo);
+            this.lcButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lcButtons.Location = new System.Drawing.Point(0, 203);
+            this.lcButtons.MaximumSize = new System.Drawing.Size(628, 53);
+            this.lcButtons.MinimumSize = new System.Drawing.Size(628, 53);
+            this.lcButtons.Name = "lcButtons";
+            this.lcButtons.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1270, 352, 650, 400);
+            this.lcButtons.Root = this.Root;
+            this.lcButtons.Size = new System.Drawing.Size(628, 53);
+            this.lcButtons.TabIndex = 10;
+            this.lcButtons.Text = "layoutControl1";
             // 
             // sbYes
             // 
@@ -126,12 +130,12 @@
             this.sbYes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sbYes.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.sbYes.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.markcomplete;
-            this.sbYes.Location = new System.Drawing.Point(187, 5);
+            this.sbYes.Location = new System.Drawing.Point(187, 0);
             this.sbYes.MaximumSize = new System.Drawing.Size(150, 48);
             this.sbYes.MinimumSize = new System.Drawing.Size(150, 48);
             this.sbYes.Name = "sbYes";
             this.sbYes.Size = new System.Drawing.Size(150, 48);
-            this.sbYes.StyleController = this.layoutControl1;
+            this.sbYes.StyleController = this.lcButtons;
             this.sbYes.TabIndex = 4;
             this.sbYes.Text = "YES";
             // 
@@ -144,8 +148,8 @@
             this.esiButtonRight,
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.Root.Size = new System.Drawing.Size(628, 58);
+            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
+            this.Root.Size = new System.Drawing.Size(628, 53);
             this.Root.TextVisible = false;
             // 
             // esibuttonLeft
@@ -212,30 +216,65 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // layoutControl2
+            // lcMain
             // 
-            this.layoutControl2.Controls.Add(this.memoEdit1);
-            this.layoutControl2.Controls.Add(this.pictureEdit1);
-            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(0, 49);
-            this.layoutControl2.Name = "layoutControl2";
-            this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(628, 292);
-            this.layoutControl2.TabIndex = 12;
-            this.layoutControl2.Text = "layoutControl2";
+            this.lcMain.Controls.Add(this.lblCaption);
+            this.lcMain.Controls.Add(this.lcMessage);
+            this.lcMain.Controls.Add(this.pictureEdit1);
+            this.lcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lcMain.Location = new System.Drawing.Point(0, 49);
+            this.lcMain.Name = "lcMain";
+            this.lcMain.Root = this.layoutControlGroup2;
+            this.lcMain.Size = new System.Drawing.Size(628, 154);
+            this.lcMain.TabIndex = 12;
+            this.lcMain.Text = "layoutControl2";
+            // 
+            // lblCaption
+            // 
+            this.lblCaption.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F);
+            this.lblCaption.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Hyperlink;
+            this.lblCaption.Appearance.Options.UseFont = true;
+            this.lblCaption.Appearance.Options.UseForeColor = true;
+            this.lblCaption.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.lblCaption.Location = new System.Drawing.Point(95, 30);
+            this.lblCaption.Name = "lblCaption";
+            this.lblCaption.Size = new System.Drawing.Size(525, 25);
+            this.lblCaption.StyleController = this.lcMain;
+            this.lblCaption.TabIndex = 7;
+            this.lblCaption.Text = "CAPTION";
+            // 
+            // lcMessage
+            // 
+            this.lcMessage.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.lcMessage.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F);
+            this.lcMessage.Appearance.Options.UseBackColor = true;
+            this.lcMessage.Appearance.Options.UseFont = true;
+            this.lcMessage.AppearanceDisabled.BackColor = System.Drawing.Color.Transparent;
+            this.lcMessage.AppearanceDisabled.Options.UseBackColor = true;
+            this.lcMessage.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.lcMessage.Location = new System.Drawing.Point(8, 121);
+            this.lcMessage.Margin = new System.Windows.Forms.Padding(0);
+            this.lcMessage.Name = "lcMessage";
+            this.lcMessage.Size = new System.Drawing.Size(612, 25);
+            this.lcMessage.StyleController = this.lcMain;
+            this.lcMessage.TabIndex = 6;
+            this.lcMessage.Text = "MESSAGE";
             // 
             // pictureEdit1
             // 
+            this.pictureEdit1.EditValue = global::Life_Log.Properties.Resources.question_mark;
             this.pictureEdit1.Location = new System.Drawing.Point(8, 8);
             this.pictureEdit1.MaximumSize = new System.Drawing.Size(70, 70);
             this.pictureEdit1.MenuManager = this.ribbon;
             this.pictureEdit1.MinimumSize = new System.Drawing.Size(70, 70);
             this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit1.Properties.NullText = " ";
             this.pictureEdit1.Properties.ReadOnly = true;
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.pictureEdit1.Size = new System.Drawing.Size(70, 70);
-            this.pictureEdit1.StyleController = this.layoutControl2;
+            this.pictureEdit1.StyleController = this.lcMain;
             this.pictureEdit1.TabIndex = 5;
             // 
             // layoutControlGroup2
@@ -244,11 +283,12 @@
             this.layoutControlGroup2.GroupBordersVisible = false;
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem4,
-            this.lblCaption,
-            this.lcgDetails});
+            this.lcgDetails,
+            this.layoutControlItem5,
+            this.simpleSeparator1});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 0);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(628, 292);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(628, 154);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem4
@@ -260,20 +300,10 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
-            // lblCaption
-            // 
-            this.lblCaption.AllowHotTrack = false;
-            this.lblCaption.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCaption.AppearanceItemCaption.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Hyperlink;
-            this.lblCaption.AppearanceItemCaption.Options.UseFont = true;
-            this.lblCaption.AppearanceItemCaption.Options.UseForeColor = true;
-            this.lblCaption.Location = new System.Drawing.Point(76, 0);
-            this.lblCaption.Name = "lblCaption";
-            this.lblCaption.Size = new System.Drawing.Size(542, 76);
-            this.lblCaption.TextSize = new System.Drawing.Size(142, 25);
-            // 
             // lcgDetails
             // 
+            this.lcgDetails.AppearanceGroup.BorderColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            this.lcgDetails.AppearanceGroup.Options.UseBorderColor = true;
             buttonImageOptions1.SvgImage = global::Life_Log.Properties.Resources.copy;
             buttonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 20);
             this.lcgDetails.CustomHeaderButtons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
@@ -285,38 +315,50 @@
             this.lcgDetails.Location = new System.Drawing.Point(0, 76);
             this.lcgDetails.Name = "lcgDetails";
             this.lcgDetails.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lcgDetails.Size = new System.Drawing.Size(618, 211);
-            this.lcgDetails.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
+            this.lcgDetails.Size = new System.Drawing.Size(618, 73);
+            this.lcgDetails.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
             this.lcgDetails.Text = "Details";
-            // 
-            // memoEdit1
-            // 
-            this.memoEdit1.Location = new System.Drawing.Point(8, 121);
-            this.memoEdit1.MenuManager = this.ribbon;
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Properties.ReadOnly = true;
-            this.memoEdit1.Size = new System.Drawing.Size(612, 168);
-            this.memoEdit1.StyleController = this.layoutControl2;
-            this.memoEdit1.TabIndex = 6;
+            this.lcgDetails.CustomButtonClick += new DevExpress.XtraBars.Docking2010.BaseButtonEventHandler(this.lcgDetails_CustomButtonClick);
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.memoEdit1;
+            this.layoutControlItem3.Control = this.lcMessage;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(618, 174);
+            this.layoutControlItem3.Size = new System.Drawing.Size(618, 31);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.layoutControlItem5.Control = this.lblCaption;
+            this.layoutControlItem5.Location = new System.Drawing.Point(87, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(531, 76);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // simpleSeparator1
+            // 
+            this.simpleSeparator1.AllowHotTrack = false;
+            this.simpleSeparator1.Location = new System.Drawing.Point(76, 0);
+            this.simpleSeparator1.Name = "simpleSeparator1";
+            this.simpleSeparator1.Size = new System.Drawing.Size(11, 76);
+            this.simpleSeparator1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 0);
+            // 
             // MessageBoxDialogForm
             // 
+            this.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 399);
-            this.Controls.Add(this.layoutControl2);
-            this.Controls.Add(this.layoutControl1);
+            this.ClientSize = new System.Drawing.Size(628, 256);
+            this.Controls.Add(this.lcMain);
+            this.Controls.Add(this.lcButtons);
             this.Controls.Add(this.ribbon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.IconOptions.SvgImage = global::Life_Log.Properties.Resources.icon_svg;
             this.MaximumSize = new System.Drawing.Size(630, 400);
             this.MinimumSize = new System.Drawing.Size(630, 189);
             this.Name = "MessageBoxDialogForm";
@@ -324,8 +366,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MessageBoxDialogForm";
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lcButtons)).EndInit();
+            this.lcButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.esibuttonLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.esiButtonRight)).EndInit();
@@ -333,15 +375,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
-            this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
+            this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblCaption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,7 +393,7 @@
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraEditors.SimpleButton sbNo;
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControl lcButtons;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.EmptySpaceItem esibuttonLeft;
@@ -360,13 +402,15 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.LayoutControl layoutControl2;
+        private DevExpress.XtraLayout.LayoutControl lcMain;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.SimpleLabelItem lblCaption;
         private DevExpress.XtraLayout.LayoutControlGroup lcgDetails;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
+        private DevExpress.XtraEditors.LabelControl lblCaption;
+        private DevExpress.XtraEditors.LabelControl lcMessage;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.SimpleSeparator simpleSeparator1;
     }
 }

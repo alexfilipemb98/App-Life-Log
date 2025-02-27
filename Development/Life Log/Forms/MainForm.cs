@@ -88,7 +88,7 @@ namespace Life_Log.Forms
         {
             try
             {
-                DialogResult result = DialogHelper.ShowQuestionDialog("Life Log", "Do you relay want to exist?");
+                DialogResult result = MessageBoxDialogForm.SD("Exit Confirmation", "Are you sure you want to close the program?\nAny unsaved changes will be lost.");
                 if (result == DialogResult.No)
                     e.Cancel = true;
             }
@@ -345,7 +345,10 @@ namespace Life_Log.Forms
         /// <param name="e"></param>
         private void bbiTestCode_ItemClick(object sender, ItemClickEventArgs e)
         {
-        }
+
+            MessageBoxDialogForm.SD("CAPTION", "MESSAGE MESSAGE MESSAGE MESAGE ", "MESSAGE MESSAGE MESSAGE MESSAGE MESSAGE MESSAGE MESSAGE MESSAGE Masd ads asd asda sd asd asd asd asd asd asd asd asd asd asd asd asd asd laksdnaksjd hakjsd hkajsd hakjsd hakjs hdkajs hdka j shakj hskaj shdkja hsdkjahsdkja hsdkj hakjdhakjdshakj sdhakjsd asd asd asd asd asd asd asd laksdnaksjd hakjsd hkajsd hakjsd hakjs hdkajs hdka j shakj hskaj shdkja hsdkjahsdkja hsdkj hakjdhakjdshakj sdhakjsd asd asd asd asd asd asd asd laksdnaksjd hakjsd hkajsd hakjsd hakjs hdkajs hdka j shakj hskaj shdkja hsdkjahsdkja hsdkj hakjdhakjdshakj sdhakjsd asd asd asd asd asd asd asd laksdnaksjd hakjsd hkajsd hakjsd hakjs hdkajs hdka j shakj hskaj shdkja hsdkjahsdkja hsdkj hakjdhakjdshakj sdhakjsd asd asd asd asd asd asd asd laksdnaksjd hakjsd hkajsd hakjsd hakjs hdkajs hdka j shakj hskaj shdkja hsdkjahsdkja hsdkj hakjdhakjdshakj sdhakjsd asd asd asd asd asd asd asd laksdnaksjd hakjsd hkajsd hakjsd hakjs hdkajs hdka j shakj hskaj shdkja hsdkjahsdkja hsdkj hakjdhakjdshakj sdhakjsd asd asd asd asd asd asd asd laksdnaksjd hakjsd hkajsd hakjsd hakjs hdkajs hdka j shakj hskaj shdkja hsdkjahsdkja hsdkj hakjdhakjdshakj sdhakjsd asd asd asd asd asd asd asd laksdnaksjd hakjsd hkajsd hakjsd hakjs hdkajs hdka j shakj hskaj shdkja hsdkjahsdkja hsdkj hakjdhakjdshakj sdhakjsd asd asd asd asd asd asd asd laksdnaksjd hakjsd hkajsd hakjsd hakjs hdkajs hdka j shakj hskaj shdkja hsdkjahsdkja hsdkj hakjdhakjdshakj sdhakjsd asd asd asd asd asd asd asd laksdnaksjd hakjsd hkajsd hakjsd hakjs hdkajs hdka j shakj hskaj shdkja hsdkjahsdkja hsdkj hakjdhakjdshakj sdhakjsdh jESSAGE MESSAGE MESSAGE MESSAGE ");
+            
+            }
 
 
     }
