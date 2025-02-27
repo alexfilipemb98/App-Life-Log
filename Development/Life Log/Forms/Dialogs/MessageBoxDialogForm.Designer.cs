@@ -229,6 +229,7 @@
             this.pictureEdit1.Location = new System.Drawing.Point(8, 8);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.pictureEdit1.MaximumSize = new System.Drawing.Size(130, 130);
             this.pictureEdit1.MenuManager = this.ribbon;
             this.pictureEdit1.MinimumSize = new System.Drawing.Size(130, 130);
@@ -236,6 +237,8 @@
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Size = new System.Drawing.Size(130, 130);
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
             this.pictureEdit1.MaximumSize = new System.Drawing.Size(70, 70);
@@ -247,6 +250,9 @@
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Size = new System.Drawing.Size(70, 70);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
