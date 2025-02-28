@@ -14,7 +14,7 @@ namespace Life_Log
 {
     /// <summary>
     /// Program main class to start the application and handle exceptions
-    /// </summary>111111111111
+    /// </summary>
     public static class Program
     {
         /// <summary>
