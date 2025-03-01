@@ -42,14 +42,14 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.lblCaption = new DevExpress.XtraEditors.LabelControl();
-            this.lcMessage = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lcgDetails = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
+            this.lcgDetails = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lcMessage = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcButtons)).BeginInit();
             this.lcButtons.SuspendLayout();
@@ -65,10 +65,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -89,7 +89,7 @@
             this.ribbon.ShowPageKeyTipsMode = DevExpress.XtraBars.Ribbon.ShowPageKeyTipsMode.Hide;
             this.ribbon.ShowQatLocationSelector = false;
             this.ribbon.ShowToolbarCustomizeItem = false;
-            this.ribbon.Size = new System.Drawing.Size(628, 49);
+            this.ribbon.Size = new System.Drawing.Size(448, 49);
             this.ribbon.Toolbar.ShowCustomizeItem = false;
             // 
             // sbNo
@@ -99,7 +99,7 @@
             this.sbNo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sbNo.DialogResult = System.Windows.Forms.DialogResult.No;
             this.sbNo.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.delete;
-            this.sbNo.Location = new System.Drawing.Point(347, 0);
+            this.sbNo.Location = new System.Drawing.Point(237, 5);
             this.sbNo.MaximumSize = new System.Drawing.Size(150, 48);
             this.sbNo.MinimumSize = new System.Drawing.Size(150, 48);
             this.sbNo.Name = "sbNo";
@@ -113,13 +113,13 @@
             this.lcButtons.Controls.Add(this.sbYes);
             this.lcButtons.Controls.Add(this.sbNo);
             this.lcButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lcButtons.Location = new System.Drawing.Point(0, 203);
-            this.lcButtons.MaximumSize = new System.Drawing.Size(628, 53);
-            this.lcButtons.MinimumSize = new System.Drawing.Size(628, 53);
+            this.lcButtons.Location = new System.Drawing.Point(0, 131);
+            this.lcButtons.MaximumSize = new System.Drawing.Size(0, 58);
+            this.lcButtons.MinimumSize = new System.Drawing.Size(0, 58);
             this.lcButtons.Name = "lcButtons";
             this.lcButtons.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1270, 352, 650, 400);
             this.lcButtons.Root = this.Root;
-            this.lcButtons.Size = new System.Drawing.Size(628, 53);
+            this.lcButtons.Size = new System.Drawing.Size(448, 58);
             this.lcButtons.TabIndex = 10;
             this.lcButtons.Text = "layoutControl1";
             // 
@@ -130,7 +130,7 @@
             this.sbYes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sbYes.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.sbYes.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.markcomplete;
-            this.sbYes.Location = new System.Drawing.Point(187, 0);
+            this.sbYes.Location = new System.Drawing.Point(77, 5);
             this.sbYes.MaximumSize = new System.Drawing.Size(150, 48);
             this.sbYes.MinimumSize = new System.Drawing.Size(150, 48);
             this.sbYes.Name = "sbYes";
@@ -148,8 +148,8 @@
             this.esiButtonRight,
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 5);
-            this.Root.Size = new System.Drawing.Size(628, 53);
+            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.Root.Size = new System.Drawing.Size(448, 58);
             this.Root.TextVisible = false;
             // 
             // esibuttonLeft
@@ -158,16 +158,16 @@
             this.esibuttonLeft.BestFitWeight = 75;
             this.esibuttonLeft.Location = new System.Drawing.Point(0, 0);
             this.esibuttonLeft.Name = "esibuttonLeft";
-            this.esibuttonLeft.Size = new System.Drawing.Size(182, 48);
+            this.esibuttonLeft.Size = new System.Drawing.Size(72, 48);
             this.esibuttonLeft.TextSize = new System.Drawing.Size(0, 0);
             // 
             // esiButtonRight
             // 
             this.esiButtonRight.AllowHotTrack = false;
             this.esiButtonRight.BestFitWeight = 75;
-            this.esiButtonRight.Location = new System.Drawing.Point(492, 0);
+            this.esiButtonRight.Location = new System.Drawing.Point(382, 0);
             this.esiButtonRight.Name = "esiButtonRight";
-            this.esiButtonRight.Size = new System.Drawing.Size(126, 48);
+            this.esiButtonRight.Size = new System.Drawing.Size(56, 48);
             this.esiButtonRight.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup1
@@ -178,7 +178,7 @@
             this.layoutControlItem2,
             this.emptySpaceItem1,
             this.layoutControlItem1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(182, 0);
+            this.layoutControlGroup1.Location = new System.Drawing.Point(72, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(310, 48);
             // 
@@ -225,7 +225,7 @@
             this.lcMain.Location = new System.Drawing.Point(0, 49);
             this.lcMain.Name = "lcMain";
             this.lcMain.Root = this.layoutControlGroup2;
-            this.lcMain.Size = new System.Drawing.Size(628, 154);
+            this.lcMain.Size = new System.Drawing.Size(448, 82);
             this.lcMain.TabIndex = 12;
             this.lcMain.Text = "layoutControl2";
             // 
@@ -238,27 +238,10 @@
             this.lblCaption.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
             this.lblCaption.Location = new System.Drawing.Point(95, 30);
             this.lblCaption.Name = "lblCaption";
-            this.lblCaption.Size = new System.Drawing.Size(525, 25);
+            this.lblCaption.Size = new System.Drawing.Size(328, 25);
             this.lblCaption.StyleController = this.lcMain;
             this.lblCaption.TabIndex = 7;
             this.lblCaption.Text = "CAPTION";
-            // 
-            // lcMessage
-            // 
-            this.lcMessage.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.lcMessage.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F);
-            this.lcMessage.Appearance.Options.UseBackColor = true;
-            this.lcMessage.Appearance.Options.UseFont = true;
-            this.lcMessage.AppearanceDisabled.BackColor = System.Drawing.Color.Transparent;
-            this.lcMessage.AppearanceDisabled.Options.UseBackColor = true;
-            this.lcMessage.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.lcMessage.Location = new System.Drawing.Point(8, 121);
-            this.lcMessage.Margin = new System.Windows.Forms.Padding(0);
-            this.lcMessage.Name = "lcMessage";
-            this.lcMessage.Size = new System.Drawing.Size(612, 25);
-            this.lcMessage.StyleController = this.lcMain;
-            this.lcMessage.TabIndex = 6;
-            this.lcMessage.Text = "MESSAGE";
             // 
             // pictureEdit1
             // 
@@ -288,7 +271,7 @@
             this.simpleSeparator1});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 0);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(628, 154);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(431, 154);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem4
@@ -299,6 +282,24 @@
             this.layoutControlItem4.Size = new System.Drawing.Size(76, 76);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.layoutControlItem5.Control = this.lblCaption;
+            this.layoutControlItem5.Location = new System.Drawing.Point(87, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(334, 76);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // simpleSeparator1
+            // 
+            this.simpleSeparator1.AllowHotTrack = false;
+            this.simpleSeparator1.Location = new System.Drawing.Point(76, 0);
+            this.simpleSeparator1.Name = "simpleSeparator1";
+            this.simpleSeparator1.Size = new System.Drawing.Size(11, 76);
+            this.simpleSeparator1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 0);
             // 
             // lcgDetails
             // 
@@ -315,7 +316,7 @@
             this.lcgDetails.Location = new System.Drawing.Point(0, 76);
             this.lcgDetails.Name = "lcgDetails";
             this.lcgDetails.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.lcgDetails.Size = new System.Drawing.Size(618, 73);
+            this.lcgDetails.Size = new System.Drawing.Size(421, 73);
             this.lcgDetails.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
             this.lcgDetails.Text = "Details";
             this.lcgDetails.CustomButtonClick += new DevExpress.XtraBars.Docking2010.BaseButtonEventHandler(this.lcgDetails_CustomButtonClick);
@@ -325,27 +326,26 @@
             this.layoutControlItem3.Control = this.lcMessage;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(618, 31);
+            this.layoutControlItem3.Size = new System.Drawing.Size(421, 31);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // layoutControlItem5
+            // lcMessage
             // 
-            this.layoutControlItem5.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.layoutControlItem5.Control = this.lblCaption;
-            this.layoutControlItem5.Location = new System.Drawing.Point(87, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(531, 76);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
-            // simpleSeparator1
-            // 
-            this.simpleSeparator1.AllowHotTrack = false;
-            this.simpleSeparator1.Location = new System.Drawing.Point(76, 0);
-            this.simpleSeparator1.Name = "simpleSeparator1";
-            this.simpleSeparator1.Size = new System.Drawing.Size(11, 76);
-            this.simpleSeparator1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 0);
+            this.lcMessage.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.lcMessage.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F);
+            this.lcMessage.Appearance.Options.UseBackColor = true;
+            this.lcMessage.Appearance.Options.UseFont = true;
+            this.lcMessage.AppearanceDisabled.BackColor = System.Drawing.Color.Transparent;
+            this.lcMessage.AppearanceDisabled.Options.UseBackColor = true;
+            this.lcMessage.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.lcMessage.Location = new System.Drawing.Point(8, 121);
+            this.lcMessage.Margin = new System.Windows.Forms.Padding(0);
+            this.lcMessage.Name = "lcMessage";
+            this.lcMessage.Size = new System.Drawing.Size(415, 25);
+            this.lcMessage.StyleController = this.lcMain;
+            this.lcMessage.TabIndex = 6;
+            this.lcMessage.Text = "MESSAGE";
             // 
             // MessageBoxDialogForm
             // 
@@ -353,14 +353,14 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 256);
+            this.ClientSize = new System.Drawing.Size(448, 189);
             this.Controls.Add(this.lcMain);
             this.Controls.Add(this.lcButtons);
             this.Controls.Add(this.ribbon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.IconOptions.SvgImage = global::Life_Log.Properties.Resources.icon_svg;
-            this.MaximumSize = new System.Drawing.Size(630, 400);
-            this.MinimumSize = new System.Drawing.Size(630, 189);
+            this.MaximumSize = new System.Drawing.Size(450, 400);
+            this.MinimumSize = new System.Drawing.Size(450, 190);
             this.Name = "MessageBoxDialogForm";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -380,10 +380,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,11 +406,11 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.LayoutControlGroup lcgDetails;
         private DevExpress.XtraEditors.LabelControl lblCaption;
-        private DevExpress.XtraEditors.LabelControl lcMessage;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.SimpleSeparator simpleSeparator1;
+        private DevExpress.XtraEditors.LabelControl lcMessage;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgDetails;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }
