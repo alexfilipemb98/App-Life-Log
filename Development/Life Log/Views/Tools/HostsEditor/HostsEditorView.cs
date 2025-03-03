@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.IO;
 using Life_Log.Helpers;
+using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace Life_Log.Views.Tools.HostsEditor
 {
@@ -22,8 +24,9 @@ namespace Life_Log.Views.Tools.HostsEditor
 
         //PRIVATE
 
-        private const string hostsFilePath = @"C:\Windows\System32\drivers\etc\hosts";
-        private List<HostEntry> hostEntries = new List<HostEntry>();
+        private readonly string hostsFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), @"drivers\etc\hosts");
+        public List<string> OriginalLines { get; private set; } = new List<string>();
+        public BindingList<HostEntry> Entries { get; private set; } = new BindingList<HostEntry>();
 
         /// <summary>
         /// Constructor for the hosts editor view
@@ -39,35 +42,96 @@ namespace Life_Log.Views.Tools.HostsEditor
         /// </summary>
         public void LoadData()
         {
-          
-            string[] lines = File.ReadAllLines(hostsFilePath);
 
-            foreach (var line in lines)
+            OriginalLines.Clear();
+            Entries.Clear();
+
+            if (!File.Exists(hostsFilePath))
+                throw new FileNotFoundException("O ficheiro hosts não foi encontrado.");
+
+            Regex regex = new Regex(@"^\s*(#?)\s*([\d\.]+|\[.*\])\s+([\w\.\-]+)(.*)?$", RegexOptions.Compiled);
+            int lineIndex = 0;
+
+            using (var reader = new StreamReader(hostsFilePath))
             {
-                bool isActive = !line.TrimStart().StartsWith("#");
-                string cleanLine = line.TrimStart('#').Trim();
-                string[] parts = cleanLine.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-                if (parts.Length >= 2)
+                string line;
+                while ((line = reader.ReadLine()) != null)
                 {
-                    int commentIndex = cleanLine.IndexOf('#');
-                    string comment = commentIndex >= 0 ? cleanLine.Substring(commentIndex + 1).Trim() : string.Empty;
+                    OriginalLines.Add(line); // Mantém todas as linhas
 
-                    HostEntry entry = new HostEntry
+                    var match = regex.Match(line);
+                    if (match.Success)
                     {
-                        Address = parts[0],
-                        Host = parts[1],
-                        Comment = comment,
-                        IsActive = isActive
-                    };
-
-                    hostEntries.Add(entry);
+                        bool isActive = match.Groups[1].Value != "#";
+                        Entries.Add(new HostEntry
+                        {
+                            LineIndex = lineIndex,
+                            IsActive = isActive,
+                            Address = match.Groups[2].Value.Trim(),
+                            Host = match.Groups[3].Value.Trim(),
+                            Comment = match.Groups[4].Value.TrimStart('#', ' ').Trim()
+                        });
+                    }
+                    lineIndex++;
                 }
             }
 
-            gridControl.DataSource = hostEntries;
+            gridControl.DataSource = Entries;
         }
 
+        public void SaveHostsFile()
+        {
+            List<string> updatedLines = new List<string>();
+
+            for (int i = 0; i < OriginalLines.Count; i++)
+            {
+                string originalLine = OriginalLines[i];
+                HostEntry entry = Entries.FirstOrDefault(e => e.LineIndex == i);
+
+                if (entry != null)
+                {
+                    string newLine = $"{(entry.IsActive ? "" : "#")} {entry.Address} {entry.Host} {entry.Comment}";
+                    updatedLines.Add(newLine);
+                }
+                else
+                    updatedLines.Add(originalLine);
+            }
+
+            File.WriteAllLines(hostsFilePath, updatedLines);
+        }
+
+
+        public void SaveHostsFileWithAdminCheck()
+        {
+            if (!AppHelper.IsRunningAsAdmin())
+            {
+                try
+                {
+                    var processInfo = new ProcessStartInfo
+                    {
+                        FileName = Application.ExecutablePath, // Executa o próprio programa
+                        Verb = "runas", // Solicita permissões de administrador
+                        Arguments = "/save" // Passa um argumento indicando que é uma operação de gravação
+                    };
+                    Process.Start(processInfo);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao tentar executar como administrador: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                try
+                {
+                    SaveHostsFile();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao gravar o ficheiro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
 
         #endregion
 
@@ -75,35 +139,27 @@ namespace Life_Log.Views.Tools.HostsEditor
         {
             try
             {
-                List<string> lines = new List<string>();
-
-                foreach (var entry in hostEntries)
-                {
-                    string line = $"{entry.Address} {entry.Host}";
-
-                    if (!entry.IsActive)
-                        line = $"# {line}";
-
-                    if (!string.IsNullOrEmpty(entry.Comment))
-                        line += $" # {entry.Comment}";
-
-                    lines.Add(line);
-                }
-
-                File.WriteAllLines(hostsFilePath, lines);
+                SaveHostsFileWithAdminCheck();
             }
             catch (Exception ex)
             {
                 ErrorHelper.Handler(ex);
             }
         }
+
+        private void bbiShowFileOnExplorer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Process.Start("explorer.exe", hostsFilePath);
+        }
     }
 
     public class HostEntry
     {
+        public int LineIndex { get; set; } // Guarda a posição original no ficheiro
         public string Address { get; set; }
         public string Host { get; set; }
         public string Comment { get; set; }
         public bool IsActive { get; set; }
     }
+
 }

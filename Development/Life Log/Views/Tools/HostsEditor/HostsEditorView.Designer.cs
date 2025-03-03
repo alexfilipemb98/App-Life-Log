@@ -39,17 +39,18 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bbiShowFileOnExplorer = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,9 +82,10 @@
             this.barManager.DockControls.Add(this.barDockControlRight);
             this.barManager.Form = this;
             this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.bbiSave});
+            this.bbiSave,
+            this.bbiShowFileOnExplorer});
             this.barManager.MainMenu = this.bar;
-            this.barManager.MaxItemId = 4;
+            this.barManager.MaxItemId = 5;
             // 
             // bar
             // 
@@ -92,7 +94,8 @@
             this.bar.DockRow = 0;
             this.bar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiShowFileOnExplorer, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar.OptionsBar.AllowQuickCustomization = false;
             this.bar.OptionsBar.DisableCustomization = true;
             this.bar.OptionsBar.DrawBorder = false;
@@ -156,6 +159,15 @@
             this.layoutControl1.TabIndex = 5;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.gridControl);
+            this.panelControl1.Location = new System.Drawing.Point(5, 10);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(681, 371);
+            this.panelControl1.TabIndex = 4;
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -167,15 +179,6 @@
             this.Root.Size = new System.Drawing.Size(691, 386);
             this.Root.TextVisible = false;
             // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.gridControl);
-            this.panelControl1.Location = new System.Drawing.Point(5, 10);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(681, 371);
-            this.panelControl1.TabIndex = 4;
-            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.panelControl1;
@@ -185,6 +188,14 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(681, 371);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // bbiShowFileOnExplorer
+            // 
+            this.bbiShowFileOnExplorer.Caption = "Show On Explorer";
+            this.bbiShowFileOnExplorer.Id = 4;
+            this.bbiShowFileOnExplorer.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.open2;
+            this.bbiShowFileOnExplorer.Name = "bbiShowFileOnExplorer";
+            this.bbiShowFileOnExplorer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiShowFileOnExplorer_ItemClick);
             // 
             // HostsEditorView
             // 
@@ -202,9 +213,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -226,5 +237,6 @@
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraBars.BarButtonItem bbiShowFileOnExplorer;
     }
 }

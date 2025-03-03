@@ -11,6 +11,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
 
 namespace Life_Log.Helpers
 {
@@ -177,6 +178,17 @@ namespace Life_Log.Helpers
         {
             button.Properties.UseSystemPasswordChar = !button.Properties.UseSystemPasswordChar;
             e.Button.ImageOptions.SvgImage = button.Properties.UseSystemPasswordChar ? Properties.Resources.security_visibilityoff : Properties.Resources.security_visibility;
+        }
+
+        /// <summary>
+        /// Checks if is running with admin perms
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsRunningAsAdmin()
+        {
+            var identity = WindowsIdentity.GetCurrent();
+            var principal = new WindowsPrincipal(identity);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
         }
 
         #endregion
