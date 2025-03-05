@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using Core.Utils;
+using DevExpress.XtraEditors;
 using System;
 using System.Windows.Forms;
 
@@ -15,6 +16,7 @@ namespace Life_Log.Helpers
         /// <param name="ex"></param>
         public static void Handler(Exception ex)
         {
+            LoggerUtil.LogError(ex);
             XtraMessageBox.Show(ex.ToString(), ex.TargetSite.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }

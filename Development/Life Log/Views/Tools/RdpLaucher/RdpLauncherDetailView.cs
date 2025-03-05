@@ -65,9 +65,19 @@ namespace Life_Log.Views.Tools.RdpLaucher
             return true;
         }
 
+
+        /// <summary>
+        /// Reset form
+        /// </summary>
         public void ResetForm()
         {
-            throw new NotImplementedException();
+            rdpConnectionsEntityBindingSource.DataSource = new RdpConnectionsEntity();
+            teName.ResetText();
+            teAddress.ResetText();
+            teUsername.ResetText();
+            bePassword.ResetText();
+
+            dataLayoutControl.ResetText();
         }
 
         #endregion

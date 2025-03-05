@@ -1,4 +1,5 @@
 ﻿using Core.Extensions;
+using Data.Entities;
 using DevExpress.XtraEditors;
 using Life_Log.Helpers;
 using System;
@@ -128,7 +129,7 @@ namespace Life_Log.Views.Tables.ExternalPrograms
         {
             _crtExtProgram = extProgram;
             externalProgramsEntityBindingSource.DataSource = extProgram;
-           
+
             if (_crtExtProgram.IdImage == Guid.Empty)
             {
                 _crtExtProgram.Image = new Data.Entities.ImagesEntity();
@@ -164,7 +165,7 @@ namespace Life_Log.Views.Tables.ExternalPrograms
 
             if (_crtExtProgram.Image != null)
             {
-                if (_crtExtProgram.Image.ImageData == null  || _crtExtProgram.Image.ImageData.Length <= 0)
+                if (_crtExtProgram.Image.ImageData == null || _crtExtProgram.Image.ImageData.Length <= 0)
                 {
                     _crtExtProgram.IdImage = Guid.Empty;
                     _crtExtProgram.Image = null;
@@ -184,7 +185,7 @@ namespace Life_Log.Views.Tables.ExternalPrograms
             }
             else
             {
-                saved = AppHelper.DataEngine.ExternalPrograms.Save(_crtExtProgram, out  message);
+                saved = AppHelper.DataEngine.ExternalPrograms.Save(_crtExtProgram, out message);
                 AppHelper.StatusMessage(message, saved);
             }
 
@@ -196,6 +197,7 @@ namespace Life_Log.Views.Tables.ExternalPrograms
         /// </summary>
         public void ResetForm()
         {
+            externalProgramsEntityBindingSource.DataSource = new ExternalProgramsEntity();
             teFileExt.ResetText();
             teName.ResetText();
             teArguments.ResetText();

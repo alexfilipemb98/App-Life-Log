@@ -1,28 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using Core.Extensions;
 using Data.Entities;
-using System.Diagnostics;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using Life_Log.Helpers;
-using Life_Log.Forms.Dialogs;
-using Core.Extensions;
-using DevExpress.XtraGrid.Views.Grid;
-using Life_Log.Views.Tools.HostsEditor;
+using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
-using System.Data.SQLite;
+using DevExpress.XtraGrid.Views.Grid;
+using Life_Log.Forms.Dialogs;
+using Life_Log.Helpers;
 using Life_Log.Properties;
-using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraBars;
 using Life_Log.Views.Tables.ExternalPrograms;
+using Life_Log.Views.Tools.HostsEditor;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SQLite;
+using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using static DevExpress.LookAndFeel.DXSkinColors;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Life_Log.Views.Tools.RdpLaucher
 {
@@ -115,6 +116,49 @@ namespace Life_Log.Views.Tools.RdpLaucher
         private void bbiBack_ItemClick(object sender, ItemClickEventArgs e)
         {
             ShowListView();
+        }
+
+        /// <summary>
+        /// Edit o rdp connection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (tileView.GetFocusedRow() is RdpConnectionsEntity rdpConnection)
+                    ShowDetailView(rdpConnection);
+            }
+            catch (Exception ex)
+            {
+                ErrorHelper.Handler(ex);
+            }
+        }
+
+        /// <summary>
+        /// Delete Rdp launcher
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiDelele_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (tileView.GetFocusedRow() is RdpConnectionsEntity rdpConnection)
+                {
+                    DialogResult result = MessageBoxDialogForm.SD("Delete Connection", $"Do you realy want to delete <b>{rdpConnection.Name}</b>?");
+                    if (result == DialogResult.Yes)
+                    {
+                        bool deleted = AppHelper.DataEngine.RdpConnections.Delete(rdpConnection.Id, out string message);
+                        AppHelper.StatusMessage(message, ForeColors.Critical);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorHelper.Handler(ex);
+            }
         }
 
         #endregion
@@ -216,6 +260,7 @@ namespace Life_Log.Views.Tools.RdpLaucher
                 ErrorHelper.Handler(ex);
             }
         }
+
 
         #endregion
 

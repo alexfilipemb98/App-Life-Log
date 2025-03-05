@@ -1,4 +1,5 @@
 ﻿using Core.Extensions;
+using Core.Utils;
 using Data.Entities;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
@@ -35,6 +36,9 @@ namespace Life_Log
                 Application.SetCompatibleTextRenderingDefault(false);
 
                 AppHelper.DbConfigs = AppHelper.GetDatabaseConfigs();
+
+                LoggerUtil.Initialize();
+
                 AppHelper.DataEngine = new Data.Engine(AppHelper.DbConfigs);
                 AppHelper.DataEngine.SQLLiteBackUp();
                 AppHelper.DataEngine.Connect();
