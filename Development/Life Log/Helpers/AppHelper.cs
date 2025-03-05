@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
+using static DevExpress.LookAndFeel.DXSkinColors;
 
 namespace Life_Log.Helpers
 {
@@ -137,6 +138,16 @@ namespace Life_Log.Helpers
                     MainFormInstance.bsiStatusLabel.ItemAppearance.Normal.ForeColor = color;
                 }));
             }
+        }
+
+        /// <summary>
+        /// Show message box and status message
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="saved"></param>
+        public static void StatusMessage(string message, bool saved)
+        {
+            StatusMessage(message, saved ? ForeColors.Information : ForeColors.Critical);
         }
 
         /// <summary>

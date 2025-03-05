@@ -277,6 +277,18 @@ namespace Life_Log.Forms
             navigationFrame.SelectedPage = npEntertainmentDiceView;
         }
 
+        /// <summary>
+        /// Show tools rdp laucher
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiToolsRdpLaucherView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ribbon.ApplicationDocumentCaption = "Rdp Launcher";
+            navigationFrame.SelectedPage = npToolsRdpLaucherView;
+            rdpLaucherView.LoadData();
+        }
+
         #endregion
 
         #region CHECKED CHANGED
@@ -347,5 +359,6 @@ namespace Life_Log.Forms
         {
 
         }
+
     }
 }

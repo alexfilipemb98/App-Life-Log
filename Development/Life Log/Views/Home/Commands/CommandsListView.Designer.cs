@@ -258,13 +258,13 @@
             this.tileView.OptionsDragDrop.AllowDrag = true;
             this.tileView.OptionsHtmlTemplate.ItemAutoHeight = true;
             this.tileView.OptionsTiles.HighlightFocusedTileStyle = DevExpress.XtraGrid.Views.Tile.HighlightFocusedTileStyle.None;
-            this.tileView.OptionsTiles.HorizontalContentAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.tileView.OptionsTiles.HorizontalContentAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.tileView.OptionsTiles.IndentBetweenGroups = 0;
             this.tileView.OptionsTiles.ItemPadding = new System.Windows.Forms.Padding(0);
             this.tileView.OptionsTiles.ItemSize = new System.Drawing.Size(248, 110);
             this.tileView.OptionsTiles.Padding = new System.Windows.Forms.Padding(5);
             this.tileView.OptionsTiles.RowCount = 0;
-            this.tileView.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.tileView.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Center;
             this.tileView.TileHtmlTemplate.Styles = resources.GetString("tileView.TileHtmlTemplate.Styles");
             this.tileView.TileHtmlTemplate.Template = resources.GetString("tileView.TileHtmlTemplate.Template");
             this.tileView.ItemDoubleClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileView_ItemDoubleClick);
@@ -538,6 +538,7 @@
             // 
             this.commandsDetailView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.commandsDetailView.Location = new System.Drawing.Point(0, 0);
+            this.commandsDetailView.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.commandsDetailView.Name = "commandsDetailView";
             this.commandsDetailView.Size = new System.Drawing.Size(882, 516);
             this.commandsDetailView.TabIndex = 0;

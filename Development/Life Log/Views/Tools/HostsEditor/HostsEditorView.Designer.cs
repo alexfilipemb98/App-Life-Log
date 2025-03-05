@@ -34,6 +34,7 @@
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.bar = new DevExpress.XtraBars.Bar();
             this.bbiSave = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiShowFileOnExplorer = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -42,7 +43,6 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bbiShowFileOnExplorer = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
@@ -71,6 +71,9 @@
             this.gridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
+            this.gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            this.gridView.OptionsView.ShowGroupPanel = false;
+            this.gridView.OptionsView.ShowIndicator = false;
             // 
             // barManager
             // 
@@ -111,6 +114,14 @@
             this.bbiSave.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.save;
             this.bbiSave.Name = "bbiSave";
             this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
+            // 
+            // bbiShowFileOnExplorer
+            // 
+            this.bbiShowFileOnExplorer.Caption = "Show On Explorer";
+            this.bbiShowFileOnExplorer.Id = 4;
+            this.bbiShowFileOnExplorer.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.open2;
+            this.bbiShowFileOnExplorer.Name = "bbiShowFileOnExplorer";
+            this.bbiShowFileOnExplorer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiShowFileOnExplorer_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -188,14 +199,6 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(681, 371);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // bbiShowFileOnExplorer
-            // 
-            this.bbiShowFileOnExplorer.Caption = "Show On Explorer";
-            this.bbiShowFileOnExplorer.Id = 4;
-            this.bbiShowFileOnExplorer.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.open2;
-            this.bbiShowFileOnExplorer.Name = "bbiShowFileOnExplorer";
-            this.bbiShowFileOnExplorer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiShowFileOnExplorer_ItemClick);
             // 
             // HostsEditorView
             // 

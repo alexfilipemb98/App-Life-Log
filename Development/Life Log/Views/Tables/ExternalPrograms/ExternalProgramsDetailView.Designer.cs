@@ -43,58 +43,58 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.dataLayoutControl = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.peImage = new DevExpress.XtraEditors.PictureEdit();
             this.teFileExt = new DevExpress.XtraEditors.TextEdit();
+            this.externalProgramsEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teName = new DevExpress.XtraEditors.TextEdit();
             this.teArguments = new DevExpress.XtraEditors.TextEdit();
             this.bePath = new DevExpress.XtraEditors.ButtonEdit();
             this.beId = new DevExpress.XtraEditors.ButtonEdit();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.teUpdatedAt = new DevExpress.XtraEditors.ButtonEdit();
+            this.teCreatedAt = new DevExpress.XtraEditors.ButtonEdit();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-            this.externalProgramsEntityBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teUpdatedAt = new DevExpress.XtraEditors.ButtonEdit();
-            this.teCreatedAt = new DevExpress.XtraEditors.ButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
             this.dataLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teFileExt.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalProgramsEntityBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teArguments.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bePath.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beId.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teUpdatedAt.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teCreatedAt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.externalProgramsEntityBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teUpdatedAt.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teCreatedAt.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl
@@ -115,6 +115,98 @@
             this.dataLayoutControl.Size = new System.Drawing.Size(916, 670);
             this.dataLayoutControl.TabIndex = 0;
             this.dataLayoutControl.Text = "layoutControl1";
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.False;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.emptySpaceItem1,
+            this.layoutControlGroup1,
+            this.layoutControlGroup2});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(916, 670);
+            this.Root.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 380);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(916, 290);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.ExpandButtonMode = DevExpress.Utils.Controls.ExpandButtonMode.Inverted;
+            this.layoutControlGroup1.ExpandButtonVisible = true;
+            this.layoutControlGroup1.ExpandOnDoubleClick = true;
+            this.layoutControlGroup1.GroupStyle = DevExpress.Utils.GroupStyle.Title;
+            this.layoutControlGroup1.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem3,
+            this.layoutControlItem2,
+            this.layoutControlItem1,
+            this.layoutControlItem4,
+            this.layoutControlGroup3});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
+            this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 3;
+            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(916, 266);
+            this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup1.Text = "Main Data";
+            // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.GroupBordersVisible = false;
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.emptySpaceItem3,
+            this.emptySpaceItem2,
+            this.layoutControlItem6});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(916, 126);
+            // 
+            // emptySpaceItem3
+            // 
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.Location = new System.Drawing.Point(544, 0);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(372, 126);
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(389, 126);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.ExpandButtonMode = DevExpress.Utils.Controls.ExpandButtonMode.Inverted;
+            this.layoutControlGroup2.ExpandButtonVisible = true;
+            this.layoutControlGroup2.GroupStyle = DevExpress.Utils.GroupStyle.Title;
+            this.layoutControlGroup2.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem8,
+            this.layoutControlItem9,
+            this.layoutControlItem7});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 266);
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
+            this.layoutControlGroup2.OptionsItemText.TextToControlDistance = 3;
+            this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(916, 114);
+            this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 10, 0);
+            this.layoutControlGroup2.Text = "Details";
+            // 
+            // dxErrorProvider
+            // 
+            this.dxErrorProvider.ContainerControl = this;
             // 
             // peImage
             // 
@@ -155,6 +247,10 @@
             this.teFileExt.StyleController = this.dataLayoutControl;
             this.teFileExt.TabIndex = 7;
             this.teFileExt.Tag = "";
+            // 
+            // externalProgramsEntityBindingSource
+            // 
+            this.externalProgramsEntityBindingSource.DataSource = typeof(Data.Entities.ExternalProgramsEntity);
             // 
             // teName
             // 
@@ -211,47 +307,37 @@
             this.beId.TabIndex = 13;
             this.beId.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beId_ButtonClick);
             // 
-            // Root
+            // teUpdatedAt
             // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.False;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.emptySpaceItem1,
-            this.layoutControlGroup1,
-            this.layoutControlGroup2});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(916, 670);
-            this.Root.TextVisible = false;
+            this.teUpdatedAt.CausesValidation = false;
+            this.teUpdatedAt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.externalProgramsEntityBindingSource, "UpdatedAt", true));
+            this.teUpdatedAt.Location = new System.Drawing.Point(527, 347);
+            this.teUpdatedAt.Name = "teUpdatedAt";
+            this.teUpdatedAt.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.DateTimeMaskManager));
+            this.teUpdatedAt.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.teUpdatedAt.Properties.MaskSettings.Set("mask", "yyyy/MM/dd HH:mm:ss");
+            this.teUpdatedAt.Properties.ReadOnly = true;
+            this.teUpdatedAt.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.teUpdatedAt.Properties.UseMaskAsDisplayFormat = true;
+            this.teUpdatedAt.Size = new System.Drawing.Size(386, 30);
+            this.teUpdatedAt.StyleController = this.dataLayoutControl;
+            this.teUpdatedAt.TabIndex = 12;
             // 
-            // emptySpaceItem1
+            // teCreatedAt
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 380);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(916, 290);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.ExpandButtonMode = DevExpress.Utils.Controls.ExpandButtonMode.Inverted;
-            this.layoutControlGroup1.ExpandButtonVisible = true;
-            this.layoutControlGroup1.ExpandOnDoubleClick = true;
-            this.layoutControlGroup1.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-            this.layoutControlGroup1.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3,
-            this.layoutControlItem2,
-            this.layoutControlItem1,
-            this.layoutControlItem4,
-            this.layoutControlGroup3});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
-            this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 3;
-            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(916, 266);
-            this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Text = "Main Data";
+            this.teCreatedAt.CausesValidation = false;
+            this.teCreatedAt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.externalProgramsEntityBindingSource, "CreatedAt", true));
+            this.teCreatedAt.Location = new System.Drawing.Point(69, 347);
+            this.teCreatedAt.Name = "teCreatedAt";
+            this.teCreatedAt.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.DateTimeMaskManager));
+            this.teCreatedAt.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.teCreatedAt.Properties.MaskSettings.Set("mask", "yyyy/MM/dd HH:mm:ss");
+            this.teCreatedAt.Properties.ReadOnly = true;
+            this.teCreatedAt.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.teCreatedAt.Properties.UseMaskAsDisplayFormat = true;
+            this.teCreatedAt.Size = new System.Drawing.Size(386, 30);
+            this.teCreatedAt.StyleController = this.dataLayoutControl;
+            this.teCreatedAt.TabIndex = 11;
             // 
             // layoutControlItem3
             // 
@@ -292,33 +378,6 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(41, 16);
             this.layoutControlItem4.TextToControlDistance = 5;
             // 
-            // layoutControlGroup3
-            // 
-            this.layoutControlGroup3.GroupBordersVisible = false;
-            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.emptySpaceItem3,
-            this.emptySpaceItem2,
-            this.layoutControlItem6});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(916, 126);
-            // 
-            // emptySpaceItem3
-            // 
-            this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(544, 0);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(372, 126);
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(389, 126);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.AppearanceItemCaption.Options.UseTextOptions = true;
@@ -332,25 +391,6 @@
             this.layoutControlItem6.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(24, 16);
             this.layoutControlItem6.TextToControlDistance = 5;
-            // 
-            // layoutControlGroup2
-            // 
-            this.layoutControlGroup2.ExpandButtonMode = DevExpress.Utils.Controls.ExpandButtonMode.Inverted;
-            this.layoutControlGroup2.ExpandButtonVisible = true;
-            this.layoutControlGroup2.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-            this.layoutControlGroup2.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem8,
-            this.layoutControlItem9,
-            this.layoutControlItem7});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 266);
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
-            this.layoutControlGroup2.OptionsItemText.TextToControlDistance = 3;
-            this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(916, 114);
-            this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 10, 0);
-            this.layoutControlGroup2.Text = "Details";
             // 
             // layoutControlItem8
             // 
@@ -379,46 +419,6 @@
             this.layoutControlItem7.Text = "Id";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(63, 16);
             // 
-            // dxErrorProvider
-            // 
-            this.dxErrorProvider.ContainerControl = this;
-            // 
-            // externalProgramsEntityBindingSource
-            // 
-            this.externalProgramsEntityBindingSource.DataSource = typeof(Data.Entities.ExternalProgramsEntity);
-            // 
-            // teUpdatedAt
-            // 
-            this.teUpdatedAt.CausesValidation = false;
-            this.teUpdatedAt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.externalProgramsEntityBindingSource, "UpdatedAt", true));
-            this.teUpdatedAt.Location = new System.Drawing.Point(527, 347);
-            this.teUpdatedAt.Name = "teUpdatedAt";
-            this.teUpdatedAt.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.DateTimeMaskManager));
-            this.teUpdatedAt.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
-            this.teUpdatedAt.Properties.MaskSettings.Set("mask", "yyyy/MM/dd HH:mm:ss");
-            this.teUpdatedAt.Properties.ReadOnly = true;
-            this.teUpdatedAt.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.teUpdatedAt.Properties.UseMaskAsDisplayFormat = true;
-            this.teUpdatedAt.Size = new System.Drawing.Size(386, 30);
-            this.teUpdatedAt.StyleController = this.dataLayoutControl;
-            this.teUpdatedAt.TabIndex = 12;
-            // 
-            // teCreatedAt
-            // 
-            this.teCreatedAt.CausesValidation = false;
-            this.teCreatedAt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.externalProgramsEntityBindingSource, "CreatedAt", true));
-            this.teCreatedAt.Location = new System.Drawing.Point(69, 347);
-            this.teCreatedAt.Name = "teCreatedAt";
-            this.teCreatedAt.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.DateTimeMaskManager));
-            this.teCreatedAt.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
-            this.teCreatedAt.Properties.MaskSettings.Set("mask", "yyyy/MM/dd HH:mm:ss");
-            this.teCreatedAt.Properties.ReadOnly = true;
-            this.teCreatedAt.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.teCreatedAt.Properties.UseMaskAsDisplayFormat = true;
-            this.teCreatedAt.Size = new System.Drawing.Size(386, 30);
-            this.teCreatedAt.StyleController = this.dataLayoutControl;
-            this.teCreatedAt.TabIndex = 11;
-            // 
             // ExternalProgramsDetailView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -428,31 +428,31 @@
             this.Size = new System.Drawing.Size(916, 670);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).EndInit();
             this.dataLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teFileExt.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalProgramsEntityBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teArguments.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bePath.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beId.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teUpdatedAt.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teCreatedAt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.externalProgramsEntityBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teUpdatedAt.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teCreatedAt.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

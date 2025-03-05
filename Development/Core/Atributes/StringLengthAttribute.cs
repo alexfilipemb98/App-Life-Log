@@ -56,6 +56,7 @@ namespace Core.Atributes
         /// <returns></returns>
         public override string FormatErrorMessage(string name)
         {
+            
             if (CurrentLength.HasValue)
             {
                 if (CurrentLength.Value < MinimumLength)

@@ -180,12 +180,12 @@ namespace Life_Log.Views.Tables.ExternalPrograms
                 }
 
                 saved = AppHelper.DataEngine.ExternalPrograms.Save(_crtExtProgram, out message);
-                AppHelper.StatusMessage(message, saved ? ForeColors.Information : ForeColors.Critical);
+                AppHelper.StatusMessage(message, saved);
             }
             else
             {
                 saved = AppHelper.DataEngine.ExternalPrograms.Save(_crtExtProgram, out  message);
-                AppHelper.StatusMessage(message, saved ? ForeColors.Information : ForeColors.Critical);
+                AppHelper.StatusMessage(message, saved);
             }
 
             return saved;

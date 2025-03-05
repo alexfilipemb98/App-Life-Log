@@ -213,7 +213,7 @@ namespace Life_Log.Views.Home.Commands
                     return;
 
                 bool created = SaveCommandToFile(model);
-                AppHelper.StatusMessage(created ? "File created!" : "Failed to create!", created ? ForeColors.Information : ForeColors.Critical);
+                AppHelper.StatusMessage(created ? "File created!" : "Failed to create!", created);
             }
             catch (Exception ex)
             {

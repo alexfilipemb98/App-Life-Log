@@ -45,24 +45,31 @@ namespace Core.Utils
         /// <returns></returns>
         public static string Encrypt(string plainText)
         {
-            if (string.IsNullOrWhiteSpace(plainText))
-                return default;
-
-            using (Aes aes = Aes.Create())
+            try
             {
-                aes.Key = Key;
-                aes.IV = IV;
+                if (string.IsNullOrWhiteSpace(plainText))
+                    return default;
 
-                using (var encryptor = aes.CreateEncryptor(aes.Key, aes.IV))
-                using (var ms = new MemoryStream())
+                using (Aes aes = Aes.Create())
                 {
-                    using (var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
-                    using (var sw = new StreamWriter(cs))
+                    aes.Key = Key;
+                    aes.IV = IV;
+
+                    using (var encryptor = aes.CreateEncryptor(aes.Key, aes.IV))
+                    using (var ms = new MemoryStream())
                     {
-                        sw.Write(plainText);
+                        using (var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+                        using (var sw = new StreamWriter(cs))
+                        {
+                            sw.Write(plainText);
+                        }
+                        return Convert.ToBase64String(ms.ToArray());
                     }
-                    return Convert.ToBase64String(ms.ToArray());
                 }
+            }
+            catch (Exception)
+            {
+                return plainText;
             }
         }
 
@@ -96,21 +103,28 @@ namespace Core.Utils
         /// <returns></returns>
         public static string Decrypt(string cipherText)
         {
-            if (string.IsNullOrWhiteSpace(cipherText))
-                return default;
-
-            using (Aes aes = Aes.Create())
+            try
             {
-                aes.Key = Key;
-                aes.IV = IV;
+                if (string.IsNullOrWhiteSpace(cipherText))
+                    return default;
 
-                using (var decryptor = aes.CreateDecryptor(aes.Key, aes.IV))
-                using (var ms = new MemoryStream(Convert.FromBase64String(cipherText)))
-                using (var cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
-                using (var sr = new StreamReader(cs))
+                using (Aes aes = Aes.Create())
                 {
-                    return sr.ReadToEnd();
+                    aes.Key = Key;
+                    aes.IV = IV;
+
+                    using (var decryptor = aes.CreateDecryptor(aes.Key, aes.IV))
+                    using (var ms = new MemoryStream(Convert.FromBase64String(cipherText)))
+                    using (var cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
+                    using (var sr = new StreamReader(cs))
+                    {
+                        return sr.ReadToEnd();
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                return cipherText;
             }
         }
 

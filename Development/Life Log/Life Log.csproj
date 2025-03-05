@@ -239,6 +239,18 @@
     <Compile Include="Views\Tools\PasswordGenerator\PasswordGeneratorView.Designer.cs">
       <DependentUpon>PasswordGeneratorView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Tools\RdpLaucher\RdpLauncherListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Tools\RdpLaucher\RdpLauncherListView.Designer.cs">
+      <DependentUpon>RdpLauncherListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tools\RdpLaucher\RdpLauncherDetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Tools\RdpLaucher\RdpLauncherDetailView.Designer.cs">
+      <DependentUpon>RdpLauncherDetailView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tools\SqlBrowser\SqlBrowserView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -270,6 +282,7 @@
     <None Include="Properties\DataSources\Data.Entities.ImagesEntity.datasource" />
     <None Include="Properties\DataSources\Data.Entities.NotesEntity.datasource" />
     <None Include="Properties\DataSources\Data.Entities.PasswordsEntity.datasource" />
+    <None Include="Properties\DataSources\Data.Entities.RdpConnectionsEntity.datasource" />
     <None Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -334,6 +347,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tools\PasswordGenerator\PasswordGeneratorView.resx">
       <DependentUpon>PasswordGeneratorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tools\RdpLaucher\RdpLauncherDetailView.resx">
+      <DependentUpon>RdpLauncherDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tools\RdpLaucher\RdpLauncherListView.resx">
+      <DependentUpon>RdpLauncherListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tools\SqlBrowser\SqlBrowserView.resx">
       <DependentUpon>SqlBrowserView.cs</DependentUpon>
@@ -436,6 +455,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\bo_category1.svg" />
+    <None Include="Resources\gettingstarted.svg" />
     <None Include="Resources\updatedataextract.svg" />
     <None Include="Resources\dice-1.svg" />
     <None Include="Resources\dice-2.svg" />

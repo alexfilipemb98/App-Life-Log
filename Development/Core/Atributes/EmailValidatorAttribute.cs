@@ -26,7 +26,10 @@ namespace Core.Atributes
             if (value is string str)
             {
                 if (!str.IsEmailValid())
-                    return new ValidationResult($"Email '{str}' is not valid!", new[] { validationContext.MemberName });
+                {
+                    string memberName = validationContext?.MemberName ?? "Unknown";
+                    return new ValidationResult($"Email '{str}' is not valid!", new[] { memberName });
+                }
 
                 return ValidationResult.Success;
             }

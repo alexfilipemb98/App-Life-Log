@@ -305,7 +305,7 @@ namespace Life_Log.Views.Home.Notes
                 }
 
                 bool saved = AppHelper.DataEngine.Notes.Save(note, out string message);
-                AppHelper.StatusMessage(message, saved ? ForeColors.Information : ForeColors.Critical);
+                AppHelper.StatusMessage(message, saved);
             }
             catch (Exception ex)
             {

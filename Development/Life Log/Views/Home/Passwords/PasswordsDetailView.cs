@@ -130,7 +130,7 @@ namespace Life_Log.Views.Home.Passwords
                     ResetForm();
                 }
 
-                AppHelper.StatusMessage(saved ? "Password saved!" : "Unable to save password!", saved ? ForeColors.Information : ForeColors.Critical);
+                AppHelper.StatusMessage(saved ? "Password saved!" : "Unable to save password!", saved);
 
                 return saved;
             }

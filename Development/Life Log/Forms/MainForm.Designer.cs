@@ -54,6 +54,7 @@
             this.bbiEntertainmentTicTacToe = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEntretainmentCoinFlip = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEntretainmentDice = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiToolsRdpLaucherView = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgHomeMain = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -94,12 +95,14 @@
             this.npEntertainmentCoinFlipView = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.coinFlipGameView = new Life_Log.Views.Entertainment.Games.CoinFlip.CoinFlipGameView();
             this.npEntertainmentDiceView = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.diceGameView1 = new Life_Log.Views.Entertainment.Games.Dice.DiceGameView();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.diceGameView1 = new Life_Log.Views.Entertainment.Games.Dice.DiceGameView();
+            this.npToolsRdpLaucherView = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.rdpLaucherView = new Life_Log.Views.Tools.RdpLaucher.RdpLauncherListView();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -121,6 +124,7 @@
             this.npEntertainmentDiceView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            this.npToolsRdpLaucherView.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbon
@@ -153,10 +157,11 @@
             this.bbiToolsHostsEditor,
             this.bbiEntertainmentTicTacToe,
             this.bbiEntretainmentCoinFlip,
-            this.bbiEntretainmentDice});
+            this.bbiEntretainmentDice,
+            this.bbiToolsRdpLaucherView});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.ribbon.MaxItemId = 25;
+            this.ribbon.MaxItemId = 26;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsSearchMenu.SearchItemPosition = DevExpress.XtraBars.Ribbon.SearchItemPosition.Caption;
             this.ribbon.PageHeaderItemLinks.Add(this.btsiSetTopMost);
@@ -356,6 +361,14 @@
             this.bbiEntretainmentDice.Name = "bbiEntretainmentDice";
             this.bbiEntretainmentDice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEntretainmentDice_ItemClick);
             // 
+            // bbiToolsRdpLaucherView
+            // 
+            this.bbiToolsRdpLaucherView.Caption = "Rdp \r\nConnection";
+            this.bbiToolsRdpLaucherView.Id = 25;
+            this.bbiToolsRdpLaucherView.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.bo_category1;
+            this.bbiToolsRdpLaucherView.Name = "bbiToolsRdpLaucherView";
+            this.bbiToolsRdpLaucherView.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiToolsRdpLaucherView_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -388,6 +401,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.bbiToolsGenereatePassword);
             this.ribbonPageGroup2.ItemLinks.Add(this.bbiToolsThreeSimpleRule);
             this.ribbonPageGroup2.ItemLinks.Add(this.bbiToolsHostsEditor);
+            this.ribbonPageGroup2.ItemLinks.Add(this.bbiToolsRdpLaucherView);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Actions";
             // 
@@ -504,6 +518,7 @@
             this.navigationFrame.Controls.Add(this.npEntertainmentTicTacToeView);
             this.navigationFrame.Controls.Add(this.npEntertainmentCoinFlipView);
             this.navigationFrame.Controls.Add(this.npEntertainmentDiceView);
+            this.navigationFrame.Controls.Add(this.npToolsRdpLaucherView);
             this.navigationFrame.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationFrame.Location = new System.Drawing.Point(2, 2);
             this.navigationFrame.Margin = new System.Windows.Forms.Padding(0);
@@ -521,7 +536,8 @@
             this.npToolsHotsEditorView,
             this.npEntertainmentTicTacToeView,
             this.npEntertainmentCoinFlipView,
-            this.npEntertainmentDiceView});
+            this.npEntertainmentDiceView,
+            this.npToolsRdpLaucherView});
             this.navigationFrame.SelectedPage = this.npHomeDashboardView;
             this.navigationFrame.Size = new System.Drawing.Size(962, 372);
             this.navigationFrame.TabIndex = 4;
@@ -719,9 +735,19 @@
             // 
             // npEntertainmentDiceView
             // 
+            this.npEntertainmentDiceView.Caption = "npEntertainmentDiceView";
             this.npEntertainmentDiceView.Controls.Add(this.diceGameView1);
             this.npEntertainmentDiceView.Name = "npEntertainmentDiceView";
             this.npEntertainmentDiceView.Size = new System.Drawing.Size(962, 372);
+            // 
+            // diceGameView1
+            // 
+            this.diceGameView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.diceGameView1.Location = new System.Drawing.Point(0, 0);
+            this.diceGameView1.Margin = new System.Windows.Forms.Padding(0);
+            this.diceGameView1.Name = "diceGameView1";
+            this.diceGameView1.Size = new System.Drawing.Size(962, 372);
+            this.diceGameView1.TabIndex = 0;
             // 
             // Root
             // 
@@ -758,14 +784,19 @@
             this.ribbonPage7.Name = "ribbonPage7";
             this.ribbonPage7.Text = "ribbonPage7";
             // 
-            // diceGameView1
+            // npToolsRdpLaucherView
             // 
-            this.diceGameView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.diceGameView1.Location = new System.Drawing.Point(0, 0);
-            this.diceGameView1.Margin = new System.Windows.Forms.Padding(0);
-            this.diceGameView1.Name = "diceGameView1";
-            this.diceGameView1.Size = new System.Drawing.Size(962, 372);
-            this.diceGameView1.TabIndex = 0;
+            this.npToolsRdpLaucherView.Controls.Add(this.rdpLaucherView);
+            this.npToolsRdpLaucherView.Name = "npToolsRdpLaucherView";
+            this.npToolsRdpLaucherView.Size = new System.Drawing.Size(962, 372);
+            // 
+            // rdpLaucherView
+            // 
+            this.rdpLaucherView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rdpLaucherView.Location = new System.Drawing.Point(0, 0);
+            this.rdpLaucherView.Name = "rdpLaucherView";
+            this.rdpLaucherView.Size = new System.Drawing.Size(962, 372);
+            this.rdpLaucherView.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -808,6 +839,7 @@
             this.npEntertainmentDiceView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            this.npToolsRdpLaucherView.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -884,5 +916,8 @@
         private DevExpress.XtraBars.BarButtonItem bbiEntretainmentDice;
         private DevExpress.XtraBars.Navigation.NavigationPage npEntertainmentDiceView;
         private Views.Entertainment.Games.Dice.DiceGameView diceGameView1;
+        private DevExpress.XtraBars.BarButtonItem bbiToolsRdpLaucherView;
+        private DevExpress.XtraBars.Navigation.NavigationPage npToolsRdpLaucherView;
+        private Views.Tools.RdpLaucher.RdpLauncherListView rdpLaucherView;
     }
 }

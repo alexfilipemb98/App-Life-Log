@@ -149,7 +149,7 @@ namespace Life_Log.Views.Tables.Images
 
             bool saved = AppHelper.DataEngine.Images.Save(_crtImage, out string message);
             
-            AppHelper.StatusMessage(message, saved ? ForeColors.Information : ForeColors.Critical);
+            AppHelper.StatusMessage(message, saved);
 
             return saved;
         }

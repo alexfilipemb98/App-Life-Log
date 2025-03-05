@@ -75,6 +75,11 @@ namespace Data
         /// </summary>
         public PasswordsQuery Passwords => GetObject<PasswordsQuery>();
 
+        /// <summary>
+        /// Rdp connections data query
+        /// </summary>
+        public RdpConnectionsQuery RdpConnections => GetObject<RdpConnectionsQuery>();
+
         #endregion
 
         #region FUNCTIONS

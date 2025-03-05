@@ -98,7 +98,13 @@ namespace Data.Bases
             if (obj.EditingMode)
                 obj.UpdatedAt = DateTime.Now;
             else
+            {
+                if (obj.Id == Guid.Empty)
+                {
+                    obj.Id = Guid.NewGuid();
+                }
                 obj.CreatedAt = DateTime.Now;
+            }
 
             _UOW.Save(obj);
             _UOW.CommitChanges();
