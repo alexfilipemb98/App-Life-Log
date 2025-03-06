@@ -16,9 +16,33 @@ namespace Life_Log.Views.Settings
     /// </summary>
     public partial class GeralSettingsView : DevExpress.XtraEditors.XtraUserControl
     {
+        #region MAIN
+
         /// <summary>
         /// Construtor
         /// </summary>
         public GeralSettingsView() => InitializeComponent();
+
+        #endregion
+
+        #region CLICK
+
+        /// <summary>
+        /// Reset the form size to default
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void sbResetSize_Click(object sender, EventArgs e)
+        {
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+                Helpers.ErrorHelper.Handler(ex);
+            }
+        } 
+
+        #endregion
     }
 }
