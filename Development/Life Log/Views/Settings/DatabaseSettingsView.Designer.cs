@@ -250,6 +250,7 @@
             this.bePathSqlLite.Size = new System.Drawing.Size(704, 30);
             this.bePathSqlLite.StyleController = this.dataLayoutControl1;
             this.bePathSqlLite.TabIndex = 6;
+            this.bePathSqlLite.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bePathSqlLite_ButtonClick);
             // 
             // beSqlAddress
             // 

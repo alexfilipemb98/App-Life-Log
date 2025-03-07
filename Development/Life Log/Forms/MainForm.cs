@@ -219,7 +219,8 @@ namespace Life_Log.Forms
         private void bbiSettingsApp_ItemClick(object sender, ItemClickEventArgs e)
         {
             ribbon.ApplicationDocumentCaption = "App Settings";
-            navigationFrame.SelectedPage = npSettingsView; navigationFrame.SelectedPage = npSettingsView;
+            navigationFrame.SelectedPage = npSettingsView;
+            settingsView.LoadData();
         }
 
         /// <summary>

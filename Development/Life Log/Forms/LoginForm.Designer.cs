@@ -171,6 +171,7 @@
             // 
             // npLogin
             // 
+            this.npLogin.Caption = "npLogin";
             this.npLogin.Controls.Add(this.dataLayoutControl1);
             this.npLogin.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.npLogin.Name = "npLogin";
@@ -235,6 +236,7 @@
             // 
             // buttonEdit1
             // 
+            this.buttonEdit1.CausesValidation = false;
             this.buttonEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.loginModelBindingSource, "Password", true));
             this.buttonEdit1.Location = new System.Drawing.Point(49, 152);
             this.buttonEdit1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -250,6 +252,7 @@
             // 
             // teUsername
             // 
+            this.teUsername.CausesValidation = false;
             this.teUsername.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.loginModelBindingSource, "Username", true));
             this.teUsername.Location = new System.Drawing.Point(49, 44);
             this.teUsername.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -262,6 +265,7 @@
             // 
             // teEmail
             // 
+            this.teEmail.CausesValidation = false;
             this.teEmail.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.loginModelBindingSource, "Email", true));
             this.teEmail.Location = new System.Drawing.Point(49, 98);
             this.teEmail.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);

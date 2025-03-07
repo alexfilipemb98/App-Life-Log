@@ -41,6 +41,83 @@ namespace Life_Log.Views.Settings
             AppHelper.ButtonTogglePassword(sender as ButtonEdit, e);
         }
 
+        /// <summary>
+        /// Save
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (SaveData())
+            {
+                XtraMessageBox.Show("Settings saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                XtraMessageBox.Show("Error saving settings", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// List the databases
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbSQLDatabase_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            try
+            {
+                string tag = e.Button.Tag?.ToString();
+
+                if (string.IsNullOrWhiteSpace(tag))
+                    return;
+
+                if (tag == "LISTDB")
+                {
+                    cbSQLDatabase.Properties.Items.Clear();
+
+                    SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder();
+                    sqlConnectionStringBuilder.InitialCatalog = "master";
+                    sqlConnectionStringBuilder.UserID = teSqlUsername.Text;
+                    sqlConnectionStringBuilder.Password = beSqlPassword.Text;
+                    sqlConnectionStringBuilder.DataSource = beSqlAddress.Text;
+
+                    cbSQLDatabase.Properties.Items.AddRange(DbHelper.GetDatabases(sqlConnectionStringBuilder.ToString()));
+                }
+            }
+            catch (Exception ex)
+            {
+                Helpers.ErrorHelper.Handler(ex);
+            }
+        }
+
+        /// <summary>
+        /// Sql lite path chooser
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bePathSqlLite_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            try
+            {
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    openFileDialog.Filter = "SQLite files (*.sqlite;*.db)|*.sqlite;*.db|All files (*.*)|*.*";
+                    openFileDialog.FilterIndex = 1;
+                    openFileDialog.RestoreDirectory = true;
+
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string filePath = openFileDialog.FileName;
+                        bePathSqlLite.Text = filePath;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Helpers.ErrorHelper.Handler(ex);
+            }
+        }
         #endregion
 
         #region FUNCTIONS
@@ -75,7 +152,7 @@ namespace Life_Log.Views.Settings
 
             configs.SqlDatabase = cbSQLDatabase.Text;
 
-            FilesUtil.SaveFileWithEncryption(configs, Properties.Settings.Default.ConfigFileName);
+            FilesUtil.SaveFileWithEncryption(configs, AppHelper.ConfigDbName);
 
             return true;
         }
@@ -97,37 +174,5 @@ namespace Life_Log.Views.Settings
             }
         }
 
-        private void bbiSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            if (SaveData())
-            {
-                XtraMessageBox.Show("Settings saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                XtraMessageBox.Show("Error saving settings", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void cbSQLDatabase_ButtonClick(object sender, ButtonPressedEventArgs e)
-        {
-            var tag = e.Button.Tag?.ToString();
-
-            if (string.IsNullOrWhiteSpace(tag))
-                return;
-
-            if ( tag == "LISTDB")
-            {
-                cbSQLDatabase.Properties.Items.Clear();
-                
-                SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder();
-                sqlConnectionStringBuilder.InitialCatalog = "master";
-                sqlConnectionStringBuilder.UserID = teSqlUsername.Text;
-                sqlConnectionStringBuilder.Password = beSqlPassword.Text;
-                sqlConnectionStringBuilder.DataSource = beSqlAddress.Text;
-
-                cbSQLDatabase.Properties.Items.AddRange(DbHelper.GetDatabases(sqlConnectionStringBuilder.ToString()));
-            }
-        }
     }
 }

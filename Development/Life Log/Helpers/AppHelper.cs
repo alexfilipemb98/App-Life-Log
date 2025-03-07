@@ -21,6 +21,14 @@ namespace Life_Log.Helpers
     /// </summary>
     public static class AppHelper
     {
+        #region CONSTANTS
+
+        public const string ConfigDbName = "ConfigDb.dat";
+        public const string ConfigsAppName = "ConfigsApp.json";
+        public const string SqlLiteName = "Database.db";
+
+        #endregion
+
         #region PROPERTIES
 
         public static Data.Engine DataEngine { get; set; }
@@ -71,25 +79,19 @@ namespace Life_Log.Helpers
         {
             DatabaseConfigModel config;
 
-            if (File.Exists(Properties.Settings.Default.ConfigFileName))
+            if (File.Exists(ConfigDbName))
             {
-                config = FilesUtil.LoadFileWithEncryption<DatabaseConfigModel>(Properties.Settings.Default.ConfigFileName);
-
-                //TODO REMOVER DEPOIS DE TER AS CONFIGS CONFIGURAVEIS
-                if (config.SQlLitePath != Properties.Settings.Default.SqlLitePath)
-                {
-                    config.SQlLitePath = Properties.Settings.Default.SqlLitePath;
-                }
+                config = FilesUtil.LoadFileWithEncryption<DatabaseConfigModel>(ConfigDbName);
             }
             else
             {
                 config = new DatabaseConfigModel
                 {
                     DatabaseType = DatabaseTypeEnum.SQLLITE,
-                    SQlLitePath = Properties.Settings.Default.SqlLitePath
+                    SQlLitePath = SqlLiteName
                 };
 
-                FilesUtil.SaveFileWithEncryption(config, Properties.Settings.Default.ConfigFileName);
+                FilesUtil.SaveFileWithEncryption(config, ConfigDbName);
             }
 
             return config;
@@ -155,7 +157,7 @@ namespace Life_Log.Helpers
         /// </summary>
         public static void LoadAppConfigs()
         {
-            string jsonFile = Properties.Settings.Default.GeralSettings;
+            string jsonFile = ConfigsAppName;
             if (!File.Exists(jsonFile))
             {
                 AppConfigsModel config = new AppConfigsModel
@@ -176,7 +178,7 @@ namespace Life_Log.Helpers
         /// </summary>
         public static void SaveAppSetings()
         {
-            string jsonFile = Properties.Settings.Default.GeralSettings;
+            string jsonFile = ConfigsAppName;
             FilesUtil.SaveToJsonFile(jsonFile, AppConfigs);
         }
 

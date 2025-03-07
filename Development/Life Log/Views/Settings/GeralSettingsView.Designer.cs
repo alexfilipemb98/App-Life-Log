@@ -38,8 +38,8 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.sbResetSize = new DevExpress.XtraEditors.SimpleButton();
-            this.spinEdit2 = new DevExpress.XtraEditors.SpinEdit();
-            this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
+            this.seFormWidth = new DevExpress.XtraEditors.SpinEdit();
+            this.seFormHeight = new DevExpress.XtraEditors.SpinEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -50,8 +50,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seFormWidth.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seFormHeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -137,8 +137,8 @@
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.sbResetSize);
-            this.layoutControl1.Controls.Add(this.spinEdit2);
-            this.layoutControl1.Controls.Add(this.spinEdit1);
+            this.layoutControl1.Controls.Add(this.seFormWidth);
+            this.layoutControl1.Controls.Add(this.seFormHeight);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 39);
             this.layoutControl1.Name = "layoutControl1";
@@ -159,37 +159,37 @@
             this.sbResetSize.Text = "Reset Size";
             this.sbResetSize.Click += new System.EventHandler(this.sbResetSize_Click);
             // 
-            // spinEdit2
+            // seFormWidth
             // 
-            this.spinEdit2.EditValue = new decimal(new int[] {
+            this.seFormWidth.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.spinEdit2.Location = new System.Drawing.Point(60, 45);
-            this.spinEdit2.MenuManager = this.barManager;
-            this.spinEdit2.Name = "spinEdit2";
-            this.spinEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.seFormWidth.Location = new System.Drawing.Point(60, 45);
+            this.seFormWidth.MenuManager = this.barManager;
+            this.seFormWidth.Name = "seFormWidth";
+            this.seFormWidth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEdit2.Size = new System.Drawing.Size(99, 30);
-            this.spinEdit2.StyleController = this.layoutControl1;
-            this.spinEdit2.TabIndex = 5;
+            this.seFormWidth.Size = new System.Drawing.Size(99, 30);
+            this.seFormWidth.StyleController = this.layoutControl1;
+            this.seFormWidth.TabIndex = 5;
             // 
-            // spinEdit1
+            // seFormHeight
             // 
-            this.spinEdit1.EditValue = new decimal(new int[] {
+            this.seFormHeight.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.spinEdit1.Location = new System.Drawing.Point(217, 45);
-            this.spinEdit1.MenuManager = this.barManager;
-            this.spinEdit1.Name = "spinEdit1";
-            this.spinEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.seFormHeight.Location = new System.Drawing.Point(217, 45);
+            this.seFormHeight.MenuManager = this.barManager;
+            this.seFormHeight.Name = "seFormHeight";
+            this.seFormHeight.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEdit1.Size = new System.Drawing.Size(99, 30);
-            this.spinEdit1.StyleController = this.layoutControl1;
-            this.spinEdit1.TabIndex = 4;
+            this.seFormHeight.Size = new System.Drawing.Size(99, 30);
+            this.seFormHeight.StyleController = this.layoutControl1;
+            this.seFormHeight.TabIndex = 4;
             // 
             // Root
             // 
@@ -234,7 +234,7 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.BestFitWeight = 50;
-            this.layoutControlItem1.Control = this.spinEdit1;
+            this.layoutControlItem1.Control = this.seFormHeight;
             this.layoutControlItem1.Location = new System.Drawing.Point(157, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(157, 36);
@@ -244,7 +244,7 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.BestFitWeight = 50;
-            this.layoutControlItem2.Control = this.spinEdit2;
+            this.layoutControlItem2.Control = this.seFormWidth;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(157, 36);
@@ -285,8 +285,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seFormWidth.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seFormHeight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -311,8 +311,8 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraEditors.SimpleButton sbResetSize;
-        private DevExpress.XtraEditors.SpinEdit spinEdit2;
-        private DevExpress.XtraEditors.SpinEdit spinEdit1;
+        private DevExpress.XtraEditors.SpinEdit seFormWidth;
+        private DevExpress.XtraEditors.SpinEdit seFormHeight;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;

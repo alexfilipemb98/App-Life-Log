@@ -145,6 +145,10 @@ namespace Life_Log.Views.Home.Notes
             try
             {
                 XtraTabPage xtraTabPage = xtraTabControl.SelectedTabPage;
+
+                if (xtraTabPage == null)
+                    return;
+
                 Data.Entities.NotesEntity note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(xtraTabPage.Tag?.ToString()));
                 string nameNote = note.Name;
                 DialogResult form = TextInputDialogForm.Dialog(ref nameNote, 3, 50);

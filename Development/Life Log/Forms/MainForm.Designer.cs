@@ -87,7 +87,7 @@
             this.npToolsPasswordGeneratorView = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.passwordGeneratorView = new Life_Log.Views.Tools.PasswordGenerator.PasswordGeneratorView();
             this.npSettingsView = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.settingsView1 = new Life_Log.Views.Settings.SettingsView();
+            this.settingsView = new Life_Log.Views.Settings.SettingsView();
             this.npToolsHotsEditorView = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.hostsEditorView = new Life_Log.Views.Tools.HostsEditor.HostsEditorView();
             this.npEntertainmentTicTacToeView = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -96,13 +96,13 @@
             this.coinFlipGameView = new Life_Log.Views.Entertainment.Games.CoinFlip.CoinFlipGameView();
             this.npEntertainmentDiceView = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.diceGameView1 = new Life_Log.Views.Entertainment.Games.Dice.DiceGameView();
+            this.npToolsRdpLaucherView = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.rdpLaucherView = new Life_Log.Views.Tools.RdpLaucher.RdpLauncherListView();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.npToolsRdpLaucherView = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.rdpLaucherView = new Life_Log.Views.Tools.RdpLaucher.RdpLauncherListView();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -122,9 +122,9 @@
             this.npEntertainmentTicTacToeView.SuspendLayout();
             this.npEntertainmentCoinFlipView.SuspendLayout();
             this.npEntertainmentDiceView.SuspendLayout();
+            this.npToolsRdpLaucherView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            this.npToolsRdpLaucherView.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbon
@@ -671,19 +671,19 @@
             // npSettingsView
             // 
             this.npSettingsView.Caption = "npSettingsView";
-            this.npSettingsView.Controls.Add(this.settingsView1);
+            this.npSettingsView.Controls.Add(this.settingsView);
             this.npSettingsView.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.npSettingsView.Name = "npSettingsView";
             this.npSettingsView.Size = new System.Drawing.Size(962, 372);
             // 
-            // settingsView1
+            // settingsView
             // 
-            this.settingsView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.settingsView1.Location = new System.Drawing.Point(0, 0);
-            this.settingsView1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.settingsView1.Name = "settingsView1";
-            this.settingsView1.Size = new System.Drawing.Size(962, 372);
-            this.settingsView1.TabIndex = 0;
+            this.settingsView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.settingsView.Location = new System.Drawing.Point(0, 0);
+            this.settingsView.Margin = new System.Windows.Forms.Padding(0);
+            this.settingsView.Name = "settingsView";
+            this.settingsView.Size = new System.Drawing.Size(962, 372);
+            this.settingsView.TabIndex = 0;
             // 
             // npToolsHotsEditorView
             // 
@@ -749,6 +749,21 @@
             this.diceGameView1.Size = new System.Drawing.Size(962, 372);
             this.diceGameView1.TabIndex = 0;
             // 
+            // npToolsRdpLaucherView
+            // 
+            this.npToolsRdpLaucherView.Caption = "npToolsRdpLaucherView";
+            this.npToolsRdpLaucherView.Controls.Add(this.rdpLaucherView);
+            this.npToolsRdpLaucherView.Name = "npToolsRdpLaucherView";
+            this.npToolsRdpLaucherView.Size = new System.Drawing.Size(962, 372);
+            // 
+            // rdpLaucherView
+            // 
+            this.rdpLaucherView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rdpLaucherView.Location = new System.Drawing.Point(0, 0);
+            this.rdpLaucherView.Name = "rdpLaucherView";
+            this.rdpLaucherView.Size = new System.Drawing.Size(962, 372);
+            this.rdpLaucherView.TabIndex = 0;
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -783,20 +798,6 @@
             // 
             this.ribbonPage7.Name = "ribbonPage7";
             this.ribbonPage7.Text = "ribbonPage7";
-            // 
-            // npToolsRdpLaucherView
-            // 
-            this.npToolsRdpLaucherView.Controls.Add(this.rdpLaucherView);
-            this.npToolsRdpLaucherView.Name = "npToolsRdpLaucherView";
-            this.npToolsRdpLaucherView.Size = new System.Drawing.Size(962, 372);
-            // 
-            // rdpLaucherView
-            // 
-            this.rdpLaucherView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rdpLaucherView.Location = new System.Drawing.Point(0, 0);
-            this.rdpLaucherView.Name = "rdpLaucherView";
-            this.rdpLaucherView.Size = new System.Drawing.Size(962, 372);
-            this.rdpLaucherView.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -837,9 +838,9 @@
             this.npEntertainmentTicTacToeView.ResumeLayout(false);
             this.npEntertainmentCoinFlipView.ResumeLayout(false);
             this.npEntertainmentDiceView.ResumeLayout(false);
+            this.npToolsRdpLaucherView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            this.npToolsRdpLaucherView.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -894,7 +895,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.Navigation.NavigationPage npSettingsView;
-        private Views.Settings.SettingsView settingsView1;
+        private Views.Settings.SettingsView settingsView;
         private DevExpress.XtraBars.BarButtonItem bbiTestCode;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgTestButtons;
         public DevExpress.XtraLayout.LayoutControl layoutControl;

@@ -52,7 +52,7 @@
             this.npGeralSettings,
             this.npDbSettings});
             this.navigationPaneEx.RegularSize = new System.Drawing.Size(902, 495);
-            this.navigationPaneEx.SelectedPage = this.npGeralSettings;
+            this.navigationPaneEx.SelectedPage = null;
             this.navigationPaneEx.Size = new System.Drawing.Size(922, 515);
             this.navigationPaneEx.State = DevExpress.XtraBars.Navigation.NavigationPaneState.Expanded;
             this.navigationPaneEx.TabIndex = 4;
