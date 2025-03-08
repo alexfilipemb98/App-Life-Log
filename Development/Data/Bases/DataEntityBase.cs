@@ -19,6 +19,7 @@ namespace Data.Bases
         [DevExpress.Xpo.Key]
         [XmlElement("Id")]
         [Nullable(false)]
+        [DbType("uniqueidentifier")]
         public Guid Id
         {
             get => fId;
@@ -28,6 +29,7 @@ namespace Data.Bases
         private DateTime fCreatedAt;
         [DataType(DataType.Date)]
         [XmlElement("CreatedAt")]
+        [DbType("datetime")]
         public DateTime CreatedAt
         {
             get => fCreatedAt;
@@ -37,6 +39,7 @@ namespace Data.Bases
         private DateTime fUpdatedAt;
         [DataType(DataType.Date)]
         [XmlElement("UpdatedAt")]
+        [DbType("datetime")]
         public DateTime UpdatedAt
         {
             get => fUpdatedAt;
@@ -46,6 +49,7 @@ namespace Data.Bases
         private bool fEditingMode;
         [NotMapped]
         [NonPersistent]
+        [DbType("datetime")]
         public bool EditingMode
         {
             get => fEditingMode;

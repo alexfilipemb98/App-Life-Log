@@ -6,10 +6,8 @@ using DevExpress.XtraEditors;
 using Life_Log.Forms;
 using Microsoft.Win32;
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using static DevExpress.LookAndFeel.DXSkinColors;
@@ -36,6 +34,7 @@ namespace Life_Log.Helpers
         public static MainForm MainFormInstance { get; set; }
         public static AppConfigsModel AppConfigs { get; set; }
         public static DatabaseConfigModel DbConfigs { get; set; }
+        public static Api.Engine ApiEngine { get; set; }
 
         #endregion
 
@@ -102,11 +101,13 @@ namespace Life_Log.Helpers
         /// </summary>
         public static void CheckForRunningInstance()
         {
+#if !DEBUG
             Process currentProcess = Process.GetCurrentProcess();
             Process checkProcess = Process.GetProcessesByName(currentProcess.ProcessName).FirstOrDefault(p => p.Id != currentProcess.Id);
-#if !DEBUG
+
             if (checkProcess != null)
             {
+                SplashScreenManager.CloseForm(false);
                 DialogHelper.ShowNotificationDialog("Application", "This app is already open!");
 
                 IntPtr hWnd = IntPtr.Zero;

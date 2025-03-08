@@ -1,6 +1,7 @@
 ﻿using Core.Extensions;
 using Core.Utils;
 using Data.Entities;
+using Data.Queries;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
 using Life_Log.Forms;
@@ -9,6 +10,9 @@ using Life_Log.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Life_Log
@@ -26,9 +30,9 @@ namespace Life_Log
         {
             try
             {
-                AppHelper.CheckForRunningInstance();
-
                 SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
+
+                AppHelper.CheckForRunningInstance();
 
                 AppHelper.LoadAppConfigs();
 
@@ -36,14 +40,31 @@ namespace Life_Log
                 Application.SetCompatibleTextRenderingDefault(false);
 
                 AppHelper.DbConfigs = AppHelper.GetDatabaseConfigs();
-
-                LoggerUtil.Initialize();
-
                 AppHelper.DataEngine = new Data.Engine(AppHelper.DbConfigs);
+                AppHelper.ApiEngine = new Api.Engine(AppHelper.DataEngine);
                 AppHelper.DataEngine.SQLLiteBackUp();
                 AppHelper.DataEngine.Connect();
 
-                //new Api.Engine("http://localhost:9000/", AppHelper.DataEngine);
+                string[] targetAssemblies = { "Core", "Data", "Api", "Life Log" }; // Nome das tuas DLLs
+
+                List<Assembly> assemblies = AppDomain.CurrentDomain
+                    .GetAssemblies()
+                    .Where(a => targetAssemblies.Contains(a.GetName().Name))
+                    .ToList();
+
+                if (!AppHelper.DataEngine.ValidateVersions(assemblies))
+                {
+                    SplashScreenManager.CloseForm(false);
+                    XtraMessageBox.Show("The application is outdated, please update it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Environment.Exit(0);
+                    return;
+                }
+
+                LoggerUtil.Initialize();
+                
+                AppHelper.DataEngine.UpdateSchema();
+
+                //AppHelper.ApiEngine.Inicialize("http://localhost:9000/");
 
                 LoginForm loginForm = new LoginForm();
 

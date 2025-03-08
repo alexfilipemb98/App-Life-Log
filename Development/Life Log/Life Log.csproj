@@ -215,6 +215,12 @@
     <Compile Include="Views\Tables\ExternalPrograms\ExternalProgramsListView.Designer.cs">
       <DependentUpon>ExternalProgramsListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Tables\Versions\VersionsListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Tables\Versions\VersionsListView.Designer.cs">
+      <DependentUpon>VersionsListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tools\HostsEditor\HostsEditorView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -283,6 +289,7 @@
     <None Include="Properties\DataSources\Data.Entities.NotesEntity.datasource" />
     <None Include="Properties\DataSources\Data.Entities.PasswordsEntity.datasource" />
     <None Include="Properties\DataSources\Data.Entities.RdpConnectionsEntity.datasource" />
+    <None Include="Properties\DataSources\Data.Entities.VersionsEntity.datasource" />
     <None Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -335,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tables\ExternalPrograms\ExternalProgramsListView.resx">
       <DependentUpon>ExternalProgramsListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tables\Versions\VersionsListView.resx">
+      <DependentUpon>VersionsListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tools\HostsEditor\HostsEditorView.resx">
       <DependentUpon>HostsEditorView.cs</DependentUpon>

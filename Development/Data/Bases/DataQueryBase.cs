@@ -44,6 +44,37 @@ namespace Data.Bases
             _UOW.Query<Entity>();
 
         /// <summary>
+        /// Checks if the table exists 
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool TableExists()
+        {
+            string query = string.Empty;
+            string tableName = typeof(Entity).GetTableName();
+            if (_SQL.IsSqlite)
+            {
+                query = $@"
+                    SELECT CASE 
+                        WHEN EXISTS (SELECT 1 FROM sqlite_master WHERE type='table' AND name='{tableName}') 
+                        THEN 1 ELSE 0 
+                    END AS TableExists;
+                ";
+            }
+            else
+            {
+                query = $@"
+                    SELECT CASE 
+                        WHEN EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{tableName}') 
+                        THEN 1 ELSE 0 
+                    END AS TableExists;            
+                ";
+            }
+
+            bool results = _SQL.GetValue<bool>(query);
+            return results;
+        }
+
+        /// <summary>
         /// Gets the entity by key
         /// </summary>
         /// <param name="key"></param>

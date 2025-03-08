@@ -103,6 +103,10 @@
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.npTableVersionsView = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.versionsListView = new Life_Log.Views.Tables.Versions.VersionsListView();
+            this.bbiTablesVersions = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -125,6 +129,7 @@
             this.npToolsRdpLaucherView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            this.npTableVersionsView.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbon
@@ -158,10 +163,11 @@
             this.bbiEntertainmentTicTacToe,
             this.bbiEntretainmentCoinFlip,
             this.bbiEntretainmentDice,
-            this.bbiToolsRdpLaucherView});
+            this.bbiToolsRdpLaucherView,
+            this.bbiTablesVersions});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.ribbon.MaxItemId = 26;
+            this.ribbon.MaxItemId = 27;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsSearchMenu.SearchItemPosition = DevExpress.XtraBars.Ribbon.SearchItemPosition.Caption;
             this.ribbon.PageHeaderItemLinks.Add(this.btsiSetTopMost);
@@ -212,7 +218,6 @@
             this.bbiTablesExternalPrograms.Id = 6;
             this.bbiTablesExternalPrograms.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.inserttable;
             this.bbiTablesExternalPrograms.Name = "bbiTablesExternalPrograms";
-            this.bbiTablesExternalPrograms.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             this.bbiTablesExternalPrograms.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTablesExternalPrograms_ItemClick);
             // 
             // bsiTime
@@ -254,7 +259,6 @@
             this.bbiTablesImages.Id = 11;
             this.bbiTablesImages.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.inserttable;
             this.bbiTablesImages.Name = "bbiTablesImages";
-            this.bbiTablesImages.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             this.bbiTablesImages.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTablesImages_ItemClick);
             // 
             // bbiToolsSqlBrowser
@@ -408,7 +412,8 @@
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup6});
             this.ribbonPage2.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.DuplexLandscapeOneSidedMirrored;
             this.ribbonPage2.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
             this.ribbonPage2.Name = "ribbonPage2";
@@ -519,6 +524,7 @@
             this.navigationFrame.Controls.Add(this.npEntertainmentCoinFlipView);
             this.navigationFrame.Controls.Add(this.npEntertainmentDiceView);
             this.navigationFrame.Controls.Add(this.npToolsRdpLaucherView);
+            this.navigationFrame.Controls.Add(this.npTableVersionsView);
             this.navigationFrame.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationFrame.Location = new System.Drawing.Point(2, 2);
             this.navigationFrame.Margin = new System.Windows.Forms.Padding(0);
@@ -537,7 +543,8 @@
             this.npEntertainmentTicTacToeView,
             this.npEntertainmentCoinFlipView,
             this.npEntertainmentDiceView,
-            this.npToolsRdpLaucherView});
+            this.npToolsRdpLaucherView,
+            this.npTableVersionsView});
             this.navigationFrame.SelectedPage = this.npHomeDashboardView;
             this.navigationFrame.Size = new System.Drawing.Size(962, 372);
             this.navigationFrame.TabIndex = 4;
@@ -799,6 +806,35 @@
             this.ribbonPage7.Name = "ribbonPage7";
             this.ribbonPage7.Text = "ribbonPage7";
             // 
+            // npTableVersionsView
+            // 
+            this.npTableVersionsView.Controls.Add(this.versionsListView);
+            this.npTableVersionsView.Name = "npTableVersionsView";
+            this.npTableVersionsView.Size = new System.Drawing.Size(962, 372);
+            // 
+            // versionsListView
+            // 
+            this.versionsListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.versionsListView.Location = new System.Drawing.Point(0, 0);
+            this.versionsListView.Margin = new System.Windows.Forms.Padding(0);
+            this.versionsListView.Name = "versionsListView";
+            this.versionsListView.Size = new System.Drawing.Size(962, 372);
+            this.versionsListView.TabIndex = 0;
+            // 
+            // bbiTablesVersions
+            // 
+            this.bbiTablesVersions.Caption = "Versions";
+            this.bbiTablesVersions.Id = 26;
+            this.bbiTablesVersions.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.inserttable;
+            this.bbiTablesVersions.Name = "bbiTablesVersions";
+            this.bbiTablesVersions.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTablesVersions_ItemClick);
+            // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.ItemLinks.Add(this.bbiTablesVersions);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.ribbonPageGroup6.Text = "Views";
+            // 
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
@@ -841,6 +877,7 @@
             this.npToolsRdpLaucherView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            this.npTableVersionsView.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -920,5 +957,9 @@
         private DevExpress.XtraBars.BarButtonItem bbiToolsRdpLaucherView;
         private DevExpress.XtraBars.Navigation.NavigationPage npToolsRdpLaucherView;
         private Views.Tools.RdpLaucher.RdpLauncherListView rdpLaucherView;
+        private DevExpress.XtraBars.Navigation.NavigationPage npTableVersionsView;
+        private Views.Tables.Versions.VersionsListView versionsListView;
+        private DevExpress.XtraBars.BarButtonItem bbiTablesVersions;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
     }
 }

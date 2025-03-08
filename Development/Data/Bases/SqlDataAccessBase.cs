@@ -13,6 +13,10 @@ namespace Data.Bases
     {
         #region MAIN
 
+        //PROPERTIES
+        public bool IsSqlite { get; set; }
+
+        //PRIVATE
         private IDbConnection _connection;
         private IDbTransaction _transaction;
 
@@ -37,6 +41,7 @@ namespace Data.Bases
         /// <param name="isSqlLite"></param>
         public SqlDataAccessBase(string stringConn, bool isSqlLite = false)
         {
+            IsSqlite = isSqlLite;
             if (isSqlLite)
                 _connection = new System.Data.SQLite.SQLiteConnection(stringConn);
             else

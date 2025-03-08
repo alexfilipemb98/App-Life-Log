@@ -10,10 +10,17 @@ namespace Core.Interfaces
     /// <typeparam name="Key"></typeparam>
     public interface IBaseQuery<Entity, Key>
     {
+       
         /// <summary>
         /// Query Base
         /// </summary>
         IQueryable<Entity> QueryBase { get; }
+
+        /// <summary>
+        /// Checks if the table exists
+        /// </summary>
+        /// <returns></returns>
+        bool TableExists();
 
         /// <summary>
         /// Checks if the object exists

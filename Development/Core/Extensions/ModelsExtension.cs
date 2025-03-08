@@ -54,6 +54,14 @@ namespace Core.Extensions
         /// <returns>Propriedade marcada com um atributo de chave.</returns>
         public static PropertyInfo GetKey(this Type type) =>
           Utils.ModelUtil.GetModelKey(type);
+
+        /// <summary>
+        /// Get the table name of the model
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static string GetTableName(this Type type) => 
+            Utils.ModelUtil.GetTableName(type);
     }
 
 }

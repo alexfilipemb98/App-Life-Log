@@ -290,6 +290,18 @@ namespace Life_Log.Forms
             rdpLaucherView.LoadData();
         }
 
+        /// <summary>
+        /// Show tables versions
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiTablesVersions_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ribbon.ApplicationDocumentCaption = "Tables of Versions";
+            navigationFrame.SelectedPage = npTableVersionsView;
+            versionsListView.LoadData();
+        }
+
         #endregion
 
         #region CHECKED CHANGED
@@ -360,6 +372,5 @@ namespace Life_Log.Forms
         {
 
         }
-
     }
 }

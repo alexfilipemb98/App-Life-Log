@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Xpo;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
@@ -62,6 +63,17 @@ namespace Core.Utils
                 throw new Exception($"The property 'EditingMode' is not of type 'bool'.");
 
             editingModeProperty.SetValue(entity, value);
+        }
+
+        /// <summary>
+        /// Get the table name of the entity
+        /// </summary>
+        /// <param name="entityType"></param>
+        /// <returns></returns>
+        public static string GetTableName(Type entityType)
+        {
+            PersistentAttribute persistentAttribute = (PersistentAttribute)Attribute.GetCustomAttribute(entityType, typeof(PersistentAttribute));
+            return persistentAttribute?.MapTo ?? "Tabela não encontrada";
         }
     }
 }

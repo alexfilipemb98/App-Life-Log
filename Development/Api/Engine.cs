@@ -11,6 +11,7 @@ namespace Api
         //INTERNAL
 
         internal static Data.Engine _engine;
+        private  string _url;
 
         //PRIVATE
         private IDisposable _api;
@@ -19,10 +20,20 @@ namespace Api
         /// Engine Data
         /// </summary>
         /// <param name="url"></param>
-        public Engine(string url , Data.Engine engine)
+        public Engine(Data.Engine engine)
         {
-            _engine = engine;   
-            _api = WebApp.Start<Startup>(url);
+            _engine = engine;
+           
+        }
+
+        /// <summary>
+        /// Inicialize Web api
+        /// </summary>
+        /// <param name="url"></param>
+        public void Inicialize(string url)
+        { 
+            _url = url;
+            _api = WebApp.Start<Startup>(_url);
         }
 
         /// <summary>

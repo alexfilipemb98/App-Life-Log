@@ -1,6 +1,7 @@
 ﻿using Core.Enums;
 using Core.Models;
 using Data.Bases;
+using Data.Entities;
 using Data.Queries;
 using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
@@ -13,6 +14,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace Data
 {
@@ -25,7 +27,7 @@ namespace Data
 
         //PRIVATES 
         private readonly DatabaseConfigModel _config;
-        private readonly IDbConnection _connection;
+        private IDbConnection _connection;
         private UnitOfWork _uow;
         private Lazy<object>[] _lazyObjects;
         private Type[] _persistentTypes;
@@ -39,13 +41,8 @@ namespace Data
         {
             this._config = _config;
 
-            string connectionString = GetConnection(_config);
-
             RegisterDataEntities();
             RegisterDataQueries();
-
-            _connection = RegisterDataLayer(connectionString);
-            _connection.Close();
         }
 
         #region QUERIES
@@ -69,7 +66,7 @@ namespace Data
         /// Commands data query
         /// </summary>
         public CommandsQuery Commands => GetObject<CommandsQuery>();
-        
+
         /// <summary>
         /// Passwords data query
         /// </summary>
@@ -79,6 +76,11 @@ namespace Data
         /// Rdp connections data query
         /// </summary>
         public RdpConnectionsQuery RdpConnections => GetObject<RdpConnectionsQuery>();
+
+        /// <summary>
+        /// Versions data query
+        /// </summary>
+        public VersionsQuery Versions => GetObject<VersionsQuery>();
 
         #endregion
 
@@ -91,12 +93,16 @@ namespace Data
         /// </summary>
         public bool Connect()
         {
+            string connectionString = GetConnection(_config);
+
+            _connection = RegisterDataLayer(connectionString);
+
             _uow = new UnitOfWork();
-            _uow.UpdateSchema();
 
             if (_config.DatabaseType == DatabaseTypeEnum.SQLLITE)
             {
                 SQL = new SqlDataAccessBase((SQLiteConnection)_connection);
+                SQL.IsSqlite = true;
                 DBName = $"(local) {((SQLiteConnection)_connection).DataSource}";
             }
             else if (_config.DatabaseType == DatabaseTypeEnum.MSSQL)
@@ -129,6 +135,14 @@ namespace Data
         }
 
         /// <summary>
+        /// Update schema
+        /// </summary>
+        public void UpdateSchema()
+        {
+            _uow.UpdateSchema();
+        }
+
+        /// <summary>
         /// Create a backup of the SQLLite database
         /// </summary>
         public void SQLLiteBackUp()
@@ -153,6 +167,46 @@ namespace Data
             File.Copy(sqlLitePath, backupFile, true);
         }
 
+        /// <summary>
+        /// Validate versions
+        /// </summary>
+        /// <param name="version"></param>
+        /// <returns></returns>
+        public bool ValidateVersions(List<Assembly> assemblies)
+        {
+            bool isValid = false;
+
+            using (UnitOfWork uow = new UnitOfWork())
+            using (SqlDataAccessBase sql = new SqlDataAccessBase(GetConnection(_config, true), _config.DatabaseType == DatabaseTypeEnum.SQLLITE))
+            {
+                VersionsQuery dataVersions = new VersionsQuery(uow, sql);
+
+                if (!dataVersions.TableExists())
+                    return true;
+
+                foreach (Assembly assembly in assemblies)
+                {
+                    GuidAttribute guidAttr = (GuidAttribute)assembly.GetCustomAttribute(typeof(GuidAttribute));
+
+                    VersionsEntity versionEntity = new VersionsEntity()
+                    {
+                        ProgramId = Guid.Parse(guidAttr.Value),
+                        ProgramName = assembly.GetName().Name,
+                        Version = assembly.GetName().Version.ToString(),
+                        CreatedAt = DateTime.Now,
+                        UpdatedAt = DateTime.Now
+                    };
+
+                    isValid = dataVersions.ValidateVersion(versionEntity);
+
+                    if (!isValid)
+                        break;
+                }
+            }
+
+            return isValid;
+        }
+
         //PRIVATE
 
         /// <summary>
@@ -161,7 +215,7 @@ namespace Data
         /// <param name="_config"></param>
         /// <param name="connectionString"></param>
         /// <returns></returns>
-        private string GetConnection(DatabaseConfigModel _config)
+        private string GetConnection(DatabaseConfigModel _config, bool raw = false)
         {
             string connectionString = null;
 
@@ -172,7 +226,7 @@ namespace Data
                     if (string.IsNullOrWhiteSpace(_config.SQlLitePath))
                         throw new Exception("SQL lite path is null");
 
-                    connectionString = $"XpoProvider=SQLite; Data Source={_config.SQlLitePath};";
+                    connectionString = $"{(raw ? "" : "XpoProvider=SQLite;")} Data Source={_config.SQlLitePath};";
                     break;
 
                 case DatabaseTypeEnum.MSSQL:
@@ -189,7 +243,7 @@ namespace Data
                         ApplicationName = "LifeLog"
                     };
 
-                    connectionString = $"XpoProvider=MSSqlServer;{conn}";
+                    connectionString = $"{(raw ? "" : "XpoProvider=MSSqlServer;")} {conn}";
                     break;
             }
 
