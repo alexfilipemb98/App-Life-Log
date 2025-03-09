@@ -55,6 +55,7 @@
     <Compile Include="Entities\ImagesEntity.cs" />
     <Compile Include="Entities\NotesEntity.cs" />
     <Compile Include="Entities\RdpConnectionsEntity.cs" />
+    <Compile Include="Entities\UsersEntity.cs" />
     <Compile Include="Entities\VersionsEntity.cs" />
     <Compile Include="Helpers\DbHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Queries\NotesQuery.cs" />
     <Compile Include="Queries\PasswordsQuery.cs" />
     <Compile Include="Queries\RdpConnectionsQuery.cs" />
+    <Compile Include="Queries\UsersQuery.cs" />
     <Compile Include="Queries\VersionsQuery.cs" />
   </ItemGroup>
   <ItemGroup>

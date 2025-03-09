@@ -30,29 +30,38 @@ namespace Life_Log.Forms
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            navigationFrame.SelectedPage = npHomeDashboardView;
+            try
+            {
+                navigationFrame.SelectedPage = npHomeDashboardView;
 #if DEBUG
-            bsiAppVersion.Caption = $"v{Application.ProductVersion} (DEBUG!)";
-            bsiAppVersion.ItemAppearance.Normal.ForeColor = Color.Red;
-            rpgTestButtons.Visible = true;
+                bsiAppVersion.Caption = $"v{Application.ProductVersion} (DEBUG!)";
+                bsiAppVersion.ItemAppearance.Normal.ForeColor = Color.Red;
+                rpgTestButtons.Visible = true;
 #else
             bsiAppVersion.Caption = $"v{Application.ProductVersion}";
             bsiAppVersion.ItemAppearance.Normal.ForeColor = Color.Green;
 #endif
-            bsiDatabase.Caption = AppHelper.DataEngine.DBName;
-            bsiSizse.Caption = $"Size: {Size.Width}w X {Size.Height}h";
+                bsiDatabase.Caption = AppHelper.DataEngine.DBName;
+                bsiSizse.Caption = $"Size: {Size.Width}w X {Size.Height}h";
 
-            switch (AppHelper.AppConfigs.Theme)
+                switch (AppHelper.AppConfigs.Theme)
+                {
+                    case Core.Enums.ThemeEnum.SYSTEM:
+                        bciThemeSystem.Checked = true;
+                        break;
+                    case Core.Enums.ThemeEnum.LIGHT:
+                        bciThemeLight.Checked = true;
+                        break;
+                    case Core.Enums.ThemeEnum.DARK:
+                        bciThemeDark.Checked = true;
+                        break;
+                }
+
+                bsiMenuUser.Caption = AppHelper.CurrentUser.Username;
+            }
+            catch (Exception ex)
             {
-                case Core.Enums.ThemeEnum.SYSTEM:
-                    bciThemeSystem.Checked = true;
-                    break;
-                case Core.Enums.ThemeEnum.LIGHT:
-                    bciThemeLight.Checked = true;
-                    break;
-                case Core.Enums.ThemeEnum.DARK:
-                    bciThemeDark.Checked = true;
-                    break;
+                Helpers.ErrorHelper.Handler(ex);
             }
         }
 

@@ -38,14 +38,17 @@
             this.bbiDatabaseSettings = new DevExpress.XtraBars.BarButtonItem();
             this.bsiStatusLabel = new DevExpress.XtraBars.BarStaticItem();
             this.bbiGoBack = new DevExpress.XtraBars.BarButtonItem();
+            this.bsiDatabase = new DevExpress.XtraBars.BarStaticItem();
+            this.bsiAppVersion = new DevExpress.XtraBars.BarStaticItem();
+            this.bsiTime = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.npLogin = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.dataLayoutControl = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.tsLoginRegister = new DevExpress.XtraEditors.ToggleSwitch();
             this.loginModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
+            this.bePassword = new DevExpress.XtraEditors.ButtonEdit();
             this.teUsername = new DevExpress.XtraEditors.TextEdit();
             this.teEmail = new DevExpress.XtraEditors.TextEdit();
             this.sbLogin = new DevExpress.XtraEditors.SimpleButton();
@@ -65,16 +68,18 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.npDbSettings = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.databaseSettingsView1 = new Life_Log.Views.Settings.DatabaseSettingsView();
+            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).BeginInit();
             this.navigationFrame.SuspendLayout();
             this.npLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
-            this.dataLayoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
+            this.dataLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tsLoginRegister.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bePassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teUsername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -92,6 +97,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.esiTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             this.npDbSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -102,10 +108,13 @@
             this.bbiDatabaseSettings,
             this.ribbon.ExpandCollapseItem,
             this.bsiStatusLabel,
-            this.bbiGoBack});
+            this.bbiGoBack,
+            this.bsiDatabase,
+            this.bsiAppVersion,
+            this.bsiTime});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.ribbon.MaxItemId = 5;
+            this.ribbon.MaxItemId = 8;
             this.ribbon.Name = "ribbon";
             this.ribbon.QuickToolbarItemLinks.Add(this.bbiGoBack);
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
@@ -131,9 +140,11 @@
             // 
             // bsiStatusLabel
             // 
-            this.bsiStatusLabel.Caption = "barStaticItem1";
+            this.bsiStatusLabel.Caption = "Form Loaded";
             this.bsiStatusLabel.Id = 1;
+            this.bsiStatusLabel.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.topbottomrules;
             this.bsiStatusLabel.Name = "bsiStatusLabel";
+            this.bsiStatusLabel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // bbiGoBack
             // 
@@ -144,9 +155,39 @@
             this.bbiGoBack.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiGoBack.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGoBack_ItemClick);
             // 
+            // bsiDatabase
+            // 
+            this.bsiDatabase.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bsiDatabase.Caption = "Database";
+            this.bsiDatabase.Id = 5;
+            this.bsiDatabase.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.actions_database;
+            this.bsiDatabase.Name = "bsiDatabase";
+            this.bsiDatabase.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // bsiAppVersion
+            // 
+            this.bsiAppVersion.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bsiAppVersion.Caption = "v0.0.0.0";
+            this.bsiAppVersion.Id = 6;
+            this.bsiAppVersion.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.bo_fileattachment;
+            this.bsiAppVersion.Name = "bsiAppVersion";
+            this.bsiAppVersion.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // bsiTime
+            // 
+            this.bsiTime.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bsiTime.Caption = "2025/03/09 18:15:42";
+            this.bsiTime.Id = 7;
+            this.bsiTime.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.time;
+            this.bsiTime.Name = "bsiTime";
+            this.bsiTime.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.bsiStatusLabel);
+            this.ribbonStatusBar.ItemLinks.Add(this.bsiDatabase);
+            this.ribbonStatusBar.ItemLinks.Add(this.bsiTime);
+            this.ribbonStatusBar.ItemLinks.Add(this.bsiAppVersion);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 319);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
@@ -172,29 +213,29 @@
             // npLogin
             // 
             this.npLogin.Caption = "npLogin";
-            this.npLogin.Controls.Add(this.dataLayoutControl1);
+            this.npLogin.Controls.Add(this.dataLayoutControl);
             this.npLogin.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.npLogin.Name = "npLogin";
             this.npLogin.Size = new System.Drawing.Size(748, 270);
             // 
-            // dataLayoutControl1
+            // dataLayoutControl
             // 
-            this.dataLayoutControl1.Controls.Add(this.tsLoginRegister);
-            this.dataLayoutControl1.Controls.Add(this.pictureEdit1);
-            this.dataLayoutControl1.Controls.Add(this.buttonEdit1);
-            this.dataLayoutControl1.Controls.Add(this.teUsername);
-            this.dataLayoutControl1.Controls.Add(this.teEmail);
-            this.dataLayoutControl1.Controls.Add(this.sbLogin);
-            this.dataLayoutControl1.DataSource = this.loginModelBindingSource;
-            this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.dataLayoutControl1.Name = "dataLayoutControl1";
-            this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1236, 328, 650, 400);
-            this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(748, 270);
-            this.dataLayoutControl1.TabIndex = 4;
-            this.dataLayoutControl1.Text = "dataLayoutControl1";
+            this.dataLayoutControl.Controls.Add(this.tsLoginRegister);
+            this.dataLayoutControl.Controls.Add(this.pictureEdit1);
+            this.dataLayoutControl.Controls.Add(this.bePassword);
+            this.dataLayoutControl.Controls.Add(this.teUsername);
+            this.dataLayoutControl.Controls.Add(this.teEmail);
+            this.dataLayoutControl.Controls.Add(this.sbLogin);
+            this.dataLayoutControl.DataSource = this.loginModelBindingSource;
+            this.dataLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataLayoutControl.Location = new System.Drawing.Point(0, 0);
+            this.dataLayoutControl.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.dataLayoutControl.Name = "dataLayoutControl";
+            this.dataLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1236, 328, 650, 400);
+            this.dataLayoutControl.Root = this.Root;
+            this.dataLayoutControl.Size = new System.Drawing.Size(748, 270);
+            this.dataLayoutControl.TabIndex = 4;
+            this.dataLayoutControl.Text = "dataLayoutControl1";
             // 
             // tsLoginRegister
             // 
@@ -210,7 +251,7 @@
             this.tsLoginRegister.Properties.OnText = "On";
             this.tsLoginRegister.Properties.ShowText = false;
             this.tsLoginRegister.Size = new System.Drawing.Size(57, 24);
-            this.tsLoginRegister.StyleController = this.dataLayoutControl1;
+            this.tsLoginRegister.StyleController = this.dataLayoutControl;
             this.tsLoginRegister.TabIndex = 8;
             this.tsLoginRegister.EditValueChanged += new System.EventHandler(this.tsLoginRegister_EditValueChanged);
             // 
@@ -231,24 +272,28 @@
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pictureEdit1.Size = new System.Drawing.Size(260, 260);
-            this.pictureEdit1.StyleController = this.dataLayoutControl1;
+            this.pictureEdit1.StyleController = this.dataLayoutControl;
             this.pictureEdit1.TabIndex = 7;
             // 
-            // buttonEdit1
+            // bePassword
             // 
-            this.buttonEdit1.CausesValidation = false;
-            this.buttonEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.loginModelBindingSource, "Password", true));
-            this.buttonEdit1.Location = new System.Drawing.Point(49, 152);
-            this.buttonEdit1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.buttonEdit1.MenuManager = this.ribbon;
-            this.buttonEdit1.Name = "buttonEdit1";
-            this.buttonEdit1.Properties.AdvancedModeOptions.Label = "Password";
+            this.bePassword.CausesValidation = false;
+            this.bePassword.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.loginModelBindingSource, "Password", true));
+            this.bePassword.Location = new System.Drawing.Point(49, 152);
+            this.bePassword.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.bePassword.MenuManager = this.ribbon;
+            this.bePassword.Name = "bePassword";
+            this.bePassword.Properties.AdvancedModeOptions.Label = "Password";
             editorButtonImageOptions1.SvgImage = global::Life_Log.Properties.Resources.security_visibilityoff;
-            this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.bePassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.buttonEdit1.Size = new System.Drawing.Size(420, 48);
-            this.buttonEdit1.StyleController = this.dataLayoutControl1;
-            this.buttonEdit1.TabIndex = 6;
+            this.bePassword.Properties.MaxLength = 30;
+            this.bePassword.Properties.UseSystemPasswordChar = true;
+            this.bePassword.Size = new System.Drawing.Size(420, 48);
+            this.bePassword.StyleController = this.dataLayoutControl;
+            this.bePassword.TabIndex = 6;
+            this.bePassword.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bePassword_ButtonClick);
+            this.bePassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextEdits_KeyDown);
             // 
             // teUsername
             // 
@@ -259,9 +304,11 @@
             this.teUsername.MenuManager = this.ribbon;
             this.teUsername.Name = "teUsername";
             this.teUsername.Properties.AdvancedModeOptions.Label = "Username";
+            this.teUsername.Properties.MaxLength = 20;
             this.teUsername.Size = new System.Drawing.Size(420, 48);
-            this.teUsername.StyleController = this.dataLayoutControl1;
+            this.teUsername.StyleController = this.dataLayoutControl;
             this.teUsername.TabIndex = 5;
+            this.teUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextEdits_KeyDown);
             // 
             // teEmail
             // 
@@ -273,8 +320,9 @@
             this.teEmail.Name = "teEmail";
             this.teEmail.Properties.AdvancedModeOptions.Label = "Email";
             this.teEmail.Size = new System.Drawing.Size(420, 48);
-            this.teEmail.StyleController = this.dataLayoutControl1;
+            this.teEmail.StyleController = this.dataLayoutControl;
             this.teEmail.TabIndex = 4;
+            this.teEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextEdits_KeyDown);
             // 
             // sbLogin
             // 
@@ -290,7 +338,7 @@
             this.sbLogin.MinimumSize = new System.Drawing.Size(0, 48);
             this.sbLogin.Name = "sbLogin";
             this.sbLogin.Size = new System.Drawing.Size(235, 48);
-            this.sbLogin.StyleController = this.dataLayoutControl1;
+            this.sbLogin.StyleController = this.dataLayoutControl;
             this.sbLogin.TabIndex = 3;
             this.sbLogin.Text = "Login";
             this.sbLogin.Click += new System.EventHandler(this.sbLogin_Click);
@@ -409,7 +457,7 @@
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.buttonEdit1;
+            this.layoutControlItem4.Control = this.bePassword;
             this.layoutControlItem4.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.security_key;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 108);
             this.layoutControlItem4.Name = "layoutControlItem4";
@@ -467,6 +515,16 @@
             this.databaseSettingsView1.Size = new System.Drawing.Size(748, 270);
             this.databaseSettingsView1.TabIndex = 0;
             // 
+            // dxErrorProvider
+            // 
+            this.dxErrorProvider.ContainerControl = this;
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -484,16 +542,17 @@
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Login/Register";
             this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.Shown += new System.EventHandler(this.LoginForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).EndInit();
             this.navigationFrame.ResumeLayout(false);
             this.npLogin.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
-            this.dataLayoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).EndInit();
+            this.dataLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tsLoginRegister.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bePassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teUsername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
@@ -511,6 +570,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.esiTop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             this.npDbSettings.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -525,8 +585,8 @@
         private DevExpress.XtraBars.Navigation.NavigationPage npLogin;
         private DevExpress.XtraBars.Navigation.NavigationPage npDbSettings;
         private DevExpress.XtraEditors.SimpleButton sbLogin;
-        private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
-        private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
+        private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl;
+        private DevExpress.XtraEditors.ButtonEdit bePassword;
         private DevExpress.XtraEditors.TextEdit teUsername;
         private DevExpress.XtraEditors.TextEdit teEmail;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
@@ -549,5 +609,10 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private Views.Settings.DatabaseSettingsView databaseSettingsView1;
         private System.Windows.Forms.BindingSource loginModelBindingSource;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
+        private DevExpress.XtraBars.BarStaticItem bsiDatabase;
+        private DevExpress.XtraBars.BarStaticItem bsiAppVersion;
+        private DevExpress.XtraBars.BarStaticItem bsiTime;
+        private System.Windows.Forms.Timer timer;
     }
 }

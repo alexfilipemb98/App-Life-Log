@@ -56,7 +56,7 @@
             // 
             // passwordsEntityBindingSource
             // 
-            this.passwordsEntityBindingSource.DataSource = typeof(Data.Entities.PasswordsEntity);
+            this.passwordsEntityBindingSource.DataSource = typeof(Data.Entities.UsersEntity);
             // 
             // gridView
             // 

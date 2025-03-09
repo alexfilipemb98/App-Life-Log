@@ -219,6 +219,7 @@
             this.bbiReload.Id = 2;
             this.bbiReload.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.actions_refresh;
             this.bbiReload.Name = "bbiReload";
+            this.bbiReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReload_ItemClick);
             // 
             // bbiSearch
             // 

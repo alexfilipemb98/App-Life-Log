@@ -11,6 +11,12 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using static DevExpress.LookAndFeel.DXSkinColors;
+using Data.Entities;
+using DevExpress.XtraSplashScreen;
+using Life_Log.Forms.Dialogs;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace Life_Log.Helpers
 {
@@ -35,6 +41,7 @@ namespace Life_Log.Helpers
         public static AppConfigsModel AppConfigs { get; set; }
         public static DatabaseConfigModel DbConfigs { get; set; }
         public static Api.Engine ApiEngine { get; set; }
+        public static UsersEntity CurrentUser { get; set; }
 
         #endregion
 
@@ -51,6 +58,36 @@ namespace Life_Log.Helpers
         #endregion
 
         #region FUNCTIONS
+
+        /// <summary>
+        /// Inicialize the data engines and the api
+        /// </summary>
+        public static void InicializeDataEngines()
+        {
+            if (DataEngine != null && DataEngine.IsConnected)
+                DataEngine.Dispose();
+
+            DbConfigs = GetDatabaseConfigs();
+            DataEngine = new Data.Engine(DbConfigs);
+            ApiEngine = new Api.Engine(DataEngine);
+            DataEngine.SQLLiteBackUp();
+            DataEngine.Connect();
+
+            List<Assembly> assemblies = AppDomain.CurrentDomain
+                .GetAssemblies()
+                .Where(a => (new string[] { "Core", "Data", "Api", "Life Log" }).Contains(a.GetName().Name))
+                .ToList();
+
+            if (!AppHelper.DataEngine.ValidateVersions(assemblies))
+            {
+                SplashScreenManager.CloseForm(false);
+                MessageBoxDialogForm.SD("App Outdated", "The application is outdated, please update it.");
+                Environment.Exit(0);
+                return;
+            }
+
+            AppHelper.DataEngine.UpdateSchema();
+        }
 
         /// <summary>
         /// Check if windows has theme dark or light
@@ -125,7 +162,9 @@ namespace Life_Log.Helpers
         /// <param name="color"></param>
         public static void StatusMessage(string message, Color color)
         {
-            if (LoginFormInstance != null && !LoginFormInstance.Disposing && !LoginFormInstance.IsDisposed)
+            XtraMessageBox.Show(message, "INFO", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+
+            if (LoginFormInstance != null && !LoginFormInstance.Disposing && !LoginFormInstance.IsDisposed && MainFormInstance == null)
             {
                 LoginFormInstance.Invoke(new Action(() =>
                 {

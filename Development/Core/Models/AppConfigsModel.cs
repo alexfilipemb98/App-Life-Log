@@ -23,6 +23,14 @@ namespace Core.Models
             set => fTheme = value;
         }
 
+        private string fLastEmail;
+        [DataType(DataType.Text)]
+        public string LastEmail
+        {
+            get => fLastEmail;
+            set => fLastEmail = value;
+        }
+
         #endregion
     }
 }

@@ -5,6 +5,7 @@ using Data.Queries;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
 using Life_Log.Forms;
+using Life_Log.Forms.Dialogs;
 using Life_Log.Forms.Loading;
 using Life_Log.Helpers;
 using System;
@@ -39,30 +40,9 @@ namespace Life_Log
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
-                AppHelper.DbConfigs = AppHelper.GetDatabaseConfigs();
-                AppHelper.DataEngine = new Data.Engine(AppHelper.DbConfigs);
-                AppHelper.ApiEngine = new Api.Engine(AppHelper.DataEngine);
-                AppHelper.DataEngine.SQLLiteBackUp();
-                AppHelper.DataEngine.Connect();
-
-                string[] targetAssemblies = { "Core", "Data", "Api", "Life Log" }; // Nome das tuas DLLs
-
-                List<Assembly> assemblies = AppDomain.CurrentDomain
-                    .GetAssemblies()
-                    .Where(a => targetAssemblies.Contains(a.GetName().Name))
-                    .ToList();
-
-                if (!AppHelper.DataEngine.ValidateVersions(assemblies))
-                {
-                    SplashScreenManager.CloseForm(false);
-                    XtraMessageBox.Show("The application is outdated, please update it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Environment.Exit(0);
-                    return;
-                }
+                AppHelper.InicializeDataEngines();
 
                 LoggerUtil.Initialize();
-                
-                AppHelper.DataEngine.UpdateSchema();
 
                 //AppHelper.ApiEngine.Inicialize("http://localhost:9000/");
 
@@ -79,6 +59,8 @@ namespace Life_Log
                         SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
                 };
 
+                AppHelper.LoginFormInstance = loginForm;
+
                 DialogResult loginResult = loginForm.ShowDialog();
 
                 if (loginResult == DialogResult.Yes)
@@ -92,10 +74,6 @@ namespace Life_Log
 
                     Application.Run(AppHelper.MainFormInstance);
                 }
-                else
-                {
-
-                }
             }
             catch (Exception ex)
             {
@@ -106,5 +84,6 @@ namespace Life_Log
                 AppHelper.DataEngine?.Disconnect();
             }
         }
+
     }
 }

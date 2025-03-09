@@ -593,6 +593,16 @@ namespace Life_Log.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage power_button_red {
+            get {
+                object obj = ResourceManager.GetObject("power-button-red", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage prioritized {
             get {
                 object obj = ResourceManager.GetObject("prioritized", resourceCulture);

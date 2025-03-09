@@ -48,13 +48,19 @@ namespace Life_Log.Views.Settings
         /// <param name="e"></param>
         private void bbiSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (SaveData())
+            try
             {
-                XtraMessageBox.Show("Settings saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (SaveData())
+                {
+                    AppHelper.StatusMessage("Settings saved successfully", true);
+                    AppHelper.InicializeDataEngines();
+                }
+                else
+                    AppHelper.StatusMessage("Error saving settings", false);
             }
-            else
+            catch (Exception ex)
             {
-                XtraMessageBox.Show("Error saving settings", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Helpers.ErrorHelper.Handler(ex);
             }
         }
 
@@ -120,6 +126,30 @@ namespace Life_Log.Views.Settings
         }
         #endregion
 
+        #region SELECTED INDEX CHANGED
+
+        /// <summary>
+        /// Selected index changed to changed from remote to sql
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbDatabaseType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch ((DatabaseTypeEnum)cbDatabaseType.SelectedIndex)
+            {
+                case DatabaseTypeEnum.SQLLITE:
+                    lcgRemoteSql.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    lcgSqlLite.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    break;
+                case DatabaseTypeEnum.MSSQL:
+                    lcgRemoteSql.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    lcgSqlLite.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    break;
+            }
+        }
+
+        #endregion    
+
         #region FUNCTIONS
 
         public void LoadData()
@@ -141,7 +171,7 @@ namespace Life_Log.Views.Settings
             // AppHelper.SaveDatabaseConfigs(configs);
 
             configs.DatabaseType = (DatabaseTypeEnum)cbDatabaseType.SelectedIndex;
-            
+
             //SQL LITE
             configs.SQlLitePath = bePathSqlLite.Text;
 
@@ -158,21 +188,6 @@ namespace Life_Log.Views.Settings
         }
 
         #endregion
-
-        private void cbDatabaseType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch ((DatabaseTypeEnum)cbDatabaseType.SelectedIndex)
-            {
-                case DatabaseTypeEnum.SQLLITE:
-                    lcgRemoteSql.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                    lcgSqlLite.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    break;
-                case DatabaseTypeEnum.MSSQL:
-                    lcgRemoteSql.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    lcgSqlLite.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                    break;
-            }
-        }
 
     }
 }

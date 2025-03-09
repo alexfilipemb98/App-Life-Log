@@ -48,6 +48,11 @@ namespace Data
         #region QUERIES
 
         /// <summary>
+        /// Users data query
+        /// </summary>
+        public UsersQuery Users => GetObject<UsersQuery>();
+
+        /// <summary>
         /// Notes data query
         /// </summary>
         public NotesQuery Notes => GetObject<NotesQuery>();
