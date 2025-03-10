@@ -46,26 +46,30 @@ namespace Life_Log
 
                 //AppHelper.ApiEngine.Inicialize("http://localhost:9000/");
 
-                LoginForm loginForm = new LoginForm();
+                AppHelper.LoginFormInstance = new LoginForm();
 
-                loginForm.Shown += (s, e) =>
+                AppHelper.LoginFormInstance.Shown += (s, e) =>
                 {
                     SplashScreenManager.CloseForm();
                 };
 
-                loginForm.FormClosing += (s, e) =>
+                AppHelper.LoginFormInstance.FormClosing += (s, e) =>
                 {
-                    if (loginForm.DialogResult == DialogResult.Yes)
+                    if (AppHelper.LoginFormInstance.DialogResult == DialogResult.Yes)
+                    {
+                        AppHelper.LoginFormInstance.Dispose();
                         SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
+                    }
                 };
 
-                AppHelper.LoginFormInstance = loginForm;
-
-                DialogResult loginResult = loginForm.ShowDialog();
+                DialogResult loginResult = AppHelper.LoginFormInstance.ShowDialog();
 
                 if (loginResult == DialogResult.Yes)
                 {
                     AppHelper.MainFormInstance = new MainForm();
+
+                    AppHelper.MainFormInstance.Height = AppHelper.AppConfigs.FormHeight;
+                    AppHelper.MainFormInstance.Width = AppHelper.AppConfigs.FormWidth;
 
                     AppHelper.MainFormInstance.Shown += (s, e) =>
                     {

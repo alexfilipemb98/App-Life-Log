@@ -17,6 +17,7 @@ using Life_Log.Forms.Dialogs;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace Life_Log.Helpers
 {

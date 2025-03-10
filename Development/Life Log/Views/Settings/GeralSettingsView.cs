@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using Core.Extensions;
+using DevExpress.XtraEditors;
 using Life_Log.Helpers;
 using System;
 using System.Collections.Generic;
@@ -38,8 +39,11 @@ namespace Life_Log.Views.Settings
             try
             {
                 Size screenSize = Screen.PrimaryScreen.Bounds.Size;
-                Size newSize = new Size(screenSize.Width / 2, screenSize.Height / 2);
-               
+                Size newSize = new Size( 
+                    Math.Max(screenSize.Width / 2, AppHelper.MainFormInstance.Width), 
+                    Math.Max(screenSize.Height / 2, AppHelper.MainFormInstance.Height)
+                );
+
                 AppHelper.MainFormInstance.Size = newSize;
 
                 seFormHeight.EditValue = newSize.Height;
@@ -49,6 +53,16 @@ namespace Life_Log.Views.Settings
             {
                 Helpers.ErrorHelper.Handler(ex);
             }
+        }
+
+        /// <summary>
+        /// Save the configs to the file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SaveData();
         }
 
         #endregion
@@ -64,6 +78,14 @@ namespace Life_Log.Views.Settings
             {
                 seFormHeight.EditValue = AppHelper.MainFormInstance.Height;
                 seFormWidth.EditValue = AppHelper.MainFormInstance.Width;
+
+                cbStartMode.Properties.Items.Clear();
+                List<string> startModes = typeof(System.Windows.Forms.FormStartPosition)
+                    .ToList()
+                    .Select(w => w.Type)
+                    .ToList();
+
+                cbStartMode.Properties.Items.AddRange(startModes);
             }
             catch (Exception ex)
             {
@@ -76,9 +98,22 @@ namespace Life_Log.Views.Settings
         /// </summary>
         private void SaveData()
         {
+            try
+            {
+                AppHelper.AppConfigs.FormWidth = Convert.ToInt32(seFormWidth.EditValue);
+                AppHelper.AppConfigs.FormHeight = Convert.ToInt32(seFormHeight.EditValue);
 
+                AppHelper.MainFormInstance.Size = new Size(Convert.ToInt32(seFormWidth.EditValue), Convert.ToInt32(seFormHeight.EditValue));
+
+                AppHelper.SaveAppSetings();
+            }
+            catch (Exception ex)
+            {
+                Helpers.ErrorHelper.Handler(ex);
+            }
         }
 
         #endregion
+
     }
 }

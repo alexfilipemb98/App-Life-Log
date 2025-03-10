@@ -24,11 +24,26 @@ namespace Core.Models
         }
 
         private string fLastEmail;
+
         [DataType(DataType.Text)]
         public string LastEmail
         {
             get => fLastEmail;
             set => fLastEmail = value;
+        }
+
+        private int fFormWidth;
+        public int FormWidth
+        { 
+            get => fFormWidth; 
+            set => fFormWidth = value; 
+        }
+
+        private int fFormHeight;
+        public int FormHeight 
+        {
+            get => fFormHeight; 
+            set => fFormHeight = value; 
         }
 
         #endregion

@@ -235,11 +235,9 @@ namespace Life_Log.Forms
                     if (validUser && loggedUser != null)
                     {
                         AppHelper.AppConfigs.LastEmail = _loginModel.Email;
-
                         AppHelper.CurrentUser = loggedUser;
-                        AppHelper.LoginFormInstance = null;
+
                         this.DialogResult = DialogResult.Yes;
-                        this.Dispose();
                     }
                 }
             }
