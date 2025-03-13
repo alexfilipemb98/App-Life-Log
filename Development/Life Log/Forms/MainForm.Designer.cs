@@ -83,7 +83,7 @@
             this.npTableImages = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.imagesListView = new Life_Log.Views.Tables.Images.ImagesListView();
             this.npHomeCommadsView = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.commandsListView = new Life_Log.Views.Home.Commands.CommandsListView();
+            this.commandsListView = new Life_Log.Views.Home.Commands.CommandsView();
             this.npSqlBrowserView = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.sqlBrowserView = new Life_Log.Views.Tools.SqlBrowser.SqlBrowserView();
             this.npHomePasswordsView = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -101,7 +101,7 @@
             this.npEntertainmentDiceView = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.diceGameView1 = new Life_Log.Views.Entertainment.Games.Dice.DiceGameView();
             this.npToolsRdpLaucherView = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.rdpLaucherView = new Life_Log.Views.Tools.RdpLaucher.RdpLauncherListView();
+            this.rdpLaucherView = new Life_Log.Views.Tools.RdpLaucher.RdpLauncherView();
             this.npTableVersionsView = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.versionsListView = new Life_Log.Views.Tables.Versions.VersionsListView();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -939,7 +939,7 @@
         private DevExpress.XtraBars.Navigation.NavigationPage npTableImages;
         private Views.Tables.Images.ImagesListView imagesListView;
         private DevExpress.XtraBars.Navigation.NavigationPage npHomeCommadsView;
-        private Views.Home.Commands.CommandsListView commandsListView;
+        private Views.Home.Commands.CommandsView commandsListView;
         private DevExpress.XtraBars.BarButtonItem bbiToolsSqlBrowser;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
@@ -983,7 +983,7 @@
         private Views.Entertainment.Games.Dice.DiceGameView diceGameView1;
         private DevExpress.XtraBars.BarButtonItem bbiToolsRdpLaucherView;
         private DevExpress.XtraBars.Navigation.NavigationPage npToolsRdpLaucherView;
-        private Views.Tools.RdpLaucher.RdpLauncherListView rdpLaucherView;
+        private Views.Tools.RdpLaucher.RdpLauncherView rdpLaucherView;
         private DevExpress.XtraBars.Navigation.NavigationPage npTableVersionsView;
         private Views.Tables.Versions.VersionsListView versionsListView;
         private DevExpress.XtraBars.BarButtonItem bbiTablesVersions;

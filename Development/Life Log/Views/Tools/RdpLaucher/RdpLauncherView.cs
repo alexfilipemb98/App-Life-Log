@@ -30,7 +30,7 @@ namespace Life_Log.Views.Tools.RdpLaucher
     /// <summary>
     /// Rdp Laucher View
     /// </summary>
-	public partial class RdpLauncherListView : XtraUserControl
+	public partial class RdpLauncherView : XtraUserControl
     {
         //PRIVATE
         private RdpConnectionsEntity _crtExtProgram;
@@ -39,7 +39,7 @@ namespace Life_Log.Views.Tools.RdpLaucher
         /// <summary>
         /// Constructor
         /// </summary>
-        public RdpLauncherListView() => InitializeComponent();
+        public RdpLauncherView() => InitializeComponent();
 
         #region CLICK
 

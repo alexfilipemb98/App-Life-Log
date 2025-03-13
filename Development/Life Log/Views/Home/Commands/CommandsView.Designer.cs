@@ -1,6 +1,6 @@
 ﻿namespace Life_Log.Views.Home.Commands
 {
-    partial class CommandsListView
+    partial class CommandsView
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CommandsListView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CommandsView));
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.bar = new DevExpress.XtraBars.Bar();
             this.bbiBack = new DevExpress.XtraBars.BarButtonItem();

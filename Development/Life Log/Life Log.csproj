@@ -58,6 +58,7 @@
     <Reference Include="DevExpress.Drawing.v24.1" />
     <Reference Include="DevExpress.XtraGrid.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraRichEdit.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraSpellChecker.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -155,11 +156,11 @@
     <Compile Include="Views\Home\Commands\CommandsDetailView.Designer.cs">
       <DependentUpon>CommandsDetailView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Home\Commands\CommandsListView.cs">
+    <Compile Include="Views\Home\Commands\CommandsView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Home\Commands\CommandsListView.Designer.cs">
-      <DependentUpon>CommandsListView.cs</DependentUpon>
+    <Compile Include="Views\Home\Commands\CommandsView.Designer.cs">
+      <DependentUpon>CommandsView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Home\Notes\NotesView.cs">
       <SubType>UserControl</SubType>
@@ -172,12 +173,6 @@
     </Compile>
     <Compile Include="Views\Home\Passwords\PasswordsDetailView.Designer.cs">
       <DependentUpon>PasswordsDetailView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Home\Passwords\PasswordsListView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\Home\Passwords\PasswordsListView.Designer.cs">
-      <DependentUpon>PasswordsListView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Home\Passwords\PasswordsView.cs">
       <SubType>UserControl</SubType>
@@ -245,11 +240,11 @@
     <Compile Include="Views\Tools\PasswordGenerator\PasswordGeneratorView.Designer.cs">
       <DependentUpon>PasswordGeneratorView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Tools\RdpLaucher\RdpLauncherListView.cs">
+    <Compile Include="Views\Tools\RdpLaucher\RdpLauncherView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Tools\RdpLaucher\RdpLauncherListView.Designer.cs">
-      <DependentUpon>RdpLauncherListView.cs</DependentUpon>
+    <Compile Include="Views\Tools\RdpLaucher\RdpLauncherView.Designer.cs">
+      <DependentUpon>RdpLauncherView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Tools\RdpLaucher\RdpLauncherDetailView.cs">
       <SubType>UserControl</SubType>
@@ -313,17 +308,14 @@
     <EmbeddedResource Include="Views\Home\Commands\CommandsDetailView.resx">
       <DependentUpon>CommandsDetailView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Home\Commands\CommandsListView.resx">
-      <DependentUpon>CommandsListView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Home\Commands\CommandsView.resx">
+      <DependentUpon>CommandsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Home\Notes\NotesView.resx">
       <DependentUpon>NotesView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Home\Passwords\PasswordsDetailView.resx">
       <DependentUpon>PasswordsDetailView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Home\Passwords\PasswordsListView.resx">
-      <DependentUpon>PasswordsListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Home\Passwords\PasswordsView.resx">
       <DependentUpon>PasswordsView.cs</DependentUpon>
@@ -361,8 +353,8 @@
     <EmbeddedResource Include="Views\Tools\RdpLaucher\RdpLauncherDetailView.resx">
       <DependentUpon>RdpLauncherDetailView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Tools\RdpLaucher\RdpLauncherListView.resx">
-      <DependentUpon>RdpLauncherListView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Tools\RdpLaucher\RdpLauncherView.resx">
+      <DependentUpon>RdpLauncherView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tools\SqlBrowser\SqlBrowserView.resx">
       <DependentUpon>SqlBrowserView.cs</DependentUpon>
@@ -465,6 +457,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\open.svg" />
     <None Include="Resources\power-button-red.svg" />
     <None Include="Resources\bo_category1.svg" />
     <None Include="Resources\gettingstarted.svg" />

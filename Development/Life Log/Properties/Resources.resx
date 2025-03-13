@@ -340,4 +340,7 @@
   <data name="power-button-red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\power-button-red.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="open" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\open.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v24.1, Version=24.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
 </root>

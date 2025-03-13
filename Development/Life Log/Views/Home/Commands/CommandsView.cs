@@ -19,7 +19,7 @@ namespace Life_Log.Views.Home.Commands
     /// <summary>
     /// Commands List View
     /// </summary>
-    public partial class CommandsListView : XtraUserControl
+    public partial class CommandsView : XtraUserControl
     {
         #region MAIN
 
@@ -30,7 +30,7 @@ namespace Life_Log.Views.Home.Commands
         /// <summary>
         /// Constructor to initialize the view
         /// </summary>
-        public CommandsListView() => InitializeComponent();
+        public CommandsView() => InitializeComponent();
 
         #endregion
 

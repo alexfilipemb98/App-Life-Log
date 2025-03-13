@@ -27,7 +27,6 @@ namespace Life_Log.Views.Home.Passwords
 
         //PUBLIC
 
-        public ViewTypeEnum _viewType;
         public PasswordsEntity _CrtPassword;
 
         /// <summary>
@@ -46,19 +45,8 @@ namespace Life_Log.Views.Home.Passwords
         /// <param name="e"></param>
         private void bbiNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ShowDetailView();
         }
 
-        /// <summary>
-        /// Show list view click event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiViewList_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            navigationFrame.SelectedPage = npList;
-            passwordsListView.LoadData();
-        }
 
         /// <summary>
         /// Save 
@@ -77,7 +65,6 @@ namespace Life_Log.Views.Home.Passwords
         /// <param name="e"></param>
         private void bbiBack_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ShowView();
         }
 
         /// <summary>
@@ -87,32 +74,6 @@ namespace Life_Log.Views.Home.Passwords
         /// <param name="e"></param>
         private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ShowDetailView(_CrtPassword);
-        }
-
-        #endregion
-
-        #region CHECKED
-
-        private void bciListView_CheckedChanged(object sender, ItemClickEventArgs e)
-        {
-            if (bciListView.Checked)
-            {
-                bciDefaultView.Checked = false;
-                _viewType = ViewTypeEnum.List;
-                navigationFrame.SelectedPage = npList;
-                passwordsListView.LoadData();
-            }
-        }
-
-        private void bciDefaultView_CheckedChanged(object sender, ItemClickEventArgs e)
-        {
-            if (bciDefaultView.Checked)
-            {
-                bciListView.Checked = false;
-                _viewType = ViewTypeEnum.Main;
-                navigationFrame.SelectedPage = npMain;
-            }
         }
 
         #endregion
@@ -124,53 +85,11 @@ namespace Life_Log.Views.Home.Passwords
         /// </summary>
         public void LoadData()
         {
-            passwordsListView._PasswordsView = this;
-            passwordsDetailView._PasswordsView = this;
-            passwordsDetailView._PasswordsListView = passwordsListView;
+
         }
 
-        /// <summary>
-        /// Show detail view
-        /// </summary>
-        /// <param name="password"></param>
-        public void ShowDetailView(PasswordsEntity password = null)
-        {
-            try
-            {
-                bbiNew.Visibility = BarItemVisibility.Never;
-                bbiSave.Visibility = BarItemVisibility.Always;
-                bbiBack.Visibility = BarItemVisibility.Always;
-                bbiEdit.Visibility = BarItemVisibility.Never;
-                bsiMenuViews.Visibility = BarItemVisibility.Never;
-
-                navigationFrame.SelectedPage = npEditor;
-                passwordsDetailView.LoadData(password);
-            }
-            catch (Exception ex)
-            {
-                ErrorHelper.Handler(ex);
-            }
-        }
-
-        /// <summary>
-        /// Show list view
-        /// </summary>
-        public void ShowView()
-        {
-            bbiNew.Visibility = BarItemVisibility.Always;
-            bbiEdit.Visibility = BarItemVisibility.Always;
-            bbiBack.Visibility = BarItemVisibility.Never;
-            bbiSave.Visibility = BarItemVisibility.Never;
-            bsiMenuViews.Visibility = BarItemVisibility.Always;
-
-            navigationFrame.SelectedPage = _viewType == ViewTypeEnum.Main ? npMain : npList;
-        }
 
         #endregion
 
-        private void bbiDelele_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
     }
 }

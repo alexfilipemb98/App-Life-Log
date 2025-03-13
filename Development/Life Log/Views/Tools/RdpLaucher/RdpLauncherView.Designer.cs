@@ -1,6 +1,6 @@
 ﻿namespace Life_Log.Views.Tools.RdpLaucher
 {
-    partial class RdpLauncherListView
+    partial class RdpLauncherView
     {
         /// <summary> 
         /// Required designer variable.

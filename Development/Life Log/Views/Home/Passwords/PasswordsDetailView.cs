@@ -23,11 +23,6 @@ namespace Life_Log.Views.Home.Passwords
     {
         #region MAIN
 
-        //PUBLIC
-
-        public PasswordsView _PasswordsView;
-        public PasswordsListView _PasswordsListView;
-
         //PRIVATE
 
         private PasswordsEntity _crtPassword;
@@ -117,18 +112,6 @@ namespace Life_Log.Views.Home.Passwords
                 }
 
                 saved = AppHelper.DataEngine.Passwords.Save(_crtPassword, out _);
-
-                if (saved)
-                {
-                    if (_isNew)
-                        _PasswordsListView.passwordsEntityBindingSource.Add(_crtPassword);
-                    else
-                        _PasswordsListView.gridView.UpdateCurrentRow();
-
-                    _PasswordsView.ShowView();
-                    
-                    ResetForm();
-                }
 
                 AppHelper.StatusMessage(saved ? "Password saved!" : "Unable to save password!", saved);
 
