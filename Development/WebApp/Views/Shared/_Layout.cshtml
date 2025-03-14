@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Template</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+	<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true">
+	<link href="~/css/Main.css" rel="stylesheet" asp-append-version="true" />
+</head>
+<body>
+	<!-- Sidebar -->
+	<div id="sidebar" class="sidebar d-flex flex-column p-3 position-fixed h-100">
+		<h4 class="text-center">Admin</h4>
+		<ul class="nav flex-column mt-3">
+			<li class="nav-item">
+				<a href="#" class="nav-link active">
+					<i class="fa-solid fa-gauge"></i> <span>Dashboard</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link"><i class="fa-solid fa-gear"></i> <span>Configurações</span></a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">
+					<i class="fa-solid fa-users"></i>
+					<span>Usuários</span>
+				</a>
+			</li>
+			
+		</ul>
+	</div>
+
+	<!-- Main Content -->
+	<div class="content">
+		<nav class="navbar navbar-expand navbar-light">
+			<button class="btn btn-outline-primary" onclick="toggleSidebar()">
+				<i id="toggleIcon" class="fa-solid fa-times toggle-icon"></i>
+			</button>
+			<span class="ms-3">Painel de Administração</span>
+			<div class="ms-auto">
+				<div class="dropdown">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+						<i class="fa-solid fa-user"></i> Conta
+					</button>
+					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+						<li><a class="dropdown-item" href="#">Perfil</a></li>
+						<li><a class="dropdown-item" href="#">Configurações</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="#">Sair</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="main-content">
+			@RenderBody()
+		</div>
+	</div>
+
+	<script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+	<script src="~/js/Main.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
