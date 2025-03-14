@@ -379,7 +379,19 @@ namespace Life_Log.Forms
         /// <param name="e"></param>
         private void bbiTestCode_ItemClick(object sender, ItemClickEventArgs e)
         {
+            
+        }
 
+        /// <summary>
+        /// Show the table password type
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiTablesPasswordTypesView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ribbon.ApplicationDocumentCaption = "Tables of Password Types";
+            navigationFrame.SelectedPage = npTablesPasswordTypesView;
+            passwordTypesListView.LoadData();
         }
     }
 }

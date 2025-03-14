@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.bar = new DevExpress.XtraBars.Bar();
             this.bbiSave = new DevExpress.XtraBars.BarButtonItem();
@@ -37,6 +42,7 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
             this.cbStartMode = new DevExpress.XtraEditors.ComboBoxEdit();
             this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
             this.sbResetSize = new DevExpress.XtraEditors.SimpleButton();
@@ -51,11 +57,12 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbStartMode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seFormWidth.Properties)).BeginInit();
@@ -69,8 +76,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager
@@ -164,6 +171,19 @@
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // toggleSwitch1
+            // 
+            this.toggleSwitch1.AutoSizeInLayoutControl = true;
+            this.toggleSwitch1.Location = new System.Drawing.Point(867, 116);
+            this.toggleSwitch1.MenuManager = this.barManager;
+            this.toggleSwitch1.Name = "toggleSwitch1";
+            this.toggleSwitch1.Properties.AutoWidth = true;
+            this.toggleSwitch1.Properties.OffText = "Off";
+            this.toggleSwitch1.Properties.OnText = "On";
+            this.toggleSwitch1.Size = new System.Drawing.Size(78, 24);
+            this.toggleSwitch1.StyleController = this.layoutControl1;
+            this.toggleSwitch1.TabIndex = 9;
+            // 
             // cbStartMode
             // 
             this.cbStartMode.Location = new System.Drawing.Point(760, 45);
@@ -177,12 +197,14 @@
             // 
             // buttonEdit1
             // 
-            this.buttonEdit1.Location = new System.Drawing.Point(132, 431);
+            this.buttonEdit1.Location = new System.Drawing.Point(93, 113);
             this.buttonEdit1.MenuManager = this.barManager;
             this.buttonEdit1.Name = "buttonEdit1";
+            editorButtonImageOptions1.SvgImage = global::Life_Log.Properties.Resources.business_world;
+            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 20);
             this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEdit1.Size = new System.Drawing.Size(341, 30);
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.buttonEdit1.Size = new System.Drawing.Size(718, 30);
             this.buttonEdit1.StyleController = this.layoutControl1;
             this.buttonEdit1.TabIndex = 7;
             // 
@@ -241,8 +263,7 @@
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem1,
             this.layoutControlGroup1,
-            this.layoutControlItem4,
-            this.layoutControlItem6});
+            this.layoutControlGroup2});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 10, 5);
             this.Root.Size = new System.Drawing.Size(953, 469);
@@ -251,9 +272,9 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 68);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 136);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(943, 350);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(943, 318);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup1
@@ -329,30 +350,36 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.buttonEdit1;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 418);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(471, 36);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(108, 16);
-            // 
-            // toggleSwitch1
-            // 
-            this.toggleSwitch1.Location = new System.Drawing.Point(479, 431);
-            this.toggleSwitch1.MenuManager = this.barManager;
-            this.toggleSwitch1.Name = "toggleSwitch1";
-            this.toggleSwitch1.Properties.OffText = "Off";
-            this.toggleSwitch1.Properties.OnText = "On";
-            this.toggleSwitch1.Size = new System.Drawing.Size(466, 24);
-            this.toggleSwitch1.StyleController = this.layoutControl1;
-            this.toggleSwitch1.TabIndex = 9;
+            this.layoutControlItem4.Size = new System.Drawing.Size(809, 36);
+            this.layoutControlItem4.Text = "Api Base Url";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(69, 16);
             // 
             // layoutControlItem6
             // 
+            this.layoutControlItem6.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.layoutControlItem6.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
             this.layoutControlItem6.Control = this.toggleSwitch1;
-            this.layoutControlItem6.Location = new System.Drawing.Point(471, 418);
+            this.layoutControlItem6.Location = new System.Drawing.Point(809, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(472, 36);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
+            this.layoutControlItem6.Size = new System.Drawing.Size(134, 36);
+            this.layoutControlItem6.Text = "Active";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(34, 16);
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.GroupStyle = DevExpress.Utils.GroupStyle.Title;
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem4,
+            this.layoutControlItem6});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 68);
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AutoSize;
+            this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(943, 68);
+            this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup2.Text = "Api Intenal";
             // 
             // GeralSettingsView
             // 
@@ -368,6 +395,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            this.layoutControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbStartMode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seFormWidth.Properties)).EndInit();
@@ -381,8 +410,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,5 +443,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
     }
 }

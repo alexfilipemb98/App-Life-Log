@@ -210,6 +210,18 @@
     <Compile Include="Views\Tables\ExternalPrograms\ExternalProgramsListView.Designer.cs">
       <DependentUpon>ExternalProgramsListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Tables\PasswordTypes\PasswordTypesDetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Tables\PasswordTypes\PasswordTypesDetailView.Designer.cs">
+      <DependentUpon>PasswordTypesDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tables\PasswordTypes\PasswordTypesListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Tables\PasswordTypes\PasswordTypesListView.Designer.cs">
+      <DependentUpon>PasswordTypesListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tables\Versions\VersionsListView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -334,6 +346,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tables\ExternalPrograms\ExternalProgramsListView.resx">
       <DependentUpon>ExternalProgramsListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tables\PasswordTypes\PasswordTypesDetailView.resx">
+      <DependentUpon>PasswordTypesDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tables\PasswordTypes\PasswordTypesListView.resx">
+      <DependentUpon>PasswordTypesListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tables\Versions\VersionsListView.resx">
       <DependentUpon>VersionsListView.cs</DependentUpon>

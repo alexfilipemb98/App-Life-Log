@@ -116,16 +116,17 @@
             // 
             // sbOk
             // 
-            this.sbOk.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sbOk.Appearance.Font = new System.Drawing.Font("Tahoma", 10.75F, System.Drawing.FontStyle.Bold);
             this.sbOk.Appearance.Options.UseFont = true;
             this.sbOk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sbOk.Dock = System.Windows.Forms.DockStyle.Right;
             this.sbOk.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.markcomplete;
-            this.sbOk.Location = new System.Drawing.Point(293, 5);
-            this.sbOk.MaximumSize = new System.Drawing.Size(150, 48);
-            this.sbOk.MinimumSize = new System.Drawing.Size(150, 48);
+            this.sbOk.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
+            this.sbOk.Location = new System.Drawing.Point(343, 5);
+            this.sbOk.MaximumSize = new System.Drawing.Size(100, 30);
+            this.sbOk.MinimumSize = new System.Drawing.Size(100, 30);
             this.sbOk.Name = "sbOk";
-            this.sbOk.Size = new System.Drawing.Size(150, 48);
+            this.sbOk.Size = new System.Drawing.Size(100, 30);
             this.sbOk.TabIndex = 3;
             this.sbOk.Text = "OK";
             this.sbOk.Click += new System.EventHandler(this.sbOk_Click);
@@ -141,11 +142,11 @@
             this.panelControl1.Controls.Add(this.sbOk);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl1.Location = new System.Drawing.Point(0, 112);
-            this.panelControl1.MaximumSize = new System.Drawing.Size(0, 58);
-            this.panelControl1.MinimumSize = new System.Drawing.Size(0, 58);
+            this.panelControl1.MaximumSize = new System.Drawing.Size(0, 40);
+            this.panelControl1.MinimumSize = new System.Drawing.Size(0, 40);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(5);
-            this.panelControl1.Size = new System.Drawing.Size(448, 58);
+            this.panelControl1.Size = new System.Drawing.Size(448, 40);
             this.panelControl1.TabIndex = 6;
             // 
             // TextInputDialogForm
@@ -153,7 +154,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 170);
+            this.ClientSize = new System.Drawing.Size(448, 152);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.ribbonControl);

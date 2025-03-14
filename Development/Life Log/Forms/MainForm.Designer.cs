@@ -109,6 +109,9 @@
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.bbiTablesPasswordTypesView = new DevExpress.XtraBars.BarButtonItem();
+            this.npTablesPasswordTypesView = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.passwordTypesListView = new Life_Log.Views.Tables.PasswordTypes.PasswordTypesListView();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
             this.layoutControl.SuspendLayout();
@@ -132,6 +135,7 @@
             this.npTableVersionsView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            this.npTablesPasswordTypesView.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbon
@@ -168,10 +172,11 @@
             this.bbiEntretainmentDice,
             this.bbiToolsRdpLaucherView,
             this.bbiTablesVersions,
-            this.bbiLogout});
+            this.bbiLogout,
+            this.bbiTablesPasswordTypesView});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.ribbon.MaxItemId = 30;
+            this.ribbon.MaxItemId = 31;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsSearchMenu.SearchItemPosition = DevExpress.XtraBars.Ribbon.SearchItemPosition.Caption;
             this.ribbon.PageHeaderItemLinks.Add(this.btsiSetTopMost);
@@ -454,6 +459,7 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiTablesExternalPrograms);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiTablesImages);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiTablesPasswordTypesView);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Tables";
             // 
@@ -563,6 +569,7 @@
             this.navigationFrame.Controls.Add(this.npEntertainmentDiceView);
             this.navigationFrame.Controls.Add(this.npToolsRdpLaucherView);
             this.navigationFrame.Controls.Add(this.npTableVersionsView);
+            this.navigationFrame.Controls.Add(this.npTablesPasswordTypesView);
             this.navigationFrame.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationFrame.Location = new System.Drawing.Point(2, 2);
             this.navigationFrame.Margin = new System.Windows.Forms.Padding(0);
@@ -582,7 +589,8 @@
             this.npEntertainmentCoinFlipView,
             this.npEntertainmentDiceView,
             this.npToolsRdpLaucherView,
-            this.npTableVersionsView});
+            this.npTableVersionsView,
+            this.npTablesPasswordTypesView});
             this.navigationFrame.SelectedPage = this.npHomeDashboardView;
             this.navigationFrame.Size = new System.Drawing.Size(962, 362);
             this.navigationFrame.TabIndex = 4;
@@ -624,7 +632,6 @@
             // 
             // npHomeDashboardView
             // 
-            this.npHomeDashboardView.Caption = "npHomeDashboardView";
             this.npHomeDashboardView.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.npHomeDashboardView.Name = "npHomeDashboardView";
             this.npHomeDashboardView.Size = new System.Drawing.Size(962, 362);
@@ -861,6 +868,29 @@
             this.ribbonPage7.Name = "ribbonPage7";
             this.ribbonPage7.Text = "ribbonPage7";
             // 
+            // bbiTablesPasswordTypesView
+            // 
+            this.bbiTablesPasswordTypesView.Caption = "Password \r\nTypes";
+            this.bbiTablesPasswordTypesView.Id = 30;
+            this.bbiTablesPasswordTypesView.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.inserttable;
+            this.bbiTablesPasswordTypesView.Name = "bbiTablesPasswordTypesView";
+            this.bbiTablesPasswordTypesView.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTablesPasswordTypesView_ItemClick);
+            // 
+            // npTablesPasswordTypesView
+            // 
+            this.npTablesPasswordTypesView.Controls.Add(this.passwordTypesListView);
+            this.npTablesPasswordTypesView.Name = "npTablesPasswordTypesView";
+            this.npTablesPasswordTypesView.Size = new System.Drawing.Size(962, 362);
+            // 
+            // passwordTypesListView
+            // 
+            this.passwordTypesListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.passwordTypesListView.Location = new System.Drawing.Point(0, 0);
+            this.passwordTypesListView.Margin = new System.Windows.Forms.Padding(0);
+            this.passwordTypesListView.Name = "passwordTypesListView";
+            this.passwordTypesListView.Size = new System.Drawing.Size(962, 362);
+            this.passwordTypesListView.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
@@ -905,6 +935,7 @@
             this.npTableVersionsView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            this.npTablesPasswordTypesView.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -990,5 +1021,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarSubItem bsiMenuUser;
         private DevExpress.XtraBars.BarButtonItem bbiLogout;
+        private DevExpress.XtraBars.BarButtonItem bbiTablesPasswordTypesView;
+        private DevExpress.XtraBars.Navigation.NavigationPage npTablesPasswordTypesView;
+        private Views.Tables.PasswordTypes.PasswordTypesListView passwordTypesListView;
     }
 }

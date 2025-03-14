@@ -27,8 +27,8 @@ namespace Life_Log.Forms.Dialogs
         {
             using (MessageBoxDialogForm form = new MessageBoxDialogForm())
             {
-                int w1 = (form.esibuttonLeft.Width + form.esiButtonRight.Width) / 2;
-                form.esibuttonLeft.Width = w1;
+                int w1 = (form.esiButtonLeft.Width + form.esiButtonRight.Width) / 2;
+                form.esiButtonLeft.Width = w1;
                 form.esiButtonRight.Width = w1;
                 form.ribbon.ApplicationDocumentCaption = caption;
                 form.lblCaption.Text = message;
