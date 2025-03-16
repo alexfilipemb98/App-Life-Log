@@ -54,6 +54,7 @@
     <Compile Include="Entities\ExternalProgramsEntity.cs" />
     <Compile Include="Entities\ImagesEntity.cs" />
     <Compile Include="Entities\NotesEntity.cs" />
+    <Compile Include="Entities\PasswordTypes.cs" />
     <Compile Include="Entities\RdpConnectionsEntity.cs" />
     <Compile Include="Entities\UsersEntity.cs" />
     <Compile Include="Entities\VersionsEntity.cs" />

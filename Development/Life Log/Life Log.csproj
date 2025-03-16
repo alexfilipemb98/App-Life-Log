@@ -295,6 +295,7 @@
     <None Include="Properties\DataSources\Data.Entities.ImagesEntity.datasource" />
     <None Include="Properties\DataSources\Data.Entities.NotesEntity.datasource" />
     <None Include="Properties\DataSources\Data.Entities.PasswordsEntity.datasource" />
+    <None Include="Properties\DataSources\Data.Entities.PasswordTypes.datasource" />
     <None Include="Properties\DataSources\Data.Entities.RdpConnectionsEntity.datasource" />
     <None Include="Properties\DataSources\Data.Entities.VersionsEntity.datasource" />
     <None Include="Properties\licenses.licx" />

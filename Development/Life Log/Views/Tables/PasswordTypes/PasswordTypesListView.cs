@@ -25,6 +25,27 @@ namespace Life_Log.Views.Tables.PasswordTypes
 
         #endregion
 
+        #region CLICK
+
+        /// <summary>
+        /// Create new password type
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Helpers.ErrorHelper.Handler(ex);
+            }
+        }
+
+        #endregion
+
         #region FUNCTIONS
 
         public void LoadData()
@@ -33,5 +54,7 @@ namespace Life_Log.Views.Tables.PasswordTypes
         }
 
         #endregion
+
+    
     }
 }

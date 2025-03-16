@@ -23,13 +23,11 @@ namespace Life_Log.Forms.Dialogs
         /// Show dialog form 
         /// </summary>
         /// <returns></returns>
-        public static DialogResult SD(string caption, string message, string details = null)
+        public static DialogResult SD(string caption, string message, string details = null, bool yesno = true)
         {
             using (MessageBoxDialogForm form = new MessageBoxDialogForm())
             {
-                int w1 = (form.esiButtonLeft.Width + form.esiButtonRight.Width) / 2;
-                form.esiButtonLeft.Width = w1;
-                form.esiButtonRight.Width = w1;
+                
                 form.ribbon.ApplicationDocumentCaption = caption;
                 form.lblCaption.Text = message;
                 Skin skin = CommonSkins.GetSkin(UserLookAndFeel.Default);
@@ -51,8 +49,16 @@ namespace Life_Log.Forms.Dialogs
                     form.Height = Math.Min(form.Size.Height + ps2.Height, form.MaximumSize.Height);
                 }
 
-                DialogResult reuslt = form.ShowDialog();
+                if (yesno)
+                   form.lciBtnYesNo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                else
+                    form.lciBtnOk.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
 
+                int w1 = (form.esiButtonLeft.Width + form.esiButtonRight.Width) / 2;
+                form.esiButtonLeft.Width = w1;
+                form.esiButtonRight.Width = w1;
+
+                DialogResult reuslt = form.ShowDialog();
 
                 return reuslt;
             }

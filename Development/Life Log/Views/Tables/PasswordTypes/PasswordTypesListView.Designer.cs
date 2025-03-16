@@ -57,6 +57,7 @@
             this.npEditor = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.passwordTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -72,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordTypesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager
@@ -133,6 +135,7 @@
             this.bbiNew.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.actions_add;
             this.bbiNew.Name = "bbiNew";
             this.bbiNew.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bbiNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNew_ItemClick);
             // 
             // bbiEdit
             // 
@@ -264,12 +267,14 @@
             // 
             // npMain
             // 
+            this.npMain.Caption = "npMain";
             this.npMain.Controls.Add(this.gridControl);
             this.npMain.Name = "npMain";
             this.npMain.Size = new System.Drawing.Size(959, 559);
             // 
             // gridControl
             // 
+            this.gridControl.DataSource = this.passwordTypesBindingSource;
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl.Location = new System.Drawing.Point(0, 0);
             this.gridControl.MainView = this.gridView;
@@ -331,6 +336,7 @@
             // 
             // npEditor
             // 
+            this.npEditor.Caption = "npEditor";
             this.npEditor.Name = "npEditor";
             this.npEditor.Size = new System.Drawing.Size(959, 559);
             // 
@@ -354,6 +360,10 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(963, 563);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // passwordTypesBindingSource
+            // 
+            this.passwordTypesBindingSource.DataSource = typeof(Data.Entities.PasswordTypes);
             // 
             // PasswordTypesListView
             // 
@@ -381,6 +391,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordTypesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,5 +427,6 @@
         private DevExpress.XtraBars.Navigation.NavigationPage npEditor;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private System.Windows.Forms.BindingSource passwordTypesBindingSource;
     }
 }

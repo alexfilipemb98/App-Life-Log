@@ -32,14 +32,16 @@
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.sbNo = new DevExpress.XtraEditors.SimpleButton();
             this.lcButtons = new DevExpress.XtraLayout.LayoutControl();
+            this.sbOk = new DevExpress.XtraEditors.SimpleButton();
             this.sbYes = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.esiButtonLeft = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lciBtnYesNo = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.esiButtonRight = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lciBtnOk = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcMain = new DevExpress.XtraLayout.LayoutControl();
             this.lblCaption = new DevExpress.XtraEditors.LabelControl();
             this.lcMessage = new DevExpress.XtraEditors.LabelControl();
@@ -55,11 +57,12 @@
             this.lcButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.esiButtonLeft)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciBtnYesNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.esiButtonRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciBtnOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).BeginInit();
             this.lcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
@@ -100,7 +103,7 @@
             this.sbNo.DialogResult = System.Windows.Forms.DialogResult.No;
             this.sbNo.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.delete;
             this.sbNo.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
-            this.sbNo.Location = new System.Drawing.Point(232, 5);
+            this.sbNo.Location = new System.Drawing.Point(214, 5);
             this.sbNo.MaximumSize = new System.Drawing.Size(100, 30);
             this.sbNo.MinimumSize = new System.Drawing.Size(100, 30);
             this.sbNo.Name = "sbNo";
@@ -111,6 +114,7 @@
             // 
             // lcButtons
             // 
+            this.lcButtons.Controls.Add(this.sbOk);
             this.lcButtons.Controls.Add(this.sbYes);
             this.lcButtons.Controls.Add(this.sbNo);
             this.lcButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -118,11 +122,28 @@
             this.lcButtons.MaximumSize = new System.Drawing.Size(0, 40);
             this.lcButtons.MinimumSize = new System.Drawing.Size(0, 40);
             this.lcButtons.Name = "lcButtons";
-            this.lcButtons.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(850, 363, 650, 400);
+            this.lcButtons.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(871, 413, 650, 400);
             this.lcButtons.Root = this.Root;
             this.lcButtons.Size = new System.Drawing.Size(448, 40);
             this.lcButtons.TabIndex = 10;
             this.lcButtons.Text = "layoutControl1";
+            // 
+            // sbOk
+            // 
+            this.sbOk.Appearance.Font = new System.Drawing.Font("Tahoma", 10.75F, System.Drawing.FontStyle.Bold);
+            this.sbOk.Appearance.Options.UseFont = true;
+            this.sbOk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sbOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.sbOk.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.markcomplete;
+            this.sbOk.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
+            this.sbOk.Location = new System.Drawing.Point(314, 5);
+            this.sbOk.MaximumSize = new System.Drawing.Size(100, 30);
+            this.sbOk.MinimumSize = new System.Drawing.Size(100, 30);
+            this.sbOk.Name = "sbOk";
+            this.sbOk.Size = new System.Drawing.Size(100, 30);
+            this.sbOk.StyleController = this.lcButtons;
+            this.sbOk.TabIndex = 5;
+            this.sbOk.Text = "OK";
             // 
             // sbYes
             // 
@@ -132,7 +153,7 @@
             this.sbYes.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.sbYes.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.markcomplete;
             this.sbYes.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
-            this.sbYes.Location = new System.Drawing.Point(122, 5);
+            this.sbYes.Location = new System.Drawing.Point(104, 5);
             this.sbYes.MaximumSize = new System.Drawing.Size(100, 30);
             this.sbYes.MinimumSize = new System.Drawing.Size(100, 30);
             this.sbYes.Name = "sbYes";
@@ -147,8 +168,9 @@
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.esiButtonLeft,
-            this.layoutControlGroup1,
-            this.esiButtonRight});
+            this.lciBtnYesNo,
+            this.esiButtonRight,
+            this.lciBtnOk});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.Root.Size = new System.Drawing.Size(448, 40);
@@ -159,31 +181,22 @@
             this.esiButtonLeft.AllowHotTrack = false;
             this.esiButtonLeft.Location = new System.Drawing.Point(0, 0);
             this.esiButtonLeft.Name = "esiButtonLeft";
-            this.esiButtonLeft.Size = new System.Drawing.Size(117, 30);
+            this.esiButtonLeft.Size = new System.Drawing.Size(99, 30);
             this.esiButtonLeft.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // emptySpaceItem2
+            // lciBtnYesNo
             // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(100, 0);
-            this.emptySpaceItem2.MaxSize = new System.Drawing.Size(10, 0);
-            this.emptySpaceItem2.MinSize = new System.Drawing.Size(10, 10);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(10, 30);
-            this.emptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.BestFitWeight = 75;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lciBtnYesNo.BestFitWeight = 75;
+            this.lciBtnYesNo.CustomizationFormText = "lciBtnYesNo";
+            this.lciBtnYesNo.GroupBordersVisible = false;
+            this.lciBtnYesNo.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2,
             this.layoutControlItem1,
             this.emptySpaceItem2});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(117, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(210, 30);
+            this.lciBtnYesNo.Location = new System.Drawing.Point(99, 0);
+            this.lciBtnYesNo.Name = "lciBtnYesNo";
+            this.lciBtnYesNo.Size = new System.Drawing.Size(210, 30);
+            this.lciBtnYesNo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem2
             // 
@@ -207,14 +220,37 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(100, 0);
+            this.emptySpaceItem2.MaxSize = new System.Drawing.Size(10, 0);
+            this.emptySpaceItem2.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(10, 30);
+            this.emptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // esiButtonRight
             // 
             this.esiButtonRight.AllowHotTrack = false;
             this.esiButtonRight.BestFitWeight = 75;
-            this.esiButtonRight.Location = new System.Drawing.Point(327, 0);
+            this.esiButtonRight.Location = new System.Drawing.Point(409, 0);
             this.esiButtonRight.Name = "esiButtonRight";
-            this.esiButtonRight.Size = new System.Drawing.Size(111, 30);
+            this.esiButtonRight.Size = new System.Drawing.Size(29, 30);
             this.esiButtonRight.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // lciBtnOk
+            // 
+            this.lciBtnOk.Control = this.sbOk;
+            this.lciBtnOk.CustomizationFormText = "lciBtnOk";
+            this.lciBtnOk.Location = new System.Drawing.Point(309, 0);
+            this.lciBtnOk.Name = "lciBtnOk";
+            this.lciBtnOk.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.lciBtnOk.Size = new System.Drawing.Size(100, 30);
+            this.lciBtnOk.TextSize = new System.Drawing.Size(0, 0);
+            this.lciBtnOk.TextVisible = false;
+            this.lciBtnOk.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // lcMain
             // 
@@ -370,11 +406,12 @@
             this.lcButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.esiButtonLeft)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciBtnYesNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.esiButtonRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lciBtnOk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcMain)).EndInit();
             this.lcMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
@@ -399,7 +436,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem esiButtonRight;
         private DevExpress.XtraEditors.SimpleButton sbYes;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlGroup lciBtnYesNo;
         private DevExpress.XtraLayout.LayoutControl lcMain;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
@@ -412,5 +449,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.EmptySpaceItem esiButtonLeft;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraEditors.SimpleButton sbOk;
+        private DevExpress.XtraLayout.LayoutControlItem lciBtnOk;
     }
 }

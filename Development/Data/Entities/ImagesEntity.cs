@@ -116,6 +116,14 @@ namespace Data.Entities
             get => fPasswords ?? new List<PasswordsEntity>();
             set => fPasswords = value;
         }
+        
+        private List<PasswordTypes> fPasswordTypes;
+        [DevExpress.Xpo.Association("PasswordTypes-Images")]
+        public List<PasswordTypes> PasswordTypes
+        {
+            get => fPasswordTypes ?? new List<PasswordTypes>();
+            set => fPasswordTypes = value;
+        }
 
         #endregion
     }

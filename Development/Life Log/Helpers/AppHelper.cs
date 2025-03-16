@@ -82,7 +82,7 @@ namespace Life_Log.Helpers
             if (!AppHelper.DataEngine.ValidateVersions(assemblies))
             {
                 SplashScreenManager.CloseForm(false);
-                MessageBoxDialogForm.SD("App Outdated", "The application is outdated, please update it.");
+                MessageBoxDialogForm.SD("App Outdated", "The application is outdated, please update it.", yesno: false);
                 Environment.Exit(0);
                 return;
             }
@@ -146,7 +146,7 @@ namespace Life_Log.Helpers
             if (checkProcess != null)
             {
                 SplashScreenManager.CloseForm(false);
-                DialogHelper.ShowNotificationDialog("Application", "This app is already open!");
+                MessageBoxDialogForm.SD("Application", "This app is already open!", yesno: false);
 
                 IntPtr hWnd = IntPtr.Zero;
                 hWnd = checkProcess.MainWindowHandle;

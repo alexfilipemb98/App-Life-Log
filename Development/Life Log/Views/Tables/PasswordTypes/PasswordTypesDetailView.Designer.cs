@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.ContextButton contextButton1 = new DevExpress.Utils.ContextButton();
+            this.components = new System.ComponentModel.Container();
+            DevExpress.Utils.ContextButton contextButton3 = new DevExpress.Utils.ContextButton();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PasswordTypesDetailView));
-            DevExpress.Utils.ContextButton contextButton2 = new DevExpress.Utils.ContextButton();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.ContextButton contextButton4 = new DevExpress.Utils.ContextButton();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.dataLayoutControl = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.peImage = new DevExpress.XtraEditors.PictureEdit();
             this.teName = new DevExpress.XtraEditors.TextEdit();
@@ -54,6 +55,7 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.passwordTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
             this.dataLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).BeginInit();
@@ -73,6 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordTypesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl
@@ -82,6 +85,7 @@
             this.dataLayoutControl.Controls.Add(this.beId);
             this.dataLayoutControl.Controls.Add(this.teCreatedAt);
             this.dataLayoutControl.Controls.Add(this.teUpdatedAt);
+            this.dataLayoutControl.DataSource = this.passwordTypesBindingSource;
             this.dataLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.dataLayoutControl.Name = "dataLayoutControl";
@@ -94,24 +98,25 @@
             // peImage
             // 
             this.peImage.CausesValidation = false;
+            this.peImage.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.passwordTypesBindingSource, "Image", true));
             this.peImage.EditValue = "";
             this.peImage.Location = new System.Drawing.Point(432, 35);
             this.peImage.MaximumSize = new System.Drawing.Size(120, 120);
             this.peImage.MinimumSize = new System.Drawing.Size(120, 120);
             this.peImage.Name = "peImage";
-            contextButton1.Id = new System.Guid("d215da8d-71d1-4f61-bf4c-19ec05a82572");
-            contextButton1.ImageOptionsCollection.ItemNormal.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            contextButton1.ImageOptionsCollection.ItemNormal.SvgImageSize = new System.Drawing.Size(20, 20);
-            contextButton1.Name = "Choose Image";
-            contextButton1.Tag = "OPEN";
-            contextButton2.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
-            contextButton2.Id = new System.Guid("0eb9e607-d1a4-4bdc-aa04-48ec1f0d0d1f");
-            contextButton2.ImageOptionsCollection.ItemNormal.SvgImage = global::Life_Log.Properties.Resources.delete;
-            contextButton2.ImageOptionsCollection.ItemNormal.SvgImageSize = new System.Drawing.Size(20, 20);
-            contextButton2.Name = "Clear Image";
-            contextButton2.Tag = "CLEAR";
-            this.peImage.Properties.ContextButtons.Add(contextButton1);
-            this.peImage.Properties.ContextButtons.Add(contextButton2);
+            contextButton3.Id = new System.Guid("d215da8d-71d1-4f61-bf4c-19ec05a82572");
+            contextButton3.ImageOptionsCollection.ItemNormal.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            contextButton3.ImageOptionsCollection.ItemNormal.SvgImageSize = new System.Drawing.Size(20, 20);
+            contextButton3.Name = "Choose Image";
+            contextButton3.Tag = "OPEN";
+            contextButton4.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
+            contextButton4.Id = new System.Guid("0eb9e607-d1a4-4bdc-aa04-48ec1f0d0d1f");
+            contextButton4.ImageOptionsCollection.ItemNormal.SvgImage = global::Life_Log.Properties.Resources.delete;
+            contextButton4.ImageOptionsCollection.ItemNormal.SvgImageSize = new System.Drawing.Size(20, 20);
+            contextButton4.Name = "Clear Image";
+            contextButton4.Tag = "CLEAR";
+            this.peImage.Properties.ContextButtons.Add(contextButton3);
+            this.peImage.Properties.ContextButtons.Add(contextButton4);
             this.peImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.peImage.Properties.ShowMenu = false;
             this.peImage.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
@@ -123,6 +128,7 @@
             // teName
             // 
             this.teName.CausesValidation = false;
+            this.teName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.passwordTypesBindingSource, "Name", true));
             this.teName.Location = new System.Drawing.Point(52, 161);
             this.teName.Name = "teName";
             this.teName.Size = new System.Drawing.Size(900, 30);
@@ -133,12 +139,13 @@
             // beId
             // 
             this.beId.CausesValidation = false;
+            this.beId.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.passwordTypesBindingSource, "Id", true));
             this.beId.Location = new System.Drawing.Point(82, 239);
             this.beId.Name = "beId";
-            editorButtonImageOptions1.SvgImage = global::Life_Log.Properties.Resources.copy;
-            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 20);
+            editorButtonImageOptions2.SvgImage = global::Life_Log.Properties.Resources.copy;
+            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(20, 20);
             this.beId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.beId.Properties.ReadOnly = true;
             this.beId.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.beId.Size = new System.Drawing.Size(870, 30);
@@ -148,6 +155,7 @@
             // teCreatedAt
             // 
             this.teCreatedAt.CausesValidation = false;
+            this.teCreatedAt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.passwordTypesBindingSource, "CreatedAt", true));
             this.teCreatedAt.Location = new System.Drawing.Point(82, 275);
             this.teCreatedAt.Name = "teCreatedAt";
             this.teCreatedAt.Properties.DisplayFormat.FormatString = "yyyy/MM/dd HH:mm:ss";
@@ -161,6 +169,7 @@
             // teUpdatedAt
             // 
             this.teUpdatedAt.CausesValidation = false;
+            this.teUpdatedAt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.passwordTypesBindingSource, "UpdatedAt", true));
             this.teUpdatedAt.Location = new System.Drawing.Point(559, 275);
             this.teUpdatedAt.Name = "teUpdatedAt";
             this.teUpdatedAt.Properties.DisplayFormat.FormatString = "yyyy/MM/dd HH:mm:ss";
@@ -313,6 +322,10 @@
             this.layoutControlItem5.Text = "Updated At";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(63, 16);
             // 
+            // passwordTypesBindingSource
+            // 
+            this.passwordTypesBindingSource.DataSource = typeof(Data.Entities.PasswordTypes);
+            // 
             // PasswordTypesDetailView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -339,6 +352,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordTypesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -363,5 +377,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private System.Windows.Forms.BindingSource passwordTypesBindingSource;
     }
 }
