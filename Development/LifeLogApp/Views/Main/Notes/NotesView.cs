@@ -14,7 +14,7 @@ using System.Linq;
 using System.Windows.Forms;
 using static DevExpress.LookAndFeel.DXSkinColors;
 
-namespace LifeLogApp.Views.Notes
+namespace LifeLogApp.Views.Main.Notes
 {
     /// <summary>
     /// Notes view

@@ -1,4 +1,4 @@
-﻿namespace LifeLogApp.Views.Notes
+﻿namespace LifeLogApp.Views.Main.Notes
 {
     partial class NotesView
     {

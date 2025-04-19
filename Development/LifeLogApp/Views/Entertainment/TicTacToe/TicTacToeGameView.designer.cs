@@ -1,4 +1,4 @@
-﻿namespace Life_Log.Views.Entertainment.TicTacToe
+﻿namespace LifeLogApp.Views.Entertainment.TicTacToe
 {
     partial class TicTacToeGameView
     {
@@ -588,7 +588,7 @@
             // 
             this.bbiResetGame.Caption = "Reset Game";
             this.bbiResetGame.Id = 0;
-            this.bbiResetGame.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.actions_refresh;
+            this.bbiResetGame.ImageOptions.SvgImage = global::LifeLogApp.Properties.Resources.actions_refresh;
             this.bbiResetGame.Name = "bbiResetGame";
             this.bbiResetGame.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.bbiResetGame.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiResetGame_ItemClick);

@@ -8,6 +8,7 @@ using DevExpress.XtraLayout.Utils;
 using LifeLogApp.Helpers;
 using System;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using static DevExpress.LookAndFeel.DXSkinColors;
 
@@ -37,8 +38,9 @@ namespace LifeLogApp.Forms.Auth
         {
             try
             {
+                Version verssion = Assembly.GetExecutingAssembly().GetName().Version;
 #if DEBUG
-                bsiAppVersion.Caption = $"v{Application.ProductVersion} (DEBUG!)";
+                bsiAppVersion.Caption = $"v{verssion} (DEBUG!)";
                 bsiAppVersion.ItemAppearance.Normal.ForeColor = ForeColors.Critical;
 #else
                 bsiAppVersion.Caption = $"v{Application.ProductVersion}";

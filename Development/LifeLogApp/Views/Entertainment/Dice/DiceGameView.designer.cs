@@ -1,4 +1,4 @@
-﻿namespace Life_Log.Views.Entertainment.Games.Dice
+﻿namespace LifeLogApp.Views.Entertainment.Dice
 {
     partial class DiceGameView
     {
@@ -418,7 +418,7 @@
             // 
             this.bbiReRoll.Caption = "Roll Dice";
             this.bbiReRoll.Id = 0;
-            this.bbiReRoll.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.actions_refresh;
+            this.bbiReRoll.ImageOptions.SvgImage = global::LifeLogApp.Properties.Resources.actions_refresh;
             this.bbiReRoll.Name = "bbiReRoll";
             this.bbiReRoll.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.bbiReRoll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReRoll_ItemClick);

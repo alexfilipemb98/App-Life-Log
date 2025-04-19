@@ -123,6 +123,25 @@ public partial class MainForm : RibbonForm
         passwordView.LoadData();
     }
 
+
+    private void bbiCoinFlipView_ItemClick(object sender, ItemClickEventArgs e)
+    {
+        ribbon.ApplicationDocumentCaption = "Coin Flip";
+        navigationFrame.SelectedPage = npCoinFilpView;
+    }
+
+    private void bbiTicTacToeView_ItemClick(object sender, ItemClickEventArgs e)
+    {
+        ribbon.ApplicationDocumentCaption = "Tic Tac Toe";
+        navigationFrame.SelectedPage = npTicTacToeView;
+    }
+
+    private void bbiDiceRollView_ItemClick(object sender, ItemClickEventArgs e)
+    {
+        ribbon.ApplicationDocumentCaption = "Dice Roll";
+        navigationFrame.SelectedPage = npDiceRollView;
+    }
+
     #endregion
 
     #region FUNCTIONS
@@ -134,6 +153,19 @@ public partial class MainForm : RibbonForm
     {
         bbiNotesView.Visibility = AppContext.ModuleSettings.EnableNotes ? BarItemVisibility.Always : BarItemVisibility.Never;
         bbiPasswordsView.Visibility = AppContext.ModuleSettings.EnablePasswords ? BarItemVisibility.Always : BarItemVisibility.Never;
+
+        rpHome.Visible = 
+            AppContext.ModuleSettings.EnableNotes 
+            || AppContext.ModuleSettings.EnableNotes;
+
+        bbiDiceRollView.Visibility = AppContext.ModuleSettings.EnableDiceRoll ? BarItemVisibility.Always : BarItemVisibility.Never;
+        bbiTicTacToeView.Visibility = AppContext.ModuleSettings.EnableTicTacToe ? BarItemVisibility.Always : BarItemVisibility.Never;
+        bbiCoinFlipView.Visibility = AppContext.ModuleSettings.EnableCoinFilp ? BarItemVisibility.Always : BarItemVisibility.Never;
+
+        rpEntertainment.Visible = 
+            AppContext.ModuleSettings.EnableDiceRoll 
+            || AppContext.ModuleSettings.EnableTicTacToe 
+            || AppContext.ModuleSettings.EnableCoinFilp;
     }
 
     #endregion
@@ -175,8 +207,5 @@ public partial class MainForm : RibbonForm
 
     #endregion
 
-    private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
-    {
 
-    }
 }

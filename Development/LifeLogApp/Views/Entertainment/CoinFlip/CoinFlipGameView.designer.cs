@@ -1,4 +1,4 @@
-﻿namespace Life_Log.Views.Entertainment.Games.CoinFlip
+﻿namespace LifeLogApp.Views.Entertainment.CoinFlip
 {
     partial class CoinFlipGameView
     {
@@ -288,7 +288,7 @@
             // 
             this.bbiFlipCoin.Caption = "Flip Coin";
             this.bbiFlipCoin.Id = 1;
-            this.bbiFlipCoin.ImageOptions.SvgImage = global::Life_Log.Properties.Resources.actions_refresh;
+            this.bbiFlipCoin.ImageOptions.SvgImage = global::LifeLogApp.Properties.Resources.actions_refresh;
             this.bbiFlipCoin.Name = "bbiFlipCoin";
             this.bbiFlipCoin.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.bbiFlipCoin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFlipCoin_ItemClick);

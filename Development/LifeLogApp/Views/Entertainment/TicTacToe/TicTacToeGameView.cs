@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace Life_Log.Views.Entertainment.TicTacToe
+namespace LifeLogApp.Views.Entertainment.TicTacToe
 {
     /// <summary>
     /// Tic tac toe game

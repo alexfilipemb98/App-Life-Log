@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Life_Log.Views.Entertainment.Games.Dice
+namespace LifeLogApp.Views.Entertainment.Dice
 {
     /// <summary>
     /// Roll the dice game

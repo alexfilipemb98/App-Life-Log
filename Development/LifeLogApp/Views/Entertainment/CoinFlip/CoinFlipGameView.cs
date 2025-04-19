@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Threading.Tasks;
 
-namespace Life_Log.Views.Entertainment.Games.CoinFlip
+namespace LifeLogApp.Views.Entertainment.CoinFlip
 {
     /// <summary>
     /// Game flip the coin

@@ -1,4 +1,4 @@
-﻿namespace LifeLogApp.Views.Passwords;
+﻿namespace LifeLogApp.Views.Main.Passwords;
 
 partial class PasswordView
 {

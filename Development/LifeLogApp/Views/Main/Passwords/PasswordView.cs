@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LifeLogApp.Views.Passwords;
+namespace LifeLogApp.Views.Main.Passwords;
 
 /// <summary>
 /// PasswordView class

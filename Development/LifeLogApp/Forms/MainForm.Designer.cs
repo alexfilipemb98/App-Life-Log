@@ -1,4 +1,7 @@
-﻿namespace LifeLogApp.Forms;
+﻿using DevExpress.Utils.Extensions;
+using LifeLogApp.Views.Main.Passwords;
+
+namespace LifeLogApp.Forms;
 
 partial class MainForm
 {
@@ -29,21 +32,17 @@ partial class MainForm
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
-        components = new System.ComponentModel.Container();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
         ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
         backstageViewControl = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
-        backstageViewClientControl4 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-        modulleSettings1 = new LifeLogApp.Views.Settings.ModulleSettingsView();
-        backstageViewClientControl2 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-        geralSettingsView = new LifeLogApp.Views.Settings.GeralSettingsView();
         backstageViewClientControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-        databaseSettingsView = new LifeLogApp.Views.Settings.DatabaseSettingsView();
         recentItemControl1 = new DevExpress.XtraBars.Ribbon.RecentItemControl();
         recentStackPanel2 = new DevExpress.XtraBars.Ribbon.RecentStackPanel();
         recentStackPanel1 = new DevExpress.XtraBars.Ribbon.RecentStackPanel();
         backstageViewControl2 = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
+        backstageViewClientControl2 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
         backstageViewClientControl3 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
+        backstageViewClientControl4 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
         backstageViewItemSeparator1 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
         btviAppSettings = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
         bvtiDatabaseSettings = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
@@ -59,36 +58,40 @@ partial class MainForm
         bsiStatusLabel = new DevExpress.XtraBars.BarStaticItem();
         bbiAppSettings = new DevExpress.XtraBars.BarButtonItem();
         bbiPasswordsView = new DevExpress.XtraBars.BarButtonItem();
-        ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+        barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+        barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+        bbiCoinFlipView = new DevExpress.XtraBars.BarButtonItem();
+        bbiTicTacToeView = new DevExpress.XtraBars.BarButtonItem();
+        bbiDiceRollView = new DevExpress.XtraBars.BarButtonItem();
+        rpHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
         ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+        rpEntertainment = new DevExpress.XtraBars.Ribbon.RibbonPage();
+        ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
         ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
         ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
         ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
         ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+        notesView = new LifeLogApp.Views.Main.Notes.NotesView();
         layoutControl = new DevExpress.XtraLayout.LayoutControl();
         panelControl = new DevExpress.XtraEditors.PanelControl();
         navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
         npNotesView = new DevExpress.XtraBars.Navigation.NavigationPage();
-        notesView = new LifeLogApp.Views.Notes.NotesView();
         npHomeView = new DevExpress.XtraBars.Navigation.NavigationPage();
         npPasswordView = new DevExpress.XtraBars.Navigation.NavigationPage();
-        passwordView = new LifeLogApp.Views.Passwords.PasswordView();
+        passwordView = new PasswordView();
+        npCoinFilpView = new DevExpress.XtraBars.Navigation.NavigationPage();
+        coinFlipGameView = new LifeLogApp.Views.Entertainment.CoinFlip.CoinFlipGameView();
+        npTicTacToeView = new DevExpress.XtraBars.Navigation.NavigationPage();
+        ticTacToeGameView = new LifeLogApp.Views.Entertainment.TicTacToe.TicTacToeGameView();
+        npDiceRollView = new DevExpress.XtraBars.Navigation.NavigationPage();
+        diceGameView = new LifeLogApp.Views.Entertainment.Dice.DiceGameView();
         Root = new DevExpress.XtraLayout.LayoutControlGroup();
         layoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
         timer = new System.Windows.Forms.Timer(components);
-        barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-        barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-        ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-        ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
         ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-        bbiCoinFlipView = new DevExpress.XtraBars.BarButtonItem();
-        bbiTicTacToeView = new DevExpress.XtraBars.BarButtonItem();
-        bbiDiceRollView = new DevExpress.XtraBars.BarButtonItem();
         ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
         ((System.ComponentModel.ISupportInitialize)backstageViewControl).BeginInit();
         backstageViewControl.SuspendLayout();
-        backstageViewClientControl4.SuspendLayout();
-        backstageViewClientControl2.SuspendLayout();
         backstageViewClientControl1.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)recentItemControl1).BeginInit();
         ((System.ComponentModel.ISupportInitialize)backstageViewControl2).BeginInit();
@@ -99,8 +102,10 @@ partial class MainForm
         ((System.ComponentModel.ISupportInitialize)navigationFrame).BeginInit();
         navigationFrame.SuspendLayout();
         npNotesView.SuspendLayout();
-        npHomeView.SuspendLayout();
         npPasswordView.SuspendLayout();
+        npCoinFilpView.SuspendLayout();
+        npTicTacToeView.SuspendLayout();
+        npDiceRollView.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)Root).BeginInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem).BeginInit();
         SuspendLayout();
@@ -115,87 +120,43 @@ partial class MainForm
         ribbon.MaxItemId = 16;
         ribbon.Name = "ribbon";
         ribbon.PageHeaderItemLinks.Add(btsTopMost);
-        ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1, ribbonPage3, ribbonPage2 });
+        ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { rpHome, rpEntertainment, ribbonPage2 });
         ribbon.QuickToolbarItemLinks.Add(bbiAppSettings);
         ribbon.Size = new System.Drawing.Size(1015, 237);
         ribbon.StatusBar = ribbonStatusBar;
         // 
         // backstageViewControl
         // 
-        backstageViewControl.Controls.Add(backstageViewClientControl4);
-        backstageViewControl.Controls.Add(backstageViewClientControl2);
         backstageViewControl.Controls.Add(backstageViewClientControl1);
+        backstageViewControl.Controls.Add(backstageViewClientControl2);
         backstageViewControl.Controls.Add(backstageViewClientControl3);
+        backstageViewControl.Controls.Add(backstageViewClientControl4);
         backstageViewControl.Items.Add(backstageViewItemSeparator1);
         backstageViewControl.Items.Add(btviAppSettings);
         backstageViewControl.Items.Add(bvtiDatabaseSettings);
         backstageViewControl.Items.Add(backstageViewItemSeparator2);
         backstageViewControl.Items.Add(backstageViewTabItem1);
         backstageViewControl.Items.Add(backstageViewTabItem2);
-        backstageViewControl.Location = new System.Drawing.Point(79, -9);
+        backstageViewControl.Location = new System.Drawing.Point(524, 53);
         backstageViewControl.Name = "backstageViewControl";
         backstageViewControl.OwnerControl = ribbon;
-        backstageViewControl.SelectedTab = backstageViewTabItem2;
-        backstageViewControl.SelectedTabIndex = 5;
-        backstageViewControl.Size = new System.Drawing.Size(668, 329);
+        backstageViewControl.SelectedTab = bvtiDatabaseSettings;
+        backstageViewControl.SelectedTabIndex = 2;
+        backstageViewControl.Size = new System.Drawing.Size(300, 196);
         backstageViewControl.TabIndex = 5;
         backstageViewControl.Text = "backstageViewControl1";
         backstageViewControl.SelectedTabChanged += backstageViewControl_SelectedTabChanged;
         backstageViewControl.Showing += backstageViewControl_Showing;
         backstageViewControl.Hiding += backstageViewControl_Hiding;
         // 
-        // backstageViewClientControl4
-        // 
-        backstageViewClientControl4.Controls.Add(modulleSettings1);
-        backstageViewClientControl4.Location = new System.Drawing.Point(245, 63);
-        backstageViewClientControl4.Name = "backstageViewClientControl4";
-        backstageViewClientControl4.Size = new System.Drawing.Size(422, 265);
-        backstageViewClientControl4.TabIndex = 4;
-        // 
-        // modulleSettings1
-        // 
-        modulleSettings1.Dock = System.Windows.Forms.DockStyle.Fill;
-        modulleSettings1.Location = new System.Drawing.Point(0, 0);
-        modulleSettings1.Margin = new System.Windows.Forms.Padding(4);
-        modulleSettings1.Name = "modulleSettings1";
-        modulleSettings1.Size = new System.Drawing.Size(422, 265);
-        modulleSettings1.TabIndex = 0;
-        // 
-        // backstageViewClientControl2
-        // 
-        backstageViewClientControl2.Controls.Add(geralSettingsView);
-        backstageViewClientControl2.Location = new System.Drawing.Point(245, 63);
-        backstageViewClientControl2.Name = "backstageViewClientControl2";
-        backstageViewClientControl2.Size = new System.Drawing.Size(422, 265);
-        backstageViewClientControl2.TabIndex = 2;
-        // 
-        // geralSettingsView
-        // 
-        geralSettingsView.Dock = System.Windows.Forms.DockStyle.Fill;
-        geralSettingsView.Location = new System.Drawing.Point(0, 0);
-        geralSettingsView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-        geralSettingsView.Name = "geralSettingsView";
-        geralSettingsView.Size = new System.Drawing.Size(422, 265);
-        geralSettingsView.TabIndex = 0;
-        // 
         // backstageViewClientControl1
         // 
-        backstageViewClientControl1.Controls.Add(databaseSettingsView);
         backstageViewClientControl1.Controls.Add(recentItemControl1);
         backstageViewClientControl1.Controls.Add(backstageViewControl2);
-        backstageViewClientControl1.Location = new System.Drawing.Point(245, 63);
+        backstageViewClientControl1.Location = new System.Drawing.Point(231, 62);
         backstageViewClientControl1.Name = "backstageViewClientControl1";
-        backstageViewClientControl1.Size = new System.Drawing.Size(422, 265);
+        backstageViewClientControl1.Size = new System.Drawing.Size(52, 134);
         backstageViewClientControl1.TabIndex = 1;
-        // 
-        // databaseSettingsView
-        // 
-        databaseSettingsView.Dock = System.Windows.Forms.DockStyle.Fill;
-        databaseSettingsView.Location = new System.Drawing.Point(0, 0);
-        databaseSettingsView.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-        databaseSettingsView.Name = "databaseSettingsView";
-        databaseSettingsView.Size = new System.Drawing.Size(422, 265);
-        databaseSettingsView.TabIndex = 0;
         // 
         // recentItemControl1
         // 
@@ -205,7 +166,7 @@ partial class MainForm
         recentItemControl1.Location = new System.Drawing.Point(0, 0);
         recentItemControl1.MainPanel = recentStackPanel1;
         recentItemControl1.Name = "recentItemControl1";
-        recentItemControl1.Size = new System.Drawing.Size(422, 265);
+        recentItemControl1.Size = new System.Drawing.Size(370, 134);
         recentItemControl1.TabIndex = 1;
         recentItemControl1.Title = "Title";
         // 
@@ -222,8 +183,15 @@ partial class MainForm
         backstageViewControl2.Dock = System.Windows.Forms.DockStyle.Fill;
         backstageViewControl2.Location = new System.Drawing.Point(0, 0);
         backstageViewControl2.Name = "backstageViewControl2";
-        backstageViewControl2.Size = new System.Drawing.Size(422, 265);
+        backstageViewControl2.Size = new System.Drawing.Size(52, 134);
         backstageViewControl2.TabIndex = 2;
+        // 
+        // backstageViewClientControl2
+        // 
+        backstageViewClientControl2.Location = new System.Drawing.Point(245, 63);
+        backstageViewClientControl2.Name = "backstageViewClientControl2";
+        backstageViewClientControl2.Size = new System.Drawing.Size(422, 265);
+        backstageViewClientControl2.TabIndex = 2;
         // 
         // backstageViewClientControl3
         // 
@@ -231,6 +199,13 @@ partial class MainForm
         backstageViewClientControl3.Name = "backstageViewClientControl3";
         backstageViewClientControl3.Size = new System.Drawing.Size(549, 301);
         backstageViewClientControl3.TabIndex = 3;
+        // 
+        // backstageViewClientControl4
+        // 
+        backstageViewClientControl4.Location = new System.Drawing.Point(245, 63);
+        backstageViewClientControl4.Name = "backstageViewClientControl4";
+        backstageViewClientControl4.Size = new System.Drawing.Size(37, 132);
+        backstageViewClientControl4.TabIndex = 4;
         // 
         // backstageViewItemSeparator1
         // 
@@ -249,6 +224,7 @@ partial class MainForm
         bvtiDatabaseSettings.ContentControl = backstageViewClientControl1;
         bvtiDatabaseSettings.ImageOptions.ItemNormal.SvgImage = Properties.Resources.managedatasource;
         bvtiDatabaseSettings.Name = "bvtiDatabaseSettings";
+        bvtiDatabaseSettings.Selected = true;
         // 
         // backstageViewItemSeparator2
         // 
@@ -268,7 +244,6 @@ partial class MainForm
         backstageViewTabItem2.ContentControl = backstageViewClientControl4;
         backstageViewTabItem2.ImageOptions.ItemNormal.SvgImage = Properties.Resources.fitboundstocontainer;
         backstageViewTabItem2.Name = "backstageViewTabItem2";
-        backstageViewTabItem2.Selected = true;
         // 
         // skinDropDownButtonItem1
         // 
@@ -338,12 +313,51 @@ partial class MainForm
         bbiPasswordsView.Name = "bbiPasswordsView";
         bbiPasswordsView.ItemClick += bbiPasswordsView_ItemClick;
         // 
-        // ribbonPage1
+        // barStaticItem1
         // 
-        ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1 });
-        ribbonPage1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("ribbonPage1.ImageOptions.SvgImage");
-        ribbonPage1.Name = "ribbonPage1";
-        ribbonPage1.Text = "Home";
+        barStaticItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+        barStaticItem1.Caption = "barStaticItem1";
+        barStaticItem1.Id = 11;
+        barStaticItem1.Name = "barStaticItem1";
+        // 
+        // barSubItem1
+        // 
+        barSubItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+        barSubItem1.Caption = "<USER>";
+        barSubItem1.Id = 12;
+        barSubItem1.ImageOptions.SvgImage = Properties.Resources.actions_user;
+        barSubItem1.Name = "barSubItem1";
+        // 
+        // bbiCoinFlipView
+        // 
+        bbiCoinFlipView.Caption = "Coin Flip";
+        bbiCoinFlipView.Id = 13;
+        bbiCoinFlipView.ImageOptions.SvgImage = Properties.Resources.coin_flip;
+        bbiCoinFlipView.Name = "bbiCoinFlipView";
+        bbiCoinFlipView.ItemClick += bbiCoinFlipView_ItemClick;
+        // 
+        // bbiTicTacToeView
+        // 
+        bbiTicTacToeView.Caption = "Tic Tac Toe";
+        bbiTicTacToeView.Id = 14;
+        bbiTicTacToeView.ImageOptions.SvgImage = Properties.Resources.tic_tac_toe;
+        bbiTicTacToeView.Name = "bbiTicTacToeView";
+        bbiTicTacToeView.ItemClick += bbiTicTacToeView_ItemClick;
+        // 
+        // bbiDiceRollView
+        // 
+        bbiDiceRollView.Caption = "Dice Roll";
+        bbiDiceRollView.Id = 15;
+        bbiDiceRollView.ImageOptions.SvgImage = Properties.Resources.dice_dice;
+        bbiDiceRollView.Name = "bbiDiceRollView";
+        bbiDiceRollView.ItemClick += bbiDiceRollView_ItemClick;
+        // 
+        // rpHome
+        // 
+        rpHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1 });
+        rpHome.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("rpHome.ImageOptions.SvgImage");
+        rpHome.Name = "rpHome";
+        rpHome.Text = "Home";
         // 
         // ribbonPageGroup1
         // 
@@ -351,6 +365,21 @@ partial class MainForm
         ribbonPageGroup1.ItemLinks.Add(bbiPasswordsView);
         ribbonPageGroup1.Name = "ribbonPageGroup1";
         ribbonPageGroup1.Text = "Main";
+        // 
+        // rpEntertainment
+        // 
+        rpEntertainment.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup4 });
+        rpEntertainment.ImageOptions.SvgImage = Properties.Resources.actions_send;
+        rpEntertainment.Name = "rpEntertainment";
+        rpEntertainment.Text = "Entertainment";
+        // 
+        // ribbonPageGroup4
+        // 
+        ribbonPageGroup4.ItemLinks.Add(bbiCoinFlipView);
+        ribbonPageGroup4.ItemLinks.Add(bbiTicTacToeView);
+        ribbonPageGroup4.ItemLinks.Add(bbiDiceRollView);
+        ribbonPageGroup4.Name = "ribbonPageGroup4";
+        ribbonPageGroup4.Text = "Games";
         // 
         // ribbonPage2
         // 
@@ -383,6 +412,15 @@ partial class MainForm
         ribbonStatusBar.Ribbon = ribbon;
         ribbonStatusBar.Size = new System.Drawing.Size(1015, 43);
         // 
+        // notesView
+        // 
+        notesView.Dock = System.Windows.Forms.DockStyle.Fill;
+        notesView.Location = new System.Drawing.Point(0, 0);
+        notesView.Margin = new System.Windows.Forms.Padding(0);
+        notesView.Name = "notesView";
+        notesView.Size = new System.Drawing.Size(979, 322);
+        notesView.TabIndex = 0;
+        // 
         // layoutControl
         // 
         layoutControl.Controls.Add(panelControl);
@@ -407,10 +445,13 @@ partial class MainForm
         navigationFrame.Controls.Add(npNotesView);
         navigationFrame.Controls.Add(npHomeView);
         navigationFrame.Controls.Add(npPasswordView);
+        navigationFrame.Controls.Add(npCoinFilpView);
+        navigationFrame.Controls.Add(npTicTacToeView);
+        navigationFrame.Controls.Add(npDiceRollView);
         navigationFrame.Dock = System.Windows.Forms.DockStyle.Fill;
         navigationFrame.Location = new System.Drawing.Point(2, 2);
         navigationFrame.Name = "navigationFrame";
-        navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] { npHomeView, npNotesView, npPasswordView });
+        navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] { npHomeView, npNotesView, npPasswordView, npCoinFilpView, npTicTacToeView, npDiceRollView });
         navigationFrame.SelectedPage = npHomeView;
         navigationFrame.Size = new System.Drawing.Size(979, 322);
         navigationFrame.TabIndex = 1;
@@ -423,19 +464,9 @@ partial class MainForm
         npNotesView.Name = "npNotesView";
         npNotesView.Size = new System.Drawing.Size(979, 322);
         // 
-        // notesView
-        // 
-        notesView.Dock = System.Windows.Forms.DockStyle.Fill;
-        notesView.Location = new System.Drawing.Point(0, 0);
-        notesView.Margin = new System.Windows.Forms.Padding(0);
-        notesView.Name = "notesView";
-        notesView.Size = new System.Drawing.Size(979, 322);
-        notesView.TabIndex = 0;
-        // 
         // npHomeView
         // 
         npHomeView.Caption = "npHomeView";
-        npHomeView.Controls.Add(backstageViewControl);
         npHomeView.Name = "npHomeView";
         npHomeView.Size = new System.Drawing.Size(979, 322);
         // 
@@ -454,6 +485,54 @@ partial class MainForm
         passwordView.Name = "passwordView";
         passwordView.Size = new System.Drawing.Size(979, 322);
         passwordView.TabIndex = 0;
+        // 
+        // npCoinFilpView
+        // 
+        npCoinFilpView.Caption = "npCoinFilpView";
+        npCoinFilpView.Controls.Add(coinFlipGameView);
+        npCoinFilpView.Name = "npCoinFilpView";
+        npCoinFilpView.Size = new System.Drawing.Size(979, 322);
+        // 
+        // coinFlipGameView
+        // 
+        coinFlipGameView.Dock = System.Windows.Forms.DockStyle.Fill;
+        coinFlipGameView.Location = new System.Drawing.Point(0, 0);
+        coinFlipGameView.Margin = new System.Windows.Forms.Padding(5);
+        coinFlipGameView.Name = "coinFlipGameView";
+        coinFlipGameView.Size = new System.Drawing.Size(979, 322);
+        coinFlipGameView.TabIndex = 0;
+        // 
+        // npTicTacToeView
+        // 
+        npTicTacToeView.Caption = "npTicTacToeView";
+        npTicTacToeView.Controls.Add(ticTacToeGameView);
+        npTicTacToeView.Name = "npTicTacToeView";
+        npTicTacToeView.Size = new System.Drawing.Size(979, 322);
+        // 
+        // ticTacToeGameView
+        // 
+        ticTacToeGameView.Dock = System.Windows.Forms.DockStyle.Fill;
+        ticTacToeGameView.Location = new System.Drawing.Point(0, 0);
+        ticTacToeGameView.Margin = new System.Windows.Forms.Padding(5);
+        ticTacToeGameView.Name = "ticTacToeGameView";
+        ticTacToeGameView.Size = new System.Drawing.Size(979, 322);
+        ticTacToeGameView.TabIndex = 0;
+        // 
+        // npDiceRollView
+        // 
+        npDiceRollView.Caption = "npDiceRollView";
+        npDiceRollView.Controls.Add(diceGameView);
+        npDiceRollView.Name = "npDiceRollView";
+        npDiceRollView.Size = new System.Drawing.Size(979, 322);
+        // 
+        // diceGameView
+        // 
+        diceGameView.Dock = System.Windows.Forms.DockStyle.Fill;
+        diceGameView.Location = new System.Drawing.Point(0, 0);
+        diceGameView.Margin = new System.Windows.Forms.Padding(5);
+        diceGameView.Name = "diceGameView";
+        diceGameView.Size = new System.Drawing.Size(979, 322);
+        diceGameView.TabIndex = 0;
         // 
         // Root
         // 
@@ -478,62 +557,10 @@ partial class MainForm
         timer.Interval = 1000;
         timer.Tick += timer_Tick;
         // 
-        // barStaticItem1
-        // 
-        barStaticItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-        barStaticItem1.Caption = "barStaticItem1";
-        barStaticItem1.Id = 11;
-        barStaticItem1.Name = "barStaticItem1";
-        // 
-        // barSubItem1
-        // 
-        barSubItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-        barSubItem1.Caption = "<USER>";
-        barSubItem1.Id = 12;
-        barSubItem1.ImageOptions.SvgImage = Properties.Resources.actions_user;
-        barSubItem1.Name = "barSubItem1";
-        // 
-        // ribbonPage3
-        // 
-        ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup4 });
-        ribbonPage3.ImageOptions.SvgImage = Properties.Resources.actions_send;
-        ribbonPage3.Name = "ribbonPage3";
-        ribbonPage3.Text = "Entertainment";
-        // 
-        // ribbonPageGroup4
-        // 
-        ribbonPageGroup4.ItemLinks.Add(bbiCoinFlipView);
-        ribbonPageGroup4.ItemLinks.Add(bbiTicTacToeView);
-        ribbonPageGroup4.ItemLinks.Add(bbiDiceRollView);
-        ribbonPageGroup4.Name = "ribbonPageGroup4";
-        ribbonPageGroup4.Text = "Games";
-        // 
         // ribbonPage4
         // 
         ribbonPage4.Name = "ribbonPage4";
         ribbonPage4.Text = "ribbonPage4";
-        // 
-        // bbiCoinFlipView
-        // 
-        bbiCoinFlipView.Caption = "Coin Flip";
-        bbiCoinFlipView.Id = 13;
-        bbiCoinFlipView.ImageOptions.SvgImage = Properties.Resources.coin_flip;
-        bbiCoinFlipView.Name = "bbiCoinFlipView";
-        bbiCoinFlipView.ItemClick += barButtonItem1_ItemClick;
-        // 
-        // bbiTicTacToeView
-        // 
-        bbiTicTacToeView.Caption = "Tic Tac Toe";
-        bbiTicTacToeView.Id = 14;
-        bbiTicTacToeView.ImageOptions.SvgImage = Properties.Resources.tic_tac_toe;
-        bbiTicTacToeView.Name = "bbiTicTacToeView";
-        // 
-        // bbiDiceRollView
-        // 
-        bbiDiceRollView.Caption = "Dice Roll";
-        bbiDiceRollView.Id = 15;
-        bbiDiceRollView.ImageOptions.SvgImage = Properties.Resources.dice_dice;
-        bbiDiceRollView.Name = "bbiDiceRollView";
         // 
         // MainForm
         // 
@@ -541,6 +568,7 @@ partial class MainForm
         AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(1015, 638);
+        Controls.Add(backstageViewControl);
         Controls.Add(layoutControl);
         Controls.Add(ribbonStatusBar);
         Controls.Add(ribbon);
@@ -557,8 +585,6 @@ partial class MainForm
         ((System.ComponentModel.ISupportInitialize)ribbon).EndInit();
         ((System.ComponentModel.ISupportInitialize)backstageViewControl).EndInit();
         backstageViewControl.ResumeLayout(false);
-        backstageViewClientControl4.ResumeLayout(false);
-        backstageViewClientControl2.ResumeLayout(false);
         backstageViewClientControl1.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)recentItemControl1).EndInit();
         ((System.ComponentModel.ISupportInitialize)backstageViewControl2).EndInit();
@@ -569,8 +595,10 @@ partial class MainForm
         ((System.ComponentModel.ISupportInitialize)navigationFrame).EndInit();
         navigationFrame.ResumeLayout(false);
         npNotesView.ResumeLayout(false);
-        npHomeView.ResumeLayout(false);
         npPasswordView.ResumeLayout(false);
+        npCoinFilpView.ResumeLayout(false);
+        npTicTacToeView.ResumeLayout(false);
+        npDiceRollView.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)Root).EndInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem).EndInit();
         ResumeLayout(false);
@@ -580,7 +608,7 @@ partial class MainForm
     #endregion
 
     private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
-    private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+    private DevExpress.XtraBars.Ribbon.RibbonPage rpHome;
     private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
     private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
@@ -603,7 +631,7 @@ partial class MainForm
     internal DevExpress.XtraBars.BarStaticItem bsiStatusLabel;
     private DevExpress.XtraBars.BarButtonItem bbiAppSettings;
     private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
-    private Views.Notes.NotesView notesView;
+    private Views.Main.Notes.NotesView notesView;
     private DevExpress.XtraBars.Ribbon.BackstageViewControl backstageViewControl;
     private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl1;
     private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator1;
@@ -624,13 +652,19 @@ partial class MainForm
     private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem2;
     private DevExpress.XtraBars.BarButtonItem bbiPasswordsView;
     private DevExpress.XtraBars.Navigation.NavigationPage npPasswordView;
-    private Views.Passwords.PasswordView passwordView;
+    private Views.Main.Passwords.PasswordView passwordView;
     private DevExpress.XtraBars.BarStaticItem barStaticItem1;
     private DevExpress.XtraBars.BarSubItem barSubItem1;
     private DevExpress.XtraBars.BarButtonItem bbiCoinFlipView;
     private DevExpress.XtraBars.BarButtonItem bbiTicTacToeView;
     private DevExpress.XtraBars.BarButtonItem bbiDiceRollView;
-    private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
+    private DevExpress.XtraBars.Ribbon.RibbonPage rpEntertainment;
     private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
     private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
+    private DevExpress.XtraBars.Navigation.NavigationPage npCoinFilpView;
+    private Views.Entertainment.CoinFlip.CoinFlipGameView coinFlipGameView;
+    private DevExpress.XtraBars.Navigation.NavigationPage npTicTacToeView;
+    private DevExpress.XtraBars.Navigation.NavigationPage npDiceRollView;
+    private Views.Entertainment.TicTacToe.TicTacToeGameView ticTacToeGameView;
+    private Views.Entertainment.Dice.DiceGameView diceGameView;
 }
