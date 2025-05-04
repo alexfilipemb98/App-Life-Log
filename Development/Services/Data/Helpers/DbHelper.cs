@@ -1,15 +1,12 @@
-﻿using Core.Enums;
-using Core.Models;
+﻿using Models;
 using Dapper;
 using Data.Bases;
 using Microsoft.Data.SqlClient;
+using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Models.Enums;
 
 namespace Data.Helpers
 {
@@ -36,9 +33,9 @@ namespace Data.Helpers
         /// </summary>
         /// <param name="config"></param>
         /// <returns></returns>
-        public static string? GetConnection(DatabaseConfigModel config, bool raw = false)
+        public static string GetConnection(DatabaseConfigModel config, bool raw = false)
         {
-            string? connectionString = null;
+            string connectionString = null;
 
             switch (config.DatabaseType)
             {
@@ -47,11 +44,18 @@ namespace Data.Helpers
                     if (string.IsNullOrWhiteSpace(config.SQlLitePath))
                         throw new Exception("SQL lite path is null");
 
-                    connectionString = $"{(raw ? "" : "XpoProvider=SQLite;")} Data Source={config.SQlLitePath};";
+                    SqliteConnectionStringBuilder connLite = new SqliteConnectionStringBuilder
+                    {
+                        DataSource = config.SQlLitePath,
+                        Mode = SqliteOpenMode.ReadWriteCreate,
+                        Password = config.SqlLitePassword,
+                    };
+
+                    connectionString = $"{(raw ? "" : "XpoProvider=SQLite;")} {connLite}";
+
                     break;
 
                 case DatabaseTypeEnum.MSSQL:
-
 
                     SqlConnectionStringBuilder conn = new SqlConnectionStringBuilder()
                     {
@@ -79,7 +83,7 @@ namespace Data.Helpers
         /// <summary>
         /// Create a backup of the SQLLite database
         /// </summary>
-        public static void SQLLiteBackUp(DatabaseConfigModel config)
+        public static void SqlLiteBackUp(DatabaseConfigModel config)
         {
             if (config.DatabaseType != DatabaseTypeEnum.SQLLITE)
                 return;
@@ -109,7 +113,7 @@ namespace Data.Helpers
         /// <returns></returns>
         public static void CheckDatabaseExists(SqlConnectionStringBuilder builder, string databaseName)
         {
-            using DataSqlAccessBase connection = new(builder.ConnectionString);
+            using (DataSqlAccessBase connection = new DataSqlAccessBase(builder.ConnectionString))
             {
                 string query = "SELECT COUNT(*) FROM sys.databases WHERE name = @dbName";
 
@@ -127,5 +131,6 @@ namespace Data.Helpers
                 }
             }
         }
+
     }
 }

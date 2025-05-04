@@ -1,6 +1,9 @@
 ﻿using Dapper;
+using Microsoft.Data.Sqlite;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace Data.Bases
@@ -37,9 +40,9 @@ namespace Data.Bases
         public DataSqlAccessBase(string stringConn, bool isSqlLite = false)
         {
             if (isSqlLite)
-                _connection = new System.Data.SQLite.SQLiteConnection(stringConn);
+                _connection = new SqliteConnection(stringConn);
             else
-                _connection = new Microsoft.Data.SqlClient.SqlConnection(stringConn);
+                _connection = new SqlConnection(stringConn);
         }
 
         #endregion
@@ -60,13 +63,13 @@ namespace Data.Bases
 
         public void SaveData<T, U>(string sql, ref T parameters, out U outputValue) => outputValue = _connection.ExecuteScalar<U>(sql, parameters);
 
-        public T? GetValue<T, U>(string query, U parameters) => _connection.QueryFirstOrDefault<T>(query, parameters);
+        public T GetValue<T, U>(string query, U parameters) => _connection.QueryFirstOrDefault<T>(query, parameters);
 
-        public T? GetValue<T>(string query) => _connection.QueryFirstOrDefault<T>(query, transaction: _transaction);
+        public T GetValue<T>(string query) => _connection.QueryFirstOrDefault<T>(query, transaction: _transaction);
 
-        public T? ExecuteScalar<T, U>(string sql, U parameters) => _connection.ExecuteScalar<T>(sql, parameters);
+        public T ExecuteScalar<T, U>(string sql, U parameters) => _connection.ExecuteScalar<T>(sql, parameters);
 
-        public T? ExecuteScalar<T>(string sql) => _connection.ExecuteScalar<T>(sql);
+        public T ExecuteScalar<T>(string sql) => _connection.ExecuteScalar<T>(sql);
 
         public void ExecuteScalar(string sql) => _connection.ExecuteScalar(sql);
 
@@ -120,7 +123,7 @@ namespace Data.Bases
         /// Checks if is sql lite
         /// </summary>
         /// <returns></returns>
-        private bool CheckIsSqlLite()=>  _connection is System.Data.SQLite.SQLiteConnection;
+        private bool CheckIsSqlLite()=>  _connection is SqliteConnection;
 
         /// <summary>
         /// On dispose fechar a conexão com a base de dados!

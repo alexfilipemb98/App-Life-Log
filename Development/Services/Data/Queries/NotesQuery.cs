@@ -1,14 +1,11 @@
-﻿using Core.Extensions;
-using Data.Bases;
+﻿using Data.Bases;
 using Data.ORM.DataModelCode;
 using DevExpress.Xpo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.ServiceModel.Channels;
-using System.Text;
-using System.Threading.Tasks;
+using Utils.Extensions;
 
 namespace Data.Queries
 {
@@ -51,13 +48,13 @@ namespace Data.Queries
         /// <param name="notes"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        /// <exception cref="Core.Exceptions.ValidationException"></exception>
+        /// <exception cref="Exceptions.ValidationException"></exception>
         public bool Save(List<ORM_Notes> notes, out string message )
         {
             foreach (ORM_Notes obj in notes)
             {
                 if (!obj.IsValid(out List<ValidationResult> results))
-                    throw new Core.Exceptions.ValidationException(results);
+                    throw new Exceptions.ValidationException(results);
             
                 obj.SavingMode = true;
                 

@@ -23,7 +23,7 @@ namespace Data.ORM.DataModelCode
         [Persistent(@"IdUser")]
         [Association(@"ORM_PasswordsReferencesORM_Users")]
         [DbType("UNIQUEIDENTIFIER")]
-        [Core.Attributes.Required]
+        [Models.Attributes.Required]
         public ORM_Users User
         {
             get { return fUser; }
@@ -33,8 +33,8 @@ namespace Data.ORM.DataModelCode
         [Size(50)]
         [Nullable(false)]
         [DbType("NVARCHAR(50)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(50)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(50)]
         public string Name
         {
             get { return fName; }
@@ -44,8 +44,8 @@ Core.Attributes.StringLength(50)]
         [Size(500)]
         [Nullable(false)]
         [DbType("NVARCHAR(500)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(500)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(500)]
         public string Website
         {
             get { return fWebsite; }
@@ -55,8 +55,8 @@ Core.Attributes.StringLength(500)]
         [Size(250)]
         [Nullable(false)]
         [DbType("NVARCHAR(250)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(250)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(250)]
         public string LoginUsername
         {
             get { return fLoginUsername; }
@@ -66,8 +66,8 @@ Core.Attributes.StringLength(250)]
         [Size(4000)]
         [Nullable(false)]
         [DbType("NVARCHAR(4000)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(4000, MinimumLength = 5)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(4000, MinimumLength = 5)]
         public string LoginPassword
         {
             get { return fLoginPassword; }

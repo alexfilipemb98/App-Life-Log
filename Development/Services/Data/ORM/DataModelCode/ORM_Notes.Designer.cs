@@ -24,7 +24,7 @@ namespace Data.ORM.DataModelCode
         [Persistent(@"IdUser")]
         [Association(@"ORM_NotesReferencesORM_Users")]
         [DbType("UNIQUEIDENTIFIER")]
-        [Core.Attributes.Required]
+        [Models.Attributes.Required]
         public ORM_Users User
         {
             get { return fUser; }
@@ -34,8 +34,8 @@ namespace Data.ORM.DataModelCode
         [Size(30)]
         [Nullable(false)]
         [DbType("NVARCHAR(30)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(30, MinimumLength = 5)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(30, MinimumLength = 5)]
         public string Title
         {
             get { return fTitle; }
@@ -45,8 +45,8 @@ Core.Attributes.StringLength(30, MinimumLength = 5)]
         [Size(4000)]
         [Nullable(false)]
         [DbType("NVARCHAR(4000)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(4000, MinimumLength = 5)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(4000, MinimumLength = 5)]
         public string Text
         {
             get { return fText; }

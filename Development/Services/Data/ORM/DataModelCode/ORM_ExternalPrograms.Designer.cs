@@ -24,7 +24,7 @@ namespace Data.ORM.DataModelCode
         [Persistent(@"IdUser")]
         [Association(@"ORM_ExternalProgramsReferencesORM_Users")]
         [DbType("UNIQUEIDENTIFIER")]
-        [Core.Attributes.Required]
+        [Models.Attributes.Required]
         public ORM_Users User
         {
             get { return fUser; }
@@ -42,8 +42,8 @@ namespace Data.ORM.DataModelCode
         [Size(50)]
         [Nullable(false)]
         [DbType("NVARCHAR(50)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(50)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(50)]
         public string Name
         {
             get { return fName; }
@@ -53,8 +53,8 @@ Core.Attributes.StringLength(50)]
         [Size(5)]
         [Nullable(false)]
         [DbType("NVARCHAR(5)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(5)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(5)]
         public string FileExtension
         {
             get { return fFileExtension; }
@@ -64,8 +64,8 @@ Core.Attributes.StringLength(5)]
         [Size(400)]
         [Nullable(false)]
         [DbType("NVARCHAR(400)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(400)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(400)]
         public string PathToProgram
         {
             get { return fPathToProgram; }
@@ -75,8 +75,8 @@ Core.Attributes.StringLength(400)]
         [Size(110)]
         [Nullable(false)]
         [DbType("NVARCHAR(110)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(110)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(110)]
         public string Arguments
         {
             get { return fArguments; }

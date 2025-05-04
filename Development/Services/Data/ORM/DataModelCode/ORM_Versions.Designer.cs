@@ -22,7 +22,7 @@ namespace Data.ORM.DataModelCode
     {
         Guid fProgramId;
         [DbType("UNIQUEIDENTIFIER")]
-        [Core.Attributes.Required]
+        [Models.Attributes.Required]
         public Guid ProgramId
         {
             get { return fProgramId; }
@@ -32,8 +32,8 @@ namespace Data.ORM.DataModelCode
         [Size(50)]
         [Nullable(false)]
         [DbType("NVARCHAR(50)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(50, MinimumLength = 3)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(50, MinimumLength = 3)]
         public string Name
         {
             get { return fName; }
@@ -43,8 +43,8 @@ Core.Attributes.StringLength(50, MinimumLength = 3)]
         [Size(20)]
         [Nullable(false)]
         [DbType("NVARCHAR(20)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(20, MinimumLength = 5)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(20, MinimumLength = 5)]
         public string Version
         {
             get { return fVersion; }

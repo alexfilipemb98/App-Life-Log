@@ -29,7 +29,7 @@ namespace Data.Queries
         /// <param ddlName="programId"></param>
         /// <param ddlName="version"></param>
         /// <returns></returns>
-        public bool ValidateVersion(Guid ddlId, string? ddlName, string dllVersion)
+        public bool ValidateVersion(Guid ddlId, string ddlName, string dllVersion)
         {
             ORM_Versions version = new ORM_Versions();
 
@@ -37,12 +37,12 @@ namespace Data.Queries
             version.ProgramId = ddlId;
             version.Name = ddlName;
 
-            ORM_Versions? currentVerison = _UOW.Query<ORM_Versions>()
+            ORM_Versions currentVerison = _UOW.Query<ORM_Versions>()
                 .Where(w => w.ProgramId == version.ProgramId && w.Version == version.Version)
                 .OrderByDescending(w => w.CreatedAt)
                 .FirstOrDefault();
             
-            ORM_Versions? lastVersion = _UOW.Query<ORM_Versions>()
+            ORM_Versions lastVersion = _UOW.Query<ORM_Versions>()
                 .Where(w => w.ProgramId == version.ProgramId)
                 .OrderByDescending(w => w.CreatedAt)
                 .FirstOrDefault();

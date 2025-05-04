@@ -1,50 +1,59 @@
 ﻿using Api.Bases;
-using Microsoft.AspNetCore.Mvc;
+using Data.ORM.DataModelCode;
+using Swashbuckle.Swagger;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace Api.Controllers
 {
     /// <summary>
     /// Notes controller
     /// </summary>
-    [ApiController]
-    [Route("notes")]
+    [RoutePrefix("notes")]
     public class NotesController : BaseController
     {
+
         #region GET'S
 
         /// <summary>
         /// Gets all notes
         /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        public IActionResult GetAll()
+        public IHttpActionResult GetAll()
         {
             try
             {
-                List<Data.ORM.DataModelCode.ORM_Notes> results = _engine.Notes.GetAll(out _);
-                return Ok(results);
+                List<ORM_Notes> results = _engine.Notes.GetAll(out _);
+                return Content(HttpStatusCode.OK, results);
             }
             catch (Exception ex)
             {
-                return StatusCode((int)HttpStatusCode.InternalServerError, new { Error = ex.ToString() });
+                return Content(HttpStatusCode.InternalServerError, new { Error = ex.ToString() });
             }
         }
 
         /// <summary>
-        /// Returns a note by its key
+        /// Resturns a note by it's key
         /// </summary>
-        /// <param name="id">Note ID</param>
-        [HttpGet("{id:guid}")]
-        public IActionResult GetById(Guid id)
+        /// <param name="id">ID da região</param>
+        [HttpGet]
+        [Route("{id:guid}")]
+        public IHttpActionResult GetById(Guid id)
         {
             try
             {
-                Data.ORM.DataModelCode.ORM_Notes result = _engine.Notes.GetByKey(id, out _);
-                return Ok(result);
+                ORM_Notes result = _engine.Notes.GetByKey(id, out _);
+                return Content(HttpStatusCode.OK, result);
             }
             catch (Exception ex)
             {
-                return StatusCode((int)HttpStatusCode.InternalServerError, new { Error = ex.ToString() });
+                return Content(HttpStatusCode.InternalServerError, new { Error = ex.ToString() });
             }
         }
 

@@ -24,7 +24,7 @@ namespace Data.ORM.DataModelCode
         [Persistent(@"IdUser")]
         [Association(@"ORM_CommandsReferencesORM_Users")]
         [DbType("UNIQUEIDENTIFIER")]
-        [Core.Attributes.Required]
+        [Models.Attributes.Required]
         public ORM_Users User
         {
             get { return fUser; }
@@ -33,7 +33,7 @@ namespace Data.ORM.DataModelCode
         ORM_ExternalPrograms fExternalProgram;
         [Persistent(@"IdExternalProgram")]
         [DbType("UNIQUEIDENTIFIER")]
-        [Core.Attributes.Required]
+        [Models.Attributes.Required]
         public ORM_ExternalPrograms ExternalProgram
         {
             get { return fExternalProgram; }
@@ -43,8 +43,8 @@ namespace Data.ORM.DataModelCode
         [Size(13)]
         [Nullable(false)]
         [DbType("NVARCHAR(13)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(13, MinimumLength = 5)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(13, MinimumLength = 5)]
         public string Name
         {
             get { return fName; }
@@ -54,8 +54,8 @@ Core.Attributes.StringLength(13, MinimumLength = 5)]
         [Size(10)]
         [Nullable(false)]
         [DbType("NVARCHAR(10)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(10, MinimumLength = 2)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(10, MinimumLength = 2)]
         public string Type
         {
             get { return fType; }
@@ -65,8 +65,8 @@ Core.Attributes.StringLength(10, MinimumLength = 2)]
         [Size(30)]
         [Nullable(false)]
         [DbType("NVARCHAR(30)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(30, MinimumLength = 5)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(30, MinimumLength = 5)]
         public string Description
         {
             get { return fDescription; }
@@ -76,8 +76,8 @@ Core.Attributes.StringLength(30, MinimumLength = 5)]
         [Size(4000)]
         [Nullable(false)]
         [DbType("NVARCHAR(4000)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(4000, MinimumLength = 5)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(4000, MinimumLength = 5)]
         public string Command
         {
             get { return fCommand; }

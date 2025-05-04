@@ -1,11 +1,12 @@
-﻿using Core.Extensions;
-using Core.Models;
-using Core.Utils;
-using Data.Bases;
+﻿using Data.Bases;
 using Data.ORM.DataModelCode;
 using DevExpress.Xpo;
+using Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using Utils;
+using Utils.Extensions;
 
 namespace Data.Queries
 {
@@ -34,7 +35,7 @@ namespace Data.Queries
         public bool RegisterUser(LoginModel model, out string message)
         {
             if (!model.IsValid(out List<ValidationResult> results))
-                throw new Core.Exceptions.ValidationException(results);
+                throw new Exceptions.ValidationException(results);
 
             ORM_Users newUser = new ORM_Users();
 
@@ -55,7 +56,7 @@ namespace Data.Queries
         public bool ValidateUserLogin(LoginModel model, out ORM_Users userModel, out string message)
         {
             if (!model.IsValid(out List<ValidationResult> results))
-                throw new Core.Exceptions.ValidationException(results);
+                throw new Exceptions.ValidationException(results);
 
             userModel = null;
 

@@ -23,7 +23,7 @@ namespace Data.ORM.DataModelCode
         ORM_Users fUser;
         [Persistent(@"IdUser")]
         [DbType("UNIQUEIDENTIFIER")]
-        [Core.Attributes.Required]
+        [Models.Attributes.Required]
         public ORM_Users User
         {
             get { return fUser; }
@@ -63,6 +63,27 @@ namespace Data.ORM.DataModelCode
         {
             get { return fEnableDiceRoll; }
             set { SetPropertyValue<bool>(nameof(EnableDiceRoll), ref fEnableDiceRoll, value); }
+        }
+        bool fEnablePasswordGenerator;
+        [ColumnDefaultValue(false)]
+        public bool EnablePasswordGenerator
+        {
+            get { return fEnablePasswordGenerator; }
+            set { SetPropertyValue<bool>(nameof(EnablePasswordGenerator), ref fEnablePasswordGenerator, value); }
+        }
+        bool fEnableMergePdfs;
+        [ColumnDefaultValue(false)]
+        public bool EnableMergePdfs
+        {
+            get { return fEnableMergePdfs; }
+            set { SetPropertyValue<bool>(nameof(EnableMergePdfs), ref fEnableMergePdfs, value); }
+        }
+        bool fEnableCommands;
+        [ColumnDefaultValue(false)]
+        public bool EnableCommands
+        {
+            get { return fEnableCommands; }
+            set { SetPropertyValue<bool>(nameof(EnableCommands), ref fEnableCommands, value); }
         }
     }
 

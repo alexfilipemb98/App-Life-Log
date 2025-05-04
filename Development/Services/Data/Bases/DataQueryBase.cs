@@ -1,9 +1,11 @@
-﻿using Core.Extensions;
-using Core.Interfaces;
+﻿using Utils.Extensions;
+using Interfaces;
 using Data.ORM.DataModelCode;
 using DevExpress.Xpo;
-using DevExpress.Xpo.Metadata;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Reflection;
 using static Dapper.SqlMapper;
 
@@ -45,7 +47,7 @@ namespace Data.Bases
         public virtual bool TableExists(out string message)
         {
             string query = string.Empty;
-            string? tableName = typeof(Model).GetTableName();
+            string tableName = typeof(Model).GetTableName();
 
             if (string.IsNullOrWhiteSpace(tableName))
             {
@@ -101,7 +103,7 @@ namespace Data.Bases
 
         public virtual Model GetLast(out string message)
         {
-            Model? entity = QueryBase.OrderByDescending(x => x.CreatedAt).FirstOrDefault();
+            Model entity = QueryBase.OrderByDescending(x => x.CreatedAt).FirstOrDefault();
             message = entity == null ? $"{TableName} not found!" : $"{TableName} found!";
             return entity;
         }
@@ -109,7 +111,7 @@ namespace Data.Bases
         public virtual bool Save(Model obj, out string message)
         {
             if (!obj.IsValid(out List<ValidationResult> results))
-                throw new Core.Exceptions.ValidationException(results);
+                throw new Exceptions.ValidationException(results);
 
             obj.SavingMode = true;
 

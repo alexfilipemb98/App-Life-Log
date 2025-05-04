@@ -1,15 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace Api.Bases
 {
-    /// <summary>
-    /// Base controller for all controllers
-    /// </summary>
-    [ApiController]
-    public class BaseController : ControllerBase
+   public class BaseController : ApiController
     {
         internal readonly Data.Engine _engine;
-
         public BaseController()
         {
             _engine = Engine._engine;

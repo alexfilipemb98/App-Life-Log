@@ -24,8 +24,8 @@ namespace Data.ORM.DataModelCode
         [Size(20)]
         [Nullable(false)]
         [DbType("NVARCHAR(20)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(20, MinimumLength = 5)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(20, MinimumLength = 5)]
         public string Username
         {
             get { return fUsername; }
@@ -35,9 +35,9 @@ Core.Attributes.StringLength(20, MinimumLength = 5)]
         [Size(256)]
         [Nullable(false)]
         [DbType("NVARCHAR(256)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(256, MinimumLength = 5),
-Core.Attributes.EmailValidator]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(256, MinimumLength = 5),
+Models.Attributes.EmailValidator]
         public string Email
         {
             get { return fEmail; }
@@ -47,8 +47,8 @@ Core.Attributes.EmailValidator]
         [Size(50)]
         [Nullable(false)]
         [DbType("NVARCHAR(50)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(50, MinimumLength = 5)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(50, MinimumLength = 5)]
         public string Salt
         {
             get { return fSalt; }
@@ -58,8 +58,8 @@ Core.Attributes.StringLength(50, MinimumLength = 5)]
         [Size(4000)]
         [Nullable(false)]
         [DbType("NVARCHAR(4000)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(4000, MinimumLength = 5)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(4000, MinimumLength = 5)]
         public string Password
         {
             get { return fPassword; }
@@ -72,9 +72,9 @@ Core.Attributes.StringLength(4000, MinimumLength = 5)]
         [Association(@"ImagesReferencesORM_Users")]
         public IList<ORM_Images> User_Images { get { return GetList<ORM_Images>(nameof(User_Images)); } }
         [Association(@"ORM_ExternalProgramsReferencesORM_Users")]
-        public IList<ORM_ExternalPrograms> User_ExternalProgramss { get { return GetList<ORM_ExternalPrograms>(nameof(User_ExternalProgramss)); } }
+        public IList<ORM_ExternalPrograms> User_ExternalPrograms { get { return GetList<ORM_ExternalPrograms>(nameof(User_ExternalPrograms)); } }
         [Association(@"ORM_PasswordsReferencesORM_Users")]
-        public IList<ORM_Passwords> ORM_Passwordss { get { return GetList<ORM_Passwords>(nameof(ORM_Passwordss)); } }
+        public IList<ORM_Passwords> User_Passwords { get { return GetList<ORM_Passwords>(nameof(User_Passwords)); } }
     }
 
 }

@@ -24,7 +24,7 @@ namespace Data.ORM.DataModelCode
         [Persistent(@"IdUser")]
         [Association(@"ImagesReferencesORM_Users")]
         [DbType("UNIQUEIDENTIFIER")]
-        [Core.Attributes.Required]
+        [Models.Attributes.Required]
         public ORM_Users User
         {
             get { return fUser; }
@@ -34,8 +34,8 @@ namespace Data.ORM.DataModelCode
         [Size(50)]
         [Nullable(false)]
         [DbType("NVARCHAR(50)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(50)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(50)]
         public string Name
         {
             get { return fName; }
@@ -44,7 +44,7 @@ Core.Attributes.StringLength(50)]
         byte[] fData;
         [Nullable(false)]
         [MemberDesignTimeVisibility(true)]
-        [Core.Attributes.Required]
+        [Models.Attributes.Required]
         public byte[] Data
         {
             get { return fData; }
@@ -55,8 +55,8 @@ Core.Attributes.StringLength(50)]
         [ColumnDbDefaultValue("'.notset'")]
         [Nullable(false)]
         [DbType("NVARCHAR(10)")]
-        [Core.Attributes.Required,
-Core.Attributes.StringLength(10)]
+        [Models.Attributes.Required,
+Models.Attributes.StringLength(10)]
         public string FileExtension
         {
             get { return fFileExtension; }

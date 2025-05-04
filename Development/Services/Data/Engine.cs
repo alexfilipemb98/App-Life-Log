@@ -1,19 +1,21 @@
-﻿using Core.Enums;
-using Core.Models;
+﻿using Utils.Extensions;
 using Data.Bases;
 using Data.Helpers;
-using Data.ORM.DataModelCode;
 using Data.Queries;
 using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
 using DevExpress.Xpo.Metadata;
-using Microsoft.Data.SqlClient;
+using Microsoft.Data.Sqlite;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
-using System.Data.SQLite;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices;
+using Models;
+using Models.Enums;
 
 namespace Data
 {
@@ -40,6 +42,10 @@ namespace Data
         /// <param name="config"></param>
         public Engine(DatabaseConfigModel config)
         {
+            config.IsValid(out List<ValidationResult> results);
+            if (results.Count > 0)
+                throw new Exceptions.ValidationException(results);
+
             _config = config;
 
             if (_instance != null)
@@ -67,7 +73,7 @@ namespace Data
         /// Users query
         /// </summary>
         public UsersQuery Users => CreateQuery<UsersQuery>();
-        
+
         /// <summary>
         /// Module settings query
         /// </summary>
@@ -83,7 +89,7 @@ namespace Data
         /// <exception cref="NotSupportedException"></exception>
         public void Initialize()
         {
-            string? connectionString = DbHelper.GetConnection(_config);
+            string connectionString = DbHelper.GetConnection(_config);
 
             if (string.IsNullOrWhiteSpace(connectionString))
                 throw new ArgumentNullException("Connection string is inválid!");
@@ -111,15 +117,22 @@ namespace Data
 
             XpoDefault.Session = UOW;
 
-            SQL = _config.DatabaseType switch
+            switch (_config.DatabaseType)
             {
-                DatabaseTypeEnum.SQLLITE => new DataSqlAccessBase((SQLiteConnection)Connection),
-                DatabaseTypeEnum.MSSQL => new DataSqlAccessBase((SqlConnection)Connection),
-                _ => throw new NotSupportedException("Database type not supported")
-            };
+                case DatabaseTypeEnum.SQLLITE:
+                    SQL = new DataSqlAccessBase((SqliteConnection)Connection);
+                    break;
+
+                case DatabaseTypeEnum.MSSQL:
+                    SQL = new DataSqlAccessBase((SqlConnection)Connection);
+                    break;
+
+                default:
+                    throw new NotSupportedException("Database type not supported");
+            }
 
             DBName = _config.DatabaseType == DatabaseTypeEnum.SQLLITE
-                ? $"(local) {((SQLiteConnection)Connection).DataSource}"
+                ? $"(local) {Path.GetFileNameWithoutExtension(((SqliteConnection)Connection).DataSource)}"
                 : ((SqlConnection)Connection).Database;
 
             Assembly assembly = Assembly.GetExecutingAssembly();
@@ -163,14 +176,14 @@ namespace Data
             if (!IsConnected)
                 Initialize();
 
-            if (!_queriesCache.TryGetValue(typeof(T), out object? existingQuery))
+            if (!_queriesCache.TryGetValue(typeof(T), out object existingQuery))
             {
-                ConstructorInfo? constructor = typeof(T).GetConstructor(new[] { typeof(UnitOfWork), typeof(DataSqlAccessBase) });
+                ConstructorInfo constructor = typeof(T).GetConstructor(new[] { typeof(UnitOfWork), typeof(DataSqlAccessBase) });
 
                 if (constructor == null)
                     throw new InvalidOperationException($"The type {typeof(T).Name} must have a constructor with parameters (UnitOfWork, DataSqlAccessBase).");
 
-                T? query = constructor.Invoke(new object[] { UOW, SQL }) as T;
+                T query = constructor.Invoke(new object[] { UOW, SQL }) as T;
 
                 if (query == null)
                     throw new InvalidOperationException($"Failed to create an instance of {typeof(T).Name}.");
