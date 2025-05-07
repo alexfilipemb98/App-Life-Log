@@ -73,10 +73,8 @@ Models.Attributes.StringLength(400)]
         }
         string fArguments;
         [Size(110)]
-        [Nullable(false)]
         [DbType("NVARCHAR(110)")]
-        [Models.Attributes.Required,
-Models.Attributes.StringLength(110)]
+        [Models.Attributes.StringLength(110)]
         public string Arguments
         {
             get { return fArguments; }

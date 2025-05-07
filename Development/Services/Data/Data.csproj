@@ -83,6 +83,7 @@
       <DependentUpon>ORM_Versions.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\ExternalProgramsQuery.cs" />
     <Compile Include="Queries\ModuleSettingsQuery.cs" />
     <Compile Include="Queries\NotesQuery.cs" />
     <Compile Include="Queries\UsersQuery.cs" />

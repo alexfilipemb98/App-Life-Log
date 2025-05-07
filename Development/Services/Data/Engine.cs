@@ -16,6 +16,7 @@ using System.Linq;
 using System.Reflection;
 using Models;
 using Models.Enums;
+using Data.ORM.DataModelCode;
 
 namespace Data
 {
@@ -78,6 +79,11 @@ namespace Data
         /// Module settings query
         /// </summary>
         public ModuleSettingsQuery ModuleSettings => CreateQuery<ModuleSettingsQuery>();
+
+        /// <summary>
+        /// External Programs query
+        /// </summary>
+        public ExternalProgramsQuery ExternalPrograms => CreateQuery<ExternalProgramsQuery>();
 
         #region FUNCTIONS
 

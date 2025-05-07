@@ -1,6 +1,6 @@
 ﻿namespace Components
 {
-    partial class UserControlBase
+    partial class UserControlBase<Model>
     {
         /// <summary> 
         /// Required designer variable.

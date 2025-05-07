@@ -1,4 +1,5 @@
 ﻿using Components;
+using Data.ORM.DataModelCode;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Life_Log_App.Views.Tables.Images
     /// <summary>
     /// Images list View
     /// </summary>
-    public partial class ImagesListView : UserControlBase
+    public partial class ImagesListView : UserControlBase<ORM_Images>
     {
         #region MAIN
 
@@ -58,6 +59,5 @@ namespace Life_Log_App.Views.Tables.Images
         }
 
         #endregion
-
     }
 }

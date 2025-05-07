@@ -91,7 +91,7 @@
         </associationConnectorReferencesSourceCollectionField>
       </sourceCollectionField>
     </simpleAssociationConnector>
-    <simpleAssociationConnector Id="aa63986c-ee66-4f72-a67b-06cf60e6b81c" edgePoints="[(5.593747 : 10.1212325032552); (5.593747 : 11.805678914388); (2.28646083333333 : 11.805678914388 : JumpStart); (2.01041666666667 : 11.805678914388 : JumpEnd); (1.875 : 11.805678914388)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <simpleAssociationConnector Id="aa63986c-ee66-4f72-a67b-06cf60e6b81c" edgePoints="[(5.593747 : 10.1212325032552); (5.593747 : 11.7576010563151); (4.93229142613511 : 11.7576010563151 : JumpStart); (4.76562475946845 : 11.7576010563151 : JumpEnd); (2.17708333333333 : 11.7576010563151 : JumpStart); (2.01041666666667 : 11.7576010563151 : JumpEnd); (1.875 : 11.7576010563151)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <simpleAssociationMoniker Id="30da6412-0c9e-4bc9-ac30-9546f9515da2" />
       <relativeChildShapes />
       <nodes>
@@ -152,15 +152,15 @@
         <xpObjectShapeMoniker Id="91f2fe93-5a3f-4f11-bc3e-c3862b25386e" />
       </nodes>
     </inheritaceConnector>
-    <xpObjectShape Id="08e8b2a3-2a57-459f-b5b5-ecbe54a14fab" absoluteBounds="3, 12.17385782877604, 1.5, 2.9088818359374997">
+    <xpObjectShape Id="08e8b2a3-2a57-459f-b5b5-ecbe54a14fab" absoluteBounds="3, 12.17385782877604, 2.135416685603559, 3.2934847005208319">
       <xpObjectMoniker Id="9ed6ea25-2105-412c-95f2-46f9c3cf1222" />
       <nestedChildShapes>
-        <elementListCompartment Id="eb7ae378-b0fa-4ae5-aca1-281153701458" absoluteBounds="3.015, 12.48385782877604, 1.4700000000000002, 1.9801025390625" name="Fields" titleTextColor="Black" itemTextColor="Black" />
-        <elementListCompartment Id="99838dd6-20bb-47a6-a4b3-337ddc91d5f8" absoluteBounds="3.015, 14.47396036783854, 1.4700000000000002, 0.2493896484375" name="Indexes" titleTextColor="Black" itemTextColor="Black" />
-        <elementListCompartment Id="4dad326f-6b5b-4e4d-9342-bcd21f0d3957" absoluteBounds="3.015, 14.73335001627604, 1.4700000000000002, 0.2493896484375" name="Collections" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="eb7ae378-b0fa-4ae5-aca1-281153701458" absoluteBounds="3.015, 12.48385782877604, 2.1054166856035588, 2.364705403645833" name="Fields" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="99838dd6-20bb-47a6-a4b3-337ddc91d5f8" absoluteBounds="3.015, 14.858563232421872, 2.1054166856035588, 0.2493896484375" name="Indexes" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="4dad326f-6b5b-4e4d-9342-bcd21f0d3957" absoluteBounds="3.015, 15.117952880859372, 2.1054166856035588, 0.2493896484375" name="Collections" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </xpObjectShape>
-    <inheritaceConnector Id="841a7b67-ab52-46ca-bd2c-bc7c57ee7a96" edgePoints="[(3 : 14.6809100341797); (2.2031275 : 14.6809100341797); (2.2031275 : 11.0853169759115)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <inheritaceConnector Id="841a7b67-ab52-46ca-bd2c-bc7c57ee7a96" edgePoints="[(4.84895809280178 : 12.173857828776); (4.84895809280178 : 11.0360437597656); (2.25 : 11.0360437597656)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <inheritanceMoniker Id="5732eb3d-eb90-41a6-926a-aca9a8aef85a" />
       <nodes>
         <xpObjectShapeMoniker Id="08e8b2a3-2a57-459f-b5b5-ecbe54a14fab" />
@@ -182,7 +182,7 @@
         <xpObjectShapeMoniker Id="91f2fe93-5a3f-4f11-bc3e-c3862b25386e" />
       </nodes>
     </inheritaceConnector>
-    <simpleAssociationConnector Id="d7b5c6ec-0a1b-48e5-8cf1-d5681e2cee6d" edgePoints="[(5.2499995 : 8.48255920410156); (2.17708333333333 : 8.48255920410156 : JumpStart); (2.01041666666667 : 8.48255920410156 : JumpEnd); (1.875 : 8.48255920410156)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <simpleAssociationConnector Id="d7b5c6ec-0a1b-48e5-8cf1-d5681e2cee6d" edgePoints="[(5.2499995 : 8.48255920410156); (1.875 : 8.48255920410156)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <simpleAssociationMoniker Id="55c72739-20d3-4244-b6ac-cb3542570faf" />
       <relativeChildShapes />
       <nodes>

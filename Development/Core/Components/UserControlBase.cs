@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Components
 {
-    public partial class UserControlBase : XtraUserControl , IUserControl
+    public partial class UserControlBase<Model> : XtraUserControl , IUserControl<Model>
     {
         /// <summary>
         /// Base UserControl
@@ -33,9 +33,28 @@ namespace Components
         /// <summary>
         /// Saves the data
         /// </summary>
-        public virtual bool SaveData()
+        public virtual bool SaveData(out Model data)
         {
+            data = default(Model);
             return true;
+        }
+
+        /// <summary>
+        /// Resets the data
+        /// </summary>
+        public virtual void ResetData()
+        {
+        }
+
+        /// <summary>
+        /// Sets the data
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public virtual void SetData(Model data)
+        {
+          
         }
 
         #endregion

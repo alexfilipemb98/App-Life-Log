@@ -41,7 +41,7 @@
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ribbon.Margin = new System.Windows.Forms.Padding(5);
             this.ribbon.MaxItemId = 1;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsMenuMinWidth = 440;
@@ -61,7 +61,7 @@
             this.panelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl.Location = new System.Drawing.Point(0, 49);
-            this.panelControl.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panelControl.Margin = new System.Windows.Forms.Padding(5);
             this.panelControl.Name = "panelControl";
             this.panelControl.Size = new System.Drawing.Size(1005, 531);
             this.panelControl.TabIndex = 2;
@@ -73,7 +73,8 @@
             this.ClientSize = new System.Drawing.Size(1005, 580);
             this.Controls.Add(this.panelControl);
             this.Controls.Add(this.ribbon);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.IconOptions.SvgImage = global::Life_Log_App.Properties.Resources.icon_svg;
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ContainerForm";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

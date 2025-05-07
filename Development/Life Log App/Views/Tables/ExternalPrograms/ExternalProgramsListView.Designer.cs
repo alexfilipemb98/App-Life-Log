@@ -52,17 +52,19 @@
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.npList = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.gcExternalPrograms = new DevExpress.XtraGrid.GridControl();
+            this.xpbsExternalPrograms = new DevExpress.Xpo.XPBindingSource(this.components);
             this.gvExternalPrograms = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCreatedAt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUpdatedAt = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFileExtension = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colArguments = new DevExpress.XtraGrid.Columns.GridColumn();
             this.npDetail = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.externalProgramsDetailView = new Life_Log_App.Views.Tables.ExternalPrograms.ExternalProgramsDetailView();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.xpbsExternalPrograms = new DevExpress.Xpo.XPBindingSource(this.components);
-            this.colFileExtension = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colArguments = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.xpcExternalPrograms = new DevExpress.Xpo.XPCollection(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -74,10 +76,12 @@
             this.navigationFrame.SuspendLayout();
             this.npList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcExternalPrograms)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpbsExternalPrograms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvExternalPrograms)).BeginInit();
+            this.npDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpbsExternalPrograms)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpcExternalPrograms)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager
@@ -133,6 +137,7 @@
             this.bbiBack.ImageOptions.SvgImage = global::Life_Log_App.Properties.Resources.undo;
             this.bbiBack.Name = "bbiBack";
             this.bbiBack.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bbiBack.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBack_ItemClick);
             // 
             // bbiNew
             // 
@@ -140,6 +145,7 @@
             this.bbiNew.Id = 0;
             this.bbiNew.ImageOptions.SvgImage = global::Life_Log_App.Properties.Resources.actions_add;
             this.bbiNew.Name = "bbiNew";
+            this.bbiNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNew_ItemClick);
             // 
             // bbiEdit
             // 
@@ -162,6 +168,7 @@
             this.bbiSave.ImageOptions.SvgImage = global::Life_Log_App.Properties.Resources.saveall;
             this.bbiSave.Name = "bbiSave";
             this.bbiSave.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
             // 
             // bbiRefresh
             // 
@@ -287,7 +294,6 @@
             // 
             // npList
             // 
-            this.npList.Caption = "npList";
             this.npList.Controls.Add(this.gcExternalPrograms);
             this.npList.Name = "npList";
             this.npList.Size = new System.Drawing.Size(996, 520);
@@ -304,6 +310,10 @@
             this.gcExternalPrograms.TabIndex = 4;
             this.gcExternalPrograms.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvExternalPrograms});
+            // 
+            // xpbsExternalPrograms
+            // 
+            this.xpbsExternalPrograms.DataSource = this.xpcExternalPrograms;
             // 
             // gvExternalPrograms
             // 
@@ -357,6 +367,16 @@
             this.colUpdatedAt.VisibleIndex = 3;
             this.colUpdatedAt.Width = 150;
             // 
+            // colFileExtension
+            // 
+            this.colFileExtension.FieldName = "FileExtension";
+            this.colFileExtension.MaxWidth = 150;
+            this.colFileExtension.MinWidth = 100;
+            this.colFileExtension.Name = "colFileExtension";
+            this.colFileExtension.Visible = true;
+            this.colFileExtension.VisibleIndex = 1;
+            this.colFileExtension.Width = 100;
+            // 
             // colName
             // 
             this.colName.FieldName = "Name";
@@ -365,11 +385,26 @@
             this.colName.VisibleIndex = 0;
             this.colName.Width = 546;
             // 
+            // colArguments
+            // 
+            this.colArguments.FieldName = "Arguments";
+            this.colArguments.Name = "colArguments";
+            this.colArguments.Width = 185;
+            // 
             // npDetail
             // 
             this.npDetail.Caption = "npDetail";
+            this.npDetail.Controls.Add(this.externalProgramsDetailView);
             this.npDetail.Name = "npDetail";
             this.npDetail.Size = new System.Drawing.Size(996, 520);
+            // 
+            // externalProgramsDetailView
+            // 
+            this.externalProgramsDetailView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.externalProgramsDetailView.Location = new System.Drawing.Point(0, 0);
+            this.externalProgramsDetailView.Name = "externalProgramsDetailView";
+            this.externalProgramsDetailView.Size = new System.Drawing.Size(996, 520);
+            this.externalProgramsDetailView.TabIndex = 0;
             // 
             // Root
             // 
@@ -390,25 +425,9 @@
             this.layoutControlItem2.Size = new System.Drawing.Size(1006, 530);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // xpbsExternalPrograms
+            // xpcExternalPrograms
             // 
-            this.xpbsExternalPrograms.ObjectType = typeof(Data.ORM.DataModelCode.ORM_ExternalPrograms);
-            // 
-            // colFileExtension
-            // 
-            this.colFileExtension.FieldName = "FileExtension";
-            this.colFileExtension.MaxWidth = 150;
-            this.colFileExtension.MinWidth = 100;
-            this.colFileExtension.Name = "colFileExtension";
-            this.colFileExtension.Visible = true;
-            this.colFileExtension.VisibleIndex = 1;
-            this.colFileExtension.Width = 100;
-            // 
-            // colArguments
-            // 
-            this.colArguments.FieldName = "Arguments";
-            this.colArguments.Name = "colArguments";
-            this.colArguments.Width = 185;
+            this.xpcExternalPrograms.ObjectType = typeof(Data.ORM.DataModelCode.ORM_ExternalPrograms);
             // 
             // ExternalProgramsListView
             // 
@@ -432,10 +451,12 @@
             this.navigationFrame.ResumeLayout(false);
             this.npList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcExternalPrograms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpbsExternalPrograms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvExternalPrograms)).EndInit();
+            this.npDetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpbsExternalPrograms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpcExternalPrograms)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,5 +498,7 @@
         private DevExpress.Xpo.XPBindingSource xpbsExternalPrograms;
         private DevExpress.XtraGrid.Columns.GridColumn colFileExtension;
         private DevExpress.XtraGrid.Columns.GridColumn colArguments;
+        private ExternalProgramsDetailView externalProgramsDetailView;
+        private DevExpress.Xpo.XPCollection xpcExternalPrograms;
     }
 }

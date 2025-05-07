@@ -1,4 +1,8 @@
-﻿using DevExpress.XtraEditors;
+﻿using Components;
+using Data.ORM.DataModelCode;
+using DevExpress.XtraEditors;
+using Life_Log_App.Helpers;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +15,57 @@ using System.Windows.Forms;
 
 namespace Life_Log_App.Views.Tables.ExternalPrograms
 {
-    public partial class ExternalProgramsDetailView : DevExpress.XtraEditors.XtraUserControl
-    {
-        public ExternalProgramsDetailView()
-        {
-            InitializeComponent();
-        }
-    }
+	/// <summary>
+	/// External Programs Detail View
+	/// </summary>
+	public partial class ExternalProgramsDetailView : UserControlBase<ORM_ExternalPrograms>
+	{
+		#region MAIN
+
+		/// <summary>
+		/// External Programs Detail View
+		/// </summary>
+		public ExternalProgramsDetailView() => InitializeComponent();
+
+		#endregion
+
+		#region FUNCTIONS
+
+		/// <summary>
+		/// Sets the data to the control
+		/// </summary>
+		/// <param name="data"></param>
+		public override void SetData(ORM_ExternalPrograms data)
+		{
+			if (data == null)
+			{
+				data = new ORM_ExternalPrograms();
+				data.User = AppContext.CurrentUser;
+			}
+
+			xpbsExternalPrograms.DataSource = data;
+		}
+
+		/// <summary>
+		/// Save data
+		/// </summary>
+		/// <param name="data"></param>
+		/// <returns></returns>
+		public override bool SaveData(out ORM_ExternalPrograms data)
+		{
+			((CurrencyManager)this.BindingContext[xpbsExternalPrograms])?.EndCurrentEdit();
+
+			data = xpbsExternalPrograms.DataSource as ORM_ExternalPrograms;
+
+			if (!ValidationHelper.ValidateModelAndSetError(data, dxErrorProvider, dataLayoutControl))
+				return false;
+
+			bool saved = AppContext.DataEngine.ExternalPrograms.Save(data, out string message);
+			AppHelper.StatusMessage(message, saved);
+
+			return saved;
+		}
+
+		#endregion
+	}
 }

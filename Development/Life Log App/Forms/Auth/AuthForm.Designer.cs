@@ -191,6 +191,7 @@
             this.bsiStatusLabel.Id = 7;
             this.bsiStatusLabel.ImageOptions.SvgImage = global::Life_Log_App.Properties.Resources.revertdirection;
             this.bsiStatusLabel.Name = "bsiStatusLabel";
+            this.bsiStatusLabel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // bsiDatabase
             // 
@@ -330,7 +331,6 @@
             this.bePassword.Name = "bePassword";
             this.bePassword.Properties.AdvancedModeOptions.Label = "Password";
             editorButtonImageOptions1.SvgImage = global::Life_Log_App.Properties.Resources.security_visibilityoff;
-            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(24, 24);
             this.bePassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.bePassword.Properties.UseSystemPasswordChar = true;
@@ -518,6 +518,7 @@
             // 
             // npAuth
             // 
+            this.npAuth.Caption = "npAuth";
             this.npAuth.Controls.Add(this.dataLayoutControl);
             this.npAuth.Name = "npAuth";
             this.npAuth.Size = new System.Drawing.Size(698, 278);
@@ -547,6 +548,7 @@
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.IconOptions.SvgImage = global::Life_Log_App.Properties.Resources.icon_svg;
             this.MaximumSize = new System.Drawing.Size(700, 371);
             this.MinimumSize = new System.Drawing.Size(700, 371);
             this.Name = "AuthForm";

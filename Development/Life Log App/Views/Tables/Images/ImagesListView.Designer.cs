@@ -53,7 +53,6 @@
             this.npList = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.gcImages = new DevExpress.XtraGrid.GridControl();
             this.xpbsImages = new DevExpress.Xpo.XPBindingSource(this.components);
-            this.xpcImages = new DevExpress.Xpo.XPCollection(this.components);
             this.gvImages = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCreatedAt = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -77,7 +76,6 @@
             this.npList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpbsImages)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpcImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -311,11 +309,7 @@
             // 
             // xpbsImages
             // 
-            this.xpbsImages.DataSource = this.xpcImages;
-            // 
-            // xpcImages
-            // 
-            this.xpcImages.ObjectType = typeof(Data.ORM.DataModelCode.ORM_Images);
+            this.xpbsImages.ObjectType = typeof(Data.ORM.DataModelCode.ORM_Images);
             // 
             // gvImages
             // 
@@ -328,6 +322,7 @@
             this.colName,
             this.colFileExtension,
             this.colIsSvg});
+            this.gvImages.CustomizationFormBounds = new System.Drawing.Rectangle(871, 181, 264, 394);
             this.gvImages.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gvImages.GridControl = this.gcImages;
             this.gvImages.Name = "gvImages";
@@ -348,7 +343,12 @@
             this.colCreatedAt.FieldName = "CreatedAt";
             this.colCreatedAt.GroupFormat.FormatString = "yyyy/MM/dd HH:mm:ss";
             this.colCreatedAt.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colCreatedAt.MaxWidth = 150;
+            this.colCreatedAt.MinWidth = 150;
             this.colCreatedAt.Name = "colCreatedAt";
+            this.colCreatedAt.Visible = true;
+            this.colCreatedAt.VisibleIndex = 3;
+            this.colCreatedAt.Width = 150;
             // 
             // colUpdatedAt
             // 
@@ -357,7 +357,12 @@
             this.colUpdatedAt.FieldName = "UpdatedAt";
             this.colUpdatedAt.GroupFormat.FormatString = "yyyy/MM/dd HH:mm:ss";
             this.colUpdatedAt.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colUpdatedAt.MaxWidth = 150;
+            this.colUpdatedAt.MinWidth = 150;
             this.colUpdatedAt.Name = "colUpdatedAt";
+            this.colUpdatedAt.Visible = true;
+            this.colUpdatedAt.VisibleIndex = 4;
+            this.colUpdatedAt.Width = 150;
             // 
             // colIcon
             // 
@@ -370,7 +375,7 @@
             this.colName.Name = "colName";
             this.colName.Visible = true;
             this.colName.VisibleIndex = 0;
-            this.colName.Width = 496;
+            this.colName.Width = 167;
             // 
             // colFileExtension
             // 
@@ -438,7 +443,6 @@
             this.npList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpbsImages)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpcImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -474,7 +478,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.Xpo.XPBindingSource xpbsImages;
-        private DevExpress.Xpo.XPCollection xpcImages;
         private DevExpress.XtraGrid.Columns.GridColumn colId;
         private DevExpress.XtraGrid.Columns.GridColumn colCreatedAt;
         private DevExpress.XtraGrid.Columns.GridColumn colUpdatedAt;
