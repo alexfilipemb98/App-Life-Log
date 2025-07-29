@@ -1,0 +1,133 @@
+﻿using DataService.Bases;
+using DevExpress.Xpo;
+using LifeLog.Base.Infrastructure.Models;
+using LifeLog.Base.Utils;
+using LifeLog.Data.Database.Bases;
+using LifeLog.Data.Database.Entities;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
+using System.Threading.Tasks;
+
+namespace LifeLog.Data.Database.Queries
+{
+	/// <summary>
+	/// Users data query
+	/// </summary>
+	public class UsersQuery : DataQueryBase
+	{
+
+		#region MAIN
+
+		/// <summary>
+		/// Default Constructor
+		/// </summary>
+		public UsersQuery() : base()
+		{
+		}
+
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="uow"></param>
+		/// <param name="sql"></param>
+		public UsersQuery(UnitOfWork uow, DataSqlAccessBase sql) : base(uow, sql)
+		{
+		}
+
+		/// <summary>
+		/// Data layer e outro constructor
+		/// </summary>
+		/// <param name="dataLayer"></param>
+		/// <param name="connection"></param>
+		public UsersQuery(IDataLayer dataLayer, IDbConnection connection) : base(dataLayer, connection)
+		{
+		}
+
+		#endregion
+
+		#region AUTH
+
+		/// <summary>
+		/// This is the register method
+		/// </summary>
+		/// <param name="model"></param>
+		/// <returns></returns>
+		public async Task<(bool, string)> RegisterUser(AuthModel model)
+		{
+			bool emailExits = await _UOW.Query<UsersEntity>().AnyAsync(w => w.Email == model.Email);
+
+			if (emailExits)
+				return (false, "Email already exists.");
+
+			UsersEntity newUser = new UsersEntity
+			{
+				Id = Guid.NewGuid(),
+				Username = model.Username,
+				Email = model.Email,
+				Salt = SecurityUtil.GenerateSalt(),
+				CreatedAt = DateTime.Now,
+				UpdatedAt = DateTime.Now,
+			};
+
+			newUser.Password = SecurityUtil.Sha512_EncryptPasswordWithSalt(model.Password, newUser.Salt);
+
+			newUser.Saving = true;
+
+			await _UOW.SaveAsync(newUser);
+			await _UOW.CommitChangesAsync();
+
+			emailExits = await _UOW.Query<UsersEntity>().AnyAsync(w => w.Email == model.Email);
+
+			return (emailExits, emailExits ? "User registered successfully." : "Failed to create the user!");
+		}
+
+		/// <summary>
+		/// Validate user login
+		/// </summary>
+		/// <param name="email"></param>
+		/// <param name="password"></param>
+		/// <returns></returns>
+		public async Task<(bool, string, LoggedUserModel)> ValidateUserLogin(AuthModel model)
+		{
+			if (!model.ValidateModel(out List<ValidationResult> results))
+				throw new LifeLog.Base.Infrastructure.Exceptions.ValidationException(results);
+
+			if (!model.Email.IsValidEmail())
+				return (false, "E-mail is not Valid!", null);
+
+			UsersEntity user = await _UOW.Query<UsersEntity>().FirstOrDefaultAsync(w => w.Email == model.Email);
+
+			if (user == null)
+				return (false, "User not found!", null);
+
+			if (!SecurityUtil.CompareStringEncryptedWithSalt(model.Password, user.Password, user.Salt))
+				return (false, "Login failed, password is incorrect!", null);
+
+			LoggedUserModel loggedUser = new LoggedUserModel();
+			loggedUser.Id = user.Id;
+			loggedUser.Username = user.Username;
+			loggedUser.Email = user.Email;
+
+			return (user != null, "User is valid to login!", loggedUser);
+		}
+
+		#endregion
+
+		#region GLOBAL
+
+		/// <summary>
+		/// Get all users
+		/// </summary>
+		/// <returns></returns>
+		/// <exception cref="NotImplementedException"></exception>
+		public async Task<List<UsersEntity>> GetAll()
+		{
+			return await _UOW.Query<UsersEntity>()
+				.ToListAsync();
+		}
+
+		#endregion
+	}
+}
