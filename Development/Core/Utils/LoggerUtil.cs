@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Core.Utils
+namespace Utils
 {
     public class LoggerUtil
     {
         private static readonly string logDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs");
         private static readonly string logFilePath = Path.Combine(logDirectory, "Log.txt");
         private static readonly string errorFilePath = Path.Combine(logDirectory, "Error.txt");
-        private static readonly object _lock = new object();
 
-        public static void Initialize()
+        private static void CheckFiles()
         {
             if (!Directory.Exists(logDirectory))
                 Directory.CreateDirectory(logDirectory);
@@ -28,17 +25,23 @@ namespace Core.Utils
 
         public static void Log(string message)
         {
+            CheckFiles();
+
             WriteLog(logFilePath, "INFO", message);
         }
 
         public static void Log(string[] messages)
         {
+            CheckFiles();
+
             string combinedMessage = string.Join(", ", messages);
             WriteLog(logFilePath, "INFO", combinedMessage);
         }
 
         public static void LogError(Exception ex)
         {
+            CheckFiles();
+
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(ex.Message);
             sb.AppendLine(ex.StackTrace);
@@ -55,11 +58,10 @@ namespace Core.Utils
 
         private static void WriteLog(string filePath, string level, string message)
         {
-            lock (_lock)
-            {
-                string logMessage = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] [{level}] {message}";
-                File.AppendAllText(filePath, logMessage + Environment.NewLine);
-            }
+            CheckFiles();
+
+            string logMessage = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] [{level}] {message}";
+            File.AppendAllText(filePath, logMessage + Environment.NewLine);
         }
     }
 }

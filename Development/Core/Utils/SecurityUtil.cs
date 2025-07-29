@@ -3,13 +3,17 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Core.Utils
+namespace Utils
 {
     /// <summary>
     /// This is class that contains security functions
     /// </summary>
     public static class SecurityUtil
     {
+        //PUBLIC
+        public static readonly byte[] JWT_SECREET = Encoding.UTF8.GetBytes("aUekGKhhQM7wLxTBXlug1FbqcJaAqN46"); // 32 bytes (256 bits)
+
+        //PRIVATE
         private static readonly byte[] Key = Encoding.UTF8.GetBytes("X<HPe9Gv@,(;CMj!"); // 16 bytes (128 bits)
         private static readonly byte[] IV = Encoding.UTF8.GetBytes("j4df,2}Z!P^uheBw"); // 16 bytes (128 bits)
 
@@ -48,7 +52,7 @@ namespace Core.Utils
             try
             {
                 if (string.IsNullOrWhiteSpace(plainText))
-                    return default;
+                    return null;
 
                 using (Aes aes = Aes.Create())
                 {

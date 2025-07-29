@@ -3,7 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 
-namespace Core.Utils
+namespace Utils
 {
     /// <summary>
     /// Images class

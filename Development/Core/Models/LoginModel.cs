@@ -1,7 +1,7 @@
-﻿using Core.Enums;
+﻿using Models.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace Core.Models
+namespace Models
 {
     /// <summary>
     /// Login object model
@@ -10,30 +10,23 @@ namespace Core.Models
     {
         #region PROPERTIES
 
-        private string fUsername;
-        [Core.Atributes.StringLength(20)]
-        [Core.Atributes.RequiredIf(nameof(IsNew), OperatorsEnum.Equal, true)]
+        [Attributes.RequiredIf(nameof(IsNew), OperatorsEnum.Equal, true)]
+        [Attributes.StringLength(20)]
         [DataType(DataType.Text)]
-        public string Username { get => fUsername; set => fUsername = value; }
+        public string Username { get; set; }
 
-        private string fEmail;
-        [Core.Atributes.Required]
-        [Core.Atributes.EmailValidator]
-        [Core.Atributes.StringLength(250)]
+        [Attributes.Required]
+        [Attributes.EmailValidator]
+        [Attributes.StringLength(250)]
         [DataType(DataType.EmailAddress)]
-        public string Email { get => fEmail; set => fEmail = value; }
+        public string Email { get; set; }
 
-        private string fPassword;
-        [Core.Atributes.StringLength(30)]
-        [Core.Atributes.Required]
+        [Attributes.Required]
+        [Attributes.StringLength(30)]
         [DataType(DataType.Password)]
-        public string Password { get => fPassword; set => fPassword = value; }
+        public string Password { get; set; }
 
-        private bool fIsNew;
-        public bool IsNew
-        {
-            get => fIsNew; set => fIsNew = value;
-        }
+        public bool IsNew { get; set; }
 
         #endregion
     }

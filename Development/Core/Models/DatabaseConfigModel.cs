@@ -1,9 +1,9 @@
-﻿using Core.Enums;
-using Core.Extensions;
+﻿using Models.Enums;
+using Utils.Extensions;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Core.Models
+namespace Models
 {
     /// <summary>
     /// Database config object model
@@ -13,53 +13,51 @@ namespace Core.Models
     {
         #region PROPERTIES
 
-        private DatabaseTypeEnum fdatabaseType;
         [EnumDataType(typeof(DatabaseTypeEnum))]
-        public DatabaseTypeEnum DatabaseType
-        {
-            get => fdatabaseType;
-            set => fdatabaseType = value;
-        }
+        public DatabaseTypeEnum DatabaseType { get; set; }
 
-        private string fsQlLitePath;
-        [DataType(DataType.Text)]
-        [Core.Atributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.SQLLITE)]
+        private string fSqlLitePath;
+        [Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.SQLLITE)]
         public string SQlLitePath
         {
-            get => fsQlLitePath.Decrypt();
-            set => fsQlLitePath = value.Encrypt();
+            get => fSqlLitePath.Decrypt();
+            set => fSqlLitePath = value.Encrypt();
+        }
+          
+        private string fSQlLitePassword; 
+        [Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.SQLLITE)]
+        public string SqlLitePassword
+        {
+            get => fSQlLitePassword.Decrypt();
+            set => fSQlLitePassword = value.Encrypt();
         }
 
-        private string fsqlAddress;
-        [DataType(DataType.Text)]
-        [Core.Atributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
+        private string fSqlAddress;
+        [Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
         public string SqlAddress
         {
-            get => fsqlAddress.Decrypt();
-            set => fsqlAddress = value.Encrypt();
+            get => fSqlAddress.Decrypt();
+            set => fSqlAddress = value.Encrypt();
         }
 
-        private string fsqlUsername;
-        [DataType(DataType.Text)]
-        [Core.Atributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
+        private string fSqlUsername;
+        [Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
         public string SqlUsername
         {
-            get => fsqlUsername.Decrypt();
-            set => fsqlUsername = value.Encrypt();
+            get => fSqlUsername.Decrypt();
+            set => fSqlUsername = value.Encrypt();
         }
 
-        private string fsqlPassword;
-        [DataType(DataType.Text)]
-        [Core.Atributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
+        private string fSqlPassword;
+        [Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
         public string SqlPassword
         {
-            get => fsqlPassword.Decrypt();
-            set => fsqlPassword = value.Encrypt();
+            get => fSqlPassword.Decrypt();
+            set => fSqlPassword = value.Encrypt();
         }
 
         private string fSqlDatabase;
-        [DataType(DataType.Text)]
-        [Core.Atributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
+        [Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
         public string SqlDatabase
         {
             get => fSqlDatabase.Decrypt();

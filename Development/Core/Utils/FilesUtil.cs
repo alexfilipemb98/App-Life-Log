@@ -1,8 +1,10 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.Json;
+using System.Text;
 using Newtonsoft.Json;
 
-namespace Core.Utils
+namespace Utils
 {
     /// <summary>
     /// Files util
@@ -17,14 +19,11 @@ namespace Core.Utils
         /// <param fName="filePath"></param>
         public static void SaveFileWithEncryption<T>(T model, string filePath)
         {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(ms, model);
-                byte[] plainBytes = ms.ToArray();
-                byte[] encryptedBytes = SecurityUtil.Encrypt(plainBytes);
-                File.WriteAllBytes(filePath, encryptedBytes);
-            }
+            string json = System.Text.Json.JsonSerializer.Serialize(model, new JsonSerializerOptions { WriteIndented = true });
+            byte[] plainBytes = Encoding.UTF8.GetBytes(json);
+            byte[] encryptedBytes = SecurityUtil.Encrypt(plainBytes);
+
+            File.WriteAllBytes(filePath, encryptedBytes);
         }
 
         /// <summary>
@@ -35,16 +34,13 @@ namespace Core.Utils
         public static T LoadFileWithEncryption<T>(string filePath)
         {
             if (!File.Exists(filePath))
-                throw new FileNotFoundException("File not found.");
+                throw new FileNotFoundException("File not found.", filePath);
 
             byte[] encryptedBytes = File.ReadAllBytes(filePath);
             byte[] plainBytes = SecurityUtil.Decrypt(encryptedBytes);
 
-            using (var ms = new MemoryStream(plainBytes))
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-                return (T)formatter.Deserialize(ms);
-            }
+            string json = Encoding.UTF8.GetString(plainBytes);
+            return JsonConvert.DeserializeObject<T>(json);
         }
 
         /// <summary>

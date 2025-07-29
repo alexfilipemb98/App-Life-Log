@@ -1,12 +1,7 @@
-﻿using Core.Enums;
-using System;
-using System.Collections.Generic;
+﻿using Models.Enums;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Core.Models
+namespace Models
 {
     /// <summary>
     /// Application Configs Model
@@ -15,36 +10,23 @@ namespace Core.Models
     {
         #region PROPERTIES
 
-        private ThemeEnum fTheme;
         [EnumDataType(typeof(DatabaseTypeEnum))]
-        public ThemeEnum Theme
-        {
-            get => fTheme;
-            set => fTheme = value;
-        }
-
-        private string fLastEmail;
+        public ThemeEnum Theme { get; set; }
 
         [DataType(DataType.Text)]
-        public string LastEmail
-        {
-            get => fLastEmail;
-            set => fLastEmail = value;
-        }
+        public string LastEmail { get; set; }
 
-        private int fFormWidth;
-        public int FormWidth
-        { 
-            get => fFormWidth; 
-            set => fFormWidth = value; 
-        }
+        public int MainFormWidth { get; set; }
 
-        private int fFormHeight;
-        public int FormHeight 
-        {
-            get => fFormHeight; 
-            set => fFormHeight = value; 
-        }
+        public int MainFormHeight { get; set; }
+
+        [Attributes.Range(0, 2)]
+        public int MainFormWindowState { get; set; }
+
+        [DataType(DataType.Text)]
+        public string InternalApiUrl { get; set; }
+
+        public bool InternalApiEnabled { get; set; }
 
         #endregion
     }

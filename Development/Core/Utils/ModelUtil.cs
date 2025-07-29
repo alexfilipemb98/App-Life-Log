@@ -1,10 +1,11 @@
 ﻿using DevExpress.Xpo;
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 
-namespace Core.Utils
+namespace Utils
 {
     public static class ModelUtil
     {
@@ -66,14 +67,19 @@ namespace Core.Utils
         }
 
         /// <summary>
-        /// Get the table name of the entity
+        /// Gets the table name from the DescriptionAttribute of the entity type.
+        /// Returns null if not defined.
         /// </summary>
-        /// <param name="entityType"></param>
-        /// <returns></returns>
+        /// <param name="entityType">The entity class type.</param>
+        /// <returns>The table name or null.</returns>
         public static string GetTableName(Type entityType)
         {
-            PersistentAttribute persistentAttribute = (PersistentAttribute)Attribute.GetCustomAttribute(entityType, typeof(PersistentAttribute));
-            return persistentAttribute?.MapTo ?? "Tabela não encontrada";
+            if (entityType == null)
+                throw new ArgumentNullException(nameof(entityType));
+
+            var attribute = entityType.GetCustomAttribute<DescriptionAttribute>();
+            return attribute?.Description;
         }
+
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Core.Interfaces
+namespace Interfaces
 {
     /// <summary>
     /// Query Interface for Base Query
@@ -10,17 +10,22 @@ namespace Core.Interfaces
     /// <typeparam name="Key"></typeparam>
     public interface IBaseQuery<Entity, Key>
     {
-       
+        /// <summary>
+        /// Table name   
+        /// </summary>
+        string TableName { get; }
+
         /// <summary>
         /// Query Base
         /// </summary>
         IQueryable<Entity> QueryBase { get; }
 
         /// <summary>
-        /// Checks if the table exists
+        /// Checks if table exists
         /// </summary>
+        /// <param name="message"></param>
         /// <returns></returns>
-        bool TableExists();
+        bool TableExists(out string message);
 
         /// <summary>
         /// Checks if the object exists
@@ -28,27 +33,27 @@ namespace Core.Interfaces
         /// <param fName="key"></param>
         /// <param fName="message"></param>
         /// <returns></returns>
-        bool Exists(Key key);
+        bool Exists(Key key, out string message);
 
         /// <summary>
         /// Gets the entity by key
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        Entity GetByKey(Key key);
+        Entity GetByKey(Key key, out string message);
 
         /// <summary>
         /// Gets all entities
         /// </summary>
         /// <returns></returns>
-        List<Entity> GetAll();
+        List<Entity> GetAll(out string message);
 
         /// <summary>
         /// Get's the last insert object
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        Entity GetLast();
+        Entity GetLast(out string message);
 
         /// <summary>
         /// Save the object
@@ -62,7 +67,7 @@ namespace Core.Interfaces
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        Entity Duplicate(Key key);
+        Entity Duplicate(Key key, out string message);
 
         /// <summary>
         /// Delete object by key
