@@ -3,6 +3,8 @@ using DevExpress.Xpo;
 using LifeLog.Base.Utils;
 using LifeLog.Data.Database.Bases;
 using LifeLog.Data.Database.Entities;
+using LifeLog.Data.Database.Mappers;
+using LifeLog.Data.Database.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -67,13 +69,16 @@ namespace LifeLog.Data.Database.Queries
 		/// <param name="userId"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentException"></exception>
-		public async Task<List<ExternalProgramsEntity>> GetUserExternalPrograms(Guid userId)
+		public async Task<List<ExternalProgramsModel>> GetUserExternalPrograms(Guid userId)
 		{
 			UsersEntity userDb = await _UOW.GetObjectByKeyAsync<UsersEntity>(userId);
 			if (userDb == null)
 				throw new ArgumentException("User id is invalid!");
-
-			return await _UOW.Query<ExternalProgramsEntity>().Where(w => w.User.Id == userDb.Id).ToListAsync();
+			List<ExternalProgramsModel> result = await _UOW.Query<ExternalProgramsEntity>()
+				.Where(w => w.User.Id == userDb.Id)
+				.Select(s=>s.ToModel())
+				.ToListAsync();
+			return result;
 		}
 
 		/// <summary>

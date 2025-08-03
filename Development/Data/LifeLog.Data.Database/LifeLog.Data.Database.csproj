@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bases\DataModelBase.cs" />
     <Compile Include="Bases\DataQueryBase.cs" />
     <Compile Include="Bases\DataEntityBase.cs" />
     <Compile Include="Bases\DataSqlAccessBase.cs" />
@@ -54,6 +55,18 @@
     <Compile Include="Entities\UsersEntity.cs" />
     <Compile Include="Entities\VersionsEntity.cs" />
     <Compile Include="Helpers\DbHelper.cs" />
+    <Compile Include="Mappers\CommandsMapper.cs" />
+    <Compile Include="Mappers\ExternalProgramsMapper.cs" />
+    <Compile Include="Mappers\ImagesMapper.cs" />
+    <Compile Include="Mappers\NotesMapper.cs" />
+    <Compile Include="Mappers\UsersMapper.cs" />
+    <Compile Include="Mappers\VersionsMapper.cs" />
+    <Compile Include="Models\CommandsModel.cs" />
+    <Compile Include="Models\ExternalProgramsModel .cs" />
+    <Compile Include="Models\ImagesModel.cs" />
+    <Compile Include="Models\NotesModel.cs" />
+    <Compile Include="Models\UsersModel.cs" />
+    <Compile Include="Models\VersionsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\CommandsQuery.cs" />
     <Compile Include="Queries\ExternalProgramsQuery.cs" />
