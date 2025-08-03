@@ -94,6 +94,10 @@ namespace LifeLog.Data.Database.Helpers
 				return;
 
 			string sqlLitePath = config.SQlLitePath;
+
+			if (!File.Exists(sqlLitePath))
+				return;
+
 			string backupFolder = "Backups";
 
 			if (!Directory.Exists(backupFolder))

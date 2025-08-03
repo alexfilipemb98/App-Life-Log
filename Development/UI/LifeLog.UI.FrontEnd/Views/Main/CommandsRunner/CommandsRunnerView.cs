@@ -1,4 +1,7 @@
-﻿using DevExpress.XtraGrid.Views.Tile;
+﻿using DevExpress.XtraBars;
+using DevExpress.XtraDataLayout;
+using DevExpress.XtraEditors.DXErrorProvider;
+using DevExpress.XtraGrid.Views.Tile;
 using DevExpress.XtraSpellChecker.Native;
 using LifeLog.Data.Database.Entities;
 using LifeLog.UI.Common;
@@ -7,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +24,10 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 	public partial class CommandsRunnerView : DevExpress.XtraEditors.XtraUserControl
 	{
 		#region MAIN
+
+		//PRIVATE
+		private CommandsEntity _crtCommands;
+		private BindingSource _bs;
 
 		/// <summary>
 		/// Constructor
@@ -40,10 +48,119 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 			await LoadData();
 		}
 
+		/// <summary>
+		/// New command click
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void bbiNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			ShowDetailView();
+		}
+
+		/// <summary>
+		/// Back
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void bbiBack_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			ShowListView();
+		}
+
+		/// <summary>
+		/// Edit
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			CommandsEntity command = ControlsHelper.GetObjectByRowHandle<CommandsEntity>(tileView, tileView.FocusedRowHandle);
+			if (command != null)
+				ShowDetailView(command);
+		}
+
+		/// <summary>
+		/// Save commands
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private async void bbiSave_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			try
+			{
+				lcEditValues.Focus();
+				_bs.EndEdit();
+
+				if (cbeProgram.GetSelectedDataRow() is ExternalProgramsEntity program)
+					_crtCommands.ExternalProgram = program;
+
+				_crtCommands.Command = recMain.Text;
+
+				if (!Common.Helpers.ValidationHelper.ValidateModelAndSetError(_crtCommands, dxErrorProvider, lcEditValues))
+					return;
+
+				(bool saved, string message) = await AppSession.DataEngine.Commands.Save(_crtCommands, AppSession.CurrentUser.Id);
+
+				AppHelper.StatusMessage(message, saved);
+
+				if (saved)
+				{
+					List<CommandsEntity> lista = bsCommands.DataSource as List<CommandsEntity>;
+
+					if (!lista.Any(w => w.Id == _crtCommands.Id))
+					{
+						lista.Add(_crtCommands);
+						tileView.RefreshData();
+					}
+					else
+						tileView.UpdateCurrentRow();
+
+					_crtCommands = null;
+
+					ShowListView();
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		/// <summary>
+		/// Right click commands event
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void tileView_ItemRightClick(object sender, TileViewItemClickEventArgs e)
+		{
+			popupMenu.ShowPopup(Control.MousePosition);
+		}
+
+		/// <summary>
+		/// Item double click event
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void tileView_ItemDoubleClick(object sender, TileViewItemClickEventArgs e)
+		{
+			try
+			{
+				if (!(tileView.GetFocusedRow() is CommandsEntity model))
+					return;
+
+				ExecuteFile(model);
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
 		#endregion
 
 		#region OTHERS EVENTS
-		
+
 		/// <summary>
 		/// Custom item template event
 		/// </summary>
@@ -105,9 +222,14 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 					Saving = false,
 				});
 
+				cbeProgram.Properties.DataSource = result.Where(w => w.Id != Guid.Empty);
+
 				bsExternalPrograms.DataSource = result;
 
 				listboxPrograms.SelectedIndex = 0;
+
+				bsCommands.DataSource = await AppSession.DataEngine.Commands.GetUserCommands(AppSession.CurrentUser.Id);
+
 			}
 			catch (Exception ex)
 			{
@@ -150,8 +272,9 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 					fileName = program.PathToProgram;
 					arguments = $"{program.Arguments} {batchFilePath}";
 
-					Encoding utf8WithBom = new UTF8Encoding(encoderShouldEmitUTF8Identifier: true);
-					File.WriteAllText(batchFilePath, command.Command, utf8WithBom);
+					Encoding encoding = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
+				
+					File.WriteAllText(batchFilePath, command.Command, encoding);
 
 					ProcessStartInfo startInfo = new ProcessStartInfo
 					{
@@ -192,6 +315,70 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 			});
 		}
 
+		/// <summary>
+		/// Show the list view
+		/// </summary>
+		private void ShowListView()
+		{
+			try
+			{
+				bbiNew.Visibility = BarItemVisibility.Always;
+				bbiEdit.Visibility = BarItemVisibility.Always;
+				bbiBack.Visibility = BarItemVisibility.Never;
+				bbiSave.Visibility = BarItemVisibility.Never;
+				bbiRefresh.Visibility = BarItemVisibility.Always;
+				bbiSearch.Visibility = BarItemVisibility.Always;
+
+				navigationFrame.SelectedPage = npMain;
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		/// <summary>
+		/// Show detail view 
+		/// </summary>
+		/// <param name="command"></param>
+		private void ShowDetailView(CommandsEntity command = null)
+		{
+			try
+			{
+				if (command == null)
+					command = new CommandsEntity();
+
+				bbiNew.Visibility = BarItemVisibility.Never;
+				bbiSave.Visibility = BarItemVisibility.Always;
+				bbiBack.Visibility = BarItemVisibility.Always;
+				bbiEdit.Visibility = BarItemVisibility.Never;
+				bbiRefresh.Visibility = BarItemVisibility.Never;
+				bbiSearch.Visibility = BarItemVisibility.Never;
+
+				navigationFrame.SelectedPage = npEditor;
+
+				_crtCommands = command;
+
+				_bs = new BindingSource();
+				_bs.DataSource = _crtCommands;
+
+				lcEditValues.DataSource = _bs;
+
+				cbeProgram.EditValue = command.IdExternalProgram;
+				recMain.Text = command.Command;
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+
+
+
+
 		#endregion
+
+		
 	}
 }

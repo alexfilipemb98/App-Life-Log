@@ -40,20 +40,8 @@
 			this.bbiRefresh = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiSearch = new DevExpress.XtraBars.BarEditItem();
 			this.repositoryItemSearchControl1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchControl();
-			this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-			this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-			this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-			this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-			this.bbiRunAdmin = new DevExpress.XtraBars.BarButtonItem();
-			this.bbiEnable = new DevExpress.XtraBars.BarButtonItem();
-			this.bbiCreateFile = new DevExpress.XtraBars.BarButtonItem();
-			this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-			this.popupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-			this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
-			this.npMain = new DevExpress.XtraBars.Navigation.NavigationPage();
-			this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
 			this.gridControl = new DevExpress.XtraGrid.GridControl();
+			this.bsCommands = new DevExpress.Xpo.XPBindingSource(this.components);
 			this.tileView = new DevExpress.XtraGrid.Views.Tile.TileView();
 			this.colExternalProgram = new DevExpress.XtraGrid.Columns.TileViewColumn();
 			this.colName = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -67,6 +55,19 @@
 			this.colEditingMode = new DevExpress.XtraGrid.Columns.TileViewColumn();
 			this.colIcon = new DevExpress.XtraGrid.Columns.TileViewColumn();
 			this.colIdExternalProgram = new DevExpress.XtraGrid.Columns.TileViewColumn();
+			this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+			this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+			this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+			this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+			this.bbiRunAdmin = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiEnable = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiCreateFile = new DevExpress.XtraBars.BarButtonItem();
+			this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+			this.popupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
+			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+			this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
+			this.npMain = new DevExpress.XtraBars.Navigation.NavigationPage();
+			this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
 			this.listboxPrograms = new DevExpress.XtraEditors.ListBoxControl();
 			this.bsExternalPrograms = new DevExpress.Xpo.XPBindingSource(this.components);
 			this.htmlTemplate1 = new DevExpress.Utils.Html.HtmlTemplate();
@@ -74,24 +75,29 @@
 			this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.npEditor = new DevExpress.XtraBars.Navigation.NavigationPage();
-			this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
+			this.lcEditValues = new DevExpress.XtraDataLayout.DataLayoutControl();
 			this.pcCommandText = new DevExpress.XtraEditors.PanelControl();
 			this.recMain = new DevExpress.XtraRichEdit.RichEditControl();
 			this.tsEnabled = new DevExpress.XtraEditors.ToggleSwitch();
+			this.bsCommandsEdit = new DevExpress.Xpo.XPBindingSource(this.components);
 			this.teDescription = new DevExpress.XtraEditors.TextEdit();
 			this.teName = new DevExpress.XtraEditors.TextEdit();
 			this.cbeProgram = new DevExpress.XtraEditors.LookUpEdit();
 			this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
 			this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.bsCommands)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tileView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.popupMenu)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -101,31 +107,31 @@
 			this.npMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
 			this.layoutControl2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.tileView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.listboxPrograms)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bsExternalPrograms)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
 			this.npEditor.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
-			this.layoutControl.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.lcEditValues)).BeginInit();
+			this.lcEditValues.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pcCommandText)).BeginInit();
 			this.pcCommandText.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.tsEnabled.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.bsCommandsEdit)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.teDescription.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.teName.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.cbeProgram.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// barManager
@@ -179,9 +185,10 @@
 			// 
 			this.bbiBack.Caption = "Back";
 			this.bbiBack.Id = 2;
-			this.bbiBack.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.bo_attention;
+			this.bbiBack.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiBack.ImageOptions.SvgImage")));
 			this.bbiBack.Name = "bbiBack";
 			this.bbiBack.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+			this.bbiBack.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBack_ItemClick);
 			// 
 			// bbiNew
 			// 
@@ -189,13 +196,15 @@
 			this.bbiNew.Id = 0;
 			this.bbiNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiNew.ImageOptions.SvgImage")));
 			this.bbiNew.Name = "bbiNew";
+			this.bbiNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNew_ItemClick);
 			// 
 			// bbiEdit
 			// 
 			this.bbiEdit.Caption = "Edit";
 			this.bbiEdit.Id = 3;
-			this.bbiEdit.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.bo_attention;
+			this.bbiEdit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiEdit.ImageOptions.SvgImage")));
 			this.bbiEdit.Name = "bbiEdit";
+			this.bbiEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEdit_ItemClick);
 			// 
 			// bbiDelete
 			// 
@@ -208,9 +217,10 @@
 			// 
 			this.bbiSave.Caption = "Save";
 			this.bbiSave.Id = 4;
-			this.bbiSave.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.bo_attention;
+			this.bbiSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiSave.ImageOptions.SvgImage")));
 			this.bbiSave.Name = "bbiSave";
 			this.bbiSave.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+			this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
 			// 
 			// bbiRefresh
 			// 
@@ -237,128 +247,13 @@
 			this.repositoryItemSearchControl1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Repository.ClearButton(),
             new DevExpress.XtraEditors.Repository.SearchButton()});
+			this.repositoryItemSearchControl1.Client = this.gridControl;
 			this.repositoryItemSearchControl1.Name = "repositoryItemSearchControl1";
-			// 
-			// barDockControlTop
-			// 
-			this.barDockControlTop.CausesValidation = false;
-			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-			this.barDockControlTop.Manager = this.barManager;
-			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControlTop.Size = new System.Drawing.Size(811, 35);
-			// 
-			// barDockControlBottom
-			// 
-			this.barDockControlBottom.CausesValidation = false;
-			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControlBottom.Location = new System.Drawing.Point(0, 457);
-			this.barDockControlBottom.Manager = this.barManager;
-			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControlBottom.Size = new System.Drawing.Size(811, 0);
-			// 
-			// barDockControlLeft
-			// 
-			this.barDockControlLeft.CausesValidation = false;
-			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControlLeft.Location = new System.Drawing.Point(0, 35);
-			this.barDockControlLeft.Manager = this.barManager;
-			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 422);
-			// 
-			// barDockControlRight
-			// 
-			this.barDockControlRight.CausesValidation = false;
-			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(811, 35);
-			this.barDockControlRight.Manager = this.barManager;
-			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 422);
-			// 
-			// bbiRunAdmin
-			// 
-			this.bbiRunAdmin.Caption = "Run Admin";
-			this.bbiRunAdmin.Id = 6;
-			this.bbiRunAdmin.Name = "bbiRunAdmin";
-			// 
-			// bbiEnable
-			// 
-			this.bbiEnable.Caption = "Disable";
-			this.bbiEnable.Id = 7;
-			this.bbiEnable.Name = "bbiEnable";
-			// 
-			// bbiCreateFile
-			// 
-			this.bbiCreateFile.Caption = "Create File";
-			this.bbiCreateFile.Id = 10;
-			this.bbiCreateFile.Name = "bbiCreateFile";
-			// 
-			// repositoryItemTextEdit1
-			// 
-			this.repositoryItemTextEdit1.AutoHeight = false;
-			this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-			// 
-			// popupMenu
-			// 
-			this.popupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiEdit),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiEnable),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiCreateFile, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiRunAdmin),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiDelete, true)});
-			this.popupMenu.Manager = this.barManager;
-			this.popupMenu.Name = "popupMenu";
-			// 
-			// layoutControl1
-			// 
-			this.layoutControl1.Controls.Add(this.navigationFrame);
-			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 35);
-			this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.layoutControl1.Name = "layoutControl1";
-			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(811, 422);
-			this.layoutControl1.TabIndex = 5;
-			this.layoutControl1.Text = "layoutControl1";
-			// 
-			// navigationFrame
-			// 
-			this.navigationFrame.Controls.Add(this.npMain);
-			this.navigationFrame.Controls.Add(this.npEditor);
-			this.navigationFrame.Location = new System.Drawing.Point(4, 8);
-			this.navigationFrame.Margin = new System.Windows.Forms.Padding(0);
-			this.navigationFrame.Name = "navigationFrame";
-			this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.npMain,
-            this.npEditor});
-			this.navigationFrame.SelectedPage = this.npMain;
-			this.navigationFrame.Size = new System.Drawing.Size(803, 410);
-			this.navigationFrame.TabIndex = 4;
-			this.navigationFrame.Text = "navigationFrame1";
-			// 
-			// npMain
-			// 
-			this.npMain.Controls.Add(this.layoutControl2);
-			this.npMain.Margin = new System.Windows.Forms.Padding(0);
-			this.npMain.Name = "npMain";
-			this.npMain.Size = new System.Drawing.Size(803, 410);
-			// 
-			// layoutControl2
-			// 
-			this.layoutControl2.Controls.Add(this.gridControl);
-			this.layoutControl2.Controls.Add(this.listboxPrograms);
-			this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl2.Location = new System.Drawing.Point(0, 0);
-			this.layoutControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.layoutControl2.Name = "layoutControl2";
-			this.layoutControl2.Root = this.layoutControlGroup1;
-			this.layoutControl2.Size = new System.Drawing.Size(803, 410);
-			this.layoutControl2.TabIndex = 2;
-			this.layoutControl2.Text = "layoutControl2";
 			// 
 			// gridControl
 			// 
 			this.gridControl.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.gridControl.DataSource = this.bsCommands;
 			this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.gridControl.Location = new System.Drawing.Point(79, 2);
 			this.gridControl.MainView = this.tileView;
@@ -369,6 +264,10 @@
 			this.gridControl.TabIndex = 0;
 			this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView});
+			// 
+			// bsCommands
+			// 
+			this.bsCommands.ObjectType = typeof(LifeLog.Data.Database.Entities.CommandsEntity);
 			// 
 			// tileView
 			// 
@@ -402,6 +301,8 @@
 			this.tileView.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Center;
 			this.tileView.TileHtmlTemplate.Styles = resources.GetString("tileView.TileHtmlTemplate.Styles");
 			this.tileView.TileHtmlTemplate.Template = resources.GetString("tileView.TileHtmlTemplate.Template");
+			this.tileView.ItemDoubleClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileView_ItemDoubleClick);
+			this.tileView.ItemRightClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileView_ItemRightClick);
 			this.tileView.CustomItemTemplate += new DevExpress.XtraGrid.Views.Tile.TileViewCustomItemTemplateEventHandler(this.tileView_CustomItemTemplate);
 			// 
 			// colExternalProgram
@@ -512,9 +413,127 @@
 			this.colIdExternalProgram.VisibleIndex = 11;
 			this.colIdExternalProgram.Width = 64;
 			// 
+			// barDockControlTop
+			// 
+			this.barDockControlTop.CausesValidation = false;
+			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+			this.barDockControlTop.Manager = this.barManager;
+			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControlTop.Size = new System.Drawing.Size(811, 35);
+			// 
+			// barDockControlBottom
+			// 
+			this.barDockControlBottom.CausesValidation = false;
+			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.barDockControlBottom.Location = new System.Drawing.Point(0, 457);
+			this.barDockControlBottom.Manager = this.barManager;
+			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControlBottom.Size = new System.Drawing.Size(811, 0);
+			// 
+			// barDockControlLeft
+			// 
+			this.barDockControlLeft.CausesValidation = false;
+			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+			this.barDockControlLeft.Location = new System.Drawing.Point(0, 35);
+			this.barDockControlLeft.Manager = this.barManager;
+			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 422);
+			// 
+			// barDockControlRight
+			// 
+			this.barDockControlRight.CausesValidation = false;
+			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+			this.barDockControlRight.Location = new System.Drawing.Point(811, 35);
+			this.barDockControlRight.Manager = this.barManager;
+			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 422);
+			// 
+			// bbiRunAdmin
+			// 
+			this.bbiRunAdmin.Caption = "Run Admin";
+			this.bbiRunAdmin.Id = 6;
+			this.bbiRunAdmin.Name = "bbiRunAdmin";
+			// 
+			// bbiEnable
+			// 
+			this.bbiEnable.Caption = "Disable";
+			this.bbiEnable.Id = 7;
+			this.bbiEnable.Name = "bbiEnable";
+			// 
+			// bbiCreateFile
+			// 
+			this.bbiCreateFile.Caption = "Create File";
+			this.bbiCreateFile.Id = 10;
+			this.bbiCreateFile.Name = "bbiCreateFile";
+			// 
+			// repositoryItemTextEdit1
+			// 
+			this.repositoryItemTextEdit1.AutoHeight = false;
+			this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+			// 
+			// popupMenu
+			// 
+			this.popupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiEdit),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiEnable),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiCreateFile, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiRunAdmin),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiDelete, true)});
+			this.popupMenu.Manager = this.barManager;
+			this.popupMenu.Name = "popupMenu";
+			// 
+			// layoutControl1
+			// 
+			this.layoutControl1.Controls.Add(this.navigationFrame);
+			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.layoutControl1.Location = new System.Drawing.Point(0, 35);
+			this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.layoutControl1.Name = "layoutControl1";
+			this.layoutControl1.Root = this.Root;
+			this.layoutControl1.Size = new System.Drawing.Size(811, 422);
+			this.layoutControl1.TabIndex = 5;
+			this.layoutControl1.Text = "layoutControl1";
+			// 
+			// navigationFrame
+			// 
+			this.navigationFrame.Controls.Add(this.npMain);
+			this.navigationFrame.Controls.Add(this.npEditor);
+			this.navigationFrame.Location = new System.Drawing.Point(4, 8);
+			this.navigationFrame.Margin = new System.Windows.Forms.Padding(0);
+			this.navigationFrame.Name = "navigationFrame";
+			this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.npMain,
+            this.npEditor});
+			this.navigationFrame.SelectedPage = this.npMain;
+			this.navigationFrame.Size = new System.Drawing.Size(803, 410);
+			this.navigationFrame.TabIndex = 4;
+			this.navigationFrame.Text = "navigationFrame1";
+			// 
+			// npMain
+			// 
+			this.npMain.Caption = "npMain";
+			this.npMain.Controls.Add(this.layoutControl2);
+			this.npMain.Margin = new System.Windows.Forms.Padding(0);
+			this.npMain.Name = "npMain";
+			this.npMain.Size = new System.Drawing.Size(803, 410);
+			// 
+			// layoutControl2
+			// 
+			this.layoutControl2.Controls.Add(this.gridControl);
+			this.layoutControl2.Controls.Add(this.listboxPrograms);
+			this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.layoutControl2.Location = new System.Drawing.Point(0, 0);
+			this.layoutControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.layoutControl2.Name = "layoutControl2";
+			this.layoutControl2.Root = this.layoutControlGroup1;
+			this.layoutControl2.Size = new System.Drawing.Size(803, 410);
+			this.layoutControl2.TabIndex = 2;
+			this.layoutControl2.Text = "layoutControl2";
+			// 
 			// listboxPrograms
 			// 
-			this.listboxPrograms.Cursor = System.Windows.Forms.Cursors.Default;
+			this.listboxPrograms.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.listboxPrograms.DataSource = this.bsExternalPrograms;
 			this.listboxPrograms.DisplayMember = "Name";
 			this.listboxPrograms.HotTrackSelectMode = DevExpress.XtraEditors.HotTrackSelectMode.SelectItemOnClick;
@@ -575,41 +594,44 @@
 			// 
 			// npEditor
 			// 
-			this.npEditor.Controls.Add(this.layoutControl);
+			this.npEditor.Caption = "npEditor";
+			this.npEditor.Controls.Add(this.lcEditValues);
 			this.npEditor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.npEditor.Name = "npEditor";
 			this.npEditor.Size = new System.Drawing.Size(803, 410);
 			// 
-			// layoutControl
+			// lcEditValues
 			// 
-			this.layoutControl.Controls.Add(this.pcCommandText);
-			this.layoutControl.Controls.Add(this.tsEnabled);
-			this.layoutControl.Controls.Add(this.teDescription);
-			this.layoutControl.Controls.Add(this.teName);
-			this.layoutControl.Controls.Add(this.cbeProgram);
-			this.layoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl.Location = new System.Drawing.Point(0, 0);
-			this.layoutControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.layoutControl.Name = "layoutControl";
-			this.layoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1240, 284, 650, 400);
-			this.layoutControl.Root = this.layoutControlGroup2;
-			this.layoutControl.Size = new System.Drawing.Size(803, 410);
-			this.layoutControl.TabIndex = 2;
-			this.layoutControl.Text = "layoutControl1";
+			this.lcEditValues.Controls.Add(this.pcCommandText);
+			this.lcEditValues.Controls.Add(this.tsEnabled);
+			this.lcEditValues.Controls.Add(this.teDescription);
+			this.lcEditValues.Controls.Add(this.teName);
+			this.lcEditValues.Controls.Add(this.cbeProgram);
+			this.lcEditValues.DataSource = this.bsCommandsEdit;
+			this.lcEditValues.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lcEditValues.Location = new System.Drawing.Point(0, 0);
+			this.lcEditValues.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.lcEditValues.Name = "lcEditValues";
+			this.lcEditValues.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1240, 284, 650, 400);
+			this.lcEditValues.Root = this.layoutControlGroup2;
+			this.lcEditValues.Size = new System.Drawing.Size(803, 410);
+			this.lcEditValues.TabIndex = 2;
+			this.lcEditValues.Text = "layoutControl1";
 			// 
 			// pcCommandText
 			// 
 			this.pcCommandText.Controls.Add(this.recMain);
-			this.pcCommandText.Location = new System.Drawing.Point(65, 50);
+			this.pcCommandText.Location = new System.Drawing.Point(67, 50);
 			this.pcCommandText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.pcCommandText.Name = "pcCommandText";
-			this.pcCommandText.Size = new System.Drawing.Size(736, 358);
+			this.pcCommandText.Size = new System.Drawing.Size(734, 358);
 			this.pcCommandText.TabIndex = 17;
 			// 
 			// recMain
 			// 
 			this.recMain.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
 			this.recMain.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+			this.recMain.CausesValidation = false;
 			this.recMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.recMain.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
 			this.recMain.Location = new System.Drawing.Point(2, 2);
@@ -618,48 +640,59 @@
 			this.recMain.Name = "recMain";
 			this.recMain.Options.DocumentSaveOptions.CurrentFormat = DevExpress.XtraRichEdit.DocumentFormat.PlainText;
 			this.recMain.Options.Printing.PrintPreviewFormKind = DevExpress.XtraRichEdit.PrintPreviewFormKind.Bars;
-			this.recMain.Size = new System.Drawing.Size(732, 354);
+			this.recMain.Size = new System.Drawing.Size(730, 354);
 			this.recMain.TabIndex = 1;
 			this.recMain.Tag = "Command";
 			this.recMain.Views.SimpleView.AdjustColorsToSkins = true;
 			// 
 			// tsEnabled
 			// 
-			this.tsEnabled.Location = new System.Drawing.Point(721, 27);
+			this.tsEnabled.AutoSizeInLayoutControl = true;
+			this.tsEnabled.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsCommandsEdit, "IsEnabled", true));
+			this.tsEnabled.Location = new System.Drawing.Point(751, 3);
 			this.tsEnabled.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tsEnabled.Name = "tsEnabled";
 			this.tsEnabled.Properties.OffText = "Off";
 			this.tsEnabled.Properties.OnText = "On";
 			this.tsEnabled.Properties.ShowText = false;
-			this.tsEnabled.Size = new System.Drawing.Size(80, 18);
-			this.tsEnabled.StyleController = this.layoutControl;
+			this.tsEnabled.Size = new System.Drawing.Size(50, 18);
+			this.tsEnabled.StyleController = this.lcEditValues;
 			this.tsEnabled.TabIndex = 15;
+			// 
+			// bsCommandsEdit
+			// 
+			this.bsCommandsEdit.ObjectType = typeof(LifeLog.Data.Database.Entities.CommandsEntity);
 			// 
 			// teDescription
 			// 
-			this.teDescription.Location = new System.Drawing.Point(352, 2);
+			this.teDescription.CausesValidation = false;
+			this.teDescription.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsCommandsEdit, "Description", true));
+			this.teDescription.Location = new System.Drawing.Point(310, 2);
 			this.teDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.teDescription.Name = "teDescription";
 			this.teDescription.Properties.MaxLength = 30;
-			this.teDescription.Size = new System.Drawing.Size(449, 20);
-			this.teDescription.StyleController = this.layoutControl;
+			this.teDescription.Size = new System.Drawing.Size(372, 20);
+			this.teDescription.StyleController = this.lcEditValues;
 			this.teDescription.TabIndex = 5;
 			this.teDescription.Tag = "Description";
 			// 
 			// teName
 			// 
-			this.teName.Location = new System.Drawing.Point(65, 2);
+			this.teName.CausesValidation = false;
+			this.teName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsCommandsEdit, "Name", true));
+			this.teName.Location = new System.Drawing.Point(67, 2);
 			this.teName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.teName.Name = "teName";
 			this.teName.Properties.MaxLength = 13;
-			this.teName.Size = new System.Drawing.Size(220, 20);
-			this.teName.StyleController = this.layoutControl;
+			this.teName.Size = new System.Drawing.Size(174, 20);
+			this.teName.StyleController = this.lcEditValues;
 			this.teName.TabIndex = 4;
 			this.teName.Tag = "Name";
 			// 
 			// cbeProgram
 			// 
-			this.cbeProgram.Location = new System.Drawing.Point(65, 26);
+			this.cbeProgram.CausesValidation = false;
+			this.cbeProgram.Location = new System.Drawing.Point(67, 26);
 			this.cbeProgram.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.cbeProgram.Name = "cbeProgram";
 			this.cbeProgram.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -672,8 +705,8 @@
 			this.cbeProgram.Properties.ShowFooter = false;
 			this.cbeProgram.Properties.ShowHeader = false;
 			this.cbeProgram.Properties.ValueMember = "Id";
-			this.cbeProgram.Size = new System.Drawing.Size(290, 20);
-			this.cbeProgram.StyleController = this.layoutControl;
+			this.cbeProgram.Size = new System.Drawing.Size(332, 20);
+			this.cbeProgram.StyleController = this.lcEditValues;
 			this.cbeProgram.TabIndex = 14;
 			this.cbeProgram.Tag = "ExternalProgram";
 			// 
@@ -684,10 +717,10 @@
 			this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem4,
             this.layoutControlItem5,
-            this.layoutControlItem6,
             this.emptySpaceItem2,
             this.layoutControlItem7,
-            this.layoutControlItem8});
+            this.layoutControlItem8,
+            this.layoutControlItem6});
 			this.layoutControlGroup2.Name = "Root";
 			this.layoutControlGroup2.Size = new System.Drawing.Size(803, 410);
 			this.layoutControlGroup2.TextVisible = false;
@@ -698,7 +731,7 @@
 			this.layoutControlItem4.Control = this.teName;
 			this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem4.Name = "layoutControlItem1";
-			this.layoutControlItem4.Size = new System.Drawing.Size(287, 24);
+			this.layoutControlItem4.Size = new System.Drawing.Size(243, 24);
 			this.layoutControlItem4.Text = "Name";
 			this.layoutControlItem4.TextSize = new System.Drawing.Size(53, 13);
 			// 
@@ -706,36 +739,24 @@
 			// 
 			this.layoutControlItem5.BestFitWeight = 90;
 			this.layoutControlItem5.Control = this.teDescription;
-			this.layoutControlItem5.Location = new System.Drawing.Point(287, 0);
+			this.layoutControlItem5.Location = new System.Drawing.Point(243, 0);
 			this.layoutControlItem5.Name = "layoutControlItem2";
-			this.layoutControlItem5.Size = new System.Drawing.Size(516, 24);
+			this.layoutControlItem5.Size = new System.Drawing.Size(441, 24);
 			this.layoutControlItem5.Text = "Description";
 			this.layoutControlItem5.TextSize = new System.Drawing.Size(53, 13);
 			// 
-			// layoutControlItem6
-			// 
-			this.layoutControlItem6.BestFitWeight = 25;
-			this.layoutControlItem6.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
-			this.layoutControlItem6.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-			this.layoutControlItem6.Control = this.tsEnabled;
-			this.layoutControlItem6.Location = new System.Drawing.Point(656, 24);
-			this.layoutControlItem6.Name = "layoutControlItem4";
-			this.layoutControlItem6.Size = new System.Drawing.Size(147, 24);
-			this.layoutControlItem6.Text = "Enabled";
-			this.layoutControlItem6.TextSize = new System.Drawing.Size(53, 13);
-			// 
 			// emptySpaceItem2
 			// 
-			this.emptySpaceItem2.Location = new System.Drawing.Point(357, 24);
+			this.emptySpaceItem2.Location = new System.Drawing.Point(401, 24);
 			this.emptySpaceItem2.Name = "emptySpaceItem2";
-			this.emptySpaceItem2.Size = new System.Drawing.Size(299, 24);
+			this.emptySpaceItem2.Size = new System.Drawing.Size(402, 24);
 			// 
 			// layoutControlItem7
 			// 
 			this.layoutControlItem7.Control = this.cbeProgram;
 			this.layoutControlItem7.Location = new System.Drawing.Point(0, 24);
 			this.layoutControlItem7.Name = "layoutControlItem3";
-			this.layoutControlItem7.Size = new System.Drawing.Size(357, 24);
+			this.layoutControlItem7.Size = new System.Drawing.Size(401, 24);
 			this.layoutControlItem7.Text = "Program";
 			this.layoutControlItem7.TextSize = new System.Drawing.Size(53, 13);
 			// 
@@ -749,6 +770,18 @@
 			this.layoutControlItem8.Size = new System.Drawing.Size(803, 362);
 			this.layoutControlItem8.Text = "Command";
 			this.layoutControlItem8.TextSize = new System.Drawing.Size(53, 13);
+			// 
+			// layoutControlItem6
+			// 
+			this.layoutControlItem6.BestFitWeight = 25;
+			this.layoutControlItem6.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.layoutControlItem6.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+			this.layoutControlItem6.Control = this.tsEnabled;
+			this.layoutControlItem6.Location = new System.Drawing.Point(684, 0);
+			this.layoutControlItem6.Name = "layoutControlItem4";
+			this.layoutControlItem6.Size = new System.Drawing.Size(119, 24);
+			this.layoutControlItem6.Text = "Enabled";
+			this.layoutControlItem6.TextSize = new System.Drawing.Size(53, 13);
 			// 
 			// Root
 			// 
@@ -770,6 +803,10 @@
 			this.layoutControlItem1.Size = new System.Drawing.Size(803, 410);
 			this.layoutControlItem1.TextVisible = false;
 			// 
+			// dxErrorProvider
+			// 
+			this.dxErrorProvider.ContainerControl = this;
+			// 
 			// CommandsRunnerView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -784,6 +821,9 @@
 			this.Size = new System.Drawing.Size(811, 457);
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.bsCommands)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tileView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.popupMenu)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -793,31 +833,31 @@
 			this.npMain.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
 			this.layoutControl2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.tileView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.listboxPrograms)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.bsExternalPrograms)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
 			this.npEditor.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
-			this.layoutControl.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.lcEditValues)).EndInit();
+			this.lcEditValues.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pcCommandText)).EndInit();
 			this.pcCommandText.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.tsEnabled.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.bsCommandsEdit)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.teDescription.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.teName.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.cbeProgram.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -871,7 +911,7 @@
 		private DevExpress.XtraLayout.LayoutControlGroup Root;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
 		private DevExpress.Xpo.XPBindingSource bsExternalPrograms;
-		private DevExpress.XtraLayout.LayoutControl layoutControl;
+		private DevExpress.XtraDataLayout.DataLayoutControl lcEditValues;
 		private DevExpress.XtraEditors.PanelControl pcCommandText;
 		private DevExpress.XtraRichEdit.RichEditControl recMain;
 		private DevExpress.XtraEditors.ToggleSwitch tsEnabled;
@@ -885,5 +925,8 @@
 		private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+		private DevExpress.Xpo.XPBindingSource bsCommandsEdit;
+		private DevExpress.Xpo.XPBindingSource bsCommands;
+		private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
 	}
 }

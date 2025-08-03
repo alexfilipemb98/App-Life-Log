@@ -132,10 +132,12 @@ namespace LifeLog.Data.Database.Queries
 					externalProgram.Image.MapTo(imgDB);
 
 					externalProgramDB.Image = imgDB;
+
+					externalProgramDB.Image.Saving = true;
 				}
 
 				//Set saving
-				externalProgramDB.Image.Saving = true;
+				
 				externalProgramDB.Saving = true;
 
 				await _UOW.SaveAsync(externalProgramDB);

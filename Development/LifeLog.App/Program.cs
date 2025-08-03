@@ -57,6 +57,7 @@ namespace LifeLog.App
 
 					AppSession.AuthForm.Shown += (s, e) =>
 						SplashScreenManager.CloseForm(false);
+
 					AppSession.AuthForm.FormClosed += (s, e) =>
 						AppSession.AuthForm.Dispose();
 

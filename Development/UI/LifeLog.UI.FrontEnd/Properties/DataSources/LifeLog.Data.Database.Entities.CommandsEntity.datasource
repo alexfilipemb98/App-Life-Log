@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="ExternalProgramsEntity" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>LifeLog.Data.Database.Entities.ExternalProgramsEntity, LifeLog.Data.Database, Version=1.0.1.11, Culture=neutral, PublicKeyToken=null</TypeInfo>
+<GenericObjectDataSource DisplayName="CommandsEntity" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>LifeLog.Data.Database.Entities.CommandsEntity, LifeLog.Data.Database, Version=1.0.1.15, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>
