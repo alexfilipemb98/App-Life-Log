@@ -83,6 +83,17 @@ namespace LifeLog.Data.Database.Queries
 		}
 
 		/// <summary>
+		/// Get the last command on the database
+		/// </summary>
+		/// <returns></returns>
+		public async Task<ExternalProgramsModel> GetLast()
+		{
+			string sql = $"SELECT TOP 1 * FROM {TableName} ORDER BY CreatedAt DESC";
+			ExternalProgramsModel command = await _SQL.GetValueAsync<ExternalProgramsModel>(sql);
+			return command ?? new ExternalProgramsModel();
+		}
+
+		/// <summary>
 		/// Save the externalProgram object
 		/// </summary>
 		/// <param name="externalProgram"></param>
@@ -90,7 +101,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException"></exception>
 		/// <exception cref="ArgumentException"></exception>
-		public async Task<(bool saved, string message)> Save(ExternalProgramsEntity externalProgram, Guid userId)
+		public async Task<bool> Save(ExternalProgramsModel externalProgram)
 		{
 			try
 			{

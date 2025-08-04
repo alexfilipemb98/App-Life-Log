@@ -69,7 +69,7 @@ namespace LifeLog.Data.Database.Bases
 		/// <summary>
 		/// On new object
 		/// </summary>
-		internal override void AfterConstruction()
+		public override void AfterConstruction()
 		{
 			base.AfterConstruction();
 			CreatedAt = UpdatedAt = DateTime.Now;
@@ -89,7 +89,7 @@ namespace LifeLog.Data.Database.Bases
 			if (this.Session.IsNewObject(this))
 				CreatedAt = DateTime.Now;
 			UpdatedAt = DateTime.Now;
-			
+
 			base.OnSaving();
 
 			Saving = false;

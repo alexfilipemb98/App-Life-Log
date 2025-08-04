@@ -16,22 +16,9 @@ namespace LifeLog.Data.Database.Queries
 	/// <summary>
 	/// Commands data query
 	/// </summary>
-	public class CommandsQuery : DataQueryBase, IBaseQuery<CommandsEntity, CommandsModel, Guid>
+	public class CommandsQuery : DataQueryBase<CommandsEntity, CommandsModel, Guid>
 	{
 		#region MAIN
-
-		//PROPERTIES
-		public string TableName
-		{
-			get
-			{
-				PersistentAttribute attr = (PersistentAttribute)typeof(CommandsEntity)
-					.GetCustomAttributes(typeof(PersistentAttribute), inherit: false)
-					.FirstOrDefault();
-
-				return attr?.MapTo;
-			}
-		}
 
 		/// <summary>
 		/// Constructor
@@ -47,23 +34,11 @@ namespace LifeLog.Data.Database.Queries
 		#region BASE
 
 		/// <summary>
-		/// Ches if the command exists
-		/// </summary>
-		/// <param name="key"></param>
-		/// <returns></returns>
-		public async Task<bool> Exists(Guid key)
-		{
-			string sql = $"SELECT COUNT(*) FROM {TableName} WHERE Id = @Id";
-			int count = await _SQL.GetValueAsync<int, object>(sql, new { Id = key });
-			return count > 0;
-		}
-
-		/// <summary>
 		/// Get the command by key
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public async Task<CommandsModel> GetByKey(Guid key)
+		public override async Task<CommandsModel> GetByKey(Guid key)
 		{
 			CommandsEntity result = await _UOW.GetObjectByKeyAsync<CommandsEntity>(key);
 			return result != null ? result.ToModel() : new CommandsModel();
@@ -73,24 +48,13 @@ namespace LifeLog.Data.Database.Queries
 		/// Get all notes
 		/// </summary>
 		/// <returns></returns>
-		public async Task<List<CommandsModel>> GetAll()
+		public override async Task<List<CommandsModel>> GetAll()
 		{
 			List<CommandsModel> results = await _UOW.Query<CommandsEntity>()
 				.Select(s => s.ToModel())
 				.ToListAsync();
 
 			return results ?? new List<CommandsModel>();
-		}
-
-		/// <summary>
-		/// Get the last command on the database
-		/// </summary>
-		/// <returns></returns>
-		public async Task<CommandsModel> GetLast()
-		{
-			string sql = $"SELECT TOP 1 * FROM {TableName} ORDER BY CreatedAt DESC";
-			CommandsModel command = await _SQL.GetValueAsync<CommandsModel>(sql);
-			return command ?? new CommandsModel();
 		}
 
 		/// <summary>
@@ -101,7 +65,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException"></exception>
 		/// <exception cref="ArgumentException"></exception>
-		public async Task<bool> Save(CommandsModel model)
+		public override async Task<bool> Save(CommandsModel model)
 		{
 			if (model == null)
 				throw new ArgumentNullException("Notes model is null");
@@ -131,7 +95,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <param name="key"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentException"></exception>
-		public async Task<CommandsModel> Duplicate(Guid key)
+		public override async Task<CommandsModel> Duplicate(Guid key)
 		{
 			CommandsEntity command = await _UOW.GetObjectByKeyAsync<CommandsEntity>(key);
 			if (command == null)
@@ -152,7 +116,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <param name="key"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentException"></exception>
-		public async Task<bool> Delete(Guid key)
+		public override async Task<bool> Delete(Guid key)
 		{
 			CommandsEntity command = await _UOW.GetObjectByKeyAsync<CommandsEntity>(key);
 
