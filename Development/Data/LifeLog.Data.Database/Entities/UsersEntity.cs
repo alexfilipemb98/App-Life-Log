@@ -4,21 +4,21 @@
 	/// Users entity
 	/// </summary>
 	[DevExpress.Xpo.Persistent(@"Users")]
-	internal class UsersEntity : Bases.DataEntityBase
+	public class UsersEntity : Bases.DataEntityBase
 	{
 		#region MyRegion
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		internal UsersEntity()
+		public UsersEntity()
 		{
 		}
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		internal UsersEntity(DevExpress.Xpo.Session session) : base(session)
+		public UsersEntity(DevExpress.Xpo.Session session) : base(session)
 		{
 		}
 
@@ -32,7 +32,7 @@
 		[DevExpress.Xpo.Size(20)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(20)")]
-		internal string Username { get; set; }
+		public string Username { get; set; }
 
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.EmailAddress)]
 		[Base.Infrastructure.Attributes.Required]
@@ -41,7 +41,7 @@
 		[DevExpress.Xpo.Size(20)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(256)")]
-		internal string Email { get; set; }
+		public string Email { get; set; }
 
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.EmailAddress)]
 		[Base.Infrastructure.Attributes.Required]
@@ -49,7 +49,7 @@
 		[DevExpress.Xpo.Size(50)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(50)")]
-		internal string Salt { get; set; }
+		public string Salt { get; set; }
 
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
 		[Base.Infrastructure.Attributes.Required]
@@ -57,20 +57,23 @@
 		[DevExpress.Xpo.Size(4000)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(4000)")]
-		internal string Password { get; set; }
+		public string Password { get; set; }
 
 		#endregion
 
 		#region ASSOCIATIONS
 
 		[DevExpress.Xpo.Association(@"NotesReferencesUsers")]
-		internal System.Collections.Generic.IList<NotesEntity> User_Notes => GetList<NotesEntity>(nameof(User_Notes));
+		public System.Collections.Generic.IList<NotesEntity> User_Notes => GetList<NotesEntity>(nameof(User_Notes));
 
 		[DevExpress.Xpo.Association(@"ImagesReferencesUsers")]
-		internal System.Collections.Generic.IList<ImagesEntity> User_Images => GetList<ImagesEntity>(nameof(User_Images));
+		public System.Collections.Generic.IList<ImagesEntity> User_Images => GetList<ImagesEntity>(nameof(User_Images));
+
+		[DevExpress.Xpo.Association(@"ExternalProgramsReferencesUsers")]
+		public System.Collections.Generic.IList<ExternalProgramsEntity> User_ExternalPrograms => GetList<ExternalProgramsEntity>(nameof(User_ExternalPrograms));
 
 		[DevExpress.Xpo.Association(@"CommandsReferencesUsers")]
-		internal System.Collections.Generic.IList<CommandsEntity> User_Commands => GetList<CommandsEntity>(nameof(User_Commands));
+		public System.Collections.Generic.IList<CommandsEntity> User_Commands => GetList<CommandsEntity>(nameof(User_Commands));
 
 		#endregion
 	}

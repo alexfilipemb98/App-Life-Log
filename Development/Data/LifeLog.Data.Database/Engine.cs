@@ -2,7 +2,6 @@
 using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
 using DevExpress.Xpo.Metadata;
-using JDS.BASE.DapperUtil;
 using LifeLog.Base.Infrastructure.Enums;
 using LifeLog.Base.Infrastructure.Models;
 using LifeLog.Base.Utils;
@@ -29,13 +28,13 @@ namespace LifeLog.Data.Database
 		#region MAIN
 
 		//PROPERTIES
-		public static Engine Instance { get; private set; }
-		internal IDataLayer DataLayer { get; private set; }
+		internal static Engine Instance { get; private set; }
+		public IDataLayer DataLayer { get; private set; }
 		public IDbConnection Connection { get; private set; }
 		public string DBName { get; private set; } = "Disconected!";
 		public DatabaseConfigModel Config { get; private set; }
 		public  UnitOfWork UOW { get; private set; }
-		public SqlDataAccess SQL { get; private set; }
+		public DataSqlAccessBase SQL { get; private set; }
 
 		/// <summary>
 		/// Constructor
@@ -102,7 +101,7 @@ namespace LifeLog.Data.Database
 			Connection = ((ConnectionProviderSql)connectionProvider).Connection;
 
 			UOW = new UnitOfWork(DataLayer);
-			SQL = new SqlDataAccess(Connection);
+			SQL = new DataSqlAccessBase(Connection);
 
 			XpoDefault.Session = UOW;
 

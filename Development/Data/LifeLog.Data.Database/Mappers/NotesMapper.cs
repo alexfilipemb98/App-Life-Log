@@ -1,6 +1,6 @@
 ﻿using DevExpress.Xpo;
-using LifeLog.Base.Models;
 using LifeLog.Data.Database.Entities;
+using LifeLog.Data.Database.Models.LifeLog.Data.Models;
 using System;
 
 namespace LifeLog.Data.Database.Mappers
@@ -8,14 +8,14 @@ namespace LifeLog.Data.Database.Mappers
 	/// <summary>
 	/// NotesMapper class to convert between NotesEntity and NotesModel.
 	/// </summary>
-	internal static class NotesMapper
+	public static class NotesMapper
 	{
 		/// <summary>
 		/// NotesEntity to NotesModel mapper.
 		/// </summary>
 		/// <param name="entity"></param>
 		/// <returns></returns>
-		internal static NotesModel ToModel(this NotesEntity entity)
+		public static NotesModel ToModel(this NotesEntity entity)
 		{
 			if (entity == null) return null;
 
@@ -36,7 +36,7 @@ namespace LifeLog.Data.Database.Mappers
 		/// <param name="model"></param>
 		/// <param name="session"></param>
 		/// <returns></returns>
-		internal static NotesEntity ToEntity(this NotesModel model, Session session)
+		public static NotesEntity ToEntity(this NotesModel model, Session session)
 		{
 			if (model == null) return null;
 

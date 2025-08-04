@@ -1,15 +1,13 @@
-﻿using DevExpress.Xpo;
-using JDS.BASE.DapperUtil;
-using LifeLog.Base.Infrastructure.Interfaces;
-using LifeLog.Base.Models;
+﻿using DataService.Bases;
+using DevExpress.Xpo;
 using LifeLog.Base.Utils;
 using LifeLog.Data.Database.Bases;
 using LifeLog.Data.Database.Entities;
-using LifeLog.Data.Database.Mappers;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace LifeLog.Data.Database.Queries
@@ -17,21 +15,16 @@ namespace LifeLog.Data.Database.Queries
 	/// <summary>
 	/// Images data query
 	/// </summary>
-	public class ImagesQuery : DataQueryBase, IBaseQuery<ImagesEntity, ImagesModel, Guid>
+	public class ImagesQuery : DataQueryBase
 	{
+
 		#region MAIN
 
-		//PROPERTIES
-		public string TableName
+		/// <summary>
+		/// Default Constructor
+		/// </summary>
+		public ImagesQuery() : base()
 		{
-			get
-			{
-				PersistentAttribute attr = (PersistentAttribute)typeof(ImagesQuery)
-					.GetCustomAttributes(typeof(PersistentAttribute), inherit: false)
-					.FirstOrDefault();
-
-				return attr?.MapTo;
-			}
 		}
 
 		/// <summary>
@@ -39,45 +32,49 @@ namespace LifeLog.Data.Database.Queries
 		/// </summary>
 		/// <param name="uow"></param>
 		/// <param name="sql"></param>
-		public ImagesQuery(UnitOfWork uow, SqlDataAccess sql) : base(uow, sql)
+		public ImagesQuery(UnitOfWork uow, DataSqlAccessBase sql) : base(uow, sql)
+		{
+		}
+
+		/// <summary>
+		/// Data layer e outro constructor
+		/// </summary>
+		/// <param name="dataLayer"></param>
+		/// <param name="connection"></param>
+		public ImagesQuery(IDataLayer dataLayer, IDbConnection connection) : base(dataLayer, connection)
 		{
 		}
 
 		#endregion
 
-		#region BASE
+		#region QUERIES
 
 		/// <summary>
-		/// Ches if the command exists
+		/// Gets users notes
 		/// </summary>
-		/// <param name="key"></param>
+		/// <param name="userId"></param>
 		/// <returns></returns>
-		public async Task<bool> Exists(Guid key)
+		/// <exception cref="ArgumentException"></exception>
+		public async Task<List<ImagesEntity>> GetUserImages(Guid userId)
 		{
-			string sql = $"SELECT COUNT(*) FROM {TableName} WHERE Id = @Id";
-			int count = await _SQL.GetValueAsync<int, object>(sql, new { Id = key });
-			return count > 0;
+			UsersEntity userDb = await _UOW.GetObjectByKeyAsync<UsersEntity>(userId);
+			if (userDb == null)
+				throw new ArgumentException("User id is invalid!");
+
+			return await _UOW.Query<ImagesEntity>().Where(w => w.User.Id == userDb.Id).ToListAsync();
 		}
 
-		/// <summary>
-		/// Get the command by key
-		/// </summary>
-		/// <param name="key"></param>
-		/// <returns></returns>
-		public async Task<ImagesModel> GetByKey(Guid key)
-		{
-			ImagesEntity result = await _UOW.GetObjectByKeyAsync<ImagesEntity>(key);
-			return result != null ? result.ToModel() : new ImagesModel();
-		}
+		#endregion
+		
+		#region GLOBAL
 
 		/// <summary>
 		/// Get all notes
 		/// </summary>
 		/// <returns></returns>
-		public async Task<List<ImagesModel>> GetAll()
+		public async Task<List<ImagesEntity>> GetAll()
 		{
 			return await _UOW.Query<ImagesEntity>()
-				.Select(s => s.ToModel())
 				.ToListAsync();
 		}
 
@@ -152,23 +149,5 @@ namespace LifeLog.Data.Database.Queries
 
 		#endregion
 
-		#region QUERIES
-
-		/// <summary>
-		/// Gets users notes
-		/// </summary>
-		/// <param name="userId"></param>
-		/// <returns></returns>
-		/// <exception cref="ArgumentException"></exception>
-		public async Task<List<ImagesModel>> GetUserImages(Guid userId)
-		{
-			UsersEntity userDb = await _UOW.GetObjectByKeyAsync<UsersEntity>(userId);
-			if (userDb == null)
-				throw new ArgumentException("User id is invalid!");
-
-			return await _UOW.Query<ImagesEntity>().Where(w => w.User.Id == userDb.Id).ToListAsync();
-		}
-
-		#endregion
 	}
 }
