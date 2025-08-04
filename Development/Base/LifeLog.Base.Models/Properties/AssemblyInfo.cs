@@ -30,8 +30,13 @@ using System.Runtime.InteropServices;
 //      Revision
 //
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [assembly: AssemblyVersion("1.0.1.5")]
 [assembly: AssemblyFileVersion("1.0.1.5")]
+=======
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
+>>>>>>> Stashed changes
 =======
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
