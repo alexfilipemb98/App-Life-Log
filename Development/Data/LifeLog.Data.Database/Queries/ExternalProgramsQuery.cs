@@ -1,15 +1,15 @@
-﻿using DataService.Bases;
-using DevExpress.Xpo;
+﻿using DevExpress.Xpo;
+using JDS.BASE.DapperUtil;
+using LifeLog.Base.Infrastructure.Interfaces;
+using LifeLog.Base.Models;
 using LifeLog.Base.Utils;
 using LifeLog.Data.Database.Bases;
 using LifeLog.Data.Database.Entities;
 using LifeLog.Data.Database.Mappers;
-using LifeLog.Data.Database.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LifeLog.Data.Database.Queries
@@ -18,15 +18,21 @@ namespace LifeLog.Data.Database.Queries
 	/// <summary>
 	/// Images data query
 	/// </summary>
-	public class ExternalProgramsQuery : DataQueryBase
+	public class ExternalProgramsQuery : DataQueryBase, IBaseQuery<ExternalProgramsEntity, ExternalProgramsModel, Guid>
 	{
 		#region MAIN
 
-		/// <summary>
-		/// Default Constructor
-		/// </summary>
-		public ExternalProgramsQuery() : base()
+		//PROPERTIES
+		public string TableName
 		{
+			get
+			{
+				PersistentAttribute attr = (PersistentAttribute)typeof(ExternalProgramsEntity)
+					.GetCustomAttributes(typeof(PersistentAttribute), inherit: false)
+					.FirstOrDefault();
+
+				return attr?.MapTo;
+			}
 		}
 
 		/// <summary>
@@ -34,51 +40,46 @@ namespace LifeLog.Data.Database.Queries
 		/// </summary>
 		/// <param name="uow"></param>
 		/// <param name="sql"></param>
-		public ExternalProgramsQuery(UnitOfWork uow, DataSqlAccessBase sql) : base(uow, sql)
-		{
-		}
-
-		/// <summary>
-		/// Data layer e outro constructor
-		/// </summary>
-		/// <param name="dataLayer"></param>
-		/// <param name="connection"></param>
-		public ExternalProgramsQuery(IDataLayer dataLayer, IDbConnection connection) : base(dataLayer, connection)
+		public ExternalProgramsQuery(UnitOfWork uow, SqlDataAccess sql) : base(uow, sql)
 		{
 		}
 
 		#endregion
 
-		#region GLOBAL
+		#region BASE
+
+		/// <summary>
+		/// Ches if the command exists
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
+		public async Task<bool> Exists(Guid key)
+		{
+			string sql = $"SELECT COUNT(*) FROM {TableName} WHERE Id = @Id";
+			int count = await _SQL.GetValueAsync<int, object>(sql, new { Id = key });
+			return count > 0;
+		}
+
+		/// <summary>
+		/// Get the command by key
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
+		public async Task<ExternalProgramsModel> GetByKey(Guid key)
+		{
+			ExternalProgramsEntity result = await _UOW.GetObjectByKeyAsync<ExternalProgramsEntity>(key);
+			return result != null ? result.ToModel() : new ExternalProgramsModel();
+		}
 
 		/// <summary>
 		/// Get all notes
 		/// </summary>
 		/// <returns></returns>
-		/// <exception cref="NotImplementedException"></exception>
-		public async Task<List<ExternalProgramsEntity>> GetAll()
+		public async Task<List<ExternalProgramsModel>> GetAll()
 		{
 			return await _UOW.Query<ExternalProgramsEntity>()
+				.Select(s => s.ToModel())
 				.ToListAsync();
-		}
-
-
-		/// <summary>
-		/// Gets users notes
-		/// </summary>
-		/// <param name="userId"></param>
-		/// <returns></returns>
-		/// <exception cref="ArgumentException"></exception>
-		public async Task<List<ExternalProgramsModel>> GetUserExternalPrograms(Guid userId)
-		{
-			UsersEntity userDb = await _UOW.GetObjectByKeyAsync<UsersEntity>(userId);
-			if (userDb == null)
-				throw new ArgumentException("User id is invalid!");
-			List<ExternalProgramsModel> result = await _UOW.Query<ExternalProgramsEntity>()
-				.Where(w => w.User.Id == userDb.Id)
-				.Select(s=>s.ToModel())
-				.ToListAsync();
-			return result;
 		}
 
 		/// <summary>
@@ -142,7 +143,7 @@ namespace LifeLog.Data.Database.Queries
 				}
 
 				//Set saving
-				
+
 				externalProgramDB.Saving = true;
 
 				await _UOW.SaveAsync(externalProgramDB);

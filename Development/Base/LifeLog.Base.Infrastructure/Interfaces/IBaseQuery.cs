@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace LifeLog.Base.Infrastructure.Interfaces
 {
@@ -17,64 +18,52 @@ namespace LifeLog.Base.Infrastructure.Interfaces
 		string TableName { get; }
 
 		/// <summary>
-		/// Query Base
-		/// </summary>
-		IQueryable<Entity> QueryBase { get; }
-
-		/// <summary>
-		/// Checks if table exists
-		/// </summary>
-		/// <param name="message"></param>
-		/// <returns></returns>
-		bool TableExists(out string message);
-
-		/// <summary>
 		/// Checks if the object exists
 		/// </summary>
 		/// <param fName="key"></param>
 		/// <param fName="message"></param>
 		/// <returns></returns>
-		bool Exists(Key key, out string message);
+		Task<bool> Exists(Key key);
 
 		/// <summary>
 		/// Gets the entity by key
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		Object GetByKey(Key key, out string message);
+		Task<Object> GetByKey(Key key);
 
 		/// <summary>
 		/// Gets all entities
 		/// </summary>
 		/// <returns></returns>
-		List<Object> GetAll(out string message);
+		 Task<List<Object>> GetAll();
 
 		/// <summary>
 		/// Get's the last insert object
 		/// </summary>
 		/// <param name="message"></param>
 		/// <returns></returns>
-		Object GetLast(out string message);
+		Task<Object> GetLast();
 
 		/// <summary>
 		/// Save the object
 		/// </summary>
 		/// <param name="obj"></param>
 		/// <returns></returns>
-		bool Save(Object obj, out string message);
+		Task<bool> Save(Object obj);
 
 		/// <summary>
 		/// /// Duplicates the object by key and returns the duplicated
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		Object Duplicate(Key key, out string message);
+		Task<Object> Duplicate(Key key);
 
 		/// <summary>
 		/// Delete object by key
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		bool Delete(Key key, out string message);
+		Task<bool> Delete(Key key);
 	}
 }

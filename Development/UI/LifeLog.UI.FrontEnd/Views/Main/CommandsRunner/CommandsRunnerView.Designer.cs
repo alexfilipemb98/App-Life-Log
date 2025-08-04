@@ -267,7 +267,7 @@
 			// 
 			// bsCommands
 			// 
-			this.bsCommands.ObjectType = typeof(LifeLog.Data.Database.Entities.CommandsEntity);
+			this.bsCommands.ObjectType = typeof(LifeLog.Base.Models.CommandsModel);
 			// 
 			// tileView
 			// 
@@ -553,7 +553,7 @@
 			// bsExternalPrograms
 			// 
 			this.bsExternalPrograms.BindingBehavior = DevExpress.Xpo.CollectionBindingBehavior.AllowNone;
-			this.bsExternalPrograms.ObjectType = typeof(LifeLog.Data.Database.Entities.ExternalProgramsEntity);
+			this.bsExternalPrograms.ObjectType = typeof(LifeLog.Base.Models.ExternalProgramsModel);
 			// 
 			// htmlTemplate1
 			// 
@@ -661,7 +661,7 @@
 			// 
 			// bsCommandsEdit
 			// 
-			this.bsCommandsEdit.ObjectType = typeof(LifeLog.Data.Database.Entities.CommandsEntity);
+			this.bsCommandsEdit.ObjectType = typeof(LifeLog.Base.Models.CommandsModel);
 			// 
 			// teDescription
 			// 

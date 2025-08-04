@@ -1,6 +1,6 @@
 ﻿using DevExpress.Xpo;
+using LifeLog.Base.Models;
 using LifeLog.Data.Database.Entities;
-using LifeLog.Data.Database.Models;
 using System;
 
 namespace LifeLog.Data.Database.Mappers
@@ -8,14 +8,14 @@ namespace LifeLog.Data.Database.Mappers
 	/// <summary>
 	/// CommandsMapper class to convert between CommandsEntity and CommandsModel.
 	/// </summary>
-	public static class CommandsMapper
+	internal static class CommandsMapper
 	{
 		/// <summary>
 		/// CommandsEntity to CommandsModel mapper.
 		/// </summary>
 		/// <param name="entity"></param>
 		/// <returns></returns>
-		public static CommandsModel ToModel(this CommandsEntity entity)
+		internal static CommandsModel ToModel(this CommandsEntity entity)
 		{
 			if (entity == null) return null;
 
@@ -30,7 +30,9 @@ namespace LifeLog.Data.Database.Mappers
 				IsEnabled = entity.IsEnabled,
 				IdUser = entity.User?.Id ?? Guid.Empty,
 				IdExternalProgram = entity.ExternalProgram?.Id ?? Guid.Empty,
-				Icon = entity.Icon
+				IdImage = entity.ExternalProgram?.IdImage ?? Guid.Empty,
+				Icon = entity.Icon,
+				EditingMode = entity.Id != Guid.Empty
 			};
 		}
 
@@ -40,7 +42,7 @@ namespace LifeLog.Data.Database.Mappers
 		/// <param name="model"></param>
 		/// <param name="session"></param>
 		/// <returns></returns>
-		public static CommandsEntity ToEntity(this CommandsModel model, Session session)
+		internal static CommandsEntity ToEntity(this CommandsModel model, UnitOfWork session)
 		{
 			if (model == null) return null;
 
@@ -63,6 +65,7 @@ namespace LifeLog.Data.Database.Mappers
 			entity.IsEnabled = model.IsEnabled;
 			entity.User = user;
 			entity.ExternalProgram = program;
+			entity.EditingMode = model.EditingMode;
 
 			return entity;
 		}

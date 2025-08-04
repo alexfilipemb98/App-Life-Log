@@ -4,15 +4,14 @@
 	/// External Programs
 	/// </summary>
 	[DevExpress.Xpo.Persistent(@"ExternalPrograms")]
-	public class ExternalProgramsEntity : Bases.DataEntityBase
+	internal class ExternalProgramsEntity : Bases.DataEntityBase
 	{
-
 		#region MAIN
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public ExternalProgramsEntity()
+		internal ExternalProgramsEntity()
 		{
 		}
 
@@ -20,7 +19,7 @@
 		/// Constructor
 		/// </summary>
 		/// <param name="session"></param>
-		public ExternalProgramsEntity(DevExpress.Xpo.Session session) : base(session)
+		internal ExternalProgramsEntity(DevExpress.Xpo.Session session) : base(session)
 		{
 		}
 
@@ -34,7 +33,7 @@
 		[DevExpress.Xpo.Size(30)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(30)")]
-		public string Name { get; set; }
+		internal string Name { get; set; }
 
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
@@ -42,7 +41,7 @@
 		[DevExpress.Xpo.Size(5)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(5)")]
-		public string FileExtension { get; set; }
+		internal string FileExtension { get; set; }
 
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
@@ -50,30 +49,24 @@
 		[DevExpress.Xpo.Size(400)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(400)")]
-		public string PathToProgram { get; set; }
+		internal string PathToProgram { get; set; }
 
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.StringLength(150)]
 		[DevExpress.Xpo.Size(150)]
 		[DevExpress.Xpo.Nullable(true)]
 		[DevExpress.Xpo.DbType("NVARCHAR(150)")]
-		public string Arguments { get; set; }
+		internal string Arguments { get; set; }
 
 		#endregion
 
 		#region CLASS
 
 		[Base.Infrastructure.Attributes.Required]
-		[DevExpress.Xpo.Persistent(@"IdUser")]
-		[DevExpress.Xpo.Association(@"ExternalProgramsReferencesUsers")]
-		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
-		public UsersEntity User { get; set; }
-
-		[Base.Infrastructure.Attributes.Required]
 		[DevExpress.Xpo.Persistent(@"IdImage")]
 		[DevExpress.Xpo.Association(@"ExternalProgramsReferencesImages")]
 		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
-		public ImagesEntity Image { get; set; }
+		internal ImagesEntity Image { get; set; }
 
 		#endregion
 
@@ -82,7 +75,7 @@
 		private dynamic icon;
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[DevExpress.Xpo.NonPersistent]
-		public dynamic Icon
+		internal dynamic Icon
 		{
 			get
 			{
@@ -102,19 +95,14 @@
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[System.ComponentModel.ReadOnly(true)]
 		[DevExpress.Xpo.NonPersistent]
-		public System.Guid IdUser => User != null ? User.Id : System.Guid.Empty;
-
-		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
-		[System.ComponentModel.ReadOnly(true)]
-		[DevExpress.Xpo.NonPersistent]
-		public System.Guid IdImage => Image != null ? Image.Id : System.Guid.Empty;
+		internal System.Guid IdImage => Image != null ? Image.Id : System.Guid.Empty;
 
 		#endregion
 
 		#region ASSOCIATIONS
 
 		[DevExpress.Xpo.Association(@"CommandsReferencesExternalProgram")]
-		public System.Collections.Generic.IList<CommandsEntity> ExternalPrograms_Commands => GetList<CommandsEntity>(nameof(ExternalPrograms_Commands));
+		internal System.Collections.Generic.IList<CommandsEntity> ExternalPrograms_Commands => GetList<CommandsEntity>(nameof(ExternalPrograms_Commands));
 
 		#endregion
 	}

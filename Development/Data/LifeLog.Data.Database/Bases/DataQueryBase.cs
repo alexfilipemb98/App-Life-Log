@@ -1,5 +1,6 @@
 ﻿using DataService.Bases;
 using DevExpress.Xpo;
+using JDS.BASE.DapperUtil;
 using LifeLog.Base.Infrastructure.Enums;
 using Microsoft.Data.Sqlite;
 using System;
@@ -14,69 +15,24 @@ namespace LifeLog.Data.Database.Bases
 	/// <summary>
 	/// Base data query
 	/// </summary>
-	public class DataQueryBase : IDisposable
+	public class DataQueryBase
 	{
 		#region MAIN
 
 		//INTERNAL
 		internal readonly UnitOfWork _UOW;
-		internal readonly DataSqlAccessBase _SQL;
+		internal readonly SqlDataAccess _SQL;
 
 		//PRIVATE
 		private bool canDispose;
 
 		/// <summary>
-		/// Default constuctor
-		/// </summary>
-		public DataQueryBase()
-		{
-			canDispose = true;
-
-			_UOW = new UnitOfWork(Engine.Instance.DataLayer);
-			_SQL = new DataSqlAccessBase(Engine.Instance.Connection);
-		}
-
-		/// <summary>
 		/// Contructor internal
 		/// </summary>
-		public DataQueryBase(UnitOfWork uow, DataSqlAccessBase sql)
+		public DataQueryBase(UnitOfWork uow, SqlDataAccess sql)
 		{
-			canDispose = false;
-
 			_UOW = uow;
 			_SQL = sql;
-		}
-
-		/// <summary>
-		/// Contructor
-		/// </summary> 
-		public DataQueryBase(IDataLayer dataLayer, IDbConnection connection)
-		{
-			canDispose = true;
-
-			_UOW = new UnitOfWork(dataLayer);
-
-			if (connection != null)
-				_SQL = new DataSqlAccessBase(connection);
-		}
-
-		#endregion
-
-		#region FUNCTIONS
-
-		/// <summary>
-		/// Dispose conections
-		/// </summary>
-		public void Dispose()
-		{
-			if (canDispose)
-			{
-				_UOW?.Disconnect();
-				_UOW?.Dispose();
-
-				_SQL?.Disconect();
-				_SQL?.Dispose();
-			}
 		}
 
 		#endregion

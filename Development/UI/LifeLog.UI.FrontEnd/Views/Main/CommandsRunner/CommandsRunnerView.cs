@@ -3,6 +3,7 @@ using DevExpress.XtraDataLayout;
 using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraGrid.Views.Tile;
 using DevExpress.XtraSpellChecker.Native;
+using LifeLog.Base.Models;
 using LifeLog.Data.Database.Entities;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Helpers;
@@ -26,7 +27,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		#region MAIN
 
 		//PRIVATE
-		private CommandsEntity _crtCommands;
+		private CommandsModel _crtCommands;
 		private BindingSource _bs;
 
 		/// <summary>
@@ -43,7 +44,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private async void bbiRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		private async void bbiRefresh_ItemClick(object sender, ItemClickEventArgs e)
 		{
 			await LoadData();
 		}
@@ -53,7 +54,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void bbiNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		private void bbiNew_ItemClick(object sender, ItemClickEventArgs e)
 		{
 			ShowDetailView();
 		}
@@ -75,7 +76,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		/// <param name="e"></param>
 		private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
 		{
-			CommandsEntity command = ControlsHelper.GetObjectByRowHandle<CommandsEntity>(tileView, tileView.FocusedRowHandle);
+			CommandsModel command = ControlsHelper.GetObjectByRowHandle<CommandsModel>(tileView, tileView.FocusedRowHandle);
 			if (command != null)
 				ShowDetailView(command);
 		}
@@ -92,21 +93,21 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				lcEditValues.Focus();
 				_bs.EndEdit();
 
-				if (cbeProgram.GetSelectedDataRow() is ExternalProgramsEntity program)
-					_crtCommands.ExternalProgram = program;
+				if (cbeProgram.EditValue is Guid programId)
+					_crtCommands.IdExternalProgram = programId;
 
 				_crtCommands.Command = recMain.Text;
 
 				if (!Common.Helpers.ValidationHelper.ValidateModelAndSetError(_crtCommands, dxErrorProvider, lcEditValues))
 					return;
 
-				(bool saved, string message) = await AppSession.DataEngine.Commands.Save(_crtCommands, AppSession.CurrentUser.Id);
+				bool saved = await AppSession.DataEngine.Commands.Save(_crtCommands);
 
-				AppHelper.StatusMessage(message, saved);
+				AppHelper.StatusMessage("Saved", saved);
 
 				if (saved)
 				{
-					List<CommandsEntity> lista = bsCommands.DataSource as List<CommandsEntity>;
+					List<CommandsModel> lista = bsCommands.DataSource as List<CommandsModel>;
 
 					if (!lista.Any(w => w.Id == _crtCommands.Id))
 					{
@@ -146,7 +147,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		{
 			try
 			{
-				if (!(tileView.GetFocusedRow() is CommandsEntity model))
+				if (!(tileView.GetFocusedRow() is CommandsModel model))
 					return;
 
 				ExecuteFile(model);
@@ -166,11 +167,11 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void tileView_CustomItemTemplate(object sender, TileViewCustomItemTemplateEventArgs e)
+		private async void tileView_CustomItemTemplate(object sender, TileViewCustomItemTemplateEventArgs e)
 		{
 			try
 			{
-				CommandsEntity model = ControlsHelper.GetObjectByRowHandle<CommandsEntity>(tileView, e.RowHandle);
+				CommandsModel model = ControlsHelper.GetObjectByRowHandle<CommandsModel>(tileView, e.RowHandle);
 
 				if (model == null)
 					return;
@@ -180,12 +181,14 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 					model.IsEnabled ? "cardBorderEnabled"
 								  : "cardBorderDisabled");
 
-				ExternalProgramsEntity externalProgram = model.ExternalProgram;
-
-				if (externalProgram != null && externalProgram.Image != null)
+				ImagesModel iconData = await AppSession.DataEngine.Images.GetByKey(model.IdImage);
+				if (iconData == null)
 				{
-					ImagesEntity iconData = externalProgram.Image;
-
+					e.HtmlTemplate.Template = e.HtmlTemplate.Template.Replace("@@icon@@", string.Empty);
+					return;
+				}
+				else
+				{
 					if (iconData.IsSvg)
 						model.Icon = iconData.SvgImage;
 					else
@@ -212,14 +215,12 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		{
 			try
 			{
-				List<ExternalProgramsEntity> result = await AppSession.DataEngine.ExternalPrograms.GetUserExternalPrograms(AppSession.CurrentUser.Id);
+				List<ExternalProgramsModel> result = await AppSession.DataEngine.ExternalPrograms.GetAll();
 
-				result.Insert(0, new ExternalProgramsEntity
+				result.Insert(0, new ExternalProgramsModel
 				{
 					Id = Guid.Empty,
-					Image = null,
 					Icon = Resources.Properties.Resources.clearfilter,
-					Saving = false,
 				});
 
 				cbeProgram.Properties.DataSource = result.Where(w => w.Id != Guid.Empty);
@@ -244,7 +245,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		/// </summary>
 		/// <param name="command"></param>
 		/// <returns></returns>
-		private void ExecuteFile(CommandsEntity command, bool runInAdmin = false)
+		private void ExecuteFile(CommandsModel command, bool runInAdmin = false)
 		{
 			if (!command.IsEnabled)
 			{
@@ -252,7 +253,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				return;
 			}
 
-			Task.Run(() =>
+			Task.Run(async () =>
 			{
 				string batchFilePath = string.Empty;
 				string fileName = string.Empty;
@@ -265,7 +266,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 					batchFilePath = Path.Combine("Temp", $"temp_{Guid.NewGuid()}");
 
-					ExternalProgramsEntity program = command.ExternalProgram;
+					ExternalProgramsModel program = await AppSession.DataEngine.ExternalPrograms.GetByKey(command.IdExternalProgram);
 
 					program.FileExtension = program.FileExtension.Replace(".", string.Empty);
 					batchFilePath += $".{program.FileExtension}";
@@ -273,7 +274,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 					arguments = $"{program.Arguments} {batchFilePath}";
 
 					Encoding encoding = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
-				
+
 					File.WriteAllText(batchFilePath, command.Command, encoding);
 
 					ProcessStartInfo startInfo = new ProcessStartInfo
@@ -341,12 +342,12 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		/// Show detail view 
 		/// </summary>
 		/// <param name="command"></param>
-		private void ShowDetailView(CommandsEntity command = null)
+		private void ShowDetailView(CommandsModel command = null)
 		{
 			try
 			{
 				if (command == null)
-					command = new CommandsEntity();
+					command = new CommandsModel();
 
 				bbiNew.Visibility = BarItemVisibility.Never;
 				bbiSave.Visibility = BarItemVisibility.Always;
@@ -379,6 +380,6 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 		#endregion
 
-		
+
 	}
 }

@@ -211,6 +211,10 @@
       <Project>{DBD44F5F-F1CF-405A-A096-0F3369C03874}</Project>
       <Name>LifeLog.Base.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Base\LifeLog.Base.Models\LifeLog.Base.Models.csproj">
+      <Project>{573644AF-0C91-4C0D-BDA9-7427519A6961}</Project>
+      <Name>LifeLog.Base.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Base\LifeLog.Base.Utils\LifeLog.Base.Utils.csproj">
       <Project>{8a6700aa-97d0-4bd6-be44-72945801fb6b}</Project>
       <Name>LifeLog.Base.Utils</Name>

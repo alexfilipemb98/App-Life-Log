@@ -4,21 +4,21 @@
 	/// Versions Entity
 	/// </summary>
 	[DevExpress.Xpo.Persistent(@"Versions")]
-	public class VersionsEntity : Bases.DataEntityBase
+	internal class VersionsEntity : Bases.DataEntityBase
 	{
 		#region MAIN
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public VersionsEntity()
+		internal VersionsEntity()
 		{
 		}
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public VersionsEntity(DevExpress.Xpo.Session session) : base(session)
+		internal VersionsEntity(DevExpress.Xpo.Session session) : base(session)
 		{
 		}
 
@@ -29,7 +29,7 @@
 		[Base.Infrastructure.Attributes.Required]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
-		public System.Guid ProgramId { get; set; }
+		internal System.Guid ProgramId { get; set; }
 
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
@@ -38,7 +38,7 @@
 		[DevExpress.Xpo.Size(50)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(50)")]
-		public string Name { get; set; }
+		internal string Name { get; set; }
 
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
@@ -47,7 +47,7 @@
 		[DevExpress.Xpo.Size(20)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(20)")]
-		public string Version { get; set; }
+		internal string Version { get; set; }
 
 		#endregion
 	}

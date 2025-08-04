@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DataService.Bases;
+using JDS.BASE.DapperUtil;
 using LifeLog.Base.Infrastructure.Enums;
 using LifeLog.Base.Infrastructure.Models;
 using Microsoft.Data.SqlClient;
@@ -24,7 +25,7 @@ namespace LifeLog.Data.Database.Helpers
 		/// <returns></returns>
 		public static async Task<List<string>> GetDatabases(string connectionString)
 		{
-			using (DataSqlAccessBase dataAccess = new DataSqlAccessBase(connectionString))
+			using (SqlDataAccess dataAccess = new SqlDataAccess(connectionString))
 			{
 				return await dataAccess.LoadDataListAsync<string>("SELECT name FROM sys.databases WHERE name NOT IN ('master', 'tempdb', 'model', 'msdb')");
 			}
@@ -119,7 +120,7 @@ namespace LifeLog.Data.Database.Helpers
 		/// <returns></returns>
 		public static void CheckDatabaseExists(SqlConnectionStringBuilder builder, string databaseName)
 		{
-			using (DataSqlAccessBase connection = new DataSqlAccessBase(builder.ConnectionString))
+			using (SqlDataAccess connection = new SqlDataAccess(builder.ConnectionString))
 			{
 				string query = "SELECT COUNT(*) FROM sys.databases WHERE name = @dbName";
 

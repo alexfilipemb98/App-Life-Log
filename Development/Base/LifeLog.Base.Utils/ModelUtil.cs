@@ -35,7 +35,6 @@ namespace LifeLog.Base.Utils
 		/// </summary>
 		/// <param name="type"></param>
 		/// <returns></returns>
-		/// <exception cref="ArgumentNullException"></exception>
 		public static PropertyInfo GetModelKey(this Type type)
 		{
 			if (type == null)

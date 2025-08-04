@@ -1,8 +1,6 @@
-﻿using LifeLog.Data.Database.Bases;
-
-namespace LifeLog.Data.Database.Models
+﻿namespace LifeLog.Base.Models
 {
-	public class UsersModel : DataModelBase
+	public class UsersModel : Bases.DataModelBase
 	{
 		public string Username { get; set; }
 		public string Email { get; set; }
