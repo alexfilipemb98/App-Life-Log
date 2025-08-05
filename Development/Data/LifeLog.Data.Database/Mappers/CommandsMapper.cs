@@ -1,6 +1,7 @@
 ﻿using DevExpress.Xpo;
 using LifeLog.Base.Models;
 using LifeLog.Data.Database.Entities;
+using LifeLog.Data.Mappers;
 using System;
 
 namespace LifeLog.Data.Database.Mappers
@@ -28,9 +29,8 @@ namespace LifeLog.Data.Database.Mappers
 				Description = entity.Description,
 				Command = entity.Command,
 				IsEnabled = entity.IsEnabled,
-				IdUser = entity.User?.Id ?? Guid.Empty,
-				IdExternalProgram = entity.ExternalProgram?.Id ?? Guid.Empty,
-				IdImage = entity.ExternalProgram?.IdImage ?? Guid.Empty,
+				User = entity.User.ToModel(),
+				ExternalProgram = entity.ExternalProgram.ToModel(),
 				Icon = entity.Icon,
 				EditingMode = entity.Id != Guid.Empty
 			};
@@ -46,8 +46,8 @@ namespace LifeLog.Data.Database.Mappers
 		{
 			if (model == null) return null;
 
-			UsersEntity user = session.GetObjectByKey<UsersEntity>(model.IdUser);
-			ExternalProgramsEntity program = session.GetObjectByKey<ExternalProgramsEntity>(model.IdExternalProgram);
+			UsersEntity user = model.User.ToEntity(session);
+			ExternalProgramsEntity program = model.ExternalProgram.ToEntity(session);
 
 			CommandsEntity entity = session.GetObjectByKey<CommandsEntity>(model.Id);
 			
@@ -56,6 +56,7 @@ namespace LifeLog.Data.Database.Mappers
 				entity = new CommandsEntity(session);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				entity.CreatedAt = model.CreatedAt;
+				model.Id = entity.Id;
 			}
 
 			entity.UpdatedAt = model.UpdatedAt;

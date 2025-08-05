@@ -46,6 +46,7 @@ namespace LifeLog.Data.Database.Mappers
 				entity = new VersionsEntity(session);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				entity.CreatedAt = model.CreatedAt;
+				model.Id = entity.Id;
 			}
 
 			entity.UpdatedAt = model.UpdatedAt;

@@ -25,16 +25,6 @@
 
 		#endregion
 
-		#region CLASS
-
-		[Base.Infrastructure.Attributes.Required]
-		[DevExpress.Xpo.Persistent(@"IdUser")]
-		[DevExpress.Xpo.Association(@"ImagesReferencesUsers")]
-		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
-		internal UsersEntity User { get; set; }
-
-		#endregion
-
 		#region PROPERTIES
 
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
@@ -62,11 +52,6 @@
 		#endregion
 
 		#region PROPERTIES NOT MAPED
-
-		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
-		[System.ComponentModel.ReadOnly(true)]
-		[DevExpress.Xpo.NonPersistent]
-		internal System.Guid IdUser => User != null ? User.Id : System.Guid.Empty;
 
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[System.ComponentModel.ReadOnly(true)]

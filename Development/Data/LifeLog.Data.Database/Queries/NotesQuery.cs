@@ -1,8 +1,10 @@
-﻿using DataService.Bases;
-using DevExpress.Xpo;
+﻿using DevExpress.Xpo;
+using JDS.BASE.DapperUtil;
+using LifeLog.Base.Models;
 using LifeLog.Base.Utils;
 using LifeLog.Data.Database.Bases;
 using LifeLog.Data.Database.Entities;
+using LifeLog.Data.Database.Mappers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,33 +16,67 @@ namespace LifeLog.Data.Database.Queries
 	/// <summary>
 	/// Notes data query
 	/// </summary>
-	public class NotesQuery : DataQueryBase
+	public class NotesQuery : DataQueryBase<NotesEntity, NotesModel, Guid>
 	{
 		#region MAIN
-
-		/// <summary>
-		/// Default Constructor
-		/// </summary>
-		public NotesQuery() : base()
-		{
-		}
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		/// <param name="uow"></param>
 		/// <param name="sql"></param>
-		public NotesQuery(UnitOfWork uow, DataSqlAccessBase sql) : base(uow, sql)
+		public NotesQuery(UnitOfWork uow, SqlDataAccess sql) : base(uow, sql)
 		{
 		}
 
+		#endregion
+
+		#region BASE
+
 		/// <summary>
-		/// Data layer e outro constructor
+		/// Get the command by key
 		/// </summary>
-		/// <param name="dataLayer"></param>
-		/// <param name="connection"></param>
-		public NotesQuery(IDataLayer dataLayer, IDbConnection connection) : base(dataLayer, connection)
+		/// <param name="key"></param>
+		/// <returns></returns>
+		public override async Task<NotesModel> GetByKey(Guid key)
 		{
+			NotesEntity result = await _UOW.GetObjectByKeyAsync<NotesEntity>(key);
+			return result != null ? result.ToModel() : new NotesModel();
+		}
+
+		/// <summary>
+		/// Get all notes
+		/// </summary>
+		/// <returns></returns>
+		public override async Task<List<NotesModel>> GetAll()
+		{
+			List<NotesModel> resutls = await _UOW.Query<NotesEntity>()
+				   .Select(s => s.ToModel())
+				   .ToListAsync();
+			return resutls ?? new List<NotesModel>();
+		}
+
+		/// <summary>
+		/// Save the notes
+		/// </summary>
+		/// <param name="model"></param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentNullException"></exception>
+		public override async Task<bool> Save(NotesModel model)
+		{
+			bool isvalid = await base.Save(model);
+
+			NotesEntity entity = model.ToEntity(_UOW);
+
+			if (entity == null)
+				throw new ArgumentNullException("Notes entity is null");
+
+			entity.Saving = true;
+
+			await _UOW.SaveAsync(entity);
+			await _UOW.CommitChangesAsync();
+
+			return await Exists(model.Id);
 		}
 
 		#endregion
@@ -53,13 +89,18 @@ namespace LifeLog.Data.Database.Queries
 		/// <param name="userId"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentException"></exception>
-		public async Task<List<NotesEntity>> GetUserNotes(Guid userId)
+		public async Task<List<NotesModel>> GetUserNotes(Guid userId)
 		{
 			UsersEntity userDb = await _UOW.GetObjectByKeyAsync<UsersEntity>(userId);
 			if (userDb == null)
 				throw new ArgumentException("User id is invalid!");
 
-			return await _UOW.Query<NotesEntity>().Where(w => w.User.Id == userDb.Id).ToListAsync();
+			List<NotesModel> results = await _UOW.Query<NotesEntity>()
+				.Where(w => w.User.Id == userDb.Id)
+				.Select(s => s.ToModel())
+				.ToListAsync();
+
+			return results ?? new List<NotesModel>();
 		}
 
 		/// <summary>
@@ -68,115 +109,14 @@ namespace LifeLog.Data.Database.Queries
 		/// <param name="notesList"></param>
 		/// <param name="userId"></param>
 		/// <returns></returns>
-		public async Task<(bool, string)> SaveList(List<NotesEntity> notesList, Guid userId)
+		public async Task<bool> SaveList(List<NotesModel> notesList)
 		{
-			using (DataQueryBase query = new DataQueryBase())
+			bool saved = false;
+			foreach (NotesModel obj in notesList)
 			{
-				foreach (NotesEntity obj in notesList)
-				{
-					await Save(obj, userId);
-				}
-
-				return (true, "Notes have been saved!");
+				saved = await Save(obj);
 			}
-		}
-
-		#endregion
-
-		#region GLOBAL
-
-		/// <summary>
-		/// Get all notes
-		/// </summary>
-		/// <returns></returns>
-		/// <exception cref="NotImplementedException"></exception>
-		public async Task<List<NotesEntity>> GetAll()
-		{
-			return await _UOW.Query<NotesEntity>()
-					.ToListAsync();
-		}
-
-		/// <summary>
-		/// Get note by id
-		/// </summary>
-		/// <param name="id"></param>
-		/// <returns></returns>
-		public async Task<NotesEntity> GetByKey(Guid id)
-		{
-			if (id == Guid.Empty)
-				throw new ArgumentNullException("Notes is inválid!");
-
-			return await _UOW.GetObjectByKeyAsync<NotesEntity>(id);
-		}
-
-		/// <summary>
-		/// Save the notes by user
-		/// </summary>
-		/// <param name="note"></param>
-		/// <param name="userId"></param>
-		/// <returns></returns>
-		/// <exception cref="ArgumentNullException"></exception>
-		/// <exception cref="ArgumentException"></exception>
-		public async Task<(bool, string)> Save(NotesEntity note, Guid userId)
-		{
-			if (note == null)
-				throw new ArgumentNullException("Notes model is null");
-
-			UsersEntity userDb = await _UOW.GetObjectByKeyAsync<UsersEntity>(userId);
-
-			if (userDb == null)
-				throw new ArgumentException("User id is invalid!");
-
-			NotesEntity noteDB = await _UOW.GetObjectByKeyAsync<NotesEntity>(note.Id);
-
-			if (!note.EditingMode || noteDB == null)
-			{
-				noteDB = new NotesEntity(_UOW);
-				note.Id = Guid.NewGuid();
-				noteDB.Id = note.Id;
-			}
-
-			note.User = userDb;
-
-			note.MapTo(noteDB);
-
-			//Class
-			noteDB.User = userDb;
-
-			//Set saving
-			noteDB.Saving = true;
-
-			await _UOW.SaveAsync(noteDB);
-			await _UOW.CommitChangesAsync();
-
-			return (true, "Note as been saved!"); ;
-		}
-
-		/// <summary>
-		/// Delete the notes
-		/// </summary>
-		/// <param name="id"></param>
-		/// <returns></returns>
-		/// <exception cref="NotImplementedException"></exception>
-		public async Task<(bool deleted, string message)> Delete(Guid id)
-		{
-
-			if (id == Guid.Empty)
-				throw new ArgumentNullException("Notes is inválid!");
-
-			NotesEntity noteDb = await _UOW.GetObjectByKeyAsync<NotesEntity>(id);
-
-			if (noteDb == null)
-				throw new ArgumentException("Note does not exists!");
-
-			noteDb.User = null;
-
-			await _UOW.DeleteAsync(noteDb);
-			await _UOW.CommitChangesAsync();
-
-			noteDb = await _UOW.GetObjectByKeyAsync<NotesEntity>(id);
-
-			return (noteDb == null, noteDb == null ? "Note was been deleted" : "Fail to delete note!");
+			return saved;
 		}
 
 		#endregion

@@ -8,6 +8,7 @@ using LifeLog.Data.Database.Entities;
 using LifeLog.Data.Database.Mappers;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,22 +19,9 @@ namespace LifeLog.Data.Database.Queries
 	/// <summary>
 	/// Images data query
 	/// </summary>
-	public class ExternalProgramsQuery : DataQueryBase, IBaseQuery<ExternalProgramsEntity, ExternalProgramsModel, Guid>
+	public class ExternalProgramsQuery : DataQueryBase<ExternalProgramsEntity, ExternalProgramsModel, Guid>
 	{
 		#region MAIN
-
-		//PROPERTIES
-		public string TableName
-		{
-			get
-			{
-				PersistentAttribute attr = (PersistentAttribute)typeof(ExternalProgramsEntity)
-					.GetCustomAttributes(typeof(PersistentAttribute), inherit: false)
-					.FirstOrDefault();
-
-				return attr?.MapTo;
-			}
-		}
 
 		/// <summary>
 		/// Constructor
@@ -49,23 +37,11 @@ namespace LifeLog.Data.Database.Queries
 		#region BASE
 
 		/// <summary>
-		/// Ches if the command exists
+		/// Get the model by key
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public async Task<bool> Exists(Guid key)
-		{
-			string sql = $"SELECT COUNT(*) FROM {TableName} WHERE Id = @Id";
-			int count = await _SQL.GetValueAsync<int, object>(sql, new { Id = key });
-			return count > 0;
-		}
-
-		/// <summary>
-		/// Get the command by key
-		/// </summary>
-		/// <param name="key"></param>
-		/// <returns></returns>
-		public async Task<ExternalProgramsModel> GetByKey(Guid key)
+		public override async Task<ExternalProgramsModel> GetByKey(Guid key)
 		{
 			ExternalProgramsEntity result = await _UOW.GetObjectByKeyAsync<ExternalProgramsEntity>(key);
 			return result != null ? result.ToModel() : new ExternalProgramsModel();
@@ -75,97 +51,61 @@ namespace LifeLog.Data.Database.Queries
 		/// Get all notes
 		/// </summary>
 		/// <returns></returns>
-		public async Task<List<ExternalProgramsModel>> GetAll()
+		public override async Task<List<ExternalProgramsModel>> GetAll()
 		{
-			return await _UOW.Query<ExternalProgramsEntity>()
-				.Select(s => s.ToModel())
-				.ToListAsync();
+			List<ExternalProgramsModel> results = await _UOW.Query<ExternalProgramsEntity>()
+				   .Select(s => s.ToModel())
+				   .ToListAsync();
+			return results ?? new List<ExternalProgramsModel>();
 		}
 
 		/// <summary>
-		/// Get the last command on the database
+		/// Save the model object
 		/// </summary>
-		/// <returns></returns>
-		public async Task<ExternalProgramsModel> GetLast()
-		{
-			string sql = $"SELECT TOP 1 * FROM {TableName} ORDER BY CreatedAt DESC";
-			ExternalProgramsModel command = await _SQL.GetValueAsync<ExternalProgramsModel>(sql);
-			return command ?? new ExternalProgramsModel();
-		}
-
-		/// <summary>
-		/// Save the externalProgram object
-		/// </summary>
-		/// <param name="externalProgram"></param>
+		/// <param name="model"></param>
 		/// <param name="userId"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException"></exception>
 		/// <exception cref="ArgumentException"></exception>
-		public async Task<bool> Save(ExternalProgramsModel externalProgram)
+		public override async Task<bool> Save(ExternalProgramsModel model)
 		{
-			try
-			{
-				if (externalProgram == null)
-					throw new ArgumentNullException("Notes model is null");
+			bool isvalid = await base.Save(model);
 
-				UsersEntity userDb = await _UOW.GetObjectByKeyAsync<UsersEntity>(userId);
+			ExternalProgramsEntity entity = model.ToEntity(_UOW);
 
-				if (userDb == null)
-					throw new ArgumentException("User id is invalid!");
+			if (entity == null)
+				throw new ArgumentNullException("External Programs entity is null");
 
-				ExternalProgramsEntity externalProgramDB = await _UOW.GetObjectByKeyAsync<ExternalProgramsEntity>(externalProgram.Id);
+			//Set saving
+			entity.Saving = true;
 
-				if (!externalProgram.EditingMode || externalProgramDB == null)
-				{
-					externalProgramDB = new ExternalProgramsEntity(_UOW);
-					externalProgram.Id = Guid.NewGuid();
-					externalProgramDB.Id = externalProgram.Id;
-				}
+			if (entity.Image != null)
+				entity.Image.Saving = true;
 
-				externalProgram.User = userDb;
+			await _UOW.SaveAsync(entity);
+			await _UOW.CommitChangesAsync();
 
-				externalProgram.MapTo(externalProgramDB);
+			return await Exists(model.Id);
+		}
 
-				//Class
-				externalProgramDB.User = userDb;
+		/// <summary>
+		/// Duplicates the model by key and returns the duplicated model
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
+		public override async Task<ExternalProgramsModel> Duplicate(Guid key)
+		{
+			ExternalProgramsModel model = await base.Duplicate(key);
+			ExternalProgramsEntity entity = model.ToEntity(_UOW);
 
-				if (externalProgram.Image == null || externalProgram.Image.Data == null)
-				{
-					externalProgramDB.Image = null;
-				}
-				else
-				{
-					ImagesEntity imgDB = await _UOW.GetObjectByKeyAsync<ImagesEntity>(externalProgram.IdImage);
+			entity.Id = Guid.NewGuid();
+			model.Id = entity.Id;
+			entity.Saving = true;
 
-					if (!externalProgram.Image.EditingMode || imgDB == null)
-					{
-						imgDB = new ImagesEntity(_UOW);
-						externalProgram.Image.Id = Guid.NewGuid();
-						imgDB.Id = externalProgram.Image.Id;
-					}
+			await _UOW.SaveAsync(model);
+			await _UOW.CommitChangesAsync();
 
-					externalProgram.Image.User = userDb;
-
-					externalProgram.Image.MapTo(imgDB);
-
-					externalProgramDB.Image = imgDB;
-
-					externalProgramDB.Image.Saving = true;
-				}
-
-				//Set saving
-
-				externalProgramDB.Saving = true;
-
-				await _UOW.SaveAsync(externalProgramDB);
-				await _UOW.CommitChangesAsync();
-
-				return (true, "Note as been saved!");
-			}
-			finally
-			{
-				_UOW.RollbackTransaction();
-			}
+			return model;
 		}
 
 		#endregion

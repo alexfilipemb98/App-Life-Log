@@ -93,8 +93,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				lcEditValues.Focus();
 				_bs.EndEdit();
 
-				if (cbeProgram.EditValue is Guid programId)
-					_crtCommands.IdExternalProgram = programId;
+				if (cbeProgram.GetSelectedDataRow() is ExternalProgramsModel program)
+					_crtCommands.ExternalProgram = program;
 
 				_crtCommands.Command = recMain.Text;
 
@@ -167,7 +167,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private async void tileView_CustomItemTemplate(object sender, TileViewCustomItemTemplateEventArgs e)
+		private void tileView_CustomItemTemplate(object sender, TileViewCustomItemTemplateEventArgs e)
 		{
 			try
 			{
@@ -181,7 +181,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 					model.IsEnabled ? "cardBorderEnabled"
 								  : "cardBorderDisabled");
 
-				ImagesModel iconData = await AppSession.DataEngine.Images.GetByKey(model.IdImage);
+				ImagesModel iconData = model.ExternalProgram.Image;
 				if (iconData == null)
 				{
 					e.HtmlTemplate.Template = e.HtmlTemplate.Template.Replace("@@icon@@", string.Empty);
@@ -266,12 +266,13 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 					batchFilePath = Path.Combine("Temp", $"temp_{Guid.NewGuid()}");
 
-					ExternalProgramsModel program = await AppSession.DataEngine.ExternalPrograms.GetByKey(command.IdExternalProgram);
+					if (command.ExternalProgram == null)
+						throw new ArgumentNullException("External program is not defined for this command.");
 
-					program.FileExtension = program.FileExtension.Replace(".", string.Empty);
-					batchFilePath += $".{program.FileExtension}";
-					fileName = program.PathToProgram;
-					arguments = $"{program.Arguments} {batchFilePath}";
+					command.ExternalProgram.FileExtension = command.ExternalProgram.FileExtension.Replace(".", string.Empty);
+					batchFilePath += $".{command.ExternalProgram.FileExtension}";
+					fileName = command.ExternalProgram.PathToProgram;
+					arguments = $"{command.ExternalProgram.Arguments} {batchFilePath}";
 
 					Encoding encoding = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
 
@@ -365,7 +366,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 				lcEditValues.DataSource = _bs;
 
-				cbeProgram.EditValue = command.IdExternalProgram;
+				cbeProgram.EditValue = command.ExternalProgram?.Id;
 				recMain.Text = command.Command;
 			}
 			catch (Exception ex)
@@ -379,7 +380,5 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 
 		#endregion
-
-
 	}
 }

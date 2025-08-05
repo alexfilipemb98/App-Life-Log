@@ -66,9 +66,6 @@
 		[DevExpress.Xpo.Association(@"NotesReferencesUsers")]
 		internal System.Collections.Generic.IList<NotesEntity> User_Notes => GetList<NotesEntity>(nameof(User_Notes));
 
-		[DevExpress.Xpo.Association(@"ImagesReferencesUsers")]
-		internal System.Collections.Generic.IList<ImagesEntity> User_Images => GetList<ImagesEntity>(nameof(User_Images));
-
 		[DevExpress.Xpo.Association(@"CommandsReferencesUsers")]
 		internal System.Collections.Generic.IList<CommandsEntity> User_Commands => GetList<CommandsEntity>(nameof(User_Commands));
 

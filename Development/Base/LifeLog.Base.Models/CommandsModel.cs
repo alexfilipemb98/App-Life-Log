@@ -6,9 +6,8 @@
 		public string Description { get; set; }
 		public string Command { get; set; }
 		public bool IsEnabled { get; set; }
-		public System.Guid IdUser { get; set; }
-		public System.Guid IdExternalProgram { get; set; }
-		public System.Guid IdImage { get; set; }
+		public UsersModel User { get; set; }
+		public ExternalProgramsModel ExternalProgram { get; set; }
 		public dynamic Icon { get; set; }
 	}
 }

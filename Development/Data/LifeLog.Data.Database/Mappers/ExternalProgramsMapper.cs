@@ -28,7 +28,7 @@ namespace LifeLog.Data.Database.Mappers
 				FileExtension = entity.FileExtension,
 				PathToProgram = entity.PathToProgram,
 				Arguments = entity.Arguments,
-				IdImage = entity.Image?.Id ?? Guid.Empty,
+				Image = entity.Image.ToModel(),
 				Icon = entity.Icon
 			};
 		}
@@ -43,7 +43,7 @@ namespace LifeLog.Data.Database.Mappers
 		{
 			if (model == null) return null;
 
-			ImagesEntity image = session.GetObjectByKey<ImagesEntity>(model.IdImage);
+			ImagesEntity image = model.Image.ToEntity(session);
 
 			ExternalProgramsEntity entity = session.GetObjectByKey<ExternalProgramsEntity>(model.Id);
 			if (entity == null)
@@ -51,6 +51,7 @@ namespace LifeLog.Data.Database.Mappers
 				entity = new ExternalProgramsEntity(session);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				entity.CreatedAt = model.CreatedAt;
+				model.Id = entity.Id;
 			}
 
 			entity.UpdatedAt = model.UpdatedAt;

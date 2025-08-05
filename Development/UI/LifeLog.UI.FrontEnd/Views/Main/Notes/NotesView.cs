@@ -1,10 +1,8 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
-using DevExpress.XtraRichEdit;
 using DevExpress.XtraTab;
 using LifeLog.Base.Components;
-using LifeLog.Data.Database.Entities;
-using LifeLog.Data.Database.Queries;
+using LifeLog.Base.Models;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Forms.Dialog;
 using LifeLog.UI.Common.Helpers;
@@ -51,8 +49,9 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 				if (form != DialogResult.OK)
 					return;
 
-				NotesEntity note = new NotesEntity();
+				NotesModel note = new NotesModel();
 				note.Title = nameNote;
+				note.User = AppSession.CurrentUser;
 
 				await AppSession.DataEngine.Notes.Save(note, AppSession.CurrentUser.Id);
 
@@ -192,7 +191,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 					}
 				}
 
-				(bool saved, string message) = await AppSession.DataEngine.Notes.SaveList(_notesList, AppSession.CurrentUser.Id);
+				(bool saved, string message) = await AppSession.DataEngine.Notes.SaveList(_notesList);
 
 				AppHelper.StatusMessage(message, saved);
 				return saved;

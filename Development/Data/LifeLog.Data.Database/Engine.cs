@@ -1,5 +1,4 @@
-﻿using DataService.Bases;
-using DevExpress.Xpo;
+﻿using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
 using DevExpress.Xpo.Metadata;
 using JDS.BASE.DapperUtil;

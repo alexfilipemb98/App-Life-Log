@@ -2,8 +2,10 @@
 using JDS.BASE.DapperUtil;
 using LifeLog.Base.Infrastructure.Interfaces;
 using LifeLog.Base.Models;
+using LifeLog.Base.Utils;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -69,7 +71,12 @@ namespace LifeLog.Data.Database.Bases
 		/// <exception cref="NotImplementedException"></exception>
 		public virtual async Task<Object> GetByKey(Guid key)
 		{
-			throw new NotImplementedException("GetByKey method is not implemented in the base class. Please implement it in the derived class.");
+			string sql = $"SELECT * FROM {TableName} WHERE Id = @Id";
+			Object result = await _SQL.GetValueAsync<Object, object>(sql, new { Id = key });
+			if (result == null)
+				throw new ArgumentException($"No object found with key {key}");
+
+			return result;
 		}
 
 		/// <summary>
@@ -79,7 +86,9 @@ namespace LifeLog.Data.Database.Bases
 		/// <exception cref="NotImplementedException"></exception>
 		public virtual async Task<List<Object>> GetAll()
 		{
-			throw new NotImplementedException("GetAll method is not implemented in the base class. Please implement it in the derived class.");
+			string sql = $"SELECT * FROM {TableName}";
+			List<Object> results = await _SQL.LoadDataListAsync<Object>(sql);
+			return results ?? new List<Object>();
 		}
 
 		/// <summary>
@@ -101,7 +110,16 @@ namespace LifeLog.Data.Database.Bases
 		/// <exception cref="NotImplementedException"></exception>
 		public virtual async Task<bool> Save(Object model)
 		{
-			throw new NotImplementedException("Save method is not implemented in the base class. Please implement it in the derived class.");
+			bool isValid = model == null;
+
+			if (!isValid)
+				throw new ArgumentNullException("Notes model is null");
+
+			isValid = model.ValidateModel(out List<ValidationResult> validationResults);
+			if (!isValid)
+				throw new Exception("Model is not valid: " + string.Join(", ", validationResults.Select(v => v.ErrorMessage)));
+
+			return isValid;
 		}
 
 		/// <summary>
@@ -112,7 +130,14 @@ namespace LifeLog.Data.Database.Bases
 		/// <exception cref="NotImplementedException"></exception>
 		public virtual async Task<Object> Duplicate(Guid key)
 		{
-			throw new NotImplementedException("Duplicate method is not implemented in the base class. Please implement it in the derived class.");
+			string sql = $"SELECT * FROM {TableName} WHERE Id = @Id";
+			Object original = await _SQL.GetValueAsync<Object, object>(sql, new { Id = key });
+			if (original == null)
+				throw new ArgumentException($"No object found with key {key}");
+
+			Object duplicate = (Object)Activator.CreateInstance(typeof(Object), original);
+
+			return duplicate;
 		}
 
 		/// <summary>
@@ -123,7 +148,9 @@ namespace LifeLog.Data.Database.Bases
 		/// <exception cref="NotImplementedException"></exception>
 		public virtual async Task<bool> Delete(Guid key)
 		{
-			throw new NotImplementedException("Delete method is not implemented in the base class. Please implement it in the derived class.");
+			string sql = $"DELETE FROM {TableName} WHERE Id = @Id";
+			int rowsAffected = await _SQL.SaveDataAsync(sql, new { Id = key });
+			return rowsAffected > 0;
 		}
 
 		#endregion

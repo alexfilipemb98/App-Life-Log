@@ -2,6 +2,7 @@
 using JDS.BASE.DapperUtil;
 using LifeLog.Base.Infrastructure.Interfaces;
 using LifeLog.Base.Models;
+using LifeLog.Base.Utils;
 using LifeLog.Data.Database.Bases;
 using LifeLog.Data.Database.Entities;
 using LifeLog.Data.Database.Mappers;
@@ -34,7 +35,7 @@ namespace LifeLog.Data.Database.Queries
 		#region BASE
 
 		/// <summary>
-		/// Get the command by key
+		/// Get the entity by key
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
@@ -67,66 +68,44 @@ namespace LifeLog.Data.Database.Queries
 		/// <exception cref="ArgumentException"></exception>
 		public override async Task<bool> Save(CommandsModel model)
 		{
-			if (model == null)
-				throw new ArgumentNullException("Notes model is null");
+			bool isvalid = await base.Save(model);
 
-			UsersEntity userDb = await _UOW.GetObjectByKeyAsync<UsersEntity>(model.IdUser);
+			CommandsEntity entity = model.ToEntity(_UOW);
 
-			if (userDb == null)
-				throw new ArgumentException("User id is invalid!");
-
-			CommandsEntity commandDB = model.ToEntity(_UOW);
-
-			if (commandDB == null)
+			if (entity == null)
 				throw new ArgumentNullException("Command entity is null");
 
-			//Set saving
-			commandDB.Saving = true;
+			if (entity.User == null)
+				throw new ArgumentException("User id is invalid!");
 
-			await _UOW.SaveAsync(commandDB);
+			//Set saving
+			entity.Saving = true;
+
+			await _UOW.SaveAsync(entity);
 			await _UOW.CommitChangesAsync();
 
 			return await Exists(model.Id);
 		}
 
 		/// <summary>
-		/// Duplicates the command by key and returns the duplicated command
+		/// Duplicates the entity by key and returns the duplicated entity
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentException"></exception>
 		public override async Task<CommandsModel> Duplicate(Guid key)
 		{
-			CommandsEntity command = await _UOW.GetObjectByKeyAsync<CommandsEntity>(key);
-			if (command == null)
-				throw new ArgumentException("Command id is invalid!");
+			CommandsModel model = await base.Duplicate(key);
+			CommandsEntity entity = model.ToEntity(_UOW);
 
-			command.Id = Guid.NewGuid();
-			command.Saving = true;
+			entity.Id = Guid.NewGuid();
+			model.Id = entity.Id;
+			entity.Saving = true;
 
-			await _UOW.SaveAsync(command);
+			await _UOW.SaveAsync(model);
 			await _UOW.CommitChangesAsync();
 
-			return command.ToModel();
-		}
-
-		/// <summary>
-		/// Deletes the command by key
-		/// </summary>
-		/// <param name="key"></param>
-		/// <returns></returns>
-		/// <exception cref="ArgumentException"></exception>
-		public override async Task<bool> Delete(Guid key)
-		{
-			CommandsEntity command = await _UOW.GetObjectByKeyAsync<CommandsEntity>(key);
-
-			if (command == null)
-				throw new ArgumentException("Command id is invalid!");
-
-			await _UOW.DeleteAsync(command);
-			await _UOW.CommitChangesAsync();
-
-			return !await Exists(key);
+			return model;
 		}
 
 		#endregion
@@ -141,12 +120,12 @@ namespace LifeLog.Data.Database.Queries
 		/// <exception cref="ArgumentException"></exception>
 		public async Task<List<CommandsModel>> GetUserCommands(Guid userId)
 		{
-			UsersEntity userDb = await _UOW.GetObjectByKeyAsync<UsersEntity>(userId);
-			if (userDb == null)
+			UsersEntity userEntity = await _UOW.GetObjectByKeyAsync<UsersEntity>(userId);
+			if (userEntity == null)
 				throw new ArgumentException("User id is invalid!");
 
 			List<CommandsModel> resuls = await _UOW.Query<CommandsEntity>()
-				.Where(w => w.User.Id == userDb.Id)
+				.Where(w => w.User.Id == userEntity.Id)
 				.Select(s => s.ToModel())
 				.ToListAsync();
 

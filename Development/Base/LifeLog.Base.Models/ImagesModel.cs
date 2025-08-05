@@ -5,7 +5,6 @@
 		public string Name { get; set; }
 		public byte[] Data { get; set; }
 		public string FileExtension { get; set; }
-		public System.Guid IdUser { get; set; }
 		
 		public bool IsSvg => FileExtension == null ? false : FileExtension.EndsWith("svg", System.StringComparison.InvariantCultureIgnoreCase);
 		public DevExpress.Utils.Svg.SvgImage SvgImage => Data != null && Data.Length > 0 && IsSvg ? Utils.ImagesUtil.ArrayToSvgImage(Data) : null;

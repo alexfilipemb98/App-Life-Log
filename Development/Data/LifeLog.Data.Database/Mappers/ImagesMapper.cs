@@ -43,13 +43,13 @@ namespace LifeLog.Data.Database.Mappers
 		{
 			if (model == null) return null;
 
-			UsersEntity user = session.GetObjectByKey<UsersEntity>(model.IdUser);
-
 			ImagesEntity entity = session.GetObjectByKey<ImagesEntity>(model.Id);
+			
 			if (entity == null)
 			{
 				entity = new ImagesEntity(session);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
+				model.Id = entity.Id;
 				entity.CreatedAt = model.CreatedAt;
 			}
 
@@ -57,7 +57,6 @@ namespace LifeLog.Data.Database.Mappers
 			entity.Name = model.Name;
 			entity.Data = model.Data;
 			entity.FileExtension = model.FileExtension;
-			entity.User = user;
 
 			return entity;
 		}
