@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeLog.Base.Components", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeLog.Base.Utils", "Base\LifeLog.Base.Utils\LifeLog.Base.Utils.csproj", "{8A6700AA-97D0-4BD6-BE44-72945801FB6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeLog.Base.DapperUtil", "Base\LifeLog.Base.DapperUtil\LifeLog.Base.DapperUtil.csproj", "{C459304D-2305-4A4F-9150-56637E9FFFAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{8A6700AA-97D0-4BD6-BE44-72945801FB6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A6700AA-97D0-4BD6-BE44-72945801FB6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A6700AA-97D0-4BD6-BE44-72945801FB6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C459304D-2305-4A4F-9150-56637E9FFFAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C459304D-2305-4A4F-9150-56637E9FFFAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C459304D-2305-4A4F-9150-56637E9FFFAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C459304D-2305-4A4F-9150-56637E9FFFAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,6 +104,7 @@ Global
 		{D5AA12CB-C4D7-4660-9F32-AE6F4D7F8B7F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{1464E310-F6F8-4CC5-B313-FC1B71219F0B} = {BEA53065-42F0-4D53-B04D-2F441101C52D}
 		{8A6700AA-97D0-4BD6-BE44-72945801FB6B} = {BEA53065-42F0-4D53-B04D-2F441101C52D}
+		{C459304D-2305-4A4F-9150-56637E9FFFAF} = {BEA53065-42F0-4D53-B04D-2F441101C52D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {419DD50C-E3AC-47AE-8E13-0BDA2B23FE05}

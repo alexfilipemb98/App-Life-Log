@@ -9,6 +9,7 @@ using LifeLog.Data.Database.Helpers;
 using LifeLog.Data.Database.Queries;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
+using SQLitePCL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -55,6 +56,8 @@ namespace LifeLog.Data.Database
 
 			if (string.IsNullOrWhiteSpace(connectionString))
 				throw new ArgumentNullException("Connection string is inválid!");
+
+			Batteries_V2.Init();
 
 			DbHelper.SqlLiteBackUp(config);
 
