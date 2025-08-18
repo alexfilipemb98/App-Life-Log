@@ -12,18 +12,14 @@
             <SnippetType>SurroundsWith</SnippetType>
         </SnippetTypes>
         <Snippet>
-            <Code Language="csharp">
-                <![CDATA[
-                        try
-                        {
-                            $selected$
-                        }
-                        catch (Exception ex)
-                        {
-                            Helpers.ErrorHelper.Handler(ex);
-                        }
-                ]]>
-            </Code>
+            <Code Language="csharp"><![CDATA[try
+{
+    $selected$
+}
+catch (Exception ex)
+{
+    Common.Helpers.ErrorHelper.TrataSistemaLogsErro(ex);
+}]]></Code>
         </Snippet>
     </CodeSnippet>
 </CodeSnippets>
