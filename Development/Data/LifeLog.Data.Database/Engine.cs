@@ -3,7 +3,7 @@ using DevExpress.Xpo.DB;
 using DevExpress.Xpo.Metadata;
 using JDS.BASE.DapperUtil;
 using LifeLog.Base.Infrastructure.Enums;
-using LifeLog.Base.Infrastructure.Models;
+using LifeLog.Base.Models;
 using LifeLog.Base.Utils;
 using LifeLog.Data.Database.Helpers;
 using LifeLog.Data.Database.Queries;
@@ -82,12 +82,12 @@ namespace LifeLog.Data.Database
 				Assembly assembly = Assembly.GetExecutingAssembly();
 				Guid guidAttr = assembly.ManifestModule.ModuleVersionId;
 
-				using (VersionsQuery query = new VersionsQuery(simpleLayer, null))
-				{
-					bool isValid = query.ValidateVersion(guidAttr, assembly.GetName().Name, assembly.GetName()?.Version?.ToString() ?? "0.0.0.0");
-					if (!isValid)
-						throw new NotSupportedException("The dll is outdated, please check for updates");
-				}
+				//using (VersionsQuery query = new VersionsQuery(simpleLayer, null))
+				//{
+				//	bool isValid = query.ValidateVersion(guidAttr, assembly.GetName().Name, assembly.GetName()?.Version?.ToString() ?? "0.0.0.0");
+				//	if (!isValid)
+				//		throw new NotSupportedException("The dll is outdated, please check for updates");
+				//}
 
 				using (UnitOfWork uow = new UnitOfWork(simpleLayer))
 				{
@@ -153,18 +153,18 @@ namespace LifeLog.Data.Database
 			}
 		}
 
-		//Versions
-		private VersionsQuery _versions;
-		public VersionsQuery Versions
-		{
-			get
-			{
-				if (_versions == null)
-					_versions = new VersionsQuery(UOW, SQL);
+		////Versions
+		//private VersionsQuery _versions;
+		//public VersionsQuery Versions
+		//{
+		//	get
+		//	{
+		//		if (_versions == null)
+		//			_versions = new VersionsQuery(UOW, SQL);
 
-				return _versions;
-			}
-		}
+		//		return _versions;
+		//	}
+		//}
 
 		//Images
 		private ImagesQuery _images;

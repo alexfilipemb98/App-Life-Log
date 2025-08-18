@@ -1,6 +1,6 @@
 ﻿using DevExpress.Xpo;
 using JDS.BASE.DapperUtil;
-using LifeLog.Base.Models;
+using LifeLog.Base.Models.Data;
 using LifeLog.Data.Database.Bases;
 using LifeLog.Data.Database.Entities;
 using LifeLog.Data.Database.Mappers;
@@ -102,6 +102,5 @@ namespace LifeLog.Data.Database.Queries
 		}
 
 		#endregion
-
 	}
 }

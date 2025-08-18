@@ -1,8 +1,6 @@
 ﻿using DevExpress.Xpo;
 using JDS.BASE.DapperUtil;
-using LifeLog.Base.Infrastructure.Interfaces;
-using LifeLog.Base.Models;
-using LifeLog.Base.Utils;
+using LifeLog.Base.Models.Data;
 using LifeLog.Data.Database.Bases;
 using LifeLog.Data.Database.Entities;
 using LifeLog.Data.Database.Mappers;
@@ -11,6 +9,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using static DevExpress.Xpo.Helpers.CannotLoadObjectsHelper;
 
 namespace LifeLog.Data.Database.Queries
 {
@@ -39,23 +38,26 @@ namespace LifeLog.Data.Database.Queries
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public override async Task<CommandsModel> GetByKey(Guid key)
+		public override async Task<(CommandsModel,string)> GetByKey(Guid key)
 		{
 			CommandsEntity result = await _UOW.GetObjectByKeyAsync<CommandsEntity>(key);
-			return result != null ? result.ToModel() : new CommandsModel();
+			CommandsModel model = result != null ? result.ToModel() : new CommandsModel();
+			string message = result != null ? "Command retrieved successfully." : "Command not found.";
+			return (model, message);
 		}
 
 		/// <summary>
 		/// Get all notes
 		/// </summary>
 		/// <returns></returns>
-		public override async Task<List<CommandsModel>> GetAll()
+		public override async Task<(List<CommandsModel>, string)> GetAll()
 		{
 			List<CommandsModel> results = await _UOW.Query<CommandsEntity>()
 				.Select(s => s.ToModel())
-				.ToListAsync();
+				.ToListAsync() ?? new List<CommandsModel>();
 
-			return results ?? new List<CommandsModel>();
+			string message = results.Count > 0 ? $"Commands retrieved successfully, {results.Count} found." : "No commands found.";
+			return (results, message);
 		}
 
 		/// <summary>
@@ -66,9 +68,9 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException"></exception>
 		/// <exception cref="ArgumentException"></exception>
-		public override async Task<bool> Save(CommandsModel model)
+		public override async Task<(bool, string)> Save(CommandsModel model)
 		{
-			bool isvalid = await base.Save(model);
+			await base.Save(model);
 
 			CommandsEntity entity = model.ToEntity(_UOW);
 
@@ -83,8 +85,10 @@ namespace LifeLog.Data.Database.Queries
 
 			await _UOW.SaveAsync(entity);
 			await _UOW.CommitChangesAsync();
+			(bool saved, _) = await Exists(model.Id);
+			string message = saved ? "Command saved successfully." : "Failed to save command.";
 
-			return await Exists(model.Id);
+			return (saved, message);
 		}
 
 		/// <summary>
@@ -93,19 +97,23 @@ namespace LifeLog.Data.Database.Queries
 		/// <param name="key"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentException"></exception>
-		public override async Task<CommandsModel> Duplicate(Guid key)
+		public override async Task<(CommandsModel, string)> Duplicate(Guid key)
 		{
-			CommandsModel model = await base.Duplicate(key);
+			(CommandsModel model, _) = await base.Duplicate(key);
 			CommandsEntity entity = model.ToEntity(_UOW);
 
 			entity.Id = Guid.NewGuid();
+			entity.Name += " (Copy)";
 			model.Id = entity.Id;
+			model.Name = entity.Name;
 			entity.Saving = true;
 
 			await _UOW.SaveAsync(model);
 			await _UOW.CommitChangesAsync();
 
-			return model;
+			(bool saved, _) = await Exists(model.Id);
+			string message = saved ? "Command duplicated successfully." : "Failed to duplicate command.";
+			return (model, message);
 		}
 
 		#endregion
@@ -118,18 +126,20 @@ namespace LifeLog.Data.Database.Queries
 		/// <param name="userId"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentException"></exception>
-		public async Task<List<CommandsModel>> GetUserCommands(Guid userId)
+		public async Task<(List<CommandsModel>,string)> GetUserCommands(Guid userId)
 		{
 			UsersEntity userEntity = await _UOW.GetObjectByKeyAsync<UsersEntity>(userId);
 			if (userEntity == null)
 				throw new ArgumentException("User id is invalid!");
 
-			List<CommandsModel> resuls = await _UOW.Query<CommandsEntity>()
+			List<CommandsModel> results = await _UOW.Query<CommandsEntity>()
 				.Where(w => w.User.Id == userEntity.Id)
 				.Select(s => s.ToModel())
-				.ToListAsync();
+				.ToListAsync() ?? new List<CommandsModel>();
 
-			return resuls ?? new List<CommandsModel>();
+			string message = results.Count > 0 ? $"Commands retrieved successfully, {results.Count} found." : "No commands found.";
+
+			return (results, message);
 		}
 
 		#endregion

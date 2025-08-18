@@ -1,10 +1,6 @@
 ﻿using DevExpress.XtraBars;
-using DevExpress.XtraDataLayout;
-using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraGrid.Views.Tile;
-using DevExpress.XtraSpellChecker.Native;
-using LifeLog.Base.Models;
-using LifeLog.Data.Database.Entities;
+using LifeLog.Base.Models.Data;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Helpers;
 using System;
@@ -101,9 +97,9 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				if (!Common.Helpers.ValidationHelper.ValidateModelAndSetError(_crtCommands, dxErrorProvider, lcEditValues))
 					return;
 
-				bool saved = await AppSession.DataEngine.Commands.Save(_crtCommands);
+				(bool saved, string message) = await AppSession.DataEngine.Commands.Save(_crtCommands);
 
-				AppHelper.StatusMessage("Saved", saved);
+				AppHelper.StatusMessage(message, saved);
 
 				if (saved)
 				{

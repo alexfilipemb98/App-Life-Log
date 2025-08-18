@@ -56,11 +56,13 @@ namespace LifeLog.Data.Database.Bases
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public virtual async Task<bool> Exists(Guid key)
+		public virtual async Task<(bool, string)> Exists(Guid key)
 		{
 			string sql = $"SELECT COUNT(*) FROM {TableName} WHERE Id = @Id";
 			int count = await _SQL.GetValueAsync<int, object>(sql, new { Id = key });
-			return count > 0;
+			bool exists = count > 0;
+			string message = exists ? $"{TableName} with key {key} exists." : $"{TableName} with key {key} does not exist.";
+			return (exists, message);
 		}
 
 		/// <summary>
@@ -69,14 +71,16 @@ namespace LifeLog.Data.Database.Bases
 		/// <param name="key"></param>
 		/// <returns></returns>
 		/// <exception cref="NotImplementedException"></exception>
-		public virtual async Task<Object> GetByKey(Guid key)
+		public virtual async Task<(Object, string)> GetByKey(Guid key)
 		{
 			string sql = $"SELECT * FROM {TableName} WHERE Id = @Id";
 			Object result = await _SQL.GetValueAsync<Object, object>(sql, new { Id = key });
 			if (result == null)
 				throw new ArgumentException($"No object found with key {key}");
 
-			return result;
+			string message = result != null ? $"{TableName} with key {key} found." : $"{TableName} with key {key} not found.";
+
+			return (result, message);
 		}
 
 		/// <summary>
@@ -84,22 +88,24 @@ namespace LifeLog.Data.Database.Bases
 		/// </summary>
 		/// <returns></returns>
 		/// <exception cref="NotImplementedException"></exception>
-		public virtual async Task<List<Object>> GetAll()
+		public virtual async Task<(List<Object>, string)> GetAll()
 		{
 			string sql = $"SELECT * FROM {TableName}";
-			List<Object> results = await _SQL.LoadDataListAsync<Object>(sql);
-			return results ?? new List<Object>();
+			List<Object> results = await _SQL.LoadDataListAsync<Object>(sql) ?? new List<Object>();
+			string message = results.Any() ? $"{results.Count} {TableName} found." : $"No {TableName} found.";
+			return (results, message);
 		}
 
 		/// <summary>
 		/// Get the last command on the database
 		/// </summary>
 		/// <returns></returns>
-		public virtual async Task<Object> GetLast()
+		public virtual async Task<(Object, string)> GetLast()
 		{
 			string sql = $"SELECT TOP 1 * FROM {TableName} ORDER BY CreatedAt DESC";
 			Object command = await _SQL.GetValueAsync<Object>(sql);
-			return command;
+			string message = command != null ? $"{TableName} retrieved successfully." : $"{TableName} not found.";
+			return (command, message);
 		}
 
 		/// <summary>
@@ -108,7 +114,7 @@ namespace LifeLog.Data.Database.Bases
 		/// <param name="model"></param>
 		/// <returns></returns>
 		/// <exception cref="NotImplementedException"></exception>
-		public virtual async Task<bool> Save(Object model)
+		public virtual async Task<(bool, string)> Save(Object model)
 		{
 			bool isValid = model == null;
 
@@ -118,8 +124,8 @@ namespace LifeLog.Data.Database.Bases
 			isValid = model.ValidateModel(out List<ValidationResult> validationResults);
 			if (!isValid)
 				throw new Exception("Model is not valid: " + string.Join(", ", validationResults.Select(v => v.ErrorMessage)));
-
-			return isValid;
+			
+			return (isValid, null);
 		}
 
 		/// <summary>
@@ -128,7 +134,7 @@ namespace LifeLog.Data.Database.Bases
 		/// <param name="key"></param>
 		/// <returns></returns>
 		/// <exception cref="NotImplementedException"></exception>
-		public virtual async Task<Object> Duplicate(Guid key)
+		public virtual async Task<(Object, string)> Duplicate(Guid key)
 		{
 			string sql = $"SELECT * FROM {TableName} WHERE Id = @Id";
 			Object original = await _SQL.GetValueAsync<Object, object>(sql, new { Id = key });
@@ -137,7 +143,7 @@ namespace LifeLog.Data.Database.Bases
 
 			Object duplicate = (Object)Activator.CreateInstance(typeof(Object), original);
 
-			return duplicate;
+			return (duplicate, null);
 		}
 
 		/// <summary>
@@ -146,11 +152,13 @@ namespace LifeLog.Data.Database.Bases
 		/// <param name="key"></param>
 		/// <returns></returns>
 		/// <exception cref="NotImplementedException"></exception>
-		public virtual async Task<bool> Delete(Guid key)
+		public virtual async Task<(bool, string)> Delete(Guid key)
 		{
 			string sql = $"DELETE FROM {TableName} WHERE Id = @Id";
 			int rowsAffected = await _SQL.SaveDataAsync(sql, new { Id = key });
-			return rowsAffected > 0;
+			bool isDeleted = rowsAffected > 0;
+			string message = isDeleted ? $"{TableName} with key {key} deleted successfully." : $"{TableName} with key {key} not found.";
+			return (isDeleted, message);
 		}
 
 		#endregion

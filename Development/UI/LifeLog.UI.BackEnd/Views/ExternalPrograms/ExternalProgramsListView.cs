@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.Xpo;
+using LifeLog.Base.Models.Data;
 
 namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 {
@@ -46,10 +47,10 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 		{
 			try
 			{
-				(bool saved, ExternalProgramsEntity entity) = await externalProgramsDetailView.SaveData();
+				(bool saved, ExternalProgramsModel entity) = await externalProgramsDetailView.SaveData();
 				if (saved)
 				{
-					List<ExternalProgramsEntity> lista = bsExternalPrograms.DataSource as List<ExternalProgramsEntity>;
+					List<ExternalProgramsModel> lista = bsExternalPrograms.DataSource as List<ExternalProgramsModel>;
 
 					if (!lista.Any(w => w.Id == entity.Id))
 					{
@@ -106,7 +107,7 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 		/// <param name="e"></param>
 		private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
 		{
-			ExternalProgramsEntity extProgram = ControlsHelper.GetObjectByRowHandle<ExternalProgramsEntity>(gridView, gridView.FocusedRowHandle);
+			ExternalProgramsModel extProgram = ControlsHelper.GetObjectByRowHandle<ExternalProgramsModel>(gridView, gridView.FocusedRowHandle);
 			if (extProgram != null)
 			{
 				ShowDetailView(extProgram);
@@ -134,7 +135,7 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 		{
 			try
 			{
-				List<ExternalProgramsEntity> results = await AppSession.DataEngine.ExternalPrograms.GetAll();
+				List<ExternalProgramsModel> results = await AppSession.DataEngine.ExternalPrograms.GetAll();
 				bsExternalPrograms.DataSource = results;
 			}
 			catch (Exception ex)
@@ -147,13 +148,13 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 		/// Show detail view 
 		/// </summary>
 		/// <param name="extProgram"></param>
-		private void ShowDetailView(ExternalProgramsEntity extProgram = null)
+		private void ShowDetailView(ExternalProgramsModel extProgram = null)
 		{
 			try
 			{
 				if (extProgram == null)
 				{
-					extProgram = new ExternalProgramsEntity();
+					extProgram = new ExternalProgramsModel();
 				}
 
 				bbiNew.Visibility = BarItemVisibility.Never;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -31,24 +31,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.Desktop.v24.2, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Data.v24.2, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Drawing.v24.2, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Images.v24.2, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Office.v24.2.Core, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Pdf.v24.2.Core, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v24.2.Core, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.RichEdit.v24.2.Core, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v24.2, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v24.2, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v24.2, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v24.2, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v24.2, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v24.2, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraRichEdit.v24.2, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.Desktop.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Drawing.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v24.2.Core, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v24.2.Core, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v24.2.Core, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v24.2.Core, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v24.2, Version=24.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -89,11 +97,29 @@
     <Compile Include="Views\Entertainment\TicTacToe\TicTacToeGameView.designer.cs">
       <DependentUpon>TicTacToeGameView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Main\CommandsRunner\CommandsRunnerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Main\CommandsRunner\CommandsRunnerView.Designer.cs">
+      <DependentUpon>CommandsRunnerView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Main\Notes\NotesView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Main\Notes\NotesView.Designer.cs">
       <DependentUpon>NotesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Passwords\PasswordsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Main\Passwords\PasswordsView.Designer.cs">
+      <DependentUpon>PasswordsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tools\ConvertCase\ConvertCaseView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Tools\ConvertCase\ConvertCaseView.Designer.cs">
+      <DependentUpon>ConvertCaseView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Tools\GradesCalculator\BaseLineView.cs">
       <SubType>UserControl</SubType>
@@ -119,6 +145,12 @@
     <Compile Include="Views\Tools\PdfMerger\PdfMergerView.Designer.cs">
       <DependentUpon>PdfMergerView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Main\Weather\WeatherView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Main\Weather\WeatherView.Designer.cs">
+      <DependentUpon>WeatherView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\MainForm.resx">
@@ -138,8 +170,17 @@
     <EmbeddedResource Include="Views\Entertainment\TicTacToe\TicTacToeGameView.resx">
       <DependentUpon>TicTacToeGameView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Main\CommandsRunner\CommandsRunnerView.resx">
+      <DependentUpon>CommandsRunnerView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Main\Notes\NotesView.resx">
       <DependentUpon>NotesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Main\Passwords\PasswordsView.resx">
+      <DependentUpon>PasswordsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tools\ConvertCase\ConvertCaseView.resx">
+      <DependentUpon>ConvertCaseView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tools\GradesCalculator\BaseLineView.resx">
       <DependentUpon>BaseLineView.cs</DependentUpon>
@@ -153,9 +194,12 @@
     <EmbeddedResource Include="Views\Tools\PdfMerger\PdfMergerView.resx">
       <DependentUpon>PdfMergerView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Main\Weather\WeatherView.resx">
+      <DependentUpon>WeatherView.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FodyWeavers.xml" />
+    <None Include="Properties\DataSources\LifeLog.Data.Database.Entities.CommandsEntity.datasource" />
     <None Include="Resources\bo_attention.svg" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +210,14 @@
     <ProjectReference Include="..\..\Base\LifeLog.Base.Infrastructure\LifeLog.Base.Infrastructure.csproj">
       <Project>{DBD44F5F-F1CF-405A-A096-0F3369C03874}</Project>
       <Name>LifeLog.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Base\LifeLog.Base.Models\LifeLog.Base.Models.csproj">
+      <Project>{573644AF-0C91-4C0D-BDA9-7427519A6961}</Project>
+      <Name>LifeLog.Base.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Base\LifeLog.Base.Utils\LifeLog.Base.Utils.csproj">
+      <Project>{8a6700aa-97d0-4bd6-be44-72945801fb6b}</Project>
+      <Name>LifeLog.Base.Utils</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\LifeLog.Data.Database\LifeLog.Data.Database.csproj">
       <Project>{82FA5515-A840-4229-9DB9-BA4335E1B78F}</Project>
@@ -179,6 +231,11 @@
       <Project>{D5AA12CB-C4D7-4660-9F32-AE6F4D7F8B7F}</Project>
       <Name>LifeLog.UI.Resources</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

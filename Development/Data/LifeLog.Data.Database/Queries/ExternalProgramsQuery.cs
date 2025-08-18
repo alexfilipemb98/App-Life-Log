@@ -2,6 +2,7 @@
 using JDS.BASE.DapperUtil;
 using LifeLog.Base.Infrastructure.Interfaces;
 using LifeLog.Base.Models;
+using LifeLog.Base.Models.Data;
 using LifeLog.Base.Utils;
 using LifeLog.Data.Database.Bases;
 using LifeLog.Data.Database.Entities;

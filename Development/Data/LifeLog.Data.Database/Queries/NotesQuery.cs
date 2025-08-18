@@ -1,7 +1,6 @@
 ﻿using DevExpress.Xpo;
 using JDS.BASE.DapperUtil;
-using LifeLog.Base.Models;
-using LifeLog.Base.Utils;
+using LifeLog.Base.Models.Data;
 using LifeLog.Data.Database.Bases;
 using LifeLog.Data.Database.Entities;
 using LifeLog.Data.Database.Mappers;
@@ -34,26 +33,30 @@ namespace LifeLog.Data.Database.Queries
 		#region BASE
 
 		/// <summary>
-		/// Get the command by key
+		/// Get the note by key
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public override async Task<NotesModel> GetByKey(Guid key)
+		public override async Task<(NotesModel, string)> GetByKey(Guid key)
 		{
 			NotesEntity result = await _UOW.GetObjectByKeyAsync<NotesEntity>(key);
-			return result != null ? result.ToModel() : new NotesModel();
+			NotesModel model = result != null ? result.ToModel() : new NotesModel();
+			string message = result != null ? "Note retrieved successfully." : "Note not found.";
+			return (model, message);
 		}
 
 		/// <summary>
 		/// Get all notes
 		/// </summary>
 		/// <returns></returns>
-		public override async Task<List<NotesModel>> GetAll()
+		public override async Task<(List<NotesModel>, string)> GetAll()
 		{
-			List<NotesModel> resutls = await _UOW.Query<NotesEntity>()
+			List<NotesModel> results = await _UOW.Query<NotesEntity>()
 				   .Select(s => s.ToModel())
-				   .ToListAsync();
-			return resutls ?? new List<NotesModel>();
+				   .ToListAsync() ?? new List<NotesModel>();
+
+			string message = results.Count > 0 ? $"Notes retrieved successfully, {results.Count} found." : "No notes found.";
+			return (results, message);
 		}
 
 		/// <summary>
@@ -77,6 +80,26 @@ namespace LifeLog.Data.Database.Queries
 			await _UOW.CommitChangesAsync();
 
 			return await Exists(model.Id);
+		}
+
+		/// <summary>
+		/// Duplicates the model by key and returns the duplicated model
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
+		public override async Task<NotesModel> Duplicate(Guid key)
+		{
+			NotesModel model = await base.Duplicate(key);
+			NotesEntity entity = model.ToEntity(_UOW);
+
+			entity.Id = Guid.NewGuid();
+			model.Id = entity.Id;
+			entity.Saving = true;
+
+			await _UOW.SaveAsync(model);
+			await _UOW.CommitChangesAsync();
+
+			return model;
 		}
 
 		#endregion

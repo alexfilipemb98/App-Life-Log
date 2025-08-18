@@ -1,4 +1,4 @@
-﻿namespace LifeLog.Base.Models
+﻿namespace LifeLog.Base.Models.Data
 {
 	public class ExternalProgramsModel : Bases.DataModelBase
 	{

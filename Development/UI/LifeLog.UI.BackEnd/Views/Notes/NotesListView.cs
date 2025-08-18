@@ -1,5 +1,6 @@
 ﻿using DevExpress.Utils;
 using DevExpress.XtraEditors;
+using LifeLog.Base.Models.Data;
 using LifeLog.Data.Database.Entities;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Helpers;
@@ -28,7 +29,7 @@ namespace LifeLog.UI.BackEnd.Views.Notes
 		{
 			try
 			{
-				List<NotesEntity> data = await AppSession.DataEngine.Notes.GetAll();
+				List<NotesModel> data = await AppSession.DataEngine.Notes.GetAll();
 				bsNotes.DataSource = data;
 				AppHelper.StatusMessage($"Found {data.Count} notes!", Color.Green);
 			}

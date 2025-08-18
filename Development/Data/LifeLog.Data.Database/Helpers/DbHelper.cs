@@ -1,13 +1,11 @@
 ﻿using Dapper;
-using DataService.Bases;
 using JDS.BASE.DapperUtil;
 using LifeLog.Base.Infrastructure.Enums;
-using LifeLog.Base.Infrastructure.Models;
+using LifeLog.Base.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using System.Threading.Tasks;
 

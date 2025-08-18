@@ -245,7 +245,7 @@
 			// 
 			// bsUsers
 			// 
-			this.bsUsers.ObjectType = typeof(LifeLog.Data.Database.Entities.UsersEntity);
+			this.bsUsers.ObjectType = typeof(LifeLog.Base.Models.Data.UsersModel);
 			// 
 			// layoutControl1
 			// 

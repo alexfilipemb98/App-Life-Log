@@ -1,4 +1,4 @@
-﻿using LifeLog.Base.Infrastructure.Models;
+﻿using LifeLog.Base.Models;
 using LifeLog.UI.Common.Forms.Auth;
 using LifeLog.UI.Common.Helpers;
 using System.IO;

@@ -1,6 +1,8 @@
 ﻿using DevExpress.Xpo;
 using LifeLog.Base.Models;
+using LifeLog.Base.Models.Data;
 using LifeLog.Data.Database.Entities;
+using LifeLog.Data.Mappers;
 using System;
 
 namespace LifeLog.Data.Database.Mappers
@@ -26,7 +28,7 @@ namespace LifeLog.Data.Database.Mappers
 				UpdatedAt = entity.UpdatedAt,
 				Title = entity.Title,
 				Text = entity.Text,
-				IdUser = entity.User?.Id ?? Guid.Empty
+				User = entity.User.ToLoggedInModel()
 			};
 		}
 
@@ -40,9 +42,9 @@ namespace LifeLog.Data.Database.Mappers
 		{
 			if (model == null) return null;
 
-			UsersEntity user = session.GetObjectByKey<UsersEntity>(model.IdUser);
-
+			UsersEntity user = session.GetObjectByKey<UsersEntity>(model.User.Id);
 			NotesEntity entity = session.GetObjectByKey<NotesEntity>(model.Id);
+
 			if (entity == null)
 			{
 				entity = new NotesEntity(session);

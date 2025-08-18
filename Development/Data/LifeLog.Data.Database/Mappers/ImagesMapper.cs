@@ -2,6 +2,7 @@
 using LifeLog.Data.Database.Entities;
 using LifeLog.Base.Models;
 using System;
+using LifeLog.Base.Models.Data;
 
 namespace LifeLog.Data.Database.Mappers
 {
@@ -27,7 +28,6 @@ namespace LifeLog.Data.Database.Mappers
 				Name = entity.Name,
 				Data = entity.Data,
 				FileExtension = entity.FileExtension,
-				IdUser = entity.User?.Id ?? Guid.Empty,
 			};
 
 			return model;

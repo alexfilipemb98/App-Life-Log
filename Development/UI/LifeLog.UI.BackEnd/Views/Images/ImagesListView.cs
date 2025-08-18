@@ -1,17 +1,14 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using LifeLog.Data.Database.Entities;
-using LifeLog.Data.Database.Queries;
+using LifeLog.Base.Models.Data;
 using LifeLog.UI.Common;
-using LifeLog.UI.Common.Forms.Dialog;
 using LifeLog.UI.Common.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DevExpress.LookAndFeel.DXSkinColors;
 
 namespace LifeLog.UI.BackEnd.Views.Images
 {
@@ -73,7 +70,7 @@ namespace LifeLog.UI.BackEnd.Views.Images
 		/// <param name="e"></param>
 		private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
 		{
-			ImagesEntity model = ControlsHelper.GetObjectByRowHandle<ImagesEntity>(gridView, gridView.FocusedRowHandle);
+			ImagesModel model = ControlsHelper.GetObjectByRowHandle<ImagesModel>(gridView, gridView.FocusedRowHandle);
 			if (model != null)
 			{
 				ShowDetailView(model);
@@ -165,7 +162,7 @@ namespace LifeLog.UI.BackEnd.Views.Images
 		{
 			try
 			{
-				List<ImagesEntity> data = await AppSession.DataEngine.Images.GetAll();
+				List<ImagesModel> data = await AppSession.DataEngine.Images.GetAll();
 				bsImages.DataSource = data;
 				AppHelper.StatusMessage($"Found {data.Count} images!", Color.Green);
 			}
@@ -179,13 +176,13 @@ namespace LifeLog.UI.BackEnd.Views.Images
 		/// Show detail view 
 		/// </summary>
 		/// <param name="imageDt"></param>
-		private void ShowDetailView(ImagesEntity imageDt = null)
+		private void ShowDetailView(ImagesModel imageDt = null)
 		{
 			try
 			{
 				if (imageDt == null)
 				{
-					imageDt = new ImagesEntity();
+					imageDt = new ImagesModel();
 					_createNew = true;
 				}
 

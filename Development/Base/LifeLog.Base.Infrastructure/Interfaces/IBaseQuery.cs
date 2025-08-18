@@ -18,52 +18,51 @@ namespace LifeLog.Base.Infrastructure.Interfaces
 		string TableName { get; }
 
 		/// <summary>
-		/// Checks if the object exists
+		/// Checks if the entity exists by key
 		/// </summary>
-		/// <param fName="key"></param>
-		/// <param fName="message"></param>
+		/// <param name="key"></param>
 		/// <returns></returns>
-		Task<bool> Exists(Key key);
+		Task<(bool, string)> Exists(Key key);
 
 		/// <summary>
 		/// Gets the entity by key
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		Task<Object> GetByKey(Key key);
+		Task<(Object, string)> GetByKey(Key key);
 
 		/// <summary>
 		/// Gets all entities
 		/// </summary>
 		/// <returns></returns>
-		 Task<List<Object>> GetAll();
+		 Task<(List<Object>, string)> GetAll();
 
 		/// <summary>
 		/// Get's the last insert object
 		/// </summary>
 		/// <param name="message"></param>
 		/// <returns></returns>
-		Task<Object> GetLast();
+		Task<(Object, string)> GetLast();
 
 		/// <summary>
 		/// Save the object
 		/// </summary>
 		/// <param name="obj"></param>
 		/// <returns></returns>
-		Task<bool> Save(Object obj);
+		Task<(bool, string)> Save(Object obj);
 
 		/// <summary>
 		/// /// Duplicates the object by key and returns the duplicated
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		Task<Object> Duplicate(Key key);
+		Task<(Object, string)> Duplicate(Key key);
 
 		/// <summary>
 		/// Delete object by key
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		Task<bool> Delete(Key key);
+		Task<(bool, string)> Delete(Key key);
 	}
 }

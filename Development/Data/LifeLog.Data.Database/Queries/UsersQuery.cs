@@ -1,13 +1,17 @@
-﻿using DataService.Bases;
-using DevExpress.Xpo;
-using LifeLog.Base.Infrastructure.Models;
+﻿using DevExpress.Xpo;
+using JDS.BASE.DapperUtil;
+using LifeLog.Base.Models;
+using LifeLog.Base.Models.Data;
 using LifeLog.Base.Utils;
 using LifeLog.Data.Database.Bases;
 using LifeLog.Data.Database.Entities;
+using LifeLog.Data.Database.Mappers;
+using LifeLog.Data.Mappers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace LifeLog.Data.Database.Queries
@@ -15,33 +19,18 @@ namespace LifeLog.Data.Database.Queries
 	/// <summary>
 	/// Users data query
 	/// </summary>
-	public class UsersQuery : DataQueryBase
+	public class UsersQuery : DataQueryBase<UsersEntity, UsersModel, Guid>
 	{
 
 		#region MAIN
 
-		/// <summary>
-		/// Default Constructor
-		/// </summary>
-		public UsersQuery() : base()
-		{
-		}
-
+		
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		/// <param name="uow"></param>
 		/// <param name="sql"></param>
-		public UsersQuery(UnitOfWork uow, DataSqlAccessBase sql) : base(uow, sql)
-		{
-		}
-
-		/// <summary>
-		/// Data layer e outro constructor
-		/// </summary>
-		/// <param name="dataLayer"></param>
-		/// <param name="connection"></param>
-		public UsersQuery(IDataLayer dataLayer, IDbConnection connection) : base(dataLayer, connection)
+		public UsersQuery(UnitOfWork uow, SqlDataAccess sql) : base(uow, sql)
 		{
 		}
 
@@ -122,12 +111,14 @@ namespace LifeLog.Data.Database.Queries
 		/// </summary>
 		/// <returns></returns>
 		/// <exception cref="NotImplementedException"></exception>
-		public async Task<List<UsersEntity>> GetAll()
+		public override async Task<List<UsersModel>> GetAll()
 		{
-			return await _UOW.Query<UsersEntity>()
+			List<UsersModel> results = await _UOW.Query<UsersEntity>()
+				 .Select(s => s.ToModel())
 				.ToListAsync();
+			return results ?? new List<UsersModel>();
 		}
-
+	
 		#endregion
 	}
 }

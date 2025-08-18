@@ -307,7 +307,7 @@
 			// bsExternalPrograms
 			// 
 			this.bsExternalPrograms.BindingBehavior = DevExpress.Xpo.CollectionBindingBehavior.AllowNone;
-			this.bsExternalPrograms.ObjectType = typeof(LifeLog.Data.Database.Entities.ExternalProgramsEntity);
+			this.bsExternalPrograms.ObjectType = typeof(LifeLog.Base.Models.Data.ExternalProgramsModel);
 			// 
 			// gridView
 			// 

@@ -3,6 +3,7 @@ using DevExpress.XtraDataLayout;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraLayout;
+using LifeLog.Base.Models.Data;
 using LifeLog.Data.Database.Entities;
 using LifeLog.Data.Database.Queries;
 using LifeLog.UI.Common;
@@ -25,7 +26,7 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 		#region MAIN
 
 		//PRIVATE
-		private ExternalProgramsEntity _crtExtProgram;
+		private ExternalProgramsModel _crtExtProgram;
 		private bool _saved;
 		private BindingSource _bs;
 
@@ -64,7 +65,7 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 								byte[] imageData = File.ReadAllBytes(filePath);
 
 								if (_crtExtProgram.Image == null)
-									_crtExtProgram.Image = new ImagesEntity();
+									_crtExtProgram.Image = new ImagesModel();
 
 								_crtExtProgram.Image.Name = Path.GetFileNameWithoutExtension(filePath);
 								_crtExtProgram.Image.Data = imageData;
@@ -138,7 +139,7 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 		/// Load data from the database
 		/// </summary>
 		/// <param name="extProgram"></param>
-		public void LoadData(ExternalProgramsEntity extProgram)
+		public void LoadData(ExternalProgramsModel extProgram)
 		{
 			_crtExtProgram = extProgram;
 			_bs = new BindingSource();
@@ -159,7 +160,7 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 		/// Save data to the database
 		/// </summary>
 		/// <returns></returns>
-		public async Task<(bool, ExternalProgramsEntity)> SaveData()
+		public async Task<(bool, ExternalProgramsModel)> SaveData()
 		{
 			dataLayoutControl.Focus();
 			_bs.EndEdit();
@@ -173,10 +174,10 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 					_crtExtProgram.Image = null;
 			}
 
-			(bool saved, string message) = await AppSession.DataEngine.ExternalPrograms.Save(_crtExtProgram, AppSession.CurrentUser.Id);
+			bool saved = await AppSession.DataEngine.ExternalPrograms.Save(_crtExtProgram);
 			_saved = saved;
 
-			AppHelper.StatusMessage(message, saved);
+			AppHelper.StatusMessage("Saved", saved);
 
 			return (saved, _crtExtProgram);
 		}
@@ -186,9 +187,6 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 		/// </summary>
 		public void ResetForm()
 		{
-			if (_saved)
-				_crtExtProgram.Reload();
-
 			_saved = false;
 			_bs.Clear();
 			dataLayoutControl.ResetText();

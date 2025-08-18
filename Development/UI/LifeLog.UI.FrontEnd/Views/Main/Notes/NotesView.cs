@@ -2,7 +2,7 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraTab;
 using LifeLog.Base.Components;
-using LifeLog.Base.Models;
+using LifeLog.Base.Models.Data;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Forms.Dialog;
 using LifeLog.UI.Common.Helpers;
@@ -23,7 +23,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 		#region MAIN
 
 		//PRIVATE
-		private List<NotesEntity> _notesList;
+		private List<NotesModel> _notesList;
 
 		/// <summary>
 		/// Constructor for the notes view
@@ -53,7 +53,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 				note.Title = nameNote;
 				note.User = AppSession.CurrentUser;
 
-				await AppSession.DataEngine.Notes.Save(note, AppSession.CurrentUser.Id);
+				(bool saved, string message) = await AppSession.DataEngine.Notes.Save(note);
 
 				_notesList.Add(note);
 
@@ -86,7 +86,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 			{
 				XtraTabPage page = (XtraTabPage)((DevExpress.XtraTab.ViewInfo.PageEventArgs)e).Page;
 
-				NotesEntity note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(page.Tag?.ToString()));
+				NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(page.Tag?.ToString()));
 
 				DialogResult result = MessageBoxDialogForm.SD("Delete Note", $"Do you really want to delete {note.Title}?");
 
@@ -132,7 +132,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 				if (xtraTabPage == null)
 					return;
 
-				NotesEntity note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(xtraTabPage.Tag?.ToString()));
+				NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(xtraTabPage.Tag?.ToString()));
 				string nameNote = note.Title;
 				DialogResult form = TextInputDialogForm.Dialog(ref nameNote, 3, 50);
 
@@ -159,11 +159,11 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 		/// </summary>
 		public async Task LoadData()
 		{
-			_notesList = await AppSession.DataEngine.Notes.GetUserNotes(AppSession.CurrentUser.Id) ?? new List<NotesEntity>();
+			_notesList = await AppSession.DataEngine.Notes.GetUserNotes(AppSession.CurrentUser.Id) ?? new List<NotesModel>();
 
 			xtraTabControl.TabPages.Clear();
 
-			foreach (NotesEntity note in _notesList)
+			foreach (NotesModel note in _notesList)
 			{
 				CreateTab(note);
 			}
@@ -179,7 +179,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 			{
 				foreach (XtraTabPage tabPage in xtraTabControl.TabPages.ToList())
 				{
-					NotesEntity note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(tabPage.Tag?.ToString()));
+					NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(tabPage.Tag?.ToString()));
 
 					foreach (object tabPageControl in tabPage.Controls)
 					{
@@ -191,9 +191,9 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 					}
 				}
 
-				(bool saved, string message) = await AppSession.DataEngine.Notes.SaveList(_notesList);
+				bool saved = await AppSession.DataEngine.Notes.SaveList(_notesList);
 
-				AppHelper.StatusMessage(message, saved);
+				AppHelper.StatusMessage(saved ? "Saved" : "Not Saved", saved);
 				return saved;
 			}
 			catch (Exception ex)
@@ -209,7 +209,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 		/// Creates a new tab
 		/// </summary>
 		/// <param name="note"></param>
-		private void CreateTab(NotesEntity note)
+		private void CreateTab(NotesModel note)
 		{
 			int count = _notesList.Count + 1;
 
@@ -247,7 +247,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 		{
 			try
 			{
-				NotesEntity note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(xtraTabPage.Tag?.ToString()));
+				NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(xtraTabPage.Tag?.ToString()));
 
 				foreach (var tabPageControl in xtraTabPage.Controls)
 				{
@@ -258,8 +258,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 					}
 				}
 
-				(bool saved, string message) = await AppSession.DataEngine.Notes.Save(note, AppSession.CurrentUser.Id);
-				AppHelper.StatusMessage(message, saved);
+				bool saved = await AppSession.DataEngine.Notes.Save(note);
+				AppHelper.StatusMessage(saved ? "Saved" : "Not Saved", saved);
 			}
 			catch (Exception ex)
 			{

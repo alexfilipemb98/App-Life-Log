@@ -1,5 +1,6 @@
 ﻿using DevExpress.Xpo;
 using LifeLog.Base.Models;
+using LifeLog.Base.Models.Data;
 using LifeLog.Data.Database.Entities;
 using System;
 

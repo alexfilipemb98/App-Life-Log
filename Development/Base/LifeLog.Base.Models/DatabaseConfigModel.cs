@@ -3,7 +3,7 @@ using LifeLog.Base.Infrastructure.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace LifeLog.Base.Infrastructure.Models
+namespace LifeLog.Base.Models
 {
 	/// <summary>
 	/// Database config object model

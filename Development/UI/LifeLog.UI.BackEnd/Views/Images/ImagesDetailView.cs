@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using LifeLog.Base.Models.Data;
 using LifeLog.Data.Database.Entities;
 using LifeLog.Data.Database.Queries;
 using LifeLog.UI.Common;
@@ -19,7 +20,7 @@ namespace LifeLog.UI.BackEnd.Views.Images
 
 		//PRIVATE
 
-		private ImagesEntity _crtImage;
+		private ImagesModel _crtImage;
 
 		/// <summary>
 		/// Images Detail View
@@ -106,7 +107,7 @@ namespace LifeLog.UI.BackEnd.Views.Images
 		/// Load data
 		/// </summary>
 		/// <param name="model"></param>
-		public void LoadData(ImagesEntity model)
+		public void LoadData(ImagesModel model)
 		{
 			_crtImage = model;
 
@@ -135,21 +136,18 @@ namespace LifeLog.UI.BackEnd.Views.Images
 		/// Save data
 		/// </summary>
 		/// <returns></returns>
-		public async Task<(bool, ImagesEntity)> Save()
+		public async Task<(bool, ImagesModel)> Save()
 		{
 			_crtImage.Name = teName.Text;
-		
+
 			if (!ValidationHelper.ValidateModelAndSetError(_crtImage, dxErrorProvider, dataLayoutControl))
 				return (false, null);
 
-			using (ImagesQuery query = new ImagesQuery())
-			{
-				(bool saved, string message) = await query.Save(_crtImage,AppSession.CurrentUser.Id);
+			bool saved = await AppSession.DataEngine.Images.Save(_crtImage);
 
-				AppHelper.StatusMessage(message, saved);
+			AppHelper.StatusMessage("Saved", saved);
 
-				return (saved, _crtImage);
-			}
+			return (saved, _crtImage);
 		}
 
 		#endregion

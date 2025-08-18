@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using LifeLog.Base.Models.Data;
 using LifeLog.Data.Database.Entities;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Helpers;
@@ -29,7 +30,7 @@ namespace LifeLog.UI.BackEnd.Views.Users
 		{
 			try
 			{
-				List<UsersEntity> results = await AppSession.DataEngine.Users.GetAll();
+				List<UsersModel> results = await AppSession.DataEngine.Users.GetAll();
 				bsUsers.DataSource = results;
 			}
 			catch (Exception ex)

@@ -1,7 +1,8 @@
 ﻿using DevExpress.Xpo;
 using LifeLog.Data.Database.Entities;
-using LifeLog.Base.Models;
 using System;
+using LifeLog.Base.Models.Data;
+using LifeLog.Base.Models;
 
 namespace LifeLog.Data.Mappers
 {
@@ -32,6 +33,23 @@ namespace LifeLog.Data.Mappers
 		}
 
 		/// <summary>
+		/// UsesEntity to LoggedUserModel mapper.
+		/// </summary>
+		/// <param name="entity"></param>
+		/// <returns></returns>
+		internal static LoggedUserModel ToLoggedInModel(this UsersEntity entity)
+		{
+			if (entity == null) return null;
+
+			return new LoggedUserModel
+			{
+				Id = entity.Id,
+				Username = entity.Username,
+				Email = entity.Email,
+			};
+		}
+
+		/// <summary>
 		/// UsersModel to UsersEntity mapper.
 		/// </summary>
 		/// <param name="model"></param>
@@ -42,6 +60,7 @@ namespace LifeLog.Data.Mappers
 			if (model == null) return null;
 
 			UsersEntity entity = session.GetObjectByKey<UsersEntity>(model.Id);
+
 			if (entity == null)
 			{
 				entity = new UsersEntity(session);
