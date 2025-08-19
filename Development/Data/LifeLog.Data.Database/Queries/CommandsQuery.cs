@@ -9,14 +9,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using static DevExpress.Xpo.Helpers.CannotLoadObjectsHelper;
 
 namespace LifeLog.Data.Database.Queries
 {
 	/// <summary>
 	/// Commands data query
 	/// </summary>
-	public class CommandsQuery : DataQueryBase<CommandsEntity, CommandsModel, Guid>
+	public class CommandsQuery : DataQueryBase<CommandsModel, Guid>
 	{
 		#region MAIN
 
@@ -28,7 +27,7 @@ namespace LifeLog.Data.Database.Queries
 		public CommandsQuery(UnitOfWork uow, SqlDataAccess sql) : base(uow, sql)
 		{
 		}
-
+		 
 		#endregion
 
 		#region BASE

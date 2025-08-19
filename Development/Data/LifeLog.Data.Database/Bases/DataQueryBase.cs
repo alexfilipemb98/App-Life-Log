@@ -14,29 +14,23 @@ namespace LifeLog.Data.Database.Bases
 	/// <summary>
 	/// Base data query
 	/// </summary>
-	public class DataQueryBase<Entity, Object, Key> : IBaseQuery<Entity, Object, Guid>
+	public class DataQueryBase<Object, Key> : IBaseQuery<Object, Guid>
 	{
 		#region MAIN
 
 		//PROPERTIES
-		public string TableName
+		public string TableName<Entity>()
 		{
-			get
-			{
-				PersistentAttribute attr = (PersistentAttribute)typeof(Entity)
-					.GetCustomAttributes(typeof(PersistentAttribute), inherit: false)
-					.FirstOrDefault();
+			PersistentAttribute attr = (PersistentAttribute)typeof(Entity)
+				.GetCustomAttributes(typeof(PersistentAttribute), inherit: false)
+				.FirstOrDefault();
 
-				return attr?.MapTo;
-			}
+			return attr?.MapTo;
 		}
 
 		//INTERNAL
 		internal readonly UnitOfWork _UOW;
 		internal readonly SqlDataAccess _SQL;
-
-		//PRIVATE
-		private bool canDispose;
 
 		/// <summary>
 		/// Contructor internal
@@ -124,7 +118,7 @@ namespace LifeLog.Data.Database.Bases
 			isValid = model.ValidateModel(out List<ValidationResult> validationResults);
 			if (!isValid)
 				throw new Exception("Model is not valid: " + string.Join(", ", validationResults.Select(v => v.ErrorMessage)));
-			
+
 			return (isValid, null);
 		}
 

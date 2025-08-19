@@ -20,7 +20,7 @@ namespace LifeLog.Data.Database.Queries
 	/// <summary>
 	/// Images data query
 	/// </summary>
-	public class ExternalProgramsQuery : DataQueryBase<ExternalProgramsEntity, ExternalProgramsModel, Guid>
+	public class ExternalProgramsQuery : DataQueryBase<ExternalProgramsModel, Guid>
 	{
 		#region MAIN
 

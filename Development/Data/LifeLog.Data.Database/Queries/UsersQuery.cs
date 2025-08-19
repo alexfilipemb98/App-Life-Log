@@ -19,12 +19,11 @@ namespace LifeLog.Data.Database.Queries
 	/// <summary>
 	/// Users data query
 	/// </summary>
-	public class UsersQuery : DataQueryBase<UsersEntity, UsersModel, Guid>
+	public class UsersQuery : DataQueryBase<UsersModel, Guid>
 	{
 
 		#region MAIN
 
-		
 		/// <summary>
 		/// Constructor
 		/// </summary>

@@ -4,21 +4,21 @@
 	/// Notes entity
 	/// </summary>
 	[DevExpress.Xpo.Persistent(@"Notes")]
-	public class NotesEntity : Bases.DataEntityBase
+	internal class NotesEntity : Bases.DataEntityBase
 	{
 		#region MAIN
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public NotesEntity()
+		internal NotesEntity()
 		{
 		}
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public NotesEntity(DevExpress.Xpo.Session session) : base(session)
+		internal NotesEntity(DevExpress.Xpo.Session session) : base(session)
 		{
 		}
 
@@ -30,7 +30,7 @@
 		[DevExpress.Xpo.Persistent(@"IdUser")]
 		[DevExpress.Xpo.Association(@"NotesReferencesUsers")]
 		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
-		public UsersEntity User { get; set; }
+		internal UsersEntity User { get; set; }
 
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
@@ -38,14 +38,14 @@
 		[DevExpress.Xpo.Size(30)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(30)")]
-		public string Title { get; set; }
+		internal string Title { get; set; }
 
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.MultilineText)]
 		[Base.Infrastructure.Attributes.StringLength(4000)]
 		[DevExpress.Xpo.Size(4000)]
 		[DevExpress.Xpo.Nullable(true)]
 		[DevExpress.Xpo.DbType("NVARCHAR(4000)")]
-		public string Text { get; set; }
+		internal string Text { get; set; }
 
 		#endregion
 
@@ -54,7 +54,7 @@
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[System.ComponentModel.ReadOnly(true)]
 		[DevExpress.Xpo.NonPersistent]
-		public System.Guid IdUser => User != null ? User.Id : System.Guid.Empty;
+		internal System.Guid IdUser => User != null ? User.Id : System.Guid.Empty;
 
 		#endregion
 

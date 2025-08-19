@@ -7,15 +7,14 @@ namespace LifeLog.Base.Infrastructure.Interfaces
 	/// <summary>
 	/// Query Interface for Base Query
 	/// </summary>
-	/// <typeparam name="Entity"></typeparam>
 	/// <typeparam name="Object"></typeparam>
 	/// <typeparam name="Key"></typeparam>
-	public interface IBaseQuery<Entity, Object, Key>
+	public interface IBaseQuery<Object, Key>
 	{
 		/// <summary>
 		/// Table name   
 		/// </summary>
-		string TableName { get; }
+		string TableName<Entity>();
 
 		/// <summary>
 		/// Checks if the entity exists by key

@@ -15,7 +15,7 @@ namespace LifeLog.Data.Database.Queries
 	/// <summary>
 	/// Images data query
 	/// </summary>
-	public class ImagesQuery : DataQueryBase<ImagesEntity, ImagesModel, Guid>
+	public class ImagesQuery : DataQueryBase<ImagesModel, Guid>
 	{
 		#region MAIN
 
