@@ -174,10 +174,10 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 					_crtExtProgram.Image = null;
 			}
 
-			bool saved = await AppSession.DataEngine.ExternalPrograms.Save(_crtExtProgram);
+			(bool saved, string message) = await AppSession.DataEngine.ExternalPrograms.Save(_crtExtProgram);
 			_saved = saved;
 
-			AppHelper.StatusMessage("Saved", saved);
+			AppHelper.StatusMessage(message, saved);
 
 			return (saved, _crtExtProgram);
 		}

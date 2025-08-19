@@ -135,8 +135,9 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 		{
 			try
 			{
-				List<ExternalProgramsModel> results = await AppSession.DataEngine.ExternalPrograms.GetAll();
+				(List<ExternalProgramsModel> results, string message) = await AppSession.DataEngine.ExternalPrograms.GetAll();
 				bsExternalPrograms.DataSource = results;
+				AppHelper.StatusMessage(message, results != null && results.Count > 0);
 			}
 			catch (Exception ex)
 			{

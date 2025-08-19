@@ -159,7 +159,9 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 		/// </summary>
 		public async Task LoadData()
 		{
-			_notesList = await AppSession.DataEngine.Notes.GetUserNotes(AppSession.CurrentUser.Id) ?? new List<NotesModel>();
+			(List<NotesModel> notesList, string message) = await AppSession.DataEngine.Notes.GetUserNotes(AppSession.CurrentUser.Id);
+
+			_notesList = notesList;
 
 			xtraTabControl.TabPages.Clear();
 
@@ -167,6 +169,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 			{
 				CreateTab(note);
 			}
+
+			AppHelper.StatusMessage(message, _notesList.Count > 0);
 		}
 
 		/// <summary>
@@ -191,9 +195,9 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 					}
 				}
 
-				bool saved = await AppSession.DataEngine.Notes.SaveList(_notesList);
+				(bool saved, string message) = await AppSession.DataEngine.Notes.SaveList(_notesList);
 
-				AppHelper.StatusMessage(saved ? "Saved" : "Not Saved", saved);
+				AppHelper.StatusMessage(message, saved);
 				return saved;
 			}
 			catch (Exception ex)
@@ -258,8 +262,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 					}
 				}
 
-				bool saved = await AppSession.DataEngine.Notes.Save(note);
-				AppHelper.StatusMessage(saved ? "Saved" : "Not Saved", saved);
+				(bool saved, string message) = await AppSession.DataEngine.Notes.Save(note);
+				AppHelper.StatusMessage(message, saved);
 			}
 			catch (Exception ex)
 			{

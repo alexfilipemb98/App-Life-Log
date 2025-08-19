@@ -1,12 +1,12 @@
 ﻿using DevExpress.XtraEditors;
 using LifeLog.Base.Infrastructure.Enums;
+using LifeLog.Base.Models;
 using LifeLog.Base.Utils;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using static DevExpress.LookAndFeel.DXSkinColors;
-using LifeLog.Base.Infrastructure.Models;
 
 namespace LifeLog.UI.Common.Helpers
 {

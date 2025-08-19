@@ -211,7 +211,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		{
 			try
 			{
-				List<ExternalProgramsModel> result = await AppSession.DataEngine.ExternalPrograms.GetAll();
+				(List<ExternalProgramsModel> result, string message) = await AppSession.DataEngine.ExternalPrograms.GetAll();
 
 				result.Insert(0, new ExternalProgramsModel
 				{
@@ -222,6 +222,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				cbeProgram.Properties.DataSource = result.Where(w => w.Id != Guid.Empty);
 
 				bsExternalPrograms.DataSource = result;
+
+				AppHelper.StatusMessage(message, result.Count > 0);
 
 				listboxPrograms.SelectedIndex = 0;
 

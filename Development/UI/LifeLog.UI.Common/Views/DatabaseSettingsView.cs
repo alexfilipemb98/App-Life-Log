@@ -2,7 +2,6 @@
 using DevExpress.XtraEditors.Controls;
 using LifeLog.Data.Database.Helpers;
 using LifeLog.Base.Infrastructure.Enums;
-using LifeLog.Base.Infrastructure.Models;
 using LifeLog.Base.Utils;
 using LifeLog.UI.Common.Helpers;
 using System;
@@ -11,7 +10,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
-using System.Threading.Tasks;
+using LifeLog.Base.Models;
 
 namespace LifeLog.UI.Common.Views
 {
@@ -239,6 +238,5 @@ namespace LifeLog.UI.Common.Views
 		}
 
 		#endregion
-
 	}
 }

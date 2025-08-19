@@ -162,9 +162,9 @@ namespace LifeLog.UI.BackEnd.Views.Images
 		{
 			try
 			{
-				List<ImagesModel> data = await AppSession.DataEngine.Images.GetAll();
+				(List<ImagesModel> data, string message) = await AppSession.DataEngine.Images.GetAll();
 				bsImages.DataSource = data;
-				AppHelper.StatusMessage($"Found {data.Count} images!", Color.Green);
+				AppHelper.StatusMessage(message, data.Count > 0);
 			}
 			catch (Exception ex)
 			{

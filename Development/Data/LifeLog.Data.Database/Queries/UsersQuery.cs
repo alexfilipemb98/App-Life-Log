@@ -36,6 +36,24 @@ namespace LifeLog.Data.Database.Queries
 
 		#endregion
 
+		#region BASE
+
+		/// <summary>
+		/// Get all users
+		/// </summary>
+		/// <returns></returns>
+		public override async Task<(List<UsersModel>, string)> GetAll()
+		{
+			List<UsersModel> results = await _UOW.Query<UsersEntity>()
+				   .Select(s => s.ToModel())
+				   .ToListAsync() ?? new List<UsersModel>();
+
+			string message = results.Count > 0 ? $"Users retrieved successfully, {results.Count} found." : "No users found.";
+			return (results, message);
+		}
+
+		#endregion
+
 		#region AUTH
 
 		/// <summary>
@@ -102,23 +120,6 @@ namespace LifeLog.Data.Database.Queries
 			return (user != null, "User is valid to login!", loggedUser);
 		}
 
-		#endregion
-
-		#region GLOBAL
-
-		/// <summary>
-		/// Get all users
-		/// </summary>
-		/// <returns></returns>
-		/// <exception cref="NotImplementedException"></exception>
-		public override async Task<List<UsersModel>> GetAll()
-		{
-			List<UsersModel> results = await _UOW.Query<UsersEntity>()
-				 .Select(s => s.ToModel())
-				.ToListAsync();
-			return results ?? new List<UsersModel>();
-		}
-	
 		#endregion
 	}
 }

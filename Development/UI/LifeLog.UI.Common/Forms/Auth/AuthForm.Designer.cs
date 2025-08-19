@@ -277,7 +277,7 @@
 			// 
 			// loginModelBindingSource
 			// 
-			this.loginModelBindingSource.DataSource = typeof(LifeLog.Base.Infrastructure.Models.AuthModel);
+			this.loginModelBindingSource.DataSource = typeof(LifeLog.Base.Models.AuthModel);
 			// 
 			// label1
 			// 

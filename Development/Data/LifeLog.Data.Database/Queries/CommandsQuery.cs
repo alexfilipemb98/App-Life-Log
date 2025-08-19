@@ -86,7 +86,7 @@ namespace LifeLog.Data.Database.Queries
 			await _UOW.SaveAsync(entity);
 			await _UOW.CommitChangesAsync();
 			(bool saved, _) = await Exists(model.Id);
-			string message = saved ? "Command saved successfully." : "Failed to save command.";
+			string message = saved ? "Command saved successfully." : "Command not found after saving.";
 
 			return (saved, message);
 		}
@@ -112,7 +112,7 @@ namespace LifeLog.Data.Database.Queries
 			await _UOW.CommitChangesAsync();
 
 			(bool saved, _) = await Exists(model.Id);
-			string message = saved ? "Command duplicated successfully." : "Failed to duplicate command.";
+			string message = saved ? "Command duplicated successfully." : "Command not found after duplication.";
 			return (model, message);
 		}
 

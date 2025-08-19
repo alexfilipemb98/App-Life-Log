@@ -37,22 +37,26 @@ namespace LifeLog.Data.Database.Queries
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public override async Task<ImagesModel> GetByKey(Guid key)
+		public override async Task<(ImagesModel, string)> GetByKey(Guid key)
 		{
 			ImagesEntity result = await _UOW.GetObjectByKeyAsync<ImagesEntity>(key);
-			return result != null ? result.ToModel() : new ImagesModel();
+			var model = result != null ? result.ToModel() : new ImagesModel();
+			string message = result != null ? "Image retrieved successfully." : "Image not found.";
+			return (model, message);
 		}
 
 		/// <summary>
 		/// Get all notes
 		/// </summary>
 		/// <returns></returns>
-		public override async Task<List<ImagesModel>> GetAll()
+		public override async Task<(List<ImagesModel>, string)> GetAll()
 		{
 			List<ImagesModel> resutls = await _UOW.Query<ImagesEntity>()
 				   .Select(s => s.ToModel())
-				   .ToListAsync();
-			return resutls ?? new List<ImagesModel>();
+				   .ToListAsync() ?? new List<ImagesModel>();
+			string message = resutls.Count > 0 ? $"Images retrieved successfully, {resutls.Count} found." : "No images found.";
+			
+			return (resutls, message);
 		}
 
 		/// <summary>
@@ -63,22 +67,24 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException"></exception>
 		/// <exception cref="ArgumentException"></exception>
-		public override async Task<bool> Save(ImagesModel model)
+		public override async Task<(bool, string)> Save(ImagesModel model)
 		{
-			bool isvalid = await base.Save(model);
+			await base.Save(model);
 
 			ImagesEntity entity = model.ToEntity(_UOW);
 
 			if (entity == null)
 				throw new ArgumentNullException("Images entity is null");
 
-			//Set saving
 			entity.Saving = true;
 
 			await _UOW.SaveAsync(entity);
 			await _UOW.CommitChangesAsync();
 
-			return await Exists(model.Id);
+			(bool exists, _) = await Exists(model.Id);
+			string message = exists ? "Image saved successfully." : "Image not found after saving.";
+
+			return (exists, message);
 		}
 
 		/// <summary>
@@ -86,19 +92,26 @@ namespace LifeLog.Data.Database.Queries
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public override async Task<ImagesModel> Duplicate(Guid key)
+		public override async Task<(ImagesModel, string)> Duplicate(Guid key)
 		{
-			ImagesModel model = await base.Duplicate(key);
+			(ImagesModel model, _) = await base.Duplicate(key);
 			ImagesEntity entity = model.ToEntity(_UOW);
 
 			entity.Id = Guid.NewGuid();
+			entity.Name += " (Copy)";
+
 			model.Id = entity.Id;
+			model.Name = entity.Name;
+
 			entity.Saving = true;
 
 			await _UOW.SaveAsync(model);
 			await _UOW.CommitChangesAsync();
 
-			return model;
+			(bool exists, _) = await Exists(model.Id);
+			string message = exists ? "Image duplicated successfully." : "Image not found after duplication.";
+
+			return (model, message);
 		}
 
 		#endregion

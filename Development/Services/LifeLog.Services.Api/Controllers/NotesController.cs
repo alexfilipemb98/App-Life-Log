@@ -33,7 +33,7 @@ namespace LifeLog.Services.Api.Controllers
 		{
 			try
 			{
-				//List<NotesEntity> results = await _E ..GetAll();
+				//List<NotesModel> results = await _E ..GetAll();
 				return Content(HttpStatusCode.OK, new {});
 			}
 			catch (Exception ex)
@@ -52,7 +52,7 @@ namespace LifeLog.Services.Api.Controllers
 		{
 			try
 			{
-				//NotesEntity result = await Notes.GetByKey(id);
+				//NotesModel result = await Notes.GetByKey(id);
 				return Content(HttpStatusCode.OK, new { });
 			}
 			catch (Exception ex)

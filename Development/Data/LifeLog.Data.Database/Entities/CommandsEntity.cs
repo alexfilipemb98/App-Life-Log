@@ -4,14 +4,14 @@
 	/// Commands
 	/// </summary>
 	[DevExpress.Xpo.Persistent(@"Commands")]
-	internal class CommandsEntity : Bases.DataEntityBase
+	public class CommandsEntity : Bases.DataEntityBase
 	{
 		#region MAIN
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		internal CommandsEntity()
+		public CommandsEntity()
 		{
 		}
 
@@ -19,7 +19,7 @@
 		/// Constructor
 		/// </summary>
 		/// <param name="session"></param>
-		internal CommandsEntity(DevExpress.Xpo.Session session) : base(session)
+		public CommandsEntity(DevExpress.Xpo.Session session) : base(session)
 		{
 		}
 
@@ -33,7 +33,7 @@
 		[DevExpress.Xpo.Size(13)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(13)")]
-		internal string Name { get; set; }
+		public string Name { get; set; }
 
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
@@ -41,7 +41,7 @@
 		[DevExpress.Xpo.Size(30)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(30)")]
-		internal string Description { get; set; }
+		public string Description { get; set; }
 
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
@@ -49,11 +49,11 @@
 		[DevExpress.Xpo.Size(4000)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(4000)")]
-		internal string Command { get; set; }
+		public string Command { get; set; }
 
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("BIT")]
-		internal bool IsEnabled { get; set; }
+		public bool IsEnabled { get; set; }
 
 		#endregion
 		
@@ -62,7 +62,7 @@
 		private dynamic icon;
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[DevExpress.Xpo.NonPersistent]
-		internal dynamic Icon
+		public dynamic Icon
 		{
 			get
 			{
@@ -82,12 +82,12 @@
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[System.ComponentModel.ReadOnly(true)]
 		[DevExpress.Xpo.NonPersistent]
-		internal System.Guid IdUser => User != null ? User.Id : System.Guid.Empty;
+		public System.Guid IdUser => User != null ? User.Id : System.Guid.Empty;
 
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[System.ComponentModel.ReadOnly(true)]
 		[DevExpress.Xpo.NonPersistent]
-		internal System.Guid IdExternalProgram => ExternalProgram != null ? ExternalProgram.Id : System.Guid.Empty;
+		public System.Guid IdExternalProgram => ExternalProgram != null ? ExternalProgram.Id : System.Guid.Empty;
 
 		#endregion
 
@@ -97,13 +97,13 @@
 		[DevExpress.Xpo.Persistent(@"IdUser")]
 		[DevExpress.Xpo.Association(@"CommandsReferencesUsers")]
 		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
-		internal UsersEntity User { get; set; }
+		public UsersEntity User { get; set; }
 
 		[Base.Infrastructure.Attributes.Required]
 		[DevExpress.Xpo.Persistent(@"IdExternalProgram")]
 		[DevExpress.Xpo.Association(@"CommandsReferencesExternalProgram")]
 		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
-		internal ExternalProgramsEntity ExternalProgram { get; set; }
+		public ExternalProgramsEntity ExternalProgram { get; set; }
 
 		#endregion
 	}

@@ -12,6 +12,8 @@ namespace LifeLog.UI.BackEnd
 	/// </summary>
 	public class Engine : IEngineForm
 	{
+		//PRIVATE
+
 		private MainForm mainForm;
 
 		/// <summary>

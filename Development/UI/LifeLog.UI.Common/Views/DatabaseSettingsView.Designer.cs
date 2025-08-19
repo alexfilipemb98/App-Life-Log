@@ -251,7 +251,7 @@
 			// 
 			// databaseConfigModelBindingSource
 			// 
-			this.databaseConfigModelBindingSource.DataSource = typeof(LifeLog.Base.Infrastructure.Models.DatabaseConfigModel);
+			this.databaseConfigModelBindingSource.DataSource = typeof(LifeLog.Base.Models.DatabaseConfigModel);
 			// 
 			// beSqlPassword
 			// 

@@ -143,9 +143,9 @@ namespace LifeLog.UI.BackEnd.Views.Images
 			if (!ValidationHelper.ValidateModelAndSetError(_crtImage, dxErrorProvider, dataLayoutControl))
 				return (false, null);
 
-			bool saved = await AppSession.DataEngine.Images.Save(_crtImage);
+			(bool saved, string message) = await AppSession.DataEngine.Images.Save(_crtImage);
 
-			AppHelper.StatusMessage("Saved", saved);
+			AppHelper.StatusMessage(message, saved);
 
 			return (saved, _crtImage);
 		}

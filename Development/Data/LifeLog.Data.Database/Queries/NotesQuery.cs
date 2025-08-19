@@ -65,9 +65,9 @@ namespace LifeLog.Data.Database.Queries
 		/// <param name="model"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException"></exception>
-		public override async Task<bool> Save(NotesModel model)
+		public override async Task<(bool, string)> Save(NotesModel model)
 		{
-			bool isvalid = await base.Save(model);
+			await base.Save(model);
 
 			NotesEntity entity = model.ToEntity(_UOW);
 
@@ -79,7 +79,9 @@ namespace LifeLog.Data.Database.Queries
 			await _UOW.SaveAsync(entity);
 			await _UOW.CommitChangesAsync();
 
-			return await Exists(model.Id);
+			(bool exists, _) = await Exists(model.Id);
+			string message = exists ? "Note saved successfully." : "Note not found after saving.";
+			return (exists, message);
 		}
 
 		/// <summary>
@@ -87,19 +89,24 @@ namespace LifeLog.Data.Database.Queries
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public override async Task<NotesModel> Duplicate(Guid key)
+		public override async Task<(NotesModel, string)> Duplicate(Guid key)
 		{
-			NotesModel model = await base.Duplicate(key);
+			(NotesModel model, _) = await base.Duplicate(key);
 			NotesEntity entity = model.ToEntity(_UOW);
 
 			entity.Id = Guid.NewGuid();
+			entity.Title += " (Copy)";
 			model.Id = entity.Id;
+			model.Title = entity.Title;
 			entity.Saving = true;
 
 			await _UOW.SaveAsync(model);
 			await _UOW.CommitChangesAsync();
 
-			return model;
+			(bool exists, _) = await Exists(model.Id);
+			string message = exists ? "Note duplicated successfully." : "Note not found after duplication.";
+
+			return (model, message);
 		}
 
 		#endregion
@@ -112,7 +119,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <param name="userId"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentException"></exception>
-		public async Task<List<NotesModel>> GetUserNotes(Guid userId)
+		public async Task<(List<NotesModel>, string)> GetUserNotes(Guid userId)
 		{
 			UsersEntity userDb = await _UOW.GetObjectByKeyAsync<UsersEntity>(userId);
 			if (userDb == null)
@@ -121,9 +128,10 @@ namespace LifeLog.Data.Database.Queries
 			List<NotesModel> results = await _UOW.Query<NotesEntity>()
 				.Where(w => w.User.Id == userDb.Id)
 				.Select(s => s.ToModel())
-				.ToListAsync();
+				.ToListAsync() ?? new List<NotesModel>();
 
-			return results ?? new List<NotesModel>();
+			string message = results.Count > 0 ? $"Notes retrieved successfully, {results.Count} found." : "No notes found for the user.";
+			return (results, message);
 		}
 
 		/// <summary>
@@ -132,14 +140,15 @@ namespace LifeLog.Data.Database.Queries
 		/// <param name="notesList"></param>
 		/// <param name="userId"></param>
 		/// <returns></returns>
-		public async Task<bool> SaveList(List<NotesModel> notesList)
+		public async Task<(bool, string)> SaveList(List<NotesModel> notesList)
 		{
 			bool saved = false;
 			foreach (NotesModel obj in notesList)
 			{
-				saved = await Save(obj);
+				(saved, _) = await Save(obj);
 			}
-			return saved;
+			string message = saved ? "Notes list saved successfully." : "Failed to save notes list.";
+			return (saved, message);
 		}
 
 		#endregion

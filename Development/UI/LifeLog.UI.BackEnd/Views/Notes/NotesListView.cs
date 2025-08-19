@@ -1,18 +1,9 @@
-﻿using DevExpress.Utils;
-using DevExpress.XtraEditors;
-using LifeLog.Base.Models.Data;
-using LifeLog.Data.Database.Entities;
+﻿using LifeLog.Base.Models.Data;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Helpers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace LifeLog.UI.BackEnd.Views.Notes
 {
@@ -29,9 +20,9 @@ namespace LifeLog.UI.BackEnd.Views.Notes
 		{
 			try
 			{
-				List<NotesModel> data = await AppSession.DataEngine.Notes.GetAll();
+				(List<NotesModel> data, string message) = await AppSession.DataEngine.Notes.GetAll();
 				bsNotes.DataSource = data;
-				AppHelper.StatusMessage($"Found {data.Count} notes!", Color.Green);
+				AppHelper.StatusMessage(message, data.Count > 0);
 			}
 			catch (Exception ex)
 			{

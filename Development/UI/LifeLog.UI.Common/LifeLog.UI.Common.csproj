@@ -157,6 +157,10 @@
       <Project>{1464e310-f6f8-4cc5-b313-fc1b71219f0b}</Project>
       <Name>LifeLog.Base.Components</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Base\LifeLog.Base.DapperUtil\LifeLog.Base.DapperUtil.csproj">
+      <Project>{C459304D-2305-4A4F-9150-56637E9FFFAF}</Project>
+      <Name>LifeLog.Base.DapperUtil</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Base\LifeLog.Base.Models\LifeLog.Base.Models.csproj">
       <Project>{573644af-0c91-4c0d-bda9-7427519a6961}</Project>
       <Name>LifeLog.Base.Models</Name>

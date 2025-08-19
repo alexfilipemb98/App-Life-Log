@@ -30,8 +30,10 @@ namespace LifeLog.UI.BackEnd.Views.Users
 		{
 			try
 			{
-				List<UsersModel> results = await AppSession.DataEngine.Users.GetAll();
+				(List<UsersModel> results, string message) = await AppSession.DataEngine.Users.GetAll();
 				bsUsers.DataSource = results;
+
+				AppHelper.StatusMessage(message, results.Count > 0);
 			}
 			catch (Exception ex)
 			{
