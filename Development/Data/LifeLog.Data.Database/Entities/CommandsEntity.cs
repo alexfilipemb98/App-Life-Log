@@ -18,7 +18,7 @@
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		/// <param name="session"></param>
+		/// <param fName="session"></param>
 		internal CommandsEntity(DevExpress.Xpo.Session session) : base(session)
 		{
 		}
@@ -26,34 +26,80 @@
 		#endregion
 
 		#region PROPERTIES
-
+		
+		private string fName;
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
 		[Base.Infrastructure.Attributes.StringLength(13, MinimumLength = 3)]
 		[DevExpress.Xpo.Size(13)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(13)")]
-		internal string Name { get; set; }
+		public string Name
+		{
+			get => fName;
+			set => SetPropertyValue(nameof(Name), ref fName, value);
+		}
 
+		private string fDescription;
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
 		[Base.Infrastructure.Attributes.StringLength(30, MinimumLength = 3)]
 		[DevExpress.Xpo.Size(30)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(30)")]
-		internal string Description { get; set; }
+		public string Description
+		{
+			get => fDescription;
+			set => SetPropertyValue(nameof(Description), ref fDescription, value);
+		}
 
+		private string fCommand;
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
 		[Base.Infrastructure.Attributes.StringLength(4000)]
 		[DevExpress.Xpo.Size(4000)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(4000)")]
-		internal string Command { get; set; }
+		public string Command
+		{
+			get => fCommand;
+			set => SetPropertyValue(nameof(Command), ref fCommand, value);
+		}
 
+		private bool fIsEnabled;
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("BIT")]
-		internal bool IsEnabled { get; set; }
+		public bool IsEnabled
+		{
+			get => fIsEnabled;
+			set => SetPropertyValue(nameof(IsEnabled), ref fIsEnabled, value);
+		}
+
+		#endregion
+
+		#region CLASS
+
+		private UsersEntity fUser;
+		[Base.Infrastructure.Attributes.Required]
+		[DevExpress.Xpo.Persistent(@"IdUser")]
+		[DevExpress.Xpo.Association(@"CommandsReferencesUsers")]
+		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
+		public UsersEntity User
+		{
+			get => fUser;
+			set => SetPropertyValue(nameof(User), ref fUser, value);
+		}
+
+		private ExternalProgramsEntity fExternalProgram;
+		[Base.Infrastructure.Attributes.Required]
+		[DevExpress.Xpo.Persistent(@"IdExternalProgram")]
+		[DevExpress.Xpo.Association(@"CommandsReferencesExternalProgram")]
+		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
+		public ExternalProgramsEntity ExternalProgram
+		{
+			get => fExternalProgram;
+			set => SetPropertyValue(nameof(ExternalProgram), ref fExternalProgram, value);
+		}
 
 		#endregion
 
@@ -62,7 +108,7 @@
 		private dynamic icon;
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[DevExpress.Xpo.NonPersistent]
-		internal dynamic Icon
+		public dynamic Icon
 		{
 			get
 			{
@@ -82,28 +128,12 @@
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[System.ComponentModel.ReadOnly(true)]
 		[DevExpress.Xpo.NonPersistent]
-		internal System.Guid IdUser => User != null ? User.Id : System.Guid.Empty;
+		public System.Guid IdUser => User != null ? User.Id : System.Guid.Empty;
 
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[System.ComponentModel.ReadOnly(true)]
 		[DevExpress.Xpo.NonPersistent]
-		internal System.Guid IdExternalProgram => ExternalProgram != null ? ExternalProgram.Id : System.Guid.Empty;
-
-		#endregion
-
-		#region CLASS
-
-		[Base.Infrastructure.Attributes.Required]
-		[DevExpress.Xpo.Persistent(@"IdUser")]
-		[DevExpress.Xpo.Association(@"CommandsReferencesUsers")]
-		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
-		internal UsersEntity User { get; set; }
-
-		[Base.Infrastructure.Attributes.Required]
-		[DevExpress.Xpo.Persistent(@"IdExternalProgram")]
-		[DevExpress.Xpo.Association(@"CommandsReferencesExternalProgram")]
-		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
-		internal ExternalProgramsEntity ExternalProgram { get; set; }
+		public System.Guid IdExternalProgram => ExternalProgram != null ? ExternalProgram.Id : System.Guid.Empty;
 
 		#endregion
 	}

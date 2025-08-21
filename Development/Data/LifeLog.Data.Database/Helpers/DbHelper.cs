@@ -19,7 +19,7 @@ namespace LifeLog.Data.Database.Helpers
 		/// <summary>
 		/// List hte databases
 		/// </summary>
-		/// <param name="connectionString"></param>
+		/// <param fName="connectionString"></param>
 		/// <returns></returns>
 		public static async Task<List<string>> GetDatabases(string connectionString)
 		{
@@ -32,7 +32,7 @@ namespace LifeLog.Data.Database.Helpers
 		/// <summary>
 		/// Gets the connection string
 		/// </summary>
-		/// <param name="config"></param>
+		/// <param fName="config"></param>
 		/// <returns></returns>
 		public static string GetConnection(DatabaseConfigModel config, bool raw = false)
 		{
@@ -113,8 +113,8 @@ namespace LifeLog.Data.Database.Helpers
 		/// <summary>
 		/// Check if the database exists
 		/// </summary>
-		/// <param name="builder"></param>
-		/// <param name="databaseName"></param>
+		/// <param fName="builder"></param>
+		/// <param fName="databaseName"></param>
 		/// <returns></returns>
 		public static void CheckDatabaseExists(SqlConnectionStringBuilder builder, string databaseName)
 		{

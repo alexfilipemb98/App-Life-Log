@@ -14,7 +14,7 @@ namespace LifeLog.Data.Database.Mappers
 		/// <summary>
 		/// CommandsEntity to CommandsModel mapper.
 		/// </summary>
-		/// <param name="entity"></param>
+		/// <param fName="entity"></param>
 		/// <returns></returns>
 		internal static CommandsModel ToModel(this CommandsEntity entity)
 		{
@@ -39,8 +39,8 @@ namespace LifeLog.Data.Database.Mappers
 		/// <summary>
 		/// CommandsModel to CommandsEntity mapper.
 		/// </summary>
-		/// <param name="model"></param>
-		/// <param name="session"></param>
+		/// <param fName="model"></param>
+		/// <param fName="session"></param>
 		/// <returns></returns>
 		internal static CommandsEntity ToEntity(this CommandsModel model, UnitOfWork session)
 		{

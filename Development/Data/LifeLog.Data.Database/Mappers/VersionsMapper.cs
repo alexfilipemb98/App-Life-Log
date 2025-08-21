@@ -13,7 +13,7 @@ namespace LifeLog.Data.Database.Mappers
 		/// <summary>
 		/// VersionsEntity to VersionsModel mapper.
 		/// </summary>
-		/// <param name="entity"></param>
+		/// <param fName="entity"></param>
 		/// <returns></returns>
 		internal static VersionsModel ToModel(this VersionsEntity entity)
 		{
@@ -33,8 +33,8 @@ namespace LifeLog.Data.Database.Mappers
 		/// <summary>
 		/// VersionsModel to VersionsEntity mapper.
 		/// </summary>
-		/// <param name="model"></param>
-		/// <param name="session"></param>
+		/// <param fName="model"></param>
+		/// <param fName="session"></param>
 		/// <returns></returns>
 		internal static VersionsEntity ToEntity(this VersionsModel model, Session session)
 		{

@@ -18,7 +18,7 @@
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		/// <param name="session"></param>
+		/// <param fName="session"></param>
 		internal ExternalProgramsEntity(DevExpress.Xpo.Session session) : base(session)
 		{
 		}
@@ -27,46 +27,71 @@
 
 		#region PROPERTIES
 
+		private string fName;
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
 		[Base.Infrastructure.Attributes.StringLength(30, MinimumLength = 3)]
 		[DevExpress.Xpo.Size(30)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(30)")]
-		internal string Name { get; set; }
+		public string Name
+		{
+			get => fName;
+			set => SetPropertyValue(nameof(Name), ref fName, value);
+		}
 
+		private string fFileExtension;
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
 		[Base.Infrastructure.Attributes.StringLength(5)]
 		[DevExpress.Xpo.Size(5)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(5)")]
-		internal string FileExtension { get; set; }
+		public string FileExtension
+		{
+			get => fFileExtension;
+			set => SetPropertyValue(nameof(FileExtension), ref fFileExtension, value);
+		}
 
+		private string fPathToProgram;
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
 		[Base.Infrastructure.Attributes.StringLength(400)]
 		[DevExpress.Xpo.Size(400)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(400)")]
-		internal string PathToProgram { get; set; }
+		public string PathToProgram
+		{
+			get => fPathToProgram;
+			set => SetPropertyValue(nameof(PathToProgram), ref fPathToProgram, value);
+		}
 
+		private string fArguments;
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.StringLength(150)]
 		[DevExpress.Xpo.Size(150)]
 		[DevExpress.Xpo.Nullable(true)]
 		[DevExpress.Xpo.DbType("NVARCHAR(150)")]
-		internal string Arguments { get; set; }
+		public string Arguments
+		{
+			get => fArguments;
+			set => SetPropertyValue(nameof(Arguments), ref fArguments, value);
+		}
 
 		#endregion
 
 		#region CLASS
 
+		private ImagesEntity fImage;
 		[Base.Infrastructure.Attributes.Required]
 		[DevExpress.Xpo.Persistent(@"IdImage")]
 		[DevExpress.Xpo.Association(@"ExternalProgramsReferencesImages")]
 		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
-		internal ImagesEntity Image { get; set; }
+		public ImagesEntity Image
+		{
+			get => fImage;
+			set => SetPropertyValue(nameof(Image), ref fImage, value);
+		}
 
 		#endregion
 
@@ -75,7 +100,7 @@
 		private dynamic icon;
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[DevExpress.Xpo.NonPersistent]
-		internal dynamic Icon
+		public dynamic Icon
 		{
 			get
 			{
@@ -95,14 +120,14 @@
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[System.ComponentModel.ReadOnly(true)]
 		[DevExpress.Xpo.NonPersistent]
-		internal System.Guid IdImage => Image != null ? Image.Id : System.Guid.Empty;
+		public System.Guid IdImage => Image != null ? Image.Id : System.Guid.Empty;
 
 		#endregion
 
 		#region ASSOCIATIONS
 
 		[DevExpress.Xpo.Association(@"CommandsReferencesExternalProgram")]
-		internal System.Collections.Generic.IList<CommandsEntity> ExternalPrograms_Commands => GetList<CommandsEntity>(nameof(ExternalPrograms_Commands));
+		public System.Collections.Generic.IList<CommandsEntity> ExternalPrograms_Commands => GetList<CommandsEntity>(nameof(ExternalPrograms_Commands));
 
 		#endregion
 	}

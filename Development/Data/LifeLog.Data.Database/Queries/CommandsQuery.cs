@@ -22,8 +22,8 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		/// <param name="uow"></param>
-		/// <param name="sql"></param>
+		/// <param fName="uow"></param>
+		/// <param fName="sql"></param>
 		public CommandsQuery(UnitOfWork uow, SqlDataAccess sql) : base(uow, sql)
 		{
 		}
@@ -35,7 +35,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Get the entity by key
 		/// </summary>
-		/// <param name="key"></param>
+		/// <param fName="key"></param>
 		/// <returns></returns>
 		public override async Task<(CommandsModel,string)> GetByKey(Guid key)
 		{
@@ -62,8 +62,8 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Save the notes by user
 		/// </summary>
-		/// <param name="model"></param>
-		/// <param name="userId"></param>
+		/// <param fName="model"></param>
+		/// <param fName="userId"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException"></exception>
 		/// <exception cref="ArgumentException"></exception>
@@ -93,7 +93,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Duplicates the entity by key and returns the duplicated entity
 		/// </summary>
-		/// <param name="key"></param>
+		/// <param fName="key"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentException"></exception>
 		public override async Task<(CommandsModel, string)> Duplicate(Guid key)
@@ -122,7 +122,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Gets users notes
 		/// </summary>
-		/// <param name="userId"></param>
+		/// <param fName="userId"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentException"></exception>
 		public async Task<(List<CommandsModel>,string)> GetUserCommands(Guid userId)

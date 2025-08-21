@@ -25,8 +25,8 @@ namespace LifeLog.Data.Database.Queries
 	//	/// <summary>
 	//	/// Constructor
 	//	/// </summary>
-	//	/// <param name="uow"></param>
-	//	/// <param name="sql"></param>
+	//	/// <param fName="uow"></param>
+	//	/// <param fName="sql"></param>
 	//	public VersionsQuery(UnitOfWork uow, DataSqlAccessBase sql) : base(uow, sql)
 	//	{
 	//	}
@@ -34,8 +34,8 @@ namespace LifeLog.Data.Database.Queries
 	//	/// <summary>
 	//	/// Data layer e outro constructor
 	//	/// </summary>
-	//	/// <param name="dataLayer"></param>
-	//	/// <param name="connection"></param>
+	//	/// <param fName="dataLayer"></param>
+	//	/// <param fName="connection"></param>
 	//	public VersionsQuery(IDataLayer dataLayer, IDbConnection connection) : base(dataLayer, connection)
 	//	{
 	//	}

@@ -14,7 +14,7 @@ namespace LifeLog.Data.Database.Mappers
 		/// <summary>
 		/// ImagesEntity to ImagesModel mapper.
 		/// </summary>
-		/// <param name="entity"></param>
+		/// <param fName="entity"></param>
 		/// <returns></returns>
 		internal static ImagesModel ToModel(this ImagesEntity entity)
 		{
@@ -36,8 +36,8 @@ namespace LifeLog.Data.Database.Mappers
 		/// <summary>
 		/// ImagesModel to ImagesEntity mapper.
 		/// </summary>
-		/// <param name="model"></param>
-		/// <param name="session"></param>
+		/// <param fName="model"></param>
+		/// <param fName="session"></param>
 		/// <returns></returns>
 		internal static ImagesEntity ToEntity(this ImagesModel model, Session session)
 		{

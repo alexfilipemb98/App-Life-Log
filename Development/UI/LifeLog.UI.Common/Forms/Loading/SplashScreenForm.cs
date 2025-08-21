@@ -2,7 +2,6 @@
 using System;
 using System.Drawing;
 using System.Reflection;
-using System.Windows.Forms;
 using static DevExpress.LookAndFeel.DXSkinColors;
 
 namespace LifeLog.UI.Common.Forms.Loading

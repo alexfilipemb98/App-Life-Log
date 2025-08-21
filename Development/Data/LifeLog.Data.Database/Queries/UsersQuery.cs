@@ -27,8 +27,8 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		/// <param name="uow"></param>
-		/// <param name="sql"></param>
+		/// <param fName="uow"></param>
+		/// <param fName="sql"></param>
 		public UsersQuery(UnitOfWork uow, SqlDataAccess sql) : base(uow, sql)
 		{
 		}
@@ -58,7 +58,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// This is the register method
 		/// </summary>
-		/// <param name="model"></param>
+		/// <param fName="model"></param>
 		/// <returns></returns>
 		public async Task<(bool, string)> RegisterUser(AuthModel model)
 		{
@@ -92,8 +92,8 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Validate user login
 		/// </summary>
-		/// <param name="email"></param>
-		/// <param name="password"></param>
+		/// <param fName="email"></param>
+		/// <param fName="password"></param>
 		/// <returns></returns>
 		public async Task<(bool, string, LoggedUserModel)> ValidateUserLogin(AuthModel model)
 		{

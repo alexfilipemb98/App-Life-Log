@@ -18,7 +18,7 @@
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		/// <param name="session"></param>
+		/// <param fName="session"></param>
 		internal ImagesEntity(DevExpress.Xpo.Session session) : base(session)
 		{
 		}
@@ -27,27 +27,42 @@
 
 		#region PROPERTIES
 
+		private string fName;
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
 		[Base.Infrastructure.Attributes.StringLength(30, MinimumLength = 3)]
 		[DevExpress.Xpo.Size(30)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(30)")]
-		internal string Name { get; set; }
+		public string Name
+		{
+			get => fName;
+			set => SetPropertyValue(nameof(Name), ref fName, value);
+		}
 
+		private byte[] fData;
 		[Base.Infrastructure.Attributes.Required]
 		[DevExpress.Xpo.Size(30)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("VARBINARY(4000)")]
-		internal byte[] Data { get; set; }
+		public byte[] Data
+		{
+			get => fData;
+			set => SetPropertyValue(nameof(Data), ref fData, value);
+		}
 
+		private string fFileExtension;
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
 		[Base.Infrastructure.Attributes.StringLength(10)]
 		[DevExpress.Xpo.Size(10)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(10)")]
-		internal string FileExtension { get; set; }
+		public string FileExtension
+		{
+			get => fFileExtension;
+			set => SetPropertyValue(nameof(FileExtension), ref fFileExtension, value);
+		}
 
 		#endregion
 
@@ -56,24 +71,24 @@
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[System.ComponentModel.ReadOnly(true)]
 		[DevExpress.Xpo.NonPersistent]
-		internal bool IsSvg => FileExtension == null ? false : FileExtension.EndsWith("svg", System.StringComparison.InvariantCultureIgnoreCase);
+		public bool IsSvg => FileExtension == null ? false : FileExtension.EndsWith("svg", System.StringComparison.InvariantCultureIgnoreCase);
 
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[System.ComponentModel.ReadOnly(true)]
 		[DevExpress.Xpo.NonPersistent]
-		internal DevExpress.Utils.Svg.SvgImage SvgImage => Data != null && Data.Length > 0 && IsSvg ? LifeLog.Base.Utils.ImagesUtil.ArrayToSvgImage(Data) : null;
+		public DevExpress.Utils.Svg.SvgImage SvgImage => Data != null && Data.Length > 0 && IsSvg ? LifeLog.Base.Utils.ImagesUtil.ArrayToSvgImage(Data) : null;
 
 		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[System.ComponentModel.ReadOnly(true)]
 		[DevExpress.Xpo.NonPersistent]
-		internal System.Drawing.Bitmap BitImage => Data != null && Data.Length > 0 && IsSvg ? LifeLog.Base.Utils.ImagesUtil.ArrayToBitmap(Data) : null;
+		public System.Drawing.Bitmap BitImage => Data != null && Data.Length > 0 && IsSvg ? LifeLog.Base.Utils.ImagesUtil.ArrayToBitmap(Data) : null;
 
 		#endregion
 
 		#region ASSOCIATIONS
 
 		[DevExpress.Xpo.Association(@"ExternalProgramsReferencesImages")]
-		internal System.Collections.Generic.IList<ExternalProgramsEntity> Images_ExternalPrograms => GetList<ExternalProgramsEntity>(nameof(Images_ExternalPrograms));
+		public System.Collections.Generic.IList<ExternalProgramsEntity> Images_ExternalPrograms => GetList<ExternalProgramsEntity>(nameof(Images_ExternalPrograms));
 
 		#endregion
 	}

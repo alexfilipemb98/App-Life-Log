@@ -26,11 +26,17 @@
 
 		#region PROPERTIES
 
+		private System.Guid fProgramId;
 		[Base.Infrastructure.Attributes.Required]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
-		internal System.Guid ProgramId { get; set; }
+		public System.Guid ProgramId
+		{
+			get => fProgramId;
+			set => SetPropertyValue(nameof(ProgramId), ref fProgramId, value);
+		}
 
+		private string fName;
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
 		[Base.Infrastructure.Attributes.StringLength(50, MinimumLength = 3)]
@@ -38,8 +44,13 @@
 		[DevExpress.Xpo.Size(50)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(50)")]
-		internal string Name { get; set; }
+		public string Name
+		{
+			get => fName;
+			set => SetPropertyValue(nameof(Name), ref fName, value);
+		}
 
+		private string fVersion;
 		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
 		[Base.Infrastructure.Attributes.Required]
 		[Base.Infrastructure.Attributes.StringLength(20)]
@@ -47,7 +58,11 @@
 		[DevExpress.Xpo.Size(20)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(20)")]
-		internal string Version { get; set; }
+		public string Version
+		{
+			get => fVersion;
+			set => SetPropertyValue(nameof(Version), ref fVersion, value);
+		}
 
 		#endregion
 	}

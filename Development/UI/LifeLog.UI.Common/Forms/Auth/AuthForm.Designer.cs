@@ -570,7 +570,7 @@
 			this.Controls.Add(this.ribbonStatusBar);
 			this.Controls.Add(this.ribbon);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("AuthForm.IconOptions.SvgImage")));
+			this.IconOptions.Image = LifeLog.UI.Resources.Properties.Resources.icon;
 			this.Name = "AuthForm";
 			this.Ribbon = this.ribbon;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

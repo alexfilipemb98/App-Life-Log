@@ -52,7 +52,7 @@ namespace LifeLog.Data.Database.Bases
 		/// <summary>
 		/// Ches if the command exists
 		/// </summary>
-		/// <param name="key"></param>
+		/// <param fName="key"></param>
 		/// <returns></returns>
 		public virtual async Task<(bool, string)> Exists(Guid key)
 		{
@@ -66,7 +66,7 @@ namespace LifeLog.Data.Database.Bases
 		/// <summary>
 		/// Get the object by key
 		/// </summary>
-		/// <param name="key"></param>
+		/// <param fName="key"></param>
 		/// <returns></returns>
 		/// <exception cref="NotImplementedException"></exception>
 		public virtual async Task<(Object, string)> GetByKey(Guid key)
@@ -109,7 +109,7 @@ namespace LifeLog.Data.Database.Bases
 		/// <summary>
 		/// Save the object
 		/// </summary>
-		/// <param name="model"></param>
+		/// <param fName="model"></param>
 		/// <returns></returns>
 		/// <exception cref="NotImplementedException"></exception>
 		public virtual async Task<(bool, string)> Save(Object model)
@@ -129,7 +129,7 @@ namespace LifeLog.Data.Database.Bases
 		/// <summary>
 		/// Duplicates the object by key and returns the duplicated
 		/// </summary>
-		/// <param name="key"></param>
+		/// <param fName="key"></param>
 		/// <returns></returns>
 		/// <exception cref="NotImplementedException"></exception>
 		public virtual async Task<(Object, string)> Duplicate(Guid key)
@@ -147,7 +147,7 @@ namespace LifeLog.Data.Database.Bases
 		/// <summary>
 		/// Delete the object by key
 		/// </summary>
-		/// <param name="key"></param>
+		/// <param fName="key"></param>
 		/// <returns></returns>
 		/// <exception cref="NotImplementedException"></exception>
 		public virtual async Task<(bool, string)> Delete(Guid key)

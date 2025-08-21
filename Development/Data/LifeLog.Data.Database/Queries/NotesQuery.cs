@@ -22,8 +22,8 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		/// <param name="uow"></param>
-		/// <param name="sql"></param>
+		/// <param fName="uow"></param>
+		/// <param fName="sql"></param>
 		public NotesQuery(UnitOfWork uow, SqlDataAccess sql) : base(uow, sql)
 		{
 		}
@@ -35,7 +35,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Get the note by key
 		/// </summary>
-		/// <param name="key"></param>
+		/// <param fName="key"></param>
 		/// <returns></returns>
 		public override async Task<(NotesModel, string)> GetByKey(Guid key)
 		{
@@ -62,7 +62,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Save the notes
 		/// </summary>
-		/// <param name="model"></param>
+		/// <param fName="model"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException"></exception>
 		public override async Task<(bool, string)> Save(NotesModel model)
@@ -87,7 +87,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Duplicates the model by key and returns the duplicated model
 		/// </summary>
-		/// <param name="key"></param>
+		/// <param fName="key"></param>
 		/// <returns></returns>
 		public override async Task<(NotesModel, string)> Duplicate(Guid key)
 		{
@@ -116,7 +116,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Gets users notes
 		/// </summary>
-		/// <param name="userId"></param>
+		/// <param fName="userId"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentException"></exception>
 		public async Task<(List<NotesModel>, string)> GetUserNotes(Guid userId)
@@ -137,8 +137,8 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Saves notes list
 		/// </summary>
-		/// <param name="notesList"></param>
-		/// <param name="userId"></param>
+		/// <param fName="notesList"></param>
+		/// <param fName="userId"></param>
 		/// <returns></returns>
 		public async Task<(bool, string)> SaveList(List<NotesModel> notesList)
 		{

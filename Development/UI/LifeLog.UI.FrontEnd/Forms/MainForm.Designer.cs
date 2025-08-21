@@ -127,7 +127,7 @@
             this.bbiWeather,
             this.bbiConvertText});
 			this.ribbon.Location = new System.Drawing.Point(0, 0);
-			this.ribbon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.ribbon.Margin = new System.Windows.Forms.Padding(4);
 			this.ribbon.MaxItemId = 22;
 			this.ribbon.Name = "ribbon";
 			this.ribbon.OptionsMenuMinWidth = 385;
@@ -142,7 +142,7 @@
 			this.ribbon.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
 			this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
 			this.ribbon.ShowToolbarCustomizeItem = false;
-			this.ribbon.Size = new System.Drawing.Size(1322, 229);
+			this.ribbon.Size = new System.Drawing.Size(1322, 177);
 			this.ribbon.StatusBar = this.ribbonStatusBar;
 			this.ribbon.Toolbar.ShowCustomizeItem = false;
 			this.ribbon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ribbon_ItemClickAsync);
@@ -174,10 +174,10 @@
 			// backstageViewClientControl2
 			// 
 			this.backstageViewClientControl2.Controls.Add(this.databaseSettingsView1);
-			this.backstageViewClientControl2.Location = new System.Drawing.Point(231, 63);
+			this.backstageViewClientControl2.Location = new System.Drawing.Point(208, 63);
 			this.backstageViewClientControl2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.backstageViewClientControl2.Name = "backstageViewClientControl2";
-			this.backstageViewClientControl2.Size = new System.Drawing.Size(440, 313);
+			this.backstageViewClientControl2.Size = new System.Drawing.Size(463, 313);
 			this.backstageViewClientControl2.TabIndex = 2;
 			// 
 			// databaseSettingsView1
@@ -186,7 +186,7 @@
 			this.databaseSettingsView1.Location = new System.Drawing.Point(0, 0);
 			this.databaseSettingsView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.databaseSettingsView1.Name = "databaseSettingsView1";
-			this.databaseSettingsView1.Size = new System.Drawing.Size(440, 313);
+			this.databaseSettingsView1.Size = new System.Drawing.Size(463, 313);
 			this.databaseSettingsView1.TabIndex = 0;
 			// 
 			// backstageViewTabItem1
@@ -443,11 +443,11 @@
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiAppVersion);
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiTime);
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiUserMenu);
-			this.ribbonStatusBar.Location = new System.Drawing.Point(0, 685);
+			this.ribbonStatusBar.Location = new System.Drawing.Point(0, 702);
 			this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.ribbonStatusBar.Name = "ribbonStatusBar";
 			this.ribbonStatusBar.Ribbon = this.ribbon;
-			this.ribbonStatusBar.Size = new System.Drawing.Size(1322, 41);
+			this.ribbonStatusBar.Size = new System.Drawing.Size(1322, 24);
 			// 
 			// bsiStatusLabel
 			// 
@@ -479,21 +479,21 @@
 			// 
 			this.layoutControl1.Controls.Add(this.panelControl1);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 229);
+			this.layoutControl1.Location = new System.Drawing.Point(0, 177);
 			this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.layoutControl1.Name = "layoutControl1";
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(1322, 456);
+			this.layoutControl1.Size = new System.Drawing.Size(1322, 525);
 			this.layoutControl1.TabIndex = 2;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
 			// panelControl1
 			// 
 			this.panelControl1.Controls.Add(this.navigationFrame);
-			this.panelControl1.Location = new System.Drawing.Point(18, 21);
+			this.panelControl1.Location = new System.Drawing.Point(12, 12);
 			this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.panelControl1.Name = "panelControl1";
-			this.panelControl1.Size = new System.Drawing.Size(1286, 414);
+			this.panelControl1.Size = new System.Drawing.Size(1298, 501);
 			this.panelControl1.TabIndex = 4;
 			// 
 			// navigationFrame
@@ -506,16 +506,17 @@
 			this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.npHome});
 			this.navigationFrame.SelectedPage = this.npHome;
-			this.navigationFrame.Size = new System.Drawing.Size(1282, 410);
+			this.navigationFrame.Size = new System.Drawing.Size(1294, 497);
 			this.navigationFrame.TabIndex = 0;
 			this.navigationFrame.Text = "navigationFrame1";
 			// 
 			// npHome
 			// 
+			this.npHome.Caption = "npHome";
 			this.npHome.Controls.Add(this.backstageViewControl1);
 			this.npHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.npHome.Name = "npHome";
-			this.npHome.Size = new System.Drawing.Size(1282, 410);
+			this.npHome.Size = new System.Drawing.Size(1294, 497);
 			// 
 			// Root
 			// 
@@ -524,7 +525,7 @@
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
 			this.Root.Name = "Root";
-			this.Root.Size = new System.Drawing.Size(1322, 456);
+			this.Root.Size = new System.Drawing.Size(1322, 525);
 			this.Root.TextVisible = false;
 			// 
 			// layoutControlItem1
@@ -532,7 +533,7 @@
 			this.layoutControlItem1.Control = this.panelControl1;
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(1292, 422);
+			this.layoutControlItem1.Size = new System.Drawing.Size(1302, 505);
 			this.layoutControlItem1.TextVisible = false;
 			// 
 			// timer
@@ -558,6 +559,7 @@
 			// 
 			// MainForm
 			// 
+			this.Appearance.Options.UseFont = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1322, 726);
@@ -566,7 +568,7 @@
 			this.Controls.Add(this.ribbon);
 			this.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("MainForm.IconOptions.SvgImage")));
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "MainForm";
 			this.Ribbon = this.ribbon;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -14,7 +14,7 @@ namespace LifeLog.Data.Mappers
 		/// <summary>
 		/// UsesEntity to UsersModel mapper.
 		/// </summary>
-		/// <param name="entity"></param>
+		/// <param fName="entity"></param>
 		/// <returns></returns>
 		internal static UsersModel ToModel(this UsersEntity entity)
 		{
@@ -35,7 +35,7 @@ namespace LifeLog.Data.Mappers
 		/// <summary>
 		/// UsesEntity to LoggedUserModel mapper.
 		/// </summary>
-		/// <param name="entity"></param>
+		/// <param fName="entity"></param>
 		/// <returns></returns>
 		internal static LoggedUserModel ToLoggedInModel(this UsersEntity entity)
 		{
@@ -52,8 +52,8 @@ namespace LifeLog.Data.Mappers
 		/// <summary>
 		/// UsersModel to UsersEntity mapper.
 		/// </summary>
-		/// <param name="model"></param>
-		/// <param name="session"></param>
+		/// <param fName="model"></param>
+		/// <param fName="session"></param>
 		/// <returns></returns>
 		internal static UsersEntity ToEntity(this UsersModel model, Session session)
 		{

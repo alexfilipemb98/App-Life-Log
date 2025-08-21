@@ -27,8 +27,8 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		/// <param name="uow"></param>
-		/// <param name="sql"></param>
+		/// <param fName="uow"></param>
+		/// <param fName="sql"></param>
 		public ExternalProgramsQuery(UnitOfWork uow, SqlDataAccess sql) : base(uow, sql)
 		{
 		}
@@ -40,7 +40,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Get the model by key
 		/// </summary>
-		/// <param name="key"></param>
+		/// <param fName="key"></param>
 		/// <returns></returns>
 		public override async Task<(ExternalProgramsModel, string)> GetByKey(Guid key)
 		{
@@ -65,8 +65,8 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Save the model object
 		/// </summary>
-		/// <param name="model"></param>
-		/// <param name="userId"></param>
+		/// <param fName="model"></param>
+		/// <param fName="userId"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException"></exception>
 		/// <exception cref="ArgumentException"></exception>
@@ -95,7 +95,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Duplicates the model by key and returns the duplicated model
 		/// </summary>
-		/// <param name="key"></param>
+		/// <param fName="key"></param>
 		/// <returns></returns>
 		public override async Task<(ExternalProgramsModel,string)> Duplicate(Guid key)
 		{

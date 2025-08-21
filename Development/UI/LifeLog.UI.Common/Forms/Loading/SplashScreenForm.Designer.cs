@@ -77,7 +77,7 @@
 			this.progressPanel.AnimationElementImage = ((System.Drawing.Image)(resources.GetObject("progressPanel.AnimationElementImage")));
 			this.progressPanel.Appearance.BackColor = System.Drawing.Color.Transparent;
 			this.progressPanel.Appearance.Options.UseBackColor = true;
-			this.progressPanel.BackgroundImage = global::LifeLog.UI.Resources.Properties.Resources.SplashScreen;
+			this.progressPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressPanel.BackgroundImage")));
 			this.progressPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.progressPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.progressPanel.ContentAlignment = System.Drawing.ContentAlignment.BottomCenter;
@@ -105,6 +105,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "SplashScreenForm";
 			this.Text = "frmSplashScreen";
+			this.Load += new System.EventHandler(this.frmSplashScreen_Load);
 			this.ResumeLayout(false);
 
         }
@@ -113,5 +114,5 @@
         private DevExpress.XtraEditors.LabelControl labelCopyright;
         private DevExpress.XtraWaitForm.ProgressPanel progressPanel;
         private DevExpress.XtraEditors.LabelControl labelVersion;
-    }
+	}
 }

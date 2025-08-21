@@ -22,8 +22,8 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		/// <param name="uow"></param>
-		/// <param name="sql"></param>
+		/// <param fName="uow"></param>
+		/// <param fName="sql"></param>
 		public ImagesQuery(UnitOfWork uow, SqlDataAccess sql) : base(uow, sql)
 		{
 		}
@@ -35,7 +35,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Get the command by key
 		/// </summary>
-		/// <param name="key"></param>
+		/// <param fName="key"></param>
 		/// <returns></returns>
 		public override async Task<(ImagesModel, string)> GetByKey(Guid key)
 		{
@@ -62,8 +62,8 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Save the image object
 		/// </summary>
-		/// <param name="image"></param>
-		/// <param name="userId"></param>
+		/// <param fName="image"></param>
+		/// <param fName="userId"></param>
 		/// <returns></returns>
 		/// <exception cref="ArgumentNullException"></exception>
 		/// <exception cref="ArgumentException"></exception>
@@ -90,7 +90,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <summary>
 		/// Duplicates the model by key and returns the duplicated model
 		/// </summary>
-		/// <param name="key"></param>
+		/// <param fName="key"></param>
 		/// <returns></returns>
 		public override async Task<(ImagesModel, string)> Duplicate(Guid key)
 		{

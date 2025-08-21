@@ -39,7 +39,7 @@ namespace LifeLog.Data.Database
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		/// <param name="config"></param>
+		/// <param fName="config"></param>
 		public Engine(DatabaseConfigModel config)
 		{
 			config.ValidateModel(out List<ValidationResult> results);

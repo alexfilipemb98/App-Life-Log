@@ -15,7 +15,7 @@ namespace LifeLog.Data.Database.Mappers
 		/// <summary>
 		/// NotesEntity to NotesModel mapper.
 		/// </summary>
-		/// <param name="entity"></param>
+		/// <param fName="entity"></param>
 		/// <returns></returns>
 		internal static NotesModel ToModel(this NotesEntity entity)
 		{
@@ -35,8 +35,8 @@ namespace LifeLog.Data.Database.Mappers
 		/// <summary>
 		/// NotesModel to NotesEntity mapper.
 		/// </summary>
-		/// <param name="model"></param>
-		/// <param name="session"></param>
+		/// <param fName="model"></param>
+		/// <param fName="session"></param>
 		/// <returns></returns>
 		internal static NotesEntity ToEntity(this NotesModel model, Session session)
 		{

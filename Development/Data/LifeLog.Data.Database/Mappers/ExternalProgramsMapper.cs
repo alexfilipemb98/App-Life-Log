@@ -14,7 +14,7 @@ namespace LifeLog.Data.Database.Mappers
 		/// <summary>
 		/// ExternalProgramsEntity to ExternalProgramsModel mapper.
 		/// </summary>
-		/// <param name="entity"></param>
+		/// <param fName="entity"></param>
 		/// <returns></returns>
 		internal static ExternalProgramsModel ToModel(this ExternalProgramsEntity entity)
 		{
@@ -37,8 +37,8 @@ namespace LifeLog.Data.Database.Mappers
 		/// <summary>
 		/// ExternalProgramsModel to ExternalProgramsEntity mapper.
 		/// </summary>
-		/// <param name="model"></param>
-		/// <param name="session"></param>
+		/// <param fName="model"></param>
+		/// <param fName="session"></param>
 		/// <returns></returns>
 		internal static ExternalProgramsEntity ToEntity(this ExternalProgramsModel model, Session session)
 		{
