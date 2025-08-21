@@ -23,7 +23,7 @@ namespace LifeLog.App
 		{
 			try
 			{
-				SplashScreenManager.ShowForm(null, typeof(SplashScreenForm), true, true, false);
+				SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
 
 				AppMainHelper.CheckForRunningInstance();
 

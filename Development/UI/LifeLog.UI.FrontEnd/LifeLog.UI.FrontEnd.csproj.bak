@@ -199,7 +199,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\DataSources\LifeLog.Data.Database.Entities.CommandsEntity.datasource" />
     <None Include="Resources\bo_attention.svg" />
   </ItemGroup>
   <ItemGroup>

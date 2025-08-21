@@ -75,10 +75,6 @@
     <Compile Include="Interfaces\IBaseQuery.cs" />
     <Compile Include="Interfaces\IEngineForm.cs" />
     <Compile Include="Interfaces\IUserControl.cs" />
-    <Compile Include="Models\AppConfigsModel.cs" />
-    <Compile Include="Models\DatabaseConfigModel.cs" />
-    <Compile Include="Models\AuthModel.cs" />
-    <Compile Include="Models\LoggedUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -339,5 +339,8 @@
   <ItemGroup>
     <None Include="Resources\changetextcase.svg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SplashScreen.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
