@@ -6,6 +6,7 @@ using LifeLog.Base.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,13 +20,16 @@ namespace LifeLog.Data.Database.Bases
 		#region MAIN
 
 		//PROPERTIES
-		public string TableName<Entity>()
+		public string TableName
 		{
-			PersistentAttribute attr = (PersistentAttribute)typeof(Entity)
-				.GetCustomAttributes(typeof(PersistentAttribute), inherit: false)
-				.FirstOrDefault();
+			get
+			{
+				TableAttribute attr = (TableAttribute)typeof(Object)
+					.GetCustomAttributes(typeof(TableAttribute), inherit: false)
+					.FirstOrDefault();
 
-			return attr?.MapTo;
+				return attr?.Name;
+			}
 		}
 
 		//INTERNAL

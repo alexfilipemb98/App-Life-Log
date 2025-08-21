@@ -151,7 +151,6 @@
       <DependentUpon>SqlBrowserView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Base\LifeLog.Base.Components\LifeLog.Base.Components.csproj">
       <Project>{1464e310-f6f8-4cc5-b313-fc1b71219f0b}</Project>

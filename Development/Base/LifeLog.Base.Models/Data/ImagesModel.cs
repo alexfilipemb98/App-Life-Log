@@ -1,5 +1,8 @@
-﻿namespace LifeLog.Base.Models.Data
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace LifeLog.Base.Models.Data
 {
+	[Table("Images")]
 	public class ImagesModel : Bases.DataModelBase
 	{
 		public string Name { get; set; }

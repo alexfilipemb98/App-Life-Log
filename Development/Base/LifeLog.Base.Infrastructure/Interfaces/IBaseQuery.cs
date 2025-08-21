@@ -14,7 +14,7 @@ namespace LifeLog.Base.Infrastructure.Interfaces
 		/// <summary>
 		/// Table name   
 		/// </summary>
-		string TableName<Entity>();
+		string TableName { get; }
 
 		/// <summary>
 		/// Checks if the entity exists by key
