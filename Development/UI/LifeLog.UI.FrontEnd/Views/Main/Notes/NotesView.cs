@@ -95,6 +95,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 					(bool deleted, string message) = await AppSession.DataEngine.Notes.Delete(Guid.Parse(page.Tag.ToString()));
 					if (deleted)
 					{
+						_notesList.Remove(note);
 						xtraTabControl.TabPages.Remove(page);
 						AppHelper.StatusMessage(message, ForeColors.Critical);
 					}

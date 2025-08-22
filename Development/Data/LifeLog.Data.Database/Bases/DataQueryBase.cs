@@ -56,8 +56,8 @@ namespace LifeLog.Data.Database.Bases
 		/// <returns></returns>
 		public virtual async Task<(bool, string)> Exists(Guid key)
 		{
-			string sql = $"SELECT COUNT(*) FROM {TableName} WHERE Id = @Id";
-			int count = await _SQL.GetValueAsync<int, object>(sql, new { Id = key });
+			string sql = $"SELECT 1 FROM {TableName} WHERE Id = @Id";
+			int count = await _SQL.ExecuteScalarAsync<int, object>(sql, new { Id = key.ToString() });
 			bool exists = count > 0;
 			string message = exists ? $"{TableName} with key {key} exists." : $"{TableName} with key {key} does not exist.";
 			return (exists, message);
@@ -72,7 +72,7 @@ namespace LifeLog.Data.Database.Bases
 		public virtual async Task<(Object, string)> GetByKey(Guid key)
 		{
 			string sql = $"SELECT * FROM {TableName} WHERE Id = @Id";
-			Object result = await _SQL.GetValueAsync<Object, object>(sql, new { Id = key });
+			Object result = await _SQL.GetValueAsync<Object, object>(sql, new { Id = key.ToString() });
 			if (result == null)
 				throw new ArgumentException($"No object found with key {key}");
 
@@ -114,7 +114,7 @@ namespace LifeLog.Data.Database.Bases
 		/// <exception cref="NotImplementedException"></exception>
 		public virtual async Task<(bool, string)> Save(Object model)
 		{
-			bool isValid = model == null;
+			bool isValid = model != null;
 
 			if (!isValid)
 				throw new ArgumentNullException("Notes model is null");
@@ -135,7 +135,7 @@ namespace LifeLog.Data.Database.Bases
 		public virtual async Task<(Object, string)> Duplicate(Guid key)
 		{
 			string sql = $"SELECT * FROM {TableName} WHERE Id = @Id";
-			Object original = await _SQL.GetValueAsync<Object, object>(sql, new { Id = key });
+			Object original = await _SQL.GetValueAsync<Object, object>(sql, new { Id = key.ToString() });
 			if (original == null)
 				throw new ArgumentException($"No object found with key {key}");
 
@@ -153,7 +153,7 @@ namespace LifeLog.Data.Database.Bases
 		public virtual async Task<(bool, string)> Delete(Guid key)
 		{
 			string sql = $"DELETE FROM {TableName} WHERE Id = @Id";
-			int rowsAffected = await _SQL.SaveDataAsync(sql, new { Id = key });
+			int rowsAffected = await _SQL.SaveDataAsync(sql, new { Id = key.ToString() });
 			bool isDeleted = rowsAffected > 0;
 			string message = isDeleted ? $"{TableName} with key {key} deleted successfully." : $"{TableName} with key {key} not found.";
 			return (isDeleted, message);

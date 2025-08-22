@@ -64,6 +64,13 @@ namespace JDS.BASE.DapperUtil
 
 		public async Task<int> SaveDataAsync<T>(string sql, T parameters) => await _connection.ExecuteAsync(sql, parameters);
 
+		public async Task<T> ExecuteScalarAsync<T, U>(string sql, U parameters) => await _connection.ExecuteScalarAsync<T>(sql, parameters);
+
+		public async Task<T> ExecuteScalarAsync<T>(string sql, T parameters) => await _connection.ExecuteScalarAsync<T>(sql, parameters);
+
+		public async Task<T> ExecuteScalarAsync<T>(string sql) => await _connection.ExecuteScalarAsync<T>(sql);
+
+		public async Task ExecuteScalarAsync(string sql) => await _connection.ExecuteScalarAsync(sql);
 
 		#endregion
 
