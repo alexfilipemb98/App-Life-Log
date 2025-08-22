@@ -82,7 +82,7 @@ namespace LifeLog.Data.Database.Bases
 		{
 			if (!Saving)
 			{
-				this.Session.ReloadAsync(this);
+				this.Session.Reload(this);
 				return;
 			}
 

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using LifeLog.UI.FrontEnd.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -158,7 +159,7 @@ namespace LifeLog.UI.FrontEnd.Views.Entertainment.TicTacToe
 
             if (board[row, col] == Player.PlayerN)
             {
-                picture.SvgImage = playerTurn == Player.PlayerO ? Resources.Properties.Resources.tictactoe_playerO : Resources.Properties.Resources.tictactoe_playerX;
+                picture.SvgImage = playerTurn == Player.PlayerO ? Resources.tictactoe_playerO : Resources.tictactoe_playerX;
                 board[row, col] = playerTurn == Player.PlayerO ? Player.PlayerO : Player.PlayerX;
                 playerTurn = playerTurn == Player.PlayerO ? Player.PlayerX : Player.PlayerO;
             }

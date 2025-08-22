@@ -82,8 +82,8 @@ namespace LifeLog.Data.Database.Queries
 			//Set saving
 			entity.Saving = true;
 
-			if (entity.Image != null)
-				entity.Image.Saving = true;
+			//if (entity.Image != null)
+			//	entity.Image.Saving = true;
 
 			await _UOW.SaveAsync(entity);
 			await _UOW.CommitChangesAsync();

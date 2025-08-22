@@ -3,6 +3,7 @@ using DevExpress.XtraGrid.Views.Tile;
 using LifeLog.Base.Models.Data;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Helpers;
+using LifeLog.UI.FrontEnd.Properties;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -103,7 +104,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 				if (saved)
 				{
-					List<CommandsModel> lista = bsCommands.DataSource as List<CommandsModel>;
+					List<CommandsModel> lista = commandsModelBindingSource.List.Cast<CommandsModel>().ToList();
 
 					if (!lista.Any(w => w.Id == _crtCommands.Id))
 					{
@@ -211,24 +212,24 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		{
 			try
 			{
-				(List<ExternalProgramsModel> result, string message) = await AppSession.DataEngine.ExternalPrograms.GetAll();
+				(List<ExternalProgramsModel> externalPrograms, string _) = await AppSession.DataEngine.ExternalPrograms.GetAll();
 
-				result.Insert(0, new ExternalProgramsModel
+				externalPrograms.Insert(0, new ExternalProgramsModel
 				{
 					Id = Guid.Empty,
-					Icon = Resources.Properties.Resources.clearfilter,
+					Icon = Resources.clearfilter,
 				});
 
-				cbeProgram.Properties.DataSource = result.Where(w => w.Id != Guid.Empty);
+				cbeProgram.Properties.DataSource = externalPrograms.Where(w => w.Id != Guid.Empty);
 
-				bsExternalPrograms.DataSource = result;
-
-				AppHelper.StatusMessage(message, result.Count > 0);
+				externalProgramsModelBindingSource.DataSource = externalPrograms;
 
 				listboxPrograms.SelectedIndex = 0;
 
-				bsCommands.DataSource = await AppSession.DataEngine.Commands.GetUserCommands(AppSession.CurrentUser.Id);
+				(List<CommandsModel> commands, string message) = await AppSession.DataEngine.Commands.GetUserCommands(AppSession.CurrentUser.Id);
+				commandsModelBindingSource.DataSource = commands;
 
+				AppHelper.StatusMessage(message, commands.Count > 0);
 			}
 			catch (Exception ex)
 			{

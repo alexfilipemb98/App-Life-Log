@@ -362,7 +362,7 @@ namespace LifeLog.UI.FrontEnd.Views.Tools.PasswordGenerator
             // 
             this.bbiGenPass.Caption = "Gen. Passwords";
             this.bbiGenPass.Id = 0;
-            this.bbiGenPass.ImageOptions.SvgImage = Resources.Properties.Resources.bo_resume;
+            this.bbiGenPass.ImageOptions.SvgImage = Properties.Resources.bo_resume;
             this.bbiGenPass.Name = "bbiGenPass";
             this.bbiGenPass.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.bbiGenPass.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGenPass_ItemClick);

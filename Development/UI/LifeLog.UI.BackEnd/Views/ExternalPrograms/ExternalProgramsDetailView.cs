@@ -27,8 +27,6 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 
 		//PRIVATE
 		private ExternalProgramsModel _crtExtProgram;
-		private bool _saved;
-		private BindingSource _bs;
 
 		/// <summary>
 		/// Constructor to initialize the view
@@ -142,10 +140,8 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 		public void LoadData(ExternalProgramsModel extProgram)
 		{
 			_crtExtProgram = extProgram;
-			_bs = new BindingSource();
-			_bs.DataSource = _crtExtProgram;
 
-			dataLayoutControl.DataSource = _bs;
+			externalProgramsModelBindingSource.DataSource = _crtExtProgram;
 
 			if (_crtExtProgram.Image != null)
 			{
@@ -163,7 +159,7 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 		public async Task<(bool, ExternalProgramsModel)> SaveData()
 		{
 			dataLayoutControl.Focus();
-			_bs.EndEdit();
+			externalProgramsModelBindingSource.EndEdit();
 
 			if (!ValidationHelper.ValidateModelAndSetError(_crtExtProgram, dxErrorProvider, dataLayoutControl))
 				return (false, null);
@@ -175,7 +171,6 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 			}
 
 			(bool saved, string message) = await AppSession.DataEngine.ExternalPrograms.Save(_crtExtProgram);
-			_saved = saved;
 
 			AppHelper.StatusMessage(message, saved);
 
@@ -187,12 +182,11 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 		/// </summary>
 		public void ResetForm()
 		{
-			_saved = false;
-			_bs.Clear();
 			dataLayoutControl.ResetText();
 			peImage.Reset();
 			peImage.SvgImage = null;
 			peImage.Image = null;
+			externalProgramsModelBindingSource.Clear();	
 		}
 
 		#endregion

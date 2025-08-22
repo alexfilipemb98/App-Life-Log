@@ -47,11 +47,13 @@ namespace LifeLog.Data.Database.Mappers
 			ImagesEntity image = model.Image.ToEntity(session);
 
 			ExternalProgramsEntity entity = session.GetObjectByKey<ExternalProgramsEntity>(model.Id);
+
 			if (entity == null)
 			{
 				entity = new ExternalProgramsEntity(session);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
-				entity.CreatedAt = model.CreatedAt;
+				entity.CreatedAt =  DateTime.Now;
+				model.CreatedAt = entity.CreatedAt;
 				model.Id = entity.Id;
 			}
 

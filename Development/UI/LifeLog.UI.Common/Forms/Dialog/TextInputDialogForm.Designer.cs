@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextInputDialogForm));
 			this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
 			this.teText = new DevExpress.XtraEditors.TextEdit();
 			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
@@ -55,7 +54,7 @@
 			this.ribbonControl.ApplicationCaption = "Life Log";
 			this.ribbonControl.ApplicationDocumentCaption = "Text Input";
 			this.ribbonControl.DrawGroupCaptions = DevExpress.Utils.DefaultBoolean.False;
-			this.ribbonControl.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(35, 39, 35, 39);
+			this.ribbonControl.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(35, 37, 35, 37);
 			this.ribbonControl.ExpandCollapseItem.Id = 0;
 			this.ribbonControl.ItemPanelStyle = DevExpress.XtraBars.Ribbon.RibbonItemPanelStyle.Classic;
 			this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
@@ -78,12 +77,12 @@
 			// 
 			// teText
 			// 
-			this.teText.Location = new System.Drawing.Point(6, 13);
+			this.teText.Location = new System.Drawing.Point(6, 12);
 			this.teText.Margin = new System.Windows.Forms.Padding(4);
 			this.teText.MenuManager = this.ribbonControl;
 			this.teText.Name = "teText";
 			this.teText.Properties.AdvancedModeOptions.Label = "Text";
-			this.teText.Size = new System.Drawing.Size(366, 50);
+			this.teText.Size = new System.Drawing.Size(366, 48);
 			this.teText.StyleController = this.layoutControl1;
 			this.teText.TabIndex = 0;
 			this.teText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.teText_KeyDown);
@@ -97,23 +96,24 @@
 			this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
 			this.layoutControl1.Name = "layoutControl1";
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(378, 108);
+			this.layoutControl1.Size = new System.Drawing.Size(378, 103);
 			this.layoutControl1.TabIndex = 4;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
 			// sbOk
 			// 
+			this.sbOk.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
 			this.sbOk.Appearance.Font = new System.Drawing.Font("Tahoma", 10.75F, System.Drawing.FontStyle.Bold);
+			this.sbOk.Appearance.Options.UseBackColor = true;
 			this.sbOk.Appearance.Options.UseFont = true;
 			this.sbOk.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.sbOk.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("sbOk.ImageOptions.SvgImage")));
 			this.sbOk.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
-			this.sbOk.Location = new System.Drawing.Point(269, 66);
+			this.sbOk.Location = new System.Drawing.Point(269, 63);
 			this.sbOk.Margin = new System.Windows.Forms.Padding(4);
-			this.sbOk.MaximumSize = new System.Drawing.Size(100, 32);
-			this.sbOk.MinimumSize = new System.Drawing.Size(100, 32);
+			this.sbOk.MaximumSize = new System.Drawing.Size(100, 30);
+			this.sbOk.MinimumSize = new System.Drawing.Size(100, 30);
 			this.sbOk.Name = "sbOk";
-			this.sbOk.Size = new System.Drawing.Size(100, 32);
+			this.sbOk.Size = new System.Drawing.Size(100, 30);
 			this.sbOk.StyleController = this.layoutControl1;
 			this.sbOk.TabIndex = 2;
 			this.sbOk.Text = "OK";
@@ -128,8 +128,8 @@
             this.layoutControlItem2,
             this.emptySpaceItem1});
 			this.Root.Name = "Root";
-			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 13, 7);
-			this.Root.Size = new System.Drawing.Size(378, 108);
+			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 12, 7);
+			this.Root.Size = new System.Drawing.Size(378, 103);
 			this.Root.TextVisible = false;
 			// 
 			// layoutControlItem1
@@ -138,22 +138,22 @@
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
 			this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlItem1.Size = new System.Drawing.Size(366, 50);
+			this.layoutControlItem1.Size = new System.Drawing.Size(366, 48);
 			this.layoutControlItem1.TextVisible = false;
 			// 
 			// layoutControlItem2
 			// 
 			this.layoutControlItem2.Control = this.sbOk;
-			this.layoutControlItem2.Location = new System.Drawing.Point(260, 50);
+			this.layoutControlItem2.Location = new System.Drawing.Point(260, 48);
 			this.layoutControlItem2.Name = "layoutControlItem2";
-			this.layoutControlItem2.Size = new System.Drawing.Size(106, 38);
+			this.layoutControlItem2.Size = new System.Drawing.Size(106, 36);
 			this.layoutControlItem2.TextVisible = false;
 			// 
 			// emptySpaceItem1
 			// 
-			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 50);
+			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 48);
 			this.emptySpaceItem1.Name = "emptySpaceItem1";
-			this.emptySpaceItem1.Size = new System.Drawing.Size(260, 38);
+			this.emptySpaceItem1.Size = new System.Drawing.Size(260, 36);
 			// 
 			// dxErrorProvider
 			// 
@@ -161,13 +161,13 @@
 			// 
 			// TextInputDialogForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(378, 157);
+			this.ClientSize = new System.Drawing.Size(378, 152);
 			this.Controls.Add(this.layoutControl1);
 			this.Controls.Add(this.ribbonControl);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("TextInputDialogForm.IconOptions.SvgImage")));
+			this.IconOptions.Image = global::LifeLog.UI.Common.Properties.Resources.icon;
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;

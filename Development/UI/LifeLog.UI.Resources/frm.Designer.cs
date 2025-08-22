@@ -35,7 +35,7 @@
 			// pictureEdit1
 			// 
 			this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pictureEdit1.EditValue = global::LifeLog.UI.Resources.Properties.Resources.changetextcase;
+			this.pictureEdit1.EditValue = global::LifeLog.UI.Resources.Properties.Resources.WitheCircle_10_;
 			this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
 			this.pictureEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.pictureEdit1.Name = "pictureEdit1";
@@ -52,7 +52,7 @@
 			this.Controls.Add(this.pictureEdit1);
 			this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.None;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.IconOptions.Image = global::LifeLog.UI.Resources.Properties.Resources.icon;
+			this.IconOptions.Image = global::LifeLog.UI.Resources.Properties.Resources.icon_ico;
 			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "frm";
 			this.Text = "frm";

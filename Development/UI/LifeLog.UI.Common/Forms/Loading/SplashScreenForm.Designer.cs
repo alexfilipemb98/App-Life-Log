@@ -45,7 +45,7 @@
 			this.labelCopyright.Appearance.Options.UseForeColor = true;
 			this.labelCopyright.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
 			this.labelCopyright.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-			this.labelCopyright.Location = new System.Drawing.Point(5, 274);
+			this.labelCopyright.Location = new System.Drawing.Point(12, 268);
 			this.labelCopyright.Name = "labelCopyright";
 			this.labelCopyright.Size = new System.Drawing.Size(140, 19);
 			this.labelCopyright.TabIndex = 6;
@@ -66,7 +66,7 @@
 			this.labelVersion.AppearanceHovered.Options.UseBackColor = true;
 			this.labelVersion.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
 			this.labelVersion.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-			this.labelVersion.Location = new System.Drawing.Point(355, 274);
+			this.labelVersion.Location = new System.Drawing.Point(348, 268);
 			this.labelVersion.Name = "labelVersion";
 			this.labelVersion.Size = new System.Drawing.Size(140, 19);
 			this.labelVersion.TabIndex = 11;
@@ -74,10 +74,10 @@
 			// 
 			// progressPanel
 			// 
-			this.progressPanel.AnimationElementImage = ((System.Drawing.Image)(resources.GetObject("progressPanel.AnimationElementImage")));
+			this.progressPanel.AnimationElementImage = global::LifeLog.UI.Common.Properties.Resources.WitheCircle_10_;
 			this.progressPanel.Appearance.BackColor = System.Drawing.Color.Transparent;
 			this.progressPanel.Appearance.Options.UseBackColor = true;
-			this.progressPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressPanel.BackgroundImage")));
+			this.progressPanel.BackgroundImage = global::LifeLog.UI.Common.Properties.Resources.SplashScreen;
 			this.progressPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.progressPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.progressPanel.ContentAlignment = System.Drawing.ContentAlignment.BottomCenter;

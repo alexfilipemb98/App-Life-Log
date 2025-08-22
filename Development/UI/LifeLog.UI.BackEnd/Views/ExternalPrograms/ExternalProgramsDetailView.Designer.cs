@@ -67,7 +67,7 @@
 			this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-			this.bsExternalPrograms = new DevExpress.Xpo.XPBindingSource(this.components);
+			this.externalProgramsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
 			this.dataLayoutControl.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).BeginInit();
@@ -94,7 +94,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.bsExternalPrograms)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.externalProgramsModelBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dataLayoutControl
@@ -107,7 +107,7 @@
 			this.dataLayoutControl.Controls.Add(this.beId);
 			this.dataLayoutControl.Controls.Add(this.teUpdatedAt);
 			this.dataLayoutControl.Controls.Add(this.teCreatedAt);
-			this.dataLayoutControl.DataSource = this.bsExternalPrograms;
+			this.dataLayoutControl.DataSource = this.externalProgramsModelBindingSource;
 			this.dataLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dataLayoutControl.Location = new System.Drawing.Point(0, 0);
 			this.dataLayoutControl.Margin = new System.Windows.Forms.Padding(0);
@@ -150,7 +150,7 @@
 			// teFileExt
 			// 
 			this.teFileExt.CausesValidation = false;
-			this.teFileExt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsExternalPrograms, "FileExtension", true));
+			this.teFileExt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.externalProgramsModelBindingSource, "FileExtension", true));
 			this.teFileExt.Location = new System.Drawing.Point(624, 150);
 			this.teFileExt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.teFileExt.Name = "teFileExt";
@@ -162,7 +162,7 @@
 			// teName
 			// 
 			this.teName.CausesValidation = false;
-			this.teName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsExternalPrograms, "Name", true));
+			this.teName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.externalProgramsModelBindingSource, "Name", true));
 			this.teName.Location = new System.Drawing.Point(32, 126);
 			this.teName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.teName.Name = "teName";
@@ -174,7 +174,7 @@
 			// teArguments
 			// 
 			this.teArguments.CausesValidation = false;
-			this.teArguments.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsExternalPrograms, "Arguments", true));
+			this.teArguments.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.externalProgramsModelBindingSource, "Arguments", true));
 			this.teArguments.Location = new System.Drawing.Point(32, 174);
 			this.teArguments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.teArguments.Name = "teArguments";
@@ -186,7 +186,7 @@
 			// bePath
 			// 
 			this.bePath.CausesValidation = false;
-			this.bePath.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsExternalPrograms, "PathToProgram", true));
+			this.bePath.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.externalProgramsModelBindingSource, "PathToProgram", true));
 			this.bePath.Location = new System.Drawing.Point(32, 150);
 			this.bePath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.bePath.Name = "bePath";
@@ -202,7 +202,7 @@
 			// beId
 			// 
 			this.beId.CausesValidation = false;
-			this.beId.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsExternalPrograms, "Id", true));
+			this.beId.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.externalProgramsModelBindingSource, "Id", true));
 			this.beId.Location = new System.Drawing.Point(60, 228);
 			this.beId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.beId.Name = "beId";
@@ -219,7 +219,7 @@
 			// teUpdatedAt
 			// 
 			this.teUpdatedAt.CausesValidation = false;
-			this.teUpdatedAt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsExternalPrograms, "UpdatedAt", true));
+			this.teUpdatedAt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.externalProgramsModelBindingSource, "UpdatedAt", true));
 			this.teUpdatedAt.Location = new System.Drawing.Point(452, 252);
 			this.teUpdatedAt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.teUpdatedAt.Name = "teUpdatedAt";
@@ -236,7 +236,7 @@
 			// teCreatedAt
 			// 
 			this.teCreatedAt.CausesValidation = false;
-			this.teCreatedAt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsExternalPrograms, "CreatedAt", true));
+			this.teCreatedAt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.externalProgramsModelBindingSource, "CreatedAt", true));
 			this.teCreatedAt.Location = new System.Drawing.Point(60, 252);
 			this.teCreatedAt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.teCreatedAt.Name = "teCreatedAt";
@@ -416,10 +416,9 @@
 			// 
 			this.dxErrorProvider.ContainerControl = this;
 			// 
-			// bsExternalPrograms
+			// externalProgramsModelBindingSource
 			// 
-			this.bsExternalPrograms.BindingBehavior = DevExpress.Xpo.CollectionBindingBehavior.AllowNone;
-			this.bsExternalPrograms.ObjectType = typeof(LifeLog.Base.Models.Data.ExternalProgramsModel);
+			this.externalProgramsModelBindingSource.DataSource = typeof(LifeLog.Base.Models.Data.ExternalProgramsModel);
 			// 
 			// ExternalProgramsDetailView
 			// 
@@ -455,7 +454,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.bsExternalPrograms)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.externalProgramsModelBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -487,6 +486,6 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
         private DevExpress.XtraEditors.ButtonEdit teUpdatedAt;
         private DevExpress.XtraEditors.ButtonEdit teCreatedAt;
-		private DevExpress.Xpo.XPBindingSource bsExternalPrograms;
+		private System.Windows.Forms.BindingSource externalProgramsModelBindingSource;
 	}
 }

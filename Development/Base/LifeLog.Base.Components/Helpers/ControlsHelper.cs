@@ -68,7 +68,7 @@ namespace LifeLog.UI.Common.Helpers
 		public static void ButtonTogglePassword(this ButtonEdit button, ButtonPressedEventArgs e)
 		{
 			button.Properties.UseSystemPasswordChar = !button.Properties.UseSystemPasswordChar;
-			e.Button.ImageOptions.SvgImage = button.Properties.UseSystemPasswordChar ? LifeLog.UI.Resources.Properties.Resources.security_visibilityoff : LifeLog.UI.Resources.Properties.Resources.security_visibility;
+			//e.Button.ImageOptions.SvgImage = button.Properties.UseSystemPasswordChar ? LifeLog.UI.Common..Resources.security_visibilityoff : LifeLog.UI.Resources.Properties.Resources.security_visibility;
 		}
 
 		/// <summary>

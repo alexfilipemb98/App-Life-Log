@@ -46,7 +46,6 @@
 			this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
 			this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-			this.bsUsers = new DevExpress.Xpo.XPBindingSource(this.components);
 			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
 			this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
 			this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
@@ -66,11 +65,11 @@
 			this.npEditor = new DevExpress.XtraBars.Navigation.NavigationPage();
 			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.usersModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.popupMenu)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.bsUsers)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
 			this.layoutControl1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -82,6 +81,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.usersModelBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// popupMenu
@@ -208,64 +208,60 @@
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
 			this.barDockControlTop.Manager = this.barManager;
-			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			this.barDockControlTop.Size = new System.Drawing.Size(839, 44);
+			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControlTop.Size = new System.Drawing.Size(719, 35);
 			// 
 			// barDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControlBottom.Location = new System.Drawing.Point(0, 555);
+			this.barDockControlBottom.Location = new System.Drawing.Point(0, 424);
 			this.barDockControlBottom.Manager = this.barManager;
-			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			this.barDockControlBottom.Size = new System.Drawing.Size(839, 0);
+			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControlBottom.Size = new System.Drawing.Size(719, 0);
 			// 
 			// barDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControlLeft.Location = new System.Drawing.Point(0, 44);
+			this.barDockControlLeft.Location = new System.Drawing.Point(0, 35);
 			this.barDockControlLeft.Manager = this.barManager;
-			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 511);
+			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 389);
 			// 
 			// barDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(839, 44);
+			this.barDockControlRight.Location = new System.Drawing.Point(719, 35);
 			this.barDockControlRight.Manager = this.barManager;
-			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 511);
+			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 389);
 			// 
 			// repositoryItemTextEdit1
 			// 
 			this.repositoryItemTextEdit1.AutoHeight = false;
 			this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
 			// 
-			// bsUsers
-			// 
-			this.bsUsers.ObjectType = typeof(LifeLog.Base.Models.Data.UsersModel);
-			// 
 			// layoutControl1
 			// 
 			this.layoutControl1.Controls.Add(this.panelControl1);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 44);
-			this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.layoutControl1.Location = new System.Drawing.Point(0, 35);
+			this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.layoutControl1.Name = "layoutControl1";
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(839, 511);
+			this.layoutControl1.Size = new System.Drawing.Size(719, 389);
 			this.layoutControl1.TabIndex = 10;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
 			// panelControl1
 			// 
 			this.panelControl1.Controls.Add(this.navigationFrame);
-			this.panelControl1.Location = new System.Drawing.Point(5, 10);
-			this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.panelControl1.Location = new System.Drawing.Point(4, 8);
+			this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panelControl1.Name = "panelControl1";
-			this.panelControl1.Size = new System.Drawing.Size(829, 496);
+			this.panelControl1.Size = new System.Drawing.Size(711, 377);
 			this.panelControl1.TabIndex = 6;
 			// 
 			// navigationFrame
@@ -274,34 +270,34 @@
 			this.navigationFrame.Controls.Add(this.npEditor);
 			this.navigationFrame.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.navigationFrame.Location = new System.Drawing.Point(2, 2);
-			this.navigationFrame.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.navigationFrame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.navigationFrame.Name = "navigationFrame";
 			this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.npMain,
             this.npEditor});
 			this.navigationFrame.SelectedPage = this.npMain;
-			this.navigationFrame.Size = new System.Drawing.Size(825, 492);
+			this.navigationFrame.Size = new System.Drawing.Size(707, 373);
 			this.navigationFrame.TabIndex = 5;
 			this.navigationFrame.Text = "navigationFrame1";
 			// 
 			// npMain
 			// 
 			this.npMain.Controls.Add(this.gridControl);
-			this.npMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.npMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.npMain.Name = "npMain";
-			this.npMain.Size = new System.Drawing.Size(825, 492);
+			this.npMain.Size = new System.Drawing.Size(707, 373);
 			// 
 			// gridControl
 			// 
-			this.gridControl.DataSource = this.bsUsers;
+			this.gridControl.DataSource = this.usersModelBindingSource;
 			this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.gridControl.Location = new System.Drawing.Point(0, 0);
 			this.gridControl.MainView = this.gridView;
 			this.gridControl.Margin = new System.Windows.Forms.Padding(0);
 			this.gridControl.MenuManager = this.barManager;
 			this.gridControl.Name = "gridControl";
-			this.gridControl.Size = new System.Drawing.Size(825, 492);
+			this.gridControl.Size = new System.Drawing.Size(707, 373);
 			this.gridControl.TabIndex = 4;
 			this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
@@ -320,12 +316,13 @@
             this.colEmail,
             this.colSalt,
             this.colPassword});
-			this.gridView.DetailHeight = 371;
+			this.gridView.DetailHeight = 284;
 			this.gridView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
 			this.gridView.GridControl = this.gridControl;
 			this.gridView.Name = "gridView";
 			this.gridView.OptionsBehavior.Editable = false;
 			this.gridView.OptionsDetail.EnableMasterViewMode = false;
+			this.gridView.OptionsEditForm.PopupEditFormWidth = 686;
 			this.gridView.OptionsSelection.EnableAppearanceFocusedCell = false;
 			this.gridView.OptionsView.ShowGroupPanel = false;
 			this.gridView.OptionsView.ShowIndicator = false;
@@ -333,77 +330,92 @@
 			// colId
 			// 
 			this.colId.FieldName = "Id";
+			this.colId.MinWidth = 17;
 			this.colId.Name = "colId";
+			this.colId.Width = 64;
 			// 
 			// colCreatedAt
 			// 
 			this.colCreatedAt.DisplayFormat.FormatString = "yyyy/MM/dd HH:mm:ss";
 			this.colCreatedAt.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
 			this.colCreatedAt.FieldName = "CreatedAt";
+			this.colCreatedAt.MinWidth = 17;
 			this.colCreatedAt.Name = "colCreatedAt";
 			this.colCreatedAt.Visible = true;
 			this.colCreatedAt.VisibleIndex = 2;
-			this.colCreatedAt.Width = 158;
+			this.colCreatedAt.Width = 135;
 			// 
 			// colUpdatedAt
 			// 
 			this.colUpdatedAt.DisplayFormat.FormatString = "yyyy/MM/dd HH:mm:ss";
 			this.colUpdatedAt.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
 			this.colUpdatedAt.FieldName = "UpdatedAt";
+			this.colUpdatedAt.MinWidth = 17;
 			this.colUpdatedAt.Name = "colUpdatedAt";
 			this.colUpdatedAt.Visible = true;
 			this.colUpdatedAt.VisibleIndex = 3;
-			this.colUpdatedAt.Width = 161;
+			this.colUpdatedAt.Width = 138;
 			// 
 			// colSaving
 			// 
 			this.colSaving.FieldName = "Saving";
+			this.colSaving.MinWidth = 17;
 			this.colSaving.Name = "colSaving";
+			this.colSaving.Width = 64;
 			// 
 			// colEditingMode
 			// 
 			this.colEditingMode.FieldName = "EditingMode";
+			this.colEditingMode.MinWidth = 17;
 			this.colEditingMode.Name = "colEditingMode";
 			this.colEditingMode.OptionsColumn.ReadOnly = true;
+			this.colEditingMode.Width = 64;
 			// 
 			// colIsValid
 			// 
 			this.colIsValid.FieldName = "IsValid";
+			this.colIsValid.MinWidth = 17;
 			this.colIsValid.Name = "colIsValid";
 			this.colIsValid.OptionsColumn.ReadOnly = true;
+			this.colIsValid.Width = 64;
 			// 
 			// colUsername
 			// 
 			this.colUsername.FieldName = "Username";
+			this.colUsername.MinWidth = 17;
 			this.colUsername.Name = "colUsername";
 			this.colUsername.Visible = true;
 			this.colUsername.VisibleIndex = 0;
-			this.colUsername.Width = 206;
+			this.colUsername.Width = 177;
 			// 
 			// colEmail
 			// 
 			this.colEmail.FieldName = "Email";
+			this.colEmail.MinWidth = 17;
 			this.colEmail.Name = "colEmail";
 			this.colEmail.Visible = true;
 			this.colEmail.VisibleIndex = 1;
-			this.colEmail.Width = 300;
+			this.colEmail.Width = 257;
 			// 
 			// colSalt
 			// 
 			this.colSalt.FieldName = "Salt";
+			this.colSalt.MinWidth = 17;
 			this.colSalt.Name = "colSalt";
+			this.colSalt.Width = 64;
 			// 
 			// colPassword
 			// 
 			this.colPassword.FieldName = "Password";
+			this.colPassword.MinWidth = 17;
 			this.colPassword.Name = "colPassword";
+			this.colPassword.Width = 64;
 			// 
 			// npEditor
 			// 
-			this.npEditor.Caption = "npEditor";
-			this.npEditor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.npEditor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.npEditor.Name = "npEditor";
-			this.npEditor.Size = new System.Drawing.Size(825, 492);
+			this.npEditor.Size = new System.Drawing.Size(707, 373);
 			// 
 			// Root
 			// 
@@ -412,8 +424,8 @@
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
 			this.Root.Name = "Root";
-			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 10, 5);
-			this.Root.Size = new System.Drawing.Size(839, 511);
+			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 8, 4);
+			this.Root.Size = new System.Drawing.Size(719, 389);
 			this.Root.TextVisible = false;
 			// 
 			// layoutControlItem1
@@ -422,25 +434,29 @@
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
 			this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlItem1.Size = new System.Drawing.Size(829, 496);
+			this.layoutControlItem1.Size = new System.Drawing.Size(711, 377);
 			this.layoutControlItem1.TextVisible = false;
+			// 
+			// usersModelBindingSource
+			// 
+			this.usersModelBindingSource.DataSource = typeof(LifeLog.Base.Models.Data.UsersModel);
 			// 
 			// UsersListView
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.layoutControl1);
 			this.Controls.Add(this.barDockControlLeft);
 			this.Controls.Add(this.barDockControlRight);
 			this.Controls.Add(this.barDockControlBottom);
 			this.Controls.Add(this.barDockControlTop);
+			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "UsersListView";
-			this.Size = new System.Drawing.Size(839, 555);
+			this.Size = new System.Drawing.Size(719, 424);
 			((System.ComponentModel.ISupportInitialize)(this.popupMenu)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.bsUsers)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
 			this.layoutControl1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -452,6 +468,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.usersModelBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -475,7 +492,6 @@
 		private DevExpress.XtraBars.BarDockControl barDockControlLeft;
 		private DevExpress.XtraBars.BarDockControl barDockControlRight;
 		private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
-		private DevExpress.Xpo.XPBindingSource bsUsers;
 		private DevExpress.XtraLayout.LayoutControl layoutControl1;
 		private DevExpress.XtraEditors.PanelControl panelControl1;
 		private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame;
@@ -495,5 +511,6 @@
 		private DevExpress.XtraBars.Navigation.NavigationPage npEditor;
 		private DevExpress.XtraLayout.LayoutControlGroup Root;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+		private System.Windows.Forms.BindingSource usersModelBindingSource;
 	}
 }

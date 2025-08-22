@@ -32,9 +32,9 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
 			this.backstageViewControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
-			this.backstageViewClientControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
 			this.backstageViewClientControl2 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
 			this.databaseSettingsView1 = new LifeLog.UI.Common.Views.DatabaseSettingsView();
+			this.backstageViewClientControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
 			this.backstageViewTabItem1 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
 			this.backstageViewTabItem2 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
 			this.bbiSettingsApp = new DevExpress.XtraBars.BarButtonItem();
@@ -142,42 +142,34 @@
 			this.ribbon.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
 			this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
 			this.ribbon.ShowToolbarCustomizeItem = false;
-			this.ribbon.Size = new System.Drawing.Size(1322, 177);
+			this.ribbon.Size = new System.Drawing.Size(1322, 222);
 			this.ribbon.StatusBar = this.ribbonStatusBar;
 			this.ribbon.Toolbar.ShowCustomizeItem = false;
 			this.ribbon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ribbon_ItemClickAsync);
 			// 
 			// backstageViewControl1
 			// 
-			this.backstageViewControl1.Controls.Add(this.backstageViewClientControl1);
 			this.backstageViewControl1.Controls.Add(this.backstageViewClientControl2);
+			this.backstageViewControl1.Controls.Add(this.backstageViewClientControl1);
 			this.backstageViewControl1.Items.Add(this.backstageViewTabItem1);
 			this.backstageViewControl1.Items.Add(this.backstageViewTabItem2);
-			this.backstageViewControl1.Location = new System.Drawing.Point(76, 25);
+			this.backstageViewControl1.Location = new System.Drawing.Point(26, 34);
 			this.backstageViewControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.backstageViewControl1.Name = "backstageViewControl1";
 			this.backstageViewControl1.OwnerControl = this.ribbon;
 			this.backstageViewControl1.SelectedTab = this.backstageViewTabItem2;
 			this.backstageViewControl1.SelectedTabIndex = 1;
-			this.backstageViewControl1.Size = new System.Drawing.Size(672, 377);
+			this.backstageViewControl1.Size = new System.Drawing.Size(669, 251);
 			this.backstageViewControl1.TabIndex = 5;
 			this.backstageViewControl1.Text = "backstageViewControl1";
-			// 
-			// backstageViewClientControl1
-			// 
-			this.backstageViewClientControl1.Location = new System.Drawing.Point(231, 63);
-			this.backstageViewClientControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			this.backstageViewClientControl1.Name = "backstageViewClientControl1";
-			this.backstageViewClientControl1.Size = new System.Drawing.Size(440, 313);
-			this.backstageViewClientControl1.TabIndex = 1;
 			// 
 			// backstageViewClientControl2
 			// 
 			this.backstageViewClientControl2.Controls.Add(this.databaseSettingsView1);
-			this.backstageViewClientControl2.Location = new System.Drawing.Point(208, 63);
+			this.backstageViewClientControl2.Location = new System.Drawing.Point(209, 63);
 			this.backstageViewClientControl2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.backstageViewClientControl2.Name = "backstageViewClientControl2";
-			this.backstageViewClientControl2.Size = new System.Drawing.Size(463, 313);
+			this.backstageViewClientControl2.Size = new System.Drawing.Size(459, 187);
 			this.backstageViewClientControl2.TabIndex = 2;
 			// 
 			// databaseSettingsView1
@@ -186,8 +178,16 @@
 			this.databaseSettingsView1.Location = new System.Drawing.Point(0, 0);
 			this.databaseSettingsView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.databaseSettingsView1.Name = "databaseSettingsView1";
-			this.databaseSettingsView1.Size = new System.Drawing.Size(463, 313);
+			this.databaseSettingsView1.Size = new System.Drawing.Size(459, 187);
 			this.databaseSettingsView1.TabIndex = 0;
+			// 
+			// backstageViewClientControl1
+			// 
+			this.backstageViewClientControl1.Location = new System.Drawing.Point(231, 63);
+			this.backstageViewClientControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.backstageViewClientControl1.Name = "backstageViewClientControl1";
+			this.backstageViewClientControl1.Size = new System.Drawing.Size(440, 313);
+			this.backstageViewClientControl1.TabIndex = 1;
 			// 
 			// backstageViewTabItem1
 			// 
@@ -214,7 +214,7 @@
 			// 
 			this.bbiNotes.Caption = "Notes";
 			this.bbiNotes.Id = 1;
-			this.bbiNotes.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiNotes.ImageOptions.SvgImage")));
+			this.bbiNotes.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.inserttextbox;
 			this.bbiNotes.Name = "bbiNotes";
 			this.bbiNotes.Tag = "Main.Notes.NotesView";
 			// 
@@ -361,7 +361,7 @@
 			// 
 			this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgHome});
-			this.ribbonPage1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ribbonPage1.ImageOptions.SvgImage")));
+			this.ribbonPage1.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.Home;
 			this.ribbonPage1.Name = "ribbonPage1";
 			this.ribbonPage1.Text = "Home";
 			// 
@@ -378,7 +378,7 @@
 			// 
 			this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2});
-			this.ribbonPage2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ribbonPage2.ImageOptions.SvgImage")));
+			this.ribbonPage2.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.Game;
 			this.ribbonPage2.Name = "ribbonPage2";
 			this.ribbonPage2.Text = "Entertainment";
 			// 
@@ -395,7 +395,7 @@
 			this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup5});
-			this.ribbonPage4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ribbonPage4.ImageOptions.SvgImage")));
+			this.ribbonPage4.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.DeveloperTools;
 			this.ribbonPage4.Name = "ribbonPage4";
 			this.ribbonPage4.Text = "Tools";
 			// 
@@ -419,7 +419,7 @@
 			this.ribbonPage6.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup3,
             this.ribbonPageGroup4});
-			this.ribbonPage6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ribbonPage6.ImageOptions.SvgImage")));
+			this.ribbonPage6.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.Setting;
 			this.ribbonPage6.Name = "ribbonPage6";
 			this.ribbonPage6.Text = "Settings";
 			// 
@@ -443,11 +443,11 @@
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiAppVersion);
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiTime);
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiUserMenu);
-			this.ribbonStatusBar.Location = new System.Drawing.Point(0, 702);
+			this.ribbonStatusBar.Location = new System.Drawing.Point(0, 687);
 			this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.ribbonStatusBar.Name = "ribbonStatusBar";
 			this.ribbonStatusBar.Ribbon = this.ribbon;
-			this.ribbonStatusBar.Size = new System.Drawing.Size(1322, 24);
+			this.ribbonStatusBar.Size = new System.Drawing.Size(1322, 39);
 			// 
 			// bsiStatusLabel
 			// 
@@ -479,21 +479,21 @@
 			// 
 			this.layoutControl1.Controls.Add(this.panelControl1);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 177);
+			this.layoutControl1.Location = new System.Drawing.Point(0, 222);
 			this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.layoutControl1.Name = "layoutControl1";
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(1322, 525);
+			this.layoutControl1.Size = new System.Drawing.Size(1322, 465);
 			this.layoutControl1.TabIndex = 2;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
 			// panelControl1
 			// 
 			this.panelControl1.Controls.Add(this.navigationFrame);
-			this.panelControl1.Location = new System.Drawing.Point(12, 12);
+			this.panelControl1.Location = new System.Drawing.Point(16, 16);
 			this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.panelControl1.Name = "panelControl1";
-			this.panelControl1.Size = new System.Drawing.Size(1298, 501);
+			this.panelControl1.Size = new System.Drawing.Size(1290, 433);
 			this.panelControl1.TabIndex = 4;
 			// 
 			// navigationFrame
@@ -506,7 +506,7 @@
 			this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.npHome});
 			this.navigationFrame.SelectedPage = this.npHome;
-			this.navigationFrame.Size = new System.Drawing.Size(1294, 497);
+			this.navigationFrame.Size = new System.Drawing.Size(1286, 429);
 			this.navigationFrame.TabIndex = 0;
 			this.navigationFrame.Text = "navigationFrame1";
 			// 
@@ -516,7 +516,7 @@
 			this.npHome.Controls.Add(this.backstageViewControl1);
 			this.npHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.npHome.Name = "npHome";
-			this.npHome.Size = new System.Drawing.Size(1294, 497);
+			this.npHome.Size = new System.Drawing.Size(1286, 429);
 			// 
 			// Root
 			// 
@@ -525,7 +525,7 @@
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
 			this.Root.Name = "Root";
-			this.Root.Size = new System.Drawing.Size(1322, 525);
+			this.Root.Size = new System.Drawing.Size(1322, 465);
 			this.Root.TextVisible = false;
 			// 
 			// layoutControlItem1
@@ -533,7 +533,7 @@
 			this.layoutControlItem1.Control = this.panelControl1;
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(1302, 505);
+			this.layoutControlItem1.Size = new System.Drawing.Size(1296, 439);
 			this.layoutControlItem1.TextVisible = false;
 			// 
 			// timer
@@ -567,7 +567,7 @@
 			this.Controls.Add(this.ribbonStatusBar);
 			this.Controls.Add(this.ribbon);
 			this.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("MainForm.IconOptions.SvgImage")));
+			this.IconOptions.Image = global::LifeLog.UI.FrontEnd.Properties.Resources.icon;
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "MainForm";
 			this.Ribbon = this.ribbon;

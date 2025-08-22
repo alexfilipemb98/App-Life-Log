@@ -89,10 +89,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\UI\LifeLog.UI.Resources\LifeLog.UI.Resources.csproj">
-      <Project>{d5aa12cb-c4d7-4660-9f32-ae6f4d7f8b7f}</Project>
-      <Name>LifeLog.UI.Resources</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LifeLog.Base.Utils\LifeLog.Base.Utils.csproj">
       <Project>{8a6700aa-97d0-4bd6-be44-72945801fb6b}</Project>
       <Name>LifeLog.Base.Utils</Name>

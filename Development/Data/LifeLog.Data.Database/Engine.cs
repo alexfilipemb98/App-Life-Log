@@ -28,7 +28,7 @@ namespace LifeLog.Data.Database
 		#region MAIN
 
 		//PROPERTIES
-		public static Engine Instance { get; private set; }
+		internal static Engine Instance { get; private set; }
 		internal IDataLayer DataLayer { get; private set; }
 		public IDbConnection Connection { get; private set; }
 		public string DBName { get; private set; } = "Disconected!";

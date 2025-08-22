@@ -50,7 +50,7 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 				(bool saved, ExternalProgramsModel entity) = await externalProgramsDetailView.SaveData();
 				if (saved)
 				{
-					List<ExternalProgramsModel> lista = bsExternalPrograms.DataSource as List<ExternalProgramsModel>;
+					List<ExternalProgramsModel> lista = externalProgramsModelBindingSource.List.Cast<ExternalProgramsModel>().ToList();
 
 					if (!lista.Any(w => w.Id == entity.Id))
 					{
@@ -121,7 +121,15 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 		/// <param name="e"></param>
 		private void bbiDelele_ItemClick(object sender, ItemClickEventArgs e)
 		{
+			try
+			{
+				throw new NotImplementedException("Delete not implemented");
+			}
+			catch (Exception ex)
+			{
 
+				ErrorHelper.Handler(ex);
+			}
 		}
 
 		#endregion
@@ -136,7 +144,7 @@ namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 			try
 			{
 				(List<ExternalProgramsModel> results, string message) = await AppSession.DataEngine.ExternalPrograms.GetAll();
-				bsExternalPrograms.DataSource = results;
+				externalProgramsModelBindingSource.DataSource = results;
 				AppHelper.StatusMessage(message, results != null && results.Count > 0);
 			}
 			catch (Exception ex)

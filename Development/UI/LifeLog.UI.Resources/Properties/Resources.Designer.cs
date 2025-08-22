@@ -581,12 +581,32 @@ namespace LifeLog.UI.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icon_ico {
+            get {
+                object obj = ResourceManager.GetObject("icon_ico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
         public static DevExpress.Utils.Svg.SvgImage icon_svg {
             get {
                 object obj = ResourceManager.GetObject("icon_svg", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icon1 {
+            get {
+                object obj = ResourceManager.GetObject("icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -957,6 +977,16 @@ namespace LifeLog.UI.Resources.Properties {
             get {
                 object obj = ResourceManager.GetObject("wind", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WitheCircle_10_ {
+            get {
+                object obj = ResourceManager.GetObject("WitheCircle 10 ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

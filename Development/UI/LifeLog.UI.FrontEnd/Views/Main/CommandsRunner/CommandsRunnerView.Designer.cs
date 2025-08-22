@@ -41,7 +41,6 @@
 			this.bbiSearch = new DevExpress.XtraBars.BarEditItem();
 			this.repositoryItemSearchControl1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchControl();
 			this.gridControl = new DevExpress.XtraGrid.GridControl();
-			this.bsCommands = new DevExpress.Xpo.XPBindingSource(this.components);
 			this.tileView = new DevExpress.XtraGrid.Views.Tile.TileView();
 			this.colExternalProgram = new DevExpress.XtraGrid.Columns.TileViewColumn();
 			this.colName = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -69,7 +68,6 @@
 			this.npMain = new DevExpress.XtraBars.Navigation.NavigationPage();
 			this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
 			this.listboxPrograms = new DevExpress.XtraEditors.ListBoxControl();
-			this.bsExternalPrograms = new DevExpress.Xpo.XPBindingSource(this.components);
 			this.htmlTemplate1 = new DevExpress.Utils.Html.HtmlTemplate();
 			this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -79,7 +77,6 @@
 			this.pcCommandText = new DevExpress.XtraEditors.PanelControl();
 			this.recMain = new DevExpress.XtraRichEdit.RichEditControl();
 			this.tsEnabled = new DevExpress.XtraEditors.ToggleSwitch();
-			this.bsCommandsEdit = new DevExpress.Xpo.XPBindingSource(this.components);
 			this.teDescription = new DevExpress.XtraEditors.TextEdit();
 			this.teName = new DevExpress.XtraEditors.TextEdit();
 			this.cbeProgram = new DevExpress.XtraEditors.LookUpEdit();
@@ -93,10 +90,11 @@
 			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+			this.externalProgramsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.commandsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.bsCommands)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.tileView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.popupMenu)).BeginInit();
@@ -108,7 +106,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
 			this.layoutControl2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.listboxPrograms)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.bsExternalPrograms)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
@@ -118,7 +115,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.pcCommandText)).BeginInit();
 			this.pcCommandText.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.tsEnabled.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.bsCommandsEdit)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.teDescription.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.teName.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.cbeProgram.Properties)).BeginInit();
@@ -132,6 +128,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.externalProgramsModelBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.commandsModelBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// barManager
@@ -253,7 +251,7 @@
 			// gridControl
 			// 
 			this.gridControl.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.gridControl.DataSource = this.bsCommands;
+			this.gridControl.DataSource = this.commandsModelBindingSource;
 			this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.gridControl.Location = new System.Drawing.Point(79, 2);
 			this.gridControl.MainView = this.tileView;
@@ -264,10 +262,6 @@
 			this.gridControl.TabIndex = 0;
 			this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView});
-			// 
-			// bsCommands
-			// 
-			this.bsCommands.ObjectType = typeof(LifeLog.Base.Models.Data.CommandsModel);
 			// 
 			// tileView
 			// 
@@ -534,7 +528,7 @@
 			// listboxPrograms
 			// 
 			this.listboxPrograms.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.listboxPrograms.DataSource = this.bsExternalPrograms;
+			this.listboxPrograms.DataSource = this.externalProgramsModelBindingSource;
 			this.listboxPrograms.DisplayMember = "Name";
 			this.listboxPrograms.HotTrackSelectMode = DevExpress.XtraEditors.HotTrackSelectMode.SelectItemOnClick;
 			this.listboxPrograms.HtmlTemplates.AddRange(new DevExpress.Utils.Html.HtmlTemplate[] {
@@ -549,11 +543,6 @@
 			this.listboxPrograms.StyleController = this.layoutControl2;
 			this.listboxPrograms.TabIndex = 1;
 			this.listboxPrograms.ValueMember = "Id";
-			// 
-			// bsExternalPrograms
-			// 
-			this.bsExternalPrograms.BindingBehavior = DevExpress.Xpo.CollectionBindingBehavior.AllowNone;
-			this.bsExternalPrograms.ObjectType = typeof(LifeLog.Base.Models.Data.ExternalProgramsModel);
 			// 
 			// htmlTemplate1
 			// 
@@ -607,7 +596,6 @@
 			this.lcEditValues.Controls.Add(this.teDescription);
 			this.lcEditValues.Controls.Add(this.teName);
 			this.lcEditValues.Controls.Add(this.cbeProgram);
-			this.lcEditValues.DataSource = this.bsCommandsEdit;
 			this.lcEditValues.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lcEditValues.Location = new System.Drawing.Point(0, 0);
 			this.lcEditValues.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -648,7 +636,6 @@
 			// tsEnabled
 			// 
 			this.tsEnabled.AutoSizeInLayoutControl = true;
-			this.tsEnabled.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsCommandsEdit, "IsEnabled", true));
 			this.tsEnabled.Location = new System.Drawing.Point(751, 3);
 			this.tsEnabled.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tsEnabled.Name = "tsEnabled";
@@ -659,14 +646,9 @@
 			this.tsEnabled.StyleController = this.lcEditValues;
 			this.tsEnabled.TabIndex = 15;
 			// 
-			// bsCommandsEdit
-			// 
-			this.bsCommandsEdit.ObjectType = typeof(LifeLog.Base.Models.Data.CommandsModel);
-			// 
 			// teDescription
 			// 
 			this.teDescription.CausesValidation = false;
-			this.teDescription.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsCommandsEdit, "Description", true));
 			this.teDescription.Location = new System.Drawing.Point(310, 2);
 			this.teDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.teDescription.Name = "teDescription";
@@ -679,7 +661,6 @@
 			// teName
 			// 
 			this.teName.CausesValidation = false;
-			this.teName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsCommandsEdit, "Name", true));
 			this.teName.Location = new System.Drawing.Point(67, 2);
 			this.teName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.teName.Name = "teName";
@@ -807,6 +788,14 @@
 			// 
 			this.dxErrorProvider.ContainerControl = this;
 			// 
+			// externalProgramsModelBindingSource
+			// 
+			this.externalProgramsModelBindingSource.DataSource = typeof(LifeLog.Base.Models.Data.ExternalProgramsModel);
+			// 
+			// commandsModelBindingSource
+			// 
+			this.commandsModelBindingSource.DataSource = typeof(LifeLog.Base.Models.Data.CommandsModel);
+			// 
 			// CommandsRunnerView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -822,7 +811,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.bsCommands)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.tileView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.popupMenu)).EndInit();
@@ -834,7 +822,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
 			this.layoutControl2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.listboxPrograms)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.bsExternalPrograms)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
@@ -844,7 +831,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.pcCommandText)).EndInit();
 			this.pcCommandText.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.tsEnabled.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.bsCommandsEdit)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.teDescription.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.teName.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.cbeProgram.Properties)).EndInit();
@@ -858,6 +844,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.externalProgramsModelBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.commandsModelBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -910,7 +898,6 @@
 		private DevExpress.XtraBars.Navigation.NavigationPage npEditor;
 		private DevExpress.XtraLayout.LayoutControlGroup Root;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-		private DevExpress.Xpo.XPBindingSource bsExternalPrograms;
 		private DevExpress.XtraDataLayout.DataLayoutControl lcEditValues;
 		private DevExpress.XtraEditors.PanelControl pcCommandText;
 		private DevExpress.XtraRichEdit.RichEditControl recMain;
@@ -925,8 +912,8 @@
 		private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-		private DevExpress.Xpo.XPBindingSource bsCommandsEdit;
-		private DevExpress.Xpo.XPBindingSource bsCommands;
 		private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
+		private System.Windows.Forms.BindingSource commandsModelBindingSource;
+		private System.Windows.Forms.BindingSource externalProgramsModelBindingSource;
 	}
 }

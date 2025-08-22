@@ -50,17 +50,17 @@
 			this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
 			this.npMain = new DevExpress.XtraBars.Navigation.NavigationPage();
 			this.gridControl = new DevExpress.XtraGrid.GridControl();
-			this.bsExternalPrograms = new DevExpress.Xpo.XPBindingSource();
+			this.externalProgramsModelBindingSource = new System.Windows.Forms.BindingSource();
 			this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
 			this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colFileExtension = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colCreatedAt = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colUpdatedAt = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.npEditor = new DevExpress.XtraBars.Navigation.NavigationPage();
-			this.externalProgramsDetailView = new LifeLog.UI.BackEnd.Views.ExternalPrograms.ExternalProgramsDetailView();
 			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.popupMenu = new DevExpress.XtraBars.PopupMenu();
+			this.externalProgramsDetailView = new LifeLog.UI.BackEnd.Views.ExternalPrograms.ExternalProgramsDetailView();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -73,7 +73,7 @@
 			this.navigationFrame.SuspendLayout();
 			this.npMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.bsExternalPrograms)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.externalProgramsModelBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
 			this.npEditor.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -204,35 +204,35 @@
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
 			this.barDockControlTop.Manager = this.barManager;
-			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			this.barDockControlTop.Size = new System.Drawing.Size(975, 44);
+			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControlTop.Size = new System.Drawing.Size(836, 35);
 			// 
 			// barDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControlBottom.Location = new System.Drawing.Point(0, 649);
+			this.barDockControlBottom.Location = new System.Drawing.Point(0, 496);
 			this.barDockControlBottom.Manager = this.barManager;
-			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			this.barDockControlBottom.Size = new System.Drawing.Size(975, 0);
+			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControlBottom.Size = new System.Drawing.Size(836, 0);
 			// 
 			// barDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControlLeft.Location = new System.Drawing.Point(0, 44);
+			this.barDockControlLeft.Location = new System.Drawing.Point(0, 35);
 			this.barDockControlLeft.Manager = this.barManager;
-			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 605);
+			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 461);
 			// 
 			// barDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(975, 44);
+			this.barDockControlRight.Location = new System.Drawing.Point(836, 35);
 			this.barDockControlRight.Manager = this.barManager;
-			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 605);
+			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 461);
 			// 
 			// repositoryItemTextEdit1
 			// 
@@ -248,21 +248,21 @@
 			// 
 			this.layoutControl1.Controls.Add(this.panelControl1);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 44);
-			this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.layoutControl1.Location = new System.Drawing.Point(0, 35);
+			this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.layoutControl1.Name = "layoutControl1";
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(975, 605);
+			this.layoutControl1.Size = new System.Drawing.Size(836, 461);
 			this.layoutControl1.TabIndex = 4;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
 			// panelControl1
 			// 
 			this.panelControl1.Controls.Add(this.navigationFrame);
-			this.panelControl1.Location = new System.Drawing.Point(5, 10);
-			this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.panelControl1.Location = new System.Drawing.Point(4, 8);
+			this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panelControl1.Name = "panelControl1";
-			this.panelControl1.Size = new System.Drawing.Size(965, 590);
+			this.panelControl1.Size = new System.Drawing.Size(828, 449);
 			this.panelControl1.TabIndex = 5;
 			// 
 			// navigationFrame
@@ -277,37 +277,35 @@
             this.npMain,
             this.npEditor});
 			this.navigationFrame.SelectedPage = this.npMain;
-			this.navigationFrame.Size = new System.Drawing.Size(961, 586);
+			this.navigationFrame.Size = new System.Drawing.Size(824, 445);
 			this.navigationFrame.TabIndex = 4;
 			this.navigationFrame.Text = "navigationFrame1";
 			// 
 			// npMain
 			// 
-			this.npMain.Caption = "npMain";
 			this.npMain.Controls.Add(this.gridControl);
 			this.npMain.Margin = new System.Windows.Forms.Padding(0);
 			this.npMain.Name = "npMain";
-			this.npMain.Size = new System.Drawing.Size(961, 586);
+			this.npMain.Size = new System.Drawing.Size(824, 445);
 			// 
 			// gridControl
 			// 
-			this.gridControl.DataSource = this.bsExternalPrograms;
+			this.gridControl.DataSource = this.externalProgramsModelBindingSource;
 			this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.gridControl.Location = new System.Drawing.Point(0, 0);
 			this.gridControl.MainView = this.gridView;
 			this.gridControl.Margin = new System.Windows.Forms.Padding(0);
 			this.gridControl.MenuManager = this.barManager;
 			this.gridControl.Name = "gridControl";
-			this.gridControl.Size = new System.Drawing.Size(961, 586);
+			this.gridControl.Size = new System.Drawing.Size(824, 445);
 			this.gridControl.TabIndex = 0;
 			this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
 			// 
-			// bsExternalPrograms
+			// externalProgramsModelBindingSource
 			// 
-			this.bsExternalPrograms.BindingBehavior = DevExpress.Xpo.CollectionBindingBehavior.AllowNone;
-			this.bsExternalPrograms.ObjectType = typeof(LifeLog.Base.Models.Data.ExternalProgramsModel);
+			this.externalProgramsModelBindingSource.DataSource = typeof(LifeLog.Base.Models.Data.ExternalProgramsModel);
 			// 
 			// gridView
 			// 
@@ -317,7 +315,7 @@
             this.colFileExtension,
             this.colCreatedAt,
             this.colUpdatedAt});
-			this.gridView.DetailHeight = 371;
+			this.gridView.DetailHeight = 284;
 			this.gridView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
 			this.gridView.GridControl = this.gridControl;
 			this.gridView.Name = "gridView";
@@ -325,6 +323,7 @@
 			this.gridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
 			this.gridView.OptionsBehavior.Editable = false;
 			this.gridView.OptionsDetail.EnableMasterViewMode = false;
+			this.gridView.OptionsEditForm.PopupEditFormWidth = 686;
 			this.gridView.OptionsSelection.EnableAppearanceFocusedCell = false;
 			this.gridView.OptionsView.ShowGroupPanel = false;
 			this.gridView.OptionsView.ShowIndicator = false;
@@ -333,62 +332,54 @@
 			// colName
 			// 
 			this.colName.FieldName = "Name";
+			this.colName.MinWidth = 17;
 			this.colName.Name = "colName";
 			this.colName.Visible = true;
 			this.colName.VisibleIndex = 0;
-			this.colName.Width = 575;
+			this.colName.Width = 493;
 			// 
 			// colFileExtension
 			// 
 			this.colFileExtension.Caption = "File Ext.";
 			this.colFileExtension.FieldName = "FileExtension";
+			this.colFileExtension.MinWidth = 17;
 			this.colFileExtension.Name = "colFileExtension";
 			this.colFileExtension.Visible = true;
 			this.colFileExtension.VisibleIndex = 1;
-			this.colFileExtension.Width = 86;
+			this.colFileExtension.Width = 74;
 			// 
 			// colCreatedAt
 			// 
 			this.colCreatedAt.DisplayFormat.FormatString = "yyyy/MM/dd HH:mm:ss";
 			this.colCreatedAt.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
 			this.colCreatedAt.FieldName = "CreatedAt";
-			this.colCreatedAt.MaxWidth = 150;
-			this.colCreatedAt.MinWidth = 150;
+			this.colCreatedAt.MaxWidth = 129;
+			this.colCreatedAt.MinWidth = 129;
 			this.colCreatedAt.Name = "colCreatedAt";
 			this.colCreatedAt.OptionsColumn.FixedWidth = true;
 			this.colCreatedAt.Visible = true;
 			this.colCreatedAt.VisibleIndex = 2;
-			this.colCreatedAt.Width = 150;
+			this.colCreatedAt.Width = 129;
 			// 
 			// colUpdatedAt
 			// 
 			this.colUpdatedAt.DisplayFormat.FormatString = "yyyy/MM/dd HH:mm:ss";
 			this.colUpdatedAt.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
 			this.colUpdatedAt.FieldName = "UpdatedAt";
-			this.colUpdatedAt.MaxWidth = 150;
-			this.colUpdatedAt.MinWidth = 150;
+			this.colUpdatedAt.MaxWidth = 129;
+			this.colUpdatedAt.MinWidth = 129;
 			this.colUpdatedAt.Name = "colUpdatedAt";
 			this.colUpdatedAt.OptionsColumn.FixedWidth = true;
 			this.colUpdatedAt.Visible = true;
 			this.colUpdatedAt.VisibleIndex = 3;
-			this.colUpdatedAt.Width = 150;
+			this.colUpdatedAt.Width = 129;
 			// 
 			// npEditor
 			// 
-			this.npEditor.Caption = "npEditor";
 			this.npEditor.Controls.Add(this.externalProgramsDetailView);
-			this.npEditor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.npEditor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.npEditor.Name = "npEditor";
-			this.npEditor.Size = new System.Drawing.Size(961, 586);
-			// 
-			// externalProgramsDetailView
-			// 
-			this.externalProgramsDetailView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.externalProgramsDetailView.Location = new System.Drawing.Point(0, 0);
-			this.externalProgramsDetailView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			this.externalProgramsDetailView.Name = "externalProgramsDetailView";
-			this.externalProgramsDetailView.Size = new System.Drawing.Size(961, 586);
-			this.externalProgramsDetailView.TabIndex = 0;
+			this.npEditor.Size = new System.Drawing.Size(824, 445);
 			// 
 			// Root
 			// 
@@ -397,8 +388,8 @@
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2});
 			this.Root.Name = "Root";
-			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 10, 5);
-			this.Root.Size = new System.Drawing.Size(975, 605);
+			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 8, 4);
+			this.Root.Size = new System.Drawing.Size(836, 461);
 			this.Root.TextVisible = false;
 			// 
 			// layoutControlItem2
@@ -407,7 +398,7 @@
 			this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem2.Name = "layoutControlItem2";
 			this.layoutControlItem2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlItem2.Size = new System.Drawing.Size(965, 590);
+			this.layoutControlItem2.Size = new System.Drawing.Size(828, 449);
 			this.layoutControlItem2.TextVisible = false;
 			// 
 			// popupMenu
@@ -418,18 +409,27 @@
 			this.popupMenu.Manager = this.barManager;
 			this.popupMenu.Name = "popupMenu";
 			// 
+			// externalProgramsDetailView
+			// 
+			this.externalProgramsDetailView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.externalProgramsDetailView.Location = new System.Drawing.Point(0, 0);
+			this.externalProgramsDetailView.Margin = new System.Windows.Forms.Padding(0);
+			this.externalProgramsDetailView.Name = "externalProgramsDetailView";
+			this.externalProgramsDetailView.Size = new System.Drawing.Size(824, 445);
+			this.externalProgramsDetailView.TabIndex = 0;
+			// 
 			// ExternalProgramsListView
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.layoutControl1);
 			this.Controls.Add(this.barDockControlLeft);
 			this.Controls.Add(this.barDockControlRight);
 			this.Controls.Add(this.barDockControlBottom);
 			this.Controls.Add(this.barDockControlTop);
-			this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "ExternalProgramsListView";
-			this.Size = new System.Drawing.Size(975, 649);
+			this.Size = new System.Drawing.Size(836, 496);
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
@@ -442,7 +442,7 @@
 			this.navigationFrame.ResumeLayout(false);
 			this.npMain.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.bsExternalPrograms)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.externalProgramsModelBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
 			this.npEditor.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
@@ -470,7 +470,6 @@
         private DevExpress.XtraBars.Navigation.NavigationPage npEditor;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraBars.BarButtonItem bbiSave;
-        private ExternalProgramsDetailView externalProgramsDetailView;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colFileExtension;
         private DevExpress.XtraGrid.Columns.GridColumn colCreatedAt;
@@ -486,6 +485,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemSearchControl repositoryItemSearchControl1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
-		private DevExpress.Xpo.XPBindingSource bsExternalPrograms;
+		private System.Windows.Forms.BindingSource externalProgramsModelBindingSource;
+		private ExternalProgramsDetailView externalProgramsDetailView;
 	}
 }

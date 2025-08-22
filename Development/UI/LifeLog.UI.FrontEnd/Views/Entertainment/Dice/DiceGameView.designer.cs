@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiceGameView));
 			this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
 			this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
 			this.lcScore5 = new DevExpress.XtraEditors.LabelControl();
@@ -96,11 +95,11 @@
 			this.layoutControl.Controls.Add(this.peDice);
 			this.layoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.layoutControl.Location = new System.Drawing.Point(0, 39);
-			this.layoutControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.layoutControl.Margin = new System.Windows.Forms.Padding(4);
 			this.layoutControl.Name = "layoutControl";
 			this.layoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1164, 254, 650, 400);
 			this.layoutControl.Root = this.Root;
-			this.layoutControl.Size = new System.Drawing.Size(758, 518);
+			this.layoutControl.Size = new System.Drawing.Size(758, 485);
 			this.layoutControl.TabIndex = 2;
 			this.layoutControl.Text = "layoutControl1";
 			// 
@@ -108,7 +107,7 @@
 			// 
 			this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelControl6.Appearance.Options.UseFont = true;
-			this.labelControl6.Location = new System.Drawing.Point(226, 46);
+			this.labelControl6.Location = new System.Drawing.Point(226, 45);
 			this.labelControl6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.labelControl6.Name = "labelControl6";
 			this.labelControl6.Size = new System.Drawing.Size(80, 29);
@@ -122,7 +121,7 @@
 			this.lcScore5.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
 			this.lcScore5.Appearance.Options.UseFont = true;
 			this.lcScore5.Appearance.Options.UseForeColor = true;
-			this.lcScore5.Location = new System.Drawing.Point(546, 46);
+			this.lcScore5.Location = new System.Drawing.Point(546, 45);
 			this.lcScore5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.lcScore5.Name = "lcScore5";
 			this.lcScore5.Size = new System.Drawing.Size(15, 29);
@@ -136,7 +135,7 @@
 			this.lcScore4.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
 			this.lcScore4.Appearance.Options.UseFont = true;
 			this.lcScore4.Appearance.Options.UseForeColor = true;
-			this.lcScore4.Location = new System.Drawing.Point(495, 46);
+			this.lcScore4.Location = new System.Drawing.Point(495, 45);
 			this.lcScore4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.lcScore4.Name = "lcScore4";
 			this.lcScore4.Size = new System.Drawing.Size(15, 29);
@@ -150,7 +149,7 @@
 			this.lcScore3.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
 			this.lcScore3.Appearance.Options.UseFont = true;
 			this.lcScore3.Appearance.Options.UseForeColor = true;
-			this.lcScore3.Location = new System.Drawing.Point(444, 46);
+			this.lcScore3.Location = new System.Drawing.Point(444, 45);
 			this.lcScore3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.lcScore3.Name = "lcScore3";
 			this.lcScore3.Size = new System.Drawing.Size(15, 29);
@@ -164,7 +163,7 @@
 			this.lcScore2.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
 			this.lcScore2.Appearance.Options.UseFont = true;
 			this.lcScore2.Appearance.Options.UseForeColor = true;
-			this.lcScore2.Location = new System.Drawing.Point(393, 46);
+			this.lcScore2.Location = new System.Drawing.Point(393, 45);
 			this.lcScore2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.lcScore2.Name = "lcScore2";
 			this.lcScore2.Size = new System.Drawing.Size(15, 29);
@@ -178,7 +177,7 @@
 			this.lcScore6.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
 			this.lcScore6.Appearance.Options.UseFont = true;
 			this.lcScore6.Appearance.Options.UseForeColor = true;
-			this.lcScore6.Location = new System.Drawing.Point(597, 46);
+			this.lcScore6.Location = new System.Drawing.Point(597, 45);
 			this.lcScore6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.lcScore6.Name = "lcScore6";
 			this.lcScore6.Size = new System.Drawing.Size(15, 29);
@@ -192,7 +191,7 @@
 			this.lcScore1.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
 			this.lcScore1.Appearance.Options.UseFont = true;
 			this.lcScore1.Appearance.Options.UseForeColor = true;
-			this.lcScore1.Location = new System.Drawing.Point(342, 46);
+			this.lcScore1.Location = new System.Drawing.Point(342, 45);
 			this.lcScore1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.lcScore1.Name = "lcScore1";
 			this.lcScore1.Size = new System.Drawing.Size(15, 29);
@@ -202,15 +201,15 @@
 			// 
 			// peDice
 			// 
-			this.peDice.Location = new System.Drawing.Point(258, 124);
-			this.peDice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.peDice.Location = new System.Drawing.Point(258, 122);
+			this.peDice.Margin = new System.Windows.Forms.Padding(4);
 			this.peDice.Name = "peDice";
 			this.peDice.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
 			this.peDice.Properties.Appearance.Options.UseBackColor = true;
 			this.peDice.Properties.NullText = " ";
 			this.peDice.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
 			this.peDice.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-			this.peDice.Size = new System.Drawing.Size(242, 386);
+			this.peDice.Size = new System.Drawing.Size(242, 355);
 			this.peDice.StyleController = this.layoutControl;
 			this.peDice.TabIndex = 4;
 			// 
@@ -222,8 +221,8 @@
             this.layoutControlGroup2,
             this.layoutControlGroup1});
 			this.Root.Name = "Root";
-			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 11, 5);
-			this.Root.Size = new System.Drawing.Size(758, 518);
+			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 10, 5);
+			this.Root.Size = new System.Drawing.Size(758, 485);
 			this.Root.Text = "  ";
 			this.Root.TextVisible = false;
 			// 
@@ -237,29 +236,29 @@
 			this.layoutControlGroup2.Location = new System.Drawing.Point(0, 67);
 			this.layoutControlGroup2.Name = "layoutControlGroup2";
 			this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlGroup2.Size = new System.Drawing.Size(748, 435);
-			this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 11, 0);
+			this.layoutControlGroup2.Size = new System.Drawing.Size(748, 403);
+			this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 10, 0);
 			this.layoutControlGroup2.Text = "Game Board";
 			// 
 			// esiLeft
 			// 
 			this.esiLeft.Location = new System.Drawing.Point(0, 0);
 			this.esiLeft.Name = "esiLeft";
-			this.esiLeft.Size = new System.Drawing.Size(250, 392);
+			this.esiLeft.Size = new System.Drawing.Size(250, 361);
 			// 
 			// lciPictureDice
 			// 
 			this.lciPictureDice.Control = this.peDice;
 			this.lciPictureDice.Location = new System.Drawing.Point(250, 0);
 			this.lciPictureDice.Name = "lciPictureDice";
-			this.lciPictureDice.Size = new System.Drawing.Size(248, 392);
+			this.lciPictureDice.Size = new System.Drawing.Size(248, 361);
 			this.lciPictureDice.TextVisible = false;
 			// 
 			// esiRight
 			// 
 			this.esiRight.Location = new System.Drawing.Point(498, 0);
 			this.esiRight.Name = "esiRight";
-			this.esiRight.Size = new System.Drawing.Size(250, 392);
+			this.esiRight.Size = new System.Drawing.Size(250, 361);
 			// 
 			// layoutControlGroup1
 			// 
@@ -416,7 +415,7 @@
 			// 
 			this.bbiReRoll.Caption = "Roll Dice";
 			this.bbiReRoll.Id = 0;
-			this.bbiReRoll.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiReRoll.ImageOptions.SvgImage")));
+			this.bbiReRoll.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.gettingstarted;
 			this.bbiReRoll.Name = "bbiReRoll";
 			this.bbiReRoll.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
 			this.bbiReRoll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReRoll_ItemClick);
@@ -427,16 +426,16 @@
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
 			this.barDockControlTop.Manager = this.barManager;
-			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
 			this.barDockControlTop.Size = new System.Drawing.Size(758, 39);
 			// 
 			// barDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControlBottom.Location = new System.Drawing.Point(0, 557);
+			this.barDockControlBottom.Location = new System.Drawing.Point(0, 524);
 			this.barDockControlBottom.Manager = this.barManager;
-			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
 			this.barDockControlBottom.Size = new System.Drawing.Size(758, 0);
 			// 
 			// barDockControlLeft
@@ -445,8 +444,8 @@
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
 			this.barDockControlLeft.Location = new System.Drawing.Point(0, 39);
 			this.barDockControlLeft.Manager = this.barManager;
-			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 518);
+			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 485);
 			// 
 			// barDockControlRight
 			// 
@@ -454,21 +453,21 @@
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
 			this.barDockControlRight.Location = new System.Drawing.Point(758, 39);
 			this.barDockControlRight.Manager = this.barManager;
-			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 518);
+			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 485);
 			// 
 			// DiceGameView
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.layoutControl);
 			this.Controls.Add(this.barDockControlLeft);
 			this.Controls.Add(this.barDockControlRight);
 			this.Controls.Add(this.barDockControlBottom);
 			this.Controls.Add(this.barDockControlTop);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "DiceGameView";
-			this.Size = new System.Drawing.Size(758, 557);
+			this.Size = new System.Drawing.Size(758, 524);
 			this.Resize += new System.EventHandler(this.DiceGameView_Resize);
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
 			this.layoutControl.ResumeLayout(false);
