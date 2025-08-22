@@ -1,0 +1,60 @@
+﻿using DevExpress.Xpo;
+using LifeLog.Data.Database.Entities;
+using System;
+using LifeLog.Base.Models.Data;
+
+namespace LifeLog.Data.Database.Mappers
+{
+	/// <summary>
+	/// VersionsMapper class to convert between VersionsEntity and VersionsModel.
+	/// </summary>
+	internal static class VersionsMapper
+	{
+		/// <summary>
+		/// VersionsEntity to VersionsModel mapper.
+		/// </summary>
+		/// <param fName="entity"></param>
+		/// <returns></returns>
+		internal static VersionsModel ToModel(this VersionsEntity entity)
+		{
+			if (entity == null) return null;
+
+			return new VersionsModel
+			{
+				Id = entity.Id,
+				CreatedAt = entity.CreatedAt,
+				UpdatedAt = entity.UpdatedAt,
+				ProgramId = entity.ProgramId,
+				Name = entity.Name,
+				Version = entity.Version
+			};
+		}
+
+		/// <summary>
+		/// VersionsModel to VersionsEntity mapper.
+		/// </summary>
+		/// <param fName="model"></param>
+		/// <param fName="session"></param>
+		/// <returns></returns>
+		internal static VersionsEntity ToEntity(this VersionsModel model, Session session)
+		{
+			if (model == null) return null;
+
+			VersionsEntity entity = session.GetObjectByKey<VersionsEntity>(model.Id);
+			if (entity == null)
+			{
+				entity = new VersionsEntity(session);
+				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
+				entity.CreatedAt = model.CreatedAt;
+				model.Id = entity.Id;
+			}
+
+			entity.UpdatedAt = model.UpdatedAt;
+			entity.ProgramId = model.ProgramId;
+			entity.Name = model.Name;
+			entity.Version = model.Version;
+
+			return entity;
+		}
+	}
+}

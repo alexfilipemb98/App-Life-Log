@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LifeLog.Base.Infrastructure.Enums
+{
+	/* AppInterfaceEnum class.*/
+	public enum AppInterfaceEnum
+	{
+		[Description("Front End")]
+		FrontEnd,
+		[Description("Back End")]
+		BackEnd,
+	}
+}
