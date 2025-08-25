@@ -32,6 +32,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 
 		#endregion
 
+		#region EVENTS
+
 		#region ITEM CLICK
 
 		/// <summary>
@@ -149,11 +151,79 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 			}
 		}
 
+		/// <summary>
+		/// Export notes to JSON
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void bbiExport_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			try
+			{
+				using (var saveFileDialog = new SaveFileDialog())
+				{
+					saveFileDialog.Title = "Guardar notas em JSON";
+					saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+					saveFileDialog.DefaultExt = "json";
+					saveFileDialog.FileName = "notes.json";
+
+					if (saveFileDialog.ShowDialog() == DialogResult.OK)
+					{
+						// Serializar e gravar
+						JsonUtil.ExportToFile(_notesList, saveFileDialog.FileName, indented: true);
+						AppHelper.StatusMessage($"({_notesList.Count}) Notes exported successfuly!", true);
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		/// <summary>
+		/// Import notes from JSON
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private async void bbiImport_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			try
+			{
+				using (var openFileDialog = new OpenFileDialog())
+				{
+					openFileDialog.Title = "Abrir notas JSON";
+					openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+					openFileDialog.DefaultExt = "json";
+
+					if (openFileDialog.ShowDialog() == DialogResult.OK)
+					{
+						List<NotesModel> notes = JsonUtil.ImportFromFile<List<NotesModel>>(openFileDialog.FileName);
+
+						notes.ForEach(w => w.User = AppSession.CurrentUser);
+
+						_notesList.AddRange(notes);
+
+						await AppSession.DataEngine.Notes.SaveList(notes);
+						await LoadData();
+
+						AppHelper.StatusMessage($"({notes.Count}) Notes imported successfuly!", true);
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		#endregion
+
 		#endregion
 
 		#region FUNCTIONS
 
-		//PUBLIC 
+		#region PUBLIC
 
 		/// <summary>
 		/// Load the data for the view
@@ -208,7 +278,9 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 			}
 		}
 
-		//PRIVATE
+		#endregion
+
+		#region PRIVATE
 
 		/// <summary>
 		/// Creates a new tab
@@ -272,6 +344,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 			}
 		}
 
+		#endregion
+		
 		#endregion
 	}
 }

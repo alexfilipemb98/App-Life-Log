@@ -48,6 +48,7 @@
     <Compile Include="EnumUtil.cs" />
     <Compile Include="FilesUtil.cs" />
     <Compile Include="ImagesUtil.cs" />
+    <Compile Include="JsonUtil.cs" />
     <Compile Include="LoggerUtil.cs" />
     <Compile Include="ModelUtil.cs" />
     <Compile Include="PdfUtil.cs" />

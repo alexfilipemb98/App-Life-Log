@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
 
@@ -46,28 +47,6 @@ namespace LifeLog.Base.Utils
 		}
 
 		/// <summary>
-		/// Retrieves the property named "EditingMode" from the given entity and sets its value to the specified value.
-		/// </summary>
-		/// <param name="entity"></param>
-		/// <param name="value"></param>
-		public static void SetEditingMode(this object entity, bool value)
-		{
-			if (entity == null)
-				throw new ArgumentNullException(nameof(entity));
-
-			var editingModeProperty = entity.GetType()
-				.GetProperty("EditingMode", BindingFlags.Public | BindingFlags.Instance);
-
-			if (editingModeProperty == null)
-				throw new Exception($"The property 'EditingMode' was not found on type '{entity.GetType().Name}'.");
-
-			if (editingModeProperty.PropertyType != typeof(bool))
-				throw new Exception($"The property 'EditingMode' is not of type 'bool'.");
-
-			editingModeProperty.SetValue(entity, value);
-		}
-
-		/// <summary>
 		/// Gets the table name from the DescriptionAttribute of the entity type.
 		/// Returns null if not defined.
 		/// </summary>
@@ -78,8 +57,8 @@ namespace LifeLog.Base.Utils
 			if (entityType == null)
 				throw new ArgumentNullException(nameof(entityType));
 
-			var attribute = entityType.GetCustomAttribute<DescriptionAttribute>();
-			return attribute?.Description;
+			TableAttribute attribute = entityType.GetCustomAttribute<TableAttribute>();
+			return attribute?.Name ?? entityType.Name;
 		}
 
 		/// <summary>

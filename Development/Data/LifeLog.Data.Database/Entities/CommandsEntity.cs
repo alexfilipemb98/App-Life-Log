@@ -26,11 +26,8 @@
 		#endregion
 
 		#region PROPERTIES
-		
+
 		private string fName;
-		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
-		[Base.Infrastructure.Attributes.Required]
-		[Base.Infrastructure.Attributes.StringLength(13, MinimumLength = 3)]
 		[DevExpress.Xpo.Size(13)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(13)")]
@@ -41,9 +38,6 @@
 		}
 
 		private string fDescription;
-		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
-		[Base.Infrastructure.Attributes.Required]
-		[Base.Infrastructure.Attributes.StringLength(30, MinimumLength = 3)]
 		[DevExpress.Xpo.Size(30)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(30)")]
@@ -54,9 +48,6 @@
 		}
 
 		private string fCommand;
-		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
-		[Base.Infrastructure.Attributes.Required]
-		[Base.Infrastructure.Attributes.StringLength(4000)]
 		[DevExpress.Xpo.Size(4000)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(4000)")]
@@ -75,12 +66,20 @@
 			set => SetPropertyValue(nameof(IsEnabled), ref fIsEnabled, value);
 		}
 
+		private bool fNeedsAdmin;
+		[DevExpress.Xpo.Nullable(false)]
+		[DevExpress.Xpo.DbType("BIT")]
+		public bool NeedsAdmin
+		{
+			get => fNeedsAdmin;
+			set => SetPropertyValue(nameof(NeedsAdmin), ref fNeedsAdmin, value);
+		}
+
 		#endregion
 
 		#region CLASS
 
 		private UsersEntity fUser;
-		[Base.Infrastructure.Attributes.Required]
 		[DevExpress.Xpo.Persistent(@"IdUser")]
 		[DevExpress.Xpo.Association(@"CommandsReferencesUsers")]
 		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
@@ -91,7 +90,6 @@
 		}
 
 		private ExternalProgramsEntity fExternalProgram;
-		[Base.Infrastructure.Attributes.Required]
 		[DevExpress.Xpo.Persistent(@"IdExternalProgram")]
 		[DevExpress.Xpo.Association(@"CommandsReferencesExternalProgram")]
 		[DevExpress.Xpo.DbType("UNIQUEIDENTIFIER")]
@@ -106,7 +104,6 @@
 		#region PROPERTIES NOT MAPED
 
 		private dynamic icon;
-		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[DevExpress.Xpo.NonPersistent]
 		public dynamic Icon
 		{
@@ -125,13 +122,9 @@
 			set => icon = value;
 		}
 
-		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
-		[System.ComponentModel.ReadOnly(true)]
 		[DevExpress.Xpo.NonPersistent]
 		public System.Guid IdUser => User != null ? User.Id : System.Guid.Empty;
 
-		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
-		[System.ComponentModel.ReadOnly(true)]
 		[DevExpress.Xpo.NonPersistent]
 		public System.Guid IdExternalProgram => ExternalProgram != null ? ExternalProgram.Id : System.Guid.Empty;
 

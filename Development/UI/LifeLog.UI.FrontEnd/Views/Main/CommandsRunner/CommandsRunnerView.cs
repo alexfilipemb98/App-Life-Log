@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Tile;
 using LifeLog.Base.Models.Data;
 using LifeLog.UI.Common;
@@ -25,7 +26,6 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 		//PRIVATE
 		private CommandsModel _crtCommands;
-		private BindingSource _bs;
 
 		/// <summary>
 		/// Constructor
@@ -34,6 +34,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 		#endregion
 
+		#region EVENTS
+
 		#region CLICK
 
 		/// <summary>
@@ -41,30 +43,24 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private async void bbiRefresh_ItemClick(object sender, ItemClickEventArgs e)
-		{
+		private async void bbiRefresh_ItemClick(object sender, ItemClickEventArgs e) =>
 			await LoadData();
-		}
 
 		/// <summary>
 		/// New command click
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void bbiNew_ItemClick(object sender, ItemClickEventArgs e)
-		{
+		private void bbiNew_ItemClick(object sender, ItemClickEventArgs e) =>
 			ShowDetailView();
-		}
 
 		/// <summary>
 		/// Back
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void bbiBack_ItemClick(object sender, ItemClickEventArgs e)
-		{
+		private void bbiBack_ItemClick(object sender, ItemClickEventArgs e) =>
 			ShowListView();
-		}
 
 		/// <summary>
 		/// Edit
@@ -88,7 +84,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 			try
 			{
 				lcEditValues.Focus();
-				_bs.EndEdit();
+				bsCommandsEdit.EndEdit();
 
 				if (cbeProgram.GetSelectedDataRow() is ExternalProgramsModel program)
 					_crtCommands.ExternalProgram = program;
@@ -104,7 +100,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 				if (saved)
 				{
-					List<CommandsModel> lista = commandsModelBindingSource.List.Cast<CommandsModel>().ToList();
+					List<CommandsModel> lista = bsCommandsList.List.Cast<CommandsModel>().ToList();
 
 					if (!lista.Any(w => w.Id == _crtCommands.Id))
 					{
@@ -124,6 +120,10 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				ErrorHelper.Handler(ex);
 			}
 		}
+
+		#endregion
+
+		#region TILE VIEW
 
 		/// <summary>
 		/// Right click commands event
@@ -154,10 +154,6 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				ErrorHelper.Handler(ex);
 			}
 		}
-
-		#endregion
-
-		#region OTHERS EVENTS
 
 		/// <summary>
 		/// Custom item template event
@@ -199,10 +195,12 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		}
 
 		#endregion
+		
+		#endregion
 
 		#region FUNCTIONS
 
-		//PUBLIC
+		#region PUBLIC
 
 		/// <summary>
 		/// Load data
@@ -222,12 +220,12 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 				cbeProgram.Properties.DataSource = externalPrograms.Where(w => w.Id != Guid.Empty);
 
-				externalProgramsModelBindingSource.DataSource = externalPrograms;
+				bsExternalPrograms.DataSource = externalPrograms;
 
 				listboxPrograms.SelectedIndex = 0;
 
 				(List<CommandsModel> commands, string message) = await AppSession.DataEngine.Commands.GetUserCommands(AppSession.CurrentUser.Id);
-				commandsModelBindingSource.DataSource = commands;
+				bsCommandsList.DataSource = commands;
 
 				AppHelper.StatusMessage(message, commands.Count > 0);
 			}
@@ -237,7 +235,9 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 			}
 		}
 
-		//PRIVATE
+		#endregion
+		
+		#region PRIVATE
 
 		/// <summary>
 		/// Execute File
@@ -331,6 +331,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				bbiSearch.Visibility = BarItemVisibility.Always;
 
 				navigationFrame.SelectedPage = npMain;
+
+				bsCommandsEdit.Clear();
 			}
 			catch (Exception ex)
 			{
@@ -347,7 +349,10 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 			try
 			{
 				if (command == null)
+				{
 					command = new CommandsModel();
+					command.User = AppSession.CurrentUser;
+				}
 
 				bbiNew.Visibility = BarItemVisibility.Never;
 				bbiSave.Visibility = BarItemVisibility.Always;
@@ -360,10 +365,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 				_crtCommands = command;
 
-				_bs = new BindingSource();
-				_bs.DataSource = _crtCommands;
-
-				lcEditValues.DataSource = _bs;
+				bsCommandsEdit.DataSource = _crtCommands;
 
 				cbeProgram.EditValue = command.ExternalProgram?.Id;
 				recMain.Text = command.Command;
@@ -374,10 +376,9 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 			}
 		}
 
-
-
-
+		#endregion
 
 		#endregion
+
 	}
 }

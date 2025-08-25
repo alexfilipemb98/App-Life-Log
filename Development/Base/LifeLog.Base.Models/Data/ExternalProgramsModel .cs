@@ -1,16 +1,50 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LifeLog.Base.Models.Data
 {
     [Table("ExternalPrograms")]
 	public class ExternalProgramsModel : Bases.DataModelBase
 	{
-
+		#region PROPERTIES
+		
+		[DataType(DataType.Text)]
+		[Infrastructure.Attributes.Required]
+		[Infrastructure.Attributes.StringLength(30, MinimumLength = 3)]
 		public string Name { get; set; }
+
+		[DataType(DataType.Text)]
+		[Infrastructure.Attributes.Required]
+		[Infrastructure.Attributes.StringLength(5)]
 		public string FileExtension { get; set; }
+
+		[DataType(DataType.Text)]
+		[Infrastructure.Attributes.Required]
+		[Infrastructure.Attributes.StringLength(400)]
 		public string PathToProgram { get; set; }
+
+		[DataType(DataType.Text)]
+		[Infrastructure.Attributes.StringLength(150)]
 		public string Arguments { get; set; }
+
+		#endregion
+
+		#region CLASS
+
+		[JsonIgnore]
+		[DataType(DataType.Custom)]
 		public ImagesModel Image { get; set; }
-		public dynamic Icon { get; set; }
+
+		#endregion
+
+		#region NOT MAPPED
+
+		[NotMapped]
+		[JsonIgnore]
+		[DataType(DataType.Custom)]
+		public dynamic Icon { get; set; } 
+
+		#endregion
 	}
 }

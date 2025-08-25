@@ -59,6 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\ControlsHelper.cs" />
+    <Compile Include="LookUpEditEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="NavigationPaneEx.cs">
       <SubType>Component</SubType>
     </Compile>

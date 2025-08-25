@@ -36,7 +36,7 @@ namespace LifeLog.App
 
 					AppSession.AppConfigs = AppHelper.LoadAppConfigs();
 					AppSession.DbConfigs = AppHelper.GetDatabaseConfigs();
-
+					
 					AppSession.AuthForm = new AuthForm();
 
 					try

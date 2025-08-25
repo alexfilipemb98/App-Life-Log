@@ -20,18 +20,8 @@ namespace LifeLog.Data.Database.Bases
 		#region MAIN
 
 		//PROPERTIES
-		public string TableName
-		{
-			get
-			{
-				TableAttribute attr = (TableAttribute)typeof(Object)
-					.GetCustomAttributes(typeof(TableAttribute), inherit: false)
-					.FirstOrDefault();
-
-				return attr?.Name;
-			}
-		}
-
+		public string TableName => typeof(Object).GetTableName();
+		
 		//INTERNAL
 		internal readonly UnitOfWork _UOW;
 		internal readonly SqlDataAccess _SQL;

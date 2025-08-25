@@ -28,9 +28,6 @@
 		#region PROPERTIES
 
 		private string fName;
-		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
-		[Base.Infrastructure.Attributes.Required]
-		[Base.Infrastructure.Attributes.StringLength(30, MinimumLength = 3)]
 		[DevExpress.Xpo.Size(30)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(30)")]
@@ -41,9 +38,6 @@
 		}
 
 		private string fFileExtension;
-		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
-		[Base.Infrastructure.Attributes.Required]
-		[Base.Infrastructure.Attributes.StringLength(5)]
 		[DevExpress.Xpo.Size(5)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(5)")]
@@ -54,9 +48,6 @@
 		}
 
 		private string fPathToProgram;
-		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
-		[Base.Infrastructure.Attributes.Required]
-		[Base.Infrastructure.Attributes.StringLength(400)]
 		[DevExpress.Xpo.Size(400)]
 		[DevExpress.Xpo.Nullable(false)]
 		[DevExpress.Xpo.DbType("NVARCHAR(400)")]
@@ -67,8 +58,6 @@
 		}
 
 		private string fArguments;
-		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.Text)]
-		[Base.Infrastructure.Attributes.StringLength(150)]
 		[DevExpress.Xpo.Size(150)]
 		[DevExpress.Xpo.Nullable(true)]
 		[DevExpress.Xpo.DbType("NVARCHAR(150)")]
@@ -98,7 +87,6 @@
 		#region PROPERTIES NOT MAPED
 
 		private dynamic icon;
-		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
 		[DevExpress.Xpo.NonPersistent]
 		public dynamic Icon
 		{
@@ -117,8 +105,6 @@
 			set => icon = value;
 		}
 
-		[System.ComponentModel.DataAnnotations.Schema.NotMapped]
-		[System.ComponentModel.ReadOnly(true)]
 		[DevExpress.Xpo.NonPersistent]
 		public System.Guid IdImage => Image != null ? Image.Id : System.Guid.Empty;
 

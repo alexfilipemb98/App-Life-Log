@@ -29,10 +29,10 @@ namespace LifeLog.Data.Database.Mappers
 				Description = entity.Description,
 				Command = entity.Command,
 				IsEnabled = entity.IsEnabled,
-				User = entity.User.ToModel(),
+				User = entity.User.ToLoggedInModel(),
+				NeedsAdmin = entity.NeedsAdmin,
 				ExternalProgram = entity.ExternalProgram.ToModel(),
 				Icon = entity.Icon,
-				EditingMode = entity.Id != Guid.Empty
 			};
 		}
 
@@ -44,10 +44,17 @@ namespace LifeLog.Data.Database.Mappers
 		/// <returns></returns>
 		internal static CommandsEntity ToEntity(this CommandsModel model, UnitOfWork session)
 		{
-			if (model == null) return null;
+			if (model is null) return null;
 
-			UsersEntity user = model.User.ToEntity(session);
-			ExternalProgramsEntity program = model.ExternalProgram.ToEntity(session);
+			UsersEntity user = session.GetObjectByKey<UsersEntity>(model.User.Id);
+
+			if (user is null)
+				throw new ArgumentNullException("User not found!");
+
+			ExternalProgramsEntity program = session.GetObjectByKey<ExternalProgramsEntity>(model.ExternalProgram.Id);
+
+			if (program is null)
+				throw new ArgumentNullException("External program not found!");
 
 			CommandsEntity entity = session.GetObjectByKey<CommandsEntity>(model.Id);
 			
@@ -66,7 +73,7 @@ namespace LifeLog.Data.Database.Mappers
 			entity.IsEnabled = model.IsEnabled;
 			entity.User = user;
 			entity.ExternalProgram = program;
-			entity.EditingMode = model.EditingMode;
+			entity.NeedsAdmin = model.NeedsAdmin;
 
 			return entity;
 		}

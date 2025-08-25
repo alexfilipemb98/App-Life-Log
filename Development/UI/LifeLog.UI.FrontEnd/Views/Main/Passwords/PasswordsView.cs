@@ -69,7 +69,11 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Passwords
         }
 
 
-        #endregion
+		#endregion
 
-    }
+		private void panel1_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+		{
+
+		}
+	}
 }
