@@ -23,10 +23,23 @@ namespace LifeLog.UI.Common.Forms.Dialog
 		/// Show dialog form 
 		/// </summary>
 		/// <returns></returns>
-		public static DialogResult SD(string caption, string message, string details = null, bool yesno = true)
+		public static DialogResult SD(MessageBoxIcon icon, string caption, string message, string details = null, bool yesno = true)
 		{
 			using (MessageBoxDialogForm form = new MessageBoxDialogForm())
 			{
+
+				switch (icon)
+				{
+					case MessageBoxIcon.Question:
+						form.pictureEdit1.EditValue = Properties.Resources.question_mark;
+						break;
+					case MessageBoxIcon.Exclamation:
+						form.pictureEdit1.EditValue = Properties.Resources.exclamation_mark;
+						break;
+					case MessageBoxIcon.Error:
+						form.pictureEdit1.EditValue = Properties.Resources.error_close;
+						break;
+				}
 
 				form.ribbon.ApplicationDocumentCaption = caption;
 				form.lblCaption.Text = message;

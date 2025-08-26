@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using LifeLog.Base.Utils;
 using LifeLog.UI.Common.Forms.Dialog;
 
@@ -16,7 +17,7 @@ namespace LifeLog.UI.Common.Helpers
 		public static void Handler(Exception ex)
 		{
 			LoggerUtil.LogError(ex);
-		 	MessageBoxDialogForm.SD(ex.TargetSite.Name, ex.TargetSite.ToString(), ex.ToString(), false);
+		 	MessageBoxDialogForm.SD(MessageBoxIcon.Error,ex.TargetSite.Name, ex.TargetSite.ToString(), ex.ToString(), false);
 		}
 	}
 }

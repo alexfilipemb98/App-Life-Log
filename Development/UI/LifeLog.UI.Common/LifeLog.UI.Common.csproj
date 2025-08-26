@@ -211,5 +211,14 @@
   <ItemGroup>
     <None Include="Resources\question-mark.svg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error-close.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation-mark.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.svg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

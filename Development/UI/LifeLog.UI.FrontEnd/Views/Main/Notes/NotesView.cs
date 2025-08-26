@@ -90,7 +90,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 
 				NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(page.Tag?.ToString()));
 
-				DialogResult result = MessageBoxDialogForm.SD("Delete Note", $"Do you really want to delete {note.Title}?");
+				DialogResult result = MessageBoxDialogForm.SD(MessageBoxIcon.Question,"Delete Note", $"Do you really want to delete {note.Title}?");
 
 				if (page != null && result == DialogResult.Yes)
 				{

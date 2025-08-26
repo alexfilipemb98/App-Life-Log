@@ -110,7 +110,7 @@ namespace LifeLog.UI.BackEnd.Forms
 		{
 			bool istop = this.TopMost;
 			this.TopMost = false;
-			DialogResult result = MessageBoxDialogForm.SD("Exit Confirmation", "Are you sure you want to close the program?\nAny unsaved changes will be lost.");
+			DialogResult result = MessageBoxDialogForm.SD(MessageBoxIcon.Question, "Exit Confirmation", "Are you sure you want to close the program?\nAny unsaved changes will be lost.");
 			if (result != DialogResult.Yes)
 			{
 				e.Cancel = true;
