@@ -25,7 +25,6 @@ namespace LifeLog.Base.Models.Data
 		#region CLASS
 
 		[JsonIgnore]
-		[DataType(DataType.Custom)]
 		[Infrastructure.Attributes.Required]
 		public LoggedUserModel User { get; set; } 
 		

@@ -37,19 +37,19 @@ namespace LifeLog.Data.Database.Mappers
 		/// ExternalProgramsModel to ORM_ExternalProgramModel mapper.
 		/// </summary>
 		/// <param fName="model"></param>
-		/// <param fName="session"></param>
+		/// <param fName="uow"></param>
 		/// <returns></returns>
-		internal static ORM_ExternalProgramModel ToEntity(this ExternalProgramsModel model, Session session)
+		internal static ORM_ExternalProgramModel ToEntity(this ExternalProgramsModel model, UnitOfWork uow)
 		{
 			if (model == null) return null;
 
-			ORM_ImagesModel image = model.Image.ToEntity(session);
+			ORM_ImagesModel image = model.Image.ToEntity(uow);
 
-			ORM_ExternalProgramModel entity = session.GetObjectByKey<ORM_ExternalProgramModel>(model.Id);
+			ORM_ExternalProgramModel entity = uow.GetObjectByKey<ORM_ExternalProgramModel>(model.Id);
 
 			if (entity == null)
 			{
-				entity = new ORM_ExternalProgramModel(session);
+				entity = new ORM_ExternalProgramModel(uow);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				entity.CreatedAt =  DateTime.Now;
 				model.CreatedAt = entity.CreatedAt;

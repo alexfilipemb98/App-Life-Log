@@ -9,13 +9,14 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using static DevExpress.Data.Helpers.ExpressiveSortInfo;
 
 namespace LifeLog.Data.Database.Queries
 {
 	/// <summary>
 	/// Notes data query
 	/// </summary>
-	public class NotesQuery : DataQueryBase<NotesModel, Guid>
+	public sealed class NotesQuery : DataQueryBase<NotesModel, Guid>
 	{
 		#region MAIN
 
@@ -51,12 +52,15 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(List<NotesModel>, string)> GetAll()
 		{
-			List<NotesModel> results = await _UOW.Query<ORM_NotesModel>()
+			using (UnitOfWork uow = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				List<NotesModel> results = await _UOW.Query<ORM_NotesModel>()
 				   .Select(s => s.ToModel())
 				   .ToListAsync() ?? new List<NotesModel>();
 
-			string message = results.Count > 0 ? $"Notes retrieved successfully, {results.Count} found." : "No notes found.";
-			return (results, message);
+				string message = results.Count > 0 ? $"Notes retrieved successfully, {results.Count} found." : "No notes found.";
+				return (results, message);
+			}
 		}
 
 		/// <summary>
@@ -67,20 +71,24 @@ namespace LifeLog.Data.Database.Queries
 		/// <exception cref="ArgumentNullException"></exception>
 		public override async Task<(bool, string)> Save(NotesModel model)
 		{
-			await base.Save(model);
+			using (UnitOfWork uow = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				await base.Save(model);
 
-			ORM_NotesModel entity = model.ToEntity(_UOW);
+				ORM_NotesModel entity = model.ToEntity(uow);
 
-			if (entity == null)
-				throw new ArgumentNullException("Notes entity is null");
+				if (entity == null)
+					throw new ArgumentNullException("Notes entity is null");
 
-			entity.Saving = true;
+				entity.Saving = true;
 
-			await _UOW.SaveAsync(entity);
-			await _UOW.CommitChangesAsync();
+				await uow.SaveAsync(entity);
+				await uow.CommitChangesAsync();
+			}
 
 			(bool exists, _) = await Exists(model.Id);
 			string message = exists ? "Note saved successfully." : "Note not found after saving.";
+
 			return (exists, message);
 		}
 
@@ -91,22 +99,24 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(NotesModel, string)> Duplicate(Guid key)
 		{
-			(NotesModel model, _) = await base.Duplicate(key);
-			ORM_NotesModel entity = model.ToEntity(_UOW);
+			using (UnitOfWork uow = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				(NotesModel model, _) = await base.Duplicate(key);
+				ORM_NotesModel entity = model.ToEntity(uow);
+				entity.Id = Guid.NewGuid();
+				entity.Title += " (Copy)";
+				model.Id = entity.Id;
+				model.Title = entity.Title;
+				entity.Saving = true;
 
-			entity.Id = Guid.NewGuid();
-			entity.Title += " (Copy)";
-			model.Id = entity.Id;
-			model.Title = entity.Title;
-			entity.Saving = true;
+				await uow.SaveAsync(model);
+				await uow.CommitChangesAsync();
 
-			await _UOW.SaveAsync(model);
-			await _UOW.CommitChangesAsync();
+				(bool exists, _) = await Exists(model.Id);
+				string message = exists ? "Note duplicated successfully." : "Note not found after duplication.";
 
-			(bool exists, _) = await Exists(model.Id);
-			string message = exists ? "Note duplicated successfully." : "Note not found after duplication.";
-
-			return (model, message);
+				return (model, message);
+			}
 		}
 
 		#endregion

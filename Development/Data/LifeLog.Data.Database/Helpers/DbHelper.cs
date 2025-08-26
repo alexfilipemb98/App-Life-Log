@@ -86,10 +86,10 @@ namespace LifeLog.Data.Database.Helpers
 		/// </summary>
 		public static void SqlLiteBackUp(DatabaseConfigModel config)
 		{
-			if (config.DatabaseType != DatabaseTypeEnum.SQLLITE)
-				return;
-
-			if (string.IsNullOrWhiteSpace(config.SQlLitePath))
+			if (config.DatabaseType != DatabaseTypeEnum.SQLLITE 
+				|| !config.SqlLiteBackup 
+				|| string.IsNullOrWhiteSpace(config.SQlLitePath)
+			)
 				return;
 
 			string sqlLitePath = config.SQlLitePath;
@@ -97,7 +97,7 @@ namespace LifeLog.Data.Database.Helpers
 			if (!File.Exists(sqlLitePath))
 				return;
 
-			string backupFolder = "Backups";
+			string backupFolder = config.SqlLiteBackupFolder ?? "Backups";
 
 			if (!Directory.Exists(backupFolder))
 				Directory.CreateDirectory(backupFolder);

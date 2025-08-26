@@ -32,7 +32,6 @@ namespace LifeLog.Data.Database.ORMDataModel
 		}
 		string fText;
 		[Size(4000)]
-		[Nullable(false)]
 		[DbType("NVARCHAR(4000)")]
 		public string Text
 		{

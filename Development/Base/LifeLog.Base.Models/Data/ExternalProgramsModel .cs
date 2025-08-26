@@ -35,7 +35,6 @@ namespace LifeLog.Base.Models.Data
 		#region CLASS
 
 		[JsonIgnore]
-		[DataType(DataType.Custom)]
 		public ImagesModel Image { get; set; }
 
 		#endregion
@@ -44,7 +43,6 @@ namespace LifeLog.Base.Models.Data
 
 		[NotMapped]
 		[JsonIgnore]
-		[DataType(DataType.Custom)]
 		public dynamic Icon { get; set; } 
 
 		#endregion

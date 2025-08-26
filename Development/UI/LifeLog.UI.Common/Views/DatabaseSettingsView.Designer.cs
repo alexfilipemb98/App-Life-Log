@@ -172,7 +172,7 @@
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControlBottom.Location = new System.Drawing.Point(0, 456);
+			this.barDockControlBottom.Location = new System.Drawing.Point(0, 429);
 			this.barDockControlBottom.Manager = this.barManager;
 			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
 			this.barDockControlBottom.Size = new System.Drawing.Size(760, 0);
@@ -184,7 +184,7 @@
 			this.barDockControlLeft.Location = new System.Drawing.Point(0, 39);
 			this.barDockControlLeft.Manager = this.barManager;
 			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 417);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 390);
 			// 
 			// barDockControlRight
 			// 
@@ -193,7 +193,7 @@
 			this.barDockControlRight.Location = new System.Drawing.Point(760, 39);
 			this.barDockControlRight.Manager = this.barManager;
 			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 417);
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 390);
 			// 
 			// dataLayoutControl
 			// 
@@ -212,14 +212,15 @@
 			this.dataLayoutControl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.dataLayoutControl.Name = "dataLayoutControl";
 			this.dataLayoutControl.Root = this.Root;
-			this.dataLayoutControl.Size = new System.Drawing.Size(760, 417);
+			this.dataLayoutControl.Size = new System.Drawing.Size(760, 390);
 			this.dataLayoutControl.TabIndex = 10;
 			this.dataLayoutControl.Text = "dataLayoutControl1";
 			// 
 			// tsEnableBackups
 			// 
 			this.tsEnableBackups.AutoSizeInLayoutControl = true;
-			this.tsEnableBackups.Location = new System.Drawing.Point(685, 167);
+			this.tsEnableBackups.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlLiteBackup", true));
+			this.tsEnableBackups.Location = new System.Drawing.Point(692, 159);
 			this.tsEnableBackups.MenuManager = this.barManager;
 			this.tsEnableBackups.Name = "tsEnableBackups";
 			this.tsEnableBackups.Properties.AutoHeight = false;
@@ -227,7 +228,7 @@
 			this.tsEnableBackups.Properties.OffText = "Off";
 			this.tsEnableBackups.Properties.OnText = "On";
 			this.tsEnableBackups.Properties.ShowText = false;
-			this.tsEnableBackups.Size = new System.Drawing.Size(64, 24);
+			this.tsEnableBackups.Size = new System.Drawing.Size(57, 24);
 			this.tsEnableBackups.StyleController = this.dataLayoutControl;
 			this.tsEnableBackups.TabIndex = 10;
 			// 
@@ -235,7 +236,7 @@
 			// 
 			this.cbSQLDatabase.CausesValidation = false;
 			this.cbSQLDatabase.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlDatabase", true));
-			this.cbSQLDatabase.Location = new System.Drawing.Point(84, 321);
+			this.cbSQLDatabase.Location = new System.Drawing.Point(85, 307);
 			this.cbSQLDatabase.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.cbSQLDatabase.MenuManager = this.barManager;
 			this.cbSQLDatabase.Name = "cbSQLDatabase";
@@ -244,7 +245,7 @@
 			this.cbSQLDatabase.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "LISTDB", null, DevExpress.Utils.ToolTipAnchor.Default)});
-			this.cbSQLDatabase.Size = new System.Drawing.Size(665, 32);
+			this.cbSQLDatabase.Size = new System.Drawing.Size(664, 30);
 			this.cbSQLDatabase.StyleController = this.dataLayoutControl;
 			this.cbSQLDatabase.TabIndex = 9;
 			this.cbSQLDatabase.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cbSQLDatabase_ButtonClick);
@@ -257,7 +258,7 @@
 			// 
 			this.beSqlPassword.CausesValidation = false;
 			this.beSqlPassword.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlPassword", true));
-			this.beSqlPassword.Location = new System.Drawing.Point(456, 283);
+			this.beSqlPassword.Location = new System.Drawing.Point(457, 271);
 			this.beSqlPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.beSqlPassword.MenuManager = this.barManager;
 			this.beSqlPassword.Name = "beSqlPassword";
@@ -266,7 +267,7 @@
 			this.beSqlPassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
 			this.beSqlPassword.Properties.UseSystemPasswordChar = true;
-			this.beSqlPassword.Size = new System.Drawing.Size(293, 32);
+			this.beSqlPassword.Size = new System.Drawing.Size(292, 30);
 			this.beSqlPassword.StyleController = this.dataLayoutControl;
 			this.beSqlPassword.TabIndex = 8;
 			this.beSqlPassword.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beSqlPassword_ButtonClick);
@@ -275,11 +276,11 @@
 			// 
 			this.teSqlUsername.CausesValidation = false;
 			this.teSqlUsername.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlUsername", true));
-			this.teSqlUsername.Location = new System.Drawing.Point(84, 283);
+			this.teSqlUsername.Location = new System.Drawing.Point(85, 271);
 			this.teSqlUsername.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.teSqlUsername.MenuManager = this.barManager;
 			this.teSqlUsername.Name = "teSqlUsername";
-			this.teSqlUsername.Size = new System.Drawing.Size(293, 32);
+			this.teSqlUsername.Size = new System.Drawing.Size(292, 30);
 			this.teSqlUsername.StyleController = this.dataLayoutControl;
 			this.teSqlUsername.TabIndex = 7;
 			// 
@@ -287,7 +288,7 @@
 			// 
 			this.bePathSqlLite.CausesValidation = false;
 			this.bePathSqlLite.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SQlLitePath", true));
-			this.bePathSqlLite.Location = new System.Drawing.Point(103, 87);
+			this.bePathSqlLite.Location = new System.Drawing.Point(103, 84);
 			this.bePathSqlLite.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.bePathSqlLite.MenuManager = this.barManager;
 			this.bePathSqlLite.Name = "bePathSqlLite";
@@ -295,7 +296,7 @@
 			editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(24, 24);
 			this.bePathSqlLite.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-			this.bePathSqlLite.Size = new System.Drawing.Size(646, 32);
+			this.bePathSqlLite.Size = new System.Drawing.Size(646, 30);
 			this.bePathSqlLite.StyleController = this.dataLayoutControl;
 			this.bePathSqlLite.TabIndex = 6;
 			this.bePathSqlLite.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bePathSqlLite_ButtonClick);
@@ -304,7 +305,7 @@
 			// 
 			this.beSqlAddress.CausesValidation = false;
 			this.beSqlAddress.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlAddress", true));
-			this.beSqlAddress.Location = new System.Drawing.Point(84, 245);
+			this.beSqlAddress.Location = new System.Drawing.Point(85, 235);
 			this.beSqlAddress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.beSqlAddress.MenuManager = this.barManager;
 			this.beSqlAddress.Name = "beSqlAddress";
@@ -312,7 +313,7 @@
 			editorButtonImageOptions4.SvgImageSize = new System.Drawing.Size(20, 20);
 			this.beSqlAddress.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-			this.beSqlAddress.Size = new System.Drawing.Size(665, 32);
+			this.beSqlAddress.Size = new System.Drawing.Size(664, 30);
 			this.beSqlAddress.StyleController = this.dataLayoutControl;
 			this.beSqlAddress.TabIndex = 4;
 			// 
@@ -329,7 +330,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
 			this.cbDatabaseType.Properties.DropDownRows = 3;
 			this.cbDatabaseType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-			this.cbDatabaseType.Size = new System.Drawing.Size(633, 32);
+			this.cbDatabaseType.Size = new System.Drawing.Size(633, 30);
 			this.cbDatabaseType.StyleController = this.dataLayoutControl;
 			this.cbDatabaseType.TabIndex = 5;
 			this.cbDatabaseType.SelectedIndexChanged += new System.EventHandler(this.cbDatabaseType_SelectedIndexChanged);
@@ -338,7 +339,7 @@
 			// 
 			this.beSqlLitePassword.CausesValidation = false;
 			this.beSqlLitePassword.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlLitePassword", true));
-			this.beSqlLitePassword.Location = new System.Drawing.Point(103, 125);
+			this.beSqlLitePassword.Location = new System.Drawing.Point(103, 120);
 			this.beSqlLitePassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.beSqlLitePassword.Name = "beSqlLitePassword";
 			editorButtonImageOptions5.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions5.SvgImage")));
@@ -346,7 +347,7 @@
 			this.beSqlLitePassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
 			this.beSqlLitePassword.Properties.UseSystemPasswordChar = true;
-			this.beSqlLitePassword.Size = new System.Drawing.Size(646, 32);
+			this.beSqlLitePassword.Size = new System.Drawing.Size(646, 30);
 			this.beSqlLitePassword.StyleController = this.dataLayoutControl;
 			this.beSqlLitePassword.TabIndex = 8;
 			this.beSqlLitePassword.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beSqlLitePassword_ButtonClick);
@@ -354,14 +355,15 @@
 			// bePathSqlLiteBackup
 			// 
 			this.bePathSqlLiteBackup.CausesValidation = false;
-			this.bePathSqlLiteBackup.Location = new System.Drawing.Point(103, 163);
+			this.bePathSqlLiteBackup.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlLiteBackupFolder", true));
+			this.bePathSqlLiteBackup.Location = new System.Drawing.Point(103, 156);
 			this.bePathSqlLiteBackup.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.bePathSqlLiteBackup.Name = "bePathSqlLiteBackup";
 			editorButtonImageOptions6.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions6.SvgImage")));
 			editorButtonImageOptions6.SvgImageSize = new System.Drawing.Size(24, 24);
 			this.bePathSqlLiteBackup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-			this.bePathSqlLiteBackup.Size = new System.Drawing.Size(484, 32);
+			this.bePathSqlLiteBackup.Size = new System.Drawing.Size(491, 30);
 			this.bePathSqlLiteBackup.StyleController = this.dataLayoutControl;
 			this.bePathSqlLiteBackup.TabIndex = 6;
 			this.bePathSqlLiteBackup.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bePathSqlLiteBackup_ButtonClick);
@@ -377,23 +379,23 @@
             this.lcgRemoteSql});
 			this.Root.Name = "Root";
 			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-			this.Root.Size = new System.Drawing.Size(760, 417);
+			this.Root.Size = new System.Drawing.Size(760, 390);
 			this.Root.TextVisible = false;
 			// 
 			// emptySpaceItem1
 			// 
-			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 354);
+			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 338);
 			this.emptySpaceItem1.Name = "emptySpaceItem1";
-			this.emptySpaceItem1.Size = new System.Drawing.Size(750, 53);
+			this.emptySpaceItem1.Size = new System.Drawing.Size(750, 42);
 			// 
 			// layoutControlItem2
 			// 
 			this.layoutControlItem2.Control = this.cbDatabaseType;
 			this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem2.Name = "layoutControlItem2";
-			this.layoutControlItem2.Size = new System.Drawing.Size(750, 38);
+			this.layoutControlItem2.Size = new System.Drawing.Size(750, 36);
 			this.layoutControlItem2.Text = "Connection Type";
-			this.layoutControlItem2.TextSize = new System.Drawing.Size(97, 17);
+			this.layoutControlItem2.TextSize = new System.Drawing.Size(95, 16);
 			// 
 			// lcgSqlLite
 			// 
@@ -407,12 +409,12 @@
             this.layoutControlItem7,
             this.layoutControlItem8,
             this.layoutControlItem9});
-			this.lcgSqlLite.Location = new System.Drawing.Point(0, 38);
+			this.lcgSqlLite.Location = new System.Drawing.Point(0, 36);
 			this.lcgSqlLite.Name = "lcgSqlLite";
 			this.lcgSqlLite.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
 			this.lcgSqlLite.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.lcgSqlLite.Size = new System.Drawing.Size(750, 158);
-			this.lcgSqlLite.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 9, 3);
+			this.lcgSqlLite.Size = new System.Drawing.Size(750, 151);
+			this.lcgSqlLite.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 8, 3);
 			this.lcgSqlLite.Text = "Sql Lite";
 			this.lcgSqlLite.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
 			// 
@@ -421,42 +423,42 @@
 			this.layoutControlItem3.Control = this.bePathSqlLite;
 			this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem3.Name = "layoutControlItem3";
-			this.layoutControlItem3.Size = new System.Drawing.Size(744, 38);
+			this.layoutControlItem3.Size = new System.Drawing.Size(744, 36);
 			this.layoutControlItem3.Text = "Path";
-			this.layoutControlItem3.TextSize = new System.Drawing.Size(78, 17);
+			this.layoutControlItem3.TextSize = new System.Drawing.Size(76, 16);
 			// 
 			// layoutControlItem7
 			// 
 			this.layoutControlItem7.Control = this.beSqlLitePassword;
 			this.layoutControlItem7.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem7.CustomizationFormText = "Password";
-			this.layoutControlItem7.Location = new System.Drawing.Point(0, 38);
+			this.layoutControlItem7.Location = new System.Drawing.Point(0, 36);
 			this.layoutControlItem7.Name = "layoutControlItem7";
-			this.layoutControlItem7.Size = new System.Drawing.Size(744, 38);
+			this.layoutControlItem7.Size = new System.Drawing.Size(744, 36);
 			this.layoutControlItem7.Text = "Password";
-			this.layoutControlItem7.TextSize = new System.Drawing.Size(78, 17);
+			this.layoutControlItem7.TextSize = new System.Drawing.Size(76, 16);
 			// 
 			// layoutControlItem8
 			// 
 			this.layoutControlItem8.Control = this.bePathSqlLiteBackup;
 			this.layoutControlItem8.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem8.CustomizationFormText = "Path";
-			this.layoutControlItem8.Location = new System.Drawing.Point(0, 76);
+			this.layoutControlItem8.Location = new System.Drawing.Point(0, 72);
 			this.layoutControlItem8.Name = "layoutControlItem8";
-			this.layoutControlItem8.Size = new System.Drawing.Size(582, 38);
+			this.layoutControlItem8.Size = new System.Drawing.Size(589, 36);
 			this.layoutControlItem8.Text = "Path";
-			this.layoutControlItem8.TextSize = new System.Drawing.Size(78, 17);
+			this.layoutControlItem8.TextSize = new System.Drawing.Size(76, 16);
 			// 
 			// layoutControlItem9
 			// 
 			this.layoutControlItem9.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.layoutControlItem9.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
 			this.layoutControlItem9.Control = this.tsEnableBackups;
-			this.layoutControlItem9.Location = new System.Drawing.Point(582, 76);
+			this.layoutControlItem9.Location = new System.Drawing.Point(589, 72);
 			this.layoutControlItem9.Name = "layoutControlItem9";
-			this.layoutControlItem9.Size = new System.Drawing.Size(162, 38);
+			this.layoutControlItem9.Size = new System.Drawing.Size(155, 36);
 			this.layoutControlItem9.Text = "Auto Backups";
-			this.layoutControlItem9.TextSize = new System.Drawing.Size(78, 17);
+			this.layoutControlItem9.TextSize = new System.Drawing.Size(76, 16);
 			// 
 			// lcgRemoteSql
 			// 
@@ -470,12 +472,12 @@
             this.layoutControlItem4,
             this.layoutControlItem6,
             this.layoutControlItem5});
-			this.lcgRemoteSql.Location = new System.Drawing.Point(0, 196);
+			this.lcgRemoteSql.Location = new System.Drawing.Point(0, 187);
 			this.lcgRemoteSql.Name = "lcgRemoteSql";
 			this.lcgRemoteSql.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
 			this.lcgRemoteSql.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.lcgRemoteSql.Size = new System.Drawing.Size(750, 158);
-			this.lcgRemoteSql.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 9, 3);
+			this.lcgRemoteSql.Size = new System.Drawing.Size(750, 151);
+			this.lcgRemoteSql.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 8, 3);
 			this.lcgRemoteSql.Text = "Remote Sql";
 			this.lcgRemoteSql.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
 			// 
@@ -484,36 +486,36 @@
 			this.layoutControlItem1.Control = this.beSqlAddress;
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(744, 38);
+			this.layoutControlItem1.Size = new System.Drawing.Size(744, 36);
 			this.layoutControlItem1.Text = "Address";
-			this.layoutControlItem1.TextSize = new System.Drawing.Size(59, 17);
+			this.layoutControlItem1.TextSize = new System.Drawing.Size(58, 16);
 			// 
 			// layoutControlItem4
 			// 
 			this.layoutControlItem4.Control = this.teSqlUsername;
-			this.layoutControlItem4.Location = new System.Drawing.Point(0, 38);
+			this.layoutControlItem4.Location = new System.Drawing.Point(0, 36);
 			this.layoutControlItem4.Name = "layoutControlItem4";
-			this.layoutControlItem4.Size = new System.Drawing.Size(372, 38);
+			this.layoutControlItem4.Size = new System.Drawing.Size(372, 36);
 			this.layoutControlItem4.Text = "Username";
-			this.layoutControlItem4.TextSize = new System.Drawing.Size(59, 17);
+			this.layoutControlItem4.TextSize = new System.Drawing.Size(58, 16);
 			// 
 			// layoutControlItem6
 			// 
 			this.layoutControlItem6.Control = this.cbSQLDatabase;
-			this.layoutControlItem6.Location = new System.Drawing.Point(0, 76);
+			this.layoutControlItem6.Location = new System.Drawing.Point(0, 72);
 			this.layoutControlItem6.Name = "layoutControlItem6";
-			this.layoutControlItem6.Size = new System.Drawing.Size(744, 38);
+			this.layoutControlItem6.Size = new System.Drawing.Size(744, 36);
 			this.layoutControlItem6.Text = "Database";
-			this.layoutControlItem6.TextSize = new System.Drawing.Size(59, 17);
+			this.layoutControlItem6.TextSize = new System.Drawing.Size(58, 16);
 			// 
 			// layoutControlItem5
 			// 
 			this.layoutControlItem5.Control = this.beSqlPassword;
-			this.layoutControlItem5.Location = new System.Drawing.Point(372, 38);
+			this.layoutControlItem5.Location = new System.Drawing.Point(372, 36);
 			this.layoutControlItem5.Name = "layoutControlItem5";
-			this.layoutControlItem5.Size = new System.Drawing.Size(372, 38);
+			this.layoutControlItem5.Size = new System.Drawing.Size(372, 36);
 			this.layoutControlItem5.Text = "Password";
-			this.layoutControlItem5.TextSize = new System.Drawing.Size(59, 17);
+			this.layoutControlItem5.TextSize = new System.Drawing.Size(58, 16);
 			// 
 			// dxErrorProvider
 			// 
@@ -521,7 +523,7 @@
 			// 
 			// DatabaseSettingsView
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.dataLayoutControl);
 			this.Controls.Add(this.barDockControlLeft);
@@ -530,7 +532,7 @@
 			this.Controls.Add(this.barDockControlTop);
 			this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.Name = "DatabaseSettingsView";
-			this.Size = new System.Drawing.Size(760, 456);
+			this.Size = new System.Drawing.Size(760, 429);
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).EndInit();
 			this.dataLayoutControl.ResumeLayout(false);

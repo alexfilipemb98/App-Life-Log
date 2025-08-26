@@ -35,18 +35,18 @@ namespace LifeLog.Data.Database.Mappers
 		/// NotesModel to ORM_NotesModel mapper.
 		/// </summary>
 		/// <param fName="model"></param>
-		/// <param fName="session"></param>
+		/// <param fName="uow"></param>
 		/// <returns></returns>
-		internal static ORM_NotesModel ToEntity(this NotesModel model, Session session)
+		internal static ORM_NotesModel ToEntity(this NotesModel model, UnitOfWork uow)
 		{
 			if (model == null) return null;
 
-			ORM_UsersModel user = session.GetObjectByKey<ORM_UsersModel>(model.User.Id);
-			ORM_NotesModel entity = session.GetObjectByKey<ORM_NotesModel>(model.Id);
+			ORM_UsersModel user = uow.GetObjectByKey<ORM_UsersModel>(model.User.Id);
+			ORM_NotesModel entity = uow.GetObjectByKey<ORM_NotesModel>(model.Id);
 
 			if (entity == null)
 			{
-				entity = new ORM_NotesModel(session);
+				entity = new ORM_NotesModel(uow);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				entity.CreatedAt = model.CreatedAt;
 				model.Id = entity.Id;

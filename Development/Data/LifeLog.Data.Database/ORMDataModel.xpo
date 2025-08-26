@@ -37,7 +37,7 @@
             <field Id="b403b210-eb34-4e01-aaf7-3ea8eb1a2c83" name="Title" virtualColumnType="String" dbType="NVARCHAR(30)" delayedUpdateModifiedOnly="false" size="30" />
           </generalXpObjectHasFields>
           <generalXpObjectHasFields Id="a8446df2-c29a-434c-96ce-3104ab50d40c">
-            <field Id="83084fb2-a6d0-4c77-9b77-89c4e4a9ebbb" name="Text" virtualColumnType="String" dbType="NVARCHAR(4000)" delayedUpdateModifiedOnly="false" size="4000" />
+            <field Id="83084fb2-a6d0-4c77-9b77-89c4e4a9ebbb" name="Text" virtualColumnType="String" dbType="NVARCHAR(4000)" delayedUpdateModifiedOnly="false" size="4000" isNullable="true" />
           </generalXpObjectHasFields>
           <generalXpObjectHasFields Id="795394b8-33b0-4708-b51c-c4311f8512dd">
             <field Id="9a044517-b6be-4c0e-91fd-e2c621df423f" name="User" persistent="IdUser" virtualColumnType="ORM_UsersModel" logicalType="ORM_UsersModel" dbType="UNIQUEIDENTIFIER" delayedUpdateModifiedOnly="false" />

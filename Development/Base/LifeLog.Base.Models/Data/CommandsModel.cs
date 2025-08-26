@@ -35,12 +35,10 @@ namespace LifeLog.Base.Models.Data
 		#region CLASS
 
 		[JsonIgnore]
-		[DataType(DataType.Custom)]
 		[Infrastructure.Attributes.Required]
 		public LoggedUserModel User { get; set; }
 
 		[JsonIgnore]
-		[DataType(DataType.Custom)]
 		[Infrastructure.Attributes.Required]
 		public ExternalProgramsModel ExternalProgram { get; set; }
 
@@ -50,7 +48,6 @@ namespace LifeLog.Base.Models.Data
 
 		[NotMapped]
 		[JsonIgnore]
-		[DataType(DataType.Custom)]
 		public dynamic Icon { get; set; } 
 		
 		#endregion

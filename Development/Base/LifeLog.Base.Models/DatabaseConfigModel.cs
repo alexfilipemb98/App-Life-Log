@@ -13,56 +13,39 @@ namespace LifeLog.Base.Models
 	{
 		#region PROPERTIES
 
+		#region SQL LITE
+
 		[EnumDataType(typeof(DatabaseTypeEnum))]
 		public DatabaseTypeEnum DatabaseType { get; set; }
 
-		private string fSqlLitePath;
-		[LifeLog.Base.Infrastructure.Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.SQLLITE)]
-		public string SQlLitePath
-		{
-			get => fSqlLitePath.Decrypt();
-			set => fSqlLitePath = value.Encrypt();
-		}
+		[Infrastructure.Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.SQLLITE)]
+		public string SQlLitePath { get; set; }
 
-		private string fSQlLitePassword;
-		[LifeLog.Base.Infrastructure.Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.SQLLITE)]
-		public string SqlLitePassword
-		{
-			get => fSQlLitePassword.Decrypt();
-			set => fSQlLitePassword = value.Encrypt();
-		}
+		public bool SqlLiteBackup { get; set; }
 
-		private string fSqlAddress;
-		[LifeLog.Base.Infrastructure.Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
-		public string SqlAddress
-		{
-			get => fSqlAddress.Decrypt();
-			set => fSqlAddress = value.Encrypt();
-		}
+		[Infrastructure.Attributes.RequiredIf(nameof(SqlLiteBackup), OperatorsEnum.Equal, true)]
+		public string SqlLiteBackupFolder { get; set; }
 
-		private string fSqlUsername;
-		[LifeLog.Base.Infrastructure.Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
-		public string SqlUsername
-		{
-			get => fSqlUsername.Decrypt();
-			set => fSqlUsername = value.Encrypt();
-		}
+		#endregion
 
-		private string fSqlPassword;
-		[LifeLog.Base.Infrastructure.Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
-		public string SqlPassword
-		{
-			get => fSqlPassword.Decrypt();
-			set => fSqlPassword = value.Encrypt();
-		}
+		#region REMOTE SQL
 
-		private string fSqlDatabase;
-		[LifeLog.Base.Infrastructure.Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
-		public string SqlDatabase
-		{
-			get => fSqlDatabase.Decrypt();
-			set => fSqlDatabase = value.Encrypt();
-		}
+		[Infrastructure.Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.SQLLITE)]
+		public string SqlLitePassword { get; set; }
+
+		[Infrastructure.Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
+		public string SqlAddress { get; set; }
+
+		[Infrastructure.Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
+		public string SqlUsername { get; set; }
+
+		[Infrastructure.Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
+		public string SqlPassword { get; set; }
+
+		[Infrastructure.Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
+		public string SqlDatabase { get; set; }
+
+		#endregion
 
 		#endregion
 	}
