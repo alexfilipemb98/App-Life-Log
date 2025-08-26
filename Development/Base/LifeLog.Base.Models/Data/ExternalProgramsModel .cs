@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LifeLog.Base.Models.Data
 {
     [Table("ExternalPrograms")]
+	[Description("Database model for external programs")]
 	public class ExternalProgramsModel : Bases.DataModelBase
 	{
 		#region PROPERTIES

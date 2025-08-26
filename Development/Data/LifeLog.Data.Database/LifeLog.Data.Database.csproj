@@ -44,14 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bases\DataQueryBase.cs" />
-    <Compile Include="Bases\DataEntityBase.cs" />
     <Compile Include="Engine.cs" />
-    <Compile Include="Entities\CommandsEntity.cs" />
-    <Compile Include="Entities\ExternalProgramsEntity.cs" />
-    <Compile Include="Entities\ImagesEntity.cs" />
-    <Compile Include="Entities\NotesEntity.cs" />
-    <Compile Include="Entities\UsersEntity.cs" />
-    <Compile Include="Entities\VersionsEntity.cs" />
     <Compile Include="Helpers\DbHelper.cs" />
     <Compile Include="Mappers\CommandsMapper.cs" />
     <Compile Include="Mappers\ExternalProgramsMapper.cs" />
@@ -59,6 +52,34 @@
     <Compile Include="Mappers\NotesMapper.cs" />
     <Compile Include="Mappers\UsersMapper.cs" />
     <Compile Include="Mappers\VersionsMapper.cs" />
+    <Compile Include="ORMDataModelCode\ORM_BaseModel.cs" />
+    <Compile Include="ORMDataModelCode\ORM_BaseModel.Designer.cs">
+      <DependentUpon>ORM_BaseModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORMDataModelCode\ORM_CommandsModel.cs" />
+    <Compile Include="ORMDataModelCode\ORM_CommandsModel.Designer.cs">
+      <DependentUpon>ORM_CommandsModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORMDataModelCode\ORM_ExternalProgramModel.cs" />
+    <Compile Include="ORMDataModelCode\ORM_ExternalProgramModel.Designer.cs">
+      <DependentUpon>ORM_ExternalProgramModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORMDataModelCode\ORM_ImagesModel.cs" />
+    <Compile Include="ORMDataModelCode\ORM_ImagesModel.Designer.cs">
+      <DependentUpon>ORM_ImagesModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORMDataModelCode\ORM_NotesModel.cs" />
+    <Compile Include="ORMDataModelCode\ORM_NotesModel.Designer.cs">
+      <DependentUpon>ORM_NotesModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORMDataModelCode\ORM_UsersModel.cs" />
+    <Compile Include="ORMDataModelCode\ORM_UsersModel.Designer.cs">
+      <DependentUpon>ORM_UsersModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORMDataModelCode\ORM_VersionsModel.cs" />
+    <Compile Include="ORMDataModelCode\ORM_VersionsModel.Designer.cs">
+      <DependentUpon>ORM_VersionsModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\CommandsQuery.cs" />
     <Compile Include="Queries\ExternalProgramsQuery.cs" />
@@ -107,5 +128,12 @@
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ORMDataModel.xpo" />
+    <None Include="ORMDataModel.xpo.diagram">
+      <DependentUpon>ORMDataModel.xpo</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

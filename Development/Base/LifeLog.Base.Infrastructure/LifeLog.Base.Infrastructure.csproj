@@ -74,7 +74,6 @@
     <Compile Include="Exceptions\ValidationException.cs" />
     <Compile Include="Interfaces\IBaseQuery.cs" />
     <Compile Include="Interfaces\IEngineForm.cs" />
-    <Compile Include="Interfaces\IUserControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

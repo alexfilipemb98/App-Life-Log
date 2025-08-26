@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace LifeLog.Base.Infrastructure.Enums
 {
-	/* AppInterfaceEnum class.*/
+	/// <summary>
+	/// App interface enum
+	/// </summary>
 	public enum AppInterfaceEnum
 	{
 		[Description("Front End")]

@@ -33,7 +33,7 @@ namespace LifeLog.Data.Database
 		public IDbConnection Connection { get; private set; }
 		public string DBName { get; private set; } = "Disconected!";
 		public DatabaseConfigModel Config { get; private set; }
-		public  UnitOfWork UOW { get; private set; }
+		public UnitOfWork UOW { get; private set; }
 		public SqlDataAccess SQL { get; private set; }
 
 		/// <summary>
@@ -64,9 +64,8 @@ namespace LifeLog.Data.Database
 			IEnumerable<Type> objectTypes = Assembly.GetExecutingAssembly()
 				.GetTypes()
 				.Where(t => t.Namespace != null
-					&& t.Namespace.Equals("LifeLog.Data.Database.Entities")
+					&& t.Namespace.Equals("LifeLog.Data.Database.ORMDataModel")
 					&& !t.IsAbstract
-					|| t.Name.Equals("DataEntityBase")
 				);
 
 			Type[] persistentTypes = objectTypes.Where(t => !t.GetCustomAttributes(typeof(NonPersistentAttribute), false).Any()).ToArray();
@@ -195,7 +194,7 @@ namespace LifeLog.Data.Database
 		#endregion
 
 		#region FUNCTIONS
-		
+
 		/// <summary>
 		/// Dispose
 		/// </summary>

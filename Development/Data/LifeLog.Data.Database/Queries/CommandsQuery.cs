@@ -2,8 +2,8 @@
 using JDS.BASE.DapperUtil;
 using LifeLog.Base.Models.Data;
 using LifeLog.Data.Database.Bases;
-using LifeLog.Data.Database.Entities;
 using LifeLog.Data.Database.Mappers;
+using LifeLog.Data.Database.ORMDataModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -39,7 +39,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(CommandsModel,string)> GetByKey(Guid key)
 		{
-			CommandsEntity result = await _UOW.GetObjectByKeyAsync<CommandsEntity>(key);
+			ORM_CommandsModel result = await _UOW.GetObjectByKeyAsync<ORM_CommandsModel>(key);
 			CommandsModel model = result != null ? result.ToModel() : new CommandsModel();
 			string message = result != null ? "Command retrieved successfully." : "Command not found.";
 			return (model, message);
@@ -51,7 +51,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(List<CommandsModel>, string)> GetAll()
 		{
-			List<CommandsModel> results = await _UOW.Query<CommandsEntity>()
+			List<CommandsModel> results = await _UOW.Query<ORM_CommandsModel>()
 				.Select(s => s.ToModel())
 				.ToListAsync() ?? new List<CommandsModel>();
 
@@ -71,7 +71,7 @@ namespace LifeLog.Data.Database.Queries
 		{
 			await base.Save(model);
 
-			CommandsEntity entity = model.ToEntity(_UOW);
+			ORM_CommandsModel entity = model.ToEntity(_UOW);
 
 			if (entity == null)
 				throw new ArgumentNullException("Command entity is null");
@@ -99,7 +99,7 @@ namespace LifeLog.Data.Database.Queries
 		public override async Task<(CommandsModel, string)> Duplicate(Guid key)
 		{
 			(CommandsModel model, _) = await base.Duplicate(key);
-			CommandsEntity entity = model.ToEntity(_UOW);
+			ORM_CommandsModel entity = model.ToEntity(_UOW);
 
 			entity.Id = Guid.NewGuid();
 			entity.Name += " (Copy)";
@@ -127,11 +127,11 @@ namespace LifeLog.Data.Database.Queries
 		/// <exception cref="ArgumentException"></exception>
 		public async Task<(List<CommandsModel>,string)> GetUserCommands(Guid userId)
 		{
-			UsersEntity userEntity = await _UOW.GetObjectByKeyAsync<UsersEntity>(userId);
+			ORM_UsersModel userEntity = await _UOW.GetObjectByKeyAsync<ORM_UsersModel>(userId);
 			if (userEntity == null)
 				throw new ArgumentException("User id is invalid!");
 
-			List<CommandsModel> results = await _UOW.Query<CommandsEntity>()
+			List<CommandsModel> results = await _UOW.Query<ORM_CommandsModel>()
 				.Where(w => w.User.Id == userEntity.Id)
 				.Select(s => s.ToModel())
 				.ToListAsync() ?? new List<CommandsModel>();

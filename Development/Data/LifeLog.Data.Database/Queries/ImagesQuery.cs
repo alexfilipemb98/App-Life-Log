@@ -2,8 +2,8 @@
 using JDS.BASE.DapperUtil;
 using LifeLog.Base.Models.Data;
 using LifeLog.Data.Database.Bases;
-using LifeLog.Data.Database.Entities;
 using LifeLog.Data.Database.Mappers;
+using LifeLog.Data.Database.ORMDataModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -39,7 +39,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(ImagesModel, string)> GetByKey(Guid key)
 		{
-			ImagesEntity result = await _UOW.GetObjectByKeyAsync<ImagesEntity>(key);
+			ORM_ImagesModel result = await _UOW.GetObjectByKeyAsync<ORM_ImagesModel>(key);
 			var model = result != null ? result.ToModel() : new ImagesModel();
 			string message = result != null ? "Image retrieved successfully." : "Image not found.";
 			return (model, message);
@@ -51,7 +51,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(List<ImagesModel>, string)> GetAll()
 		{
-			List<ImagesModel> resutls = await _UOW.Query<ImagesEntity>()
+			List<ImagesModel> resutls = await _UOW.Query<ORM_ImagesModel>()
 				   .Select(s => s.ToModel())
 				   .ToListAsync() ?? new List<ImagesModel>();
 			string message = resutls.Count > 0 ? $"Images retrieved successfully, {resutls.Count} found." : "No images found.";
@@ -71,7 +71,7 @@ namespace LifeLog.Data.Database.Queries
 		{
 			await base.Save(model);
 
-			ImagesEntity entity = model.ToEntity(_UOW);
+			ORM_ImagesModel entity = model.ToEntity(_UOW);
 
 			if (entity == null)
 				throw new ArgumentNullException("Images entity is null");
@@ -95,7 +95,7 @@ namespace LifeLog.Data.Database.Queries
 		public override async Task<(ImagesModel, string)> Duplicate(Guid key)
 		{
 			(ImagesModel model, _) = await base.Duplicate(key);
-			ImagesEntity entity = model.ToEntity(_UOW);
+			ORM_ImagesModel entity = model.ToEntity(_UOW);
 
 			entity.Id = Guid.NewGuid();
 			entity.Name += " (Copy)";

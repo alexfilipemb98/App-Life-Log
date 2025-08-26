@@ -1,13 +1,13 @@
 ﻿using DevExpress.Xpo;
-using LifeLog.Data.Database.Entities;
-using System;
-using LifeLog.Base.Models.Data;
 using LifeLog.Base.Models;
+using LifeLog.Base.Models.Data;
+using LifeLog.Data.Database.ORMDataModel;
+using System;
 
 namespace LifeLog.Data.Mappers
 {
 	/// <summary>
-	/// User mapper class to convert between UsersEntity and UsersModel.
+	/// User mapper class to convert between ORM_UsersModel and UsersModel.
 	/// </summary>
 	internal static class UsersMapper
 	{
@@ -16,7 +16,7 @@ namespace LifeLog.Data.Mappers
 		/// </summary>
 		/// <param fName="entity"></param>
 		/// <returns></returns>
-		internal static UsersModel ToModel(this UsersEntity entity)
+		internal static UsersModel ToModel(this ORM_UsersModel entity)
 		{
 			if (entity == null) return null;
 
@@ -37,7 +37,7 @@ namespace LifeLog.Data.Mappers
 		/// </summary>
 		/// <param fName="entity"></param>
 		/// <returns></returns>
-		internal static LoggedUserModel ToLoggedInModel(this UsersEntity entity)
+		internal static LoggedUserModel ToLoggedInModel(this ORM_UsersModel entity)
 		{
 			if (entity == null) return null;
 
@@ -50,20 +50,20 @@ namespace LifeLog.Data.Mappers
 		}
 
 		/// <summary>
-		/// UsersModel to UsersEntity mapper.
+		/// UsersModel to ORM_UsersModel mapper.
 		/// </summary>
 		/// <param fName="model"></param>
 		/// <param fName="session"></param>
 		/// <returns></returns>
-		internal static UsersEntity ToEntity(this UsersModel model, Session session)
+		internal static ORM_UsersModel ToEntity(this UsersModel model, Session session)
 		{
 			if (model == null) return null;
 
-			UsersEntity entity = session.GetObjectByKey<UsersEntity>(model.Id);
+			ORM_UsersModel entity = session.GetObjectByKey<ORM_UsersModel>(model.Id);
 
 			if (entity == null)
 			{
-				entity = new UsersEntity(session);
+				entity = new ORM_UsersModel(session);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				entity.CreatedAt = model.CreatedAt;
 				model.Id = entity.Id;

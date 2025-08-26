@@ -1,22 +1,21 @@
 ﻿using DevExpress.Xpo;
-using LifeLog.Base.Models;
 using LifeLog.Base.Models.Data;
-using LifeLog.Data.Database.Entities;
+using LifeLog.Data.Database.ORMDataModel;
 using System;
 
 namespace LifeLog.Data.Database.Mappers
 {
 	/// <summary>
-	/// ExternalProgramsMapper class to convert between ExternalProgramsEntity and ExternalProgramsModel.
+	/// ExternalProgramsMapper class to convert between ORM_ExternalProgramModel and ExternalProgramsModel.
 	/// </summary>
 	internal static class ExternalProgramsMapper
 	{
 		/// <summary>
-		/// ExternalProgramsEntity to ExternalProgramsModel mapper.
+		/// ORM_ExternalProgramModel to ExternalProgramsModel mapper.
 		/// </summary>
 		/// <param fName="entity"></param>
 		/// <returns></returns>
-		internal static ExternalProgramsModel ToModel(this ExternalProgramsEntity entity)
+		internal static ExternalProgramsModel ToModel(this ORM_ExternalProgramModel entity)
 		{
 			if (entity == null) return null;
 
@@ -35,22 +34,22 @@ namespace LifeLog.Data.Database.Mappers
 		}
 
 		/// <summary>
-		/// ExternalProgramsModel to ExternalProgramsEntity mapper.
+		/// ExternalProgramsModel to ORM_ExternalProgramModel mapper.
 		/// </summary>
 		/// <param fName="model"></param>
 		/// <param fName="session"></param>
 		/// <returns></returns>
-		internal static ExternalProgramsEntity ToEntity(this ExternalProgramsModel model, Session session)
+		internal static ORM_ExternalProgramModel ToEntity(this ExternalProgramsModel model, Session session)
 		{
 			if (model == null) return null;
 
-			ImagesEntity image = model.Image.ToEntity(session);
+			ORM_ImagesModel image = model.Image.ToEntity(session);
 
-			ExternalProgramsEntity entity = session.GetObjectByKey<ExternalProgramsEntity>(model.Id);
+			ORM_ExternalProgramModel entity = session.GetObjectByKey<ORM_ExternalProgramModel>(model.Id);
 
 			if (entity == null)
 			{
-				entity = new ExternalProgramsEntity(session);
+				entity = new ORM_ExternalProgramModel(session);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				entity.CreatedAt =  DateTime.Now;
 				model.CreatedAt = entity.CreatedAt;

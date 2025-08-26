@@ -4,8 +4,8 @@ using LifeLog.Base.Models;
 using LifeLog.Base.Models.Data;
 using LifeLog.Base.Utils;
 using LifeLog.Data.Database.Bases;
-using LifeLog.Data.Database.Entities;
 using LifeLog.Data.Database.Mappers;
+using LifeLog.Data.Database.ORMDataModel;
 using LifeLog.Data.Mappers;
 using System;
 using System.Collections.Generic;
@@ -43,7 +43,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(List<UsersModel>, string)> GetAll()
 		{
-			List<UsersModel> results = await _UOW.Query<UsersEntity>()
+			List<UsersModel> results = await _UOW.Query<ORM_UsersModel>()
 				   .Select(s => s.ToModel())
 				   .ToListAsync() ?? new List<UsersModel>();
 
@@ -62,12 +62,12 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public async Task<(bool, string)> RegisterUser(AuthModel model)
 		{
-			bool emailExits = await _UOW.Query<UsersEntity>().AnyAsync(w => w.Email == model.Email);
+			bool emailExits = await _UOW.Query<ORM_UsersModel>().AnyAsync(w => w.Email == model.Email);
 
 			if (emailExits)
 				return (false, "Email already exists.");
 
-			UsersEntity newUser = new UsersEntity
+			ORM_UsersModel newUser = new ORM_UsersModel
 			{
 				Id = Guid.NewGuid(),
 				Username = model.Username,
@@ -84,7 +84,7 @@ namespace LifeLog.Data.Database.Queries
 			await _UOW.SaveAsync(newUser);
 			await _UOW.CommitChangesAsync();
 
-			emailExits = await _UOW.Query<UsersEntity>().AnyAsync(w => w.Email == model.Email);
+			emailExits = await _UOW.Query<ORM_UsersModel>().AnyAsync(w => w.Email == model.Email);
 
 			return (emailExits, emailExits ? "User registered successfully." : "Failed to create the user!");
 		}
@@ -103,7 +103,7 @@ namespace LifeLog.Data.Database.Queries
 			if (!model.Email.IsValidEmail())
 				return (false, "E-mail is not Valid!", null);
 
-			UsersEntity user = await _UOW.Query<UsersEntity>().FirstOrDefaultAsync(w => w.Email == model.Email);
+			ORM_UsersModel user = await _UOW.Query<ORM_UsersModel>().FirstOrDefaultAsync(w => w.Email == model.Email);
 
 			if (user == null)
 				return (false, "User not found!", null);

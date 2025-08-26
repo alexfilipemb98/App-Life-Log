@@ -1,17 +1,9 @@
-﻿using DevExpress.XtraEditors;
-using LifeLog.Base.Models.Data;
-using LifeLog.Data.Database.Entities;
+﻿using LifeLog.Base.Models.Data;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Helpers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace LifeLog.UI.BackEnd.Views.Users
 {

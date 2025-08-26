@@ -1,22 +1,21 @@
 ﻿using DevExpress.Xpo;
-using LifeLog.Data.Database.Entities;
-using LifeLog.Base.Models;
-using System;
 using LifeLog.Base.Models.Data;
+using LifeLog.Data.Database.ORMDataModel;
+using System;
 
 namespace LifeLog.Data.Database.Mappers
 {
 	/// <summary>
-	/// ImagesMapper class to convert between ImagesEntity and ImagesModel.
+	/// ImagesMapper class to convert between ORM_ImagesModel and ImagesModel.
 	/// </summary>
 	internal static class ImagesMapper
 	{
 		/// <summary>
-		/// ImagesEntity to ImagesModel mapper.
+		/// ORM_ImagesModel to ImagesModel mapper.
 		/// </summary>
 		/// <param fName="entity"></param>
 		/// <returns></returns>
-		internal static ImagesModel ToModel(this ImagesEntity entity)
+		internal static ImagesModel ToModel(this ORM_ImagesModel entity)
 		{
 			if (entity == null) return null;
 
@@ -34,20 +33,20 @@ namespace LifeLog.Data.Database.Mappers
 		}
 
 		/// <summary>
-		/// ImagesModel to ImagesEntity mapper.
+		/// ImagesModel to ORM_ImagesModel mapper.
 		/// </summary>
 		/// <param fName="model"></param>
 		/// <param fName="session"></param>
 		/// <returns></returns>
-		internal static ImagesEntity ToEntity(this ImagesModel model, Session session)
+		internal static ORM_ImagesModel ToEntity(this ImagesModel model, Session session)
 		{
 			if (model == null) return null;
 
-			ImagesEntity entity = session.GetObjectByKey<ImagesEntity>(model.Id);
+			ORM_ImagesModel entity = session.GetObjectByKey<ORM_ImagesModel>(model.Id);
 			
 			if (entity == null)
 			{
-				entity = new ImagesEntity(session);
+				entity = new ORM_ImagesModel(session);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				model.Id = entity.Id;
 				entity.CreatedAt = model.CreatedAt;

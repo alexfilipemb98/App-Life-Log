@@ -1,8 +1,6 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using LifeLog.Data.Database.Entities;
-using LifeLog.Data.Database.Queries;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Helpers;
 using System;
@@ -10,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.Xpo;
 using LifeLog.Base.Models.Data;
 
 namespace LifeLog.UI.BackEnd.Views.ExternalPrograms

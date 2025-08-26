@@ -1,12 +1,4 @@
-﻿using DevExpress.Xpo;
-using LifeLog.Data.Database.Bases;
-using LifeLog.Data.Database.Entities;
-using System;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace LifeLog.Data.Database.Queries
+﻿namespace LifeLog.Data.Database.Queries
 {
 	///// <summary>
 	///// Versions data query

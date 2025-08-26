@@ -1,7 +1,5 @@
 ﻿using DevExpress.XtraEditors;
 using LifeLog.Base.Models.Data;
-using LifeLog.Data.Database.Entities;
-using LifeLog.Data.Database.Queries;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Helpers;
 using System;

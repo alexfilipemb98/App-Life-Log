@@ -2,8 +2,8 @@
 using JDS.BASE.DapperUtil;
 using LifeLog.Base.Models.Data;
 using LifeLog.Data.Database.Bases;
-using LifeLog.Data.Database.Entities;
 using LifeLog.Data.Database.Mappers;
+using LifeLog.Data.Database.ORMDataModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -39,7 +39,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(NotesModel, string)> GetByKey(Guid key)
 		{
-			NotesEntity result = await _UOW.GetObjectByKeyAsync<NotesEntity>(key);
+			ORM_NotesModel result = await _UOW.GetObjectByKeyAsync<ORM_NotesModel>(key);
 			NotesModel model = result != null ? result.ToModel() : new NotesModel();
 			string message = result != null ? "Note retrieved successfully." : "Note not found.";
 			return (model, message);
@@ -51,7 +51,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(List<NotesModel>, string)> GetAll()
 		{
-			List<NotesModel> results = await _UOW.Query<NotesEntity>()
+			List<NotesModel> results = await _UOW.Query<ORM_NotesModel>()
 				   .Select(s => s.ToModel())
 				   .ToListAsync() ?? new List<NotesModel>();
 
@@ -69,7 +69,7 @@ namespace LifeLog.Data.Database.Queries
 		{
 			await base.Save(model);
 
-			NotesEntity entity = model.ToEntity(_UOW);
+			ORM_NotesModel entity = model.ToEntity(_UOW);
 
 			if (entity == null)
 				throw new ArgumentNullException("Notes entity is null");
@@ -92,7 +92,7 @@ namespace LifeLog.Data.Database.Queries
 		public override async Task<(NotesModel, string)> Duplicate(Guid key)
 		{
 			(NotesModel model, _) = await base.Duplicate(key);
-			NotesEntity entity = model.ToEntity(_UOW);
+			ORM_NotesModel entity = model.ToEntity(_UOW);
 
 			entity.Id = Guid.NewGuid();
 			entity.Title += " (Copy)";
@@ -121,11 +121,11 @@ namespace LifeLog.Data.Database.Queries
 		/// <exception cref="ArgumentException"></exception>
 		public async Task<(List<NotesModel>, string)> GetUserNotes(Guid userId)
 		{
-			UsersEntity userDb = await _UOW.GetObjectByKeyAsync<UsersEntity>(userId);
+			ORM_UsersModel userDb = await _UOW.GetObjectByKeyAsync<ORM_UsersModel>(userId);
 			if (userDb == null)
 				throw new ArgumentException("User id is invalid!");
 
-			List<NotesModel> results = await _UOW.Query<NotesEntity>()
+			List<NotesModel> results = await _UOW.Query<ORM_NotesModel>()
 				.Where(w => w.User.Id == userDb.Id)
 				.Select(s => s.ToModel())
 				.ToListAsync() ?? new List<NotesModel>();

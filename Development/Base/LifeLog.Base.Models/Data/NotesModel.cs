@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LifeLog.Base.Models.Data
 {
 	[Table("Notes")]
+	[Description("Database model for notes")]
 	public class NotesModel : Bases.DataModelBase
 	{
 		#region PROPERTIES

@@ -1,23 +1,22 @@
 ﻿using DevExpress.Xpo;
-using LifeLog.Base.Models;
 using LifeLog.Base.Models.Data;
-using LifeLog.Data.Database.Entities;
+using LifeLog.Data.Database.ORMDataModel;
 using LifeLog.Data.Mappers;
 using System;
 
 namespace LifeLog.Data.Database.Mappers
 {
 	/// <summary>
-	/// NotesMapper class to convert between NotesEntity and NotesModel.
+	/// NotesMapper class to convert between ORM_NotesModel and NotesModel.
 	/// </summary>
 	internal static class NotesMapper
 	{
 		/// <summary>
-		/// NotesEntity to NotesModel mapper.
+		/// ORM_NotesModel to NotesModel mapper.
 		/// </summary>
 		/// <param fName="entity"></param>
 		/// <returns></returns>
-		internal static NotesModel ToModel(this NotesEntity entity)
+		internal static NotesModel ToModel(this ORM_NotesModel entity)
 		{
 			if (entity == null) return null;
 
@@ -33,21 +32,21 @@ namespace LifeLog.Data.Database.Mappers
 		}
 
 		/// <summary>
-		/// NotesModel to NotesEntity mapper.
+		/// NotesModel to ORM_NotesModel mapper.
 		/// </summary>
 		/// <param fName="model"></param>
 		/// <param fName="session"></param>
 		/// <returns></returns>
-		internal static NotesEntity ToEntity(this NotesModel model, Session session)
+		internal static ORM_NotesModel ToEntity(this NotesModel model, Session session)
 		{
 			if (model == null) return null;
 
-			UsersEntity user = session.GetObjectByKey<UsersEntity>(model.User.Id);
-			NotesEntity entity = session.GetObjectByKey<NotesEntity>(model.Id);
+			ORM_UsersModel user = session.GetObjectByKey<ORM_UsersModel>(model.User.Id);
+			ORM_NotesModel entity = session.GetObjectByKey<ORM_NotesModel>(model.Id);
 
 			if (entity == null)
 			{
-				entity = new NotesEntity(session);
+				entity = new ORM_NotesModel(session);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				entity.CreatedAt = model.CreatedAt;
 				model.Id = entity.Id;

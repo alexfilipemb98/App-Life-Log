@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraSplashScreen;
 using LifeLog.App.Helpers;
 using LifeLog.Base.Infrastructure.Exceptions;
+using LifeLog.Data.Database.ORMDataModel;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Forms.Auth;
 using LifeLog.UI.Common.Forms.Loading;

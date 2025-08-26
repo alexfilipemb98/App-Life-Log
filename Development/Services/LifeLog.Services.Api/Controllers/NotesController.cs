@@ -1,8 +1,5 @@
-﻿using LifeLog.Data.Database.Entities;
-using LifeLog.Data.Database.Queries;
-using LifeLog.Services.Api.Bases;
+﻿using LifeLog.Services.Api.Bases;
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;

@@ -1,8 +1,6 @@
 ﻿using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraSplashScreen;
 using LifeLog.Base.Infrastructure.Interfaces;
-using LifeLog.Data.Database.Entities;
-using LifeLog.UI.Common;
 using LifeLog.UI.FrontEnd.Forms;
 using System;
 using System.Drawing;

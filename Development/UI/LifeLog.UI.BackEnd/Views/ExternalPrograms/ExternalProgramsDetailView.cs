@@ -1,20 +1,13 @@
 ﻿using DevExpress.Utils;
-using DevExpress.XtraDataLayout;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraLayout;
 using LifeLog.Base.Models.Data;
-using LifeLog.Data.Database.Entities;
-using LifeLog.Data.Database.Queries;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Helpers;
 using System;
-using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DevExpress.LookAndFeel.DXSkinColors;
 
 namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 {

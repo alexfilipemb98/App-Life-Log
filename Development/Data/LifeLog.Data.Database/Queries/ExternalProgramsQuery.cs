@@ -1,15 +1,11 @@
 ﻿using DevExpress.Xpo;
 using JDS.BASE.DapperUtil;
-using LifeLog.Base.Infrastructure.Interfaces;
-using LifeLog.Base.Models;
 using LifeLog.Base.Models.Data;
-using LifeLog.Base.Utils;
 using LifeLog.Data.Database.Bases;
-using LifeLog.Data.Database.Entities;
 using LifeLog.Data.Database.Mappers;
+using LifeLog.Data.Database.ORMDataModel;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -44,7 +40,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(ExternalProgramsModel, string)> GetByKey(Guid key)
 		{
-			ExternalProgramsEntity result = await _UOW.GetObjectByKeyAsync<ExternalProgramsEntity>(key);
+			ORM_ExternalProgramModel result = await _UOW.GetObjectByKeyAsync<ORM_ExternalProgramModel>(key);
 			string message = result != null ? "External program retrieved successfully." : "External program not found.";
 			return (result != null ? result.ToModel() : new ExternalProgramsModel(), message);
 		}
@@ -55,7 +51,7 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(List<ExternalProgramsModel>, string)> GetAll()
 		{
-			List<ExternalProgramsModel> results = await _UOW.Query<ExternalProgramsEntity>()
+			List<ExternalProgramsModel> results = await _UOW.Query<ORM_ExternalProgramModel>()
 				   .Select(s => s.ToModel())
 				   .ToListAsync();
 			string message = results.Count > 0 ? $"External programs retrieved successfully, {results.Count} found." : "No external programs found.";
@@ -74,7 +70,7 @@ namespace LifeLog.Data.Database.Queries
 		{
 			await base.Save(model);
 
-			ExternalProgramsEntity entity = model.ToEntity(_UOW);
+			ORM_ExternalProgramModel entity = model.ToEntity(_UOW);
 
 			if (entity == null)
 				throw new ArgumentNullException("External Programs entity is null");
@@ -100,7 +96,7 @@ namespace LifeLog.Data.Database.Queries
 		public override async Task<(ExternalProgramsModel,string)> Duplicate(Guid key)
 		{
 			(ExternalProgramsModel model,_) = await base.Duplicate(key);
-			ExternalProgramsEntity entity = model.ToEntity(_UOW);
+			ORM_ExternalProgramModel entity = model.ToEntity(_UOW);
 
 			entity.Id = Guid.NewGuid();
 			entity.Name += " (Copy)";

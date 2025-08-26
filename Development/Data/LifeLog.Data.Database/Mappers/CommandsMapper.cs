@@ -1,22 +1,22 @@
 ﻿using DevExpress.Xpo;
 using LifeLog.Base.Models.Data;
-using LifeLog.Data.Database.Entities;
+using LifeLog.Data.Database.ORMDataModel;
 using LifeLog.Data.Mappers;
 using System;
 
 namespace LifeLog.Data.Database.Mappers
 {
 	/// <summary>
-	/// CommandsMapper class to convert between CommandsEntity and CommandsModel.
+	/// CommandsMapper class to convert between ORM_CommandsModel and CommandsModel.
 	/// </summary>
 	internal static class CommandsMapper
 	{
 		/// <summary>
-		/// CommandsEntity to CommandsModel mapper.
+		/// ORM_CommandsModel to CommandsModel mapper.
 		/// </summary>
 		/// <param fName="entity"></param>
 		/// <returns></returns>
-		internal static CommandsModel ToModel(this CommandsEntity entity)
+		internal static CommandsModel ToModel(this ORM_CommandsModel entity)
 		{
 			if (entity == null) return null;
 
@@ -37,30 +37,30 @@ namespace LifeLog.Data.Database.Mappers
 		}
 
 		/// <summary>
-		/// CommandsModel to CommandsEntity mapper.
+		/// CommandsModel to ORM_CommandsModel mapper.
 		/// </summary>
 		/// <param fName="model"></param>
 		/// <param fName="session"></param>
 		/// <returns></returns>
-		internal static CommandsEntity ToEntity(this CommandsModel model, UnitOfWork session)
+		internal static ORM_CommandsModel ToEntity(this CommandsModel model, UnitOfWork session)
 		{
 			if (model is null) return null;
 
-			UsersEntity user = session.GetObjectByKey<UsersEntity>(model.User.Id);
+			ORM_UsersModel user = session.GetObjectByKey<ORM_UsersModel>(model.User.Id);
 
 			if (user is null)
 				throw new ArgumentNullException("User not found!");
 
-			ExternalProgramsEntity program = session.GetObjectByKey<ExternalProgramsEntity>(model.ExternalProgram.Id);
+			ORM_ExternalProgramModel program = session.GetObjectByKey<ORM_ExternalProgramModel>(model.ExternalProgram.Id);
 
 			if (program is null)
 				throw new ArgumentNullException("External program not found!");
 
-			CommandsEntity entity = session.GetObjectByKey<CommandsEntity>(model.Id);
+			ORM_CommandsModel entity = session.GetObjectByKey<ORM_CommandsModel>(model.Id);
 			
 			if (entity == null)
 			{
-				entity = new CommandsEntity(session);
+				entity = new ORM_CommandsModel(session);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				entity.CreatedAt = model.CreatedAt;
 				model.Id = entity.Id;
