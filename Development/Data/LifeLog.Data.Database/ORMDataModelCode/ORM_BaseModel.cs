@@ -28,24 +28,10 @@ namespace LifeLog.Data.Database.ORMDataModel
 		/// </summary>
 		protected override void OnSaving()
 		{
-			if (!Saving)
-			{
-				this.Session.Reload(this);
-				return;
-			}
-
 			if (this.Session.IsNewObject(this))
 				CreatedAt = DateTime.Now;
 
 			UpdatedAt = DateTime.Now;
-		}
-
-		/// <summary>
-		/// On Saved
-		/// </summary>
-		protected override void OnSaved()
-		{
-			Saving = false;
 		}
 	}
 

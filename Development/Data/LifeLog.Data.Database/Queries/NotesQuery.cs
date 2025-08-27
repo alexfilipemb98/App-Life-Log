@@ -1,5 +1,4 @@
 ﻿using DevExpress.Xpo;
-using JDS.BASE.DapperUtil;
 using LifeLog.Base.Models.Data;
 using LifeLog.Data.Database.Bases;
 using LifeLog.Data.Database.Mappers;
@@ -9,7 +8,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using static DevExpress.Data.Helpers.ExpressiveSortInfo;
 
 namespace LifeLog.Data.Database.Queries
 {
@@ -18,19 +16,6 @@ namespace LifeLog.Data.Database.Queries
 	/// </summary>
 	public sealed class NotesQuery : DataQueryBase<NotesModel, Guid>
 	{
-		#region MAIN
-
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param fName="uow"></param>
-		/// <param fName="sql"></param>
-		public NotesQuery(UnitOfWork uow, SqlDataAccess sql) : base(uow, sql)
-		{
-		}
-
-		#endregion
-
 		#region BASE
 
 		/// <summary>
@@ -40,10 +25,13 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(NotesModel, string)> GetByKey(Guid key)
 		{
-			ORM_NotesModel result = await _UOW.GetObjectByKeyAsync<ORM_NotesModel>(key);
-			NotesModel model = result != null ? result.ToModel() : new NotesModel();
-			string message = result != null ? "Note retrieved successfully." : "Note not found.";
-			return (model, message);
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				ORM_NotesModel result = await db.GetObjectByKeyAsync<ORM_NotesModel>(key);
+				NotesModel model = result != null ? result.ToModel() : new NotesModel();
+				string message = result != null ? "Note retrieved successfully." : "Note not found.";
+				return (model, message);
+			}
 		}
 
 		/// <summary>
@@ -52,9 +40,9 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(List<NotesModel>, string)> GetAll()
 		{
-			using (UnitOfWork uow = new UnitOfWork(Engine.Instance.DataLayer))
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
 			{
-				List<NotesModel> results = await _UOW.Query<ORM_NotesModel>()
+				List<NotesModel> results = await db.Query<ORM_NotesModel>()
 				   .Select(s => s.ToModel())
 				   .ToListAsync() ?? new List<NotesModel>();
 
@@ -71,25 +59,12 @@ namespace LifeLog.Data.Database.Queries
 		/// <exception cref="ArgumentNullException"></exception>
 		public override async Task<(bool, string)> Save(NotesModel model)
 		{
-			using (UnitOfWork uow = new UnitOfWork(Engine.Instance.DataLayer))
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
 			{
 				await base.Save(model);
 
-				ORM_NotesModel entity = model.ToEntity(uow);
-
-				if (entity == null)
-					throw new ArgumentNullException("Notes entity is null");
-
-				entity.Saving = true;
-
-				await uow.SaveAsync(entity);
-				await uow.CommitChangesAsync();
+				return await SaveHelper(model, db);
 			}
-
-			(bool exists, _) = await Exists(model.Id);
-			string message = exists ? "Note saved successfully." : "Note not found after saving.";
-
-			return (exists, message);
 		}
 
 		/// <summary>
@@ -99,18 +74,17 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(NotesModel, string)> Duplicate(Guid key)
 		{
-			using (UnitOfWork uow = new UnitOfWork(Engine.Instance.DataLayer))
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
 			{
 				(NotesModel model, _) = await base.Duplicate(key);
-				ORM_NotesModel entity = model.ToEntity(uow);
+				ORM_NotesModel entity = model.ToEntity(db);
 				entity.Id = Guid.NewGuid();
 				entity.Title += " (Copy)";
 				model.Id = entity.Id;
 				model.Title = entity.Title;
-				entity.Saving = true;
 
-				await uow.SaveAsync(model);
-				await uow.CommitChangesAsync();
+				await db.SaveAsync(model);
+				await db.CommitChangesAsync();
 
 				(bool exists, _) = await Exists(model.Id);
 				string message = exists ? "Note duplicated successfully." : "Note not found after duplication.";
@@ -131,17 +105,20 @@ namespace LifeLog.Data.Database.Queries
 		/// <exception cref="ArgumentException"></exception>
 		public async Task<(List<NotesModel>, string)> GetUserNotes(Guid userId)
 		{
-			ORM_UsersModel userDb = await _UOW.GetObjectByKeyAsync<ORM_UsersModel>(userId);
-			if (userDb == null)
-				throw new ArgumentException("User id is invalid!");
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				ORM_UsersModel userDb = await db.GetObjectByKeyAsync<ORM_UsersModel>(userId);
+				if (userDb == null)
+					throw new ArgumentException("User id is invalid!");
 
-			List<NotesModel> results = await _UOW.Query<ORM_NotesModel>()
-				.Where(w => w.User.Id == userDb.Id)
-				.Select(s => s.ToModel())
-				.ToListAsync() ?? new List<NotesModel>();
+				List<NotesModel> results = await db.Query<ORM_NotesModel>()
+					.Where(w => w.User.Id == userDb.Id)
+					.Select(s => s.ToModel())
+					.ToListAsync() ?? new List<NotesModel>();
 
-			string message = results.Count > 0 ? $"Notes retrieved successfully, {results.Count} found." : "No notes found for the user.";
-			return (results, message);
+				string message = results.Count > 0 ? $"Notes retrieved successfully, {results.Count} found." : "No notes found for the user.";
+				return (results, message);
+			}
 		}
 
 		/// <summary>
@@ -152,13 +129,45 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public async Task<(bool, string)> SaveList(List<NotesModel> notesList)
 		{
-			bool saved = false;
-			foreach (NotesModel obj in notesList)
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
 			{
-				(saved, _) = await Save(obj);
+				bool saved = false;
+				
+				foreach (NotesModel obj in notesList)
+				{
+					(saved, _) = await SaveHelper(obj, db);
+				}
+
+				string message = saved ? "Notes list saved successfully." : "Failed to save notes list.";
+				return (saved, message);
 			}
-			string message = saved ? "Notes list saved successfully." : "Failed to save notes list.";
-			return (saved, message);
+		}
+
+		#endregion
+
+		#region FUNCTIONS
+
+		/// <summary>
+		/// Save helper
+		/// </summary>
+		/// <param name="model"></param>
+		/// <param name="db"></param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentNullException"></exception>
+		private async Task<(bool, string)> SaveHelper(NotesModel model, UnitOfWork db)
+		{
+			ORM_NotesModel entity = model.ToEntity(db);
+
+			if (entity == null)
+				throw new ArgumentNullException("Notes entity is null");
+
+			await db.SaveAsync(entity);
+			await db.CommitChangesAsync();
+
+			(bool exists, _) = await Exists(model.Id);
+			string message = exists ? "Note saved successfully." : "Note not found after saving.";
+
+			return (exists, message);
 		}
 
 		#endregion

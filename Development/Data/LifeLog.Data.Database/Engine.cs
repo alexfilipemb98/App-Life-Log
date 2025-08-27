@@ -30,11 +30,8 @@ namespace LifeLog.Data.Database
 		//PROPERTIES
 		internal static Engine Instance { get; private set; }
 		internal IDataLayer DataLayer { get; private set; }
-		public IDbConnection Connection { get; private set; }
+		internal IDbConnection Connection { get; private set; }
 		public string DBName { get; private set; } = "Disconected!";
-		public DatabaseConfigModel Config { get; private set; }
-		public UnitOfWork UOW { get; private set; }
-		public SqlDataAccess SQL { get; private set; }
 
 		/// <summary>
 		/// Constructor
@@ -44,13 +41,12 @@ namespace LifeLog.Data.Database
 		{
 			config.ValidateModel(out List<ValidationResult> results);
 			if (results.Count > 0)
-				throw new LifeLog.Base.Infrastructure.Exceptions.ValidationException(results);
+				throw new Base.Infrastructure.Exceptions.ValidationException(results);
 
 			if (Instance != null)
 				Instance.Dispose();
 
 			Instance = this;
-			Config = config;
 
 			string connectionString = DbHelper.GetConnection(config);
 
@@ -76,37 +72,46 @@ namespace LifeLog.Data.Database
 			dictionary.GetDataStoreSchema(persistentTypes);
 			dictionary.CollectClassInfos(nonPersistentTypes);
 
-			using (SimpleDataLayer simpleLayer = new SimpleDataLayer(dictionary, provider))
-			{
-				Assembly assembly = Assembly.GetExecutingAssembly();
-				Guid guidAttr = assembly.ManifestModule.ModuleVersionId;
-
-				//using (VersionsQuery query = new VersionsQuery(simpleLayer, null))
-				//{
-				//	bool isValid = query.ValidateVersion(guidAttr, assembly.GetName().Name, assembly.GetName()?.Version?.ToString() ?? "0.0.0.0");
-				//	if (!isValid)
-				//		throw new NotSupportedException("The dll is outdated, please check for updates");
-				//}
-
-				using (UnitOfWork uow = new UnitOfWork(simpleLayer))
-				{
-					uow.UpdateSchema();
-				}
-			}
+			DbHelper.UpdateDB(provider, dictionary);
 
 			DataLayer = new ThreadSafeDataLayer(dictionary, provider);
 			XpoDefault.DataLayer = DataLayer;
-			IDataStore connectionProvider = ((DevExpress.Xpo.Helpers.BaseDataLayer)XpoDefault.DataLayer).ConnectionProvider;
+			IDataStore connectionProvider = ((DevExpress.Xpo.Helpers.BaseDataLayer)DataLayer).ConnectionProvider;
 			Connection = ((ConnectionProviderSql)connectionProvider).Connection;
-
-			UOW = new UnitOfWork(DataLayer);
-			SQL = new SqlDataAccess(Connection);
-
-			XpoDefault.Session = UOW;
 
 			DBName = config.DatabaseType == DatabaseTypeEnum.SQLLITE
 				? $"(local) {Path.GetFileNameWithoutExtension(((SqliteConnection)Connection).DataSource)}"
 				: ((SqlConnection)Connection).Database;
+		}
+
+		#endregion
+
+		#region DATA BASE
+
+		//SQL
+		private SqlDataAccess _sql;
+		public SqlDataAccess SQL
+		{
+			get
+			{
+				if (_sql == null)
+					_sql = new SqlDataAccess(Connection);
+
+				return _sql;
+			}
+		}
+		
+		//UOW
+		private UnitOfWork _uow;
+		public UnitOfWork UOW
+		{
+			get
+			{
+				if (_uow == null)
+					_uow = new UnitOfWork(DataLayer);
+
+				return _uow;
+			}
 		}
 
 		#endregion
@@ -120,7 +125,7 @@ namespace LifeLog.Data.Database
 			get
 			{
 				if (_users == null)
-					_users = new UsersQuery(UOW, SQL);
+					_users = new UsersQuery();
 
 				return _users;
 			}
@@ -133,7 +138,7 @@ namespace LifeLog.Data.Database
 			get
 			{
 				if (_externalPrograms == null)
-					_externalPrograms = new ExternalProgramsQuery(UOW, SQL);
+					_externalPrograms = new ExternalProgramsQuery();
 
 				return _externalPrograms;
 			}
@@ -146,7 +151,7 @@ namespace LifeLog.Data.Database
 			get
 			{
 				if (_notes == null)
-					_notes = new NotesQuery(UOW, SQL);
+					_notes = new NotesQuery();
 
 				return _notes;
 			}
@@ -159,7 +164,7 @@ namespace LifeLog.Data.Database
 		//	get
 		//	{
 		//		if (_versions == null)
-		//			_versions = new VersionsQuery(UOW, SQL);
+		//			_versions = new VersionsQuery();
 
 		//		return _versions;
 		//	}
@@ -172,7 +177,7 @@ namespace LifeLog.Data.Database
 			get
 			{
 				if (_images == null)
-					_images = new ImagesQuery(UOW, SQL);
+					_images = new ImagesQuery();
 
 				return _images;
 			}
@@ -185,7 +190,7 @@ namespace LifeLog.Data.Database
 			get
 			{
 				if (_commands == null)
-					_commands = new CommandsQuery(UOW, SQL);
+					_commands = new CommandsQuery();
 
 				return _commands;
 			}
@@ -200,8 +205,6 @@ namespace LifeLog.Data.Database
 		/// </summary>
 		public void Dispose()
 		{
-			UOW?.Dispose();
-			SQL?.Dispose();
 			DataLayer?.Dispose();
 			Connection?.Dispose();
 		}

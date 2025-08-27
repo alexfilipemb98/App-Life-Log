@@ -13,9 +13,6 @@
           <generalXpObjectHasFields Id="4d16f680-e20a-47c7-949e-be3efdcd9d88">
             <field Id="6fc615dd-69f3-40ab-874c-de26c5c0586d" name="UpdatedAt" columnType="DateTime" virtualColumnType="DateTime" dbType="DATETIME2" delayedUpdateModifiedOnly="false" />
           </generalXpObjectHasFields>
-          <generalXpObjectHasFields Id="0420b733-f21d-4412-953d-e5b40c3fcf72">
-            <field Id="a698b0e9-b8e5-4d89-889d-53bdf9341c0d" name="Saving" columnType="Boolean" virtualColumnType="Boolean" nonPersistent="true" delayedUpdateModifiedOnly="false" defaultValue="Boolean#False" />
-          </generalXpObjectHasFields>
         </fields>
         <indexes>
           <xpObjectHasIndexes Id="bb2e41c5-6ecb-4579-83f3-0f1ddb66120b">

@@ -53,17 +53,17 @@ namespace LifeLog.Data.Mappers
 		/// UsersModel to ORM_UsersModel mapper.
 		/// </summary>
 		/// <param fName="model"></param>
-		/// <param fName="uow"></param>
+		/// <param fName="db"></param>
 		/// <returns></returns>
-		internal static ORM_UsersModel ToEntity(this UsersModel model, UnitOfWork uow)
+		internal static ORM_UsersModel ToEntity(this UsersModel model, UnitOfWork db)
 		{
 			if (model == null) return null;
 
-			ORM_UsersModel entity = uow.GetObjectByKey<ORM_UsersModel>(model.Id);
+			ORM_UsersModel entity = db.GetObjectByKey<ORM_UsersModel>(model.Id);
 
 			if (entity == null)
 			{
-				entity = new ORM_UsersModel(uow);
+				entity = new ORM_UsersModel(db);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				entity.CreatedAt = model.CreatedAt;
 				model.Id = entity.Id;

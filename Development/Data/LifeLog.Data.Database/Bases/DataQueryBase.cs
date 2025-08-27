@@ -17,25 +17,10 @@ namespace LifeLog.Data.Database.Bases
 	/// </summary>
 	public class DataQueryBase<Object, Key> : IBaseQuery<Object, Guid>
 	{
-		#region MAIN
-
-		//PROPERTIES
-		public string TableName => typeof(Object).GetTableName();
-		
-		//INTERNAL
-		internal readonly UnitOfWork _UOW;
-		internal readonly SqlDataAccess _SQL;
-
 		/// <summary>
-		/// Contructor internal
+		/// TABLE NAME
 		/// </summary>
-		public DataQueryBase(UnitOfWork uow, SqlDataAccess sql)
-		{
-			_UOW = uow;
-			_SQL = sql;
-		}
-
-		#endregion
+		public string TableName => typeof(Object).GetTableName();
 
 		#region QUERIES BASE
 
@@ -46,11 +31,14 @@ namespace LifeLog.Data.Database.Bases
 		/// <returns></returns>
 		public virtual async Task<(bool, string)> Exists(Guid key)
 		{
-			string sql = $"SELECT 1 FROM {TableName} WHERE Id = @Id";
-			int count = await _SQL.ExecuteScalarAsync<int, object>(sql, new { Id = key.ToString() });
-			bool exists = count > 0;
-			string message = exists ? $"{TableName} with key {key} exists." : $"{TableName} with key {key} does not exist.";
-			return (exists, message);
+			using (SqlDataAccess db = new SqlDataAccess(Engine.Instance.Connection))
+			{
+				string sql = $"SELECT 1 FROM {TableName} WHERE Id = @Id";
+				int count = await db.ExecuteScalarAsync<int, object>(sql, new { Id = key.ToString() });
+				bool exists = count > 0;
+				string message = exists ? $"{TableName} with key {key} exists." : $"{TableName} with key {key} does not exist.";
+				return (exists, message);
+			}
 		}
 
 		/// <summary>
@@ -61,14 +49,17 @@ namespace LifeLog.Data.Database.Bases
 		/// <exception cref="NotImplementedException"></exception>
 		public virtual async Task<(Object, string)> GetByKey(Guid key)
 		{
-			string sql = $"SELECT * FROM {TableName} WHERE Id = @Id";
-			Object result = await _SQL.GetValueAsync<Object, object>(sql, new { Id = key.ToString() });
-			if (result == null)
-				throw new ArgumentException($"No object found with key {key}");
+			using (SqlDataAccess db = new SqlDataAccess(Engine.Instance.Connection))
+			{
+				string sql = $"SELECT * FROM {TableName} WHERE Id = @Id";
+				Object result = await db.GetValueAsync<Object, object>(sql, new { Id = key.ToString() });
+				if (result == null)
+					throw new ArgumentException($"No object found with key {key}");
 
-			string message = result != null ? $"{TableName} with key {key} found." : $"{TableName} with key {key} not found.";
+				string message = result != null ? $"{TableName} with key {key} found." : $"{TableName} with key {key} not found.";
 
-			return (result, message);
+				return (result, message);
+			}
 		}
 
 		/// <summary>
@@ -78,10 +69,13 @@ namespace LifeLog.Data.Database.Bases
 		/// <exception cref="NotImplementedException"></exception>
 		public virtual async Task<(List<Object>, string)> GetAll()
 		{
-			string sql = $"SELECT * FROM {TableName}";
-			List<Object> results = await _SQL.LoadDataListAsync<Object>(sql) ?? new List<Object>();
-			string message = results.Any() ? $"{results.Count} {TableName} found." : $"No {TableName} found.";
-			return (results, message);
+			using (SqlDataAccess db = new SqlDataAccess(Engine.Instance.Connection))
+			{
+				string sql = $"SELECT * FROM {TableName}";
+				List<Object> results = await db.LoadDataListAsync<Object>(sql) ?? new List<Object>();
+				string message = results.Any() ? $"{results.Count} {TableName} found." : $"No {TableName} found.";
+				return (results, message);
+			}
 		}
 
 		/// <summary>
@@ -90,10 +84,13 @@ namespace LifeLog.Data.Database.Bases
 		/// <returns></returns>
 		public virtual async Task<(Object, string)> GetLast()
 		{
-			string sql = $"SELECT TOP 1 * FROM {TableName} ORDER BY CreatedAt DESC";
-			Object command = await _SQL.GetValueAsync<Object>(sql);
-			string message = command != null ? $"{TableName} retrieved successfully." : $"{TableName} not found.";
-			return (command, message);
+			using (SqlDataAccess db = new SqlDataAccess(Engine.Instance.Connection))
+			{
+				string sql = $"SELECT TOP 1 * FROM {TableName} ORDER BY CreatedAt DESC";
+				Object command = await db.GetValueAsync<Object>(sql);
+				string message = command != null ? $"{TableName} retrieved successfully." : $"{TableName} not found.";
+				return (command, message);
+			}
 		}
 
 		/// <summary>
@@ -124,14 +121,17 @@ namespace LifeLog.Data.Database.Bases
 		/// <exception cref="NotImplementedException"></exception>
 		public virtual async Task<(Object, string)> Duplicate(Guid key)
 		{
-			string sql = $"SELECT * FROM {TableName} WHERE Id = @Id";
-			Object original = await _SQL.GetValueAsync<Object, object>(sql, new { Id = key.ToString() });
-			if (original == null)
-				throw new ArgumentException($"No object found with key {key}");
+			using (SqlDataAccess db = new SqlDataAccess(Engine.Instance.Connection))
+			{
+				string sql = $"SELECT * FROM {TableName} WHERE Id = @Id";
+				Object original = await db.GetValueAsync<Object, object>(sql, new { Id = key.ToString() });
+				if (original == null)
+					throw new ArgumentException($"No object found with key {key}");
 
-			Object duplicate = (Object)Activator.CreateInstance(typeof(Object), original);
+				Object duplicate = (Object)Activator.CreateInstance(typeof(Object), original);
 
-			return (duplicate, null);
+				return (duplicate, null);
+			}
 		}
 
 		/// <summary>
@@ -142,11 +142,14 @@ namespace LifeLog.Data.Database.Bases
 		/// <exception cref="NotImplementedException"></exception>
 		public virtual async Task<(bool, string)> Delete(Guid key)
 		{
-			string sql = $"DELETE FROM {TableName} WHERE Id = @Id";
-			int rowsAffected = await _SQL.SaveDataAsync(sql, new { Id = key.ToString() });
-			bool isDeleted = rowsAffected > 0;
-			string message = isDeleted ? $"{TableName} with key {key} deleted successfully." : $"{TableName} with key {key} not found.";
-			return (isDeleted, message);
+			using (SqlDataAccess db = new SqlDataAccess(Engine.Instance.Connection))
+			{
+				string sql = $"DELETE FROM {TableName} WHERE Id = @Id";
+				int rowsAffected = await db.SaveDataAsync(sql, new { Id = key.ToString() });
+				bool isDeleted = rowsAffected > 0;
+				string message = isDeleted ? $"{TableName} with key {key} deleted successfully." : $"{TableName} with key {key} not found.";
+				return (isDeleted, message);
+			}
 		}
 
 		#endregion

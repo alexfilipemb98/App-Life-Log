@@ -65,7 +65,6 @@
 			this.bbiRunAdmin = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiEnable = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiCreateFile = new DevExpress.XtraBars.BarButtonItem();
-			this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
 			this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
 			this.popupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
 			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
@@ -82,8 +81,8 @@
 			this.lcEditValues = new DevExpress.XtraDataLayout.DataLayoutControl();
 			this.pcCommandText = new DevExpress.XtraEditors.PanelControl();
 			this.recMain = new DevExpress.XtraRichEdit.RichEditControl();
-			this.bsCommandsEdit = new System.Windows.Forms.BindingSource(this.components);
 			this.tsEnabled = new DevExpress.XtraEditors.ToggleSwitch();
+			this.bsCommandsEdit = new System.Windows.Forms.BindingSource(this.components);
 			this.teDescription = new DevExpress.XtraEditors.TextEdit();
 			this.teName = new DevExpress.XtraEditors.TextEdit();
 			this.cbeProgram = new LifeLog.Base.Components.LookUpEditEx();
@@ -123,8 +122,8 @@
 			this.lcEditValues.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pcCommandText)).BeginInit();
 			this.pcCommandText.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.bsCommandsEdit)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.tsEnabled.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.bsCommandsEdit)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.teDescription.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.teName.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.cbeProgram.Properties)).BeginInit();
@@ -164,8 +163,7 @@
             this.bbiCreateFile,
             this.barButtonItem1,
             this.barSubItem1,
-            this.bbiExport,
-            this.barButtonItem2});
+            this.bbiExport});
 			this.barManager.MainMenu = this.bar;
 			this.barManager.MaxItemId = 16;
 			this.barManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -250,6 +248,7 @@
 			this.bbiDelete.Id = 5;
 			this.bbiDelete.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.del;
 			this.bbiDelete.Name = "bbiDelete";
+			this.bbiDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDelete_ItemClick);
 			// 
 			// bbiSave
 			// 
@@ -491,25 +490,25 @@
 			// 
 			this.bbiRunAdmin.Caption = "Run Admin";
 			this.bbiRunAdmin.Id = 6;
+			this.bbiRunAdmin.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.bo_attention;
 			this.bbiRunAdmin.Name = "bbiRunAdmin";
+			this.bbiRunAdmin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRunAdmin_ItemClick);
 			// 
 			// bbiEnable
 			// 
 			this.bbiEnable.Caption = "Disable";
 			this.bbiEnable.Id = 7;
+			this.bbiEnable.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.actions_deletecircled;
 			this.bbiEnable.Name = "bbiEnable";
+			this.bbiEnable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEnable_ItemClick);
 			// 
 			// bbiCreateFile
 			// 
 			this.bbiCreateFile.Caption = "Create File";
 			this.bbiCreateFile.Id = 10;
+			this.bbiCreateFile.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.exportfile;
 			this.bbiCreateFile.Name = "bbiCreateFile";
-			// 
-			// barButtonItem2
-			// 
-			this.barButtonItem2.Caption = "barButtonItem2";
-			this.barButtonItem2.Id = 15;
-			this.barButtonItem2.Name = "barButtonItem2";
+			this.bbiCreateFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCreateFile_ItemClick);
 			// 
 			// repositoryItemTextEdit1
 			// 
@@ -556,7 +555,6 @@
 			// 
 			// npMain
 			// 
-			this.npMain.Caption = "npMain";
 			this.npMain.Controls.Add(this.layoutControl2);
 			this.npMain.Margin = new System.Windows.Forms.Padding(0);
 			this.npMain.Name = "npMain";
@@ -577,7 +575,7 @@
 			// 
 			// listboxPrograms
 			// 
-			this.listboxPrograms.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.listboxPrograms.Cursor = System.Windows.Forms.Cursors.Default;
 			this.listboxPrograms.DataSource = this.bsExternalPrograms;
 			this.listboxPrograms.DisplayMember = "Name";
 			this.listboxPrograms.HotTrackSelectMode = DevExpress.XtraEditors.HotTrackSelectMode.SelectItemOnClick;
@@ -593,6 +591,7 @@
 			this.listboxPrograms.StyleController = this.layoutControl2;
 			this.listboxPrograms.TabIndex = 1;
 			this.listboxPrograms.ValueMember = "Id";
+			this.listboxPrograms.SelectedValueChanged += new System.EventHandler(this.listboxPrograms_SelectedValueChanged);
 			// 
 			// bsExternalPrograms
 			// 
@@ -637,7 +636,6 @@
 			// 
 			// npEditor
 			// 
-			this.npEditor.Caption = "npEditor";
 			this.npEditor.Controls.Add(this.lcEditValues);
 			this.npEditor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.npEditor.Name = "npEditor";
@@ -665,7 +663,6 @@
 			// pcCommandText
 			// 
 			this.pcCommandText.Controls.Add(this.recMain);
-			this.pcCommandText.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.bsCommandsEdit, "Command", true));
 			this.pcCommandText.Location = new System.Drawing.Point(76, 50);
 			this.pcCommandText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.pcCommandText.Name = "pcCommandText";
@@ -690,13 +687,10 @@
 			this.recMain.Tag = "Command";
 			this.recMain.Views.SimpleView.AdjustColorsToSkins = true;
 			// 
-			// bsCommandsEdit
-			// 
-			this.bsCommandsEdit.DataSource = typeof(LifeLog.Base.Models.Data.CommandsModel);
-			// 
 			// tsEnabled
 			// 
 			this.tsEnabled.AutoSizeInLayoutControl = true;
+			this.tsEnabled.CausesValidation = false;
 			this.tsEnabled.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsCommandsEdit, "IsEnabled", true));
 			this.tsEnabled.Location = new System.Drawing.Point(847, 27);
 			this.tsEnabled.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -707,6 +701,10 @@
 			this.tsEnabled.Size = new System.Drawing.Size(50, 18);
 			this.tsEnabled.StyleController = this.lcEditValues;
 			this.tsEnabled.TabIndex = 15;
+			// 
+			// bsCommandsEdit
+			// 
+			this.bsCommandsEdit.DataSource = typeof(LifeLog.Base.Models.Data.CommandsModel);
 			// 
 			// teDescription
 			// 
@@ -759,6 +757,8 @@
 			// tsEnabled1
 			// 
 			this.tsEnabled1.AutoSizeInLayoutControl = true;
+			this.tsEnabled1.CausesValidation = false;
+			this.tsEnabled1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsCommandsEdit, "NeedsAdmin", true));
 			this.tsEnabled1.Location = new System.Drawing.Point(719, 27);
 			this.tsEnabled1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tsEnabled1.Name = "tsEnabled1";
@@ -819,6 +819,8 @@
 			this.layoutControlItem8.AppearanceItemCaption.Options.UseTextOptions = true;
 			this.layoutControlItem8.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
 			this.layoutControlItem8.Control = this.pcCommandText;
+			this.layoutControlItem8.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopRight;
+			this.layoutControlItem8.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
 			this.layoutControlItem8.Location = new System.Drawing.Point(0, 48);
 			this.layoutControlItem8.Name = "layoutControlItem5";
 			this.layoutControlItem8.Size = new System.Drawing.Size(899, 362);
@@ -916,8 +918,8 @@
 			this.lcEditValues.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pcCommandText)).EndInit();
 			this.pcCommandText.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.bsCommandsEdit)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.tsEnabled.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.bsCommandsEdit)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.teDescription.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.teName.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.cbeProgram.Properties)).EndInit();
@@ -1007,7 +1009,6 @@
 		private DevExpress.XtraEditors.ToggleSwitch tsEnabled1;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
 		private DevExpress.XtraBars.BarButtonItem bbiExport;
-		private DevExpress.XtraBars.BarButtonItem barButtonItem2;
 		private System.Windows.Forms.BindingSource bsCommandsEdit;
 	}
 }

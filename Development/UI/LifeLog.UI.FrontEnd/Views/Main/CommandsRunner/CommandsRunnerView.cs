@@ -1,8 +1,8 @@
 ﻿using DevExpress.XtraBars;
-using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Tile;
 using LifeLog.Base.Models.Data;
 using LifeLog.UI.Common;
+using LifeLog.UI.Common.Forms.Dialog;
 using LifeLog.UI.Common.Helpers;
 using LifeLog.UI.FrontEnd.Properties;
 using System;
@@ -26,6 +26,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 		//PRIVATE
 		private CommandsModel _crtCommands;
+		private List<CommandsModel> _listCommands;
 
 		/// <summary>
 		/// Constructor
@@ -89,6 +90,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				if (cbeProgram.GetSelectedDataRow() is ExternalProgramsModel program)
 					_crtCommands.ExternalProgram = program;
 
+				dxErrorProvider.SetError(recMain, "asdasd asd asd ");
 				_crtCommands.Command = recMain.Text;
 
 				if (!Common.Helpers.ValidationHelper.ValidateModelAndSetError(_crtCommands, dxErrorProvider, lcEditValues))
@@ -104,7 +106,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 					if (!lista.Any(w => w.Id == _crtCommands.Id))
 					{
-						lista.Add(_crtCommands);
+						bsCommandsList.Add(_crtCommands);
 						tileView.RefreshData();
 					}
 					else
@@ -121,6 +123,112 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 			}
 		}
 
+		/// <summary>
+		/// Enables or disables the command
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private async void bbiEnable_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			try
+			{
+				CommandsModel command = ControlsHelper.GetObjectByRowHandle<CommandsModel>(tileView, tileView.FocusedRowHandle);
+				if (command == null)
+					return;
+
+				(bool state, string message) = await AppSession.DataEngine.Commands.ToggleEnabledState(command.Id);
+
+				command.IsEnabled = state;
+
+				AppHelper.StatusMessage(message, state);
+
+				int rowHandle = tileView.LocateByValue(nameof(command.Id), command.Id);
+
+				tileView.RefreshRow(rowHandle);
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		/// <summary>
+		/// Save commands to a file
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void bbiCreateFile_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			try
+			{
+				CommandsModel command = ControlsHelper.GetObjectByRowHandle<CommandsModel>(tileView, tileView.FocusedRowHandle);
+				if (command == null)
+					return;
+
+				using (SaveFileDialog dialog = new SaveFileDialog())
+				{
+					string ext = command.ExternalProgram.FileExtension.Replace(".", ""); // "bat"
+					dialog.Filter = $"Files {ext.ToUpper()} (*.{ext})|*.{ext}|All Files (*.*)|*.*";
+					dialog.DefaultExt = ext;
+					dialog.Title = $"Save | {command.Name}";
+					dialog.AddExtension = true;
+
+					if (dialog.ShowDialog() == DialogResult.OK)
+					{
+						Encoding encoding = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
+
+						File.WriteAllText(dialog.FileName, command.Command, encoding);
+
+						AppHelper.StatusMessage("Command exported to file!", true);
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		/// <summary>
+		/// Delete command!
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private async void bbiDelete_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			try
+			{
+				CommandsModel command = ControlsHelper.GetObjectByRowHandle<CommandsModel>(tileView, tileView.FocusedRowHandle);
+				if (command == null)
+					return;
+
+
+				DialogResult result = MessageBoxDialogForm.SD(MessageBoxIcon.Question, "Delete Command", $"Do you really want to delete {command.Name}?");
+
+				if (result == DialogResult.Yes)
+				{
+					(bool deleted, string message) = await AppSession.DataEngine.Commands.Delete(command.Id);
+					if (deleted)
+					{
+						bsCommandsList.Remove(command);
+						AppHelper.StatusMessage(message, ForeColors.Critical);
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		/// <summary>
+		/// Run command as admin
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void bbiRunAdmin_ItemClick(object sender, ItemClickEventArgs e) =>
+			RunCommandClickHelper(true);
+
 		#endregion
 
 		#region TILE VIEW
@@ -132,6 +240,11 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		/// <param name="e"></param>
 		private void tileView_ItemRightClick(object sender, TileViewItemClickEventArgs e)
 		{
+			if (!(tileView.GetFocusedRow() is CommandsModel model))
+				return;
+
+			bbiEnable.ImageOptions.SvgImage = model.IsEnabled ? Resources.actions_deletecircled : Resources.actions_checkcircled;
+			bbiEnable.Caption = model.IsEnabled ? "Disable" : "Enable";
 			popupMenu.ShowPopup(Control.MousePosition);
 		}
 
@@ -140,20 +253,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void tileView_ItemDoubleClick(object sender, TileViewItemClickEventArgs e)
-		{
-			try
-			{
-				if (!(tileView.GetFocusedRow() is CommandsModel model))
-					return;
-
-				ExecuteFile(model);
-			}
-			catch (Exception ex)
-			{
-				ErrorHelper.Handler(ex);
-			}
-		}
+		private void tileView_ItemDoubleClick(object sender, TileViewItemClickEventArgs e) => 
+			RunCommandClickHelper(false);
 
 		/// <summary>
 		/// Custom item template event
@@ -195,7 +296,35 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		}
 
 		#endregion
-		
+
+		#region SELECTED VALUE CHANGED
+
+		/// <summary>
+		/// Selected value changed
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void listboxPrograms_SelectedValueChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				if (!(listboxPrograms.SelectedItem is ExternalProgramsModel ep) || ep.Id == Guid.Empty)
+				{
+					bsCommandsList.DataSource = _listCommands;
+					return;
+				}
+
+				bsCommandsList.DataSource = _listCommands.Where(w => w.ExternalProgram?.Id == ep.Id).ToList();
+
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		#endregion
+
 		#endregion
 
 		#region FUNCTIONS
@@ -225,7 +354,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				listboxPrograms.SelectedIndex = 0;
 
 				(List<CommandsModel> commands, string message) = await AppSession.DataEngine.Commands.GetUserCommands(AppSession.CurrentUser.Id);
-				bsCommandsList.DataSource = commands;
+				_listCommands = commands;
+				bsCommandsList.DataSource = _listCommands;
 
 				AppHelper.StatusMessage(message, commands.Count > 0);
 			}
@@ -236,8 +366,27 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		}
 
 		#endregion
-		
+
 		#region PRIVATE
+
+		/// <summary>
+		/// Runs the commands 
+		/// </summary>
+		/// <param name="admin"></param>
+		private void RunCommandClickHelper(bool admin)
+		{
+			try
+			{
+				if (!(tileView.GetFocusedRow() is CommandsModel model))
+					return;
+
+				ExecuteFile(model, admin);
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
 
 		/// <summary>
 		/// Execute File
@@ -252,7 +401,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				return;
 			}
 
-			Task.Run(async () =>
+			Task.Run(() =>
 			{
 				string batchFilePath = string.Empty;
 				string fileName = string.Empty;
@@ -285,7 +434,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 						CreateNoWindow = false,
 					};
 
-					if (runInAdmin)
+					if (runInAdmin || command.NeedsAdmin)
 						startInfo.Verb = "runas";
 
 					Process process = new Process
@@ -379,6 +528,5 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		#endregion
 
 		#endregion
-
 	}
 }

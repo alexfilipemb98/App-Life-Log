@@ -17,19 +17,6 @@ namespace LifeLog.Data.Database.Queries
 	/// </summary>
 	public class ImagesQuery : DataQueryBase<ImagesModel, Guid>
 	{
-		#region MAIN
-
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param fName="uow"></param>
-		/// <param fName="sql"></param>
-		public ImagesQuery(UnitOfWork uow, SqlDataAccess sql) : base(uow, sql)
-		{
-		}
-
-		#endregion
-
 		#region BASE
 
 		/// <summary>
@@ -39,10 +26,13 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(ImagesModel, string)> GetByKey(Guid key)
 		{
-			ORM_ImagesModel result = await _UOW.GetObjectByKeyAsync<ORM_ImagesModel>(key);
-			var model = result != null ? result.ToModel() : new ImagesModel();
-			string message = result != null ? "Image retrieved successfully." : "Image not found.";
-			return (model, message);
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				ORM_ImagesModel result = await db.GetObjectByKeyAsync<ORM_ImagesModel>(key);
+				var model = result != null ? result.ToModel() : new ImagesModel();
+				string message = result != null ? "Image retrieved successfully." : "Image not found.";
+				return (model, message);
+			}
 		}
 
 		/// <summary>
@@ -51,12 +41,15 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(List<ImagesModel>, string)> GetAll()
 		{
-			List<ImagesModel> resutls = await _UOW.Query<ORM_ImagesModel>()
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				List<ImagesModel> resutls = await db.Query<ORM_ImagesModel>()
 				   .Select(s => s.ToModel())
 				   .ToListAsync() ?? new List<ImagesModel>();
-			string message = resutls.Count > 0 ? $"Images retrieved successfully, {resutls.Count} found." : "No images found.";
-			
-			return (resutls, message);
+				string message = resutls.Count > 0 ? $"Images retrieved successfully, {resutls.Count} found." : "No images found.";
+
+				return (resutls, message);
+			}
 		}
 
 		/// <summary>
@@ -69,22 +62,23 @@ namespace LifeLog.Data.Database.Queries
 		/// <exception cref="ArgumentException"></exception>
 		public override async Task<(bool, string)> Save(ImagesModel model)
 		{
-			await base.Save(model);
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				await base.Save(model);
 
-			ORM_ImagesModel entity = model.ToEntity(_UOW);
+				ORM_ImagesModel entity = model.ToEntity(db);
 
-			if (entity == null)
-				throw new ArgumentNullException("Images entity is null");
+				if (entity == null)
+					throw new ArgumentNullException("Images entity is null");
 
-			entity.Saving = true;
+				await db.SaveAsync(entity);
+				await db.CommitChangesAsync();
 
-			await _UOW.SaveAsync(entity);
-			await _UOW.CommitChangesAsync();
+				(bool exists, _) = await Exists(model.Id);
+				string message = exists ? "Image saved successfully." : "Image not found after saving.";
 
-			(bool exists, _) = await Exists(model.Id);
-			string message = exists ? "Image saved successfully." : "Image not found after saving.";
-
-			return (exists, message);
+				return (exists, message);
+			}
 		}
 
 		/// <summary>
@@ -94,24 +88,25 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(ImagesModel, string)> Duplicate(Guid key)
 		{
-			(ImagesModel model, _) = await base.Duplicate(key);
-			ORM_ImagesModel entity = model.ToEntity(_UOW);
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				(ImagesModel model, _) = await base.Duplicate(key);
+				ORM_ImagesModel entity = model.ToEntity(db);
 
-			entity.Id = Guid.NewGuid();
-			entity.Name += " (Copy)";
+				entity.Id = Guid.NewGuid();
+				entity.Name += " (Copy)";
 
-			model.Id = entity.Id;
-			model.Name = entity.Name;
+				model.Id = entity.Id;
+				model.Name = entity.Name;
 
-			entity.Saving = true;
+				await db.SaveAsync(model);
+				await db.CommitChangesAsync();
 
-			await _UOW.SaveAsync(model);
-			await _UOW.CommitChangesAsync();
+				(bool exists, _) = await Exists(model.Id);
+				string message = exists ? "Image duplicated successfully." : "Image not found after duplication.";
 
-			(bool exists, _) = await Exists(model.Id);
-			string message = exists ? "Image duplicated successfully." : "Image not found after duplication.";
-
-			return (model, message);
+				return (model, message);
+			}
 		}
 
 		#endregion

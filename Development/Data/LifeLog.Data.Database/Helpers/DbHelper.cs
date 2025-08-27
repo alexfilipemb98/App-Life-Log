@@ -1,4 +1,7 @@
 ﻿using Dapper;
+using DevExpress.Xpo;
+using DevExpress.Xpo.DB;
+using DevExpress.Xpo.Metadata;
 using JDS.BASE.DapperUtil;
 using LifeLog.Base.Infrastructure.Enums;
 using LifeLog.Base.Models;
@@ -7,6 +10,7 @@ using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace LifeLog.Data.Database.Helpers
@@ -26,6 +30,32 @@ namespace LifeLog.Data.Database.Helpers
 			using (SqlDataAccess dataAccess = new SqlDataAccess(connectionString))
 			{
 				return await dataAccess.LoadDataListAsync<string>("SELECT name FROM sys.databases WHERE name NOT IN ('master', 'tempdb', 'model', 'msdb')");
+			}
+		}
+
+		/// <summary>
+		/// Update database
+		/// </summary>
+		/// <param name="provider"></param>
+		/// <param name="dictionary"></param>
+		public static void UpdateDB(IDataStore provider, ReflectionDictionary dictionary)
+		{
+			using (SimpleDataLayer simpleLayer = new SimpleDataLayer(dictionary, provider))
+			{
+				//Assembly assembly = Assembly.GetExecutingAssembly();
+				//Guid guidAttr = assembly.ManifestModule.ModuleVersionId;
+
+				////using (VersionsQuery query = new VersionsQuery(simpleLayer, null))
+				////{
+				////	bool isValid = query.ValidateVersion(guidAttr, assembly.GetName().Name, assembly.GetName()?.Version?.ToString() ?? "0.0.0.0");
+				////	if (!isValid)
+				////		throw new NotSupportedException("The dll is outdated, please check for updates");
+				////}
+
+				using (UnitOfWork uow = new UnitOfWork(simpleLayer))
+				{
+					uow.UpdateSchema();
+				}
 			}
 		}
 

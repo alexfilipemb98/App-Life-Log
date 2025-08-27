@@ -43,14 +43,6 @@ namespace LifeLog.Data.Database.ORMDataModel
 			get { return fUpdatedAt; }
 			set { SetPropertyValue<DateTime>(nameof(UpdatedAt), ref fUpdatedAt, value); }
 		}
-		bool fSaving;
-		[ColumnDefaultValue(false)]
-		[NonPersistent]
-		public bool Saving
-		{
-			get { return fSaving; }
-			set { SetPropertyValue<bool>(nameof(Saving), ref fSaving, value); }
-		}
 	}
 
 }

@@ -40,27 +40,27 @@ namespace LifeLog.Data.Database.Mappers
 		/// CommandsModel to ORM_CommandsModel mapper.
 		/// </summary>
 		/// <param fName="model"></param>
-		/// <param fName="session"></param>
+		/// <param fName="db"></param>
 		/// <returns></returns>
-		internal static ORM_CommandsModel ToEntity(this CommandsModel model, UnitOfWork session)
+		internal static ORM_CommandsModel ToEntity(this CommandsModel model, UnitOfWork db)
 		{
 			if (model is null) return null;
 
-			ORM_UsersModel user = session.GetObjectByKey<ORM_UsersModel>(model.User.Id);
+			ORM_UsersModel user = db.GetObjectByKey<ORM_UsersModel>(model.User.Id);
 
 			if (user is null)
 				throw new ArgumentNullException("User not found!");
 
-			ORM_ExternalProgramModel program = session.GetObjectByKey<ORM_ExternalProgramModel>(model.ExternalProgram.Id);
+			ORM_ExternalProgramModel program = db.GetObjectByKey<ORM_ExternalProgramModel>(model.ExternalProgram.Id);
 
 			if (program is null)
 				throw new ArgumentNullException("External program not found!");
 
-			ORM_CommandsModel entity = session.GetObjectByKey<ORM_CommandsModel>(model.Id);
+			ORM_CommandsModel entity = db.GetObjectByKey<ORM_CommandsModel>(model.Id);
 			
 			if (entity == null)
 			{
-				entity = new ORM_CommandsModel(session);
+				entity = new ORM_CommandsModel(db);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				entity.CreatedAt = model.CreatedAt;
 				model.Id = entity.Id;

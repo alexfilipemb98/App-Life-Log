@@ -18,19 +18,6 @@ namespace LifeLog.Data.Database.Queries
 	/// </summary>
 	public class ExternalProgramsQuery : DataQueryBase<ExternalProgramsModel, Guid>
 	{
-		#region MAIN
-
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param fName="uow"></param>
-		/// <param fName="sql"></param>
-		public ExternalProgramsQuery(UnitOfWork uow, SqlDataAccess sql) : base(uow, sql)
-		{
-		}
-
-		#endregion
-
 		#region BASE
 
 		/// <summary>
@@ -40,9 +27,12 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(ExternalProgramsModel, string)> GetByKey(Guid key)
 		{
-			ORM_ExternalProgramModel result = await _UOW.GetObjectByKeyAsync<ORM_ExternalProgramModel>(key);
-			string message = result != null ? "External program retrieved successfully." : "External program not found.";
-			return (result != null ? result.ToModel() : new ExternalProgramsModel(), message);
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				ORM_ExternalProgramModel result = await db.GetObjectByKeyAsync<ORM_ExternalProgramModel>(key);
+				string message = result != null ? "External program retrieved successfully." : "External program not found.";
+				return (result != null ? result.ToModel() : new ExternalProgramsModel(), message);
+			}
 		}
 
 		/// <summary>
@@ -51,11 +41,14 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(List<ExternalProgramsModel>, string)> GetAll()
 		{
-			List<ExternalProgramsModel> results = await _UOW.Query<ORM_ExternalProgramModel>()
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				List<ExternalProgramsModel> results = await db.Query<ORM_ExternalProgramModel>()
 				   .Select(s => s.ToModel())
 				   .ToListAsync();
-			string message = results.Count > 0 ? $"External programs retrieved successfully, {results.Count} found." : "No external programs found.";
-			return (results ?? new List<ExternalProgramsModel>(), message);
+				string message = results.Count > 0 ? $"External programs retrieved successfully, {results.Count} found." : "No external programs found.";
+				return (results ?? new List<ExternalProgramsModel>(), message);
+			}
 		}
 
 		/// <summary>
@@ -68,24 +61,23 @@ namespace LifeLog.Data.Database.Queries
 		/// <exception cref="ArgumentException"></exception>
 		public override async Task<(bool, string)> Save(ExternalProgramsModel model)
 		{
-			await base.Save(model);
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				await base.Save(model);
 
-			ORM_ExternalProgramModel entity = model.ToEntity(_UOW);
+				ORM_ExternalProgramModel entity = model.ToEntity(db);
 
-			if (entity == null)
-				throw new ArgumentNullException("External Programs entity is null");
+				if (entity == null)
+					throw new ArgumentNullException("External Programs entity is null");
 
-			//Set saving
-			entity.Saving = true;
+				await db.SaveAsync(entity);
+				await db.CommitChangesAsync();
 
-			//if (entity.Image != null)
-			//	entity.Image.Saving = true;
-
-			await _UOW.SaveAsync(entity);
-			await _UOW.CommitChangesAsync();
-			(bool saved, _ ) = await Exists(model.Id);
-			string message = saved ? "External program saved successfully." : "External program not found after saving.";
-			return (saved,message);
+				(bool saved, _) = await Exists(model.Id);
+				string message = saved ? "External program saved successfully." : "External program not found after saving.";
+				
+				return (saved, message);
+			}
 		}
 
 		/// <summary>
@@ -93,26 +85,27 @@ namespace LifeLog.Data.Database.Queries
 		/// </summary>
 		/// <param fName="key"></param>
 		/// <returns></returns>
-		public override async Task<(ExternalProgramsModel,string)> Duplicate(Guid key)
+		public override async Task<(ExternalProgramsModel, string)> Duplicate(Guid key)
 		{
-			(ExternalProgramsModel model,_) = await base.Duplicate(key);
-			ORM_ExternalProgramModel entity = model.ToEntity(_UOW);
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				(ExternalProgramsModel model, _) = await base.Duplicate(key);
+				ORM_ExternalProgramModel entity = model.ToEntity(db);
 
-			entity.Id = Guid.NewGuid();
-			entity.Name += " (Copy)";
-			
-			model.Id = entity.Id;
-			model.Name = entity.Name;
+				entity.Id = Guid.NewGuid();
+				entity.Name += " (Copy)";
 
-			entity.Saving = true;
+				model.Id = entity.Id;
+				model.Name = entity.Name;
+				
+				await db.SaveAsync(model);
+				await db.CommitChangesAsync();
 
-			await _UOW.SaveAsync(model);
-			await _UOW.CommitChangesAsync();
+				(bool exists, _) = await Exists(model.Id);
+				string message = exists ? "External program duplicated successfully." : "External program not found after duplication.";
 
-			(bool exists, _) = await Exists(model.Id);
-			string message = exists ? "External program duplicated successfully." : "External program not found after duplication.";
-
-			return (model, message);
+				return (model, message);
+			}
 		}
 
 		#endregion

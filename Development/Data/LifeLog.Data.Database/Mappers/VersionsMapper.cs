@@ -34,16 +34,16 @@ namespace LifeLog.Data.Database.Mappers
 		/// VersionsModel to ORM_VersionsModel mapper.
 		/// </summary>
 		/// <param fName="model"></param>
-		/// <param fName="uow"></param>
+		/// <param fName="db"></param>
 		/// <returns></returns>
-		internal static ORM_VersionsModel ToEntity(this VersionsModel model, UnitOfWork uow)
+		internal static ORM_VersionsModel ToEntity(this VersionsModel model, UnitOfWork db)
 		{
 			if (model == null) return null;
 
-			ORM_VersionsModel entity = uow.GetObjectByKey<ORM_VersionsModel>(model.Id);
+			ORM_VersionsModel entity = db.GetObjectByKey<ORM_VersionsModel>(model.Id);
 			if (entity == null)
 			{
-				entity = new ORM_VersionsModel(uow);
+				entity = new ORM_VersionsModel(db);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				entity.CreatedAt = model.CreatedAt;
 				model.Id = entity.Id;

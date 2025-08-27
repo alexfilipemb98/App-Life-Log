@@ -21,20 +21,6 @@ namespace LifeLog.Data.Database.Queries
 	/// </summary>
 	public class UsersQuery : DataQueryBase<UsersModel, Guid>
 	{
-
-		#region MAIN
-
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param fName="uow"></param>
-		/// <param fName="sql"></param>
-		public UsersQuery(UnitOfWork uow, SqlDataAccess sql) : base(uow, sql)
-		{
-		}
-
-		#endregion
-
 		#region BASE
 
 		/// <summary>
@@ -43,12 +29,15 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public override async Task<(List<UsersModel>, string)> GetAll()
 		{
-			List<UsersModel> results = await _UOW.Query<ORM_UsersModel>()
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				List<UsersModel> results = await db.Query<ORM_UsersModel>()
 				   .Select(s => s.ToModel())
 				   .ToListAsync() ?? new List<UsersModel>();
 
-			string message = results.Count > 0 ? $"Users retrieved successfully, {results.Count} found." : "No users found.";
-			return (results, message);
+				string message = results.Count > 0 ? $"Users retrieved successfully, {results.Count} found." : "No users found.";
+				return (results, message);
+			}
 		}
 
 		#endregion
@@ -62,31 +51,32 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public async Task<(bool, string)> RegisterUser(AuthModel model)
 		{
-			bool emailExits = await _UOW.Query<ORM_UsersModel>().AnyAsync(w => w.Email == model.Email);
-
-			if (emailExits)
-				return (false, "Email already exists.");
-
-			ORM_UsersModel newUser = new ORM_UsersModel
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
 			{
-				Id = Guid.NewGuid(),
-				Username = model.Username,
-				Email = model.Email,
-				Salt = SecurityUtil.GenerateSalt(),
-				CreatedAt = DateTime.Now,
-				UpdatedAt = DateTime.Now,
-			};
+				bool emailExits = await db.Query<ORM_UsersModel>().AnyAsync(w => w.Email == model.Email);
 
-			newUser.Password = SecurityUtil.Sha512_EncryptPasswordWithSalt(model.Password, newUser.Salt);
+				if (emailExits)
+					return (false, "Email already exists.");
 
-			newUser.Saving = true;
+				ORM_UsersModel newUser = new ORM_UsersModel(db)
+				{
+					Id = Guid.NewGuid(),
+					Username = model.Username,
+					Email = model.Email,
+					Salt = SecurityUtil.GenerateSalt(),
+					CreatedAt = DateTime.Now,
+					UpdatedAt = DateTime.Now,
+				};
 
-			await _UOW.SaveAsync(newUser);
-			await _UOW.CommitChangesAsync();
+				newUser.Password = SecurityUtil.Sha512_EncryptPasswordWithSalt(model.Password, newUser.Salt);
 
-			emailExits = await _UOW.Query<ORM_UsersModel>().AnyAsync(w => w.Email == model.Email);
+				await db.SaveAsync(newUser);
+				await db.CommitChangesAsync();
 
-			return (emailExits, emailExits ? "User registered successfully." : "Failed to create the user!");
+				emailExits = await db.Query<ORM_UsersModel>().AnyAsync(w => w.Email == model.Email);
+
+				return (emailExits, emailExits ? "User registered successfully." : "Failed to create the user!");
+			}
 		}
 
 		/// <summary>
@@ -97,26 +87,29 @@ namespace LifeLog.Data.Database.Queries
 		/// <returns></returns>
 		public async Task<(bool, string, LoggedUserModel)> ValidateUserLogin(AuthModel model)
 		{
-			if (!model.ValidateModel(out List<ValidationResult> results))
-				throw new LifeLog.Base.Infrastructure.Exceptions.ValidationException(results);
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				if (!model.ValidateModel(out List<ValidationResult> results))
+					throw new LifeLog.Base.Infrastructure.Exceptions.ValidationException(results);
 
-			if (!model.Email.IsValidEmail())
-				return (false, "E-mail is not Valid!", null);
+				if (!model.Email.IsValidEmail())
+					return (false, "E-mail is not Valid!", null);
 
-			ORM_UsersModel user = await _UOW.Query<ORM_UsersModel>().FirstOrDefaultAsync(w => w.Email == model.Email);
+				ORM_UsersModel user = await db.Query<ORM_UsersModel>().FirstOrDefaultAsync(w => w.Email == model.Email);
 
-			if (user == null)
-				return (false, "User not found!", null);
+				if (user == null)
+					return (false, "User not found!", null);
 
-			if (!SecurityUtil.CompareStringEncryptedWithSalt(model.Password, user.Password, user.Salt))
-				return (false, "Login failed, password is incorrect!", null);
+				if (!SecurityUtil.CompareStringEncryptedWithSalt(model.Password, user.Password, user.Salt))
+					return (false, "Login failed, password is incorrect!", null);
 
-			LoggedUserModel loggedUser = new LoggedUserModel();
-			loggedUser.Id = user.Id;
-			loggedUser.Username = user.Username;
-			loggedUser.Email = user.Email;
+				LoggedUserModel loggedUser = new LoggedUserModel();
+				loggedUser.Id = user.Id;
+				loggedUser.Username = user.Username;
+				loggedUser.Email = user.Email;
 
-			return (user != null, "User is valid to login!", loggedUser);
+				return (user != null, "User is valid to login!", loggedUser);
+			}
 		}
 
 		#endregion

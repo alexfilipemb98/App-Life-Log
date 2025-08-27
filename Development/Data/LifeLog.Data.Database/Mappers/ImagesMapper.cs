@@ -36,17 +36,17 @@ namespace LifeLog.Data.Database.Mappers
 		/// ImagesModel to ORM_ImagesModel mapper.
 		/// </summary>
 		/// <param fName="model"></param>
-		/// <param fName="uow"></param>
+		/// <param fName="db"></param>
 		/// <returns></returns>
-		internal static ORM_ImagesModel ToEntity(this ImagesModel model, UnitOfWork uow)
+		internal static ORM_ImagesModel ToEntity(this ImagesModel model, UnitOfWork db)
 		{
 			if (model == null) return null;
 
-			ORM_ImagesModel entity = uow.GetObjectByKey<ORM_ImagesModel>(model.Id);
+			ORM_ImagesModel entity = db.GetObjectByKey<ORM_ImagesModel>(model.Id);
 			
 			if (entity == null)
 			{
-				entity = new ORM_ImagesModel(uow);
+				entity = new ORM_ImagesModel(db);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				model.Id = entity.Id;
 				entity.CreatedAt = model.CreatedAt;
