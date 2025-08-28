@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -19,6 +20,11 @@ namespace LifeLog.Base.Models.Data
 		[DataType(DataType.MultilineText)]
 		[Infrastructure.Attributes.StringLength(4000)]
 		public string Text { get; set; }
+
+		[Infrastructure.Attributes.StringLength(20)]
+		public int Color { get; set; }
+
+		public short Position { get; set; }
 
 		#endregion
 

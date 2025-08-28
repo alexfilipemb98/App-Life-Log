@@ -113,6 +113,7 @@ namespace LifeLog.Data.Database.Queries
 
 				List<NotesModel> results = await db.Query<ORM_NotesModel>()
 					.Where(w => w.User.Id == userDb.Id)
+					.OrderBy(o=>o.Position)
 					.Select(s => s.ToModel())
 					.ToListAsync() ?? new List<NotesModel>();
 

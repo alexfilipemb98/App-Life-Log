@@ -32,12 +32,16 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotesView));
 			this.barManager = new DevExpress.XtraBars.BarManager(this.components);
 			this.bar = new DevExpress.XtraBars.Bar();
-			this.bbiNew = new DevExpress.XtraBars.BarButtonItem();
-			this.bbiEdit = new DevExpress.XtraBars.BarButtonItem();
-			this.bbiSave = new DevExpress.XtraBars.BarButtonItem();
-			this.bbiReload = new DevExpress.XtraBars.BarButtonItem();
+			this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
 			this.bbiExport = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiImport = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiNew = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiSave = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiReload = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiTitle = new DevExpress.XtraBars.BarEditItem();
+			this.riteTitleNote = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+			this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+			this.riceColorNote = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
 			this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -49,8 +53,9 @@
 			this.xtraTabControl = new DevExpress.XtraTab.XtraTabControl();
 			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.riteTitleNote)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.riceColorNote)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEditRichEdit1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditFontSizeEdit1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditStyleEdit1)).BeginInit();
@@ -74,16 +79,19 @@
             this.bbiNew,
             this.bbiSave,
             this.bbiReload,
-            this.bbiEdit,
             this.bbiExport,
             this.bbiImport,
-            this.barSubItem1});
+            this.barSubItem1,
+            this.barEditItem1,
+            this.bbiTitle});
 			this.barManager.MainMenu = this.bar;
-			this.barManager.MaxItemId = 74;
+			this.barManager.MaxItemId = 76;
 			this.barManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemFontEditRichEdit1,
             this.repositoryItemRichEditFontSizeEdit1,
-            this.repositoryItemRichEditStyleEdit1});
+            this.repositoryItemRichEditStyleEdit1,
+            this.riceColorNote,
+            this.riteTitleNote});
 			// 
 			// bar
 			// 
@@ -95,9 +103,10 @@
 			this.bar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barSubItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiNew, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiEdit, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiReload, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiReload, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.bbiTitle, "", false, true, true, 214, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.barEditItem1, "", false, true, true, 66, null, DevExpress.XtraBars.BarItemPaintStyle.Standard)});
 			this.bar.OptionsBar.DrawBorder = false;
 			this.bar.OptionsBar.DrawDragBorder = false;
 			this.bar.OptionsBar.MinHeight = 35;
@@ -105,37 +114,15 @@
 			this.bar.OptionsBar.UseWholeRow = true;
 			this.bar.Text = "Main menu";
 			// 
-			// bbiNew
+			// barSubItem1
 			// 
-			this.bbiNew.Caption = "New";
-			this.bbiNew.Id = 0;
-			this.bbiNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiNew.ImageOptions.SvgImage")));
-			this.bbiNew.Name = "bbiNew";
-			this.bbiNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNew_ItemClick);
-			// 
-			// bbiEdit
-			// 
-			this.bbiEdit.Caption = "Edit";
-			this.bbiEdit.Id = 68;
-			this.bbiEdit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiEdit.ImageOptions.SvgImage")));
-			this.bbiEdit.Name = "bbiEdit";
-			this.bbiEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEdit_ItemClick);
-			// 
-			// bbiSave
-			// 
-			this.bbiSave.Caption = "Save";
-			this.bbiSave.Id = 65;
-			this.bbiSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiSave.ImageOptions.SvgImage")));
-			this.bbiSave.Name = "bbiSave";
-			this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
-			// 
-			// bbiReload
-			// 
-			this.bbiReload.Caption = "Reload";
-			this.bbiReload.Id = 66;
-			this.bbiReload.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiReload.ImageOptions.SvgImage")));
-			this.bbiReload.Name = "bbiReload";
-			this.bbiReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReload_ItemClick);
+			this.barSubItem1.Caption = "File";
+			this.barSubItem1.Id = 73;
+			this.barSubItem1.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.attachments;
+			this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiExport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiImport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+			this.barSubItem1.Name = "barSubItem1";
 			// 
 			// bbiExport
 			// 
@@ -155,41 +142,104 @@
 			this.bbiImport.Name = "bbiImport";
 			this.bbiImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImport_ItemClick);
 			// 
+			// bbiNew
+			// 
+			this.bbiNew.Caption = "New";
+			this.bbiNew.Id = 0;
+			this.bbiNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiNew.ImageOptions.SvgImage")));
+			this.bbiNew.Name = "bbiNew";
+			this.bbiNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNew_ItemClick);
+			// 
+			// bbiSave
+			// 
+			this.bbiSave.Caption = "Save";
+			this.bbiSave.Id = 65;
+			this.bbiSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiSave.ImageOptions.SvgImage")));
+			this.bbiSave.Name = "bbiSave";
+			this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
+			// 
+			// bbiReload
+			// 
+			this.bbiReload.Caption = "Reload";
+			this.bbiReload.Id = 66;
+			this.bbiReload.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiReload.ImageOptions.SvgImage")));
+			this.bbiReload.Name = "bbiReload";
+			this.bbiReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReload_ItemClick);
+			// 
+			// bbiTitle
+			// 
+			this.bbiTitle.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+			this.bbiTitle.Caption = "Note Title";
+			this.bbiTitle.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Stretch;
+			this.bbiTitle.Edit = this.riteTitleNote;
+			this.bbiTitle.EditWidth = 100;
+			this.bbiTitle.Id = 75;
+			this.bbiTitle.Name = "bbiTitle";
+			this.bbiTitle.UseEditorPadding = false;
+			this.bbiTitle.EditValueChanged += new System.EventHandler(this.bbiTitle_EditValueChanged);
+			// 
+			// riteTitleNote
+			// 
+			this.riteTitleNote.AutoHeight = false;
+			this.riteTitleNote.MaxLength = 30;
+			this.riteTitleNote.Name = "riteTitleNote";
+			// 
+			// barEditItem1
+			// 
+			this.barEditItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+			this.barEditItem1.Caption = "Color";
+			this.barEditItem1.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Near;
+			this.barEditItem1.Edit = this.riceColorNote;
+			this.barEditItem1.Id = 74;
+			this.barEditItem1.Name = "barEditItem1";
+			this.barEditItem1.EditValueChanged += new System.EventHandler(this.barEditItem1_EditValueChanged);
+			// 
+			// riceColorNote
+			// 
+			this.riceColorNote.AutoHeight = false;
+			this.riceColorNote.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+			this.riceColorNote.Name = "riceColorNote";
+			this.riceColorNote.ShowAutomaticButton = false;
+			this.riceColorNote.ShowMoreColorsButton = false;
+			this.riceColorNote.ShowSystemColors = false;
+			this.riceColorNote.ShowWebColors = false;
+			// 
 			// barDockControlTop
 			// 
 			this.barDockControlTop.CausesValidation = false;
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
 			this.barDockControlTop.Manager = this.barManager;
-			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControlTop.Size = new System.Drawing.Size(791, 35);
+			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+			this.barDockControlTop.Size = new System.Drawing.Size(923, 44);
 			// 
 			// barDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControlBottom.Location = new System.Drawing.Point(0, 493);
+			this.barDockControlBottom.Location = new System.Drawing.Point(0, 607);
 			this.barDockControlBottom.Manager = this.barManager;
-			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControlBottom.Size = new System.Drawing.Size(791, 0);
+			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+			this.barDockControlBottom.Size = new System.Drawing.Size(923, 0);
 			// 
 			// barDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControlLeft.Location = new System.Drawing.Point(0, 35);
+			this.barDockControlLeft.Location = new System.Drawing.Point(0, 44);
 			this.barDockControlLeft.Manager = this.barManager;
-			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 458);
+			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 563);
 			// 
 			// barDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(791, 35);
+			this.barDockControlRight.Location = new System.Drawing.Point(923, 44);
 			this.barDockControlRight.Manager = this.barManager;
-			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 458);
+			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 563);
 			// 
 			// repositoryItemFontEditRichEdit1
 			// 
@@ -216,12 +266,12 @@
 			// 
 			this.layoutControl1.Controls.Add(this.xtraTabControl);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 35);
-			this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.layoutControl1.Location = new System.Drawing.Point(0, 44);
+			this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
 			this.layoutControl1.Name = "layoutControl1";
 			this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(809, 386, 650, 400);
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(791, 458);
+			this.layoutControl1.Size = new System.Drawing.Size(923, 563);
 			this.layoutControl1.TabIndex = 4;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
@@ -230,13 +280,14 @@
 			this.xtraTabControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.xtraTabControl.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.xtraTabControl.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover;
-			this.xtraTabControl.Location = new System.Drawing.Point(4, 8);
+			this.xtraTabControl.Location = new System.Drawing.Point(5, 10);
 			this.xtraTabControl.Margin = new System.Windows.Forms.Padding(0);
 			this.xtraTabControl.MultiLine = DevExpress.Utils.DefaultBoolean.False;
 			this.xtraTabControl.Name = "xtraTabControl";
 			this.xtraTabControl.ShowTabHeader = DevExpress.Utils.DefaultBoolean.True;
-			this.xtraTabControl.Size = new System.Drawing.Size(783, 446);
+			this.xtraTabControl.Size = new System.Drawing.Size(913, 548);
 			this.xtraTabControl.TabIndex = 0;
+			this.xtraTabControl.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtraTabControl_SelectedPageChanged);
 			this.xtraTabControl.CloseButtonClick += new System.EventHandler(this.xtraTabControl_CloseButtonClick);
 			// 
 			// Root
@@ -246,8 +297,8 @@
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
 			this.Root.Name = "Root";
-			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 8, 4);
-			this.Root.Size = new System.Drawing.Size(791, 458);
+			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 10, 5);
+			this.Root.Size = new System.Drawing.Size(923, 563);
 			// 
 			// layoutControlItem1
 			// 
@@ -255,22 +306,12 @@
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
 			this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlItem1.Size = new System.Drawing.Size(783, 446);
+			this.layoutControlItem1.Size = new System.Drawing.Size(913, 548);
 			this.layoutControlItem1.TextVisible = false;
-			// 
-			// barSubItem1
-			// 
-			this.barSubItem1.Caption = "File";
-			this.barSubItem1.Id = 73;
-			this.barSubItem1.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.attachments;
-			this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiExport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiImport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
-			this.barSubItem1.Name = "barSubItem1";
 			// 
 			// NotesView
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.layoutControl1);
 			this.Controls.Add(this.barDockControlLeft);
@@ -279,8 +320,10 @@
 			this.Controls.Add(this.barDockControlTop);
 			this.Margin = new System.Windows.Forms.Padding(0);
 			this.Name = "NotesView";
-			this.Size = new System.Drawing.Size(791, 493);
+			this.Size = new System.Drawing.Size(923, 607);
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.riteTitleNote)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.riceColorNote)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEditRichEdit1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditFontSizeEdit1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditStyleEdit1)).EndInit();
@@ -312,9 +355,12 @@
         private DevExpress.XtraBars.BarButtonItem bbiSave;
         private DevExpress.XtraBars.BarButtonItem bbiReload;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraBars.BarButtonItem bbiEdit;
 		private DevExpress.XtraBars.BarButtonItem bbiExport;
 		private DevExpress.XtraBars.BarButtonItem bbiImport;
 		private DevExpress.XtraBars.BarSubItem barSubItem1;
+		private DevExpress.XtraBars.BarEditItem barEditItem1;
+		private DevExpress.XtraEditors.Repository.RepositoryItemColorEdit riceColorNote;
+		private DevExpress.XtraBars.BarEditItem bbiTitle;
+		private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit riteTitleNote;
 	}
 }

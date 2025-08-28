@@ -38,6 +38,20 @@ namespace LifeLog.Data.Database.ORMDataModel
 			get { return fText; }
 			set { SetPropertyValue<string>(nameof(Text), ref fText, value); }
 		}
+		int fColor;
+		[DbType("INT")]
+		public int Color
+		{
+			get { return fColor; }
+			set { SetPropertyValue<int>(nameof(Color), ref fColor, value); }
+		}
+		short fPosition;
+		[DbType("TINYINT")]
+		public short Position
+		{
+			get { return fPosition; }
+			set { SetPropertyValue<short>(nameof(Position), ref fPosition, value); }
+		}
 		ORM_UsersModel fUser;
 		[Persistent(@"IdUser")]
 		[Association(@"ORM_NotesModelReferencesORM_UsersModell")]

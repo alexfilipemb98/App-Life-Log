@@ -113,7 +113,7 @@ namespace LifeLog.Base.Components
 			this.recMainBase.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.recMainBase.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.recMainBase.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
-			this.recMainBase.Location = new System.Drawing.Point(0, 103);
+			this.recMainBase.Location = new System.Drawing.Point(0, 74);
 			this.recMainBase.Margin = new System.Windows.Forms.Padding(0);
 			this.recMainBase.MenuManager = this.bmRichToolBar;
 			this.recMainBase.Name = "recMainBase";
@@ -126,10 +126,11 @@ namespace LifeLog.Base.Components
 			this.recMainBase.Options.HorizontalRuler.ShowRightIndent = false;
 			this.recMainBase.Options.HorizontalRuler.ShowTabs = false;
 			this.recMainBase.Options.Printing.PrintPreviewFormKind = DevExpress.XtraRichEdit.PrintPreviewFormKind.Bars;
-			this.recMainBase.Size = new System.Drawing.Size(760, 361);
+			this.recMainBase.Size = new System.Drawing.Size(651, 303);
 			this.recMainBase.TabIndex = 4;
 			this.recMainBase.Views.SimpleView.AdjustColorsToSkins = true;
 			this.recMainBase.Views.SimpleView.AllowDisplayLineNumbers = true;
+			this.recMainBase.MouseUp += new System.Windows.Forms.MouseEventHandler(this.recMainBase_MouseUp);
 			// 
 			// bmRichToolBar
 			// 
@@ -242,6 +243,7 @@ namespace LifeLog.Base.Components
 			this.bciFormatPainter.Id = 69;
 			this.bciFormatPainter.ImageOptions.SvgImage = global::LifeLog.Base.Components.Properties.Resources.extractstyle;
 			this.bciFormatPainter.Name = "bciFormatPainter";
+			this.bciFormatPainter.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bciFormatPainter_ItemClick);
 			// 
 			// fontBar1
 			// 
@@ -581,31 +583,35 @@ namespace LifeLog.Base.Components
 			this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControl1.Location = new System.Drawing.Point(0, 0);
 			this.barDockControl1.Manager = this.bmRichToolBar;
-			this.barDockControl1.Size = new System.Drawing.Size(760, 103);
+			this.barDockControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControl1.Size = new System.Drawing.Size(651, 74);
 			// 
 			// barDockControl2
 			// 
 			this.barDockControl2.CausesValidation = false;
 			this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControl2.Location = new System.Drawing.Point(0, 464);
+			this.barDockControl2.Location = new System.Drawing.Point(0, 377);
 			this.barDockControl2.Manager = this.bmRichToolBar;
-			this.barDockControl2.Size = new System.Drawing.Size(760, 0);
+			this.barDockControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControl2.Size = new System.Drawing.Size(651, 0);
 			// 
 			// barDockControl3
 			// 
 			this.barDockControl3.CausesValidation = false;
 			this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControl3.Location = new System.Drawing.Point(0, 103);
+			this.barDockControl3.Location = new System.Drawing.Point(0, 74);
 			this.barDockControl3.Manager = this.bmRichToolBar;
-			this.barDockControl3.Size = new System.Drawing.Size(0, 361);
+			this.barDockControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControl3.Size = new System.Drawing.Size(0, 303);
 			// 
 			// barDockControl4
 			// 
 			this.barDockControl4.CausesValidation = false;
 			this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControl4.Location = new System.Drawing.Point(760, 103);
+			this.barDockControl4.Location = new System.Drawing.Point(651, 74);
 			this.barDockControl4.Manager = this.bmRichToolBar;
-			this.barDockControl4.Size = new System.Drawing.Size(0, 361);
+			this.barDockControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControl4.Size = new System.Drawing.Size(0, 303);
 			// 
 			// panelControl
 			// 
@@ -619,8 +625,9 @@ namespace LifeLog.Base.Components
 			this.panelControl.Controls.Add(this.barDockControl1);
 			this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelControl.Location = new System.Drawing.Point(0, 0);
+			this.panelControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panelControl.Name = "panelControl";
-			this.panelControl.Size = new System.Drawing.Size(760, 464);
+			this.panelControl.Size = new System.Drawing.Size(651, 377);
 			this.panelControl.TabIndex = 5;
 			// 
 			// bar3
@@ -693,12 +700,12 @@ namespace LifeLog.Base.Components
 			// 
 			this.Appearance.BackColor = System.Drawing.Color.Transparent;
 			this.Appearance.Options.UseBackColor = true;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.panelControl);
-			this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "RichEditBarContol";
-			this.Size = new System.Drawing.Size(760, 464);
+			this.Size = new System.Drawing.Size(651, 377);
 			((System.ComponentModel.ISupportInitialize)(this.bmRichToolBar)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEditRichEdit1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditFontSizeEdit1)).EndInit();

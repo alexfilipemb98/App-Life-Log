@@ -27,6 +27,8 @@ namespace LifeLog.Data.Database.Mappers
 				UpdatedAt = entity.UpdatedAt,
 				Title = entity.Title,
 				Text = entity.Text,
+				Color = entity.Color,
+				Position = entity.Position,
 				User = entity.User.ToLoggedInModel()
 			};
 		}
@@ -55,6 +57,8 @@ namespace LifeLog.Data.Database.Mappers
 			entity.UpdatedAt = model.UpdatedAt;
 			entity.Title = model.Title;
 			entity.Text = model.Text;
+			entity.Color = model.Color;
+			entity.Position = model.Position;
 			entity.User = user;
 
 			return entity;

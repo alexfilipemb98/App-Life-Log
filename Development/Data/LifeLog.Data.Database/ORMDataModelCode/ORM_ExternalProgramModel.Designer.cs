@@ -50,7 +50,6 @@ namespace LifeLog.Data.Database.ORMDataModel
 		}
 		string fArguments;
 		[Size(150)]
-		[Nullable(false)]
 		[DbType("NVARCHAR(150)")]
 		public string Arguments
 		{

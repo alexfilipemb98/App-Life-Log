@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraTab;
+using DevExpress.XtraTab.ViewInfo;
 using LifeLog.Base.Components;
 using LifeLog.Base.Models.Data;
 using LifeLog.UI.Common;
@@ -8,6 +9,7 @@ using LifeLog.UI.Common.Forms.Dialog;
 using LifeLog.UI.Common.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -46,10 +48,6 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 			try
 			{
 				string nameNote = $"New Note ({_notesList.Count + 1})";
-				DialogResult form = TextInputDialogForm.Dialog(ref nameNote, 3, 50);
-
-				if (form != DialogResult.OK)
-					return;
 
 				NotesModel note = new NotesModel();
 				note.Title = nameNote;
@@ -90,7 +88,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 
 				NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(page.Tag?.ToString()));
 
-				DialogResult result = MessageBoxDialogForm.SD(MessageBoxIcon.Question,"Delete Note", $"Do you really want to delete {note.Title}?");
+				DialogResult result = MessageBoxDialogForm.SD(MessageBoxIcon.Question, "Delete Note", $"Do you really want to delete {note.Title}?");
 
 				if (page != null && result == DialogResult.Yes)
 				{
@@ -119,36 +117,6 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 		private async void bbiReload_ItemClick(object sender, ItemClickEventArgs e)
 		{
 			await LoadData();
-		}
-
-		/// <summary>
-		/// Edit name of the note
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
-		{
-			try
-			{
-				XtraTabPage xtraTabPage = xtraTabControl.SelectedTabPage;
-
-				if (xtraTabPage == null)
-					return;
-
-				NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(xtraTabPage.Tag?.ToString()));
-				string nameNote = note.Title;
-				DialogResult form = TextInputDialogForm.Dialog(ref nameNote, 3, 50);
-
-				if (form != DialogResult.OK)
-					return;
-
-				note.Title = nameNote;
-				xtraTabPage.Text = nameNote;
-			}
-			catch (Exception ex)
-			{
-				ErrorHelper.Handler(ex);
-			}
 		}
 
 		/// <summary>
@@ -242,6 +210,13 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 			}
 
 			AppHelper.StatusMessage(message, _notesList.Count > 0);
+
+
+			xtraTabControl.AllowDrop = true;
+			xtraTabControl.MouseDown += xtraTabControl_MouseDown;
+			xtraTabControl.MouseMove += xtraTabControl_MouseMove;
+			xtraTabControl.DragOver += xtraTabControl_DragOver;
+			xtraTabControl.DragDrop += xtraTabControl_DragDrop;
 		}
 
 		/// <summary>
@@ -252,9 +227,15 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 		{
 			try
 			{
+				short index = 0;
 				foreach (XtraTabPage tabPage in xtraTabControl.TabPages.ToList())
 				{
 					NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(tabPage.Tag?.ToString()));
+
+					if (tabPage.Appearance.Header.BackColor.Name != "0")
+						note.Color = tabPage.Appearance.Header.BackColor.ToArgb();
+
+					note.Position = index;
 
 					foreach (object tabPageControl in tabPage.Controls)
 					{
@@ -264,6 +245,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 							break;
 						}
 					}
+
+					index++;
 				}
 
 				(bool saved, string message) = await AppSession.DataEngine.Notes.SaveList(_notesList);
@@ -290,12 +273,18 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 		{
 			int count = _notesList.Count + 1;
 
-			// Create a new tab page
 			XtraTabPage xtraTabPage = new XtraTabPage();
 			xtraTabPage.Name = $"xtraTabPage{count}";
 			xtraTabPage.Text = note.Title;
 			xtraTabPage.Tag = note.Id;
 			xtraTabPage.PageVisible = true;
+
+			if (note.Color != 0)
+			{
+				xtraTabPage.Appearance.Header.BackColor = Color.FromArgb(note.Color);
+				xtraTabPage.Appearance.Header.BackColor2 = Color.FromArgb(note.Color); // gradiente igual
+				xtraTabPage.Appearance.Header.Options.UseBackColor = true;
+			}
 
 			RichEditBarContol richEdit = new RichEditBarContol();
 			richEdit.HtmlText = note.Text;
@@ -325,6 +314,11 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 			try
 			{
 				NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(xtraTabPage.Tag?.ToString()));
+				int index = xtraTabControl.TabPages.IndexOf(xtraTabPage);
+
+				note.Position = (short)index;
+				if (xtraTabPage.Appearance.Header.BackColor.Name != "0")
+					note.Color = xtraTabPage.Appearance.Header.BackColor.ToArgb();
 
 				foreach (var tabPageControl in xtraTabPage.Controls)
 				{
@@ -345,7 +339,116 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 		}
 
 		#endregion
-		
+
 		#endregion
+
+		private XtraTabPage dragTab = null;
+
+		private void xtraTabControl_MouseDown(object sender, MouseEventArgs e)
+		{
+			var hitInfo = xtraTabControl.CalcHitInfo(e.Location);
+			if (hitInfo.HitTest == XtraTabHitTest.PageHeader)
+			{
+				dragTab = hitInfo.Page;
+			}
+			else
+			{
+				dragTab = null;
+			}
+		}
+
+		private void xtraTabControl_MouseMove(object sender, MouseEventArgs e)
+		{
+			if (e.Button == MouseButtons.Left && dragTab != null)
+			{
+				xtraTabControl.DoDragDrop(dragTab, DragDropEffects.Move);
+			}
+		}
+
+		private void xtraTabControl_DragOver(object sender, DragEventArgs e)
+		{
+			e.Effect = DragDropEffects.Move;
+		}
+
+		private void xtraTabControl_DragDrop(object sender, DragEventArgs e)
+		{
+			Point pt = xtraTabControl.PointToClient(new Point(e.X, e.Y));
+			var hitInfo = xtraTabControl.CalcHitInfo(pt);
+
+			XtraTabPage targetTab = hitInfo.Page;
+			XtraTabPage draggedTab = (XtraTabPage)e.Data.GetData(typeof(XtraTabPage));
+
+			if (draggedTab != null && targetTab != null && draggedTab != targetTab)
+			{
+				int targetIndex = xtraTabControl.TabPages.IndexOf(targetTab);
+				xtraTabControl.TabPages.Remove(draggedTab);
+				xtraTabControl.TabPages.Insert(targetIndex, draggedTab);
+				xtraTabControl.SelectedTabPage = draggedTab;
+			}
+		}
+
+		private void xtraTabControl_SelectedPageChanged(object sender, TabPageChangedEventArgs e)
+		{
+			try
+			{
+				XtraTabPage xtraTabPage = xtraTabControl.SelectedTabPage;
+
+				if (xtraTabPage == null)
+					return;
+
+				NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(xtraTabPage.Tag?.ToString()));
+				string nameNote = note.Title;
+
+				bbiTitle.EditValue = nameNote;
+
+				if (xtraTabPage.Appearance.Header.BackColor.Name != "0")
+					barEditItem1.EditValue = xtraTabPage.Appearance.Header.BackColor.ToArgb();
+				else
+					barEditItem1.EditValue = null;
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		private void barEditItem1_EditValueChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				XtraTabPage xtraTabPage = xtraTabControl.SelectedTabPage;
+				if (xtraTabPage == null)
+					return;
+
+				BarEditItem edit = sender as BarEditItem;
+				if (edit?.EditValue is Color selectedColor)
+				{
+					xtraTabPage.BackColor = selectedColor;
+					xtraTabPage.Appearance.Header.BackColor = selectedColor;
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		private void bbiTitle_EditValueChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				XtraTabPage xtraTabPage = xtraTabControl.SelectedTabPage;
+				if (xtraTabPage == null)
+					return;
+
+				NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(xtraTabPage.Tag?.ToString()));
+				note.Title = bbiTitle.EditValue?.ToString();
+				xtraTabPage.Text = bbiTitle.EditValue?.ToString();
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
 	}
 }
