@@ -214,4 +214,7 @@
   <data name="exportfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exportfile.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="above average" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\above average.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.1, Version=25.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
 </root>

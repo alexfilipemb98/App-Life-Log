@@ -57,6 +57,7 @@
 			this.Passwords = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiWeather = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiConvertText = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiThreeSimpleRule = new DevExpress.XtraBars.BarButtonItem();
 			this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.rpgHome = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -125,10 +126,11 @@
             this.bbiCommandsRunner,
             this.Passwords,
             this.bbiWeather,
-            this.bbiConvertText});
+            this.bbiConvertText,
+            this.bbiThreeSimpleRule});
 			this.ribbon.Location = new System.Drawing.Point(0, 0);
 			this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-			this.ribbon.MaxItemId = 22;
+			this.ribbon.MaxItemId = 23;
 			this.ribbon.Name = "ribbon";
 			this.ribbon.OptionsMenuMinWidth = 385;
 			this.ribbon.OptionsSearchMenu.SearchItemPosition = DevExpress.XtraBars.Ribbon.SearchItemPosition.Caption;
@@ -357,6 +359,14 @@
 			this.bbiConvertText.Name = "bbiConvertText";
 			this.bbiConvertText.Tag = "Tools.ConvertCase.ConvertCaseView";
 			// 
+			// bbiThreeSimpleRule
+			// 
+			this.bbiThreeSimpleRule.Caption = "Three Simple Rule";
+			this.bbiThreeSimpleRule.Id = 22;
+			this.bbiThreeSimpleRule.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.above_average;
+			this.bbiThreeSimpleRule.Name = "bbiThreeSimpleRule";
+			this.bbiThreeSimpleRule.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiThreeSimpleRule_ItemClick);
+			// 
 			// ribbonPage1
 			// 
 			this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -411,6 +421,7 @@
 			// ribbonPageGroup5
 			// 
 			this.ribbonPageGroup5.ItemLinks.Add(this.bbiFormOut);
+			this.ribbonPageGroup5.ItemLinks.Add(this.bbiThreeSimpleRule);
 			this.ribbonPageGroup5.Name = "ribbonPageGroup5";
 			this.ribbonPageGroup5.Text = "Functions";
 			// 
@@ -647,5 +658,6 @@
 		private DevExpress.XtraBars.BarButtonItem Passwords;
 		private DevExpress.XtraBars.BarButtonItem bbiWeather;
 		private DevExpress.XtraBars.BarButtonItem bbiConvertText;
+		private DevExpress.XtraBars.BarButtonItem bbiThreeSimpleRule;
 	}
 }

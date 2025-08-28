@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LifeLog.App.Helpers
 {
@@ -32,7 +33,7 @@ namespace LifeLog.App.Helpers
             if (checkProcess != null)
             {
                 SplashScreenManager.CloseForm(false);
-                MessageBoxDialogForm.SD("Application", "This app is already open!", yesno: false);
+                MessageBoxDialogForm.SD(MessageBoxIcon.Exclamation ,"Application", "This app is already open!", yesno: false);
 
                 IntPtr hWnd = IntPtr.Zero;
                 hWnd = checkProcess.MainWindowHandle;

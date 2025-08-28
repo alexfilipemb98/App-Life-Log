@@ -96,13 +96,13 @@ namespace LifeLog.UI.Common.Helpers
 		public static string CreateUserFolder()
 		{
 			// get current user and sanitize
-			var username = Environment.UserName;
+			string username = Environment.UserName;
 			foreach (var c in Path.GetInvalidFileNameChars())
 				username = username.Replace(c, '_');
 			username = username.Replace(' ', '_');
 
 			// build & ensure folder
-			var path = Path.Combine("Configs", username);
+			string path = Path.Combine("Configs", username);
 			if (!Directory.Exists(path))
 				Directory.CreateDirectory(path);
 

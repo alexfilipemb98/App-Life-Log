@@ -406,3 +406,5 @@ Released/*.xml
 Installer/Setup Files/*
 Installer/Prerequisites/*
 Installer/LifeLogInstaller-cache/*
+/Installer/Program Files
+/Installer/LifeLog Installer-cache

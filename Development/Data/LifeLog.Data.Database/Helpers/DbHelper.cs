@@ -127,7 +127,12 @@ namespace LifeLog.Data.Database.Helpers
 			if (!File.Exists(sqlLitePath))
 				return;
 
-			string backupFolder = config.SqlLiteBackupFolder ?? "Backups";
+			string username = Environment.UserName;
+			foreach (var c in Path.GetInvalidFileNameChars())
+				username = username.Replace(c, '_');
+			username = username.Replace(' ', '_');
+
+			string backupFolder = config.SqlLiteBackupFolder ?? Path.Combine("Configs", username);
 
 			if (!Directory.Exists(backupFolder))
 				Directory.CreateDirectory(backupFolder);

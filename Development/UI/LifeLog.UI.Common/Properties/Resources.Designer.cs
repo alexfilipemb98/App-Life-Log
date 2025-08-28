@@ -63,6 +63,16 @@ namespace LifeLog.UI.Common.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_arrow1right {
+            get {
+                object obj = ResourceManager.GetObject("actions_arrow1right", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage bo_security_permission {
             get {
                 object obj = ResourceManager.GetObject("bo_security_permission", resourceCulture);

@@ -113,6 +113,44 @@ namespace LifeLog.UI.FrontEnd.Forms
 			this.Close();
 		}
 
+		/// <summary>
+		/// Make the form out 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private async void bbiFormOut_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			try
+			{
+				NavigationPage selectedPage = navigationFrame.SelectedPage;
+				XtraUserControl control = selectedPage.Controls.OfType<XtraUserControl>().FirstOrDefault();
+
+				if (control != null)
+				{
+					string typeName = control.GetType().FullName;
+					await ContainerForm.ShowFormAsync(Assembly.GetExecutingAssembly(), typeName, "LifeLog.UI.FrontEnd.Views");
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+
+		}
+
+		/// <summary>
+		/// Three simple rule
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void bbiThreeSimpleRule_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			using (ThreeSimpleRuleForm form = new ThreeSimpleRuleForm())
+			{
+				form.ShowDialog();
+			}
+		}
+
 		#region FUNCTIONS
 
 		/// <summary>
@@ -193,29 +231,5 @@ namespace LifeLog.UI.FrontEnd.Forms
 
 		#endregion
 
-		/// <summary>
-		/// Make the form out 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private async void bbiFormOut_ItemClick(object sender, ItemClickEventArgs e)
-		{
-			try
-			{
-				NavigationPage selectedPage = navigationFrame.SelectedPage;
-				XtraUserControl control = selectedPage.Controls.OfType<XtraUserControl>().FirstOrDefault();
-
-				if (control != null)
-				{
-					string typeName = control.GetType().FullName;
-					await ContainerForm.ShowFormAsync(Assembly.GetExecutingAssembly(), typeName, "LifeLog.UI.FrontEnd.Views");
-				}
-			}
-			catch (Exception ex)
-			{
-				ErrorHelper.Handler(ex);
-			}
-
-		}
 	}
 }
