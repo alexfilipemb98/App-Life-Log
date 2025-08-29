@@ -10,6 +10,7 @@ using LifeLog.UI.FrontEnd.Properties;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -314,6 +315,9 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 			if (((MouseEventArgs)e).Button != MouseButtons.Right)
 				return;
 
+			if ((tileView.GetFocusedRow() is CommandsModel model))
+				return;
+
 			bbiEdit.Visibility = BarItemVisibility.Never;
 			bbiDelete.Visibility = BarItemVisibility.Never;
 			bbiEnable.Visibility = BarItemVisibility.Never;
@@ -332,6 +336,11 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		{
 			if (!(tileView.GetFocusedRow() is CommandsModel model))
 				return;
+
+			bbiEdit.Visibility = BarItemVisibility.Always;
+			bbiDelete.Visibility = BarItemVisibility.Always;
+			bbiEnable.Visibility = BarItemVisibility.Always;
+			bbiCreateFile.Visibility = BarItemVisibility.Always;
 
 			bbiEnable.ImageOptions.SvgImage = model.IsEnabled ? Resources.actions_deletecircled : Resources.actions_checkcircled;
 			bbiEnable.Caption = model.IsEnabled ? "Disable" : "Enable";
@@ -459,7 +468,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 				(List<CommandsModel> commands, string message) = await AppSession.DataEngine.Commands.GetUserCommands(AppSession.CurrentUser.Id);
 				_listCommands = commands;
-				
+
 				LoadCommandsHelper();
 
 				AppHelper.StatusMessage(message, commands.Count > 0);
@@ -646,5 +655,33 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		#endregion
 
 		#endregion
+
+		private void tileView_ItemDrag(object sender, DevExpress.XtraGrid.Views.Tile.ItemDragEventArgs e)
+		{
+
+		}
+
+		private void tileView_ItemDrop(object sender, ItemDropEventArgs e)
+		{
+			Task.Run(async () =>
+			{
+				//await Task.Delay(1500);
+
+				for (int i = 0; i < tileView.RowCount; i++)
+				{
+					int rowHandle = tileView.GetRowHandle(i);
+
+					if (tileView.GetRow(rowHandle) is CommandsModel command)
+					{
+						//command.Position = i;
+						//CommandsData.SavePosition(command);
+					}
+				}
+			});
+
+			CommandsModel cmd = tileView.GetObjectByRowHandle<CommandsModel>(e.RowHandle);
+
+			AppHelper.StatusMessage($"Command '{cmd.Name}' moved!", Color.Green);
+		}
 	}
 }

@@ -35,6 +35,7 @@
 			this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
 			this.bbiExport = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiImport = new DevExpress.XtraBars.BarButtonItem();
+			this.bstiShowDisabledCommands = new DevExpress.XtraBars.BarToggleSwitchItem();
 			this.bbiBack = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiNew = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiEdit = new DevExpress.XtraBars.BarButtonItem();
@@ -98,7 +99,6 @@
 			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-			this.bstiShowDisabledCommands = new DevExpress.XtraBars.BarToggleSwitchItem();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
@@ -222,6 +222,13 @@
 			this.bbiImport.Name = "bbiImport";
 			this.bbiImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImport_ItemClick);
 			// 
+			// bstiShowDisabledCommands
+			// 
+			this.bstiShowDisabledCommands.Caption = "Show Disabled";
+			this.bstiShowDisabledCommands.Id = 16;
+			this.bstiShowDisabledCommands.Name = "bstiShowDisabledCommands";
+			this.bstiShowDisabledCommands.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bstiShowDisabledCommands_CheckedChanged);
+			// 
 			// bbiBack
 			// 
 			this.bbiBack.Caption = "Back";
@@ -343,6 +350,8 @@
 			this.tileView.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Center;
 			this.tileView.TileHtmlTemplate.Styles = resources.GetString("tileView.TileHtmlTemplate.Styles");
 			this.tileView.TileHtmlTemplate.Template = resources.GetString("tileView.TileHtmlTemplate.Template");
+			this.tileView.ItemDrop += new DevExpress.XtraGrid.Views.Tile.TileViewItemDropEventHandler(this.tileView_ItemDrop);
+			this.tileView.ItemDrag += new DevExpress.XtraGrid.Views.Tile.TileViewItemDragEventHandler(this.tileView_ItemDrag);
 			this.tileView.ItemDoubleClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileView_ItemDoubleClick);
 			this.tileView.ItemRightClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileView_ItemRightClick);
 			this.tileView.CustomItemTemplate += new DevExpress.XtraGrid.Views.Tile.TileViewCustomItemTemplateEventHandler(this.tileView_CustomItemTemplate);
@@ -524,11 +533,13 @@
 			// popupMenu
 			// 
 			this.popupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiNew),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiEdit),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiEnable),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiCreateFile, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiRunAdmin),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiDelete, true)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiRefresh, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiDelete)});
 			this.popupMenu.Manager = this.barManager;
 			this.popupMenu.Name = "popupMenu";
 			// 
@@ -561,7 +572,6 @@
 			// 
 			// npMain
 			// 
-			this.npMain.Caption = "npMain";
 			this.npMain.Controls.Add(this.layoutControl2);
 			this.npMain.Margin = new System.Windows.Forms.Padding(0);
 			this.npMain.Name = "npMain";
@@ -643,7 +653,6 @@
 			// 
 			// npEditor
 			// 
-			this.npEditor.Caption = "npEditor";
 			this.npEditor.Controls.Add(this.lcEditValues);
 			this.npEditor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.npEditor.Name = "npEditor";
@@ -889,13 +898,6 @@
 			// dxErrorProvider
 			// 
 			this.dxErrorProvider.ContainerControl = this;
-			// 
-			// bstiShowDisabledCommands
-			// 
-			this.bstiShowDisabledCommands.Caption = "Show Disabled";
-			this.bstiShowDisabledCommands.Id = 16;
-			this.bstiShowDisabledCommands.Name = "bstiShowDisabledCommands";
-			this.bstiShowDisabledCommands.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bstiShowDisabledCommands_CheckedChanged);
 			// 
 			// CommandsRunnerView
 			// 

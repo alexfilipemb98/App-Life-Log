@@ -24,6 +24,7 @@ namespace LifeLog.Base.Models.Data
 		[Infrastructure.Attributes.StringLength(20)]
 		public int Color { get; set; }
 
+		[JsonIgnore]
 		public short Position { get; set; }
 
 		#endregion

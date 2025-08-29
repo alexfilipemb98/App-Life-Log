@@ -32,6 +32,9 @@ namespace LifeLog.Base.Models.Data
 
 		[JsonIgnore]
 		public bool NeedsAdmin { get; set; }
+		
+		[JsonIgnore]
+		public short Position { get; set; }
 
 		#endregion
 

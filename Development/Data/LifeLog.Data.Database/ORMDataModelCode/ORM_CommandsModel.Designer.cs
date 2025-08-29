@@ -64,6 +64,13 @@ namespace LifeLog.Data.Database.ORMDataModel
 			get { return fNeedsAdmin; }
 			set { SetPropertyValue<bool>(nameof(NeedsAdmin), ref fNeedsAdmin, value); }
 		}
+		short fPosition;
+		[DbType("TINYINT")]
+		public short Position
+		{
+			get { return fPosition; }
+			set { SetPropertyValue<short>(nameof(Position), ref fPosition, value); }
+		}
 		ORM_UsersModel fUser;
 		[Persistent(@"IdUser")]
 		[Association(@"ORM_CommandsModelReferencesORM_UsersModel")]
