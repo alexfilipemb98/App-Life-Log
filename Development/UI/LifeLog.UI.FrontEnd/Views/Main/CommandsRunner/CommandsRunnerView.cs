@@ -404,13 +404,15 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		{
 			try
 			{
+				List<CommandsModel> list = bstiShowDisabledCommands.Checked ? _listCommands : _listCommands.Where(w => w.IsEnabled).ToList();
+			
 				if (!(listboxPrograms.SelectedItem is ExternalProgramsModel ep) || ep.Id == Guid.Empty)
 				{
-					bsCommandsList.DataSource = _listCommands;
+					bsCommandsList.DataSource = list;
 					return;
 				}
 
-				bsCommandsList.DataSource = _listCommands.Where(w => w.ExternalProgram?.Id == ep.Id).ToList();
+				bsCommandsList.DataSource = list.Where(w => w.ExternalProgram?.Id == ep.Id).ToList();
 
 			}
 			catch (Exception ex)
@@ -460,8 +462,6 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				cbeProgram.Properties.DataSource = externalPrograms.Where(w => w.Id != Guid.Empty);
 
 				bsExternalPrograms.DataSource = externalPrograms;
-
-				listboxPrograms.SelectedIndex = 0;
 
 				(List<CommandsModel> commands, string message) = await AppSession.DataEngine.Commands.GetUserCommands(AppSession.CurrentUser.Id);
 				_listCommands = commands;
