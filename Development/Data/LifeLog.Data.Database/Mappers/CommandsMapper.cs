@@ -51,13 +51,19 @@ namespace LifeLog.Data.Database.Mappers
 			if (user is null)
 				throw new ArgumentNullException("User not found!");
 
-			ORM_ExternalProgramModel program = db.GetObjectByKey<ORM_ExternalProgramModel>(model.ExternalProgram.Id);
+			ORM_ExternalProgramModel program = null;
 
-			if (program is null)
-				throw new ArgumentNullException("External program not found!");
+			if (model.ExternalProgram != null)
+			{
+				program = db.GetObjectByKey<ORM_ExternalProgramModel>(model.ExternalProgram.Id);
+
+				if (program is null)
+					throw new ArgumentNullException("External program not found!");
+
+			}
 
 			ORM_CommandsModel entity = db.GetObjectByKey<ORM_CommandsModel>(model.Id);
-			
+
 			if (entity == null)
 			{
 				entity = new ORM_CommandsModel(db);

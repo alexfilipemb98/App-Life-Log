@@ -104,7 +104,7 @@ namespace LifeLog.Data.Database.Bases
 			bool isValid = model != null;
 
 			if (!isValid)
-				throw new ArgumentNullException("Notes model is null");
+				throw new ArgumentNullException("Model is null");
 
 			isValid = model.ValidateModel(out List<ValidationResult> validationResults);
 			if (!isValid)

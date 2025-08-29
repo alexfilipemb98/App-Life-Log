@@ -34,7 +34,7 @@
 			this.bar = new DevExpress.XtraBars.Bar();
 			this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
 			this.bbiExport = new DevExpress.XtraBars.BarButtonItem();
-			this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiImport = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiBack = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiNew = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiEdit = new DevExpress.XtraBars.BarButtonItem();
@@ -98,6 +98,7 @@
 			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+			this.bstiShowDisabledCommands = new DevExpress.XtraBars.BarToggleSwitchItem();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
@@ -161,11 +162,12 @@
             this.bbiEnable,
             this.bbiSearch,
             this.bbiCreateFile,
-            this.barButtonItem1,
+            this.bbiImport,
             this.barSubItem1,
-            this.bbiExport});
+            this.bbiExport,
+            this.bstiShowDisabledCommands});
 			this.barManager.MainMenu = this.bar;
-			this.barManager.MaxItemId = 16;
+			this.barManager.MaxItemId = 17;
 			this.barManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1,
             this.repositoryItemSearchControl1});
@@ -199,23 +201,26 @@
 			this.barSubItem1.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.attachments;
 			this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiExport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiImport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bstiShowDisabledCommands, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
 			this.barSubItem1.Name = "barSubItem1";
 			// 
 			// bbiExport
 			// 
-			this.bbiExport.Caption = "Export";
+			this.bbiExport.Caption = "Export Commands";
 			this.bbiExport.Id = 14;
 			this.bbiExport.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.exportas;
 			this.bbiExport.Name = "bbiExport";
+			this.bbiExport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiExport_ItemClick);
 			// 
-			// barButtonItem1
+			// bbiImport
 			// 
-			this.barButtonItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-			this.barButtonItem1.Caption = "Import";
-			this.barButtonItem1.Id = 12;
-			this.barButtonItem1.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.import;
-			this.barButtonItem1.Name = "barButtonItem1";
+			this.bbiImport.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+			this.bbiImport.Caption = "Import Commands";
+			this.bbiImport.Id = 12;
+			this.bbiImport.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.import;
+			this.bbiImport.Name = "bbiImport";
+			this.bbiImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImport_ItemClick);
 			// 
 			// bbiBack
 			// 
@@ -341,6 +346,7 @@
 			this.tileView.ItemDoubleClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileView_ItemDoubleClick);
 			this.tileView.ItemRightClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileView_ItemRightClick);
 			this.tileView.CustomItemTemplate += new DevExpress.XtraGrid.Views.Tile.TileViewCustomItemTemplateEventHandler(this.tileView_CustomItemTemplate);
+			this.tileView.Click += new System.EventHandler(this.tileView_Click);
 			// 
 			// colExternalProgram
 			// 
@@ -555,6 +561,7 @@
 			// 
 			// npMain
 			// 
+			this.npMain.Caption = "npMain";
 			this.npMain.Controls.Add(this.layoutControl2);
 			this.npMain.Margin = new System.Windows.Forms.Padding(0);
 			this.npMain.Name = "npMain";
@@ -636,6 +643,7 @@
 			// 
 			// npEditor
 			// 
+			this.npEditor.Caption = "npEditor";
 			this.npEditor.Controls.Add(this.lcEditValues);
 			this.npEditor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.npEditor.Name = "npEditor";
@@ -882,6 +890,13 @@
 			// 
 			this.dxErrorProvider.ContainerControl = this;
 			// 
+			// bstiShowDisabledCommands
+			// 
+			this.bstiShowDisabledCommands.Caption = "Show Disabled";
+			this.bstiShowDisabledCommands.Id = 16;
+			this.bstiShowDisabledCommands.Name = "bstiShowDisabledCommands";
+			this.bstiShowDisabledCommands.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bstiShowDisabledCommands_CheckedChanged);
+			// 
 			// CommandsRunnerView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1004,11 +1019,12 @@
 		private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
 		private System.Windows.Forms.BindingSource bsCommandsList;
 		private System.Windows.Forms.BindingSource bsExternalPrograms;
-		private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+		private DevExpress.XtraBars.BarButtonItem bbiImport;
 		private DevExpress.XtraBars.BarSubItem barSubItem1;
 		private DevExpress.XtraEditors.ToggleSwitch tsEnabled1;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
 		private DevExpress.XtraBars.BarButtonItem bbiExport;
 		private System.Windows.Forms.BindingSource bsCommandsEdit;
+		private DevExpress.XtraBars.BarToggleSwitchItem bstiShowDisabledCommands;
 	}
 }

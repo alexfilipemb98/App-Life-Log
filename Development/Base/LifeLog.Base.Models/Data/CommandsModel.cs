@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using LifeLog.Base.Infrastructure.Enums;
+using Newtonsoft.Json;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -26,8 +27,10 @@ namespace LifeLog.Base.Models.Data
 		[Infrastructure.Attributes.StringLength(4000)]
 		public string Command { get; set; }
 
+		[JsonIgnore]
 		public bool IsEnabled { get; set; }
 
+		[JsonIgnore]
 		public bool NeedsAdmin { get; set; }
 
 		#endregion
@@ -39,7 +42,7 @@ namespace LifeLog.Base.Models.Data
 		public LoggedUserModel User { get; set; }
 
 		[JsonIgnore]
-		[Infrastructure.Attributes.Required]
+		[Infrastructure.Attributes.RequiredIf(nameof(IsEnabled), OperatorsEnum.Equal, true)]
 		public ExternalProgramsModel ExternalProgram { get; set; }
 
 		#endregion

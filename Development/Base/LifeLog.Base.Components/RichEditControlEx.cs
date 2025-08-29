@@ -9,125 +9,171 @@ using System.Drawing;
 
 namespace LifeLog.Base.Components
 {
-    /// <summary>
-    /// Extended RichEditControl with format copy/paste support.
-    /// </summary>
-    [ToolboxItem(true)]
-    public partial class RichEditControlEx : RichEditControl
-    {
-        [DefaultValue(false)]
-        public bool FormatCalculatorEnabled { get; set; }
+	/// <summary>
+	/// Extended RichEditControl with format copy/paste support.
+	/// </summary>
+	[ToolboxItem(true)]
+	public partial class RichEditControlEx : RichEditControl
+	{
+		[DefaultValue(false)]
+		public bool FormatCalculatorEnabled { get; set; }
 
-        private TextFormattingSnapshot savedFormatting;
+		private TextFormattingSnapshot savedFormatting;
 
-        protected override InnerRichEditControl CreateInnerControl() =>
-            new InnerControlEx(this);
+		protected override InnerRichEditControl CreateInnerControl() =>
+			new InnerControlEx(this);
 
-        /// <summary>
-        /// Save font and paragraph formatting from current selection
-        /// </summary>
-        public void SaveSelectedFormat()
-        {
-            DocumentRange selection = Document.Selection;
-            if (selection.Length == 0) return;
+		/// <summary>
+		/// Save font and paragraph formatting from current selection
+		/// </summary>
+		public void SaveSelectedFormat()
+		{
+			if (Document == null) return;
 
-            SubDocument doc = selection.BeginUpdateDocument();
-            CharacterProperties charProps = doc.BeginUpdateCharacters(selection);
-            ParagraphProperties paraProps = doc.BeginUpdateParagraphs(selection);
+			DocumentRange selection = Document.Selection;
+			if (selection.Length == 0) return;
 
-            savedFormatting = new TextFormattingSnapshot
-            {
-                FontName = charProps.FontName,
-                FontSize = charProps.FontSize.Value,
-                Bold = charProps.Bold.Value,
-                Italic = charProps.Italic.Value,
-                Underline = charProps.Underline.Value,
-                Strikeout = charProps.Strikeout.Value,
-                ForeColor = charProps.ForeColor,
-                BackColor = charProps.BackColor,
-                Alignment = paraProps.Alignment.Value,
-                LineSpacing = paraProps.LineSpacing.Value
-            };
+			SubDocument doc = selection.BeginUpdateDocument();
+			try
+			{
+				CharacterProperties charProps = doc.BeginUpdateCharacters(selection);
+				ParagraphProperties paraProps = doc.BeginUpdateParagraphs(selection);
 
-            doc.EndUpdateCharacters(charProps);
-            doc.EndUpdateParagraphs(paraProps);
-            selection.EndUpdateDocument(doc);
-        }
+				try
+				{
+					savedFormatting = new TextFormattingSnapshot
+					{
+						FontName = charProps.FontName,
+						FontSize = charProps.FontSize,
+						Bold = charProps.Bold,
+						Italic = charProps.Italic,
+						Underline = charProps.Underline,
+						Strikeout = charProps.Strikeout,
+						ForeColor = charProps.ForeColor,
+						BackColor = charProps.BackColor,
+						Alignment = paraProps.Alignment,
+						LineSpacing = paraProps.LineSpacing
+					};
+				}
+				finally
+				{
+					doc.EndUpdateCharacters(charProps);
+					doc.EndUpdateParagraphs(paraProps);
+				}
+			}
+			finally
+			{
+				selection.EndUpdateDocument(doc);
+			}
+		}
 
-        /// <summary>
-        /// Apply saved formatting to current selection
-        /// </summary>
-        public void ApplySavedFormat()
-        {
-            if (savedFormatting == null) return;
+		/// <summary>
+		/// Apply saved formatting to current selection
+		/// </summary>
+		public void ApplySavedFormat()
+		{
+			if (savedFormatting == null || Document == null) return;
 
-            var selection = Document.Selection;
-            if (selection.Length == 0) return;
+			DocumentRange selection = Document.Selection;
+			if (selection.Length == 0) return;
 
-            var doc = selection.BeginUpdateDocument();
-            var charProps = doc.BeginUpdateCharacters(selection);
+			SubDocument doc = selection.BeginUpdateDocument();
+			try
+			{
+				CharacterProperties charProps = doc.BeginUpdateCharacters(selection);
+				try
+				{
+					if (!string.IsNullOrEmpty(savedFormatting.FontName))
+						charProps.FontName = savedFormatting.FontName;
 
-            charProps.FontName = savedFormatting.FontName;
-            charProps.FontSize = savedFormatting.FontSize;
-            charProps.Bold = savedFormatting.Bold;
-            charProps.Italic = savedFormatting.Italic;
-            charProps.Underline = savedFormatting.Underline;
-            charProps.Strikeout = savedFormatting.Strikeout;
-            charProps.ForeColor = savedFormatting.ForeColor;
-            charProps.BackColor = savedFormatting.BackColor;
+					if (savedFormatting.FontSize.HasValue)
+						charProps.FontSize = savedFormatting.FontSize.Value;
 
-            doc.EndUpdateCharacters(charProps);
+					if (savedFormatting.Bold.HasValue)
+						charProps.Bold = savedFormatting.Bold.Value;
 
-            var paraProps = doc.BeginUpdateParagraphs(selection);
-            paraProps.Alignment = savedFormatting.Alignment;
-            paraProps.LineSpacing = savedFormatting.LineSpacing;
-            doc.EndUpdateParagraphs(paraProps);
+					if (savedFormatting.Italic.HasValue)
+						charProps.Italic = savedFormatting.Italic.Value;
 
-            selection.EndUpdateDocument(doc);
-        }
-    }
+					if (savedFormatting.Underline.HasValue)
+						charProps.Underline = savedFormatting.Underline.Value;
 
-    /// <summary>
-    /// Class to store formatting settings
-    /// </summary>
-    public class TextFormattingSnapshot
-    {
-        public string FontName { get; set; }
-        public float FontSize { get; set; }
-        public bool Bold { get; set; }
-        public bool Italic { get; set; }
-        public UnderlineType Underline { get; set; }
-        public StrikeoutType Strikeout { get; set; }
-        public Color? ForeColor { get; set; }
-        public Color? BackColor { get; set; }
-        public ParagraphAlignment Alignment { get; set; }
-        public float LineSpacing { get; set; }
-    }
+					if (savedFormatting.Strikeout.HasValue)
+						charProps.Strikeout = savedFormatting.Strikeout.Value;
 
-    /// <summary>
-    /// Inner control override
-    /// </summary>
-    public class InnerControlEx : InnerRichEditControl
-    {
-        public InnerControlEx(IInnerRichEditControlOwner owner) : base(owner) { }
+					if (savedFormatting.ForeColor.HasValue)
+						charProps.ForeColor = savedFormatting.ForeColor.Value;
 
-        protected override MouseCursorCalculator CreateMouseCursorCalculator() =>
-            new MouseCursorCalculatorEx(ActiveView);
-    }
+					if (savedFormatting.BackColor.HasValue)
+						charProps.BackColor = savedFormatting.BackColor.Value;
+				}
+				finally
+				{
+					doc.EndUpdateCharacters(charProps);
+				}
 
-    /// <summary>
-    /// Custom cursor behaviour
-    /// </summary>
-    public class MouseCursorCalculatorEx : MouseCursorCalculator
-    {
-        public MouseCursorCalculatorEx(RichEditView view) : base(view) { }
+				ParagraphProperties paraProps = doc.BeginUpdateParagraphs(selection);
+				try
+				{
+					if (savedFormatting.Alignment.HasValue)
+						paraProps.Alignment = savedFormatting.Alignment.Value;
 
-        public override IPortableCursor Calculate(RichEditHitTestResultCore hitTestResult, Point physicalPoint)
-        {
-            if (View.Control is RichEditControlEx richEdit && richEdit.FormatCalculatorEnabled)
-                return DevExpress.XtraRichEdit.Utils.RichEditCursors.Hand;
+					if (savedFormatting.LineSpacing.HasValue)
+						paraProps.LineSpacing = savedFormatting.LineSpacing.Value;
+				}
+				finally
+				{
+					doc.EndUpdateParagraphs(paraProps);
+				}
+			}
+			finally
+			{
+				selection.EndUpdateDocument(doc);
+			}
+		}
+	}
 
-            return base.Calculate(hitTestResult, physicalPoint);
-        }
-    }
+	/// <summary>
+	/// Class to store formatting settings (nullable for flexibility)
+	/// </summary>
+	public class TextFormattingSnapshot
+	{
+		public string FontName { get; set; } 
+		public float? FontSize { get; set; }
+		public bool? Bold { get; set; }
+		public bool? Italic { get; set; }
+		public UnderlineType? Underline { get; set; }
+		public StrikeoutType? Strikeout { get; set; }
+		public Color? ForeColor { get; set; }
+		public Color? BackColor { get; set; }
+		public ParagraphAlignment? Alignment { get; set; }
+		public float? LineSpacing { get; set; }
+	}
+
+	/// <summary>
+	/// Inner control override
+	/// </summary>
+	public class InnerControlEx : InnerRichEditControl
+	{
+		public InnerControlEx(IInnerRichEditControlOwner owner) : base(owner) { }
+
+		protected override MouseCursorCalculator CreateMouseCursorCalculator() =>
+			new MouseCursorCalculatorEx(ActiveView);
+	}
+
+	/// <summary>
+	/// Custom cursor behaviour
+	/// </summary>
+	public class MouseCursorCalculatorEx : MouseCursorCalculator
+	{
+		public MouseCursorCalculatorEx(RichEditView view) : base(view) { }
+
+		public override IPortableCursor Calculate(RichEditHitTestResultCore hitTestResult, Point physicalPoint)
+		{
+			if (View.Control is RichEditControlEx richEdit && richEdit.FormatCalculatorEnabled)
+				return DevExpress.XtraRichEdit.Utils.RichEditCursors.Hand;
+
+			return base.Calculate(hitTestResult, physicalPoint);
+		}
+	}
 }

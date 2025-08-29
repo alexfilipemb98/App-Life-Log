@@ -27,6 +27,24 @@ namespace LifeLog.UI.Common.Forms.Others
 
 		#endregion
 
+		#region EVENTS
+
+		#region CHECKED CHANGED
+
+		/// <summary>
+		/// Set top most
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void bbiTopMost_CheckedChanged(object sender, ItemClickEventArgs e)
+		{
+			this.TopMost = bbiTopMost.Checked;
+		}
+
+		#endregion
+
+		#endregion
+
 		#region FUNCTIONS
 
 		/// <summary>
@@ -140,8 +158,10 @@ namespace LifeLog.UI.Common.Forms.Others
 				DialogHelper.CloseWait();
 				throw;
 			}
-		} 
+		}
 
 		#endregion
+
+		
 	}
 }

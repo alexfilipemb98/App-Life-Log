@@ -30,21 +30,21 @@
         {
 			this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
 			this.panelControl = new DevExpress.XtraEditors.PanelControl();
+			this.bbiTopMost = new DevExpress.XtraBars.BarToggleSwitchItem();
 			((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.panelControl)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// ribbon
 			// 
-			this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(35, 37, 35, 37);
+			this.ribbon.CaptionBarItemLinks.Add(this.bbiTopMost);
 			this.ribbon.ExpandCollapseItem.Id = 0;
 			this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbon.ExpandCollapseItem});
+            this.ribbon.ExpandCollapseItem,
+            this.bbiTopMost});
 			this.ribbon.Location = new System.Drawing.Point(0, 0);
-			this.ribbon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.ribbon.MaxItemId = 1;
+			this.ribbon.MaxItemId = 2;
 			this.ribbon.Name = "ribbon";
-			this.ribbon.OptionsMenuMinWidth = 385;
 			this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
 			this.ribbon.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
 			this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
@@ -53,28 +53,33 @@
 			this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
 			this.ribbon.ShowQatLocationSelector = false;
 			this.ribbon.ShowToolbarCustomizeItem = false;
-			this.ribbon.Size = new System.Drawing.Size(879, 49);
+			this.ribbon.Size = new System.Drawing.Size(753, 32);
 			this.ribbon.Toolbar.ShowCustomizeItem = false;
 			// 
 			// panelControl
 			// 
 			this.panelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelControl.Location = new System.Drawing.Point(0, 49);
-			this.panelControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.panelControl.Location = new System.Drawing.Point(0, 32);
 			this.panelControl.Name = "panelControl";
-			this.panelControl.Size = new System.Drawing.Size(879, 439);
+			this.panelControl.Size = new System.Drawing.Size(753, 364);
 			this.panelControl.TabIndex = 2;
+			// 
+			// bbiTopMost
+			// 
+			this.bbiTopMost.Caption = "Top Most";
+			this.bbiTopMost.Id = 1;
+			this.bbiTopMost.Name = "bbiTopMost";
+			this.bbiTopMost.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTopMost_CheckedChanged);
 			// 
 			// ContainerForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(879, 488);
+			this.ClientSize = new System.Drawing.Size(753, 396);
 			this.Controls.Add(this.panelControl);
 			this.Controls.Add(this.ribbon);
 			this.IconOptions.Image = global::LifeLog.UI.Common.Properties.Resources.icon;
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.Name = "ContainerForm";
 			this.Ribbon = this.ribbon;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -90,5 +95,6 @@
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraEditors.PanelControl panelControl;
-    }
+		private DevExpress.XtraBars.BarToggleSwitchItem bbiTopMost;
+	}
 }

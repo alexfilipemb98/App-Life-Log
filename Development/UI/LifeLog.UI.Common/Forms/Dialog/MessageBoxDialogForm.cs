@@ -77,8 +77,6 @@ namespace LifeLog.UI.Common.Forms.Dialog
 			}
 		}
 
-
-
 		#endregion
 
 		#region CLICK

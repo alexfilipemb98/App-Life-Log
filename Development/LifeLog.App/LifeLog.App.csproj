@@ -132,26 +132,24 @@ if "$(ConfigurationName)" == "Release" (
   <Target Name="AfterBuild">
   </Target>
   -->
-
-	<Target Name="RemoveUnwantedSatelliteAssemblies" AfterTargets="Build">
-		<ItemGroup>
-			<!-- Todas as culturas comuns + variantes -->
-			<UnwantedCultures Include="$(OutDir)cs" />
-			<UnwantedCultures Include="$(OutDir)de" />
-			<UnwantedCultures Include="$(OutDir)es" />
-			<UnwantedCultures Include="$(OutDir)fr" />
-			<UnwantedCultures Include="$(OutDir)it" />
-			<UnwantedCultures Include="$(OutDir)ja" />
-			<UnwantedCultures Include="$(OutDir)ko" />
-			<UnwantedCultures Include="$(OutDir)pl" />
-			<UnwantedCultures Include="$(OutDir)pt-BR" />
-			<UnwantedCultures Include="$(OutDir)ru" />
-			<UnwantedCultures Include="$(OutDir)tr" />
-			<UnwantedCultures Include="$(OutDir)zh-Hans" />
-			<UnwantedCultures Include="$(OutDir)zh-Hant" />
-		</ItemGroup>
-
-		<!-- Apaga -->
-		<RemoveDir Directories="@(UnwantedCultures)" />
-	</Target>
+  <Target Name="RemoveUnwantedSatelliteAssemblies" AfterTargets="Build">
+    <ItemGroup>
+      <!-- Todas as culturas comuns + variantes -->
+      <UnwantedCultures Include="$(OutDir)cs" />
+      <UnwantedCultures Include="$(OutDir)de" />
+      <UnwantedCultures Include="$(OutDir)es" />
+      <UnwantedCultures Include="$(OutDir)fr" />
+      <UnwantedCultures Include="$(OutDir)it" />
+      <UnwantedCultures Include="$(OutDir)ja" />
+      <UnwantedCultures Include="$(OutDir)ko" />
+      <UnwantedCultures Include="$(OutDir)pl" />
+      <UnwantedCultures Include="$(OutDir)pt-BR" />
+      <UnwantedCultures Include="$(OutDir)ru" />
+      <UnwantedCultures Include="$(OutDir)tr" />
+      <UnwantedCultures Include="$(OutDir)zh-Hans" />
+      <UnwantedCultures Include="$(OutDir)zh-Hant" />
+    </ItemGroup>
+    <!-- Apaga -->
+    <RemoveDir Directories="@(UnwantedCultures)" />
+  </Target>
 </Project>

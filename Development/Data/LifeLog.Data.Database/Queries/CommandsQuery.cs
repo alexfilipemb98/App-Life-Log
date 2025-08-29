@@ -66,23 +66,7 @@ namespace LifeLog.Data.Database.Queries
 		{
 			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
 			{
-				await base.Save(model);
-
-				ORM_CommandsModel entity = model.ToEntity(db);
-
-				if (entity == null)
-					throw new ArgumentNullException("Command entity is null");
-
-				if (entity.User == null)
-					throw new ArgumentException("User id is invalid!");
-
-				await db.SaveAsync(entity);
-				await db.CommitChangesAsync();
-				
-				(bool saved, _) = await Exists(model.Id);
-				string message = saved ? "Command saved successfully." : "Command not found after saving.";
-
-				return (saved, message);
+				return await SaveHelper(model, db);
 			}
 		}
 
@@ -153,7 +137,7 @@ namespace LifeLog.Data.Database.Queries
 			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
 			{
 				ORM_CommandsModel commad = await db.GetObjectByKeyAsync<ORM_CommandsModel>(commandId);
-				
+
 				if (commad == null)
 					throw new ArgumentException("Command id is invalid!");
 
@@ -162,10 +146,65 @@ namespace LifeLog.Data.Database.Queries
 				await db.SaveAsync(commad);
 				await db.CommitChangesAsync();
 
-				string message = commad.IsEnabled ? "Command enabled!" : "Command disabled!" ;
+				string message = commad.IsEnabled ? "Command enabled!" : "Command disabled!";
 
 				return (commad.IsEnabled, message);
 			}
+		}
+
+		/// <summary>
+		/// Save commands by a list
+		/// </summary>
+		/// <param name="commands"></param>
+		/// <returns></returns>
+		public async Task<(bool, string)> SaveList(List<CommandsModel> commands)
+		{
+			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
+			{
+				bool saved = false;
+
+				foreach (CommandsModel model in commands)
+				{
+					(saved, _) = await SaveHelper(model, db);
+				}
+
+				string message = saved ? "Commands list saved successfully." : "Failed to save commands list.";
+
+				return (saved, message);
+			}
+		}
+
+		#endregion
+
+		#region FUNCTIONS
+
+		/// <summary>
+		/// Helper to save commands
+		/// </summary>
+		/// <param name="model"></param>
+		/// <param name="db"></param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentNullException"></exception>
+		/// <exception cref="ArgumentException"></exception>
+		private async Task<(bool, string)> SaveHelper(CommandsModel model, UnitOfWork db)
+		{
+			await base.Save(model);
+
+			ORM_CommandsModel entity = model.ToEntity(db);
+
+			if (entity == null)
+				throw new ArgumentNullException("Command entity is null");
+
+			if (entity.User == null)
+				throw new ArgumentException("User id is invalid!");
+
+			await db.SaveAsync(entity);
+			await db.CommitChangesAsync();
+
+			(bool saved, _) = await Exists(model.Id);
+			string message = saved ? "Command saved successfully." : "Command not found after saving.";
+
+			return (saved, message);
 		}
 
 		#endregion

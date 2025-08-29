@@ -26,9 +26,10 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 
 		//PRIVATE
 		private List<NotesModel> _notesList;
+		private XtraTabPage dragTab = null;
 
 		/// <summary>
-		/// Constructor for the notes view
+		/// Constructor for the notesJson view
 		/// </summary>
 		public NotesView() => InitializeComponent();
 
@@ -66,7 +67,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 		}
 
 		/// <summary>
-		/// Save notes
+		/// Save notesJson
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -74,6 +75,90 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 		{
 			await SaveData();
 		}
+
+		/// <summary>
+		/// Reload the data
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private async void bbiReload_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			await LoadData();
+		}
+
+		/// <summary>
+		/// Export notesJson to JSON
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void bbiExport_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			try
+			{
+				using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+				{
+					saveFileDialog.Title = "Save notes as JSON";
+					saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+					saveFileDialog.DefaultExt = "json";
+					saveFileDialog.FileName = "notes.json";
+
+					if (saveFileDialog.ShowDialog() == DialogResult.OK)
+					{
+						JsonUtil.ExportToFile(_notesList, saveFileDialog.FileName, indented: true);
+						AppHelper.StatusMessage($"({_notesList.Count}) Notes exported successfuly!", true);
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		/// <summary>
+		/// Import notesJson from JSON
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private async void bbiImport_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			try
+			{
+				using (OpenFileDialog openFileDialog = new OpenFileDialog())
+				{
+					openFileDialog.Title = "Open notes JSON";
+					openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+					openFileDialog.DefaultExt = "json";
+
+					if (openFileDialog.ShowDialog() == DialogResult.OK)
+					{
+						List<NotesModel> notesJson = JsonUtil.ImportFromFile<List<NotesModel>>(openFileDialog.FileName);
+
+						notesJson.ForEach(w => w.User = AppSession.CurrentUser);
+
+						_notesList.AddRange(notesJson);
+
+						(bool saved, _) = await AppSession.DataEngine.Notes.SaveList(notesJson);
+				
+						if (saved)
+						{
+							foreach (NotesModel note in notesJson)
+								CreateTab(note);
+						}
+
+						AppHelper.StatusMessage($"({notesJson.Count}) Notes {(saved ? "imported successfuly" : "not imported")}!", saved);
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		#endregion
+
+		#region TAB CONTROLL
 
 		/// <summary>
 		/// Notes tab close button
@@ -110,37 +195,22 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 		}
 
 		/// <summary>
-		/// Reload the data
+		/// Notes tab controll mouse down
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private async void bbiReload_ItemClick(object sender, ItemClickEventArgs e)
-		{
-			await LoadData();
-		}
-
-		/// <summary>
-		/// Export notes to JSON
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void bbiExport_ItemClick(object sender, ItemClickEventArgs e)
+		private void xtraTabControl_MouseDown(object sender, MouseEventArgs e)
 		{
 			try
 			{
-				using (var saveFileDialog = new SaveFileDialog())
+				XtraTabHitInfo hitInfo = xtraTabControl.CalcHitInfo(e.Location);
+				if (hitInfo.HitTest == XtraTabHitTest.PageHeader)
 				{
-					saveFileDialog.Title = "Guardar notas em JSON";
-					saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
-					saveFileDialog.DefaultExt = "json";
-					saveFileDialog.FileName = "notes.json";
-
-					if (saveFileDialog.ShowDialog() == DialogResult.OK)
-					{
-						// Serializar e gravar
-						JsonUtil.ExportToFile(_notesList, saveFileDialog.FileName, indented: true);
-						AppHelper.StatusMessage($"({_notesList.Count}) Notes exported successfuly!", true);
-					}
+					dragTab = hitInfo.Page;
+				}
+				else
+				{
+					dragTab = null;
 				}
 			}
 			catch (Exception ex)
@@ -150,34 +220,140 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 		}
 
 		/// <summary>
-		/// Import notes from JSON
+		/// Tab controll mouse move
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private async void bbiImport_ItemClick(object sender, ItemClickEventArgs e)
+		private void xtraTabControl_MouseMove(object sender, MouseEventArgs e)
 		{
 			try
 			{
-				using (var openFileDialog = new OpenFileDialog())
+				if (e.Button == MouseButtons.Left && dragTab != null)
 				{
-					openFileDialog.Title = "Abrir notas JSON";
-					openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
-					openFileDialog.DefaultExt = "json";
-
-					if (openFileDialog.ShowDialog() == DialogResult.OK)
-					{
-						List<NotesModel> notes = JsonUtil.ImportFromFile<List<NotesModel>>(openFileDialog.FileName);
-
-						notes.ForEach(w => w.User = AppSession.CurrentUser);
-
-						_notesList.AddRange(notes);
-
-						await AppSession.DataEngine.Notes.SaveList(notes);
-						await LoadData();
-
-						AppHelper.StatusMessage($"({notes.Count}) Notes imported successfuly!", true);
-					}
+					xtraTabControl.DoDragDrop(dragTab, DragDropEffects.Move);
 				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		/// <summary>
+		/// Tab controll drag over 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void xtraTabControl_DragOver(object sender, DragEventArgs e)
+		{
+			e.Effect = DragDropEffects.Move;
+		}
+
+		/// <summary>
+		/// Tab controll drag and drop
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void xtraTabControl_DragDrop(object sender, DragEventArgs e)
+		{
+			try
+			{
+				Point pt = xtraTabControl.PointToClient(new Point(e.X, e.Y));
+				XtraTabHitInfo hitInfo = xtraTabControl.CalcHitInfo(pt);
+
+				XtraTabPage targetTab = hitInfo.Page;
+				XtraTabPage draggedTab = (XtraTabPage)e.Data.GetData(typeof(XtraTabPage));
+
+				if (draggedTab != null && targetTab != null && draggedTab != targetTab)
+				{
+					int targetIndex = xtraTabControl.TabPages.IndexOf(targetTab);
+					xtraTabControl.TabPages.Remove(draggedTab);
+					xtraTabControl.TabPages.Insert(targetIndex, draggedTab);
+					xtraTabControl.SelectedTabPage = draggedTab;
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		/// <summary>
+		/// Tab controll selected page changed
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void xtraTabControl_SelectedPageChanged(object sender, TabPageChangedEventArgs e)
+		{
+			try
+			{
+				XtraTabPage xtraTabPage = xtraTabControl.SelectedTabPage;
+
+				if (xtraTabPage == null)
+					return;
+
+				NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(xtraTabPage.Tag?.ToString()));
+				string nameNote = note.Title;
+
+				bbiTitle.EditValue = nameNote;
+
+				if (xtraTabPage.Appearance.Header.BackColor.Name != "0")
+					bbiNotesColor.EditValue = xtraTabPage.Appearance.Header.BackColor.ToArgb();
+				else
+					bbiNotesColor.EditValue = null;
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		#endregion
+
+		#region EDIT VALUE CHANGED
+
+		/// <summary>
+		/// Notes color edit value
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void bbiNotesColor_EditValueChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				XtraTabPage xtraTabPage = xtraTabControl.SelectedTabPage;
+				if (xtraTabPage == null)
+					return;
+
+				BarEditItem edit = sender as BarEditItem;
+				if (edit?.EditValue is Color selectedColor)
+				{
+					xtraTabPage.BackColor = selectedColor;
+					xtraTabPage.Appearance.Header.BackColor = selectedColor;
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		/// <summary>
+		/// notesJson title changed
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void bbiTitle_EditValueChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				XtraTabPage xtraTabPage = xtraTabControl.SelectedTabPage;
+				if (xtraTabPage == null)
+					return;
+
+				NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(xtraTabPage.Tag?.ToString()));
+				note.Title = bbiTitle.EditValue?.ToString();
+				xtraTabPage.Text = bbiTitle.EditValue?.ToString();
 			}
 			catch (Exception ex)
 			{
@@ -342,113 +518,5 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 
 		#endregion
 
-		private XtraTabPage dragTab = null;
-
-		private void xtraTabControl_MouseDown(object sender, MouseEventArgs e)
-		{
-			var hitInfo = xtraTabControl.CalcHitInfo(e.Location);
-			if (hitInfo.HitTest == XtraTabHitTest.PageHeader)
-			{
-				dragTab = hitInfo.Page;
-			}
-			else
-			{
-				dragTab = null;
-			}
-		}
-
-		private void xtraTabControl_MouseMove(object sender, MouseEventArgs e)
-		{
-			if (e.Button == MouseButtons.Left && dragTab != null)
-			{
-				xtraTabControl.DoDragDrop(dragTab, DragDropEffects.Move);
-			}
-		}
-
-		private void xtraTabControl_DragOver(object sender, DragEventArgs e)
-		{
-			e.Effect = DragDropEffects.Move;
-		}
-
-		private void xtraTabControl_DragDrop(object sender, DragEventArgs e)
-		{
-			Point pt = xtraTabControl.PointToClient(new Point(e.X, e.Y));
-			var hitInfo = xtraTabControl.CalcHitInfo(pt);
-
-			XtraTabPage targetTab = hitInfo.Page;
-			XtraTabPage draggedTab = (XtraTabPage)e.Data.GetData(typeof(XtraTabPage));
-
-			if (draggedTab != null && targetTab != null && draggedTab != targetTab)
-			{
-				int targetIndex = xtraTabControl.TabPages.IndexOf(targetTab);
-				xtraTabControl.TabPages.Remove(draggedTab);
-				xtraTabControl.TabPages.Insert(targetIndex, draggedTab);
-				xtraTabControl.SelectedTabPage = draggedTab;
-			}
-		}
-
-		private void xtraTabControl_SelectedPageChanged(object sender, TabPageChangedEventArgs e)
-		{
-			try
-			{
-				XtraTabPage xtraTabPage = xtraTabControl.SelectedTabPage;
-
-				if (xtraTabPage == null)
-					return;
-
-				NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(xtraTabPage.Tag?.ToString()));
-				string nameNote = note.Title;
-
-				bbiTitle.EditValue = nameNote;
-
-				if (xtraTabPage.Appearance.Header.BackColor.Name != "0")
-					barEditItem1.EditValue = xtraTabPage.Appearance.Header.BackColor.ToArgb();
-				else
-					barEditItem1.EditValue = null;
-			}
-			catch (Exception ex)
-			{
-				ErrorHelper.Handler(ex);
-			}
-		}
-
-		private void barEditItem1_EditValueChanged(object sender, EventArgs e)
-		{
-			try
-			{
-				XtraTabPage xtraTabPage = xtraTabControl.SelectedTabPage;
-				if (xtraTabPage == null)
-					return;
-
-				BarEditItem edit = sender as BarEditItem;
-				if (edit?.EditValue is Color selectedColor)
-				{
-					xtraTabPage.BackColor = selectedColor;
-					xtraTabPage.Appearance.Header.BackColor = selectedColor;
-				}
-			}
-			catch (Exception ex)
-			{
-				ErrorHelper.Handler(ex);
-			}
-		}
-
-		private void bbiTitle_EditValueChanged(object sender, EventArgs e)
-		{
-			try
-			{
-				XtraTabPage xtraTabPage = xtraTabControl.SelectedTabPage;
-				if (xtraTabPage == null)
-					return;
-
-				NotesModel note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(xtraTabPage.Tag?.ToString()));
-				note.Title = bbiTitle.EditValue?.ToString();
-				xtraTabPage.Text = bbiTitle.EditValue?.ToString();
-			}
-			catch (Exception ex)
-			{
-				ErrorHelper.Handler(ex);
-			}
-		}
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Tile;
 using LifeLog.Base.Models.Data;
 using LifeLog.UI.Common;
@@ -20,7 +21,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 	/// <summary>
 	/// Commands Runner View
 	/// </summary>
-	public partial class CommandsRunnerView : DevExpress.XtraEditors.XtraUserControl
+	public partial class CommandsRunnerView : XtraUserControl
 	{
 		#region MAIN
 
@@ -229,9 +230,97 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		private void bbiRunAdmin_ItemClick(object sender, ItemClickEventArgs e) =>
 			RunCommandClickHelper(true);
 
+		/// <summary>
+		/// Export commands to a json file
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private async void bbiExport_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			try
+			{
+				using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+				{
+					saveFileDialog.Title = "Save commands as JSON";
+					saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+					saveFileDialog.DefaultExt = "json";
+					saveFileDialog.FileName = "commands.json";
+
+					if (saveFileDialog.ShowDialog() == DialogResult.OK)
+					{
+						(List<CommandsModel> commands, _) = await AppSession.DataEngine.Commands.GetUserCommands(AppSession.CurrentUser.Id);
+						JsonUtil.ExportToFile(commands, saveFileDialog.FileName, indented: true);
+						AppHelper.StatusMessage($"({commands.Count}) Commands exported successfuly!", true);
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
+		/// <summary>
+		/// Import commnads
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private async void bbiImport_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			try
+			{
+				using (var openFileDialog = new OpenFileDialog())
+				{
+					openFileDialog.Title = "Open commands JSON";
+					openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+					openFileDialog.DefaultExt = "json";
+
+					if (openFileDialog.ShowDialog() == DialogResult.OK)
+					{
+						List<CommandsModel> commandsJson = JsonUtil.ImportFromFile<List<CommandsModel>>(openFileDialog.FileName);
+
+						commandsJson.ForEach(w => w.User = AppSession.CurrentUser);
+
+						(bool saved, _) = await AppSession.DataEngine.Commands.SaveList(commandsJson);
+
+						if (saved)
+						{
+							foreach (var command in commandsJson)
+								bsCommandsList.Add(command);
+						}
+
+						AppHelper.StatusMessage($"({commandsJson.Count}) Commands {(saved ? "imported successfuly" : "not imported")}!", saved);
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
+
 		#endregion
 
 		#region TILE VIEW
+
+		/// <summary>
+		/// Tile View
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void tileView_Click(object sender, EventArgs e)
+		{
+			if (((MouseEventArgs)e).Button != MouseButtons.Right)
+				return;
+
+			bbiEdit.Visibility = BarItemVisibility.Never;
+			bbiDelete.Visibility = BarItemVisibility.Never;
+			bbiEnable.Visibility = BarItemVisibility.Never;
+			bbiCreateFile.Visibility = BarItemVisibility.Never;
+			bbiRunAdmin.Visibility = BarItemVisibility.Never;
+
+			popupMenu.ShowPopup(Control.MousePosition);
+		}
 
 		/// <summary>
 		/// Right click commands event
@@ -245,6 +334,9 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 			bbiEnable.ImageOptions.SvgImage = model.IsEnabled ? Resources.actions_deletecircled : Resources.actions_checkcircled;
 			bbiEnable.Caption = model.IsEnabled ? "Disable" : "Enable";
+
+			bbiRunAdmin.Visibility = model.IsEnabled ? BarItemVisibility.Always : BarItemVisibility.Never;
+
 			popupMenu.ShowPopup(Control.MousePosition);
 		}
 
@@ -253,7 +345,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void tileView_ItemDoubleClick(object sender, TileViewItemClickEventArgs e) => 
+		private void tileView_ItemDoubleClick(object sender, TileViewItemClickEventArgs e) =>
 			RunCommandClickHelper(false);
 
 		/// <summary>
@@ -275,19 +367,23 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 					model.IsEnabled ? "cardBorderEnabled"
 								  : "cardBorderDisabled");
 
-				ImagesModel iconData = model.ExternalProgram.Image;
-				if (iconData == null)
+				if (model.ExternalProgram != null)
 				{
-					e.HtmlTemplate.Template = e.HtmlTemplate.Template.Replace("@@icon@@", string.Empty);
-					return;
-				}
-				else
-				{
-					if (iconData.IsSvg)
-						model.Icon = iconData.SvgImage;
+					ImagesModel iconData = model.ExternalProgram.Image;
+					if (iconData == null)
+					{
+						e.HtmlTemplate.Template = e.HtmlTemplate.Template.Replace("@@icon@@", string.Empty);
+						return;
+					}
 					else
-						model.Icon = iconData.BitImage;
+					{
+						if (iconData.IsSvg)
+							model.Icon = iconData.SvgImage;
+						else
+							model.Icon = iconData.BitImage;
+					}
 				}
+
 			}
 			catch (Exception ex)
 			{
@@ -325,6 +421,20 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 		#endregion
 
+		#region CHECKED CHANGED
+
+		/// <summary>
+		/// Show or Hides the disabled commands
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private async void bstiShowDisabledCommands_CheckedChanged(object sender, ItemClickEventArgs e)
+		{
+			await LoadData();
+		}
+
+		#endregion
+
 		#endregion
 
 		#region FUNCTIONS
@@ -355,7 +465,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 				(List<CommandsModel> commands, string message) = await AppSession.DataEngine.Commands.GetUserCommands(AppSession.CurrentUser.Id);
 				_listCommands = commands;
-				bsCommandsList.DataSource = _listCommands;
+
+				bsCommandsList.DataSource = bstiShowDisabledCommands.Checked ? _listCommands : _listCommands.Where(w => w.IsEnabled).ToList();
 
 				AppHelper.StatusMessage(message, commands.Count > 0);
 			}
