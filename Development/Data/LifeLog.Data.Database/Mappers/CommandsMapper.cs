@@ -31,7 +31,7 @@ namespace LifeLog.Data.Database.Mappers
 				IsEnabled = entity.IsEnabled,
 				User = entity.User.ToLoggedInModel(),
 				NeedsAdmin = entity.NeedsAdmin,
-				ExternalProgram = entity.ExternalProgram.ToModel(),
+				ExternalProgram = entity.ExternalProgram != null ? entity.ExternalProgram.ToModel() : null,
 				Icon = entity.Icon,
 			};
 		}
@@ -53,7 +53,7 @@ namespace LifeLog.Data.Database.Mappers
 
 			ORM_ExternalProgramModel program = null;
 
-			if (model.ExternalProgram != null)
+			if (model.ExternalProgram != null && model.IsEnabled)
 			{
 				program = db.GetObjectByKey<ORM_ExternalProgramModel>(model.ExternalProgram.Id);
 

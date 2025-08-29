@@ -17,6 +17,7 @@ namespace LifeLog.UI.Common.Helpers
 		public static void Handler(Exception ex)
 		{
 			LoggerUtil.LogError(ex);
+			DialogHelper.CloseWait();
 		 	MessageBoxDialogForm.SD(MessageBoxIcon.Error,ex.TargetSite.Name, ex.TargetSite.ToString(), ex.ToString(), false);
 		}
 	}

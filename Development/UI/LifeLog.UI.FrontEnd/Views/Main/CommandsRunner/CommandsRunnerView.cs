@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraBars;
+﻿using DevExpress.Office.Utils;
+using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Tile;
 using LifeLog.Base.Models.Data;
@@ -404,15 +405,10 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		{
 			try
 			{
-				List<CommandsModel> list = bstiShowDisabledCommands.Checked ? _listCommands : _listCommands.Where(w => w.IsEnabled).ToList();
-			
-				if (!(listboxPrograms.SelectedItem is ExternalProgramsModel ep) || ep.Id == Guid.Empty)
-				{
-					bsCommandsList.DataSource = list;
+				if (_listCommands is null)
 					return;
-				}
 
-				bsCommandsList.DataSource = list.Where(w => w.ExternalProgram?.Id == ep.Id).ToList();
+				LoadCommandsHelper();
 
 			}
 			catch (Exception ex)
@@ -430,10 +426,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private async void bstiShowDisabledCommands_CheckedChanged(object sender, ItemClickEventArgs e)
-		{
-			await LoadData();
-		}
+		private void bstiShowDisabledCommands_CheckedChanged(object sender, ItemClickEventArgs e) =>
+			LoadCommandsHelper();
 
 		#endregion
 
@@ -465,8 +459,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 				(List<CommandsModel> commands, string message) = await AppSession.DataEngine.Commands.GetUserCommands(AppSession.CurrentUser.Id);
 				_listCommands = commands;
-
-				bsCommandsList.DataSource = bstiShowDisabledCommands.Checked ? _listCommands : _listCommands.Where(w => w.IsEnabled).ToList();
+				
+				LoadCommandsHelper();
 
 				AppHelper.StatusMessage(message, commands.Count > 0);
 			}
@@ -634,6 +628,19 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 			{
 				ErrorHelper.Handler(ex);
 			}
+		}
+
+		/// <summary>
+		/// Help to load the commands
+		/// </summary>
+		private void LoadCommandsHelper()
+		{
+			List<CommandsModel> list = bstiShowDisabledCommands.Checked ? _listCommands : _listCommands.Where(w => w.IsEnabled).ToList();
+
+			if (!(listboxPrograms.SelectedItem is ExternalProgramsModel ep) || ep.Id == Guid.Empty)
+				bsCommandsList.DataSource = list;
+			else
+				bsCommandsList.DataSource = list.Where(w => w.ExternalProgram?.Id == ep.Id).ToList();
 		}
 
 		#endregion
