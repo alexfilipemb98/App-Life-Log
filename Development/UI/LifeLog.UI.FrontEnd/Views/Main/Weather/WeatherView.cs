@@ -184,5 +184,17 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 
 		#endregion
 
+		#region FUCNTIONS
+
+		#region PUBLIC
+
+		public void LoadData(){
+			countriesModelBindingSource.DataSource = Countries.Data.Countries();
+		}
+
+		#endregion
+
+		#endregion
+
 	}
 }

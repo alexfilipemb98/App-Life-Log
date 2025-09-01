@@ -96,7 +96,7 @@
         <xpObjectShapeMoniker Id="ce430f5f-7f65-441f-817e-3f60a9635766" />
       </nodes>
     </inheritaceConnector>
-    <aggregationConnector Id="ac842852-bd23-48eb-8226-0aa58b983db4" edgePoints="[(5 : 1.61305781756161); (7.125 : 1.61305781756161)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <aggregationConnector Id="ac842852-bd23-48eb-8226-0aa58b983db4" edgePoints="[(5 : 1.61305781756161); (7.125 : 1.61305781756161)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <aggregationMoniker Id="af1301e2-3631-451f-9a14-4e4f652a3650" />
       <relativeChildShapes />
       <nodes>

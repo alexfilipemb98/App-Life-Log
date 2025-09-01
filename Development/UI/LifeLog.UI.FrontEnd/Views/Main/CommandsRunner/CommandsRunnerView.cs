@@ -315,9 +315,6 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 			if (((MouseEventArgs)e).Button != MouseButtons.Right)
 				return;
 
-			if ((tileView.GetFocusedRow() is CommandsModel model))
-				return;
-
 			bbiEdit.Visibility = BarItemVisibility.Never;
 			bbiDelete.Visibility = BarItemVisibility.Never;
 			bbiEnable.Visibility = BarItemVisibility.Never;

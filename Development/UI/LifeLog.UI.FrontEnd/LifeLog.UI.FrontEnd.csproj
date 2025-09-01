@@ -207,6 +207,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\Countries.Models.CountriesModel.datasource" />
     <None Include="Properties\DataSources\LifeLog.Base.Models.Data.CommandsModel.datasource" />
     <None Include="Properties\DataSources\LifeLog.Base.Models.Data.ExternalProgramsModel.datasource" />
     <None Include="Properties\DataSources\LifeLog.Base.Models.Data.ImagesModel.datasource" />
@@ -231,6 +232,10 @@
     <ProjectReference Include="..\..\Base\LifeLog.Base.Utils\LifeLog.Base.Utils.csproj">
       <Project>{8a6700aa-97d0-4bd6-be44-72945801fb6b}</Project>
       <Name>LifeLog.Base.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\LifeLog.Data.Coutries\LifeLog.Data.Coutries.csproj">
+      <Project>{b3d94c13-6b18-4c70-9e51-b7ad2567046f}</Project>
+      <Name>LifeLog.Data.Coutries</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\LifeLog.Data.Database\LifeLog.Data.Database.csproj">
       <Project>{82FA5515-A840-4229-9DB9-BA4335E1B78F}</Project>

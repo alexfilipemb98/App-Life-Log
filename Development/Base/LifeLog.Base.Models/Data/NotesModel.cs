@@ -18,7 +18,6 @@ namespace LifeLog.Base.Models.Data
 		public string Title { get; set; }
 
 		[DataType(DataType.MultilineText)]
-		[Infrastructure.Attributes.StringLength(4000)]
 		public string Text { get; set; }
 
 		[Infrastructure.Attributes.StringLength(20)]

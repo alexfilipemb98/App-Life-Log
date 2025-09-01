@@ -31,8 +31,7 @@ namespace LifeLog.Data.Database.ORMDataModel
 			set { SetPropertyValue<string>(nameof(Title), ref fTitle, value); }
 		}
 		string fText;
-		[Size(4000)]
-		[DbType("NVARCHAR(4000)")]
+		[Size(SizeAttribute.Unlimited)]
 		public string Text
 		{
 			get { return fText; }
