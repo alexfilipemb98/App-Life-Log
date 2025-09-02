@@ -2,7 +2,7 @@
 using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
 using DevExpress.Xpo.Metadata;
-using JDS.BASE.DapperUtil;
+using LifeLog.Base.DapperUtil;
 using LifeLog.Base.Infrastructure.Enums;
 using LifeLog.Base.Models;
 using Microsoft.Data.SqlClient;

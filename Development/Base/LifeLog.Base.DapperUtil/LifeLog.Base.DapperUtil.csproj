@@ -7,8 +7,8 @@
     <ProjectGuid>{C459304D-2305-4A4F-9150-56637E9FFFAF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JDS.BASE.DapperUtil</RootNamespace>
-    <AssemblyName>JDS.BASE.DapperUtil</AssemblyName>
+    <RootNamespace>LifeLog.Base.DapperUtil</RootNamespace>
+    <AssemblyName>LifeLog.Base.DapperUtil</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

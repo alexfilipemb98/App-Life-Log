@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace JDS.BASE.DapperUtil
+namespace LifeLog.Base.DapperUtil
 {
     /// <summary>
     /// Class principal de sql management

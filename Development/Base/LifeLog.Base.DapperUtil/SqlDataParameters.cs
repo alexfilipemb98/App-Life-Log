@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JDS.BASE.DapperUtil
+namespace LifeLog.Base.DapperUtil
 {
 	public class SqlDataParameters : Dapper.DynamicParameters
 	{
