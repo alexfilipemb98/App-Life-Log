@@ -146,7 +146,7 @@
 			// bsNotes
 			// 
 			this.bsNotes.BindingBehavior = DevExpress.Xpo.CollectionBindingBehavior.AllowNone;
-			this.bsNotes.ObjectType = typeof(LifeLog.Base.Models.Data.NotesModel);
+			this.bsNotes.ObjectType = typeof(LifeLog.Data.Models.NotesModel);
 			// 
 			// gridView
 			// 

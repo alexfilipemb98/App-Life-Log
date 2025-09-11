@@ -221,7 +221,7 @@
 			// 
 			// bsImages
 			// 
-			this.bsImages.ObjectType = typeof(LifeLog.Base.Models.Data.ImagesModel);
+			this.bsImages.ObjectType = typeof(LifeLog.Data.Models.ImagesModel);
 			// 
 			// gridView
 			// 

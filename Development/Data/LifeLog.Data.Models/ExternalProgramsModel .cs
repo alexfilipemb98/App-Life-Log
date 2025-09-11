@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LifeLog.Base.Models.Data
+namespace LifeLog.Data.Models
 {
     [Table("ExternalPrograms")]
 	[Description("Database model for external programs")]
@@ -12,22 +12,22 @@ namespace LifeLog.Base.Models.Data
 		#region PROPERTIES
 		
 		[DataType(DataType.Text)]
-		[Infrastructure.Attributes.Required]
-		[Infrastructure.Attributes.StringLength(30, MinimumLength = 3)]
+		[Base.Infrastructure.Attributes.Required]
+		[Base.Infrastructure.Attributes.StringLength(30, MinimumLength = 3)]
 		public string Name { get; set; }
 
 		[DataType(DataType.Text)]
-		[Infrastructure.Attributes.Required]
-		[Infrastructure.Attributes.StringLength(5)]
+		[Base.Infrastructure.Attributes.Required]
+		[Base.Infrastructure.Attributes.StringLength(5)]
 		public string FileExtension { get; set; }
 
 		[DataType(DataType.Text)]
-		[Infrastructure.Attributes.Required]
-		[Infrastructure.Attributes.StringLength(400)]
+		[Base.Infrastructure.Attributes.Required]
+		[Base.Infrastructure.Attributes.StringLength(400)]
 		public string PathToProgram { get; set; }
 
 		[DataType(DataType.Text)]
-		[Infrastructure.Attributes.StringLength(150)]
+		[Base.Infrastructure.Attributes.StringLength(150)]
 		public string Arguments { get; set; }
 
 		#endregion

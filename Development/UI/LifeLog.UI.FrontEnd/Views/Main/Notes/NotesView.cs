@@ -3,7 +3,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using LifeLog.Base.Components;
-using LifeLog.Base.Models.Data;
+using LifeLog.Data.Models;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Forms.Dialog;
 using LifeLog.UI.Common.Helpers;

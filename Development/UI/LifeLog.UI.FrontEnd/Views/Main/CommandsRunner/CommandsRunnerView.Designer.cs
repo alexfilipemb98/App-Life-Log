@@ -314,7 +314,7 @@
 			// 
 			// bsCommandsList
 			// 
-			this.bsCommandsList.DataSource = typeof(LifeLog.Base.Models.Data.CommandsModel);
+			this.bsCommandsList.DataSource = typeof(LifeLog.Data.Models.CommandsModel);
 			// 
 			// tileView
 			// 
@@ -610,7 +610,7 @@
 			// 
 			// bsExternalPrograms
 			// 
-			this.bsExternalPrograms.DataSource = typeof(LifeLog.Base.Models.Data.ExternalProgramsModel);
+			this.bsExternalPrograms.DataSource = typeof(LifeLog.Data.Models.ExternalProgramsModel);
 			// 
 			// htmlTemplate1
 			// 
@@ -719,7 +719,7 @@
 			// 
 			// bsCommandsEdit
 			// 
-			this.bsCommandsEdit.DataSource = typeof(LifeLog.Base.Models.Data.CommandsModel);
+			this.bsCommandsEdit.DataSource = typeof(LifeLog.Data.Models.CommandsModel);
 			// 
 			// teDescription
 			// 

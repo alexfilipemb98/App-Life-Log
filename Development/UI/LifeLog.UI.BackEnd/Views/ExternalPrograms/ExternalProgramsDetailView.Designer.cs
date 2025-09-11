@@ -418,7 +418,7 @@
 			// 
 			// externalProgramsModelBindingSource
 			// 
-			this.externalProgramsModelBindingSource.DataSource = typeof(LifeLog.Base.Models.Data.ExternalProgramsModel);
+			this.externalProgramsModelBindingSource.DataSource = typeof(LifeLog.Data.Models.ExternalProgramsModel);
 			// 
 			// ExternalProgramsDetailView
 			// 

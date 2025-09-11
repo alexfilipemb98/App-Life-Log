@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using LifeLog.Base.Models;
+using Newtonsoft.Json;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LifeLog.Base.Models.Data
+namespace LifeLog.Data.Models
 {
 	[Table("Notes")]
 	[Description("Database model for notes")]
@@ -13,14 +13,14 @@ namespace LifeLog.Base.Models.Data
 		#region PROPERTIES
 
 		[DataType(DataType.Text)]
-		[Infrastructure.Attributes.Required]
-		[Infrastructure.Attributes.StringLength(30, MinimumLength = 3)]
+		[Base.Infrastructure.Attributes.Required]
+		[Base.Infrastructure.Attributes.StringLength(30, MinimumLength = 3)]
 		public string Title { get; set; }
 
 		[DataType(DataType.MultilineText)]
 		public string Text { get; set; }
 
-		[Infrastructure.Attributes.StringLength(20)]
+		[Base.Infrastructure.Attributes.StringLength(20)]
 		public int Color { get; set; }
 
 		[JsonIgnore]
@@ -31,7 +31,7 @@ namespace LifeLog.Base.Models.Data
 		#region CLASS
 
 		[JsonIgnore]
-		[Infrastructure.Attributes.Required]
+		[Base.Infrastructure.Attributes.Required]
 		public LoggedUserModel User { get; set; } 
 		
 		#endregion

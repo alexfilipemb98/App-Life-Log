@@ -216,13 +216,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\DataSources\Countries.Models.CountriesModel.datasource" />
-    <None Include="Properties\DataSources\LifeLog.Base.Models.Data.CommandsModel.datasource" />
-    <None Include="Properties\DataSources\LifeLog.Base.Models.Data.ExternalProgramsModel.datasource" />
-    <None Include="Properties\DataSources\LifeLog.Base.Models.Data.ImagesModel.datasource" />
-    <None Include="Properties\DataSources\LifeLog.Base.Models.Data.NotesModel.datasource" />
-    <None Include="Properties\DataSources\LifeLog.Base.Models.Data.UsersModel.datasource" />
-    <None Include="Properties\DataSources\LifeLog.Base.Models.Data.VersionsModel.datasource" />
     <None Include="Resources\bo_attention.svg" />
   </ItemGroup>
   <ItemGroup>
@@ -249,6 +242,10 @@
     <ProjectReference Include="..\..\Data\LifeLog.Data.Database\LifeLog.Data.Database.csproj">
       <Project>{82FA5515-A840-4229-9DB9-BA4335E1B78F}</Project>
       <Name>LifeLog.Data.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\LifeLog.Data.Models\LifeLog.Data.Models.csproj">
+      <Project>{748E1B52-8FF2-4BD0-98F7-7D76DD11E4AC}</Project>
+      <Name>LifeLog.Data.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\LifeLog.UI.Common\LifeLog.UI.Common.csproj">
       <Project>{23751C8B-AFFA-4B01-9F2F-853C517DA940}</Project>
@@ -361,6 +358,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\saveall.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\weather.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_address.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\game-console.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dice-dice.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tic-tac-toe.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

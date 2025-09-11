@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LifeLog.Base.Models.Data;
+using LifeLog.Data.Models;
 
 namespace LifeLog.UI.BackEnd.Views.ExternalPrograms
 {

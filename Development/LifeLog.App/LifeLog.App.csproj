@@ -120,6 +120,7 @@
   <PropertyGroup>
     <PostBuildEvent>cd $(TargetDir)
 del *.xml
+
 if "$(ConfigurationName)" == "Release" (
     del *.pdb
 )

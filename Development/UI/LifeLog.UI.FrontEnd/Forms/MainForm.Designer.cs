@@ -35,6 +35,7 @@
 			this.backstageViewClientControl2 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
 			this.databaseSettingsView1 = new LifeLog.UI.Common.Views.DatabaseSettingsView();
 			this.backstageViewClientControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
+			this.modulesSetting = new LifeLog.UI.FrontEnd.Views.Settings.ModulesSetting();
 			this.bvtiDatabaseSettings = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
 			this.bvtiModulesSettings = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
 			this.bbiSettingsApp = new DevExpress.XtraBars.BarButtonItem();
@@ -82,7 +83,6 @@
 			this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-			this.modulesSetting = new LifeLog.UI.FrontEnd.Views.Settings.ModulesSetting();
 			((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.backstageViewControl1)).BeginInit();
 			this.backstageViewControl1.SuspendLayout();
@@ -192,6 +192,14 @@
 			this.backstageViewClientControl1.Name = "backstageViewClientControl1";
 			this.backstageViewClientControl1.Size = new System.Drawing.Size(531, 187);
 			this.backstageViewClientControl1.TabIndex = 3;
+			// 
+			// modulesSetting
+			// 
+			this.modulesSetting.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.modulesSetting.Location = new System.Drawing.Point(0, 0);
+			this.modulesSetting.Name = "modulesSetting";
+			this.modulesSetting.Size = new System.Drawing.Size(531, 187);
+			this.modulesSetting.TabIndex = 0;
 			// 
 			// bvtiDatabaseSettings
 			// 
@@ -525,7 +533,6 @@
 			// 
 			// npHome
 			// 
-			this.npHome.Caption = "npHome";
 			this.npHome.Controls.Add(this.backstageViewControl1);
 			this.npHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.npHome.Name = "npHome";
@@ -569,14 +576,6 @@
 			// 
 			this.ribbonPage7.Name = "ribbonPage7";
 			this.ribbonPage7.Text = "ribbonPage7";
-			// 
-			// modulesSetting
-			// 
-			this.modulesSetting.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.modulesSetting.Location = new System.Drawing.Point(0, 0);
-			this.modulesSetting.Name = "modulesSetting";
-			this.modulesSetting.Size = new System.Drawing.Size(531, 187);
-			this.modulesSetting.TabIndex = 0;
 			// 
 			// MainForm
 			// 

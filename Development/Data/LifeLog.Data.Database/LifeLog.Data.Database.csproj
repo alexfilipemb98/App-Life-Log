@@ -124,6 +124,10 @@
       <Project>{8a6700aa-97d0-4bd6-be44-72945801fb6b}</Project>
       <Name>LifeLog.Base.Utils</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LifeLog.Data.Models\LifeLog.Data.Models.csproj">
+      <Project>{748E1B52-8FF2-4BD0-98F7-7D76DD11E4AC}</Project>
+      <Name>LifeLog.Data.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />

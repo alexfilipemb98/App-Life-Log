@@ -439,7 +439,7 @@
 			// 
 			// usersModelBindingSource
 			// 
-			this.usersModelBindingSource.DataSource = typeof(LifeLog.Base.Models.Data.UsersModel);
+			this.usersModelBindingSource.DataSource = typeof(LifeLog.Data.Models.UsersModel);
 			// 
 			// UsersListView
 			// 

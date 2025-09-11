@@ -1,6 +1,6 @@
 ﻿using DevExpress.Xpo;
 using LifeLog.Base.Models;
-using LifeLog.Base.Models.Data;
+using LifeLog.Data.Models;
 using LifeLog.Base.Utils;
 using LifeLog.Data.Database.Bases;
 using LifeLog.Data.Database.Mappers;

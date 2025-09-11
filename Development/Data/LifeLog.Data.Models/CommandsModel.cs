@@ -1,10 +1,11 @@
 ﻿using LifeLog.Base.Infrastructure.Enums;
+using LifeLog.Base.Models;
 using Newtonsoft.Json;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LifeLog.Base.Models.Data
+namespace LifeLog.Data.Models
 {
 	[Table("Commands")]
 	[Description("Database model for commands")]
@@ -13,18 +14,18 @@ namespace LifeLog.Base.Models.Data
 		#region PROPERTIES
 
 		[DataType(DataType.Text)]
-		[Infrastructure.Attributes.Required]
-		[Infrastructure.Attributes.StringLength(13, MinimumLength = 3)]
+		[Base.Infrastructure.Attributes.Required]
+		[Base.Infrastructure.Attributes.StringLength(13, MinimumLength = 3)]
 		public string Name { get; set; }
 
 		[DataType(DataType.Text)]
-		[Infrastructure.Attributes.Required]
-		[Infrastructure.Attributes.StringLength(30, MinimumLength = 3)]
+		[Base.Infrastructure.Attributes.Required]
+		[Base.Infrastructure.Attributes.StringLength(30, MinimumLength = 3)]
 		public string Description { get; set; }
 
 		[DataType(DataType.Text)]
-		[Infrastructure.Attributes.Required]
-		[Infrastructure.Attributes.StringLength(4000)]
+		[Base.Infrastructure.Attributes.Required]
+		[Base.Infrastructure.Attributes.StringLength(4000)]
 		public string Command { get; set; }
 
 		[JsonIgnore]
@@ -41,11 +42,11 @@ namespace LifeLog.Base.Models.Data
 		#region CLASS
 
 		[JsonIgnore]
-		[Infrastructure.Attributes.Required]
+		[Base.Infrastructure.Attributes.Required]
 		public LoggedUserModel User { get; set; }
 
 		[JsonIgnore]
-		[Infrastructure.Attributes.RequiredIf(nameof(IsEnabled), OperatorsEnum.Equal, true)]
+		[Base.Infrastructure.Attributes.RequiredIf(nameof(IsEnabled), OperatorsEnum.Equal, true)]
 		public ExternalProgramsModel ExternalProgram { get; set; }
 
 		#endregion

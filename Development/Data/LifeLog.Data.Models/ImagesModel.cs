@@ -2,8 +2,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using System.Drawing;
+using DevExpress.Utils.Svg;
 
-namespace LifeLog.Base.Models.Data
+namespace LifeLog.Data.Models
 {
 	[Table("Images")]
 	[Description("Database model for images")]
@@ -12,16 +14,16 @@ namespace LifeLog.Base.Models.Data
 		#region PROPERTIES
 		
 		[DataType(DataType.Text)]
-		[Infrastructure.Attributes.Required]
-		[Infrastructure.Attributes.StringLength(30, MinimumLength = 3)]
+		[Base.Infrastructure.Attributes.Required]
+		[Base.Infrastructure.Attributes.StringLength(30, MinimumLength = 3)]
 		public string Name { get; set; }
 
-		[Infrastructure.Attributes.Required]
+		[Base.Infrastructure.Attributes.Required]
 		public byte[] Data { get; set; }
 
 		[DataType(DataType.Text)]
-		[Infrastructure.Attributes.Required]
-		[Infrastructure.Attributes.StringLength(10)]
+		[Base.Infrastructure.Attributes.Required]
+		[Base.Infrastructure.Attributes.StringLength(10)]
 		public string FileExtension { get; set; }
 
 		#endregion
@@ -34,11 +36,11 @@ namespace LifeLog.Base.Models.Data
 
 		[JsonIgnore]
 		[NotMapped]
-		public DevExpress.Utils.Svg.SvgImage SvgImage => Data != null && Data.Length > 0 && IsSvg ? Utils.ImagesUtil.ArrayToSvgImage(Data) : null;
+		public SvgImage SvgImage => Data != null && Data.Length > 0 && IsSvg ? Base.Utils.ImagesUtil.ArrayToSvgImage(Data) : null;
 
 		[JsonIgnore]
 		[NotMapped]
-		public System.Drawing.Bitmap BitImage => Data != null && Data.Length > 0 && !IsSvg ? Utils.ImagesUtil.ArrayToBitmap(Data) : null;
+		public Bitmap BitImage => Data != null && Data.Length > 0 && !IsSvg ? Base.Utils.ImagesUtil.ArrayToBitmap(Data) : null;
 
 		#endregion
 	}

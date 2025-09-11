@@ -1,7 +1,7 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
-using LifeLog.Base.Models.Data;
+using LifeLog.Data.Models;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Helpers;
 using System;

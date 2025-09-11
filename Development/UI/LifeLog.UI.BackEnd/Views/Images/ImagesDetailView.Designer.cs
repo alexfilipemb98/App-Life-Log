@@ -401,11 +401,11 @@
 			// 
 			// bsImages
 			// 
-			this.bsImages.ObjectType = typeof(LifeLog.Base.Models.Data.ImagesModel);
+			this.bsImages.ObjectType = typeof(LifeLog.Data.Models.ImagesModel);
 			// 
 			// imagesEntityBindingSource
 			// 
-			this.imagesEntityBindingSource.DataSource = typeof(LifeLog.Base.Models.Data.ImagesModel);
+			this.imagesEntityBindingSource.DataSource = typeof(LifeLog.Data.Models.ImagesModel);
 			// 
 			// ImagesDetailView
 			// 
