@@ -1,5 +1,4 @@
 ﻿using DevExpress.Xpo;
-using JDS.BASE.DapperUtil;
 using LifeLog.Base.Models;
 using LifeLog.Base.Models.Data;
 using LifeLog.Base.Utils;

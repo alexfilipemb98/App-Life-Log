@@ -35,8 +35,8 @@
 			this.backstageViewClientControl2 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
 			this.databaseSettingsView1 = new LifeLog.UI.Common.Views.DatabaseSettingsView();
 			this.backstageViewClientControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-			this.backstageViewTabItem1 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-			this.backstageViewTabItem2 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+			this.bvtiDatabaseSettings = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+			this.bvtiModulesSettings = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
 			this.bbiSettingsApp = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiNotes = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiRollDice = new DevExpress.XtraBars.BarButtonItem();
@@ -82,10 +82,12 @@
 			this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+			this.modulesSetting = new LifeLog.UI.FrontEnd.Views.Settings.ModulesSetting();
 			((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.backstageViewControl1)).BeginInit();
 			this.backstageViewControl1.SuspendLayout();
 			this.backstageViewClientControl2.SuspendLayout();
+			this.backstageViewClientControl1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
 			this.layoutControl1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -144,7 +146,7 @@
 			this.ribbon.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
 			this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
 			this.ribbon.ShowToolbarCustomizeItem = false;
-			this.ribbon.Size = new System.Drawing.Size(1322, 222);
+			this.ribbon.Size = new System.Drawing.Size(1322, 177);
 			this.ribbon.StatusBar = this.ribbonStatusBar;
 			this.ribbon.Toolbar.ShowCustomizeItem = false;
 			this.ribbon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ribbon_ItemClickAsync);
@@ -153,25 +155,25 @@
 			// 
 			this.backstageViewControl1.Controls.Add(this.backstageViewClientControl2);
 			this.backstageViewControl1.Controls.Add(this.backstageViewClientControl1);
-			this.backstageViewControl1.Items.Add(this.backstageViewTabItem1);
-			this.backstageViewControl1.Items.Add(this.backstageViewTabItem2);
+			this.backstageViewControl1.Items.Add(this.bvtiDatabaseSettings);
+			this.backstageViewControl1.Items.Add(this.bvtiModulesSettings);
 			this.backstageViewControl1.Location = new System.Drawing.Point(26, 34);
 			this.backstageViewControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.backstageViewControl1.Name = "backstageViewControl1";
 			this.backstageViewControl1.OwnerControl = this.ribbon;
-			this.backstageViewControl1.SelectedTab = this.backstageViewTabItem2;
-			this.backstageViewControl1.SelectedTabIndex = 1;
+			this.backstageViewControl1.SelectedTab = this.bvtiDatabaseSettings;
+			this.backstageViewControl1.SelectedTabIndex = 0;
 			this.backstageViewControl1.Size = new System.Drawing.Size(669, 251);
 			this.backstageViewControl1.TabIndex = 5;
-			this.backstageViewControl1.Text = "backstageViewControl1";
+			this.backstageViewControl1.Text = "Settings";
 			// 
 			// backstageViewClientControl2
 			// 
 			this.backstageViewClientControl2.Controls.Add(this.databaseSettingsView1);
-			this.backstageViewClientControl2.Location = new System.Drawing.Point(209, 63);
+			this.backstageViewClientControl2.Location = new System.Drawing.Point(137, 63);
 			this.backstageViewClientControl2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.backstageViewClientControl2.Name = "backstageViewClientControl2";
-			this.backstageViewClientControl2.Size = new System.Drawing.Size(459, 187);
+			this.backstageViewClientControl2.Size = new System.Drawing.Size(531, 187);
 			this.backstageViewClientControl2.TabIndex = 2;
 			// 
 			// databaseSettingsView1
@@ -180,29 +182,29 @@
 			this.databaseSettingsView1.Location = new System.Drawing.Point(0, 0);
 			this.databaseSettingsView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.databaseSettingsView1.Name = "databaseSettingsView1";
-			this.databaseSettingsView1.Size = new System.Drawing.Size(459, 187);
+			this.databaseSettingsView1.Size = new System.Drawing.Size(531, 187);
 			this.databaseSettingsView1.TabIndex = 0;
 			// 
 			// backstageViewClientControl1
 			// 
-			this.backstageViewClientControl1.Location = new System.Drawing.Point(231, 63);
-			this.backstageViewClientControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.backstageViewClientControl1.Controls.Add(this.modulesSetting);
+			this.backstageViewClientControl1.Location = new System.Drawing.Point(137, 63);
 			this.backstageViewClientControl1.Name = "backstageViewClientControl1";
-			this.backstageViewClientControl1.Size = new System.Drawing.Size(440, 313);
-			this.backstageViewClientControl1.TabIndex = 1;
+			this.backstageViewClientControl1.Size = new System.Drawing.Size(531, 187);
+			this.backstageViewClientControl1.TabIndex = 3;
 			// 
-			// backstageViewTabItem1
+			// bvtiDatabaseSettings
 			// 
-			this.backstageViewTabItem1.Caption = "backstageViewTabItem1";
-			this.backstageViewTabItem1.ContentControl = this.backstageViewClientControl1;
-			this.backstageViewTabItem1.Name = "backstageViewTabItem1";
+			this.bvtiDatabaseSettings.Caption = "Database";
+			this.bvtiDatabaseSettings.ContentControl = this.backstageViewClientControl2;
+			this.bvtiDatabaseSettings.Name = "bvtiDatabaseSettings";
+			this.bvtiDatabaseSettings.Selected = true;
 			// 
-			// backstageViewTabItem2
+			// bvtiModulesSettings
 			// 
-			this.backstageViewTabItem2.Caption = "Database Settings";
-			this.backstageViewTabItem2.ContentControl = this.backstageViewClientControl2;
-			this.backstageViewTabItem2.Name = "backstageViewTabItem2";
-			this.backstageViewTabItem2.Selected = true;
+			this.bvtiModulesSettings.Caption = "Modules";
+			this.bvtiModulesSettings.ContentControl = this.backstageViewClientControl1;
+			this.bvtiModulesSettings.Name = "bvtiModulesSettings";
 			// 
 			// bbiSettingsApp
 			// 
@@ -454,11 +456,11 @@
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiAppVersion);
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiTime);
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiUserMenu);
-			this.ribbonStatusBar.Location = new System.Drawing.Point(0, 687);
+			this.ribbonStatusBar.Location = new System.Drawing.Point(0, 702);
 			this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.ribbonStatusBar.Name = "ribbonStatusBar";
 			this.ribbonStatusBar.Ribbon = this.ribbon;
-			this.ribbonStatusBar.Size = new System.Drawing.Size(1322, 39);
+			this.ribbonStatusBar.Size = new System.Drawing.Size(1322, 24);
 			// 
 			// bsiStatusLabel
 			// 
@@ -490,21 +492,21 @@
 			// 
 			this.layoutControl1.Controls.Add(this.panelControl1);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 222);
+			this.layoutControl1.Location = new System.Drawing.Point(0, 177);
 			this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.layoutControl1.Name = "layoutControl1";
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(1322, 465);
+			this.layoutControl1.Size = new System.Drawing.Size(1322, 525);
 			this.layoutControl1.TabIndex = 2;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
 			// panelControl1
 			// 
 			this.panelControl1.Controls.Add(this.navigationFrame);
-			this.panelControl1.Location = new System.Drawing.Point(16, 16);
+			this.panelControl1.Location = new System.Drawing.Point(12, 12);
 			this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.panelControl1.Name = "panelControl1";
-			this.panelControl1.Size = new System.Drawing.Size(1290, 433);
+			this.panelControl1.Size = new System.Drawing.Size(1298, 501);
 			this.panelControl1.TabIndex = 4;
 			// 
 			// navigationFrame
@@ -517,7 +519,7 @@
 			this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.npHome});
 			this.navigationFrame.SelectedPage = this.npHome;
-			this.navigationFrame.Size = new System.Drawing.Size(1286, 429);
+			this.navigationFrame.Size = new System.Drawing.Size(1294, 497);
 			this.navigationFrame.TabIndex = 0;
 			this.navigationFrame.Text = "navigationFrame1";
 			// 
@@ -527,7 +529,7 @@
 			this.npHome.Controls.Add(this.backstageViewControl1);
 			this.npHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.npHome.Name = "npHome";
-			this.npHome.Size = new System.Drawing.Size(1286, 429);
+			this.npHome.Size = new System.Drawing.Size(1294, 497);
 			// 
 			// Root
 			// 
@@ -536,7 +538,7 @@
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
 			this.Root.Name = "Root";
-			this.Root.Size = new System.Drawing.Size(1322, 465);
+			this.Root.Size = new System.Drawing.Size(1322, 525);
 			this.Root.TextVisible = false;
 			// 
 			// layoutControlItem1
@@ -544,7 +546,7 @@
 			this.layoutControlItem1.Control = this.panelControl1;
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(1296, 439);
+			this.layoutControlItem1.Size = new System.Drawing.Size(1302, 505);
 			this.layoutControlItem1.TextVisible = false;
 			// 
 			// timer
@@ -567,6 +569,14 @@
 			// 
 			this.ribbonPage7.Name = "ribbonPage7";
 			this.ribbonPage7.Text = "ribbonPage7";
+			// 
+			// modulesSetting
+			// 
+			this.modulesSetting.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.modulesSetting.Location = new System.Drawing.Point(0, 0);
+			this.modulesSetting.Name = "modulesSetting";
+			this.modulesSetting.Size = new System.Drawing.Size(531, 187);
+			this.modulesSetting.TabIndex = 0;
 			// 
 			// MainForm
 			// 
@@ -591,6 +601,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.backstageViewControl1)).EndInit();
 			this.backstageViewControl1.ResumeLayout(false);
 			this.backstageViewClientControl2.ResumeLayout(false);
+			this.backstageViewClientControl1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
 			this.layoutControl1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -635,11 +646,9 @@
 		private DevExpress.XtraBars.BarToggleSwitchItem btsiTopMost;
 		private DevExpress.XtraBars.BarButtonItem bbiPdfMerger;
 		private DevExpress.XtraBars.Ribbon.BackstageViewControl backstageViewControl1;
-		private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl1;
 		private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl2;
 		private Common.Views.DatabaseSettingsView databaseSettingsView1;
-		private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem1;
-		private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem2;
+		private DevExpress.XtraBars.Ribbon.BackstageViewTabItem bvtiDatabaseSettings;
 		private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage6;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
 		private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage7;
@@ -659,5 +668,8 @@
 		private DevExpress.XtraBars.BarButtonItem bbiWeather;
 		private DevExpress.XtraBars.BarButtonItem bbiConvertText;
 		private DevExpress.XtraBars.BarButtonItem bbiThreeSimpleRule;
+		private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl1;
+		private DevExpress.XtraBars.Ribbon.BackstageViewTabItem bvtiModulesSettings;
+		private Views.Settings.ModulesSetting modulesSetting;
 	}
 }

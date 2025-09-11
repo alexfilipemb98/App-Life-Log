@@ -123,6 +123,12 @@
     <Compile Include="Views\Main\Passwords\PasswordsView.Designer.cs">
       <DependentUpon>PasswordsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Settings\ModulesSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Settings\ModulesSetting.Designer.cs">
+      <DependentUpon>ModulesSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tools\ConvertCase\ConvertCaseView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main\Passwords\PasswordsView.resx">
       <DependentUpon>PasswordsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Settings\ModulesSetting.resx">
+      <DependentUpon>ModulesSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tools\ConvertCase\ConvertCaseView.resx">
       <DependentUpon>ConvertCaseView.cs</DependentUpon>
@@ -346,6 +355,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\above average.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\security_key.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveall.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

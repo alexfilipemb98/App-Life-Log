@@ -1,5 +1,4 @@
 ﻿using DevExpress.Xpo;
-using JDS.BASE.DapperUtil;
 using LifeLog.Base.Models.Data;
 using LifeLog.Data.Database.Bases;
 using LifeLog.Data.Database.Mappers;
@@ -9,8 +8,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using static DevExpress.Xpo.Helpers.CannotLoadObjectsHelper;
 
 namespace LifeLog.Data.Database.Queries
 {

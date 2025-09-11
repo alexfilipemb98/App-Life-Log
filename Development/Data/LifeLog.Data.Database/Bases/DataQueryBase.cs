@@ -1,12 +1,9 @@
-﻿using DevExpress.Xpo;
-using JDS.BASE.DapperUtil;
+﻿using LifeLog.Base.DapperUtil;
 using LifeLog.Base.Infrastructure.Interfaces;
-using LifeLog.Base.Models;
 using LifeLog.Base.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
