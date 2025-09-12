@@ -110,7 +110,7 @@
 			// 
 			// pictureEdit2
 			// 
-			this.pictureEdit2.EditValue = global::LifeLog.UI.Common.Properties.Resources.actions_arrow1right;
+			this.pictureEdit2.EditValue = global::LifeLog.Base.Assets.Resources.actions_arrow1right;
 			this.pictureEdit2.Location = new System.Drawing.Point(273, 65);
 			this.pictureEdit2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.pictureEdit2.MenuManager = this.ribbonControl;
@@ -125,7 +125,7 @@
 			// 
 			// pictureEdit1
 			// 
-			this.pictureEdit1.EditValue = global::LifeLog.UI.Common.Properties.Resources.actions_arrow1right;
+			this.pictureEdit1.EditValue = global::LifeLog.Base.Assets.Resources.actions_arrow1right;
 			this.pictureEdit1.Location = new System.Drawing.Point(273, 9);
 			this.pictureEdit1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.pictureEdit1.MenuManager = this.ribbonControl;
@@ -283,7 +283,7 @@
 			this.Controls.Add(this.ribbonControl);
 			this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.IconOptions.Image = global::LifeLog.UI.Common.Properties.Resources.icon;
+			this.IconOptions.Image = global::LifeLog.Base.Assets.Resources.icon;
 			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.Name = "ThreeSimpleRuleForm";
 			this.Ribbon = this.ribbonControl;

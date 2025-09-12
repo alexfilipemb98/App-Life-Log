@@ -258,7 +258,7 @@
 			// 
 			// pictureEdit1
 			// 
-			this.pictureEdit1.EditValue = global::LifeLog.UI.Common.Properties.Resources.icon1;
+			this.pictureEdit1.EditValue = global::LifeLog.Base.Assets.Resources.icon;
 			this.pictureEdit1.Location = new System.Drawing.Point(423, 0);
 			this.pictureEdit1.Margin = new System.Windows.Forms.Padding(0);
 			this.pictureEdit1.MenuManager = this.ribbon;
@@ -639,7 +639,7 @@
 			this.Controls.Add(this.ribbonStatusBar);
 			this.Controls.Add(this.ribbon);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-			this.IconOptions.Image = global::LifeLog.UI.Common.Properties.Resources.icon;
+			this.IconOptions.Image = global::LifeLog.Base.Assets.Resources.icon;
 			this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
 			this.Name = "AuthForm";
 			this.Ribbon = this.ribbon;

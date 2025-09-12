@@ -218,7 +218,7 @@
 			// 
 			this.bbiSettingsApp.Caption = "Settings";
 			this.bbiSettingsApp.Id = 8;
-			this.bbiSettingsApp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiSettingsApp.ImageOptions.SvgImage")));
+			this.bbiSettingsApp.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.properties;
 			this.bbiSettingsApp.Name = "bbiSettingsApp";
 			this.bbiSettingsApp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSettingsApp_ItemClick);
 			// 
@@ -234,7 +234,7 @@
 			// 
 			this.bbiRollDice.Caption = "Roll Dice";
 			this.bbiRollDice.Id = 2;
-			this.bbiRollDice.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiRollDice.ImageOptions.SvgImage")));
+			this.bbiRollDice.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.dice_dice;
 			this.bbiRollDice.Name = "bbiRollDice";
 			this.bbiRollDice.Tag = "Entertainment.Dice.DiceGameView";
 			// 
@@ -242,7 +242,7 @@
 			// 
 			this.bbiFlipCoin.Caption = "Coin Filp";
 			this.bbiFlipCoin.Id = 3;
-			this.bbiFlipCoin.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiFlipCoin.ImageOptions.SvgImage")));
+			this.bbiFlipCoin.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.coin_flip;
 			this.bbiFlipCoin.Name = "bbiFlipCoin";
 			this.bbiFlipCoin.Tag = "Entertainment.CoinFlip.CoinFlipGameView";
 			// 
@@ -250,7 +250,7 @@
 			// 
 			this.bbiTicTacToe.Caption = "Tic Tac Toe";
 			this.bbiTicTacToe.Id = 4;
-			this.bbiTicTacToe.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiTicTacToe.ImageOptions.SvgImage")));
+			this.bbiTicTacToe.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.tic_tac_toe;
 			this.bbiTicTacToe.Name = "bbiTicTacToe";
 			this.bbiTicTacToe.Tag = "Entertainment.TicTacToe.TicTacToeGameView";
 			// 
@@ -258,7 +258,7 @@
 			// 
 			this.bbiPasswordGenerator.Caption = "Password Generator";
 			this.bbiPasswordGenerator.Id = 5;
-			this.bbiPasswordGenerator.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiPasswordGenerator.ImageOptions.SvgImage")));
+			this.bbiPasswordGenerator.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.bo_resume;
 			this.bbiPasswordGenerator.Name = "bbiPasswordGenerator";
 			this.bbiPasswordGenerator.Tag = "Tools.PasswordGenerator.PasswordGeneratorView";
 			// 
@@ -273,7 +273,7 @@
 			// 
 			this.bbiPdfMerger.Caption = "Pdf Merger";
 			this.bbiPdfMerger.Id = 7;
-			this.bbiPdfMerger.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiPdfMerger.ImageOptions.SvgImage")));
+			this.bbiPdfMerger.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.exporttopdf;
 			this.bbiPdfMerger.Name = "bbiPdfMerger";
 			this.bbiPdfMerger.Tag = "Tools.PdfMerger.PdfMergerView";
 			// 
@@ -323,9 +323,9 @@
 			// 
 			// bbiGradesCalculador
 			// 
-			this.bbiGradesCalculador.Caption = "Grades\r\nCalculator";
+			this.bbiGradesCalculador.Caption = "Grades\r\n Calculator";
 			this.bbiGradesCalculador.Id = 16;
-			this.bbiGradesCalculador.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiGradesCalculador.ImageOptions.SvgImage")));
+			this.bbiGradesCalculador.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.calculator;
 			this.bbiGradesCalculador.Name = "bbiGradesCalculador";
 			this.bbiGradesCalculador.Tag = "Tools.GradesCalculator.GradesCalculatorView";
 			// 
@@ -333,7 +333,7 @@
 			// 
 			this.bbiFormOut.Caption = "Form Out";
 			this.bbiFormOut.Id = 17;
-			this.bbiFormOut.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiFormOut.ImageOptions.SvgImage")));
+			this.bbiFormOut.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.box_out;
 			this.bbiFormOut.Name = "bbiFormOut";
 			this.bbiFormOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFormOut_ItemClick);
 			// 
@@ -341,7 +341,7 @@
 			// 
 			this.bbiCommandsRunner.Caption = "Commands\r\nRunner";
 			this.bbiCommandsRunner.Id = 18;
-			this.bbiCommandsRunner.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiCommandsRunner.ImageOptions.SvgImage")));
+			this.bbiCommandsRunner.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.cli;
 			this.bbiCommandsRunner.Name = "bbiCommandsRunner";
 			this.bbiCommandsRunner.Tag = "Main.CommandsRunner.CommandsRunnerView";
 			// 
@@ -349,7 +349,7 @@
 			// 
 			this.Passwords.Caption = "Passwords";
 			this.Passwords.Id = 19;
-			this.Passwords.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Passwords.ImageOptions.SvgImage")));
+			this.Passwords.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.security_key;
 			this.Passwords.Name = "Passwords";
 			this.Passwords.Tag = "Main.Passwords.PasswordsView";
 			// 
@@ -357,7 +357,7 @@
 			// 
 			this.bbiWeather.Caption = "Weather";
 			this.bbiWeather.Id = 20;
-			this.bbiWeather.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiWeather.ImageOptions.SvgImage")));
+			this.bbiWeather.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.weather;
 			this.bbiWeather.Name = "bbiWeather";
 			this.bbiWeather.Tag = "Main.Weather.WeatherView";
 			// 
@@ -365,7 +365,7 @@
 			// 
 			this.bbiConvertText.Caption = "Convert Text";
 			this.bbiConvertText.Id = 21;
-			this.bbiConvertText.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiConvertText.ImageOptions.SvgImage")));
+			this.bbiConvertText.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.changetextcase;
 			this.bbiConvertText.Name = "bbiConvertText";
 			this.bbiConvertText.Tag = "Tools.ConvertCase.ConvertCaseView";
 			// 
@@ -533,6 +533,7 @@
 			// 
 			// npHome
 			// 
+			this.npHome.Caption = "npHome";
 			this.npHome.Controls.Add(this.backstageViewControl1);
 			this.npHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.npHome.Name = "npHome";

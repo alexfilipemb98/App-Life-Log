@@ -299,7 +299,7 @@
 			// 
 			// pictureEdit1
 			// 
-			this.pictureEdit1.EditValue = global::LifeLog.UI.Common.Properties.Resources.exclamation_mark;
+			this.pictureEdit1.EditValue = global::LifeLog.Base.Assets.Resources.exclamation_mark;
 			this.pictureEdit1.Location = new System.Drawing.Point(8, 8);
 			this.pictureEdit1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
 			this.pictureEdit1.MaximumSize = new System.Drawing.Size(70, 70);
@@ -341,7 +341,7 @@
 			// 
 			this.lcgDetails.AppearanceGroup.BorderColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
 			this.lcgDetails.AppearanceGroup.Options.UseBorderColor = true;
-			buttonImageOptions1.SvgImage = global::LifeLog.UI.Common.Properties.Resources.copy;
+			buttonImageOptions1.SvgImage = global::LifeLog.Base.Assets.Resources.copy;
 			buttonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 20);
 			this.lcgDetails.CustomHeaderButtons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Button", false, buttonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1)});
@@ -392,7 +392,7 @@
 			this.Controls.Add(this.lcButtons);
 			this.Controls.Add(this.ribbon);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.IconOptions.Image = global::LifeLog.UI.Common.Properties.Resources.icon1;
+			this.IconOptions.Image = global::LifeLog.Base.Assets.Resources.icon;
 			this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
 			this.MaximumSize = new System.Drawing.Size(453, 400);
 			this.MinimumSize = new System.Drawing.Size(450, 171);

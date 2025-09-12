@@ -39,7 +39,7 @@ namespace LifeLog.Base.Assets {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LifeLog.UI.FrontEnd.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LifeLog.Base.Assets.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -86,6 +86,16 @@ namespace LifeLog.Base.Assets {
         public static DevExpress.Utils.Svg.SvgImage actions_add {
             get {
                 object obj = ResourceManager.GetObject("actions_add", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage actions_arrow1right {
+            get {
+                object obj = ResourceManager.GetObject("actions_arrow1right", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
@@ -233,6 +243,16 @@ namespace LifeLog.Base.Assets {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage bo_department {
+            get {
+                object obj = ResourceManager.GetObject("bo_department", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         public static DevExpress.Utils.Svg.SvgImage bo_fileattachment {
             get {
                 object obj = ResourceManager.GetObject("bo_fileattachment", resourceCulture);
@@ -256,6 +276,16 @@ namespace LifeLog.Base.Assets {
         public static DevExpress.Utils.Svg.SvgImage bo_resume {
             get {
                 object obj = ResourceManager.GetObject("bo_resume", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage bo_security_permission {
+            get {
+                object obj = ResourceManager.GetObject("bo_security_permission", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
@@ -516,6 +546,26 @@ namespace LifeLog.Base.Assets {
         public static DevExpress.Utils.Svg.SvgImage enablesearch {
             get {
                 object obj = ResourceManager.GetObject("enablesearch", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage error_close {
+            get {
+                object obj = ResourceManager.GetObject("error-close", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage exclamation_mark {
+            get {
+                object obj = ResourceManager.GetObject("exclamation-mark", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
@@ -871,6 +921,16 @@ namespace LifeLog.Base.Assets {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SplashScreen {
+            get {
+                object obj = ResourceManager.GetObject("SplashScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
         public static DevExpress.Utils.Svg.SvgImage sunrise {
@@ -1027,6 +1087,16 @@ namespace LifeLog.Base.Assets {
             get {
                 object obj = ResourceManager.GetObject("window-terminal", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WitheCircle10 {
+            get {
+                object obj = ResourceManager.GetObject("WitheCircle10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

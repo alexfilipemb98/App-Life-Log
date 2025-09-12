@@ -42,13 +42,19 @@
 			this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
 			this.repositoryItemSearchControl1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchControl();
 			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-			this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
-			this.toggleSwitch11 = new DevExpress.XtraEditors.ToggleSwitch();
-			this.toggleSwitch111 = new DevExpress.XtraEditors.ToggleSwitch();
-			this.toggleSwitch1111 = new DevExpress.XtraEditors.ToggleSwitch();
-			this.toggleSwitch11111 = new DevExpress.XtraEditors.ToggleSwitch();
-			this.toggleSwitch111111 = new DevExpress.XtraEditors.ToggleSwitch();
-			this.toggleSwitch111112 = new DevExpress.XtraEditors.ToggleSwitch();
+			this.tsNotes = new DevExpress.XtraEditors.ToggleSwitch();
+			this.tsCommandsRunner = new DevExpress.XtraEditors.ToggleSwitch();
+			this.tsPasswords = new DevExpress.XtraEditors.ToggleSwitch();
+			this.tsWeather = new DevExpress.XtraEditors.ToggleSwitch();
+			this.tsCoinFlip = new DevExpress.XtraEditors.ToggleSwitch();
+			this.tsRollDice = new DevExpress.XtraEditors.ToggleSwitch();
+			this.tsTicTacToe = new DevExpress.XtraEditors.ToggleSwitch();
+			this.tsPassowordsGenerator = new DevExpress.XtraEditors.ToggleSwitch();
+			this.tsPdfMerger = new DevExpress.XtraEditors.ToggleSwitch();
+			this.tsGradeCalculator = new DevExpress.XtraEditors.ToggleSwitch();
+			this.tsConvertText = new DevExpress.XtraEditors.ToggleSwitch();
+			this.tsFormOut = new DevExpress.XtraEditors.ToggleSwitch();
+			this.tsThreeSimpleRule = new DevExpress.XtraEditors.ToggleSwitch();
 			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
 			this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -62,18 +68,32 @@
 			this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
 			this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+			this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+			this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
 			this.layoutControl1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.toggleSwitch11.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.toggleSwitch111.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1111.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.toggleSwitch11111.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.toggleSwitch111111.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.toggleSwitch111112.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsNotes.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsCommandsRunner.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsPasswords.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsWeather.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsCoinFlip.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsRollDice.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsTicTacToe.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsPassowordsGenerator.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsPdfMerger.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsGradeCalculator.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsConvertText.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsFormOut.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsThreeSimpleRule.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -87,6 +107,14 @@
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// barManager
@@ -200,13 +228,19 @@
 			// 
 			// layoutControl1
 			// 
-			this.layoutControl1.Controls.Add(this.toggleSwitch1);
-			this.layoutControl1.Controls.Add(this.toggleSwitch11);
-			this.layoutControl1.Controls.Add(this.toggleSwitch111);
-			this.layoutControl1.Controls.Add(this.toggleSwitch1111);
-			this.layoutControl1.Controls.Add(this.toggleSwitch11111);
-			this.layoutControl1.Controls.Add(this.toggleSwitch111111);
-			this.layoutControl1.Controls.Add(this.toggleSwitch111112);
+			this.layoutControl1.Controls.Add(this.tsNotes);
+			this.layoutControl1.Controls.Add(this.tsCommandsRunner);
+			this.layoutControl1.Controls.Add(this.tsPasswords);
+			this.layoutControl1.Controls.Add(this.tsWeather);
+			this.layoutControl1.Controls.Add(this.tsCoinFlip);
+			this.layoutControl1.Controls.Add(this.tsRollDice);
+			this.layoutControl1.Controls.Add(this.tsTicTacToe);
+			this.layoutControl1.Controls.Add(this.tsPassowordsGenerator);
+			this.layoutControl1.Controls.Add(this.tsPdfMerger);
+			this.layoutControl1.Controls.Add(this.tsGradeCalculator);
+			this.layoutControl1.Controls.Add(this.tsConvertText);
+			this.layoutControl1.Controls.Add(this.tsFormOut);
+			this.layoutControl1.Controls.Add(this.tsThreeSimpleRule);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.layoutControl1.Location = new System.Drawing.Point(0, 35);
 			this.layoutControl1.Name = "layoutControl1";
@@ -215,97 +249,175 @@
 			this.layoutControl1.TabIndex = 4;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
-			// toggleSwitch1
+			// tsNotes
 			// 
-			this.toggleSwitch1.AutoSizeInLayoutControl = true;
-			this.toggleSwitch1.Location = new System.Drawing.Point(30, 88);
-			this.toggleSwitch1.MenuManager = this.barManager;
-			this.toggleSwitch1.Name = "toggleSwitch1";
-			this.toggleSwitch1.Properties.AutoWidth = true;
-			this.toggleSwitch1.Properties.OffText = "Off";
-			this.toggleSwitch1.Properties.OnText = "On";
-			this.toggleSwitch1.Properties.ShowText = false;
-			this.toggleSwitch1.Size = new System.Drawing.Size(50, 18);
-			this.toggleSwitch1.StyleController = this.layoutControl1;
-			this.toggleSwitch1.TabIndex = 4;
+			this.tsNotes.AutoSizeInLayoutControl = true;
+			this.tsNotes.Location = new System.Drawing.Point(34, 88);
+			this.tsNotes.MenuManager = this.barManager;
+			this.tsNotes.Name = "tsNotes";
+			this.tsNotes.Properties.AutoWidth = true;
+			this.tsNotes.Properties.OffText = "Off";
+			this.tsNotes.Properties.OnText = "On";
+			this.tsNotes.Properties.ShowText = false;
+			this.tsNotes.Size = new System.Drawing.Size(50, 18);
+			this.tsNotes.StyleController = this.layoutControl1;
+			this.tsNotes.TabIndex = 4;
 			// 
-			// toggleSwitch11
+			// tsCommandsRunner
 			// 
-			this.toggleSwitch11.AutoSizeInLayoutControl = true;
-			this.toggleSwitch11.Location = new System.Drawing.Point(130, 88);
-			this.toggleSwitch11.Name = "toggleSwitch11";
-			this.toggleSwitch11.Properties.AutoWidth = true;
-			this.toggleSwitch11.Properties.OffText = "Off";
-			this.toggleSwitch11.Properties.OnText = "On";
-			this.toggleSwitch11.Properties.ShowText = false;
-			this.toggleSwitch11.Size = new System.Drawing.Size(50, 18);
-			this.toggleSwitch11.StyleController = this.layoutControl1;
-			this.toggleSwitch11.TabIndex = 4;
+			this.tsCommandsRunner.AutoSizeInLayoutControl = true;
+			this.tsCommandsRunner.Location = new System.Drawing.Point(142, 88);
+			this.tsCommandsRunner.Name = "tsCommandsRunner";
+			this.tsCommandsRunner.Properties.AutoWidth = true;
+			this.tsCommandsRunner.Properties.OffText = "Off";
+			this.tsCommandsRunner.Properties.OnText = "On";
+			this.tsCommandsRunner.Properties.ShowText = false;
+			this.tsCommandsRunner.Size = new System.Drawing.Size(50, 18);
+			this.tsCommandsRunner.StyleController = this.layoutControl1;
+			this.tsCommandsRunner.TabIndex = 4;
 			// 
-			// toggleSwitch111
+			// tsPasswords
 			// 
-			this.toggleSwitch111.AutoSizeInLayoutControl = true;
-			this.toggleSwitch111.Location = new System.Drawing.Point(230, 88);
-			this.toggleSwitch111.Name = "toggleSwitch111";
-			this.toggleSwitch111.Properties.AutoWidth = true;
-			this.toggleSwitch111.Properties.OffText = "Off";
-			this.toggleSwitch111.Properties.OnText = "On";
-			this.toggleSwitch111.Properties.ShowText = false;
-			this.toggleSwitch111.Size = new System.Drawing.Size(50, 18);
-			this.toggleSwitch111.StyleController = this.layoutControl1;
-			this.toggleSwitch111.TabIndex = 4;
+			this.tsPasswords.AutoSizeInLayoutControl = true;
+			this.tsPasswords.Location = new System.Drawing.Point(250, 88);
+			this.tsPasswords.Name = "tsPasswords";
+			this.tsPasswords.Properties.AutoWidth = true;
+			this.tsPasswords.Properties.OffText = "Off";
+			this.tsPasswords.Properties.OnText = "On";
+			this.tsPasswords.Properties.ShowText = false;
+			this.tsPasswords.Size = new System.Drawing.Size(50, 18);
+			this.tsPasswords.StyleController = this.layoutControl1;
+			this.tsPasswords.TabIndex = 4;
 			// 
-			// toggleSwitch1111
+			// tsWeather
 			// 
-			this.toggleSwitch1111.AutoSizeInLayoutControl = true;
-			this.toggleSwitch1111.Location = new System.Drawing.Point(330, 88);
-			this.toggleSwitch1111.Name = "toggleSwitch1111";
-			this.toggleSwitch1111.Properties.AutoWidth = true;
-			this.toggleSwitch1111.Properties.OffText = "Off";
-			this.toggleSwitch1111.Properties.OnText = "On";
-			this.toggleSwitch1111.Properties.ShowText = false;
-			this.toggleSwitch1111.Size = new System.Drawing.Size(50, 18);
-			this.toggleSwitch1111.StyleController = this.layoutControl1;
-			this.toggleSwitch1111.TabIndex = 4;
+			this.tsWeather.AutoSizeInLayoutControl = true;
+			this.tsWeather.Location = new System.Drawing.Point(358, 88);
+			this.tsWeather.Name = "tsWeather";
+			this.tsWeather.Properties.AutoWidth = true;
+			this.tsWeather.Properties.OffText = "Off";
+			this.tsWeather.Properties.OnText = "On";
+			this.tsWeather.Properties.ShowText = false;
+			this.tsWeather.Size = new System.Drawing.Size(50, 18);
+			this.tsWeather.StyleController = this.layoutControl1;
+			this.tsWeather.TabIndex = 4;
 			// 
-			// toggleSwitch11111
+			// tsCoinFlip
 			// 
-			this.toggleSwitch11111.AutoSizeInLayoutControl = true;
-			this.toggleSwitch11111.Location = new System.Drawing.Point(130, 195);
-			this.toggleSwitch11111.Name = "toggleSwitch11111";
-			this.toggleSwitch11111.Properties.AutoWidth = true;
-			this.toggleSwitch11111.Properties.OffText = "Off";
-			this.toggleSwitch11111.Properties.OnText = "On";
-			this.toggleSwitch11111.Properties.ShowText = false;
-			this.toggleSwitch11111.Size = new System.Drawing.Size(50, 18);
-			this.toggleSwitch11111.StyleController = this.layoutControl1;
-			this.toggleSwitch11111.TabIndex = 4;
+			this.tsCoinFlip.AutoSizeInLayoutControl = true;
+			this.tsCoinFlip.Location = new System.Drawing.Point(142, 195);
+			this.tsCoinFlip.Name = "tsCoinFlip";
+			this.tsCoinFlip.Properties.AutoWidth = true;
+			this.tsCoinFlip.Properties.OffText = "Off";
+			this.tsCoinFlip.Properties.OnText = "On";
+			this.tsCoinFlip.Properties.ShowText = false;
+			this.tsCoinFlip.Size = new System.Drawing.Size(50, 18);
+			this.tsCoinFlip.StyleController = this.layoutControl1;
+			this.tsCoinFlip.TabIndex = 4;
 			// 
-			// toggleSwitch111111
+			// tsRollDice
 			// 
-			this.toggleSwitch111111.AutoSizeInLayoutControl = true;
-			this.toggleSwitch111111.Location = new System.Drawing.Point(30, 195);
-			this.toggleSwitch111111.Name = "toggleSwitch111111";
-			this.toggleSwitch111111.Properties.AutoWidth = true;
-			this.toggleSwitch111111.Properties.OffText = "Off";
-			this.toggleSwitch111111.Properties.OnText = "On";
-			this.toggleSwitch111111.Properties.ShowText = false;
-			this.toggleSwitch111111.Size = new System.Drawing.Size(50, 18);
-			this.toggleSwitch111111.StyleController = this.layoutControl1;
-			this.toggleSwitch111111.TabIndex = 4;
+			this.tsRollDice.AutoSizeInLayoutControl = true;
+			this.tsRollDice.Location = new System.Drawing.Point(34, 195);
+			this.tsRollDice.Name = "tsRollDice";
+			this.tsRollDice.Properties.AutoWidth = true;
+			this.tsRollDice.Properties.OffText = "Off";
+			this.tsRollDice.Properties.OnText = "On";
+			this.tsRollDice.Properties.ShowText = false;
+			this.tsRollDice.Size = new System.Drawing.Size(50, 18);
+			this.tsRollDice.StyleController = this.layoutControl1;
+			this.tsRollDice.TabIndex = 4;
 			// 
-			// toggleSwitch111112
+			// tsTicTacToe
 			// 
-			this.toggleSwitch111112.AutoSizeInLayoutControl = true;
-			this.toggleSwitch111112.Location = new System.Drawing.Point(230, 195);
-			this.toggleSwitch111112.Name = "toggleSwitch111112";
-			this.toggleSwitch111112.Properties.AutoWidth = true;
-			this.toggleSwitch111112.Properties.OffText = "Off";
-			this.toggleSwitch111112.Properties.OnText = "On";
-			this.toggleSwitch111112.Properties.ShowText = false;
-			this.toggleSwitch111112.Size = new System.Drawing.Size(50, 18);
-			this.toggleSwitch111112.StyleController = this.layoutControl1;
-			this.toggleSwitch111112.TabIndex = 4;
+			this.tsTicTacToe.AutoSizeInLayoutControl = true;
+			this.tsTicTacToe.Location = new System.Drawing.Point(250, 195);
+			this.tsTicTacToe.Name = "tsTicTacToe";
+			this.tsTicTacToe.Properties.AutoWidth = true;
+			this.tsTicTacToe.Properties.OffText = "Off";
+			this.tsTicTacToe.Properties.OnText = "On";
+			this.tsTicTacToe.Properties.ShowText = false;
+			this.tsTicTacToe.Size = new System.Drawing.Size(50, 18);
+			this.tsTicTacToe.StyleController = this.layoutControl1;
+			this.tsTicTacToe.TabIndex = 4;
+			// 
+			// tsPassowordsGenerator
+			// 
+			this.tsPassowordsGenerator.AutoSizeInLayoutControl = true;
+			this.tsPassowordsGenerator.Location = new System.Drawing.Point(34, 304);
+			this.tsPassowordsGenerator.Name = "tsPassowordsGenerator";
+			this.tsPassowordsGenerator.Properties.AutoWidth = true;
+			this.tsPassowordsGenerator.Properties.OffText = "Off";
+			this.tsPassowordsGenerator.Properties.OnText = "On";
+			this.tsPassowordsGenerator.Properties.ShowText = false;
+			this.tsPassowordsGenerator.Size = new System.Drawing.Size(50, 18);
+			this.tsPassowordsGenerator.StyleController = this.layoutControl1;
+			this.tsPassowordsGenerator.TabIndex = 4;
+			// 
+			// tsPdfMerger
+			// 
+			this.tsPdfMerger.AutoSizeInLayoutControl = true;
+			this.tsPdfMerger.Location = new System.Drawing.Point(142, 304);
+			this.tsPdfMerger.Name = "tsPdfMerger";
+			this.tsPdfMerger.Properties.AutoWidth = true;
+			this.tsPdfMerger.Properties.OffText = "Off";
+			this.tsPdfMerger.Properties.OnText = "On";
+			this.tsPdfMerger.Properties.ShowText = false;
+			this.tsPdfMerger.Size = new System.Drawing.Size(50, 18);
+			this.tsPdfMerger.StyleController = this.layoutControl1;
+			this.tsPdfMerger.TabIndex = 4;
+			// 
+			// tsGradeCalculator
+			// 
+			this.tsGradeCalculator.AutoSizeInLayoutControl = true;
+			this.tsGradeCalculator.Location = new System.Drawing.Point(250, 304);
+			this.tsGradeCalculator.Name = "tsGradeCalculator";
+			this.tsGradeCalculator.Properties.AutoWidth = true;
+			this.tsGradeCalculator.Properties.OffText = "Off";
+			this.tsGradeCalculator.Properties.OnText = "On";
+			this.tsGradeCalculator.Properties.ShowText = false;
+			this.tsGradeCalculator.Size = new System.Drawing.Size(50, 18);
+			this.tsGradeCalculator.StyleController = this.layoutControl1;
+			this.tsGradeCalculator.TabIndex = 4;
+			// 
+			// tsConvertText
+			// 
+			this.tsConvertText.AutoSizeInLayoutControl = true;
+			this.tsConvertText.Location = new System.Drawing.Point(358, 304);
+			this.tsConvertText.Name = "tsConvertText";
+			this.tsConvertText.Properties.AutoWidth = true;
+			this.tsConvertText.Properties.OffText = "Off";
+			this.tsConvertText.Properties.OnText = "On";
+			this.tsConvertText.Properties.ShowText = false;
+			this.tsConvertText.Size = new System.Drawing.Size(50, 18);
+			this.tsConvertText.StyleController = this.layoutControl1;
+			this.tsConvertText.TabIndex = 4;
+			// 
+			// tsFormOut
+			// 
+			this.tsFormOut.AutoSizeInLayoutControl = true;
+			this.tsFormOut.Location = new System.Drawing.Point(466, 304);
+			this.tsFormOut.Name = "tsFormOut";
+			this.tsFormOut.Properties.AutoWidth = true;
+			this.tsFormOut.Properties.OffText = "Off";
+			this.tsFormOut.Properties.OnText = "On";
+			this.tsFormOut.Properties.ShowText = false;
+			this.tsFormOut.Size = new System.Drawing.Size(50, 18);
+			this.tsFormOut.StyleController = this.layoutControl1;
+			this.tsFormOut.TabIndex = 4;
+			// 
+			// tsThreeSimpleRule
+			// 
+			this.tsThreeSimpleRule.AutoSizeInLayoutControl = true;
+			this.tsThreeSimpleRule.Location = new System.Drawing.Point(574, 304);
+			this.tsThreeSimpleRule.Name = "tsThreeSimpleRule";
+			this.tsThreeSimpleRule.Properties.AutoWidth = true;
+			this.tsThreeSimpleRule.Properties.OffText = "Off";
+			this.tsThreeSimpleRule.Properties.OnText = "On";
+			this.tsThreeSimpleRule.Properties.ShowText = false;
+			this.tsThreeSimpleRule.Size = new System.Drawing.Size(50, 18);
+			this.tsThreeSimpleRule.StyleController = this.layoutControl1;
+			this.tsThreeSimpleRule.TabIndex = 4;
 			// 
 			// Root
 			// 
@@ -314,7 +426,8 @@
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem1,
             this.layoutControlGroup1,
-            this.layoutControlGroup2});
+            this.layoutControlGroup2,
+            this.layoutControlGroup3});
 			this.Root.Name = "Root";
 			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 8, 4);
 			this.Root.Size = new System.Drawing.Size(959, 568);
@@ -322,9 +435,9 @@
 			// 
 			// emptySpaceItem1
 			// 
-			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 208);
+			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 317);
 			this.emptySpaceItem1.Name = "emptySpaceItem1";
-			this.emptySpaceItem1.Size = new System.Drawing.Size(951, 348);
+			this.emptySpaceItem1.Size = new System.Drawing.Size(951, 239);
 			// 
 			// layoutControlGroup1
 			// 
@@ -350,22 +463,22 @@
 			this.layoutControlItem1.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
 			this.layoutControlItem1.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.layoutControlItem1.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-			this.layoutControlItem1.Control = this.toggleSwitch1;
+			this.layoutControlItem1.Control = this.tsNotes;
 			this.layoutControlItem1.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem1.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.inserttextbox;
 			this.layoutControlItem1.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(100, 77);
+			this.layoutControlItem1.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem1.Text = "Notes";
 			this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem1.TextSize = new System.Drawing.Size(96, 52);
+			this.layoutControlItem1.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// emptySpaceItem2
 			// 
-			this.emptySpaceItem2.Location = new System.Drawing.Point(400, 0);
+			this.emptySpaceItem2.Location = new System.Drawing.Point(432, 0);
 			this.emptySpaceItem2.Name = "emptySpaceItem2";
-			this.emptySpaceItem2.Size = new System.Drawing.Size(549, 77);
+			this.emptySpaceItem2.Size = new System.Drawing.Size(517, 77);
 			// 
 			// layoutControlItem2
 			// 
@@ -374,18 +487,18 @@
 			this.layoutControlItem2.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
 			this.layoutControlItem2.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.layoutControlItem2.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-			this.layoutControlItem2.Control = this.toggleSwitch11;
+			this.layoutControlItem2.Control = this.tsCommandsRunner;
 			this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem2.CustomizationFormText = "Notes";
 			this.layoutControlItem2.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem2.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.cli;
 			this.layoutControlItem2.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem2.Location = new System.Drawing.Point(100, 0);
+			this.layoutControlItem2.Location = new System.Drawing.Point(108, 0);
 			this.layoutControlItem2.Name = "layoutControlItem2";
-			this.layoutControlItem2.Size = new System.Drawing.Size(100, 77);
+			this.layoutControlItem2.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem2.Text = " Commands Runner ";
 			this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem2.TextSize = new System.Drawing.Size(96, 52);
+			this.layoutControlItem2.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// layoutControlItem3
 			// 
@@ -394,18 +507,18 @@
 			this.layoutControlItem3.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
 			this.layoutControlItem3.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.layoutControlItem3.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-			this.layoutControlItem3.Control = this.toggleSwitch111;
+			this.layoutControlItem3.Control = this.tsPasswords;
 			this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem3.CustomizationFormText = "Notes";
 			this.layoutControlItem3.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem3.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.security_key;
 			this.layoutControlItem3.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem3.Location = new System.Drawing.Point(200, 0);
+			this.layoutControlItem3.Location = new System.Drawing.Point(216, 0);
 			this.layoutControlItem3.Name = "layoutControlItem3";
-			this.layoutControlItem3.Size = new System.Drawing.Size(100, 77);
+			this.layoutControlItem3.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem3.Text = "Passwords";
 			this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem3.TextSize = new System.Drawing.Size(96, 52);
+			this.layoutControlItem3.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// layoutControlItem4
 			// 
@@ -414,18 +527,18 @@
 			this.layoutControlItem4.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
 			this.layoutControlItem4.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.layoutControlItem4.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-			this.layoutControlItem4.Control = this.toggleSwitch1111;
+			this.layoutControlItem4.Control = this.tsWeather;
 			this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem4.CustomizationFormText = "Notes";
 			this.layoutControlItem4.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem4.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.weather;
 			this.layoutControlItem4.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem4.Location = new System.Drawing.Point(300, 0);
+			this.layoutControlItem4.Location = new System.Drawing.Point(324, 0);
 			this.layoutControlItem4.Name = "layoutControlItem4";
-			this.layoutControlItem4.Size = new System.Drawing.Size(100, 77);
-			this.layoutControlItem4.Text = "Passwords";
+			this.layoutControlItem4.Size = new System.Drawing.Size(108, 77);
+			this.layoutControlItem4.Text = "Weather";
 			this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem4.TextSize = new System.Drawing.Size(96, 52);
+			this.layoutControlItem4.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// layoutControlGroup2
 			// 
@@ -450,24 +563,24 @@
 			this.layoutControlItem5.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
 			this.layoutControlItem5.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.layoutControlItem5.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-			this.layoutControlItem5.Control = this.toggleSwitch11111;
+			this.layoutControlItem5.Control = this.tsCoinFlip;
 			this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem5.CustomizationFormText = "Notes";
 			this.layoutControlItem5.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem5.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.coin_flip;
 			this.layoutControlItem5.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem5.Location = new System.Drawing.Point(100, 0);
+			this.layoutControlItem5.Location = new System.Drawing.Point(108, 0);
 			this.layoutControlItem5.Name = "layoutControlItem5";
-			this.layoutControlItem5.Size = new System.Drawing.Size(100, 77);
+			this.layoutControlItem5.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem5.Text = "Coin Flip";
 			this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem5.TextSize = new System.Drawing.Size(96, 52);
+			this.layoutControlItem5.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// emptySpaceItem3
 			// 
-			this.emptySpaceItem3.Location = new System.Drawing.Point(300, 0);
+			this.emptySpaceItem3.Location = new System.Drawing.Point(324, 0);
 			this.emptySpaceItem3.Name = "emptySpaceItem3";
-			this.emptySpaceItem3.Size = new System.Drawing.Size(649, 77);
+			this.emptySpaceItem3.Size = new System.Drawing.Size(625, 77);
 			// 
 			// layoutControlItem7
 			// 
@@ -476,18 +589,18 @@
 			this.layoutControlItem7.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
 			this.layoutControlItem7.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.layoutControlItem7.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-			this.layoutControlItem7.Control = this.toggleSwitch111112;
+			this.layoutControlItem7.Control = this.tsTicTacToe;
 			this.layoutControlItem7.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem7.CustomizationFormText = "Notes";
 			this.layoutControlItem7.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem7.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.tic_tac_toe;
 			this.layoutControlItem7.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem7.Location = new System.Drawing.Point(200, 0);
+			this.layoutControlItem7.Location = new System.Drawing.Point(216, 0);
 			this.layoutControlItem7.Name = "layoutControlItem7";
-			this.layoutControlItem7.Size = new System.Drawing.Size(100, 77);
-			this.layoutControlItem7.Text = "Coin Flip";
+			this.layoutControlItem7.Size = new System.Drawing.Size(108, 77);
+			this.layoutControlItem7.Text = "Tic Tac Toe";
 			this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem7.TextSize = new System.Drawing.Size(96, 52);
+			this.layoutControlItem7.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// layoutControlItem6
 			// 
@@ -496,7 +609,7 @@
 			this.layoutControlItem6.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
 			this.layoutControlItem6.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.layoutControlItem6.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-			this.layoutControlItem6.Control = this.toggleSwitch111111;
+			this.layoutControlItem6.Control = this.tsRollDice;
 			this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem6.CustomizationFormText = "Notes";
 			this.layoutControlItem6.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
@@ -504,10 +617,155 @@
 			this.layoutControlItem6.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
 			this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem6.Name = "layoutControlItem6";
-			this.layoutControlItem6.Size = new System.Drawing.Size(100, 77);
+			this.layoutControlItem6.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem6.Text = "Roll Dice";
 			this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem6.TextSize = new System.Drawing.Size(96, 52);
+			this.layoutControlItem6.TextSize = new System.Drawing.Size(104, 52);
+			// 
+			// layoutControlGroup3
+			// 
+			this.layoutControlGroup3.CaptionImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_options;
+			this.layoutControlGroup3.CaptionImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+			this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem8,
+            this.emptySpaceItem4,
+            this.layoutControlItem9,
+            this.layoutControlItem10,
+            this.layoutControlItem11,
+            this.layoutControlItem12,
+            this.layoutControlItem13});
+			this.layoutControlGroup3.Location = new System.Drawing.Point(0, 208);
+			this.layoutControlGroup3.Name = "layoutControlGroup3";
+			this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+			this.layoutControlGroup3.Size = new System.Drawing.Size(951, 109);
+			this.layoutControlGroup3.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 8, 0);
+			this.layoutControlGroup3.Text = "Tools";
+			// 
+			// layoutControlItem8
+			// 
+			this.layoutControlItem8.AppearanceItemCaption.Options.UseTextOptions = true;
+			this.layoutControlItem8.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.layoutControlItem8.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+			this.layoutControlItem8.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.layoutControlItem8.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+			this.layoutControlItem8.Control = this.tsPassowordsGenerator;
+			this.layoutControlItem8.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem8.CustomizationFormText = "Notes";
+			this.layoutControlItem8.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
+			this.layoutControlItem8.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.bo_resume;
+			this.layoutControlItem8.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
+			this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
+			this.layoutControlItem8.Name = "layoutControlItem8";
+			this.layoutControlItem8.Size = new System.Drawing.Size(108, 77);
+			this.layoutControlItem8.Text = " Password Generator ";
+			this.layoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top;
+			this.layoutControlItem8.TextSize = new System.Drawing.Size(104, 52);
+			// 
+			// emptySpaceItem4
+			// 
+			this.emptySpaceItem4.Location = new System.Drawing.Point(648, 0);
+			this.emptySpaceItem4.Name = "emptySpaceItem4";
+			this.emptySpaceItem4.Size = new System.Drawing.Size(301, 77);
+			// 
+			// layoutControlItem9
+			// 
+			this.layoutControlItem9.AppearanceItemCaption.Options.UseTextOptions = true;
+			this.layoutControlItem9.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.layoutControlItem9.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+			this.layoutControlItem9.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.layoutControlItem9.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+			this.layoutControlItem9.Control = this.tsPdfMerger;
+			this.layoutControlItem9.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem9.CustomizationFormText = "Notes";
+			this.layoutControlItem9.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
+			this.layoutControlItem9.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.exporttopdf;
+			this.layoutControlItem9.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
+			this.layoutControlItem9.Location = new System.Drawing.Point(108, 0);
+			this.layoutControlItem9.Name = "layoutControlItem9";
+			this.layoutControlItem9.Size = new System.Drawing.Size(108, 77);
+			this.layoutControlItem9.Text = "Pdf Merger";
+			this.layoutControlItem9.TextLocation = DevExpress.Utils.Locations.Top;
+			this.layoutControlItem9.TextSize = new System.Drawing.Size(104, 52);
+			// 
+			// layoutControlItem10
+			// 
+			this.layoutControlItem10.AppearanceItemCaption.Options.UseTextOptions = true;
+			this.layoutControlItem10.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.layoutControlItem10.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+			this.layoutControlItem10.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.layoutControlItem10.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+			this.layoutControlItem10.Control = this.tsGradeCalculator;
+			this.layoutControlItem10.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem10.CustomizationFormText = "Notes";
+			this.layoutControlItem10.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
+			this.layoutControlItem10.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.calculator;
+			this.layoutControlItem10.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
+			this.layoutControlItem10.Location = new System.Drawing.Point(216, 0);
+			this.layoutControlItem10.Name = "layoutControlItem10";
+			this.layoutControlItem10.Size = new System.Drawing.Size(108, 77);
+			this.layoutControlItem10.Text = "Grades Calculator";
+			this.layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top;
+			this.layoutControlItem10.TextSize = new System.Drawing.Size(104, 52);
+			// 
+			// layoutControlItem11
+			// 
+			this.layoutControlItem11.AppearanceItemCaption.Options.UseTextOptions = true;
+			this.layoutControlItem11.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.layoutControlItem11.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+			this.layoutControlItem11.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.layoutControlItem11.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+			this.layoutControlItem11.Control = this.tsConvertText;
+			this.layoutControlItem11.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem11.CustomizationFormText = "Notes";
+			this.layoutControlItem11.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
+			this.layoutControlItem11.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.changetextcase;
+			this.layoutControlItem11.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
+			this.layoutControlItem11.Location = new System.Drawing.Point(324, 0);
+			this.layoutControlItem11.Name = "layoutControlItem11";
+			this.layoutControlItem11.Size = new System.Drawing.Size(108, 77);
+			this.layoutControlItem11.Text = "Convert Text";
+			this.layoutControlItem11.TextLocation = DevExpress.Utils.Locations.Top;
+			this.layoutControlItem11.TextSize = new System.Drawing.Size(104, 52);
+			// 
+			// layoutControlItem12
+			// 
+			this.layoutControlItem12.AppearanceItemCaption.Options.UseTextOptions = true;
+			this.layoutControlItem12.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.layoutControlItem12.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+			this.layoutControlItem12.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.layoutControlItem12.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+			this.layoutControlItem12.Control = this.tsFormOut;
+			this.layoutControlItem12.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem12.CustomizationFormText = "Notes";
+			this.layoutControlItem12.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
+			this.layoutControlItem12.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.box_out;
+			this.layoutControlItem12.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
+			this.layoutControlItem12.Location = new System.Drawing.Point(432, 0);
+			this.layoutControlItem12.Name = "layoutControlItem12";
+			this.layoutControlItem12.Size = new System.Drawing.Size(108, 77);
+			this.layoutControlItem12.Text = "Form Out";
+			this.layoutControlItem12.TextLocation = DevExpress.Utils.Locations.Top;
+			this.layoutControlItem12.TextSize = new System.Drawing.Size(104, 52);
+			// 
+			// layoutControlItem13
+			// 
+			this.layoutControlItem13.AppearanceItemCaption.Options.UseTextOptions = true;
+			this.layoutControlItem13.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.layoutControlItem13.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+			this.layoutControlItem13.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.layoutControlItem13.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+			this.layoutControlItem13.Control = this.tsThreeSimpleRule;
+			this.layoutControlItem13.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem13.CustomizationFormText = "Notes";
+			this.layoutControlItem13.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
+			this.layoutControlItem13.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.above_average;
+			this.layoutControlItem13.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
+			this.layoutControlItem13.Location = new System.Drawing.Point(540, 0);
+			this.layoutControlItem13.Name = "layoutControlItem13";
+			this.layoutControlItem13.Size = new System.Drawing.Size(108, 77);
+			this.layoutControlItem13.Text = "Three Simple Rule";
+			this.layoutControlItem13.TextLocation = DevExpress.Utils.Locations.Top;
+			this.layoutControlItem13.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// ModulesSetting
 			// 
@@ -525,13 +783,19 @@
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
 			this.layoutControl1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.toggleSwitch11.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.toggleSwitch111.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1111.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.toggleSwitch11111.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.toggleSwitch111111.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.toggleSwitch111112.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsNotes.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsCommandsRunner.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsPasswords.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsWeather.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsCoinFlip.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsRollDice.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsTicTacToe.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsPassowordsGenerator.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsPdfMerger.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsGradeCalculator.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsConvertText.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsFormOut.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.tsThreeSimpleRule.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -545,6 +809,14 @@
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -565,25 +837,39 @@
 		private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
 		private DevExpress.XtraBars.BarButtonItem barButtonItem1;
 		private DevExpress.XtraLayout.LayoutControl layoutControl1;
-		private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1;
+		private DevExpress.XtraEditors.ToggleSwitch tsNotes;
 		private DevExpress.XtraLayout.LayoutControlGroup Root;
 		private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
 		private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
 		private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-		private DevExpress.XtraEditors.ToggleSwitch toggleSwitch11;
+		private DevExpress.XtraEditors.ToggleSwitch tsCommandsRunner;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-		private DevExpress.XtraEditors.ToggleSwitch toggleSwitch111;
+		private DevExpress.XtraEditors.ToggleSwitch tsPasswords;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-		private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1111;
+		private DevExpress.XtraEditors.ToggleSwitch tsWeather;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-		private DevExpress.XtraEditors.ToggleSwitch toggleSwitch11111;
+		private DevExpress.XtraEditors.ToggleSwitch tsCoinFlip;
 		private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
 		private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
-		private DevExpress.XtraEditors.ToggleSwitch toggleSwitch111111;
-		private DevExpress.XtraEditors.ToggleSwitch toggleSwitch111112;
+		private DevExpress.XtraEditors.ToggleSwitch tsRollDice;
+		private DevExpress.XtraEditors.ToggleSwitch tsTicTacToe;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+		private DevExpress.XtraEditors.ToggleSwitch tsPassowordsGenerator;
+		private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
+		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+		private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
+		private DevExpress.XtraEditors.ToggleSwitch tsPdfMerger;
+		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
+		private DevExpress.XtraEditors.ToggleSwitch tsGradeCalculator;
+		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+		private DevExpress.XtraEditors.ToggleSwitch tsConvertText;
+		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
+		private DevExpress.XtraEditors.ToggleSwitch tsFormOut;
+		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
+		private DevExpress.XtraEditors.ToggleSwitch tsThreeSimpleRule;
+		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
 	}
 }

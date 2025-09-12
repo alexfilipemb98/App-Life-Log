@@ -370,5 +370,26 @@
   <ItemGroup>
     <None Include="Resources\yaxissettings.svg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_department.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_arrow1right.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_security_permission.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error-close.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation-mark.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WitheCircle10.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

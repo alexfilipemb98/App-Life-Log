@@ -74,10 +74,10 @@
 			// 
 			// progressPanel
 			// 
-			this.progressPanel.AnimationElementImage = global::LifeLog.UI.Common.Properties.Resources.WitheCircle_10_;
+			this.progressPanel.AnimationElementImage = global::LifeLog.Base.Assets.Resources.WitheCircle10;
 			this.progressPanel.Appearance.BackColor = System.Drawing.Color.Transparent;
 			this.progressPanel.Appearance.Options.UseBackColor = true;
-			this.progressPanel.BackgroundImage = global::LifeLog.UI.Common.Properties.Resources.SplashScreen;
+			this.progressPanel.BackgroundImage = global::LifeLog.Base.Assets.Resources.SplashScreen;
 			this.progressPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.progressPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.progressPanel.ContentAlignment = System.Drawing.ContentAlignment.BottomCenter;

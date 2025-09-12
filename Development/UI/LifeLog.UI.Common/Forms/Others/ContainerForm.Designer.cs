@@ -79,7 +79,7 @@
 			this.ClientSize = new System.Drawing.Size(753, 396);
 			this.Controls.Add(this.panelControl);
 			this.Controls.Add(this.ribbon);
-			this.IconOptions.Image = global::LifeLog.UI.Common.Properties.Resources.icon;
+			this.IconOptions.Image = global::LifeLog.Base.Assets.Resources.icon;
 			this.Name = "ContainerForm";
 			this.Ribbon = this.ribbon;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

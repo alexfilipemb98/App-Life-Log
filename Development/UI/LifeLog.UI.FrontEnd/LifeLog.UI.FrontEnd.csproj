@@ -221,9 +221,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bo_attention.svg" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\Base\LifeLog.Base.Assets\LifeLog.Base.Assets.csproj">
       <Project>{d5aa12cb-c4d7-4660-9f32-ae6f4d7f8b7f}</Project>
       <Name>LifeLog.Base.Assets</Name>
@@ -265,123 +262,6 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.3</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Home.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Game.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\DeveloperTools.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Setting.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\security_visibilityoff.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\security_visibility.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\gettingstarted.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cli.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coin-flip.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coin-heads.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coin-tails.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dice-1.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dice-2.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dice-3.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dice-4.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dice-5.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dice-6.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\inserttextbox.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tictactoe_playerO.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tictactoe_playerX.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\inserttextbox1.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bo_resume.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\clearfilter.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\exportas.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\import.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\del.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\attachments.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\actions_checkcircled.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\actions_deletecircled.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\exportfile.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\above average.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\security_key.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\saveall.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\weather.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bo_address.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\game-console.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dice-dice.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tic-tac-toe.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

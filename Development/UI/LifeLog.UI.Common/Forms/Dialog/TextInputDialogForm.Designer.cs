@@ -167,7 +167,7 @@
 			this.Controls.Add(this.layoutControl1);
 			this.Controls.Add(this.ribbonControl);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.IconOptions.Image = global::LifeLog.UI.Common.Properties.Resources.icon;
+			this.IconOptions.Image = global::LifeLog.Base.Assets.Resources.icon;
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;

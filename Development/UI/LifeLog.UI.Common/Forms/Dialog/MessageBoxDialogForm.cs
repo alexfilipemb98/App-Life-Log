@@ -31,13 +31,13 @@ namespace LifeLog.UI.Common.Forms.Dialog
 				switch (icon)
 				{
 					case MessageBoxIcon.Question:
-						form.pictureEdit1.EditValue = Properties.Resources.question_mark;
+						form.pictureEdit1.EditValue = Base.Assets.Resources.question_mark;
 						break;
 					case MessageBoxIcon.Exclamation:
-						form.pictureEdit1.EditValue = Properties.Resources.exclamation_mark;
+						form.pictureEdit1.EditValue = Base.Assets.Resources.exclamation_mark;
 						break;
 					case MessageBoxIcon.Error:
-						form.pictureEdit1.EditValue = Properties.Resources.error_close;
+						form.pictureEdit1.EditValue = Base.Assets.Resources.error_close;
 						break;
 				}
 
