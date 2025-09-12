@@ -128,7 +128,7 @@
 			// 
 			this.barButtonItem1.Caption = "Save";
 			this.barButtonItem1.Id = 11;
-			this.barButtonItem1.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.saveall;
+			this.barButtonItem1.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.saveall;
 			this.barButtonItem1.Name = "barButtonItem1";
 			// 
 			// barDockControl1
@@ -328,7 +328,7 @@
 			// 
 			// layoutControlGroup1
 			// 
-			this.layoutControlGroup1.CaptionImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.bo_address;
+			this.layoutControlGroup1.CaptionImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.bo_address;
 			this.layoutControlGroup1.CaptionImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
 			this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
@@ -352,7 +352,7 @@
 			this.layoutControlItem1.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
 			this.layoutControlItem1.Control = this.toggleSwitch1;
 			this.layoutControlItem1.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
-			this.layoutControlItem1.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.inserttextbox;
+			this.layoutControlItem1.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.inserttextbox;
 			this.layoutControlItem1.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
@@ -378,7 +378,7 @@
 			this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem2.CustomizationFormText = "Notes";
 			this.layoutControlItem2.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
-			this.layoutControlItem2.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.cli;
+			this.layoutControlItem2.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.cli;
 			this.layoutControlItem2.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
 			this.layoutControlItem2.Location = new System.Drawing.Point(100, 0);
 			this.layoutControlItem2.Name = "layoutControlItem2";
@@ -398,7 +398,7 @@
 			this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem3.CustomizationFormText = "Notes";
 			this.layoutControlItem3.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
-			this.layoutControlItem3.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.security_key;
+			this.layoutControlItem3.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.security_key;
 			this.layoutControlItem3.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
 			this.layoutControlItem3.Location = new System.Drawing.Point(200, 0);
 			this.layoutControlItem3.Name = "layoutControlItem3";
@@ -418,7 +418,7 @@
 			this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem4.CustomizationFormText = "Notes";
 			this.layoutControlItem4.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
-			this.layoutControlItem4.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.weather;
+			this.layoutControlItem4.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.weather;
 			this.layoutControlItem4.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
 			this.layoutControlItem4.Location = new System.Drawing.Point(300, 0);
 			this.layoutControlItem4.Name = "layoutControlItem4";
@@ -429,7 +429,7 @@
 			// 
 			// layoutControlGroup2
 			// 
-			this.layoutControlGroup2.CaptionImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.game_console;
+			this.layoutControlGroup2.CaptionImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.game_console;
 			this.layoutControlGroup2.CaptionImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
 			this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem5,
@@ -454,7 +454,7 @@
 			this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem5.CustomizationFormText = "Notes";
 			this.layoutControlItem5.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
-			this.layoutControlItem5.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.coin_flip;
+			this.layoutControlItem5.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.coin_flip;
 			this.layoutControlItem5.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
 			this.layoutControlItem5.Location = new System.Drawing.Point(100, 0);
 			this.layoutControlItem5.Name = "layoutControlItem5";
@@ -480,7 +480,7 @@
 			this.layoutControlItem7.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem7.CustomizationFormText = "Notes";
 			this.layoutControlItem7.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
-			this.layoutControlItem7.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.tic_tac_toe;
+			this.layoutControlItem7.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.tic_tac_toe;
 			this.layoutControlItem7.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
 			this.layoutControlItem7.Location = new System.Drawing.Point(200, 0);
 			this.layoutControlItem7.Name = "layoutControlItem7";
@@ -500,7 +500,7 @@
 			this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem6.CustomizationFormText = "Notes";
 			this.layoutControlItem6.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
-			this.layoutControlItem6.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.dice_dice;
+			this.layoutControlItem6.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.dice_dice;
 			this.layoutControlItem6.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
 			this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem6.Name = "layoutControlItem6";

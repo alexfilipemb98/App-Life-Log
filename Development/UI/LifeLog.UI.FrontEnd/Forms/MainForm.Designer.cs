@@ -226,7 +226,7 @@
 			// 
 			this.bbiNotes.Caption = "Notes";
 			this.bbiNotes.Id = 1;
-			this.bbiNotes.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.inserttextbox;
+			this.bbiNotes.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.inserttextbox;
 			this.bbiNotes.Name = "bbiNotes";
 			this.bbiNotes.Tag = "Main.Notes.NotesView";
 			// 
@@ -373,7 +373,7 @@
 			// 
 			this.bbiThreeSimpleRule.Caption = "Three Simple Rule";
 			this.bbiThreeSimpleRule.Id = 22;
-			this.bbiThreeSimpleRule.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.above_average;
+			this.bbiThreeSimpleRule.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.above_average;
 			this.bbiThreeSimpleRule.Name = "bbiThreeSimpleRule";
 			this.bbiThreeSimpleRule.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiThreeSimpleRule_ItemClick);
 			// 
@@ -381,7 +381,7 @@
 			// 
 			this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgHome});
-			this.ribbonPage1.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.Home;
+			this.ribbonPage1.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.Home;
 			this.ribbonPage1.Name = "ribbonPage1";
 			this.ribbonPage1.Text = "Home";
 			// 
@@ -398,7 +398,7 @@
 			// 
 			this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2});
-			this.ribbonPage2.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.Game;
+			this.ribbonPage2.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.Game;
 			this.ribbonPage2.Name = "ribbonPage2";
 			this.ribbonPage2.Text = "Entertainment";
 			// 
@@ -415,7 +415,7 @@
 			this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup5});
-			this.ribbonPage4.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.DeveloperTools;
+			this.ribbonPage4.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.DeveloperTools;
 			this.ribbonPage4.Name = "ribbonPage4";
 			this.ribbonPage4.Text = "Tools";
 			// 
@@ -440,7 +440,7 @@
 			this.ribbonPage6.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup3,
             this.ribbonPageGroup4});
-			this.ribbonPage6.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.Setting;
+			this.ribbonPage6.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.Setting;
 			this.ribbonPage6.Name = "ribbonPage6";
 			this.ribbonPage6.Text = "Settings";
 			// 
@@ -587,7 +587,7 @@
 			this.Controls.Add(this.ribbonStatusBar);
 			this.Controls.Add(this.ribbon);
 			this.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.IconOptions.Image = global::LifeLog.UI.FrontEnd.Properties.Resources.icon;
+			this.IconOptions.Image = global::LifeLog.Base.Assets.Resources.icon;
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "MainForm";
 			this.Ribbon = this.ribbon;

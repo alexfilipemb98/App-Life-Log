@@ -105,15 +105,11 @@
 			this.barManager = new DevExpress.XtraBars.BarManager(this.components);
 			this.bar1 = new DevExpress.XtraBars.Bar();
 			this.bbiRefresh = new DevExpress.XtraBars.BarButtonItem();
-			this.bbiSearch = new DevExpress.XtraBars.BarEditItem();
 			this.repositoryItemSearchControl1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchControl();
 			this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
-			this.bbiRunAdmin = new DevExpress.XtraBars.BarButtonItem();
-			this.bbiEnable = new DevExpress.XtraBars.BarButtonItem();
-			this.bbiCreateFile = new DevExpress.XtraBars.BarButtonItem();
 			this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
 			this.countriesModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.slueCity = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -276,11 +272,7 @@
 			this.barManager.DockControls.Add(this.barDockControl4);
 			this.barManager.Form = this;
 			this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.bbiRefresh,
-            this.bbiRunAdmin,
-            this.bbiEnable,
-            this.bbiSearch,
-            this.bbiCreateFile});
+            this.bbiRefresh});
 			this.barManager.MainMenu = this.bar1;
 			this.barManager.MaxItemId = 11;
 			this.barManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -294,8 +286,7 @@
 			this.bar1.DockRow = 0;
 			this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
 			this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiRefresh, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiSearch, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiRefresh, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
 			this.bar1.OptionsBar.DrawBorder = false;
 			this.bar1.OptionsBar.DrawDragBorder = false;
 			this.bar1.OptionsBar.MinHeight = 35;
@@ -309,17 +300,6 @@
 			this.bbiRefresh.Id = 1;
 			this.bbiRefresh.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiRefresh.ImageOptions.SvgImage")));
 			this.bbiRefresh.Name = "bbiRefresh";
-			// 
-			// bbiSearch
-			// 
-			this.bbiSearch.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-			this.bbiSearch.Caption = "Search";
-			this.bbiSearch.Edit = this.repositoryItemSearchControl1;
-			this.bbiSearch.EditWidth = 250;
-			this.bbiSearch.Id = 9;
-			this.bbiSearch.MaxWidth = 250;
-			this.bbiSearch.MinWidth = 250;
-			this.bbiSearch.Name = "bbiSearch";
 			// 
 			// repositoryItemSearchControl1
 			// 
@@ -364,24 +344,6 @@
 			this.barDockControl4.Manager = this.barManager;
 			this.barDockControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.barDockControl4.Size = new System.Drawing.Size(0, 685);
-			// 
-			// bbiRunAdmin
-			// 
-			this.bbiRunAdmin.Caption = "Run Admin";
-			this.bbiRunAdmin.Id = 6;
-			this.bbiRunAdmin.Name = "bbiRunAdmin";
-			// 
-			// bbiEnable
-			// 
-			this.bbiEnable.Caption = "Disable";
-			this.bbiEnable.Id = 7;
-			this.bbiEnable.Name = "bbiEnable";
-			// 
-			// bbiCreateFile
-			// 
-			this.bbiCreateFile.Caption = "Create File";
-			this.bbiCreateFile.Id = 10;
-			this.bbiCreateFile.Name = "bbiCreateFile";
 			// 
 			// repositoryItemTextEdit2
 			// 
@@ -1117,14 +1079,10 @@
 		private DevExpress.XtraBars.BarManager barManager;
 		private DevExpress.XtraBars.Bar bar1;
 		private DevExpress.XtraBars.BarButtonItem bbiRefresh;
-		private DevExpress.XtraBars.BarEditItem bbiSearch;
 		private DevExpress.XtraEditors.Repository.RepositoryItemSearchControl repositoryItemSearchControl1;
 		private DevExpress.XtraBars.BarDockControl barDockControl1;
 		private DevExpress.XtraBars.BarDockControl barDockControl2;
 		private DevExpress.XtraBars.BarDockControl barDockControl4;
-		private DevExpress.XtraBars.BarButtonItem bbiRunAdmin;
-		private DevExpress.XtraBars.BarButtonItem bbiEnable;
-		private DevExpress.XtraBars.BarButtonItem bbiCreateFile;
 		private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
 		private System.Windows.Forms.BindingSource countriesModelBindingSource;
 		private Base.Components.LookUpEditEx lookUpEditEx1;

@@ -1,6 +1,5 @@
 ﻿using DevExpress.Utils.Svg;
 using DevExpress.XtraEditors;
-using LifeLog.UI.FrontEnd.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -158,22 +157,22 @@ namespace LifeLog.UI.FrontEnd.Views.Entertainment.Dice
             switch (dice)
             {
                 case Dice.One:
-                    img = Resources.dice_1;
+                    img = Base.Assets.Resources.dice_1;
                     break;
                 case Dice.Two:
-                    img = Resources.dice_2;
+                    img = Base.Assets.Resources.dice_2;
                     break;
                 case Dice.Three:
-                    img = Resources.dice_3;
+                    img = Base.Assets.Resources.dice_3;
                     break;
                 case Dice.Four:
-                    img = Resources.dice_4;
+                    img = Base.Assets.Resources.dice_4;
                     break;
                 case Dice.Five: 
-                    img = Resources.dice_5;
+                    img = Base.Assets.Resources.dice_5;
                     break;
                 case Dice.Six:
-                    img = Resources.dice_6;
+                    img = Base.Assets.Resources.dice_6;
                     break;
             }
 

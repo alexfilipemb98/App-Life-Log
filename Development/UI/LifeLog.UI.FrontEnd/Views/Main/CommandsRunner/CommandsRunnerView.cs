@@ -1,12 +1,10 @@
-﻿using DevExpress.Office.Utils;
-using DevExpress.XtraBars;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Tile;
 using LifeLog.Data.Models;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Forms.Dialog;
 using LifeLog.UI.Common.Helpers;
-using LifeLog.UI.FrontEnd.Properties;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -339,7 +337,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 			bbiEnable.Visibility = BarItemVisibility.Always;
 			bbiCreateFile.Visibility = BarItemVisibility.Always;
 
-			bbiEnable.ImageOptions.SvgImage = model.IsEnabled ? Resources.actions_deletecircled : Resources.actions_checkcircled;
+			bbiEnable.ImageOptions.SvgImage = model.IsEnabled ? Base.Assets.Resources.actions_deletecircled : Base.Assets.Resources.actions_checkcircled;
 			bbiEnable.Caption = model.IsEnabled ? "Disable" : "Enable";
 
 			bbiRunAdmin.Visibility = model.IsEnabled ? BarItemVisibility.Always : BarItemVisibility.Never;
@@ -456,7 +454,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				externalPrograms.Insert(0, new ExternalProgramsModel
 				{
 					Id = Guid.Empty,
-					Icon = Resources.clearfilter,
+					Icon = Base.Assets.Resources.clearfilter,
 				});
 
 				cbeProgram.Properties.DataSource = externalPrograms.Where(w => w.Id != Guid.Empty);

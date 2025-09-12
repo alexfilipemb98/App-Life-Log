@@ -196,7 +196,7 @@
 			// 
 			this.barSubItem1.Caption = "File";
 			this.barSubItem1.Id = 13;
-			this.barSubItem1.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.attachments;
+			this.barSubItem1.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.attachments;
 			this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiExport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiImport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
@@ -207,7 +207,7 @@
 			// 
 			this.bbiExport.Caption = "Export Commands";
 			this.bbiExport.Id = 14;
-			this.bbiExport.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.exportas;
+			this.bbiExport.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.exportas;
 			this.bbiExport.Name = "bbiExport";
 			this.bbiExport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiExport_ItemClick);
 			// 
@@ -216,7 +216,7 @@
 			this.bbiImport.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
 			this.bbiImport.Caption = "Import Commands";
 			this.bbiImport.Id = 12;
-			this.bbiImport.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.import;
+			this.bbiImport.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.import;
 			this.bbiImport.Name = "bbiImport";
 			this.bbiImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImport_ItemClick);
 			// 
@@ -231,7 +231,7 @@
 			// 
 			this.bbiBack.Caption = "Back";
 			this.bbiBack.Id = 2;
-			this.bbiBack.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiBack.ImageOptions.SvgImage")));
+			this.bbiBack.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.undo;
 			this.bbiBack.Name = "bbiBack";
 			this.bbiBack.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
 			this.bbiBack.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBack_ItemClick);
@@ -240,7 +240,7 @@
 			// 
 			this.bbiNew.Caption = "New";
 			this.bbiNew.Id = 0;
-			this.bbiNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiNew.ImageOptions.SvgImage")));
+			this.bbiNew.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_add;
 			this.bbiNew.Name = "bbiNew";
 			this.bbiNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNew_ItemClick);
 			// 
@@ -248,7 +248,7 @@
 			// 
 			this.bbiEdit.Caption = "Edit";
 			this.bbiEdit.Id = 3;
-			this.bbiEdit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiEdit.ImageOptions.SvgImage")));
+			this.bbiEdit.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_edit;
 			this.bbiEdit.Name = "bbiEdit";
 			this.bbiEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEdit_ItemClick);
 			// 
@@ -256,7 +256,7 @@
 			// 
 			this.bbiDelete.Caption = "Delete";
 			this.bbiDelete.Id = 5;
-			this.bbiDelete.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.del;
+			this.bbiDelete.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.del;
 			this.bbiDelete.Name = "bbiDelete";
 			this.bbiDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDelete_ItemClick);
 			// 
@@ -264,7 +264,7 @@
 			// 
 			this.bbiSave.Caption = "Save";
 			this.bbiSave.Id = 4;
-			this.bbiSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiSave.ImageOptions.SvgImage")));
+			this.bbiSave.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.saveall;
 			this.bbiSave.Name = "bbiSave";
 			this.bbiSave.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
 			this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
@@ -273,7 +273,7 @@
 			// 
 			this.bbiRefresh.Caption = "Refresh";
 			this.bbiRefresh.Id = 1;
-			this.bbiRefresh.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiRefresh.ImageOptions.SvgImage")));
+			this.bbiRefresh.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_refresh;
 			this.bbiRefresh.Name = "bbiRefresh";
 			this.bbiRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRefresh_ItemClick);
 			// 
@@ -503,7 +503,7 @@
 			// 
 			this.bbiRunAdmin.Caption = "Run Admin";
 			this.bbiRunAdmin.Id = 6;
-			this.bbiRunAdmin.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.bo_attention;
+			this.bbiRunAdmin.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.bo_attention;
 			this.bbiRunAdmin.Name = "bbiRunAdmin";
 			this.bbiRunAdmin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRunAdmin_ItemClick);
 			// 
@@ -511,7 +511,7 @@
 			// 
 			this.bbiEnable.Caption = "Disable";
 			this.bbiEnable.Id = 7;
-			this.bbiEnable.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.actions_deletecircled;
+			this.bbiEnable.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_deletecircled;
 			this.bbiEnable.Name = "bbiEnable";
 			this.bbiEnable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEnable_ItemClick);
 			// 
@@ -519,7 +519,7 @@
 			// 
 			this.bbiCreateFile.Caption = "Create File";
 			this.bbiCreateFile.Id = 10;
-			this.bbiCreateFile.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.exportfile;
+			this.bbiCreateFile.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.exportfile;
 			this.bbiCreateFile.Name = "bbiCreateFile";
 			this.bbiCreateFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCreateFile_ItemClick);
 			// 

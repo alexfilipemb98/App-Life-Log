@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraEditors;
 using LifeLog.UI.Common.Helpers;
-using LifeLog.UI.FrontEnd.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -79,7 +78,7 @@ namespace LifeLog.UI.FrontEnd.Views.Entertainment.CoinFlip
 				int timesToPlay = 10;
 
 				turn = (new Random().Next(10) % 2 == 0) ? Coin.Heads : Coin.Tails;
-				peCoinGame.SvgImage = turn == Coin.Heads ? Resources.coin_heads : Resources.coin_tails;
+				peCoinGame.SvgImage = turn == Coin.Heads ? Base.Assets.Resources.coin_heads : Base.Assets.Resources.coin_tails;
 
 				for (int i = 0; i < timesToPlay; i++)
 				{
@@ -91,18 +90,18 @@ namespace LifeLog.UI.FrontEnd.Views.Entertainment.CoinFlip
 
 						if (final == turn)
 						{
-							peCoinGame.SvgImage = turn == Coin.Heads ? Resources.coin_tails : Resources.coin_heads;
+							peCoinGame.SvgImage = turn == Coin.Heads ? Base.Assets.Resources.coin_tails : Base.Assets.Resources.coin_heads;
 							await Task.Delay(250);
 						}
 
 						scores[final]++;
-						peCoinGame.SvgImage = final == Coin.Heads ? Resources.coin_heads : Resources.coin_tails;
+						peCoinGame.SvgImage = final == Coin.Heads ? Base.Assets.Resources.coin_heads : Base.Assets.Resources.coin_tails;
 						UpdateSocreBoard();
 					}
 					else
 					{
 						turn = turn == Coin.Heads ? Coin.Tails : Coin.Heads;
-						peCoinGame.SvgImage = turn == Coin.Heads ? Resources.coin_heads : Resources.coin_tails;
+						peCoinGame.SvgImage = turn == Coin.Heads ? Base.Assets.Resources.coin_heads : Base.Assets.Resources.coin_tails;
 					}
 
 					await Task.Delay(250);

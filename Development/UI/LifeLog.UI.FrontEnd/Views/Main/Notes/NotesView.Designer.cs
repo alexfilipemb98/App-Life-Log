@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotesView));
 			this.barManager = new DevExpress.XtraBars.BarManager(this.components);
 			this.bar = new DevExpress.XtraBars.Bar();
 			this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
@@ -118,7 +117,7 @@
 			// 
 			this.barSubItem1.Caption = "File";
 			this.barSubItem1.Id = 73;
-			this.barSubItem1.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.attachments;
+			this.barSubItem1.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.attachments;
 			this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiExport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiImport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
@@ -129,7 +128,7 @@
 			this.bbiExport.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
 			this.bbiExport.Caption = "Export";
 			this.bbiExport.Id = 71;
-			this.bbiExport.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.exportas;
+			this.bbiExport.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.exportas;
 			this.bbiExport.Name = "bbiExport";
 			this.bbiExport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiExport_ItemClick);
 			// 
@@ -138,7 +137,7 @@
 			this.bbiImport.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
 			this.bbiImport.Caption = "Import";
 			this.bbiImport.Id = 72;
-			this.bbiImport.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.import;
+			this.bbiImport.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.import;
 			this.bbiImport.Name = "bbiImport";
 			this.bbiImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiImport_ItemClick);
 			// 
@@ -146,7 +145,7 @@
 			// 
 			this.bbiNew.Caption = "New";
 			this.bbiNew.Id = 0;
-			this.bbiNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiNew.ImageOptions.SvgImage")));
+			this.bbiNew.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_add;
 			this.bbiNew.Name = "bbiNew";
 			this.bbiNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNew_ItemClick);
 			// 
@@ -154,7 +153,7 @@
 			// 
 			this.bbiSave.Caption = "Save";
 			this.bbiSave.Id = 65;
-			this.bbiSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiSave.ImageOptions.SvgImage")));
+			this.bbiSave.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.saveall;
 			this.bbiSave.Name = "bbiSave";
 			this.bbiSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSave_ItemClick);
 			// 
@@ -162,7 +161,7 @@
 			// 
 			this.bbiReload.Caption = "Reload";
 			this.bbiReload.Id = 66;
-			this.bbiReload.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiReload.ImageOptions.SvgImage")));
+			this.bbiReload.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_refresh;
 			this.bbiReload.Name = "bbiReload";
 			this.bbiReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReload_ItemClick);
 			// 

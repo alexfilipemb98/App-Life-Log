@@ -415,7 +415,7 @@
 			// 
 			this.bbiReRoll.Caption = "Roll Dice";
 			this.bbiReRoll.Id = 0;
-			this.bbiReRoll.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.gettingstarted;
+			this.bbiReRoll.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.gettingstarted;
 			this.bbiReRoll.Name = "bbiReRoll";
 			this.bbiReRoll.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
 			this.bbiReRoll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReRoll_ItemClick);

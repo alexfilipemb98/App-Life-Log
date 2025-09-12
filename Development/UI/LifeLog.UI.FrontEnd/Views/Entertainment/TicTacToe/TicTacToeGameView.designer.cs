@@ -121,12 +121,11 @@
 			this.layoutControl.Controls.Add(this.lcPlayerOScore);
 			this.layoutControl.Controls.Add(this.lcTieScore);
 			this.layoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl.Location = new System.Drawing.Point(0, 39);
-			this.layoutControl.Margin = new System.Windows.Forms.Padding(4);
+			this.layoutControl.Location = new System.Drawing.Point(0, 24);
 			this.layoutControl.Name = "layoutControl";
 			this.layoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(993, 418, 650, 400);
 			this.layoutControl.Root = this.Root;
-			this.layoutControl.Size = new System.Drawing.Size(922, 616);
+			this.layoutControl.Size = new System.Drawing.Size(790, 508);
 			this.layoutControl.TabIndex = 1;
 			this.layoutControl.Text = "<c";
 			// 
@@ -136,8 +135,8 @@
 			this.lcPlayerXSocre.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
 			this.lcPlayerXSocre.Appearance.Options.UseFont = true;
 			this.lcPlayerXSocre.Appearance.Options.UseForeColor = true;
-			this.lcPlayerXSocre.Location = new System.Drawing.Point(630, 45);
-			this.lcPlayerXSocre.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.lcPlayerXSocre.Location = new System.Drawing.Point(582, 32);
+			this.lcPlayerXSocre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lcPlayerXSocre.Name = "lcPlayerXSocre";
 			this.lcPlayerXSocre.Size = new System.Drawing.Size(15, 29);
 			this.lcPlayerXSocre.StyleController = this.layoutControl;
@@ -146,118 +145,109 @@
 			// 
 			// pe_3_2
 			// 
-			this.pe_3_2.Location = new System.Drawing.Point(310, 422);
-			this.pe_3_2.Margin = new System.Windows.Forms.Padding(4);
+			this.pe_3_2.Location = new System.Drawing.Point(265, 339);
 			this.pe_3_2.Name = "pe_3_2";
 			this.pe_3_2.Properties.NullText = " ";
 			this.pe_3_2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
 			this.pe_3_2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-			this.pe_3_2.Size = new System.Drawing.Size(144, 144);
+			this.pe_3_2.Size = new System.Drawing.Size(125, 118);
 			this.pe_3_2.StyleController = this.layoutControl;
 			this.pe_3_2.TabIndex = 12;
 			this.pe_3_2.Click += new System.EventHandler(this.pe_Click);
 			// 
 			// pe_2_2
 			// 
-			this.pe_2_2.Location = new System.Drawing.Point(310, 272);
-			this.pe_2_2.Margin = new System.Windows.Forms.Padding(4);
+			this.pe_2_2.Location = new System.Drawing.Point(265, 217);
 			this.pe_2_2.Name = "pe_2_2";
 			this.pe_2_2.Properties.NullText = " ";
 			this.pe_2_2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
 			this.pe_2_2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-			this.pe_2_2.Size = new System.Drawing.Size(144, 144);
+			this.pe_2_2.Size = new System.Drawing.Size(125, 118);
 			this.pe_2_2.StyleController = this.layoutControl;
 			this.pe_2_2.TabIndex = 11;
 			this.pe_2_2.Click += new System.EventHandler(this.pe_Click);
 			// 
 			// pe_1_2
 			// 
-			this.pe_1_2.Location = new System.Drawing.Point(310, 122);
-			this.pe_1_2.Margin = new System.Windows.Forms.Padding(4);
+			this.pe_1_2.Location = new System.Drawing.Point(265, 95);
 			this.pe_1_2.Name = "pe_1_2";
 			this.pe_1_2.Properties.NullText = " ";
 			this.pe_1_2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
 			this.pe_1_2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-			this.pe_1_2.Size = new System.Drawing.Size(144, 144);
+			this.pe_1_2.Size = new System.Drawing.Size(125, 118);
 			this.pe_1_2.StyleController = this.layoutControl;
 			this.pe_1_2.TabIndex = 10;
 			this.pe_1_2.Click += new System.EventHandler(this.pe_Click);
 			// 
 			// pe_3_3
 			// 
-			this.pe_3_3.Location = new System.Drawing.Point(460, 422);
-			this.pe_3_3.Margin = new System.Windows.Forms.Padding(4);
+			this.pe_3_3.Location = new System.Drawing.Point(394, 339);
 			this.pe_3_3.Name = "pe_3_3";
 			this.pe_3_3.Properties.NullText = " ";
 			this.pe_3_3.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
 			this.pe_3_3.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-			this.pe_3_3.Size = new System.Drawing.Size(144, 144);
+			this.pe_3_3.Size = new System.Drawing.Size(125, 118);
 			this.pe_3_3.StyleController = this.layoutControl;
 			this.pe_3_3.TabIndex = 9;
 			this.pe_3_3.Click += new System.EventHandler(this.pe_Click);
 			// 
 			// pe_3_1
 			// 
-			this.pe_3_1.Location = new System.Drawing.Point(160, 422);
-			this.pe_3_1.Margin = new System.Windows.Forms.Padding(4);
+			this.pe_3_1.Location = new System.Drawing.Point(136, 339);
 			this.pe_3_1.Name = "pe_3_1";
 			this.pe_3_1.Properties.NullText = " ";
 			this.pe_3_1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
 			this.pe_3_1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-			this.pe_3_1.Size = new System.Drawing.Size(144, 144);
+			this.pe_3_1.Size = new System.Drawing.Size(125, 118);
 			this.pe_3_1.StyleController = this.layoutControl;
 			this.pe_3_1.TabIndex = 8;
 			this.pe_3_1.Click += new System.EventHandler(this.pe_Click);
 			// 
 			// pe_2_3
 			// 
-			this.pe_2_3.Location = new System.Drawing.Point(460, 272);
-			this.pe_2_3.Margin = new System.Windows.Forms.Padding(4);
+			this.pe_2_3.Location = new System.Drawing.Point(394, 217);
 			this.pe_2_3.Name = "pe_2_3";
 			this.pe_2_3.Properties.NullText = " ";
 			this.pe_2_3.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
 			this.pe_2_3.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-			this.pe_2_3.Size = new System.Drawing.Size(144, 144);
+			this.pe_2_3.Size = new System.Drawing.Size(125, 118);
 			this.pe_2_3.StyleController = this.layoutControl;
 			this.pe_2_3.TabIndex = 7;
 			this.pe_2_3.Click += new System.EventHandler(this.pe_Click);
 			// 
 			// pe_2_1
 			// 
-			this.pe_2_1.Location = new System.Drawing.Point(160, 272);
-			this.pe_2_1.Margin = new System.Windows.Forms.Padding(4);
+			this.pe_2_1.Location = new System.Drawing.Point(136, 217);
 			this.pe_2_1.Name = "pe_2_1";
 			this.pe_2_1.Properties.NullText = " ";
 			this.pe_2_1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
 			this.pe_2_1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-			this.pe_2_1.Size = new System.Drawing.Size(144, 144);
+			this.pe_2_1.Size = new System.Drawing.Size(125, 118);
 			this.pe_2_1.StyleController = this.layoutControl;
 			this.pe_2_1.TabIndex = 6;
 			this.pe_2_1.Click += new System.EventHandler(this.pe_Click);
 			// 
 			// pe_1_3
 			// 
-			this.pe_1_3.Location = new System.Drawing.Point(460, 122);
-			this.pe_1_3.Margin = new System.Windows.Forms.Padding(4);
+			this.pe_1_3.Location = new System.Drawing.Point(394, 95);
 			this.pe_1_3.Name = "pe_1_3";
 			this.pe_1_3.Properties.AllowFocused = false;
 			this.pe_1_3.Properties.NullText = " ";
 			this.pe_1_3.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
 			this.pe_1_3.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-			this.pe_1_3.Size = new System.Drawing.Size(144, 144);
+			this.pe_1_3.Size = new System.Drawing.Size(125, 118);
 			this.pe_1_3.StyleController = this.layoutControl;
 			this.pe_1_3.TabIndex = 5;
 			this.pe_1_3.Click += new System.EventHandler(this.pe_Click);
 			// 
 			// pe_1_1
 			// 
-			this.pe_1_1.Location = new System.Drawing.Point(160, 122);
-			this.pe_1_1.Margin = new System.Windows.Forms.Padding(4);
+			this.pe_1_1.Location = new System.Drawing.Point(136, 95);
 			this.pe_1_1.Name = "pe_1_1";
 			this.pe_1_1.Properties.NullText = " ";
 			this.pe_1_1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
 			this.pe_1_1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-			this.pe_1_1.Size = new System.Drawing.Size(144, 144);
+			this.pe_1_1.Size = new System.Drawing.Size(125, 118);
 			this.pe_1_1.StyleController = this.layoutControl;
 			this.pe_1_1.TabIndex = 4;
 			this.pe_1_1.Click += new System.EventHandler(this.pe_Click);
@@ -268,8 +258,8 @@
 			this.lcPlayerOScore.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Information;
 			this.lcPlayerOScore.Appearance.Options.UseFont = true;
 			this.lcPlayerOScore.Appearance.Options.UseForeColor = true;
-			this.lcPlayerOScore.Location = new System.Drawing.Point(390, 45);
-			this.lcPlayerOScore.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.lcPlayerOScore.Location = new System.Drawing.Point(350, 32);
+			this.lcPlayerOScore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lcPlayerOScore.Name = "lcPlayerOScore";
 			this.lcPlayerOScore.Size = new System.Drawing.Size(15, 29);
 			this.lcPlayerOScore.StyleController = this.layoutControl;
@@ -282,8 +272,8 @@
 			this.lcTieScore.Appearance.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Critical;
 			this.lcTieScore.Appearance.Options.UseFont = true;
 			this.lcTieScore.Appearance.Options.UseForeColor = true;
-			this.lcTieScore.Location = new System.Drawing.Point(485, 45);
-			this.lcTieScore.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.lcTieScore.Location = new System.Drawing.Point(441, 32);
+			this.lcTieScore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lcTieScore.Name = "lcTieScore";
 			this.lcTieScore.Size = new System.Drawing.Size(15, 29);
 			this.lcTieScore.StyleController = this.layoutControl;
@@ -298,8 +288,8 @@
             this.layoutControlGroup2,
             this.lcigGameBoard});
 			this.Root.Name = "Root";
-			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 10, 5);
-			this.Root.Size = new System.Drawing.Size(922, 616);
+			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 8, 4);
+			this.Root.Size = new System.Drawing.Size(790, 508);
 			this.Root.TextVisible = false;
 			// 
 			// layoutControlGroup2
@@ -319,7 +309,7 @@
 			this.layoutControlGroup2.OptionsItemText.TextToControlDistance = 0;
 			this.layoutControlGroup2.OptionsPrint.TextToControlDistance = 0;
 			this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlGroup2.Size = new System.Drawing.Size(912, 67);
+			this.layoutControlGroup2.Size = new System.Drawing.Size(782, 55);
 			this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
 			this.layoutControlGroup2.Text = "Scores";
 			// 
@@ -328,14 +318,14 @@
 			this.esiTopLeft.BestFitWeight = 105;
 			this.esiTopLeft.Location = new System.Drawing.Point(0, 0);
 			this.esiTopLeft.Name = "esiTopLeft";
-			this.esiTopLeft.Size = new System.Drawing.Size(266, 35);
+			this.esiTopLeft.Size = new System.Drawing.Size(228, 33);
 			// 
 			// esiTopRight
 			// 
 			this.esiTopRight.BestFitWeight = 105;
-			this.esiTopRight.Location = new System.Drawing.Point(643, 0);
+			this.esiTopRight.Location = new System.Drawing.Point(595, 0);
 			this.esiTopRight.Name = "esiTopRight";
-			this.esiTopRight.Size = new System.Drawing.Size(269, 35);
+			this.esiTopRight.Size = new System.Drawing.Size(187, 33);
 			// 
 			// layoutControlGroup3
 			// 
@@ -345,9 +335,9 @@
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.layoutControlItem1});
-			this.layoutControlGroup3.Location = new System.Drawing.Point(266, 0);
+			this.layoutControlGroup3.Location = new System.Drawing.Point(228, 0);
 			this.layoutControlGroup3.Name = "layoutControlGroup3";
-			this.layoutControlGroup3.Size = new System.Drawing.Size(377, 35);
+			this.layoutControlGroup3.Size = new System.Drawing.Size(367, 33);
 			this.layoutControlGroup3.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
 			// 
 			// layoutControlItem2
@@ -360,8 +350,8 @@
 			this.layoutControlItem2.CustomizationFormText = "PlayerX: ";
 			this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem2.Name = "layoutControlItem2";
-			this.layoutControlItem2.Size = new System.Drawing.Size(142, 35);
-			this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 0, 0);
+			this.layoutControlItem2.Size = new System.Drawing.Size(139, 33);
+			this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 4, 0, 0);
 			this.layoutControlItem2.Text = "Player O: ";
 			this.layoutControlItem2.TextSize = new System.Drawing.Size(116, 29);
 			// 
@@ -373,10 +363,10 @@
 			this.layoutControlItem3.Control = this.lcTieScore;
 			this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
 			this.layoutControlItem3.CustomizationFormText = "PlayerX: ";
-			this.layoutControlItem3.Location = new System.Drawing.Point(142, 0);
+			this.layoutControlItem3.Location = new System.Drawing.Point(139, 0);
 			this.layoutControlItem3.Name = "layoutControlItem3";
-			this.layoutControlItem3.Size = new System.Drawing.Size(95, 35);
-			this.layoutControlItem3.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 0);
+			this.layoutControlItem3.Size = new System.Drawing.Size(91, 33);
+			this.layoutControlItem3.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 0, 0);
 			this.layoutControlItem3.Text = "Ties: ";
 			this.layoutControlItem3.TextSize = new System.Drawing.Size(64, 29);
 			// 
@@ -386,10 +376,10 @@
 			this.layoutControlItem1.AppearanceItemCaption.Options.UseFont = true;
 			this.layoutControlItem1.BestFitWeight = 50;
 			this.layoutControlItem1.Control = this.lcPlayerXSocre;
-			this.layoutControlItem1.Location = new System.Drawing.Point(237, 0);
+			this.layoutControlItem1.Location = new System.Drawing.Point(230, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(140, 35);
-			this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
+			this.layoutControlItem1.Size = new System.Drawing.Size(137, 33);
+			this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 0, 0, 0);
 			this.layoutControlItem1.Text = "Player X: ";
 			this.layoutControlItem1.TextSize = new System.Drawing.Size(114, 29);
 			// 
@@ -400,11 +390,11 @@
             this.esiLeft,
             this.esiRight,
             this.layoutControlGroup1});
-			this.lcigGameBoard.Location = new System.Drawing.Point(0, 67);
+			this.lcigGameBoard.Location = new System.Drawing.Point(0, 55);
 			this.lcigGameBoard.Name = "lcigGameBoard";
 			this.lcigGameBoard.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.lcigGameBoard.Size = new System.Drawing.Size(912, 534);
-			this.lcigGameBoard.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 10, 0);
+			this.lcigGameBoard.Size = new System.Drawing.Size(782, 441);
+			this.lcigGameBoard.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 8, 0);
 			this.lcigGameBoard.Text = "Game Board";
 			// 
 			// esiLeft
@@ -412,14 +402,14 @@
 			this.esiLeft.BestFitWeight = 75;
 			this.esiLeft.Location = new System.Drawing.Point(0, 0);
 			this.esiLeft.Name = "esiLeft";
-			this.esiLeft.Size = new System.Drawing.Size(152, 492);
+			this.esiLeft.Size = new System.Drawing.Size(130, 411);
 			// 
 			// esiRight
 			// 
 			this.esiRight.BestFitWeight = 75;
-			this.esiRight.Location = new System.Drawing.Point(602, 0);
+			this.esiRight.Location = new System.Drawing.Point(517, 0);
 			this.esiRight.Name = "esiRight";
-			this.esiRight.Size = new System.Drawing.Size(310, 492);
+			this.esiRight.Size = new System.Drawing.Size(265, 411);
 			// 
 			// layoutControlGroup1
 			// 
@@ -435,107 +425,107 @@
             this.lciPe3_1,
             this.lciPe3_2,
             this.lciPe3_3});
-			this.layoutControlGroup1.Location = new System.Drawing.Point(152, 0);
+			this.layoutControlGroup1.Location = new System.Drawing.Point(130, 0);
 			this.layoutControlGroup1.Name = "layoutControlGroup1";
-			this.layoutControlGroup1.Size = new System.Drawing.Size(450, 492);
+			this.layoutControlGroup1.Size = new System.Drawing.Size(387, 411);
 			this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
 			// 
 			// lciPe1_1
 			// 
 			this.lciPe1_1.Control = this.pe_1_1;
 			this.lciPe1_1.Location = new System.Drawing.Point(0, 0);
-			this.lciPe1_1.MaxSize = new System.Drawing.Size(150, 150);
-			this.lciPe1_1.MinSize = new System.Drawing.Size(150, 150);
+			this.lciPe1_1.MaxSize = new System.Drawing.Size(129, 122);
+			this.lciPe1_1.MinSize = new System.Drawing.Size(129, 122);
 			this.lciPe1_1.Name = "lciPe1_1";
-			this.lciPe1_1.Size = new System.Drawing.Size(150, 150);
+			this.lciPe1_1.Size = new System.Drawing.Size(129, 122);
 			this.lciPe1_1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			this.lciPe1_1.TextVisible = false;
 			// 
 			// lciPe1_2
 			// 
 			this.lciPe1_2.Control = this.pe_1_2;
-			this.lciPe1_2.Location = new System.Drawing.Point(150, 0);
-			this.lciPe1_2.MaxSize = new System.Drawing.Size(150, 150);
-			this.lciPe1_2.MinSize = new System.Drawing.Size(150, 150);
+			this.lciPe1_2.Location = new System.Drawing.Point(129, 0);
+			this.lciPe1_2.MaxSize = new System.Drawing.Size(129, 122);
+			this.lciPe1_2.MinSize = new System.Drawing.Size(129, 122);
 			this.lciPe1_2.Name = "lciPe1_2";
-			this.lciPe1_2.Size = new System.Drawing.Size(150, 150);
+			this.lciPe1_2.Size = new System.Drawing.Size(129, 122);
 			this.lciPe1_2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			this.lciPe1_2.TextVisible = false;
 			// 
 			// lciPe1_3
 			// 
 			this.lciPe1_3.Control = this.pe_1_3;
-			this.lciPe1_3.Location = new System.Drawing.Point(300, 0);
-			this.lciPe1_3.MaxSize = new System.Drawing.Size(150, 150);
-			this.lciPe1_3.MinSize = new System.Drawing.Size(150, 150);
+			this.lciPe1_3.Location = new System.Drawing.Point(258, 0);
+			this.lciPe1_3.MaxSize = new System.Drawing.Size(129, 122);
+			this.lciPe1_3.MinSize = new System.Drawing.Size(129, 122);
 			this.lciPe1_3.Name = "lciPe1_3";
-			this.lciPe1_3.Size = new System.Drawing.Size(150, 150);
+			this.lciPe1_3.Size = new System.Drawing.Size(129, 122);
 			this.lciPe1_3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			this.lciPe1_3.TextVisible = false;
 			// 
 			// lciPe2_1
 			// 
 			this.lciPe2_1.Control = this.pe_2_1;
-			this.lciPe2_1.Location = new System.Drawing.Point(0, 150);
-			this.lciPe2_1.MaxSize = new System.Drawing.Size(150, 150);
-			this.lciPe2_1.MinSize = new System.Drawing.Size(150, 150);
+			this.lciPe2_1.Location = new System.Drawing.Point(0, 122);
+			this.lciPe2_1.MaxSize = new System.Drawing.Size(129, 122);
+			this.lciPe2_1.MinSize = new System.Drawing.Size(129, 122);
 			this.lciPe2_1.Name = "lciPe2_1";
-			this.lciPe2_1.Size = new System.Drawing.Size(150, 150);
+			this.lciPe2_1.Size = new System.Drawing.Size(129, 122);
 			this.lciPe2_1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			this.lciPe2_1.TextVisible = false;
 			// 
 			// lciPe2_2
 			// 
 			this.lciPe2_2.Control = this.pe_2_2;
-			this.lciPe2_2.Location = new System.Drawing.Point(150, 150);
-			this.lciPe2_2.MaxSize = new System.Drawing.Size(150, 150);
-			this.lciPe2_2.MinSize = new System.Drawing.Size(150, 150);
+			this.lciPe2_2.Location = new System.Drawing.Point(129, 122);
+			this.lciPe2_2.MaxSize = new System.Drawing.Size(129, 122);
+			this.lciPe2_2.MinSize = new System.Drawing.Size(129, 122);
 			this.lciPe2_2.Name = "lciPe2_2";
-			this.lciPe2_2.Size = new System.Drawing.Size(150, 150);
+			this.lciPe2_2.Size = new System.Drawing.Size(129, 122);
 			this.lciPe2_2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			this.lciPe2_2.TextVisible = false;
 			// 
 			// lciPe2_3
 			// 
 			this.lciPe2_3.Control = this.pe_2_3;
-			this.lciPe2_3.Location = new System.Drawing.Point(300, 150);
-			this.lciPe2_3.MaxSize = new System.Drawing.Size(150, 150);
-			this.lciPe2_3.MinSize = new System.Drawing.Size(150, 150);
+			this.lciPe2_3.Location = new System.Drawing.Point(258, 122);
+			this.lciPe2_3.MaxSize = new System.Drawing.Size(129, 122);
+			this.lciPe2_3.MinSize = new System.Drawing.Size(129, 122);
 			this.lciPe2_3.Name = "lciPe2_3";
-			this.lciPe2_3.Size = new System.Drawing.Size(150, 150);
+			this.lciPe2_3.Size = new System.Drawing.Size(129, 122);
 			this.lciPe2_3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			this.lciPe2_3.TextVisible = false;
 			// 
 			// lciPe3_1
 			// 
 			this.lciPe3_1.Control = this.pe_3_1;
-			this.lciPe3_1.Location = new System.Drawing.Point(0, 300);
-			this.lciPe3_1.MaxSize = new System.Drawing.Size(150, 150);
-			this.lciPe3_1.MinSize = new System.Drawing.Size(150, 150);
+			this.lciPe3_1.Location = new System.Drawing.Point(0, 244);
+			this.lciPe3_1.MaxSize = new System.Drawing.Size(129, 122);
+			this.lciPe3_1.MinSize = new System.Drawing.Size(129, 122);
 			this.lciPe3_1.Name = "lciPe3_1";
-			this.lciPe3_1.Size = new System.Drawing.Size(150, 192);
+			this.lciPe3_1.Size = new System.Drawing.Size(129, 167);
 			this.lciPe3_1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			this.lciPe3_1.TextVisible = false;
 			// 
 			// lciPe3_2
 			// 
 			this.lciPe3_2.Control = this.pe_3_2;
-			this.lciPe3_2.Location = new System.Drawing.Point(150, 300);
-			this.lciPe3_2.MaxSize = new System.Drawing.Size(150, 150);
-			this.lciPe3_2.MinSize = new System.Drawing.Size(150, 150);
+			this.lciPe3_2.Location = new System.Drawing.Point(129, 244);
+			this.lciPe3_2.MaxSize = new System.Drawing.Size(129, 122);
+			this.lciPe3_2.MinSize = new System.Drawing.Size(129, 122);
 			this.lciPe3_2.Name = "lciPe3_2";
-			this.lciPe3_2.Size = new System.Drawing.Size(150, 192);
+			this.lciPe3_2.Size = new System.Drawing.Size(129, 167);
 			this.lciPe3_2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			this.lciPe3_2.TextVisible = false;
 			// 
 			// lciPe3_3
 			// 
 			this.lciPe3_3.Control = this.pe_3_3;
-			this.lciPe3_3.Location = new System.Drawing.Point(300, 300);
-			this.lciPe3_3.MaxSize = new System.Drawing.Size(150, 150);
-			this.lciPe3_3.MinSize = new System.Drawing.Size(150, 150);
+			this.lciPe3_3.Location = new System.Drawing.Point(258, 244);
+			this.lciPe3_3.MaxSize = new System.Drawing.Size(129, 122);
+			this.lciPe3_3.MinSize = new System.Drawing.Size(129, 122);
 			this.lciPe3_3.Name = "lciPe3_3";
-			this.lciPe3_3.Size = new System.Drawing.Size(150, 192);
+			this.lciPe3_3.Size = new System.Drawing.Size(129, 167);
 			this.lciPe3_3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			this.lciPe3_3.TextVisible = false;
 			// 
@@ -574,7 +564,7 @@
 			// 
 			this.bbiResetGame.Caption = "Reset Game";
 			this.bbiResetGame.Id = 0;
-			this.bbiResetGame.ImageOptions.SvgImage = global::LifeLog.UI.FrontEnd.Properties.Resources.gettingstarted;
+			this.bbiResetGame.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.gettingstarted;
 			this.bbiResetGame.Name = "bbiResetGame";
 			this.bbiResetGame.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
 			this.bbiResetGame.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiResetGame_ItemClick);
@@ -585,35 +575,31 @@
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
 			this.barDockControlTop.Manager = this.barManager;
-			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
-			this.barDockControlTop.Size = new System.Drawing.Size(922, 39);
+			this.barDockControlTop.Size = new System.Drawing.Size(790, 24);
 			// 
 			// barDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControlBottom.Location = new System.Drawing.Point(0, 655);
+			this.barDockControlBottom.Location = new System.Drawing.Point(0, 532);
 			this.barDockControlBottom.Manager = this.barManager;
-			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
-			this.barDockControlBottom.Size = new System.Drawing.Size(922, 0);
+			this.barDockControlBottom.Size = new System.Drawing.Size(790, 0);
 			// 
 			// barDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControlLeft.Location = new System.Drawing.Point(0, 39);
+			this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
 			this.barDockControlLeft.Manager = this.barManager;
-			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 616);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 508);
 			// 
 			// barDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(922, 39);
+			this.barDockControlRight.Location = new System.Drawing.Point(790, 24);
 			this.barDockControlRight.Manager = this.barManager;
-			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 616);
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 508);
 			// 
 			// barButtonItem1
 			// 
@@ -623,16 +609,15 @@
 			// 
 			// TicTacToeGameView
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.layoutControl);
 			this.Controls.Add(this.barDockControlLeft);
 			this.Controls.Add(this.barDockControlRight);
 			this.Controls.Add(this.barDockControlBottom);
 			this.Controls.Add(this.barDockControlTop);
-			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "TicTacToeGameView";
-			this.Size = new System.Drawing.Size(922, 655);
+			this.Size = new System.Drawing.Size(790, 532);
 			this.Resize += new System.EventHandler(this.TicTacToeGameView_Resize);
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
 			this.layoutControl.ResumeLayout(false);
