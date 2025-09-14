@@ -19,7 +19,7 @@ namespace LifeLog.UI.Common.Forms.Auth
 	{
 		#region MAIN
 
-		public bool IsConfigsOk { get; set; } = false;
+		public bool IsConfigsOk { get; set; } = true;
 		public AppInterfaceEnum AplicationInterface { get; private set; }
 
 		//PRIVATE

@@ -94,6 +94,10 @@
       <Project>{82FA5515-A840-4229-9DB9-BA4335E1B78F}</Project>
       <Name>LifeLog.Data.Database</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Data\LifeLog.Data.Models\LifeLog.Data.Models.csproj">
+      <Project>{748E1B52-8FF2-4BD0-98F7-7D76DD11E4AC}</Project>
+      <Name>LifeLog.Data.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services\LifeLog.Services.Api\LifeLog.Services.Api.csproj">
       <Project>{0C68C288-1B96-4B5F-A255-5CDDDAC5CFD4}</Project>
       <Name>LifeLog.Services.Api</Name>

@@ -27,6 +27,13 @@ namespace LifeLog.Data.Database.ORMDataModel
 			get { return fUser; }
 			set { SetPropertyValue<ORM_UsersModel>(nameof(User), ref fUser, value); }
 		}
+		long fFrontModules;
+		[DbType("BIGINT")]
+		public long FrontModules
+		{
+			get { return fFrontModules; }
+			set { SetPropertyValue<long>(nameof(FrontModules), ref fFrontModules, value); }
+		}
 	}
 
 }

@@ -51,6 +51,9 @@ namespace LifeLog.Data.Database
 		/// <param fName="config"></param>
 		public Engine(DatabaseConfigModel config)
 		{
+			if (config is null)
+				throw new ArgumentException("Threes no configurations");	
+
 			config.ValidateModel(out List<ValidationResult> results);
 			if (results.Count > 0)
 				throw new Base.Infrastructure.Exceptions.ValidationException(results);

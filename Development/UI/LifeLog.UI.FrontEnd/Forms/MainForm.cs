@@ -3,6 +3,8 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
+using LifeLog.Base.Infrastructure.Flags;
+using LifeLog.Base.Utils;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Forms.Dialog;
 using LifeLog.UI.Common.Forms.Others;
@@ -16,6 +18,9 @@ using static DevExpress.LookAndFeel.DXSkinColors;
 
 namespace LifeLog.UI.FrontEnd.Forms
 {
+	/// <summary>
+	/// Main form
+	/// </summary>
 	public partial class MainForm : RibbonForm
 	{
 		#region MAIN
@@ -45,6 +50,10 @@ namespace LifeLog.UI.FrontEnd.Forms
 #endif
 			bsiUserMenu.Caption = AppSession.CurrentUser.Username;
 			bsiDatabase.Caption = AppSession.DataEngine.DBName;
+
+			modulesSettingView.OnSavedModules += LoadModuleSettings;
+
+			LoadModuleSettings(AppSession.UserAppConfigs.FrontModules);
 		}
 
 		/// <summary>
@@ -75,22 +84,10 @@ namespace LifeLog.UI.FrontEnd.Forms
 		}
 
 		#endregion
+		
+		#region EVENTS
 
-		/// <summary>
-		/// Set top most
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void btsiTopMost_CheckedChanged(object sender, ItemClickEventArgs e)
-		{
-			this.TopMost = btsiTopMost.Checked;
-		}
-
-		private async void ribbon_ItemClickAsync(object sender, ItemClickEventArgs e)
-		{
-			if (e.Item.Tag is string tag && !string.IsNullOrWhiteSpace(tag))
-				await OpenPages(e, tag);
-		}
+		#region CLICK
 
 		/// <summary>
 		/// Open settings app
@@ -151,6 +148,50 @@ namespace LifeLog.UI.FrontEnd.Forms
 			}
 		}
 
+		#endregion
+
+		#region OTHERS
+
+		/// <summary>
+		/// Set top most
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void btsiTopMost_CheckedChanged(object sender, ItemClickEventArgs e)
+		{
+			this.TopMost = btsiTopMost.Checked;
+		}
+
+		private async void ribbon_ItemClickAsync(object sender, ItemClickEventArgs e)
+		{
+			if (e.Item.Tag is string tag && !string.IsNullOrWhiteSpace(tag))
+				await OpenPages(e, tag);
+		}
+
+		/// <summary>
+		/// Selected tab changed
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void backstageViewControl_SelectedTabChanged(object sender, BackstageViewItemEventArgs e)
+		{
+			BackstageViewTabItem tab = e.Item as BackstageViewTabItem;
+
+			switch (tab.Name)
+			{
+				case nameof(bvtiDatabaseSettings):
+					databaseSettingsView.LoadData();
+					break;
+				case nameof(bvtiModulesSettings):
+					modulesSettingView.LoadData(AppSession.UserAppConfigs.FrontModules);
+					break;
+			}
+		}
+
+		#endregion
+
+		#endregion
+		
 		#region FUNCTIONS
 
 		/// <summary>
@@ -227,6 +268,17 @@ namespace LifeLog.UI.FrontEnd.Forms
 				//teste.Dispose();
 				DialogHelper.CloseWait();
 			}
+		}
+
+		/// <summary>
+		/// Load module settings
+		/// </summary>
+		private void LoadModuleSettings(long valor)
+		{
+			bbiNotes.Visibility = FrontModulesFlag.HomeNotes.IsActive(valor) ? BarItemVisibility.Always : BarItemVisibility.Never;
+			bbiCommandsRunner.Visibility = FrontModulesFlag.HomeCommandsRunner.IsActive(valor) ? BarItemVisibility.Always : BarItemVisibility.Never;
+			bbiPasswords.Visibility = FrontModulesFlag.HomePasswords.IsActive(valor) ? BarItemVisibility.Always : BarItemVisibility.Never;
+			bbiWeather.Visibility = FrontModulesFlag.HomeWeather.IsActive(valor) ? BarItemVisibility.Always : BarItemVisibility.Never;
 		}
 
 		#endregion

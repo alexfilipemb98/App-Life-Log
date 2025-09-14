@@ -1,6 +1,6 @@
 ﻿namespace LifeLog.UI.FrontEnd.Views.Settings
 {
-	partial class ModulesSetting
+	partial class ModulesSettingView
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -31,7 +31,7 @@
 			this.components = new System.ComponentModel.Container();
 			this.barManager = new DevExpress.XtraBars.BarManager(this.components);
 			this.bar1 = new DevExpress.XtraBars.Bar();
-			this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiGuardar = new DevExpress.XtraBars.BarButtonItem();
 			this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
@@ -130,7 +130,7 @@
             this.bbiRunAdmin,
             this.bbiEnable,
             this.bbiCreateFile,
-            this.barButtonItem1});
+            this.bbiGuardar});
 			this.barManager.MainMenu = this.bar1;
 			this.barManager.MaxItemId = 12;
 			this.barManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -144,7 +144,7 @@
 			this.bar1.DockRow = 0;
 			this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
 			this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiGuardar, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
 			this.bar1.OptionsBar.DrawBorder = false;
 			this.bar1.OptionsBar.DrawDragBorder = false;
 			this.bar1.OptionsBar.MinHeight = 35;
@@ -152,12 +152,13 @@
 			this.bar1.OptionsBar.UseWholeRow = true;
 			this.bar1.Text = "Main menu";
 			// 
-			// barButtonItem1
+			// bbiGuardar
 			// 
-			this.barButtonItem1.Caption = "Save";
-			this.barButtonItem1.Id = 11;
-			this.barButtonItem1.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.saveall;
-			this.barButtonItem1.Name = "barButtonItem1";
+			this.bbiGuardar.Caption = "Save";
+			this.bbiGuardar.Id = 11;
+			this.bbiGuardar.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.saveall;
+			this.bbiGuardar.Name = "bbiGuardar";
+			this.bbiGuardar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGuardar_ItemClick);
 			// 
 			// barDockControl1
 			// 
@@ -165,35 +166,35 @@
 			this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControl1.Location = new System.Drawing.Point(0, 0);
 			this.barDockControl1.Manager = this.barManager;
-			this.barDockControl1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-			this.barDockControl1.Size = new System.Drawing.Size(1119, 44);
+			this.barDockControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControl1.Size = new System.Drawing.Size(959, 35);
 			// 
 			// barDockControl2
 			// 
 			this.barDockControl2.CausesValidation = false;
 			this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControl2.Location = new System.Drawing.Point(0, 742);
+			this.barDockControl2.Location = new System.Drawing.Point(0, 603);
 			this.barDockControl2.Manager = this.barManager;
-			this.barDockControl2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-			this.barDockControl2.Size = new System.Drawing.Size(1119, 0);
+			this.barDockControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControl2.Size = new System.Drawing.Size(959, 0);
 			// 
 			// barDockControl3
 			// 
 			this.barDockControl3.CausesValidation = false;
 			this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControl3.Location = new System.Drawing.Point(0, 44);
+			this.barDockControl3.Location = new System.Drawing.Point(0, 35);
 			this.barDockControl3.Manager = this.barManager;
-			this.barDockControl3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-			this.barDockControl3.Size = new System.Drawing.Size(0, 698);
+			this.barDockControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControl3.Size = new System.Drawing.Size(0, 568);
 			// 
 			// barDockControl4
 			// 
 			this.barDockControl4.CausesValidation = false;
 			this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControl4.Location = new System.Drawing.Point(1119, 44);
+			this.barDockControl4.Location = new System.Drawing.Point(959, 35);
 			this.barDockControl4.Manager = this.barManager;
-			this.barDockControl4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-			this.barDockControl4.Size = new System.Drawing.Size(0, 698);
+			this.barDockControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControl4.Size = new System.Drawing.Size(0, 568);
 			// 
 			// bbiRunAdmin
 			// 
@@ -242,194 +243,180 @@
 			this.layoutControl1.Controls.Add(this.tsFormOut);
 			this.layoutControl1.Controls.Add(this.tsThreeSimpleRule);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 44);
-			this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.layoutControl1.Location = new System.Drawing.Point(0, 35);
 			this.layoutControl1.Name = "layoutControl1";
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(1119, 698);
+			this.layoutControl1.Size = new System.Drawing.Size(959, 568);
 			this.layoutControl1.TabIndex = 4;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
 			// tsNotes
 			// 
 			this.tsNotes.AutoSizeInLayoutControl = true;
-			this.tsNotes.Location = new System.Drawing.Point(41, 108);
-			this.tsNotes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tsNotes.Location = new System.Drawing.Point(33, 88);
 			this.tsNotes.MenuManager = this.barManager;
 			this.tsNotes.Name = "tsNotes";
 			this.tsNotes.Properties.AutoWidth = true;
 			this.tsNotes.Properties.OffText = "Off";
 			this.tsNotes.Properties.OnText = "On";
 			this.tsNotes.Properties.ShowText = false;
-			this.tsNotes.Size = new System.Drawing.Size(57, 24);
+			this.tsNotes.Size = new System.Drawing.Size(50, 18);
 			this.tsNotes.StyleController = this.layoutControl1;
 			this.tsNotes.TabIndex = 4;
 			// 
 			// tsCommandsRunner
 			// 
 			this.tsCommandsRunner.AutoSizeInLayoutControl = true;
-			this.tsCommandsRunner.Location = new System.Drawing.Point(171, 108);
-			this.tsCommandsRunner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tsCommandsRunner.Location = new System.Drawing.Point(141, 88);
 			this.tsCommandsRunner.Name = "tsCommandsRunner";
 			this.tsCommandsRunner.Properties.AutoWidth = true;
 			this.tsCommandsRunner.Properties.OffText = "Off";
 			this.tsCommandsRunner.Properties.OnText = "On";
 			this.tsCommandsRunner.Properties.ShowText = false;
-			this.tsCommandsRunner.Size = new System.Drawing.Size(57, 24);
+			this.tsCommandsRunner.Size = new System.Drawing.Size(50, 18);
 			this.tsCommandsRunner.StyleController = this.layoutControl1;
 			this.tsCommandsRunner.TabIndex = 4;
 			// 
 			// tsPasswords
 			// 
 			this.tsPasswords.AutoSizeInLayoutControl = true;
-			this.tsPasswords.Location = new System.Drawing.Point(301, 108);
-			this.tsPasswords.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tsPasswords.Location = new System.Drawing.Point(249, 88);
 			this.tsPasswords.Name = "tsPasswords";
 			this.tsPasswords.Properties.AutoWidth = true;
 			this.tsPasswords.Properties.OffText = "Off";
 			this.tsPasswords.Properties.OnText = "On";
 			this.tsPasswords.Properties.ShowText = false;
-			this.tsPasswords.Size = new System.Drawing.Size(57, 24);
+			this.tsPasswords.Size = new System.Drawing.Size(50, 18);
 			this.tsPasswords.StyleController = this.layoutControl1;
 			this.tsPasswords.TabIndex = 4;
 			// 
 			// tsWeather
 			// 
 			this.tsWeather.AutoSizeInLayoutControl = true;
-			this.tsWeather.Location = new System.Drawing.Point(431, 108);
-			this.tsWeather.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tsWeather.Location = new System.Drawing.Point(357, 88);
 			this.tsWeather.Name = "tsWeather";
 			this.tsWeather.Properties.AutoWidth = true;
 			this.tsWeather.Properties.OffText = "Off";
 			this.tsWeather.Properties.OnText = "On";
 			this.tsWeather.Properties.ShowText = false;
-			this.tsWeather.Size = new System.Drawing.Size(57, 24);
+			this.tsWeather.Size = new System.Drawing.Size(50, 18);
 			this.tsWeather.StyleController = this.layoutControl1;
 			this.tsWeather.TabIndex = 4;
 			// 
 			// tsCoinFlip
 			// 
 			this.tsCoinFlip.AutoSizeInLayoutControl = true;
-			this.tsCoinFlip.Location = new System.Drawing.Point(171, 241);
-			this.tsCoinFlip.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tsCoinFlip.Location = new System.Drawing.Point(141, 194);
 			this.tsCoinFlip.Name = "tsCoinFlip";
 			this.tsCoinFlip.Properties.AutoWidth = true;
 			this.tsCoinFlip.Properties.OffText = "Off";
 			this.tsCoinFlip.Properties.OnText = "On";
 			this.tsCoinFlip.Properties.ShowText = false;
-			this.tsCoinFlip.Size = new System.Drawing.Size(57, 24);
+			this.tsCoinFlip.Size = new System.Drawing.Size(50, 18);
 			this.tsCoinFlip.StyleController = this.layoutControl1;
 			this.tsCoinFlip.TabIndex = 4;
 			// 
 			// tsRollDice
 			// 
 			this.tsRollDice.AutoSizeInLayoutControl = true;
-			this.tsRollDice.Location = new System.Drawing.Point(41, 241);
-			this.tsRollDice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tsRollDice.Location = new System.Drawing.Point(33, 194);
 			this.tsRollDice.Name = "tsRollDice";
 			this.tsRollDice.Properties.AutoWidth = true;
 			this.tsRollDice.Properties.OffText = "Off";
 			this.tsRollDice.Properties.OnText = "On";
 			this.tsRollDice.Properties.ShowText = false;
-			this.tsRollDice.Size = new System.Drawing.Size(57, 24);
+			this.tsRollDice.Size = new System.Drawing.Size(50, 18);
 			this.tsRollDice.StyleController = this.layoutControl1;
 			this.tsRollDice.TabIndex = 4;
 			// 
 			// tsTicTacToe
 			// 
 			this.tsTicTacToe.AutoSizeInLayoutControl = true;
-			this.tsTicTacToe.Location = new System.Drawing.Point(301, 241);
-			this.tsTicTacToe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tsTicTacToe.Location = new System.Drawing.Point(249, 194);
 			this.tsTicTacToe.Name = "tsTicTacToe";
 			this.tsTicTacToe.Properties.AutoWidth = true;
 			this.tsTicTacToe.Properties.OffText = "Off";
 			this.tsTicTacToe.Properties.OnText = "On";
 			this.tsTicTacToe.Properties.ShowText = false;
-			this.tsTicTacToe.Size = new System.Drawing.Size(57, 24);
+			this.tsTicTacToe.Size = new System.Drawing.Size(50, 18);
 			this.tsTicTacToe.StyleController = this.layoutControl1;
 			this.tsTicTacToe.TabIndex = 4;
 			// 
 			// tsPassowordsGenerator
 			// 
 			this.tsPassowordsGenerator.AutoSizeInLayoutControl = true;
-			this.tsPassowordsGenerator.Location = new System.Drawing.Point(41, 377);
-			this.tsPassowordsGenerator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tsPassowordsGenerator.Location = new System.Drawing.Point(33, 302);
 			this.tsPassowordsGenerator.Name = "tsPassowordsGenerator";
 			this.tsPassowordsGenerator.Properties.AutoWidth = true;
 			this.tsPassowordsGenerator.Properties.OffText = "Off";
 			this.tsPassowordsGenerator.Properties.OnText = "On";
 			this.tsPassowordsGenerator.Properties.ShowText = false;
-			this.tsPassowordsGenerator.Size = new System.Drawing.Size(57, 24);
+			this.tsPassowordsGenerator.Size = new System.Drawing.Size(50, 18);
 			this.tsPassowordsGenerator.StyleController = this.layoutControl1;
 			this.tsPassowordsGenerator.TabIndex = 4;
 			// 
 			// tsPdfMerger
 			// 
 			this.tsPdfMerger.AutoSizeInLayoutControl = true;
-			this.tsPdfMerger.Location = new System.Drawing.Point(171, 377);
-			this.tsPdfMerger.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tsPdfMerger.Location = new System.Drawing.Point(141, 302);
 			this.tsPdfMerger.Name = "tsPdfMerger";
 			this.tsPdfMerger.Properties.AutoWidth = true;
 			this.tsPdfMerger.Properties.OffText = "Off";
 			this.tsPdfMerger.Properties.OnText = "On";
 			this.tsPdfMerger.Properties.ShowText = false;
-			this.tsPdfMerger.Size = new System.Drawing.Size(57, 24);
+			this.tsPdfMerger.Size = new System.Drawing.Size(50, 18);
 			this.tsPdfMerger.StyleController = this.layoutControl1;
 			this.tsPdfMerger.TabIndex = 4;
 			// 
 			// tsGradeCalculator
 			// 
 			this.tsGradeCalculator.AutoSizeInLayoutControl = true;
-			this.tsGradeCalculator.Location = new System.Drawing.Point(301, 377);
-			this.tsGradeCalculator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tsGradeCalculator.Location = new System.Drawing.Point(249, 302);
 			this.tsGradeCalculator.Name = "tsGradeCalculator";
 			this.tsGradeCalculator.Properties.AutoWidth = true;
 			this.tsGradeCalculator.Properties.OffText = "Off";
 			this.tsGradeCalculator.Properties.OnText = "On";
 			this.tsGradeCalculator.Properties.ShowText = false;
-			this.tsGradeCalculator.Size = new System.Drawing.Size(57, 24);
+			this.tsGradeCalculator.Size = new System.Drawing.Size(50, 18);
 			this.tsGradeCalculator.StyleController = this.layoutControl1;
 			this.tsGradeCalculator.TabIndex = 4;
 			// 
 			// tsConvertText
 			// 
 			this.tsConvertText.AutoSizeInLayoutControl = true;
-			this.tsConvertText.Location = new System.Drawing.Point(431, 377);
-			this.tsConvertText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tsConvertText.Location = new System.Drawing.Point(357, 302);
 			this.tsConvertText.Name = "tsConvertText";
 			this.tsConvertText.Properties.AutoWidth = true;
 			this.tsConvertText.Properties.OffText = "Off";
 			this.tsConvertText.Properties.OnText = "On";
 			this.tsConvertText.Properties.ShowText = false;
-			this.tsConvertText.Size = new System.Drawing.Size(57, 24);
+			this.tsConvertText.Size = new System.Drawing.Size(50, 18);
 			this.tsConvertText.StyleController = this.layoutControl1;
 			this.tsConvertText.TabIndex = 4;
 			// 
 			// tsFormOut
 			// 
 			this.tsFormOut.AutoSizeInLayoutControl = true;
-			this.tsFormOut.Location = new System.Drawing.Point(561, 377);
-			this.tsFormOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tsFormOut.Location = new System.Drawing.Point(465, 302);
 			this.tsFormOut.Name = "tsFormOut";
 			this.tsFormOut.Properties.AutoWidth = true;
 			this.tsFormOut.Properties.OffText = "Off";
 			this.tsFormOut.Properties.OnText = "On";
 			this.tsFormOut.Properties.ShowText = false;
-			this.tsFormOut.Size = new System.Drawing.Size(57, 24);
+			this.tsFormOut.Size = new System.Drawing.Size(50, 18);
 			this.tsFormOut.StyleController = this.layoutControl1;
 			this.tsFormOut.TabIndex = 4;
 			// 
 			// tsThreeSimpleRule
 			// 
 			this.tsThreeSimpleRule.AutoSizeInLayoutControl = true;
-			this.tsThreeSimpleRule.Location = new System.Drawing.Point(691, 377);
-			this.tsThreeSimpleRule.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.tsThreeSimpleRule.Location = new System.Drawing.Point(573, 302);
 			this.tsThreeSimpleRule.Name = "tsThreeSimpleRule";
 			this.tsThreeSimpleRule.Properties.AutoWidth = true;
 			this.tsThreeSimpleRule.Properties.OffText = "Off";
 			this.tsThreeSimpleRule.Properties.OnText = "On";
 			this.tsThreeSimpleRule.Properties.ShowText = false;
-			this.tsThreeSimpleRule.Size = new System.Drawing.Size(57, 24);
+			this.tsThreeSimpleRule.Size = new System.Drawing.Size(50, 18);
 			this.tsThreeSimpleRule.StyleController = this.layoutControl1;
 			this.tsThreeSimpleRule.TabIndex = 4;
 			// 
@@ -443,15 +430,15 @@
             this.layoutControlGroup2,
             this.layoutControlGroup3});
 			this.Root.Name = "Root";
-			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 10, 5);
-			this.Root.Size = new System.Drawing.Size(1119, 698);
+			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 8, 4);
+			this.Root.Size = new System.Drawing.Size(959, 568);
 			this.Root.TextVisible = false;
 			// 
 			// emptySpaceItem1
 			// 
-			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 395);
+			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 314);
 			this.emptySpaceItem1.Name = "emptySpaceItem1";
-			this.emptySpaceItem1.Size = new System.Drawing.Size(1109, 288);
+			this.emptySpaceItem1.Size = new System.Drawing.Size(951, 242);
 			// 
 			// layoutControlGroup1
 			// 
@@ -467,7 +454,7 @@
 			this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlGroup1.Name = "layoutControlGroup1";
 			this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlGroup1.Size = new System.Drawing.Size(1109, 126);
+			this.layoutControlGroup1.Size = new System.Drawing.Size(951, 100);
 			this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
 			this.layoutControlGroup1.Text = "Home";
 			// 
@@ -484,16 +471,16 @@
 			this.layoutControlItem1.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(130, 94);
+			this.layoutControlItem1.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem1.Text = "Notes";
 			this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem1.TextSize = new System.Drawing.Size(124, 55);
+			this.layoutControlItem1.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// emptySpaceItem2
 			// 
-			this.emptySpaceItem2.Location = new System.Drawing.Point(520, 0);
+			this.emptySpaceItem2.Location = new System.Drawing.Point(432, 0);
 			this.emptySpaceItem2.Name = "emptySpaceItem2";
-			this.emptySpaceItem2.Size = new System.Drawing.Size(589, 94);
+			this.emptySpaceItem2.Size = new System.Drawing.Size(519, 77);
 			// 
 			// layoutControlItem2
 			// 
@@ -508,12 +495,12 @@
 			this.layoutControlItem2.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem2.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.cli;
 			this.layoutControlItem2.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem2.Location = new System.Drawing.Point(130, 0);
+			this.layoutControlItem2.Location = new System.Drawing.Point(108, 0);
 			this.layoutControlItem2.Name = "layoutControlItem2";
-			this.layoutControlItem2.Size = new System.Drawing.Size(130, 94);
+			this.layoutControlItem2.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem2.Text = " Commands Runner ";
 			this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem2.TextSize = new System.Drawing.Size(124, 55);
+			this.layoutControlItem2.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// layoutControlItem3
 			// 
@@ -528,12 +515,12 @@
 			this.layoutControlItem3.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem3.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.security_key;
 			this.layoutControlItem3.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem3.Location = new System.Drawing.Point(260, 0);
+			this.layoutControlItem3.Location = new System.Drawing.Point(216, 0);
 			this.layoutControlItem3.Name = "layoutControlItem3";
-			this.layoutControlItem3.Size = new System.Drawing.Size(130, 94);
+			this.layoutControlItem3.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem3.Text = "Passwords";
 			this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem3.TextSize = new System.Drawing.Size(124, 55);
+			this.layoutControlItem3.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// layoutControlItem4
 			// 
@@ -548,12 +535,12 @@
 			this.layoutControlItem4.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem4.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.weather;
 			this.layoutControlItem4.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem4.Location = new System.Drawing.Point(390, 0);
+			this.layoutControlItem4.Location = new System.Drawing.Point(324, 0);
 			this.layoutControlItem4.Name = "layoutControlItem4";
-			this.layoutControlItem4.Size = new System.Drawing.Size(130, 94);
+			this.layoutControlItem4.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem4.Text = "Weather";
 			this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem4.TextSize = new System.Drawing.Size(124, 55);
+			this.layoutControlItem4.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// layoutControlGroup2
 			// 
@@ -565,11 +552,11 @@
             this.emptySpaceItem3,
             this.layoutControlItem7,
             this.layoutControlItem6});
-			this.layoutControlGroup2.Location = new System.Drawing.Point(0, 126);
+			this.layoutControlGroup2.Location = new System.Drawing.Point(0, 100);
 			this.layoutControlGroup2.Name = "layoutControlGroup2";
 			this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlGroup2.Size = new System.Drawing.Size(1109, 133);
-			this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 7, 0);
+			this.layoutControlGroup2.Size = new System.Drawing.Size(951, 106);
+			this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 6, 0);
 			this.layoutControlGroup2.Text = "Entertainment";
 			// 
 			// layoutControlItem5
@@ -585,18 +572,18 @@
 			this.layoutControlItem5.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem5.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.coin_flip;
 			this.layoutControlItem5.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem5.Location = new System.Drawing.Point(130, 0);
+			this.layoutControlItem5.Location = new System.Drawing.Point(108, 0);
 			this.layoutControlItem5.Name = "layoutControlItem5";
-			this.layoutControlItem5.Size = new System.Drawing.Size(130, 94);
+			this.layoutControlItem5.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem5.Text = "Coin Flip";
 			this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem5.TextSize = new System.Drawing.Size(124, 55);
+			this.layoutControlItem5.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// emptySpaceItem3
 			// 
-			this.emptySpaceItem3.Location = new System.Drawing.Point(390, 0);
+			this.emptySpaceItem3.Location = new System.Drawing.Point(324, 0);
 			this.emptySpaceItem3.Name = "emptySpaceItem3";
-			this.emptySpaceItem3.Size = new System.Drawing.Size(719, 94);
+			this.emptySpaceItem3.Size = new System.Drawing.Size(627, 77);
 			// 
 			// layoutControlItem7
 			// 
@@ -611,12 +598,12 @@
 			this.layoutControlItem7.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem7.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.tic_tac_toe;
 			this.layoutControlItem7.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem7.Location = new System.Drawing.Point(260, 0);
+			this.layoutControlItem7.Location = new System.Drawing.Point(216, 0);
 			this.layoutControlItem7.Name = "layoutControlItem7";
-			this.layoutControlItem7.Size = new System.Drawing.Size(130, 94);
+			this.layoutControlItem7.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem7.Text = "Tic Tac Toe";
 			this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem7.TextSize = new System.Drawing.Size(124, 55);
+			this.layoutControlItem7.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// layoutControlItem6
 			// 
@@ -633,10 +620,10 @@
 			this.layoutControlItem6.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
 			this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem6.Name = "layoutControlItem6";
-			this.layoutControlItem6.Size = new System.Drawing.Size(130, 94);
+			this.layoutControlItem6.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem6.Text = "Roll Dice";
 			this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem6.TextSize = new System.Drawing.Size(124, 55);
+			this.layoutControlItem6.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// layoutControlGroup3
 			// 
@@ -651,11 +638,11 @@
             this.layoutControlItem11,
             this.layoutControlItem12,
             this.layoutControlItem13});
-			this.layoutControlGroup3.Location = new System.Drawing.Point(0, 259);
+			this.layoutControlGroup3.Location = new System.Drawing.Point(0, 206);
 			this.layoutControlGroup3.Name = "layoutControlGroup3";
 			this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlGroup3.Size = new System.Drawing.Size(1109, 136);
-			this.layoutControlGroup3.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 10, 0);
+			this.layoutControlGroup3.Size = new System.Drawing.Size(951, 108);
+			this.layoutControlGroup3.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 8, 0);
 			this.layoutControlGroup3.Text = "Tools";
 			// 
 			// layoutControlItem8
@@ -673,16 +660,16 @@
 			this.layoutControlItem8.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
 			this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem8.Name = "layoutControlItem8";
-			this.layoutControlItem8.Size = new System.Drawing.Size(130, 94);
+			this.layoutControlItem8.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem8.Text = " Password Generator ";
 			this.layoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem8.TextSize = new System.Drawing.Size(124, 55);
+			this.layoutControlItem8.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// emptySpaceItem4
 			// 
-			this.emptySpaceItem4.Location = new System.Drawing.Point(780, 0);
+			this.emptySpaceItem4.Location = new System.Drawing.Point(648, 0);
 			this.emptySpaceItem4.Name = "emptySpaceItem4";
-			this.emptySpaceItem4.Size = new System.Drawing.Size(329, 94);
+			this.emptySpaceItem4.Size = new System.Drawing.Size(303, 77);
 			// 
 			// layoutControlItem9
 			// 
@@ -697,12 +684,12 @@
 			this.layoutControlItem9.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem9.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.exporttopdf;
 			this.layoutControlItem9.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem9.Location = new System.Drawing.Point(130, 0);
+			this.layoutControlItem9.Location = new System.Drawing.Point(108, 0);
 			this.layoutControlItem9.Name = "layoutControlItem9";
-			this.layoutControlItem9.Size = new System.Drawing.Size(130, 94);
+			this.layoutControlItem9.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem9.Text = "Pdf Merger";
 			this.layoutControlItem9.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem9.TextSize = new System.Drawing.Size(124, 55);
+			this.layoutControlItem9.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// layoutControlItem10
 			// 
@@ -717,12 +704,12 @@
 			this.layoutControlItem10.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem10.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.calculator;
 			this.layoutControlItem10.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem10.Location = new System.Drawing.Point(260, 0);
+			this.layoutControlItem10.Location = new System.Drawing.Point(216, 0);
 			this.layoutControlItem10.Name = "layoutControlItem10";
-			this.layoutControlItem10.Size = new System.Drawing.Size(130, 94);
+			this.layoutControlItem10.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem10.Text = "Grades Calculator";
 			this.layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem10.TextSize = new System.Drawing.Size(124, 55);
+			this.layoutControlItem10.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// layoutControlItem11
 			// 
@@ -737,12 +724,12 @@
 			this.layoutControlItem11.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem11.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.changetextcase;
 			this.layoutControlItem11.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem11.Location = new System.Drawing.Point(390, 0);
+			this.layoutControlItem11.Location = new System.Drawing.Point(324, 0);
 			this.layoutControlItem11.Name = "layoutControlItem11";
-			this.layoutControlItem11.Size = new System.Drawing.Size(130, 94);
+			this.layoutControlItem11.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem11.Text = "Convert Text";
 			this.layoutControlItem11.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem11.TextSize = new System.Drawing.Size(124, 55);
+			this.layoutControlItem11.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// layoutControlItem12
 			// 
@@ -757,12 +744,12 @@
 			this.layoutControlItem12.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem12.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.box_out;
 			this.layoutControlItem12.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem12.Location = new System.Drawing.Point(520, 0);
+			this.layoutControlItem12.Location = new System.Drawing.Point(432, 0);
 			this.layoutControlItem12.Name = "layoutControlItem12";
-			this.layoutControlItem12.Size = new System.Drawing.Size(130, 94);
+			this.layoutControlItem12.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem12.Text = "Form Out";
 			this.layoutControlItem12.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem12.TextSize = new System.Drawing.Size(124, 55);
+			this.layoutControlItem12.TextSize = new System.Drawing.Size(104, 52);
 			// 
 			// layoutControlItem13
 			// 
@@ -777,25 +764,24 @@
 			this.layoutControlItem13.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem13.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.above_average;
 			this.layoutControlItem13.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem13.Location = new System.Drawing.Point(650, 0);
+			this.layoutControlItem13.Location = new System.Drawing.Point(540, 0);
 			this.layoutControlItem13.Name = "layoutControlItem13";
-			this.layoutControlItem13.Size = new System.Drawing.Size(130, 94);
+			this.layoutControlItem13.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem13.Text = "Three Simple Rule";
 			this.layoutControlItem13.TextLocation = DevExpress.Utils.Locations.Top;
-			this.layoutControlItem13.TextSize = new System.Drawing.Size(124, 55);
+			this.layoutControlItem13.TextSize = new System.Drawing.Size(104, 52);
 			// 
-			// ModulesSetting
+			// ModulesSettingView
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.layoutControl1);
 			this.Controls.Add(this.barDockControl3);
 			this.Controls.Add(this.barDockControl4);
 			this.Controls.Add(this.barDockControl2);
 			this.Controls.Add(this.barDockControl1);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.Name = "ModulesSetting";
-			this.Size = new System.Drawing.Size(1119, 742);
+			this.Name = "ModulesSettingView";
+			this.Size = new System.Drawing.Size(959, 603);
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
@@ -853,7 +839,7 @@
 		private DevExpress.XtraBars.BarButtonItem bbiEnable;
 		private DevExpress.XtraBars.BarButtonItem bbiCreateFile;
 		private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
-		private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+		private DevExpress.XtraBars.BarButtonItem bbiGuardar;
 		private DevExpress.XtraLayout.LayoutControl layoutControl1;
 		private DevExpress.XtraEditors.ToggleSwitch tsNotes;
 		private DevExpress.XtraLayout.LayoutControlGroup Root;

@@ -1,16 +1,12 @@
 ﻿using DevExpress.UserSkins;
-using DevExpress.Utils;
 using DevExpress.XtraSplashScreen;
 using LifeLog.App.Helpers;
-using LifeLog.Base.Infrastructure.Exceptions;
-using LifeLog.Base.Infrastructure.Flags;
-using LifeLog.Data.Database.ORMDataModel;
+using LifeLog.Data.Models;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Forms.Auth;
 using LifeLog.UI.Common.Forms.Loading;
 using LifeLog.UI.Common.Helpers;
 using System;
-using System.Runtime.Remoting.Contexts;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -48,6 +44,8 @@ namespace LifeLog.App
 				};
 
 				AppSession.AppConfigs = AppHelper.LoadAppConfigs();
+				AppSession.DbConfigs = AppHelper.GetDatabaseConfigs();
+				AppSession.UserAppConfigs = new UserAppConfigsModel() { FrontModules = 3 };
 				AppSession.DataEngine = new Data.Database.Engine(AppSession.DbConfigs);
 
 				using (AppSession.AuthForm = new AuthForm())
@@ -61,6 +59,8 @@ namespace LifeLog.App
 							Environment.Exit(0);
 
 						AppSession.Container = new AppContainer($"LifeLog.UI.{AppSession.AuthForm.AplicationInterface.ToString()}");
+
+						AppSession.UserAppConfigs = new UserAppConfigsModel() { FrontModules = 3 };
 
 						Application.Run(AppSession.Container.EngineForm.MainForm);
 					}

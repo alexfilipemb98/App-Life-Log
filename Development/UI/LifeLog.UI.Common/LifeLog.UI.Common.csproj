@@ -59,20 +59,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-	  <!-- Resources Begin -->
-	  <None Include="..\..\Base\LifeLog.Base.Assets\Resources.resx">
-		  <Link>Properties\Resources.resx</Link>
-		  <Generator>PublicResXFileCodeGenerator</Generator>
-		  <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-		  <CustomToolNamespace>LifeLog.Base.Assets</CustomToolNamespace>
-	  </None>
-	  <None Include="..\..\Base\LifeLog.Base.Assets\Resources.Designer.cs">
-		  <Link>Properties\Resources.Designer.cs</Link>
-		  <AutoGen>True</AutoGen>
-		  <DesignTime>True</DesignTime>
-		  <DependentUpon>Resources.resx</DependentUpon>
-	  </None>
-	  <!-- Resources End -->
+    <!-- Resources Begin -->
+    <None Include="..\..\Base\LifeLog.Base.Assets\Resources.resx">
+      <Link>Properties\Resources.resx</Link>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>LifeLog.Base.Assets</CustomToolNamespace>
+    </None>
+    <None Include="..\..\Base\LifeLog.Base.Assets\Resources.Designer.cs">
+      <Link>Properties\Resources.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </None>
+    <!-- Resources End -->
     <Compile Include="AppContainer.cs" />
     <Compile Include="AppSession.cs" />
     <Compile Include="Forms\Auth\AuthForm.cs">
@@ -194,6 +194,10 @@
     <ProjectReference Include="..\..\Base\LifeLog.Base.Infrastructure\LifeLog.Base.Infrastructure.csproj">
       <Project>{DBD44F5F-F1CF-405A-A096-0F3369C03874}</Project>
       <Name>LifeLog.Base.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\LifeLog.Data.Models\LifeLog.Data.Models.csproj">
+      <Project>{748E1B52-8FF2-4BD0-98F7-7D76DD11E4AC}</Project>
+      <Name>LifeLog.Data.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\LifeLog.Services.Api\LifeLog.Services.Api.csproj">
       <Project>{0c68c288-1b96-4b5f-a255-5cdddac5cfd4}</Project>

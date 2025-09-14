@@ -132,11 +132,11 @@
     <Compile Include="Views\Main\Passwords\PasswordsView.Designer.cs">
       <DependentUpon>PasswordsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Settings\ModulesSetting.cs">
+    <Compile Include="Views\Settings\ModulesSettingView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Settings\ModulesSetting.Designer.cs">
-      <DependentUpon>ModulesSetting.cs</DependentUpon>
+    <Compile Include="Views\Settings\ModulesSettingView.Designer.cs">
+      <DependentUpon>ModulesSettingView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Tools\ConvertCase\ConvertCaseView.cs">
       <SubType>UserControl</SubType>
@@ -198,8 +198,8 @@
     <EmbeddedResource Include="Views\Main\Passwords\PasswordsView.resx">
       <DependentUpon>PasswordsView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Settings\ModulesSetting.resx">
-      <DependentUpon>ModulesSetting.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Settings\ModulesSettingView.resx">
+      <DependentUpon>ModulesSettingView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tools\ConvertCase\ConvertCaseView.resx">
       <DependentUpon>ConvertCaseView.cs</DependentUpon>

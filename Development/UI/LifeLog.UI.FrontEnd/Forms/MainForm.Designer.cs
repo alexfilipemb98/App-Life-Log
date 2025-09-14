@@ -31,11 +31,11 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-			this.backstageViewControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
+			this.backstageViewControl = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
 			this.backstageViewClientControl2 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-			this.databaseSettingsView1 = new LifeLog.UI.Common.Views.DatabaseSettingsView();
+			this.databaseSettingsView = new LifeLog.UI.Common.Views.DatabaseSettingsView();
 			this.backstageViewClientControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-			this.modulesSetting = new LifeLog.UI.FrontEnd.Views.Settings.ModulesSetting();
+			this.modulesSettingView = new LifeLog.UI.FrontEnd.Views.Settings.ModulesSettingView();
 			this.bvtiDatabaseSettings = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
 			this.bvtiModulesSettings = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
 			this.bbiSettingsApp = new DevExpress.XtraBars.BarButtonItem();
@@ -55,7 +55,7 @@
 			this.bbiGradesCalculador = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiFormOut = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiCommandsRunner = new DevExpress.XtraBars.BarButtonItem();
-			this.Passwords = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiPasswords = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiWeather = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiConvertText = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiThreeSimpleRule = new DevExpress.XtraBars.BarButtonItem();
@@ -84,8 +84,8 @@
 			this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.backstageViewControl1)).BeginInit();
-			this.backstageViewControl1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.backstageViewControl)).BeginInit();
+			this.backstageViewControl.SuspendLayout();
 			this.backstageViewClientControl2.SuspendLayout();
 			this.backstageViewClientControl1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -94,14 +94,13 @@
 			this.panelControl1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).BeginInit();
 			this.navigationFrame.SuspendLayout();
-			this.npHome.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// ribbon
 			// 
-			this.ribbon.ApplicationButtonDropDownControl = this.backstageViewControl1;
+			this.ribbon.ApplicationButtonDropDownControl = this.backstageViewControl;
 			this.ribbon.ApplicationCaption = "Frontend";
 			this.ribbon.ApplicationDocumentCaption = "Main";
 			this.ribbon.CaptionBarItemLinks.Add(this.bbiSettingsApp);
@@ -126,7 +125,7 @@
             this.bbiGradesCalculador,
             this.bbiFormOut,
             this.bbiCommandsRunner,
-            this.Passwords,
+            this.bbiPasswords,
             this.bbiWeather,
             this.bbiConvertText,
             this.bbiThreeSimpleRule});
@@ -146,61 +145,62 @@
 			this.ribbon.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
 			this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
 			this.ribbon.ShowToolbarCustomizeItem = false;
-			this.ribbon.Size = new System.Drawing.Size(1322, 222);
+			this.ribbon.Size = new System.Drawing.Size(1322, 177);
 			this.ribbon.StatusBar = this.ribbonStatusBar;
 			this.ribbon.Toolbar.ShowCustomizeItem = false;
 			this.ribbon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ribbon_ItemClickAsync);
 			// 
-			// backstageViewControl1
+			// backstageViewControl
 			// 
-			this.backstageViewControl1.Controls.Add(this.backstageViewClientControl1);
-			this.backstageViewControl1.Controls.Add(this.backstageViewClientControl2);
-			this.backstageViewControl1.Items.Add(this.bvtiDatabaseSettings);
-			this.backstageViewControl1.Items.Add(this.bvtiModulesSettings);
-			this.backstageViewControl1.Location = new System.Drawing.Point(26, 34);
-			this.backstageViewControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			this.backstageViewControl1.Name = "backstageViewControl1";
-			this.backstageViewControl1.OwnerControl = this.ribbon;
-			this.backstageViewControl1.SelectedTab = this.bvtiModulesSettings;
-			this.backstageViewControl1.SelectedTabIndex = 1;
-			this.backstageViewControl1.Size = new System.Drawing.Size(669, 251);
-			this.backstageViewControl1.TabIndex = 5;
-			this.backstageViewControl1.Text = "Settings";
+			this.backstageViewControl.Controls.Add(this.backstageViewClientControl2);
+			this.backstageViewControl.Controls.Add(this.backstageViewClientControl1);
+			this.backstageViewControl.Items.Add(this.bvtiDatabaseSettings);
+			this.backstageViewControl.Items.Add(this.bvtiModulesSettings);
+			this.backstageViewControl.Location = new System.Drawing.Point(154, 12);
+			this.backstageViewControl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.backstageViewControl.Name = "backstageViewControl";
+			this.backstageViewControl.OwnerControl = this.ribbon;
+			this.backstageViewControl.SelectedTab = this.bvtiModulesSettings;
+			this.backstageViewControl.SelectedTabIndex = 1;
+			this.backstageViewControl.Size = new System.Drawing.Size(913, 26);
+			this.backstageViewControl.TabIndex = 5;
+			this.backstageViewControl.Text = "Settings";
+			this.backstageViewControl.SelectedTabChanged += new DevExpress.XtraBars.Ribbon.BackstageViewItemEventHandler(this.backstageViewControl_SelectedTabChanged);
 			// 
 			// backstageViewClientControl2
 			// 
-			this.backstageViewClientControl2.Controls.Add(this.databaseSettingsView1);
-			this.backstageViewClientControl2.Location = new System.Drawing.Point(132, 63);
+			this.backstageViewClientControl2.Controls.Add(this.databaseSettingsView);
+			this.backstageViewClientControl2.Location = new System.Drawing.Point(137, 63);
 			this.backstageViewClientControl2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.backstageViewClientControl2.Name = "backstageViewClientControl2";
-			this.backstageViewClientControl2.Size = new System.Drawing.Size(536, 187);
+			this.backstageViewClientControl2.Size = new System.Drawing.Size(531, 187);
 			this.backstageViewClientControl2.TabIndex = 2;
 			// 
-			// databaseSettingsView1
+			// databaseSettingsView
 			// 
-			this.databaseSettingsView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.databaseSettingsView1.Location = new System.Drawing.Point(0, 0);
-			this.databaseSettingsView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			this.databaseSettingsView1.Name = "databaseSettingsView1";
-			this.databaseSettingsView1.Size = new System.Drawing.Size(536, 187);
-			this.databaseSettingsView1.TabIndex = 0;
+			this.databaseSettingsView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.databaseSettingsView.Location = new System.Drawing.Point(0, 0);
+			this.databaseSettingsView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.databaseSettingsView.Name = "databaseSettingsView";
+			this.databaseSettingsView.Size = new System.Drawing.Size(531, 187);
+			this.databaseSettingsView.TabIndex = 0;
 			// 
 			// backstageViewClientControl1
 			// 
-			this.backstageViewClientControl1.Controls.Add(this.modulesSetting);
-			this.backstageViewClientControl1.Location = new System.Drawing.Point(132, 63);
+			this.backstageViewClientControl1.Controls.Add(this.modulesSettingView);
+			this.backstageViewClientControl1.Location = new System.Drawing.Point(137, 63);
 			this.backstageViewClientControl1.Name = "backstageViewClientControl1";
-			this.backstageViewClientControl1.Size = new System.Drawing.Size(536, 187);
+			this.backstageViewClientControl1.Size = new System.Drawing.Size(758, 0);
 			this.backstageViewClientControl1.TabIndex = 3;
 			// 
-			// modulesSetting
+			// modulesSettingView
 			// 
-			this.modulesSetting.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.modulesSetting.Location = new System.Drawing.Point(0, 0);
-			this.modulesSetting.Margin = new System.Windows.Forms.Padding(4);
-			this.modulesSetting.Name = "modulesSetting";
-			this.modulesSetting.Size = new System.Drawing.Size(536, 187);
-			this.modulesSetting.TabIndex = 0;
+			this.modulesSettingView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.modulesSettingView.Location = new System.Drawing.Point(0, 0);
+			this.modulesSettingView.Margin = new System.Windows.Forms.Padding(4);
+			this.modulesSettingView.Name = "modulesSettingView";
+			this.modulesSettingView.Size = new System.Drawing.Size(758, 0);
+			this.modulesSettingView.TabIndex = 0;
 			// 
 			// bvtiDatabaseSettings
 			// 
@@ -346,13 +346,13 @@
 			this.bbiCommandsRunner.Name = "bbiCommandsRunner";
 			this.bbiCommandsRunner.Tag = "Main.CommandsRunner.CommandsRunnerView";
 			// 
-			// Passwords
+			// bbiPasswords
 			// 
-			this.Passwords.Caption = "Passwords";
-			this.Passwords.Id = 19;
-			this.Passwords.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.security_key;
-			this.Passwords.Name = "Passwords";
-			this.Passwords.Tag = "Main.Passwords.PasswordsView";
+			this.bbiPasswords.Caption = "Passwords";
+			this.bbiPasswords.Id = 19;
+			this.bbiPasswords.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.security_key;
+			this.bbiPasswords.Name = "bbiPasswords";
+			this.bbiPasswords.Tag = "Main.Passwords.PasswordsView";
 			// 
 			// bbiWeather
 			// 
@@ -390,7 +390,7 @@
 			// 
 			this.rpgHome.ItemLinks.Add(this.bbiNotes);
 			this.rpgHome.ItemLinks.Add(this.bbiCommandsRunner);
-			this.rpgHome.ItemLinks.Add(this.Passwords);
+			this.rpgHome.ItemLinks.Add(this.bbiPasswords);
 			this.rpgHome.ItemLinks.Add(this.bbiWeather);
 			this.rpgHome.Name = "rpgHome";
 			this.rpgHome.Text = "Main";
@@ -465,11 +465,11 @@
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiAppVersion);
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiTime);
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiUserMenu);
-			this.ribbonStatusBar.Location = new System.Drawing.Point(0, 687);
+			this.ribbonStatusBar.Location = new System.Drawing.Point(0, 702);
 			this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.ribbonStatusBar.Name = "ribbonStatusBar";
 			this.ribbonStatusBar.Ribbon = this.ribbon;
-			this.ribbonStatusBar.Size = new System.Drawing.Size(1322, 39);
+			this.ribbonStatusBar.Size = new System.Drawing.Size(1322, 24);
 			// 
 			// bsiStatusLabel
 			// 
@@ -501,21 +501,21 @@
 			// 
 			this.layoutControl1.Controls.Add(this.panelControl1);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 222);
+			this.layoutControl1.Location = new System.Drawing.Point(0, 177);
 			this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.layoutControl1.Name = "layoutControl1";
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(1322, 465);
+			this.layoutControl1.Size = new System.Drawing.Size(1322, 525);
 			this.layoutControl1.TabIndex = 2;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
 			// panelControl1
 			// 
 			this.panelControl1.Controls.Add(this.navigationFrame);
-			this.panelControl1.Location = new System.Drawing.Point(16, 16);
+			this.panelControl1.Location = new System.Drawing.Point(12, 12);
 			this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.panelControl1.Name = "panelControl1";
-			this.panelControl1.Size = new System.Drawing.Size(1290, 433);
+			this.panelControl1.Size = new System.Drawing.Size(1298, 501);
 			this.panelControl1.TabIndex = 4;
 			// 
 			// navigationFrame
@@ -528,17 +528,15 @@
 			this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.npHome});
 			this.navigationFrame.SelectedPage = this.npHome;
-			this.navigationFrame.Size = new System.Drawing.Size(1286, 429);
+			this.navigationFrame.Size = new System.Drawing.Size(1294, 497);
 			this.navigationFrame.TabIndex = 0;
 			this.navigationFrame.Text = "navigationFrame1";
 			// 
 			// npHome
 			// 
-			this.npHome.Caption = "npHome";
-			this.npHome.Controls.Add(this.backstageViewControl1);
 			this.npHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.npHome.Name = "npHome";
-			this.npHome.Size = new System.Drawing.Size(1286, 429);
+			this.npHome.Size = new System.Drawing.Size(1294, 497);
 			// 
 			// Root
 			// 
@@ -547,7 +545,7 @@
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
 			this.Root.Name = "Root";
-			this.Root.Size = new System.Drawing.Size(1322, 465);
+			this.Root.Size = new System.Drawing.Size(1322, 525);
 			this.Root.TextVisible = false;
 			// 
 			// layoutControlItem1
@@ -555,7 +553,7 @@
 			this.layoutControlItem1.Control = this.panelControl1;
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(1296, 439);
+			this.layoutControlItem1.Size = new System.Drawing.Size(1302, 505);
 			this.layoutControlItem1.TextVisible = false;
 			// 
 			// timer
@@ -585,6 +583,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1322, 726);
+			this.Controls.Add(this.backstageViewControl);
 			this.Controls.Add(this.layoutControl1);
 			this.Controls.Add(this.ribbonStatusBar);
 			this.Controls.Add(this.ribbon);
@@ -599,8 +598,8 @@
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.backstageViewControl1)).EndInit();
-			this.backstageViewControl1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.backstageViewControl)).EndInit();
+			this.backstageViewControl.ResumeLayout(false);
 			this.backstageViewClientControl2.ResumeLayout(false);
 			this.backstageViewClientControl1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -609,7 +608,6 @@
 			this.panelControl1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).EndInit();
 			this.navigationFrame.ResumeLayout(false);
-			this.npHome.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
 			this.ResumeLayout(false);
@@ -646,9 +644,9 @@
 		private DevExpress.XtraBars.BarButtonItem bbiPasswordGenerator;
 		private DevExpress.XtraBars.BarToggleSwitchItem btsiTopMost;
 		private DevExpress.XtraBars.BarButtonItem bbiPdfMerger;
-		private DevExpress.XtraBars.Ribbon.BackstageViewControl backstageViewControl1;
+		private DevExpress.XtraBars.Ribbon.BackstageViewControl backstageViewControl;
 		private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl2;
-		private Common.Views.DatabaseSettingsView databaseSettingsView1;
+		private Common.Views.DatabaseSettingsView databaseSettingsView;
 		private DevExpress.XtraBars.Ribbon.BackstageViewTabItem bvtiDatabaseSettings;
 		private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage6;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
@@ -665,12 +663,12 @@
 		private DevExpress.XtraBars.BarButtonItem bbiFormOut;
 		private DevExpress.XtraBars.BarButtonItem bbiCommandsRunner;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
-		private DevExpress.XtraBars.BarButtonItem Passwords;
+		private DevExpress.XtraBars.BarButtonItem bbiPasswords;
 		private DevExpress.XtraBars.BarButtonItem bbiWeather;
 		private DevExpress.XtraBars.BarButtonItem bbiConvertText;
 		private DevExpress.XtraBars.BarButtonItem bbiThreeSimpleRule;
 		private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl1;
 		private DevExpress.XtraBars.Ribbon.BackstageViewTabItem bvtiModulesSettings;
-		private Views.Settings.ModulesSetting modulesSetting;
+		private Views.Settings.ModulesSettingView modulesSettingView;
 	}
 }

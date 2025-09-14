@@ -47,6 +47,7 @@
     <Compile Include="ConversionUtil.cs" />
     <Compile Include="EnumUtil.cs" />
     <Compile Include="FilesUtil.cs" />
+    <Compile Include="FlagsUtil.cs" />
     <Compile Include="ImagesUtil.cs" />
     <Compile Include="JsonUtil.cs" />
     <Compile Include="LoggerUtil.cs" />

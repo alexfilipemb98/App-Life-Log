@@ -1,4 +1,5 @@
 ﻿using LifeLog.Base.Models;
+using LifeLog.Data.Models;
 using LifeLog.UI.Common.Forms.Auth;
 using LifeLog.UI.Common.Helpers;
 using System.IO;
@@ -49,6 +50,11 @@ namespace LifeLog.UI.Common
 		/// Application configuration model.
 		/// </summary>
 		public static AppConfigsModel AppConfigs { get; set; }
+
+		/// <summary>
+		/// User application configuration model.
+		/// </summary>
+		public static UserAppConfigsModel UserAppConfigs { get; set; }
 
 		/// <summary>
 		/// Authentication form instance.
