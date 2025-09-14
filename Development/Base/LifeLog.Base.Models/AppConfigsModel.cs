@@ -16,13 +16,6 @@ namespace LifeLog.Base.Models
         [DataType(DataType.Text)]
         public string LastEmail { get; set; }
 
-        public int MainFormWidth { get; set; }
-
-        public int MainFormHeight { get; set; }
-        [Infrastructure.Attributes.Range(0, 2)]
-
-        public int MainFormWindowState { get; set; }
-
         [DataType(DataType.Text)]
         public string InternalApiUrl { get; set; }
 

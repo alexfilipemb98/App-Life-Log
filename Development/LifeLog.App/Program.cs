@@ -1,12 +1,17 @@
-﻿using DevExpress.XtraSplashScreen;
+﻿using DevExpress.UserSkins;
+using DevExpress.Utils;
+using DevExpress.XtraSplashScreen;
 using LifeLog.App.Helpers;
 using LifeLog.Base.Infrastructure.Exceptions;
+using LifeLog.Base.Infrastructure.Flags;
 using LifeLog.Data.Database.ORMDataModel;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Forms.Auth;
 using LifeLog.UI.Common.Forms.Loading;
 using LifeLog.UI.Common.Helpers;
 using System;
+using System.Runtime.Remoting.Contexts;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LifeLog.App
@@ -30,46 +35,37 @@ namespace LifeLog.App
 
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault(false);
+				Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+				BonusSkins.Register();
 
-				do
+				Application.ThreadException += (s, e) =>
+					ErrorHelper.Handler(e.Exception);
+
+				TaskScheduler.UnobservedTaskException += (s, e) =>
 				{
-					AppSession.Container?.Dispose();
+					ErrorHelper.Handler(e.Exception);
+					e.SetObserved();
+				};
 
-					AppSession.AppConfigs = AppHelper.LoadAppConfigs();
-					AppSession.DbConfigs = AppHelper.GetDatabaseConfigs();
-					
-					AppSession.AuthForm = new AuthForm();
+				AppSession.AppConfigs = AppHelper.LoadAppConfigs();
+				AppSession.DataEngine = new Data.Database.Engine(AppSession.DbConfigs);
 
-					try
-					{
-						AppSession.DataEngine = new Data.Database.Engine(AppSession.DbConfigs);
-						AppSession.AuthForm.IsConfigsOk = true;
-					}
-					catch (ValidationException)
-					{
-						AppSession.AuthForm.IsConfigsOk = false;
-					}
-
-					if (AppSession.AppConfigs.InternalApiEnabled && !string.IsNullOrWhiteSpace(AppSession.AppConfigs.InternalApiUrl))
-					{
-						AppSession.ApiEngine = new Services.Api.Engine(AppSession.DataEngine);
-						AppSession.ApiEngine.Inicialize(AppSession.AppConfigs.InternalApiUrl);
-					}
-
+				using (AppSession.AuthForm = new AuthForm())
+				{
 					AppSession.AuthForm.Shown += (s, e) =>
 						SplashScreenManager.CloseForm(false);
 
-					AppSession.AuthForm.FormClosed += (s, e) =>
-						AppSession.AuthForm.Dispose();
+					do
+					{
+						if (AppSession.AuthForm.ShowDialog() != DialogResult.Yes)
+							Environment.Exit(0);
 
-					if (AppSession.AuthForm.ShowDialog() != DialogResult.Yes)
-						Environment.Exit(0);
+						AppSession.Container = new AppContainer($"LifeLog.UI.{AppSession.AuthForm.AplicationInterface.ToString()}");
 
-					AppSession.Container = new AppContainer($"LifeLog.UI.{AppSession.AuthForm.AplicationInterface.ToString()}");
-
-					Application.Run(AppSession.Container.EngineForm.MainForm);
+						Application.Run(AppSession.Container.EngineForm.MainForm);
+					}
+					while (AppSession.Container.EngineForm.IsUserLogingout);
 				}
-				while (AppSession.Container.EngineForm.IsUserLogingout);
 			}
 			catch (Exception ex)
 			{

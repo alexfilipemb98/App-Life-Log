@@ -6,6 +6,7 @@ using LifeLog.Base.Infrastructure.Enums;
 using LifeLog.Base.Models;
 using LifeLog.Base.Utils;
 using LifeLog.Data.Database.Helpers;
+using LifeLog.Data.Database.ORMDataModel;
 using LifeLog.Data.Database.Queries;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
@@ -15,8 +16,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Reflection;
 
 namespace LifeLog.Data.Database
 {
@@ -28,10 +27,23 @@ namespace LifeLog.Data.Database
 		#region MAIN
 
 		//PROPERTIES
+		public string DBName { get; private set; } = "Disconected!";
+		
 		internal static Engine Instance { get; private set; }
 		internal IDataLayer DataLayer { get; private set; }
 		internal IDbConnection Connection { get; private set; }
-		public string DBName { get; private set; } = "Disconected!";
+		
+		private static Type[] _persistentTypes => new Type[] { 
+			typeof(ORM_UsersModel),
+			typeof(ORM_ExternalProgramsModel),
+			typeof(ORM_NotesModel),
+			//typeof(ORM_VersionsModel),
+			typeof(ORM_ImagesModel),
+			typeof(ORM_CommandsModel),
+		};
+		private static Type[] _nonPersistentTypes => new Type[] {
+			typeof(ORM_BaseModel),
+		};
 
 		/// <summary>
 		/// Constructor
@@ -57,20 +69,10 @@ namespace LifeLog.Data.Database
 
 			DbHelper.SqlLiteBackUp(config);
 
-			IEnumerable<Type> objectTypes = Assembly.GetExecutingAssembly()
-				.GetTypes()
-				.Where(t => t.Namespace != null
-					&& t.Namespace.Equals("LifeLog.Data.Database.ORMDataModel")
-					&& !t.IsAbstract
-				);
-
-			Type[] persistentTypes = objectTypes.Where(t => !t.GetCustomAttributes(typeof(NonPersistentAttribute), false).Any()).ToArray();
-			Type[] nonPersistentTypes = objectTypes.Where(t => t.GetCustomAttributes(typeof(NonPersistentAttribute), false).Any()).ToArray();
-
 			IDataStore provider = XpoDefault.GetConnectionProvider(connectionString, AutoCreateOption.DatabaseAndSchema);
 			ReflectionDictionary dictionary = new ReflectionDictionary();
-			dictionary.GetDataStoreSchema(persistentTypes);
-			dictionary.CollectClassInfos(nonPersistentTypes);
+			dictionary.GetDataStoreSchema(_persistentTypes);
+			dictionary.CollectClassInfos(_nonPersistentTypes);
 
 			DbHelper.UpdateDB(provider, dictionary);
 

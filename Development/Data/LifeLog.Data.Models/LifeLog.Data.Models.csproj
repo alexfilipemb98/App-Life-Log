@@ -50,6 +50,7 @@
     <Compile Include="ImagesModel.cs" />
     <Compile Include="NotesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserAppConfigsModel.cs" />
     <Compile Include="UsersModel.cs" />
     <Compile Include="VersionsModel.cs" />
   </ItemGroup>

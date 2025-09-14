@@ -120,10 +120,8 @@ namespace LifeLog.UI.Common.Helpers
 				AppConfigsModel config = new AppConfigsModel
 				{
 					Theme = ThemeEnum.SYSTEM,
-					MainFormWidth = 1000,
-					MainFormHeight = 500,
-					MainFormWindowState = (int)FormWindowState.Normal,
-					InternalApiUrl = "http://localhost:9000"
+					InternalApiUrl = "http://localhost:9000",
+					InternalApiEnabled = false,
 				};
 
 				File.Create(jsonFile).Close();

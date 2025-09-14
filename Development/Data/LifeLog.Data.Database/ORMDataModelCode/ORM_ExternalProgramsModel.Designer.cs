@@ -18,7 +18,7 @@ namespace LifeLog.Data.Database.ORMDataModel
 
 	[Persistent(@"ExternalPrograms")]
 	[MapInheritance(MapInheritanceType.OwnTable)]
-	public partial class ORM_ExternalProgramModel : ORM_BaseModel
+	public partial class ORM_ExternalProgramsModel : ORM_BaseModel
 	{
 		string fName;
 		[Indexed(Name = @"UniqueExternalProgramsName", Unique = true)]

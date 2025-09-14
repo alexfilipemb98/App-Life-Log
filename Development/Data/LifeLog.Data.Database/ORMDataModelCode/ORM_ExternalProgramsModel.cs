@@ -8,11 +8,11 @@ using System.Reflection;
 namespace LifeLog.Data.Database.ORMDataModel
 {
 
-	public partial class ORM_ExternalProgramModel
+	public partial class ORM_ExternalProgramsModel
 	{
-		public ORM_ExternalProgramModel() : base(Session.DefaultSession) { }
-		public ORM_ExternalProgramModel(Session session) : base(session) { }
-
+		public ORM_ExternalProgramsModel() : base(Session.DefaultSession) { }
+		public ORM_ExternalProgramsModel(Session session) : base(session) { }
+		
 		private dynamic icon;
 		[NonPersistent]
 		public dynamic Icon
@@ -31,7 +31,6 @@ namespace LifeLog.Data.Database.ORMDataModel
 			}
 			set => icon = value;
 		}
-
 	}
 
 }

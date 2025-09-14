@@ -54,7 +54,7 @@ namespace LifeLog.Data.Database.ORMDataModel
 			get { return (bool)(EvaluateAlias(nameof(IsSvg))); }
 		}
 		[Association(@"ORM_ExternalProgramModelReferencesORM_ImagesModel"), Aggregated]
-		public IList<ORM_ExternalProgramModel> ORM_ExternalProgramModels { get { return GetList<ORM_ExternalProgramModel>(nameof(ORM_ExternalProgramModels)); } }
+		public IList<ORM_ExternalProgramsModel> ORM_ExternalProgramModels { get { return GetList<ORM_ExternalProgramsModel>(nameof(ORM_ExternalProgramModels)); } }
 	}
 
 }

@@ -60,9 +60,9 @@
     <Compile Include="ORMDataModelCode\ORM_CommandsModel.Designer.cs">
       <DependentUpon>ORM_CommandsModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="ORMDataModelCode\ORM_ExternalProgramModel.cs" />
-    <Compile Include="ORMDataModelCode\ORM_ExternalProgramModel.Designer.cs">
-      <DependentUpon>ORM_ExternalProgramModel.cs</DependentUpon>
+    <Compile Include="ORMDataModelCode\ORM_ExternalProgramsModel.cs" />
+    <Compile Include="ORMDataModelCode\ORM_ExternalProgramsModel.Designer.cs">
+      <DependentUpon>ORM_ExternalProgramsModel.cs</DependentUpon>
     </Compile>
     <Compile Include="ORMDataModelCode\ORM_ImagesModel.cs" />
     <Compile Include="ORMDataModelCode\ORM_ImagesModel.Designer.cs">
@@ -71,6 +71,10 @@
     <Compile Include="ORMDataModelCode\ORM_NotesModel.cs" />
     <Compile Include="ORMDataModelCode\ORM_NotesModel.Designer.cs">
       <DependentUpon>ORM_NotesModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ORMDataModelCode\ORM_UserAppConfigsModel.cs" />
+    <Compile Include="ORMDataModelCode\ORM_UserAppConfigsModel.Designer.cs">
+      <DependentUpon>ORM_UserAppConfigsModel.cs</DependentUpon>
     </Compile>
     <Compile Include="ORMDataModelCode\ORM_UsersModel.cs" />
     <Compile Include="ORMDataModelCode\ORM_UsersModel.Designer.cs">

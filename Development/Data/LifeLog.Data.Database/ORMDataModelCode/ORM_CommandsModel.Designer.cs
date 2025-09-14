@@ -80,14 +80,14 @@ namespace LifeLog.Data.Database.ORMDataModel
 			get { return fUser; }
 			set { SetPropertyValue<ORM_UsersModel>(nameof(User), ref fUser, value); }
 		}
-		ORM_ExternalProgramModel fExternalProgram;
+		ORM_ExternalProgramsModel fExternalProgram;
 		[Persistent(@"IdExternalProgram")]
 		[Association(@"ORM_CommandsModelReferencesORM_ExternalProgramModel")]
 		[DbType("UNIQUEIDENTIFIER")]
-		public ORM_ExternalProgramModel ExternalProgram
+		public ORM_ExternalProgramsModel ExternalProgram
 		{
 			get { return fExternalProgram; }
-			set { SetPropertyValue<ORM_ExternalProgramModel>(nameof(ExternalProgram), ref fExternalProgram, value); }
+			set { SetPropertyValue<ORM_ExternalProgramsModel>(nameof(ExternalProgram), ref fExternalProgram, value); }
 		}
 	}
 

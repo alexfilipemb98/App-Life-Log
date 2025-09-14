@@ -72,6 +72,7 @@
     <Compile Include="Enums\OperatorsEnum.cs" />
     <Compile Include="Enums\ThemeEnum.cs" />
     <Compile Include="Exceptions\ValidationException.cs" />
+    <Compile Include="Flags\FrontActiveModulesFlag.cs" />
     <Compile Include="Interfaces\IBaseQuery.cs" />
     <Compile Include="Interfaces\IEngineForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -15,7 +15,7 @@ namespace LifeLog.Data.Database.Mappers
 		/// </summary>
 		/// <param fName="entity"></param>
 		/// <returns></returns>
-		internal static ExternalProgramsModel ToModel(this ORM_ExternalProgramModel entity)
+		internal static ExternalProgramsModel ToModel(this ORM_ExternalProgramsModel entity)
 		{
 			if (entity == null) return null;
 
@@ -39,17 +39,17 @@ namespace LifeLog.Data.Database.Mappers
 		/// <param fName="model"></param>
 		/// <param fName="db"></param>
 		/// <returns></returns>
-		internal static ORM_ExternalProgramModel ToEntity(this ExternalProgramsModel model, UnitOfWork db)
+		internal static ORM_ExternalProgramsModel ToEntity(this ExternalProgramsModel model, UnitOfWork db)
 		{
 			if (model == null) return null;
 
 			ORM_ImagesModel image = model.Image.ToEntity(db);
 
-			ORM_ExternalProgramModel entity = db.GetObjectByKey<ORM_ExternalProgramModel>(model.Id);
+			ORM_ExternalProgramsModel entity = db.GetObjectByKey<ORM_ExternalProgramsModel>(model.Id);
 
 			if (entity == null)
 			{
-				entity = new ORM_ExternalProgramModel(db);
+				entity = new ORM_ExternalProgramsModel(db);
 				entity.Id = model.Id != Guid.Empty ? model.Id : Guid.NewGuid();
 				entity.CreatedAt =  DateTime.Now;
 				model.CreatedAt = entity.CreatedAt;

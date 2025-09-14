@@ -28,7 +28,7 @@ namespace LifeLog.Data.Database.Queries
 		{
 			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
 			{
-				ORM_ExternalProgramModel result = await db.GetObjectByKeyAsync<ORM_ExternalProgramModel>(key);
+				ORM_ExternalProgramsModel result = await db.GetObjectByKeyAsync<ORM_ExternalProgramsModel>(key);
 				string message = result != null ? "External program retrieved successfully." : "External program not found.";
 				return (result != null ? result.ToModel() : new ExternalProgramsModel(), message);
 			}
@@ -42,7 +42,7 @@ namespace LifeLog.Data.Database.Queries
 		{
 			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
 			{
-				List<ExternalProgramsModel> results = await db.Query<ORM_ExternalProgramModel>()
+				List<ExternalProgramsModel> results = await db.Query<ORM_ExternalProgramsModel>()
 				   .Select(s => s.ToModel())
 				   .ToListAsync();
 				string message = results.Count > 0 ? $"External programs retrieved successfully, {results.Count} found." : "No external programs found.";
@@ -64,7 +64,7 @@ namespace LifeLog.Data.Database.Queries
 			{
 				await base.Save(model);
 
-				ORM_ExternalProgramModel entity = model.ToEntity(db);
+				ORM_ExternalProgramsModel entity = model.ToEntity(db);
 
 				if (entity == null)
 					throw new ArgumentNullException("External Programs entity is null");
@@ -89,7 +89,7 @@ namespace LifeLog.Data.Database.Queries
 			using (UnitOfWork db = new UnitOfWork(Engine.Instance.DataLayer))
 			{
 				(ExternalProgramsModel model, _) = await base.Duplicate(key);
-				ORM_ExternalProgramModel entity = model.ToEntity(db);
+				ORM_ExternalProgramsModel entity = model.ToEntity(db);
 
 				entity.Id = Guid.NewGuid();
 				entity.Name += " (Copy)";

@@ -40,7 +40,7 @@
         <xpObjectShapeMoniker Id="ce430f5f-7f65-441f-817e-3f60a9635766" />
       </nodes>
     </inheritaceConnector>
-    <aggregationConnector Id="820a8d98-6254-419a-9293-7cb4d957aff9" edgePoints="[(2 : 7.38135336419684); (3.73675585174546 : 7.38135336419684 : JumpStart); (3.90342251841212 : 7.38135336419684 : JumpEnd); (7.99340735601002 : 7.38135336419684); (7.99340735601002 : 6.0819775390625)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <aggregationConnector Id="820a8d98-6254-419a-9293-7cb4d957aff9" edgePoints="[(2 : 7.38135336419684); (3.73675585174546 : 7.38135336419684 : JumpStart); (3.90342251841212 : 7.38135336419684 : JumpEnd); (4.79166666666667 : 7.38135336419684 : JumpStart); (4.95833333333333 : 7.38135336419684 : JumpEnd); (7.99340735601002 : 7.38135336419684); (7.99340735601002 : 6.0819775390625)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed">
       <aggregationMoniker Id="b4a75d3f-afca-4596-a3a7-beb79fa308a4" />
       <relativeChildShapes />
       <nodes>
@@ -68,7 +68,7 @@
         <xpObjectShapeMoniker Id="ce430f5f-7f65-441f-817e-3f60a9635766" />
       </nodes>
     </inheritaceConnector>
-    <aggregationConnector Id="5d752be0-08af-4f5e-aecd-5ad5e9d696da" edgePoints="[(2 : 6.54990437253743); (2.80208326658855 : 6.54990437253743 : JumpStart); (2.96874993325521 : 6.54990437253743 : JumpEnd); (6.75 : 6.54990437253743); (6.75 : 2.85111563512322); (7.125 : 2.85111563512322)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <aggregationConnector Id="5d752be0-08af-4f5e-aecd-5ad5e9d696da" edgePoints="[(2 : 6.54990437253743); (2.16666666666667 : 6.54990437253743 : JumpStart); (2.33333333333333 : 6.54990437253743 : JumpEnd); (2.80208326658855 : 6.54990437253743 : JumpStart); (2.96874993325521 : 6.54990437253743 : JumpEnd); (6.75 : 6.54990437253743); (6.75 : 2.85111563512322); (7.125 : 2.85111563512322)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed">
       <aggregationMoniker Id="44c189ed-48fe-4362-9433-a20a80137db6" />
       <relativeChildShapes />
       <nodes>
@@ -117,7 +117,7 @@
         <elementListCompartment Id="76d71059-353f-49b1-99ba-0e1e7891fbfa" isExpanded="false" absoluteBounds="3.64, 5.2902864583333331, 1.4700000000000002, 0.2493896484375" name="Collections" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </xpObjectShape>
-    <inheritaceConnector Id="91ce215c-bf4f-4bc5-81d1-c2d17516325c" edgePoints="[(3.625 : 4.50350952650953); (1.71815364079007 : 4.50350952650953 : JumpStart); (1.55148697412341 : 4.50350952650953 : JumpEnd); (1.22021634375 : 4.50350952650953); (1.22021634375 : 2.44737467447917)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <inheritaceConnector Id="91ce215c-bf4f-4bc5-81d1-c2d17516325c" edgePoints="[(3.625 : 4.50350952650953); (2.33333333333333 : 4.50350952650953 : JumpStart); (2.16666666666667 : 4.50350952650953 : JumpEnd); (1.71815364079007 : 4.50350952650953 : JumpStart); (1.55148697412341 : 4.50350952650953 : JumpEnd); (1.22021634375 : 4.50350952650953); (1.22021634375 : 2.44737467447917)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed">
       <inheritanceMoniker Id="b438d52b-1536-4a64-bc44-134405e29a0c" />
       <nodes>
         <xpObjectShapeMoniker Id="d9cbbeab-028a-4080-81a6-fb6ae01d6fa7" />
@@ -145,10 +145,25 @@
         <elementListCompartment Id="47fe9a7e-2f4e-4787-8e33-7ee5c62db467" absoluteBounds="3.14, 8.90568359375, 1.4700000000000002, 0.2493896484375" name="Collections" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </xpObjectShape>
-    <inheritaceConnector Id="b3a7d684-00a9-47e1-8d32-b5872dcdc726" edgePoints="[(3.82008918507879 : 7.5); (3.82008918507879 : 6.94791649188846); (2.88541659992188 : 6.94791649188846); (2.88541659992188 : 4.73958319518715); (1.63482030745674 : 4.73958319518715); (1.63482030745674 : 2.44737467447917)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <inheritaceConnector Id="b3a7d684-00a9-47e1-8d32-b5872dcdc726" edgePoints="[(3.82008918507879 : 7.5); (3.82008918507879 : 6.94791649188846); (2.88541659992188 : 6.94791649188846); (2.88541659992188 : 4.73958319518715); (2.33333333333333 : 4.73958319518715 : JumpStart); (2.16666666666667 : 4.73958319518715 : JumpEnd); (1.63482030745674 : 4.73958319518715); (1.63482030745674 : 2.44737467447917)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed">
       <inheritanceMoniker Id="e0017540-3284-498b-bcb3-b2bb2af9af57" />
       <nodes>
         <xpObjectShapeMoniker Id="e9d22252-1bdd-4edc-a4a7-c44652866f0a" />
+        <xpObjectShapeMoniker Id="ce430f5f-7f65-441f-817e-3f60a9635766" />
+      </nodes>
+    </inheritaceConnector>
+    <xpObjectShape Id="a118d2d2-3aa5-40e5-92cf-d455b38fd9cf" absoluteBounds="7.75, 7.625, 1.5, 1.3704703776041658">
+      <xpObjectMoniker Id="33a971c4-dac7-4568-b0f9-df83014ae13e" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6efc8c6c-3852-473e-be61-0585769d7a20" absoluteBounds="7.765, 7.9350000000000005, 1.4700000000000002, 0.44169108072916663" name="Fields" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="31b27ad3-9772-4a33-a21a-6cc51e6b6c15" absoluteBounds="7.765, 8.3866910807291664, 1.4700000000000002, 0.2493896484375" name="Indexes" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c1dd3054-99b5-4de1-bbec-8209c255e66b" absoluteBounds="7.765, 8.6460807291666661, 1.4700000000000002, 0.2493896484375" name="Collections" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </xpObjectShape>
+    <inheritaceConnector Id="2c78f054-3790-41d2-ab89-d34a1d23560a" edgePoints="[(7.75 : 8.31023518880208); (4.875 : 8.31023518880208); (4.875 : 7.25); (3.90342251841212 : 7.25 : JumpStart); (3.73675585174546 : 7.25 : JumpEnd); (2.25 : 7.25); (2.25 : 4.375); (1.71815364079007 : 4.375 : JumpStart); (1.55148697412341 : 4.375 : JumpEnd); (1.30354967708333 : 4.375 : JumpStart); (1.13688301041667 : 4.375 : JumpEnd); (0.828856171875 : 4.375); (0.828856171875 : 2.44737467447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <inheritanceMoniker Id="3a5bf4f7-026a-4eb9-9e52-dda4c64f879e" />
+      <nodes>
+        <xpObjectShapeMoniker Id="a118d2d2-3aa5-40e5-92cf-d455b38fd9cf" />
         <xpObjectShapeMoniker Id="ce430f5f-7f65-441f-817e-3f60a9635766" />
       </nodes>
     </inheritaceConnector>
