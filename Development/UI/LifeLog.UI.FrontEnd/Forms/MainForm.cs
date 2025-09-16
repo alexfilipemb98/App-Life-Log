@@ -3,6 +3,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 using LifeLog.Base.Infrastructure.Flags;
 using LifeLog.Base.Utils;
 using LifeLog.UI.Common;
@@ -10,6 +11,7 @@ using LifeLog.UI.Common.Forms.Dialog;
 using LifeLog.UI.Common.Forms.Others;
 using LifeLog.UI.Common.Helpers;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -27,6 +29,9 @@ namespace LifeLog.UI.FrontEnd.Forms
 
 		//PROPERTIES
 		public bool Logout { get; set; }
+
+		private Dictionary<BarButtonItem, FrontModulesFlag> _mapModules;
+		private IOverlaySplashScreenHandle _loaderPage;
 
 		/// <summary>
 		/// Constructor
@@ -52,6 +57,24 @@ namespace LifeLog.UI.FrontEnd.Forms
 			bsiDatabase.Caption = AppSession.DataEngine.DBName;
 
 			modulesSettingView.OnSavedModules += LoadModuleSettings;
+			navigationFrame.TransitionManager.AfterTransitionEnds += (ts, te) => DialogHelper.CloseWait();
+
+			_mapModules = new Dictionary<BarButtonItem, FrontModulesFlag>
+			{
+				{ bbiNotes, FrontModulesFlag.Notes },
+				{ bbiCommandsRunner, FrontModulesFlag.CommandsRunner },
+				{ bbiPasswords, FrontModulesFlag.Passwords },
+				{ bbiWeather, FrontModulesFlag.Weather },
+				{ bbiRollDice, FrontModulesFlag.RollDice },
+				{ bbiFlipCoin, FrontModulesFlag.CoinFlip },
+				{ bbiTicTacToe, FrontModulesFlag.TicTacToe },
+				{ bbiPasswordGenerator, FrontModulesFlag.PasswordsGenerator },
+				{ bbiPdfMerger, FrontModulesFlag.PdfMerger },
+				{ bbiGradesCalculador, FrontModulesFlag.GradesCalculator },
+				{ bbiConvertText, FrontModulesFlag.ConvertText },
+				{ bbiFormOut, FrontModulesFlag.FormOut },
+				{ bbiThreeSimpleRule, FrontModulesFlag.ThreeSimpleRule }
+			};
 
 			LoadModuleSettings(AppSession.UserAppConfigs.FrontModules);
 		}
@@ -84,7 +107,7 @@ namespace LifeLog.UI.FrontEnd.Forms
 		}
 
 		#endregion
-		
+
 		#region EVENTS
 
 		#region CLICK
@@ -162,6 +185,11 @@ namespace LifeLog.UI.FrontEnd.Forms
 			this.TopMost = btsiTopMost.Checked;
 		}
 
+		/// <summary>
+		/// Open the pages
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private async void ribbon_ItemClickAsync(object sender, ItemClickEventArgs e)
 		{
 			if (e.Item.Tag is string tag && !string.IsNullOrWhiteSpace(tag))
@@ -177,21 +205,23 @@ namespace LifeLog.UI.FrontEnd.Forms
 		{
 			BackstageViewTabItem tab = e.Item as BackstageViewTabItem;
 
-			switch (tab.Name)
-			{
-				case nameof(bvtiDatabaseSettings):
-					databaseSettingsView.LoadData();
-					break;
-				case nameof(bvtiModulesSettings):
-					modulesSettingView.LoadData(AppSession.UserAppConfigs.FrontModules);
-					break;
-			}
+			BackstageViewLoadTabData(tab);
+		}
+
+		/// <summary>
+		/// On showing page
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void backstageViewControl_Showing(object sender, EventArgs e)
+		{
+			BackstageViewLoadTabData(backstageViewControl.SelectedTab);
 		}
 
 		#endregion
 
 		#endregion
-		
+
 		#region FUNCTIONS
 
 		/// <summary>
@@ -201,10 +231,12 @@ namespace LifeLog.UI.FrontEnd.Forms
 		/// <param name="userControl"></param>
 		private async Task OpenPages(ItemClickEventArgs e, string userControl)
 		{
+			DialogHelper.ShowWait();
+			Application.DoEvents();
+			await Task.Delay(250);
+
 			try
 			{
-				DialogHelper.ShowWait(this);
-
 				string caption = e.Item.Caption.Replace("\r\n", " ");
 				ribbon.ApplicationDocumentCaption = caption;
 
@@ -214,7 +246,11 @@ namespace LifeLog.UI.FrontEnd.Forms
 
 				if (pageExists != null)
 				{
-					navigationFrame.SelectedPage = pageExists;
+					if (navigationFrame.SelectedPage != pageExists)
+						navigationFrame.SelectedPage = pageExists;
+					else
+						DialogHelper.CloseWait();
+
 					return;
 				}
 
@@ -246,27 +282,19 @@ namespace LifeLog.UI.FrontEnd.Forms
 
 				navigationFrame.SelectedPage = page;
 
-				System.Reflection.MethodInfo method = obj.GetType().GetMethod("LoadData");
+				MethodInfo method = obj.GetType().GetMethod("LoadData");
 
 				if (method != null)
 				{
-					var result = method.Invoke(obj, null);
+					object result = method.Invoke(obj, null);
 					if (result is Task taskResult)
-					{
-						await taskResult; // aguarda pela execução do método assíncrono
-					}
+						await taskResult;
 				}
 			}
 			catch (Exception ex)
 			{
-				//teste.Dispose();
 				DialogHelper.CloseWait();
 				ErrorHelper.Handler(ex);
-			}
-			finally
-			{
-				//teste.Dispose();
-				DialogHelper.CloseWait();
 			}
 		}
 
@@ -275,13 +303,31 @@ namespace LifeLog.UI.FrontEnd.Forms
 		/// </summary>
 		private void LoadModuleSettings(long valor)
 		{
-			bbiNotes.Visibility = FrontModulesFlag.HomeNotes.IsActive(valor) ? BarItemVisibility.Always : BarItemVisibility.Never;
-			bbiCommandsRunner.Visibility = FrontModulesFlag.HomeCommandsRunner.IsActive(valor) ? BarItemVisibility.Always : BarItemVisibility.Never;
-			bbiPasswords.Visibility = FrontModulesFlag.HomePasswords.IsActive(valor) ? BarItemVisibility.Always : BarItemVisibility.Never;
-			bbiWeather.Visibility = FrontModulesFlag.HomeWeather.IsActive(valor) ? BarItemVisibility.Always : BarItemVisibility.Never;
+			foreach (var kvp in _mapModules)
+				kvp.Key.Visibility = kvp.Value.IsActive(valor) ? BarItemVisibility.Always : BarItemVisibility.Never;
+		}
+
+		/// <summary>
+		/// Helper to load tab page data
+		/// </summary>
+		/// <param name="tab"></param>
+		private void BackstageViewLoadTabData(BackstageViewTabItem tab)
+		{
+			switch (tab.Name)
+			{
+				case nameof(bvtiDatabaseSettings):
+					databaseSettingsView.LoadData();
+					break;
+				case nameof(bvtiModulesSettings):
+					modulesSettingView.LoadData(AppSession.UserAppConfigs.FrontModules);
+					break;
+			}
 		}
 
 		#endregion
 
+		private void navigationFrame_SelectedPageChanged(object sender, SelectedPageChangedEventArgs e)
+		{
+		}
 	}
 }

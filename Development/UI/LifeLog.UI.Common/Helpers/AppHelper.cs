@@ -67,7 +67,7 @@ namespace LifeLog.UI.Common.Helpers
 			if (showDialog)
 				XtraMessageBox.Show(caption, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-			if (AppSession.AuthForm != null && !AppSession.AuthForm.Disposing && !AppSession.AuthForm.IsDisposed)
+			if (AppSession.AuthForm != null && !AppSession.AuthForm.Disposing && !AppSession.AuthForm.IsDisposed && AppSession.AuthForm.Visible)
 			{
 				AppSession.AuthForm.Invoke(new Action(() =>
 				{

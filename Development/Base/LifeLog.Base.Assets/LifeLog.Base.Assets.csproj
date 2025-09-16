@@ -391,5 +391,8 @@
   <ItemGroup>
     <None Include="Resources\WitheCircle10.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeToImplement.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

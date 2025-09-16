@@ -104,8 +104,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiNew, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiReload, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.bbiTitle, "", false, true, true, 214, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.bbiNotesColor, "", false, true, true, 54, null, DevExpress.XtraBars.BarItemPaintStyle.Standard)});
+            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.bbiTitle, "", false, true, true, 203, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(((DevExpress.XtraBars.BarLinkUserDefines)((DevExpress.XtraBars.BarLinkUserDefines.PaintStyle | DevExpress.XtraBars.BarLinkUserDefines.Width))), this.bbiNotesColor, "", false, true, true, 77, null, DevExpress.XtraBars.BarItemPaintStyle.Standard)});
 			this.bar.OptionsBar.DrawBorder = false;
 			this.bar.OptionsBar.DrawDragBorder = false;
 			this.bar.OptionsBar.MinHeight = 35;
@@ -212,35 +212,35 @@
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
 			this.barDockControlTop.Manager = this.barManager;
-			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControlTop.Size = new System.Drawing.Size(791, 35);
+			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+			this.barDockControlTop.Size = new System.Drawing.Size(923, 44);
 			// 
 			// barDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControlBottom.Location = new System.Drawing.Point(0, 493);
+			this.barDockControlBottom.Location = new System.Drawing.Point(0, 607);
 			this.barDockControlBottom.Manager = this.barManager;
-			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControlBottom.Size = new System.Drawing.Size(791, 0);
+			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+			this.barDockControlBottom.Size = new System.Drawing.Size(923, 0);
 			// 
 			// barDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControlLeft.Location = new System.Drawing.Point(0, 35);
+			this.barDockControlLeft.Location = new System.Drawing.Point(0, 44);
 			this.barDockControlLeft.Manager = this.barManager;
-			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 458);
+			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 563);
 			// 
 			// barDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(791, 35);
+			this.barDockControlRight.Location = new System.Drawing.Point(923, 44);
 			this.barDockControlRight.Manager = this.barManager;
-			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 458);
+			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 563);
 			// 
 			// repositoryItemFontEditRichEdit1
 			// 
@@ -267,12 +267,12 @@
 			// 
 			this.layoutControl1.Controls.Add(this.xtraTabControl);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 35);
-			this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.layoutControl1.Location = new System.Drawing.Point(0, 44);
+			this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
 			this.layoutControl1.Name = "layoutControl1";
 			this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(809, 386, 650, 400);
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(791, 458);
+			this.layoutControl1.Size = new System.Drawing.Size(923, 563);
 			this.layoutControl1.TabIndex = 4;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
@@ -281,12 +281,12 @@
 			this.xtraTabControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.xtraTabControl.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.xtraTabControl.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover;
-			this.xtraTabControl.Location = new System.Drawing.Point(4, 8);
+			this.xtraTabControl.Location = new System.Drawing.Point(5, 10);
 			this.xtraTabControl.Margin = new System.Windows.Forms.Padding(0);
 			this.xtraTabControl.MultiLine = DevExpress.Utils.DefaultBoolean.False;
 			this.xtraTabControl.Name = "xtraTabControl";
 			this.xtraTabControl.ShowTabHeader = DevExpress.Utils.DefaultBoolean.True;
-			this.xtraTabControl.Size = new System.Drawing.Size(783, 446);
+			this.xtraTabControl.Size = new System.Drawing.Size(913, 548);
 			this.xtraTabControl.TabIndex = 0;
 			this.xtraTabControl.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtraTabControl_SelectedPageChanged);
 			this.xtraTabControl.CloseButtonClick += new System.EventHandler(this.xtraTabControl_CloseButtonClick);
@@ -298,8 +298,8 @@
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
 			this.Root.Name = "Root";
-			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 8, 4);
-			this.Root.Size = new System.Drawing.Size(791, 458);
+			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 10, 5);
+			this.Root.Size = new System.Drawing.Size(923, 563);
 			// 
 			// layoutControlItem1
 			// 
@@ -307,12 +307,12 @@
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
 			this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlItem1.Size = new System.Drawing.Size(783, 446);
+			this.layoutControlItem1.Size = new System.Drawing.Size(913, 548);
 			this.layoutControlItem1.TextVisible = false;
 			// 
 			// NotesView
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.layoutControl1);
 			this.Controls.Add(this.barDockControlLeft);
@@ -321,7 +321,7 @@
 			this.Controls.Add(this.barDockControlTop);
 			this.Margin = new System.Windows.Forms.Padding(0);
 			this.Name = "NotesView";
-			this.Size = new System.Drawing.Size(791, 493);
+			this.Size = new System.Drawing.Size(923, 607);
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.riteTitleNote)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.riceColorNote)).EndInit();

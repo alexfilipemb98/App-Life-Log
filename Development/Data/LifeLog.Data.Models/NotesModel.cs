@@ -20,7 +20,6 @@ namespace LifeLog.Data.Models
 		[DataType(DataType.MultilineText)]
 		public string Text { get; set; }
 
-		[Base.Infrastructure.Attributes.StringLength(20)]
 		public int Color { get; set; }
 
 		[JsonIgnore]

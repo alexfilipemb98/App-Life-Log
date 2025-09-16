@@ -12,7 +12,7 @@ namespace LifeLog.Data.Database.Bases
 	/// <summary>
 	/// Base data query
 	/// </summary>
-	public class DataQueryBase<Object, Key> : IBaseQuery<Object, Guid>
+	public class DataQueryBase<Object> : IBaseQuery<Object, Guid>
 	{
 		/// <summary>
 		/// TABLE NAME

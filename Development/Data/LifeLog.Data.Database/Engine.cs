@@ -16,6 +16,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Xml.Linq;
 
 namespace LifeLog.Data.Database
 {
@@ -28,22 +31,10 @@ namespace LifeLog.Data.Database
 
 		//PROPERTIES
 		public string DBName { get; private set; } = "Disconected!";
-		
+
 		internal static Engine Instance { get; private set; }
 		internal IDataLayer DataLayer { get; private set; }
 		internal IDbConnection Connection { get; private set; }
-		
-		private static Type[] _persistentTypes => new Type[] { 
-			typeof(ORM_UsersModel),
-			typeof(ORM_ExternalProgramsModel),
-			typeof(ORM_NotesModel),
-			//typeof(ORM_VersionsModel),
-			typeof(ORM_ImagesModel),
-			typeof(ORM_CommandsModel),
-		};
-		private static Type[] _nonPersistentTypes => new Type[] {
-			typeof(ORM_BaseModel),
-		};
 
 		/// <summary>
 		/// Constructor
@@ -52,7 +43,7 @@ namespace LifeLog.Data.Database
 		public Engine(DatabaseConfigModel config)
 		{
 			if (config is null)
-				throw new ArgumentException("Threes no configurations");	
+				throw new ArgumentException("Threes no configurations");
 
 			config.ValidateModel(out List<ValidationResult> results);
 			if (results.Count > 0)
@@ -72,10 +63,20 @@ namespace LifeLog.Data.Database
 
 			DbHelper.SqlLiteBackUp(config);
 
+			IEnumerable<Type> assemblyTypes = Assembly.GetExecutingAssembly().GetTypes()
+					 .Where(t => t.IsClass && !t.IsAbstract && t.Namespace == "LifeLog.Data.Database.ORMDataModel");
+
+			Type[] persistentTypes = assemblyTypes
+				.Where(t => !Attribute.IsDefined(t, typeof(NonPersistentAttribute), inherit: false))
+				.ToArray();
+			Type[] nonPersistentTypes = assemblyTypes
+				 .Where(t => Attribute.IsDefined(t, typeof(NonPersistentAttribute), inherit: false))
+				.ToArray();
+
 			IDataStore provider = XpoDefault.GetConnectionProvider(connectionString, AutoCreateOption.DatabaseAndSchema);
 			ReflectionDictionary dictionary = new ReflectionDictionary();
-			dictionary.GetDataStoreSchema(_persistentTypes);
-			dictionary.CollectClassInfos(_nonPersistentTypes);
+			dictionary.GetDataStoreSchema(persistentTypes);
+			dictionary.CollectClassInfos(nonPersistentTypes);
 
 			DbHelper.UpdateDB(provider, dictionary);
 
@@ -105,7 +106,7 @@ namespace LifeLog.Data.Database
 				return _sql;
 			}
 		}
-		
+
 		//UOW
 		private UnitOfWork _uow;
 		public UnitOfWork UOW
@@ -123,7 +124,7 @@ namespace LifeLog.Data.Database
 
 		#region QUERIES
 
-		//Users
+		//User
 		private UsersQuery _users;
 		public UsersQuery Users
 		{
@@ -136,16 +137,16 @@ namespace LifeLog.Data.Database
 			}
 		}
 
-		//External Programs
-		private ExternalProgramsQuery _externalPrograms;
-		public ExternalProgramsQuery ExternalPrograms
+		//Commands
+		private CommandsQuery _commands;
+		public CommandsQuery Commands
 		{
 			get
 			{
-				if (_externalPrograms == null)
-					_externalPrograms = new ExternalProgramsQuery();
+				if (_commands == null)
+					_commands = new CommandsQuery();
 
-				return _externalPrograms;
+				return _commands;
 			}
 		}
 
@@ -162,18 +163,18 @@ namespace LifeLog.Data.Database
 			}
 		}
 
-		////Versions
-		//private VersionsQuery _versions;
-		//public VersionsQuery Versions
-		//{
-		//	get
-		//	{
-		//		if (_versions == null)
-		//			_versions = new VersionsQuery();
+		//External Programs
+		private ExternalProgramsQuery _externalPrograms;
+		public ExternalProgramsQuery ExternalPrograms
+		{
+			get
+			{
+				if (_externalPrograms == null)
+					_externalPrograms = new ExternalProgramsQuery();
 
-		//		return _versions;
-		//	}
-		//}
+				return _externalPrograms;
+			}
+		}
 
 		//Images
 		private ImagesQuery _images;
@@ -188,16 +189,15 @@ namespace LifeLog.Data.Database
 			}
 		}
 
-		//Commands
-		private CommandsQuery _commands;
-		public CommandsQuery Commands
+		//User App Configs
+		private UserAppConfigsQuery _userAppConfigs;
+		public UserAppConfigsQuery UserAppConfigs
 		{
 			get
 			{
-				if (_commands == null)
-					_commands = new CommandsQuery();
-
-				return _commands;
+				if (_userAppConfigs == null)
+					_userAppConfigs = new UserAppConfigsQuery();
+				return _userAppConfigs;
 			}
 		}
 
@@ -216,4 +216,5 @@ namespace LifeLog.Data.Database
 
 		#endregion
 	}
+
 }

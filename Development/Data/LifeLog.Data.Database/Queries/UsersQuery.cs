@@ -16,9 +16,9 @@ using System.Threading.Tasks;
 namespace LifeLog.Data.Database.Queries
 {
 	/// <summary>
-	/// Users data query
+	/// User data query
 	/// </summary>
-	public class UsersQuery : DataQueryBase<UsersModel, Guid>
+	public class UsersQuery : DataQueryBase<UsersModel>
 	{
 		#region BASE
 

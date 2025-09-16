@@ -15,5 +15,13 @@ namespace LifeLog.Base.Utils
 
 			return (ps & p) == p;
 		}
+
+		public static long GetAllFlagsValue<T>() where T : Enum
+		{
+			long total = 0;
+			foreach (var f in Enum.GetValues(typeof(T)))
+				total |= Convert.ToInt64(f);
+			return total;
+		}
 	}
 }

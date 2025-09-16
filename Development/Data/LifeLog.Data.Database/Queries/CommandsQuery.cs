@@ -14,7 +14,7 @@ namespace LifeLog.Data.Database.Queries
 	/// <summary>
 	/// Commands data query
 	/// </summary>
-	public class CommandsQuery : DataQueryBase<CommandsModel, Guid>
+	public class CommandsQuery : DataQueryBase<CommandsModel>
 	{
 		#region BASE
 

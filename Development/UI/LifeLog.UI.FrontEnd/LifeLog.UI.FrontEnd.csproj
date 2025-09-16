@@ -132,6 +132,12 @@
     <Compile Include="Views\Main\Passwords\PasswordsView.Designer.cs">
       <DependentUpon>PasswordsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Settings\AppSettingsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Settings\AppSettingsView.Designer.cs">
+      <DependentUpon>AppSettingsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Settings\ModulesSettingView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main\Passwords\PasswordsView.resx">
       <DependentUpon>PasswordsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Settings\AppSettingsView.resx">
+      <DependentUpon>AppSettingsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Settings\ModulesSettingView.resx">
       <DependentUpon>ModulesSettingView.cs</DependentUpon>

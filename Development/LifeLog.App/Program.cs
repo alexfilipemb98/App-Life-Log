@@ -1,4 +1,5 @@
-﻿using DevExpress.UserSkins;
+﻿using DevExpress.LookAndFeel.Design;
+using DevExpress.UserSkins;
 using DevExpress.XtraSplashScreen;
 using LifeLog.App.Helpers;
 using LifeLog.Data.Models;
@@ -45,7 +46,7 @@ namespace LifeLog.App
 
 				AppSession.AppConfigs = AppHelper.LoadAppConfigs();
 				AppSession.DbConfigs = AppHelper.GetDatabaseConfigs();
-				AppSession.UserAppConfigs = new UserAppConfigsModel() { FrontModules = 3 };
+
 				AppSession.DataEngine = new Data.Database.Engine(AppSession.DbConfigs);
 
 				using (AppSession.AuthForm = new AuthForm())
@@ -58,9 +59,12 @@ namespace LifeLog.App
 						if (AppSession.AuthForm.ShowDialog() != DialogResult.Yes)
 							Environment.Exit(0);
 
+						SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
+						
 						AppSession.Container = new AppContainer($"LifeLog.UI.{AppSession.AuthForm.AplicationInterface.ToString()}");
-
-						AppSession.UserAppConfigs = new UserAppConfigsModel() { FrontModules = 3 };
+						
+						AppSession.Container.EngineForm.MainForm.Shown += (s, e) =>
+							SplashScreenManager.CloseForm(false);
 
 						Application.Run(AppSession.Container.EngineForm.MainForm);
 					}

@@ -7,6 +7,7 @@ using LifeLog.Base.Models;
 using LifeLog.Base.Utils;
 using LifeLog.UI.Common.Helpers;
 using System;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -15,11 +16,13 @@ using static DevExpress.LookAndFeel.DXSkinColors;
 
 namespace LifeLog.UI.Common.Forms.Auth
 {
+	/// <summary>
+	/// Login form
+	/// </summary>
 	public partial class AuthForm : RibbonForm
 	{
 		#region MAIN
 
-		public bool IsConfigsOk { get; set; } = true;
 		public AppInterfaceEnum AplicationInterface { get; private set; }
 
 		//PRIVATE
@@ -55,9 +58,6 @@ namespace LifeLog.UI.Common.Forms.Auth
 				cbeStartAplicationType.Properties.Items.AddRange(typeof(AppInterfaceEnum).ToList().Select(w => w.Value.ToString()).ToList());
 				cbeStartAplicationType.SelectedIndex = 0;
 
-				if (!IsConfigsOk)
-					ShowSettingsPage();
-
 				AjustFormLayout();
 			}
 			catch (Exception ex)
@@ -87,6 +87,8 @@ namespace LifeLog.UI.Common.Forms.Auth
 		}
 
 		#endregion
+
+		#region EVENTS
 
 		#region CLICK
 
@@ -151,30 +153,34 @@ namespace LifeLog.UI.Common.Forms.Auth
 
 		#endregion
 
-		#region TOGGLED
+		#region CHECKED CHANGED
 
 		/// <summary>
-		/// Handles the new user toggleS
+		/// Handles the new user
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void tsNewUser_Toggled(object sender, EventArgs e)
+
+		private void chkLoginSignup_CheckedChanged(object sender, EventArgs e)
 		{
 			AuthModel login = loginModelBindingSource.DataSource as AuthModel;
-			login.IsNew = tsNewUser.IsOn;
+			CheckButton chk = sender as CheckButton;
 
-			if (tsNewUser.IsOn)
+			if (chk == chkLogin && chkLogin.Checked)
 			{
-				lciLoginUsername.Visibility = LayoutVisibility.Always;
-				sbSubmit.Text = "Register";
+				login.IsNew = false;
+				lciLoginUsername.Visibility = LayoutVisibility.Never;
+				chkSignup.Checked = false;
+			}
 
+			if (chk == chkSignup && chkSignup.Checked)
+			{
+				login.IsNew = true;
+				lciLoginUsername.Visibility = LayoutVisibility.Always;
+				chkLogin.Checked = false;
 				if (!string.IsNullOrWhiteSpace(teEmail.Text) && teEmail.Text.IsValidEmail())
 					teUsername.Text = teEmail.Text.Split('@')[0];
-			}
-			else
-			{
-				lciLoginUsername.Visibility = LayoutVisibility.Never;
-				sbSubmit.Text = "Login";
+
 			}
 
 			AjustFormLayout();
@@ -182,7 +188,11 @@ namespace LifeLog.UI.Common.Forms.Auth
 
 		#endregion
 
+		#endregion
+
 		#region FUNCTIONS
+		
+		#region PRIVATE
 
 		/// <summary>
 		/// Adjusts the form layout
@@ -205,18 +215,19 @@ namespace LifeLog.UI.Common.Forms.Auth
 		{
 			try
 			{
+				this.ValidateChildren();
 				loginModelBindingSource.EndEdit();
 				AuthModel login = loginModelBindingSource.DataSource as AuthModel;
 
 				if (!ValidationHelper.ValidateModelAndSetError(_loginModel, dxErrorProvider, dataLayoutControl))
 					return;
 
-				if (tsNewUser.IsOn)
+				if (login.IsNew)
 				{
 					(bool saved, string message) = await AppSession.DataEngine.Users.RegisterUser(_loginModel);
 					AppHelper.StatusMessage(message, saved);
 					if (saved)
-						tsNewUser.IsOn = false;
+						chkLogin.Checked = true;
 				}
 				else
 				{
@@ -227,8 +238,13 @@ namespace LifeLog.UI.Common.Forms.Auth
 						AppSession.AppConfigs.LastEmail = _loginModel.Email;
 						AppSession.CurrentUser = loggedUser;
 						this.AplicationInterface = (AppInterfaceEnum)cbeStartAplicationType.SelectedIndex;
-						this.DialogResult = DialogResult.Yes;
+
+						(Data.Models.UserAppConfigsModel configs, string msg) = await AppSession.DataEngine.UserAppConfigs.GetUserAppConfig(AppSession.CurrentUser.Id);
+						AppSession.UserAppConfigs = configs;
+						AppHelper.StatusMessage(msg, configs != null);
+						Task.Delay(1000).Wait();
 						AppHelper.SaveAppSetings();
+						this.DialogResult = DialogResult.Yes;
 					}
 				}
 			}
@@ -251,5 +267,12 @@ namespace LifeLog.UI.Common.Forms.Auth
 		}
 
 		#endregion
+
+		#endregion
+
+		private void AuthForm_FormClosing(object sender, FormClosingEventArgs e)
+		{
+
+		}
 	}
 }

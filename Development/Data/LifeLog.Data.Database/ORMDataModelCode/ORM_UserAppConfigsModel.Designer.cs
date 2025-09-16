@@ -34,6 +34,24 @@ namespace LifeLog.Data.Database.ORMDataModel
 			get { return fFrontModules; }
 			set { SetPropertyValue<long>(nameof(FrontModules), ref fFrontModules, value); }
 		}
+		int fFrontFormHeight;
+		public int FrontFormHeight
+		{
+			get { return fFrontFormHeight; }
+			set { SetPropertyValue<int>(nameof(FrontFormHeight), ref fFrontFormHeight, value); }
+		}
+		int fFrontFormWidth;
+		public int FrontFormWidth
+		{
+			get { return fFrontFormWidth; }
+			set { SetPropertyValue<int>(nameof(FrontFormWidth), ref fFrontFormWidth, value); }
+		}
+		int fFrontFormState;
+		public int FrontFormState
+		{
+			get { return fFrontFormState; }
+			set { SetPropertyValue<int>(nameof(FrontFormState), ref fFrontFormState, value); }
+		}
 	}
 
 }

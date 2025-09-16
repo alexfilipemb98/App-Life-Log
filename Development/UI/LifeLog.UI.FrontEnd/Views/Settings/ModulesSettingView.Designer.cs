@@ -76,6 +76,16 @@
 			this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator2 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator3 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator4 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator5 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator6 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator7 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator8 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator9 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator10 = new DevExpress.XtraLayout.SimpleSeparator();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
@@ -115,6 +125,16 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator4)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator6)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator7)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator8)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator9)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator10)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// barManager
@@ -245,6 +265,7 @@
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.layoutControl1.Location = new System.Drawing.Point(0, 35);
 			this.layoutControl1.Name = "layoutControl1";
+			this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1270, 311, 650, 400);
 			this.layoutControl1.Root = this.Root;
 			this.layoutControl1.Size = new System.Drawing.Size(959, 568);
 			this.layoutControl1.TabIndex = 4;
@@ -267,7 +288,7 @@
 			// tsCommandsRunner
 			// 
 			this.tsCommandsRunner.AutoSizeInLayoutControl = true;
-			this.tsCommandsRunner.Location = new System.Drawing.Point(141, 88);
+			this.tsCommandsRunner.Location = new System.Drawing.Point(142, 88);
 			this.tsCommandsRunner.Name = "tsCommandsRunner";
 			this.tsCommandsRunner.Properties.AutoWidth = true;
 			this.tsCommandsRunner.Properties.OffText = "Off";
@@ -280,7 +301,7 @@
 			// tsPasswords
 			// 
 			this.tsPasswords.AutoSizeInLayoutControl = true;
-			this.tsPasswords.Location = new System.Drawing.Point(249, 88);
+			this.tsPasswords.Location = new System.Drawing.Point(251, 88);
 			this.tsPasswords.Name = "tsPasswords";
 			this.tsPasswords.Properties.AutoWidth = true;
 			this.tsPasswords.Properties.OffText = "Off";
@@ -293,7 +314,7 @@
 			// tsWeather
 			// 
 			this.tsWeather.AutoSizeInLayoutControl = true;
-			this.tsWeather.Location = new System.Drawing.Point(357, 88);
+			this.tsWeather.Location = new System.Drawing.Point(360, 88);
 			this.tsWeather.Name = "tsWeather";
 			this.tsWeather.Properties.AutoWidth = true;
 			this.tsWeather.Properties.OffText = "Off";
@@ -306,7 +327,7 @@
 			// tsCoinFlip
 			// 
 			this.tsCoinFlip.AutoSizeInLayoutControl = true;
-			this.tsCoinFlip.Location = new System.Drawing.Point(141, 194);
+			this.tsCoinFlip.Location = new System.Drawing.Point(142, 194);
 			this.tsCoinFlip.Name = "tsCoinFlip";
 			this.tsCoinFlip.Properties.AutoWidth = true;
 			this.tsCoinFlip.Properties.OffText = "Off";
@@ -332,7 +353,7 @@
 			// tsTicTacToe
 			// 
 			this.tsTicTacToe.AutoSizeInLayoutControl = true;
-			this.tsTicTacToe.Location = new System.Drawing.Point(249, 194);
+			this.tsTicTacToe.Location = new System.Drawing.Point(251, 194);
 			this.tsTicTacToe.Name = "tsTicTacToe";
 			this.tsTicTacToe.Properties.AutoWidth = true;
 			this.tsTicTacToe.Properties.OffText = "Off";
@@ -358,7 +379,7 @@
 			// tsPdfMerger
 			// 
 			this.tsPdfMerger.AutoSizeInLayoutControl = true;
-			this.tsPdfMerger.Location = new System.Drawing.Point(141, 302);
+			this.tsPdfMerger.Location = new System.Drawing.Point(142, 302);
 			this.tsPdfMerger.Name = "tsPdfMerger";
 			this.tsPdfMerger.Properties.AutoWidth = true;
 			this.tsPdfMerger.Properties.OffText = "Off";
@@ -371,7 +392,7 @@
 			// tsGradeCalculator
 			// 
 			this.tsGradeCalculator.AutoSizeInLayoutControl = true;
-			this.tsGradeCalculator.Location = new System.Drawing.Point(249, 302);
+			this.tsGradeCalculator.Location = new System.Drawing.Point(251, 302);
 			this.tsGradeCalculator.Name = "tsGradeCalculator";
 			this.tsGradeCalculator.Properties.AutoWidth = true;
 			this.tsGradeCalculator.Properties.OffText = "Off";
@@ -384,7 +405,7 @@
 			// tsConvertText
 			// 
 			this.tsConvertText.AutoSizeInLayoutControl = true;
-			this.tsConvertText.Location = new System.Drawing.Point(357, 302);
+			this.tsConvertText.Location = new System.Drawing.Point(360, 302);
 			this.tsConvertText.Name = "tsConvertText";
 			this.tsConvertText.Properties.AutoWidth = true;
 			this.tsConvertText.Properties.OffText = "Off";
@@ -397,7 +418,7 @@
 			// tsFormOut
 			// 
 			this.tsFormOut.AutoSizeInLayoutControl = true;
-			this.tsFormOut.Location = new System.Drawing.Point(465, 302);
+			this.tsFormOut.Location = new System.Drawing.Point(469, 302);
 			this.tsFormOut.Name = "tsFormOut";
 			this.tsFormOut.Properties.AutoWidth = true;
 			this.tsFormOut.Properties.OffText = "Off";
@@ -410,7 +431,7 @@
 			// tsThreeSimpleRule
 			// 
 			this.tsThreeSimpleRule.AutoSizeInLayoutControl = true;
-			this.tsThreeSimpleRule.Location = new System.Drawing.Point(573, 302);
+			this.tsThreeSimpleRule.Location = new System.Drawing.Point(578, 302);
 			this.tsThreeSimpleRule.Name = "tsThreeSimpleRule";
 			this.tsThreeSimpleRule.Properties.AutoWidth = true;
 			this.tsThreeSimpleRule.Properties.OffText = "Off";
@@ -450,7 +471,10 @@
             this.emptySpaceItem2,
             this.layoutControlItem2,
             this.layoutControlItem3,
-            this.layoutControlItem4});
+            this.layoutControlItem4,
+            this.simpleSeparator8,
+            this.simpleSeparator9,
+            this.simpleSeparator10});
 			this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlGroup1.Name = "layoutControlGroup1";
 			this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
@@ -478,9 +502,9 @@
 			// 
 			// emptySpaceItem2
 			// 
-			this.emptySpaceItem2.Location = new System.Drawing.Point(432, 0);
+			this.emptySpaceItem2.Location = new System.Drawing.Point(435, 0);
 			this.emptySpaceItem2.Name = "emptySpaceItem2";
-			this.emptySpaceItem2.Size = new System.Drawing.Size(519, 77);
+			this.emptySpaceItem2.Size = new System.Drawing.Size(516, 77);
 			// 
 			// layoutControlItem2
 			// 
@@ -495,7 +519,7 @@
 			this.layoutControlItem2.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem2.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.cli;
 			this.layoutControlItem2.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem2.Location = new System.Drawing.Point(108, 0);
+			this.layoutControlItem2.Location = new System.Drawing.Point(109, 0);
 			this.layoutControlItem2.Name = "layoutControlItem2";
 			this.layoutControlItem2.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem2.Text = " Commands Runner ";
@@ -515,7 +539,7 @@
 			this.layoutControlItem3.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem3.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.security_key;
 			this.layoutControlItem3.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem3.Location = new System.Drawing.Point(216, 0);
+			this.layoutControlItem3.Location = new System.Drawing.Point(218, 0);
 			this.layoutControlItem3.Name = "layoutControlItem3";
 			this.layoutControlItem3.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem3.Text = "Passwords";
@@ -535,7 +559,7 @@
 			this.layoutControlItem4.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem4.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.weather;
 			this.layoutControlItem4.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem4.Location = new System.Drawing.Point(324, 0);
+			this.layoutControlItem4.Location = new System.Drawing.Point(327, 0);
 			this.layoutControlItem4.Name = "layoutControlItem4";
 			this.layoutControlItem4.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem4.Text = "Weather";
@@ -551,7 +575,9 @@
             this.layoutControlItem5,
             this.emptySpaceItem3,
             this.layoutControlItem7,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.simpleSeparator6,
+            this.simpleSeparator7});
 			this.layoutControlGroup2.Location = new System.Drawing.Point(0, 100);
 			this.layoutControlGroup2.Name = "layoutControlGroup2";
 			this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
@@ -572,7 +598,7 @@
 			this.layoutControlItem5.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem5.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.coin_flip;
 			this.layoutControlItem5.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem5.Location = new System.Drawing.Point(108, 0);
+			this.layoutControlItem5.Location = new System.Drawing.Point(109, 0);
 			this.layoutControlItem5.Name = "layoutControlItem5";
 			this.layoutControlItem5.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem5.Text = "Coin Flip";
@@ -581,9 +607,9 @@
 			// 
 			// emptySpaceItem3
 			// 
-			this.emptySpaceItem3.Location = new System.Drawing.Point(324, 0);
+			this.emptySpaceItem3.Location = new System.Drawing.Point(326, 0);
 			this.emptySpaceItem3.Name = "emptySpaceItem3";
-			this.emptySpaceItem3.Size = new System.Drawing.Size(627, 77);
+			this.emptySpaceItem3.Size = new System.Drawing.Size(625, 77);
 			// 
 			// layoutControlItem7
 			// 
@@ -598,7 +624,7 @@
 			this.layoutControlItem7.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem7.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.tic_tac_toe;
 			this.layoutControlItem7.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem7.Location = new System.Drawing.Point(216, 0);
+			this.layoutControlItem7.Location = new System.Drawing.Point(218, 0);
 			this.layoutControlItem7.Name = "layoutControlItem7";
 			this.layoutControlItem7.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem7.Text = "Tic Tac Toe";
@@ -637,7 +663,12 @@
             this.layoutControlItem10,
             this.layoutControlItem11,
             this.layoutControlItem12,
-            this.layoutControlItem13});
+            this.layoutControlItem13,
+            this.simpleSeparator1,
+            this.simpleSeparator2,
+            this.simpleSeparator3,
+            this.simpleSeparator4,
+            this.simpleSeparator5});
 			this.layoutControlGroup3.Location = new System.Drawing.Point(0, 206);
 			this.layoutControlGroup3.Name = "layoutControlGroup3";
 			this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
@@ -667,9 +698,9 @@
 			// 
 			// emptySpaceItem4
 			// 
-			this.emptySpaceItem4.Location = new System.Drawing.Point(648, 0);
+			this.emptySpaceItem4.Location = new System.Drawing.Point(653, 0);
 			this.emptySpaceItem4.Name = "emptySpaceItem4";
-			this.emptySpaceItem4.Size = new System.Drawing.Size(303, 77);
+			this.emptySpaceItem4.Size = new System.Drawing.Size(298, 77);
 			// 
 			// layoutControlItem9
 			// 
@@ -684,7 +715,7 @@
 			this.layoutControlItem9.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem9.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.exporttopdf;
 			this.layoutControlItem9.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem9.Location = new System.Drawing.Point(108, 0);
+			this.layoutControlItem9.Location = new System.Drawing.Point(109, 0);
 			this.layoutControlItem9.Name = "layoutControlItem9";
 			this.layoutControlItem9.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem9.Text = "Pdf Merger";
@@ -704,7 +735,7 @@
 			this.layoutControlItem10.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem10.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.calculator;
 			this.layoutControlItem10.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem10.Location = new System.Drawing.Point(216, 0);
+			this.layoutControlItem10.Location = new System.Drawing.Point(218, 0);
 			this.layoutControlItem10.Name = "layoutControlItem10";
 			this.layoutControlItem10.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem10.Text = "Grades Calculator";
@@ -724,7 +755,7 @@
 			this.layoutControlItem11.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem11.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.changetextcase;
 			this.layoutControlItem11.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem11.Location = new System.Drawing.Point(324, 0);
+			this.layoutControlItem11.Location = new System.Drawing.Point(327, 0);
 			this.layoutControlItem11.Name = "layoutControlItem11";
 			this.layoutControlItem11.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem11.Text = "Convert Text";
@@ -744,7 +775,7 @@
 			this.layoutControlItem12.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem12.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.box_out;
 			this.layoutControlItem12.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem12.Location = new System.Drawing.Point(432, 0);
+			this.layoutControlItem12.Location = new System.Drawing.Point(436, 0);
 			this.layoutControlItem12.Name = "layoutControlItem12";
 			this.layoutControlItem12.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem12.Text = "Form Out";
@@ -764,12 +795,72 @@
 			this.layoutControlItem13.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopCenter;
 			this.layoutControlItem13.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.above_average;
 			this.layoutControlItem13.ImageOptions.SvgImageSize = new System.Drawing.Size(34, 34);
-			this.layoutControlItem13.Location = new System.Drawing.Point(540, 0);
+			this.layoutControlItem13.Location = new System.Drawing.Point(545, 0);
 			this.layoutControlItem13.Name = "layoutControlItem13";
 			this.layoutControlItem13.Size = new System.Drawing.Size(108, 77);
 			this.layoutControlItem13.Text = "Three Simple Rule";
 			this.layoutControlItem13.TextLocation = DevExpress.Utils.Locations.Top;
 			this.layoutControlItem13.TextSize = new System.Drawing.Size(104, 52);
+			// 
+			// simpleSeparator1
+			// 
+			this.simpleSeparator1.Location = new System.Drawing.Point(544, 0);
+			this.simpleSeparator1.Name = "simpleSeparator1";
+			this.simpleSeparator1.Size = new System.Drawing.Size(1, 77);
+			// 
+			// simpleSeparator2
+			// 
+			this.simpleSeparator2.Location = new System.Drawing.Point(435, 0);
+			this.simpleSeparator2.Name = "simpleSeparator2";
+			this.simpleSeparator2.Size = new System.Drawing.Size(1, 77);
+			// 
+			// simpleSeparator3
+			// 
+			this.simpleSeparator3.Location = new System.Drawing.Point(326, 0);
+			this.simpleSeparator3.Name = "simpleSeparator3";
+			this.simpleSeparator3.Size = new System.Drawing.Size(1, 77);
+			// 
+			// simpleSeparator4
+			// 
+			this.simpleSeparator4.Location = new System.Drawing.Point(217, 0);
+			this.simpleSeparator4.Name = "simpleSeparator4";
+			this.simpleSeparator4.Size = new System.Drawing.Size(1, 77);
+			// 
+			// simpleSeparator5
+			// 
+			this.simpleSeparator5.Location = new System.Drawing.Point(108, 0);
+			this.simpleSeparator5.Name = "simpleSeparator5";
+			this.simpleSeparator5.Size = new System.Drawing.Size(1, 77);
+			// 
+			// simpleSeparator6
+			// 
+			this.simpleSeparator6.Location = new System.Drawing.Point(108, 0);
+			this.simpleSeparator6.Name = "simpleSeparator6";
+			this.simpleSeparator6.Size = new System.Drawing.Size(1, 77);
+			// 
+			// simpleSeparator7
+			// 
+			this.simpleSeparator7.Location = new System.Drawing.Point(217, 0);
+			this.simpleSeparator7.Name = "simpleSeparator7";
+			this.simpleSeparator7.Size = new System.Drawing.Size(1, 77);
+			// 
+			// simpleSeparator8
+			// 
+			this.simpleSeparator8.Location = new System.Drawing.Point(326, 0);
+			this.simpleSeparator8.Name = "simpleSeparator8";
+			this.simpleSeparator8.Size = new System.Drawing.Size(1, 77);
+			// 
+			// simpleSeparator9
+			// 
+			this.simpleSeparator9.Location = new System.Drawing.Point(217, 0);
+			this.simpleSeparator9.Name = "simpleSeparator9";
+			this.simpleSeparator9.Size = new System.Drawing.Size(1, 77);
+			// 
+			// simpleSeparator10
+			// 
+			this.simpleSeparator10.Location = new System.Drawing.Point(108, 0);
+			this.simpleSeparator10.Name = "simpleSeparator10";
+			this.simpleSeparator10.Size = new System.Drawing.Size(1, 77);
 			// 
 			// ModulesSettingView
 			// 
@@ -782,6 +873,7 @@
 			this.Controls.Add(this.barDockControl1);
 			this.Name = "ModulesSettingView";
 			this.Size = new System.Drawing.Size(959, 603);
+			this.Load += new System.EventHandler(this.ModulesSettingView_Load);
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
@@ -821,6 +913,16 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator4)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator6)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator7)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator8)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator9)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator10)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -875,5 +977,15 @@
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
 		private DevExpress.XtraEditors.ToggleSwitch tsThreeSimpleRule;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator8;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator9;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator10;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator6;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator7;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator1;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator2;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator3;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator4;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator5;
 	}
 }

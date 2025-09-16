@@ -50,6 +50,7 @@
     <Compile Include="Mappers\ExternalProgramsMapper.cs" />
     <Compile Include="Mappers\ImagesMapper.cs" />
     <Compile Include="Mappers\NotesMapper.cs" />
+    <Compile Include="Mappers\UserAppConfigsMapper.cs" />
     <Compile Include="Mappers\UsersMapper.cs" />
     <Compile Include="Mappers\VersionsMapper.cs" />
     <Compile Include="ORMDataModelCode\ORM_BaseModel.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Queries\ExternalProgramsQuery.cs" />
     <Compile Include="Queries\ImagesQuery.cs" />
     <Compile Include="Queries\NotesQuery.cs" />
+    <Compile Include="Queries\UserAppConfigsQuery.cs" />
     <Compile Include="Queries\UsersQuery.cs" />
     <Compile Include="Queries\VersionsQuery.cs" />
   </ItemGroup>

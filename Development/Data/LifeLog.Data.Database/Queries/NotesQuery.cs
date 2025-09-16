@@ -14,7 +14,7 @@ namespace LifeLog.Data.Database.Queries
 	/// <summary>
 	/// Notes data query
 	/// </summary>
-	public sealed class NotesQuery : DataQueryBase<NotesModel, Guid>
+	public sealed class NotesQuery : DataQueryBase<NotesModel>
 	{
 		#region BASE
 

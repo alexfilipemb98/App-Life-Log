@@ -1,0 +1,14 @@
+ <!-- Resources Begin -->
+    <None Include="..\..\Base\LifeLog.Base.Assets\Resources.resx">
+      <Link>Properties\Resources.resx</Link>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>LifeLog.Base.Assets</CustomToolNamespace>
+    </None>
+    <None Include="..\..\Base\LifeLog.Base.Assets\Resources.Designer.cs">
+      <Link>Properties\Resources.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </None>
+<!-- Resources End -->

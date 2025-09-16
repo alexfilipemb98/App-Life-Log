@@ -139,7 +139,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 						_notesList.AddRange(notesJson);
 
 						(bool saved, _) = await AppSession.DataEngine.Notes.SaveList(notesJson);
-				
+
 						if (saved)
 						{
 							foreach (NotesModel note in notesJson)
