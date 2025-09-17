@@ -45,8 +45,9 @@ namespace LifeLog.App
 				};
 
 				AppSession.AppConfigs = AppHelper.LoadAppConfigs();
-				AppSession.DbConfigs = AppHelper.GetDatabaseConfigs();
+				ThemeHelper.ApplyTheme();
 
+				AppSession.DbConfigs = AppHelper.GetDatabaseConfigs();
 				AppSession.DataEngine = new Data.Database.Engine(AppSession.DbConfigs);
 
 				using (AppSession.AuthForm = new AuthForm())
@@ -60,9 +61,9 @@ namespace LifeLog.App
 							Environment.Exit(0);
 
 						SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
-						
+
 						AppSession.Container = new AppContainer($"LifeLog.UI.{AppSession.AuthForm.AplicationInterface.ToString()}");
-						
+
 						AppSession.Container.EngineForm.MainForm.Shown += (s, e) =>
 							SplashScreenManager.CloseForm(false);
 
@@ -77,6 +78,7 @@ namespace LifeLog.App
 			}
 			finally
 			{
+				ThemeHelper.Capture();
 				AppHelper.SaveAppSetings();
 				AppSession.Container?.Dispose();
 				AppSession.DataEngine?.Dispose();

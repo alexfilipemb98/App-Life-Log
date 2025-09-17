@@ -743,6 +743,16 @@ namespace LifeLog.Base.Assets {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage moon {
+            get {
+                object obj = ResourceManager.GetObject("moon", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         public static DevExpress.Utils.Svg.SvgImage open {
             get {
                 object obj = ResourceManager.GetObject("open", resourceCulture);
@@ -933,6 +943,16 @@ namespace LifeLog.Base.Assets {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage sun {
+            get {
+                object obj = ResourceManager.GetObject("sun", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         public static DevExpress.Utils.Svg.SvgImage sunrise {
             get {
                 object obj = ResourceManager.GetObject("sunrise", resourceCulture);
@@ -956,6 +976,16 @@ namespace LifeLog.Base.Assets {
         public static DevExpress.Utils.Svg.SvgImage switchtimescalesto {
             get {
                 object obj = ResourceManager.GetObject("switchtimescalesto", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage tech_color_desktop {
+            get {
+                object obj = ResourceManager.GetObject("tech-color-desktop", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

@@ -60,6 +60,11 @@
 			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
 			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
 			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
+			DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
+			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
+			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
+			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
 			this.barManager = new DevExpress.XtraBars.BarManager(this.components);
 			this.bar = new DevExpress.XtraBars.Bar();
 			this.bbiSave = new DevExpress.XtraBars.BarButtonItem();
@@ -68,6 +73,8 @@
 			this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
 			this.dataLayoutControl = new DevExpress.XtraDataLayout.DataLayoutControl();
+			this.tsEnableApi = new DevExpress.XtraEditors.ToggleSwitch();
+			this.beApiLink = new DevExpress.XtraEditors.ButtonEdit();
 			this.tsEnableBackups = new DevExpress.XtraEditors.ToggleSwitch();
 			this.databaseConfigModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.cbSQLDatabase = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -91,10 +98,15 @@
 			this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+			this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
 			this.dataLayoutControl.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.tsEnableApi.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.beApiLink.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.tsEnableBackups.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.databaseConfigModelBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.cbSQLDatabase.Properties)).BeginInit();
@@ -118,6 +130,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -194,6 +209,8 @@
 			// 
 			// dataLayoutControl
 			// 
+			this.dataLayoutControl.Controls.Add(this.tsEnableApi);
+			this.dataLayoutControl.Controls.Add(this.beApiLink);
 			this.dataLayoutControl.Controls.Add(this.tsEnableBackups);
 			this.dataLayoutControl.Controls.Add(this.cbSQLDatabase);
 			this.dataLayoutControl.Controls.Add(this.beSqlPassword);
@@ -213,11 +230,41 @@
 			this.dataLayoutControl.TabIndex = 10;
 			this.dataLayoutControl.Text = "dataLayoutControl1";
 			// 
+			// tsEnableApi
+			// 
+			this.tsEnableApi.AutoSizeInLayoutControl = true;
+			this.tsEnableApi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "EnableApi", true));
+			this.tsEnableApi.Location = new System.Drawing.Point(557, 274);
+			this.tsEnableApi.MenuManager = this.barManager;
+			this.tsEnableApi.Name = "tsEnableApi";
+			this.tsEnableApi.Properties.AutoWidth = true;
+			this.tsEnableApi.Properties.OffText = "Off";
+			this.tsEnableApi.Properties.OnText = "On";
+			this.tsEnableApi.Size = new System.Drawing.Size(70, 18);
+			this.tsEnableApi.StyleController = this.dataLayoutControl;
+			this.tsEnableApi.TabIndex = 12;
+			// 
+			// beApiLink
+			// 
+			this.beApiLink.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "ApiLink", true));
+			this.beApiLink.EditValue = "http://localhost:9000";
+			this.beApiLink.Location = new System.Drawing.Point(55, 269);
+			this.beApiLink.MenuManager = this.barManager;
+			this.beApiLink.Name = "beApiLink";
+			editorButtonImageOptions1.SvgImage = global::LifeLog.Base.Assets.Resources.business_world;
+			editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 20);
+			this.beApiLink.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+			this.beApiLink.Size = new System.Drawing.Size(498, 28);
+			this.beApiLink.StyleController = this.dataLayoutControl;
+			this.beApiLink.TabIndex = 11;
+			this.beApiLink.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beApiLink_ButtonClick);
+			// 
 			// tsEnableBackups
 			// 
 			this.tsEnableBackups.AutoSizeInLayoutControl = true;
 			this.tsEnableBackups.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlLiteBackup", true));
-			this.tsEnableBackups.Location = new System.Drawing.Point(592, 137);
+			this.tsEnableBackups.Location = new System.Drawing.Point(575, 78);
 			this.tsEnableBackups.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tsEnableBackups.MenuManager = this.barManager;
 			this.tsEnableBackups.Name = "tsEnableBackups";
@@ -238,16 +285,16 @@
 			// 
 			this.cbSQLDatabase.CausesValidation = false;
 			this.cbSQLDatabase.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlDatabase", true));
-			this.cbSQLDatabase.Location = new System.Drawing.Point(67, 264);
+			this.cbSQLDatabase.Location = new System.Drawing.Point(69, 205);
 			this.cbSQLDatabase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.cbSQLDatabase.MenuManager = this.barManager;
 			this.cbSQLDatabase.Name = "cbSQLDatabase";
-			editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
-			editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 20);
+			editorButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions2.SvgImage")));
+			editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(20, 20);
 			this.cbSQLDatabase.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "LISTDB", null, DevExpress.Utils.ToolTipAnchor.Default)});
-			this.cbSQLDatabase.Size = new System.Drawing.Size(575, 28);
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", "LISTDB", null, DevExpress.Utils.ToolTipAnchor.Default)});
+			this.cbSQLDatabase.Size = new System.Drawing.Size(556, 28);
 			this.cbSQLDatabase.StyleController = this.dataLayoutControl;
 			this.cbSQLDatabase.TabIndex = 9;
 			this.cbSQLDatabase.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cbSQLDatabase_ButtonClick);
@@ -256,16 +303,16 @@
 			// 
 			this.beSqlPassword.CausesValidation = false;
 			this.beSqlPassword.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlPassword", true));
-			this.beSqlPassword.Location = new System.Drawing.Point(385, 228);
+			this.beSqlPassword.Location = new System.Drawing.Point(379, 169);
 			this.beSqlPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.beSqlPassword.MenuManager = this.barManager;
 			this.beSqlPassword.Name = "beSqlPassword";
-			editorButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions2.SvgImage")));
-			editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(24, 24);
+			editorButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions3.SvgImage")));
+			editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(24, 24);
 			this.beSqlPassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
 			this.beSqlPassword.Properties.UseSystemPasswordChar = true;
-			this.beSqlPassword.Size = new System.Drawing.Size(257, 32);
+			this.beSqlPassword.Size = new System.Drawing.Size(246, 32);
 			this.beSqlPassword.StyleController = this.dataLayoutControl;
 			this.beSqlPassword.TabIndex = 8;
 			this.beSqlPassword.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beSqlPassword_ButtonClick);
@@ -274,11 +321,11 @@
 			// 
 			this.teSqlUsername.CausesValidation = false;
 			this.teSqlUsername.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlUsername", true));
-			this.teSqlUsername.Location = new System.Drawing.Point(67, 228);
+			this.teSqlUsername.Location = new System.Drawing.Point(69, 169);
 			this.teSqlUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.teSqlUsername.MenuManager = this.barManager;
 			this.teSqlUsername.Name = "teSqlUsername";
-			this.teSqlUsername.Size = new System.Drawing.Size(256, 20);
+			this.teSqlUsername.Size = new System.Drawing.Size(246, 20);
 			this.teSqlUsername.StyleController = this.dataLayoutControl;
 			this.teSqlUsername.TabIndex = 7;
 			// 
@@ -286,15 +333,15 @@
 			// 
 			this.bePathSqlLite.CausesValidation = false;
 			this.bePathSqlLite.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SQlLitePath", true));
-			this.bePathSqlLite.Location = new System.Drawing.Point(84, 58);
+			this.bePathSqlLite.Location = new System.Drawing.Point(86, -1);
 			this.bePathSqlLite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.bePathSqlLite.MenuManager = this.barManager;
 			this.bePathSqlLite.Name = "bePathSqlLite";
-			editorButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions3.SvgImage")));
-			editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(24, 24);
+			editorButtonImageOptions4.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions4.SvgImage")));
+			editorButtonImageOptions4.SvgImageSize = new System.Drawing.Size(24, 24);
 			this.bePathSqlLite.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-			this.bePathSqlLite.Size = new System.Drawing.Size(558, 32);
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+			this.bePathSqlLite.Size = new System.Drawing.Size(539, 32);
 			this.bePathSqlLite.StyleController = this.dataLayoutControl;
 			this.bePathSqlLite.TabIndex = 6;
 			this.bePathSqlLite.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bePathSqlLite_ButtonClick);
@@ -303,15 +350,15 @@
 			// 
 			this.beSqlAddress.CausesValidation = false;
 			this.beSqlAddress.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlAddress", true));
-			this.beSqlAddress.Location = new System.Drawing.Point(67, 196);
+			this.beSqlAddress.Location = new System.Drawing.Point(69, 137);
 			this.beSqlAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.beSqlAddress.MenuManager = this.barManager;
 			this.beSqlAddress.Name = "beSqlAddress";
-			editorButtonImageOptions4.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions4.SvgImage")));
-			editorButtonImageOptions4.SvgImageSize = new System.Drawing.Size(20, 20);
+			editorButtonImageOptions5.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions5.SvgImage")));
+			editorButtonImageOptions5.SvgImageSize = new System.Drawing.Size(20, 20);
 			this.beSqlAddress.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-			this.beSqlAddress.Size = new System.Drawing.Size(575, 28);
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+			this.beSqlAddress.Size = new System.Drawing.Size(556, 28);
 			this.beSqlAddress.StyleController = this.dataLayoutControl;
 			this.beSqlAddress.TabIndex = 4;
 			// 
@@ -319,7 +366,7 @@
 			// 
 			this.cbDatabaseType.CausesValidation = false;
 			this.cbDatabaseType.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "DatabaseType", true));
-			this.cbDatabaseType.Location = new System.Drawing.Point(97, 6);
+			this.cbDatabaseType.Location = new System.Drawing.Point(99, -53);
 			this.cbDatabaseType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.cbDatabaseType.MenuManager = this.barManager;
 			this.cbDatabaseType.Name = "cbDatabaseType";
@@ -328,7 +375,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
 			this.cbDatabaseType.Properties.DropDownRows = 3;
 			this.cbDatabaseType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-			this.cbDatabaseType.Size = new System.Drawing.Size(548, 20);
+			this.cbDatabaseType.Size = new System.Drawing.Size(529, 20);
 			this.cbDatabaseType.StyleController = this.dataLayoutControl;
 			this.cbDatabaseType.TabIndex = 5;
 			this.cbDatabaseType.SelectedIndexChanged += new System.EventHandler(this.cbDatabaseType_SelectedIndexChanged);
@@ -337,15 +384,15 @@
 			// 
 			this.beSqlLitePassword.CausesValidation = false;
 			this.beSqlLitePassword.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlLitePassword", true));
-			this.beSqlLitePassword.Location = new System.Drawing.Point(84, 94);
+			this.beSqlLitePassword.Location = new System.Drawing.Point(86, 35);
 			this.beSqlLitePassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.beSqlLitePassword.Name = "beSqlLitePassword";
-			editorButtonImageOptions5.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions5.SvgImage")));
-			editorButtonImageOptions5.SvgImageSize = new System.Drawing.Size(24, 24);
+			editorButtonImageOptions6.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions6.SvgImage")));
+			editorButtonImageOptions6.SvgImageSize = new System.Drawing.Size(24, 24);
 			this.beSqlLitePassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
 			this.beSqlLitePassword.Properties.UseSystemPasswordChar = true;
-			this.beSqlLitePassword.Size = new System.Drawing.Size(558, 32);
+			this.beSqlLitePassword.Size = new System.Drawing.Size(539, 32);
 			this.beSqlLitePassword.StyleController = this.dataLayoutControl;
 			this.beSqlLitePassword.TabIndex = 8;
 			this.beSqlLitePassword.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beSqlLitePassword_ButtonClick);
@@ -354,14 +401,14 @@
 			// 
 			this.bePathSqlLiteBackup.CausesValidation = false;
 			this.bePathSqlLiteBackup.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlLiteBackupFolder", true));
-			this.bePathSqlLiteBackup.Location = new System.Drawing.Point(84, 130);
+			this.bePathSqlLiteBackup.Location = new System.Drawing.Point(86, 71);
 			this.bePathSqlLiteBackup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.bePathSqlLiteBackup.Name = "bePathSqlLiteBackup";
-			editorButtonImageOptions6.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions6.SvgImage")));
-			editorButtonImageOptions6.SvgImageSize = new System.Drawing.Size(24, 24);
+			editorButtonImageOptions7.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions7.SvgImage")));
+			editorButtonImageOptions7.SvgImageSize = new System.Drawing.Size(24, 24);
 			this.bePathSqlLiteBackup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-			this.bePathSqlLiteBackup.Size = new System.Drawing.Size(429, 32);
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+			this.bePathSqlLiteBackup.Size = new System.Drawing.Size(408, 32);
 			this.bePathSqlLiteBackup.StyleController = this.dataLayoutControl;
 			this.bePathSqlLiteBackup.TabIndex = 6;
 			this.bePathSqlLiteBackup.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bePathSqlLiteBackup_ButtonClick);
@@ -374,24 +421,25 @@
             this.emptySpaceItem1,
             this.layoutControlItem2,
             this.lcgSqlLite,
-            this.lcgRemoteSql});
+            this.lcgRemoteSql,
+            this.layoutControlGroup1});
 			this.Root.Name = "Root";
 			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-			this.Root.Size = new System.Drawing.Size(651, 314);
+			this.Root.Size = new System.Drawing.Size(634, 373);
 			this.Root.TextVisible = false;
 			// 
 			// emptySpaceItem1
 			// 
-			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 292);
+			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 355);
 			this.emptySpaceItem1.Name = "emptySpaceItem1";
-			this.emptySpaceItem1.Size = new System.Drawing.Size(643, 14);
+			this.emptySpaceItem1.Size = new System.Drawing.Size(626, 10);
 			// 
 			// layoutControlItem2
 			// 
 			this.layoutControlItem2.Control = this.cbDatabaseType;
 			this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem2.Name = "layoutControlItem2";
-			this.layoutControlItem2.Size = new System.Drawing.Size(643, 24);
+			this.layoutControlItem2.Size = new System.Drawing.Size(626, 24);
 			this.layoutControlItem2.Text = "Connection Type";
 			this.layoutControlItem2.TextSize = new System.Drawing.Size(81, 13);
 			// 
@@ -411,7 +459,7 @@
 			this.lcgSqlLite.Name = "lcgSqlLite";
 			this.lcgSqlLite.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
 			this.lcgSqlLite.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.lcgSqlLite.Size = new System.Drawing.Size(643, 138);
+			this.lcgSqlLite.Size = new System.Drawing.Size(626, 138);
 			this.lcgSqlLite.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 6, 2);
 			this.lcgSqlLite.Text = "Sql Lite";
 			this.lcgSqlLite.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -421,7 +469,7 @@
 			this.layoutControlItem3.Control = this.bePathSqlLite;
 			this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem3.Name = "layoutControlItem3";
-			this.layoutControlItem3.Size = new System.Drawing.Size(637, 36);
+			this.layoutControlItem3.Size = new System.Drawing.Size(620, 36);
 			this.layoutControlItem3.Text = "Path";
 			this.layoutControlItem3.TextSize = new System.Drawing.Size(65, 13);
 			// 
@@ -432,7 +480,7 @@
 			this.layoutControlItem7.CustomizationFormText = "Password";
 			this.layoutControlItem7.Location = new System.Drawing.Point(0, 36);
 			this.layoutControlItem7.Name = "layoutControlItem7";
-			this.layoutControlItem7.Size = new System.Drawing.Size(637, 36);
+			this.layoutControlItem7.Size = new System.Drawing.Size(620, 36);
 			this.layoutControlItem7.Text = "Password";
 			this.layoutControlItem7.TextSize = new System.Drawing.Size(65, 13);
 			// 
@@ -443,7 +491,7 @@
 			this.layoutControlItem8.CustomizationFormText = "Path";
 			this.layoutControlItem8.Location = new System.Drawing.Point(0, 72);
 			this.layoutControlItem8.Name = "layoutControlItem8";
-			this.layoutControlItem8.Size = new System.Drawing.Size(508, 36);
+			this.layoutControlItem8.Size = new System.Drawing.Size(489, 36);
 			this.layoutControlItem8.Text = "Path";
 			this.layoutControlItem8.TextSize = new System.Drawing.Size(65, 13);
 			// 
@@ -452,9 +500,9 @@
 			this.layoutControlItem9.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.layoutControlItem9.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
 			this.layoutControlItem9.Control = this.tsEnableBackups;
-			this.layoutControlItem9.Location = new System.Drawing.Point(508, 72);
+			this.layoutControlItem9.Location = new System.Drawing.Point(489, 72);
 			this.layoutControlItem9.Name = "layoutControlItem9";
-			this.layoutControlItem9.Size = new System.Drawing.Size(129, 36);
+			this.layoutControlItem9.Size = new System.Drawing.Size(131, 36);
 			this.layoutControlItem9.Text = "Auto Backups";
 			this.layoutControlItem9.TextSize = new System.Drawing.Size(65, 13);
 			// 
@@ -474,7 +522,7 @@
 			this.lcgRemoteSql.Name = "lcgRemoteSql";
 			this.lcgRemoteSql.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
 			this.lcgRemoteSql.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.lcgRemoteSql.Size = new System.Drawing.Size(643, 130);
+			this.lcgRemoteSql.Size = new System.Drawing.Size(626, 130);
 			this.lcgRemoteSql.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 6, 2);
 			this.lcgRemoteSql.Text = "Remote Sql";
 			this.lcgRemoteSql.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -484,7 +532,7 @@
 			this.layoutControlItem1.Control = this.beSqlAddress;
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(637, 32);
+			this.layoutControlItem1.Size = new System.Drawing.Size(620, 32);
 			this.layoutControlItem1.Text = "Address";
 			this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 13);
 			// 
@@ -493,7 +541,7 @@
 			this.layoutControlItem4.Control = this.teSqlUsername;
 			this.layoutControlItem4.Location = new System.Drawing.Point(0, 32);
 			this.layoutControlItem4.Name = "layoutControlItem4";
-			this.layoutControlItem4.Size = new System.Drawing.Size(318, 36);
+			this.layoutControlItem4.Size = new System.Drawing.Size(310, 36);
 			this.layoutControlItem4.Text = "Username";
 			this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 13);
 			// 
@@ -502,18 +550,49 @@
 			this.layoutControlItem6.Control = this.cbSQLDatabase;
 			this.layoutControlItem6.Location = new System.Drawing.Point(0, 68);
 			this.layoutControlItem6.Name = "layoutControlItem6";
-			this.layoutControlItem6.Size = new System.Drawing.Size(637, 32);
+			this.layoutControlItem6.Size = new System.Drawing.Size(620, 32);
 			this.layoutControlItem6.Text = "Database";
 			this.layoutControlItem6.TextSize = new System.Drawing.Size(48, 13);
 			// 
 			// layoutControlItem5
 			// 
 			this.layoutControlItem5.Control = this.beSqlPassword;
-			this.layoutControlItem5.Location = new System.Drawing.Point(318, 32);
+			this.layoutControlItem5.Location = new System.Drawing.Point(310, 32);
 			this.layoutControlItem5.Name = "layoutControlItem5";
-			this.layoutControlItem5.Size = new System.Drawing.Size(319, 36);
+			this.layoutControlItem5.Size = new System.Drawing.Size(310, 36);
 			this.layoutControlItem5.Text = "Password";
 			this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 13);
+			// 
+			// layoutControlGroup1
+			// 
+			this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem10,
+            this.layoutControlItem11});
+			this.layoutControlGroup1.Location = new System.Drawing.Point(0, 292);
+			this.layoutControlGroup1.Name = "layoutControlGroup1";
+			this.layoutControlGroup1.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
+			this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+			this.layoutControlGroup1.Size = new System.Drawing.Size(626, 63);
+			this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 8, 0);
+			this.layoutControlGroup1.Text = "Internal API";
+			// 
+			// layoutControlItem10
+			// 
+			this.layoutControlItem10.Control = this.beApiLink;
+			this.layoutControlItem10.Location = new System.Drawing.Point(0, 0);
+			this.layoutControlItem10.Name = "layoutControlItem10";
+			this.layoutControlItem10.Size = new System.Drawing.Size(550, 32);
+			this.layoutControlItem10.Text = "Api Link";
+			this.layoutControlItem10.TextSize = new System.Drawing.Size(36, 13);
+			// 
+			// layoutControlItem11
+			// 
+			this.layoutControlItem11.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+			this.layoutControlItem11.Control = this.tsEnableApi;
+			this.layoutControlItem11.Location = new System.Drawing.Point(550, 0);
+			this.layoutControlItem11.Name = "layoutControlItem11";
+			this.layoutControlItem11.Size = new System.Drawing.Size(74, 32);
+			this.layoutControlItem11.TextVisible = false;
 			// 
 			// dxErrorProvider
 			// 
@@ -534,6 +613,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).EndInit();
 			this.dataLayoutControl.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.tsEnableApi.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.beApiLink.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.tsEnableBackups.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.databaseConfigModelBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.cbSQLDatabase.Properties)).EndInit();
@@ -557,6 +638,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -597,5 +681,10 @@
         private DevExpress.XtraEditors.ButtonEdit bePathSqlLiteBackup;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
-    }
+		private DevExpress.XtraEditors.ToggleSwitch tsEnableApi;
+		private DevExpress.XtraEditors.ButtonEdit beApiLink;
+		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
+		private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+	}
 }

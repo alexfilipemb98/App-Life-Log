@@ -28,6 +28,8 @@ namespace LifeLog.UI.Common.Views
 
 		#endregion
 
+		#region EVENTS
+
 		#region CLICK
 
 		/// <summary>
@@ -160,6 +162,34 @@ namespace LifeLog.UI.Common.Views
 			}
 		}
 
+		/// <summary>
+		/// Open the api link
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void beApiLink_ButtonClick(object sender, ButtonPressedEventArgs e)
+		{
+			try
+			{
+				string apiLink = beApiLink.Text;
+
+				if (!apiLink.IsValidUrl())
+				{
+					dxErrorProvider.SetError(beApiLink, "The URL is not valid");
+					return;
+				}
+				else
+					dxErrorProvider.SetError(beApiLink, string.Empty);
+
+				if (!string.IsNullOrWhiteSpace(apiLink))
+					System.Diagnostics.Process.Start(apiLink);
+			}
+			catch (Exception ex)
+			{
+				Helpers.ErrorHelper.Handler(ex);
+			}
+		}
+
 		#endregion
 
 		#region SELECTED INDEX CHANGED
@@ -186,6 +216,8 @@ namespace LifeLog.UI.Common.Views
 
 		#endregion
 
+		#endregion
+
 		#region FUNCTIONS
 
 		/// <summary>
@@ -200,7 +232,7 @@ namespace LifeLog.UI.Common.Views
 
 			cbDatabaseType.Properties.Items.AddRange(listaDbTypes);
 
-			var configs = AppHelper.GetDatabaseConfigs();
+			DatabaseConfigModel configs = AppHelper.GetDatabaseConfigs();
 			databaseConfigModelBindingSource.DataSource = configs;
 
 			cbDatabaseType.SelectedIndex = (int)configs.DatabaseType;
@@ -212,23 +244,12 @@ namespace LifeLog.UI.Common.Views
 		/// <returns></returns>
 		public bool SaveData()
 		{
+			this.ValidateChildren();
 			databaseConfigModelBindingSource.EndEdit();
 			DatabaseConfigModel configs = databaseConfigModelBindingSource.DataSource as DatabaseConfigModel;
 
 			if (!ValidationHelper.ValidateModelAndSetError(configs, dxErrorProvider, dataLayoutControl))
 				return false;
-
-			//configs.DatabaseType = (DatabaseTypeEnum)cbDatabaseType.SelectedIndex;
-
-			////SQL LITE
-			//configs.SQlLitePath = bePathSqlLite.Text;
-
-			////REMOTE SQL
-			//configs.SqlAddress = beSqlAddress.Text;
-			//configs.SqlUsername = teSqlUsername.Text;
-			//configs.SqlPassword = beSqlPassword.Text;
-
-			//configs.SqlDatabase = cbSQLDatabase.Text;
 
 			FilesUtil.SaveFileWithEncryption(configs, AppSession.ConfigDbName);
 
@@ -238,5 +259,6 @@ namespace LifeLog.UI.Common.Views
 		}
 
 		#endregion
+
 	}
 }

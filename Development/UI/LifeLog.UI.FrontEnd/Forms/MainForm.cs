@@ -1,4 +1,5 @@
 ﻿using DevExpress.Data.Utils;
+using DevExpress.LookAndFeel;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraBars.Ribbon;
@@ -31,7 +32,7 @@ namespace LifeLog.UI.FrontEnd.Forms
 		public bool Logout { get; set; }
 
 		private Dictionary<BarButtonItem, FrontModulesFlag> _mapModules;
-		private IOverlaySplashScreenHandle _loaderPage;
+		private bool _galeryCheckedChanged = false;
 
 		/// <summary>
 		/// Constructor
@@ -58,6 +59,7 @@ namespace LifeLog.UI.FrontEnd.Forms
 
 			modulesSettingView.OnSavedModules += LoadModuleSettings;
 			navigationFrame.TransitionManager.AfterTransitionEnds += (ts, te) => DialogHelper.CloseWait();
+			DevExpress.LookAndFeel.UserLookAndFeel.Default.StyleChanged += Default_StyleChanged;
 
 			_mapModules = new Dictionary<BarButtonItem, FrontModulesFlag>
 			{
@@ -77,6 +79,38 @@ namespace LifeLog.UI.FrontEnd.Forms
 			};
 
 			LoadModuleSettings(AppSession.UserAppConfigs.FrontModules);
+
+			bciThemeLight.CheckedChanged -= bciTheme_CheckedChanged;
+			bciThemeDark.CheckedChanged -= bciTheme_CheckedChanged;
+			bciThemeSystem.CheckedChanged -= bciTheme_CheckedChanged;
+
+			switch (AppSession.AppConfigs.Theme)
+			{
+				case Base.Infrastructure.Enums.ThemeEnum.SYSTEM:
+					bciThemeSystem.Checked = true;
+					bciThemeLight.Checked = false;
+					bciThemeDark.Checked = false;
+					break;
+				case Base.Infrastructure.Enums.ThemeEnum.DARK:
+					bciThemeSystem.Checked = false;
+					bciThemeLight.Checked = false;
+					bciThemeDark.Checked = true;
+					break;
+				case Base.Infrastructure.Enums.ThemeEnum.LIGHT:
+					bciThemeSystem.Checked = false;
+					bciThemeLight.Checked = true;
+					bciThemeDark.Checked = false;
+					break;
+				case Base.Infrastructure.Enums.ThemeEnum.OTHER:
+					bciThemeSystem.Checked = false;
+					bciThemeLight.Checked = false;
+					bciThemeDark.Checked = false;
+					break;
+			}
+
+			bciThemeLight.CheckedChanged += bciTheme_CheckedChanged;
+			bciThemeDark.CheckedChanged += bciTheme_CheckedChanged;
+			bciThemeSystem.CheckedChanged += bciTheme_CheckedChanged;
 		}
 
 		/// <summary>
@@ -111,6 +145,17 @@ namespace LifeLog.UI.FrontEnd.Forms
 		#region EVENTS
 
 		#region CLICK
+
+		/// <summary>
+		/// Open the pages
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private async void ribbon_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			if (e.Item.Tag is string tag && !string.IsNullOrWhiteSpace(tag))
+				await OpenPages(e, tag);
+		}
 
 		/// <summary>
 		/// Open settings app
@@ -173,7 +218,7 @@ namespace LifeLog.UI.FrontEnd.Forms
 
 		#endregion
 
-		#region OTHERS
+		#region CHECK CHANGED
 
 		/// <summary>
 		/// Set top most
@@ -186,15 +231,65 @@ namespace LifeLog.UI.FrontEnd.Forms
 		}
 
 		/// <summary>
-		/// Open the pages
+		/// Theme checked changed
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private async void ribbon_ItemClickAsync(object sender, ItemClickEventArgs e)
+		private void bciTheme_CheckedChanged(object sender, ItemClickEventArgs e)
 		{
-			if (e.Item.Tag is string tag && !string.IsNullOrWhiteSpace(tag))
-				await OpenPages(e, tag);
+			BarCheckItem item = sender as BarCheckItem;
+
+			if (item == null)
+				return;
+
+			if (!item.Checked && !bciThemeDark.Checked && !bciThemeLight.Checked && !bciThemeSystem.Checked)
+			{
+				item.Checked = true;
+				return;
+			}
+
+			this.skinPaletteRibbonGalleryBarItem.GalleryItemCheckedChanged -= skinPaletteRibbonGalleryBarItem_GalleryItemCheckedChanged;
+
+			_galeryCheckedChanged = false;
+
+			switch (item.Name)
+			{
+				case nameof(bciThemeLight):
+					AppSession.AppConfigs.Theme = Base.Infrastructure.Enums.ThemeEnum.LIGHT;
+					bciThemeSystem.Checked = false;
+					bciThemeDark.Checked = false;
+					ThemeHelper.ApplyTheme();
+					break;
+				case nameof(bciThemeDark):
+					AppSession.AppConfigs.Theme = Base.Infrastructure.Enums.ThemeEnum.DARK;
+					bciThemeSystem.Checked = false;
+					bciThemeLight.Checked = false;
+					ThemeHelper.ApplyTheme();
+					break;
+				case nameof(bciThemeSystem):
+					AppSession.AppConfigs.Theme = Base.Infrastructure.Enums.ThemeEnum.SYSTEM;
+					bciThemeLight.Checked = false;
+					bciThemeDark.Checked = false;
+					ThemeHelper.ApplyTheme();
+					break;
+			}
+
+			this.skinPaletteRibbonGalleryBarItem.GalleryItemCheckedChanged += skinPaletteRibbonGalleryBarItem_GalleryItemCheckedChanged;
 		}
+
+		/// <summary>
+		/// Skin palette gallery checked changed
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void skinPaletteRibbonGalleryBarItem_GalleryItemCheckedChanged(object sender, GalleryItemEventArgs e)
+		{
+			_galeryCheckedChanged = true;
+		}
+
+		#endregion
+
+		#region OTHERS
 
 		/// <summary>
 		/// Selected tab changed
@@ -216,6 +311,75 @@ namespace LifeLog.UI.FrontEnd.Forms
 		private void backstageViewControl_Showing(object sender, EventArgs e)
 		{
 			BackstageViewLoadTabData(backstageViewControl.SelectedTab);
+		}
+
+		/// <summary>
+		/// Default style changed
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		/// <exception cref="NotImplementedException"></exception>
+		private void Default_StyleChanged(object sender, EventArgs e)
+		{
+			IOverlaySplashScreenHandle loader = SplashScreenManager.ShowOverlayForm(this);
+			Application.DoEvents();
+			try
+			{
+				bciThemeLight.CheckedChanged -= bciTheme_CheckedChanged;
+				bciThemeDark.CheckedChanged -= bciTheme_CheckedChanged;
+				bciThemeSystem.CheckedChanged -= bciTheme_CheckedChanged;
+
+				if (UserLookAndFeel.Default.SkinName == SkinStyle.WXI)
+				{
+					if (bciThemeSystem.Checked && !_galeryCheckedChanged)
+					{
+						AppSession.AppConfigs.Theme = Base.Infrastructure.Enums.ThemeEnum.SYSTEM;
+					}
+					else
+					{
+						if (UserLookAndFeel.Default.ActiveSvgPaletteName == "LIGHT")
+						{
+							bciThemeSystem.Checked = false;
+							bciThemeLight.Checked = true;
+							bciThemeDark.Checked = false;
+							AppSession.AppConfigs.Theme = Base.Infrastructure.Enums.ThemeEnum.LIGHT;
+						}
+						else if (UserLookAndFeel.Default.ActiveSvgPaletteName == "DARK")
+						{
+							bciThemeSystem.Checked = false;
+							bciThemeLight.Checked = false;
+							bciThemeDark.Checked = true;
+							AppSession.AppConfigs.Theme = Base.Infrastructure.Enums.ThemeEnum.DARK;
+						}
+						else
+						{
+							AppSession.AppConfigs.Theme = Base.Infrastructure.Enums.ThemeEnum.OTHER;
+							bciThemeSystem.Checked = false;
+							bciThemeLight.Checked = false;
+							bciThemeDark.Checked = false;
+						}
+					}
+				}
+				else
+				{
+					AppSession.AppConfigs.Theme = Base.Infrastructure.Enums.ThemeEnum.OTHER;
+					bciThemeSystem.Checked = false;
+					bciThemeLight.Checked = false;
+					bciThemeDark.Checked = false;
+				}
+
+				_galeryCheckedChanged = false;
+
+				bciThemeLight.CheckedChanged += bciTheme_CheckedChanged;
+				bciThemeDark.CheckedChanged += bciTheme_CheckedChanged;
+				bciThemeSystem.CheckedChanged += bciTheme_CheckedChanged;
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+
+			loader.Close();
 		}
 
 		#endregion
@@ -325,9 +489,5 @@ namespace LifeLog.UI.FrontEnd.Forms
 		}
 
 		#endregion
-
-		private void navigationFrame_SelectedPageChanged(object sender, SelectedPageChangedEventArgs e)
-		{
-		}
 	}
 }

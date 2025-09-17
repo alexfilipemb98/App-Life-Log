@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.LookAndFeel;
+using DevExpress.XtraEditors;
 using LifeLog.Base.Infrastructure.Enums;
 using LifeLog.Base.Models;
 using LifeLog.Base.Utils;
@@ -90,6 +91,37 @@ namespace LifeLog.UI.Common.Helpers
 		//Application configs
 
 		/// <summary>
+		/// Load the application configurations
+		/// </summary>
+		public static AppConfigsModel LoadAppConfigs()
+		{
+			string jsonFile = AppSession.ConfigsAppName;
+			if (!File.Exists(jsonFile))
+			{
+				AppConfigsModel config = new AppConfigsModel
+				{
+					Theme = ThemeEnum.SYSTEM,
+				};
+
+				File.Create(jsonFile).Close();
+
+				FilesUtil.SaveToJsonFile(jsonFile, config);
+			}
+
+			return FilesUtil.ReadFromJsonFile<AppConfigsModel>(jsonFile);
+		}
+
+		/// <summary>
+		/// Save the application configurations
+		/// </summary>
+		public static void SaveAppSetings(AppConfigsModel configs = null)
+		{
+			FilesUtil.SaveToJsonFile(AppSession.ConfigsAppName, configs ?? AppSession.AppConfigs);
+		}
+
+		//OTHERS
+
+		/// <summary>
 		/// User folder configuration 
 		/// </summary>
 		/// <returns></returns>
@@ -109,35 +141,5 @@ namespace LifeLog.UI.Common.Helpers
 			return path;
 		}
 
-		/// <summary>
-		/// Load the application configurations
-		/// </summary>
-		public static AppConfigsModel LoadAppConfigs()
-		{
-			string jsonFile = AppSession.ConfigsAppName;
-			if (!File.Exists(jsonFile))
-			{
-				AppConfigsModel config = new AppConfigsModel
-				{
-					Theme = ThemeEnum.SYSTEM,
-					InternalApiUrl = "http://localhost:9000",
-					InternalApiEnabled = false,
-				};
-
-				File.Create(jsonFile).Close();
-
-				FilesUtil.SaveToJsonFile(jsonFile, config);
-			}
-
-			return FilesUtil.ReadFromJsonFile<AppConfigsModel>(jsonFile);
-		}
-
-		/// <summary>
-		/// Save the application configurations
-		/// </summary>
-		public static void SaveAppSetings(AppConfigsModel configs = null)
-		{
-			FilesUtil.SaveToJsonFile(AppSession.ConfigsAppName, configs ?? AppSession.AppConfigs);
-		}
 	}
 }

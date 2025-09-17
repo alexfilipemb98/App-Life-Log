@@ -393,6 +393,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CodeToImplement.txt" />
+    <None Include="Resources\tech-color-desktop.svg" />
+    <None Include="Resources\sun.svg" />
+    <None Include="Resources\moon.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -79,6 +79,11 @@ namespace LifeLog.UI.Common.Forms.Auth
 				_loginModel.Email = AppSession.AppConfigs.LastEmail;
 
 				loginModelBindingSource.DataSource = _loginModel;
+
+				if (string.IsNullOrWhiteSpace(_loginModel.Email))
+					teEmail.Focus();
+				else
+					bePassword.Focus();
 			}
 			catch (Exception ex)
 			{
@@ -191,7 +196,7 @@ namespace LifeLog.UI.Common.Forms.Auth
 		#endregion
 
 		#region FUNCTIONS
-		
+
 		#region PRIVATE
 
 		/// <summary>

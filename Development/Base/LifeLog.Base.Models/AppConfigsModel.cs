@@ -1,5 +1,6 @@
 ﻿using LifeLog.Base.Infrastructure.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 
 namespace LifeLog.Base.Models
 {
@@ -9,17 +10,26 @@ namespace LifeLog.Base.Models
     public class AppConfigsModel
     {
         #region PROPERTIES
+        
+        #region THEME
 
         [EnumDataType(typeof(DatabaseTypeEnum))]
         public ThemeEnum Theme { get; set; }
 
         [DataType(DataType.Text)]
-        public string LastEmail { get; set; }
+        public string SkinName { get; set; }
 
         [DataType(DataType.Text)]
-        public string InternalApiUrl { get; set; }
+        public string PaletteName { get; set; }
 
-        public bool InternalApiEnabled { get; set; }
+        public Color SkinMaskColor { get; set; }
+
+        public Color SkinMaskColor2 { get; set; }
+
+        #endregion
+
+        [DataType(DataType.Text)]
+        public string LastEmail { get; set; }
 
         #endregion
     }

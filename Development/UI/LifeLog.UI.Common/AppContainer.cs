@@ -55,7 +55,7 @@ namespace LifeLog.UI.Common
 		/// <param name="builder"></param>
 		private void RegisterDep<T>(IEnumerable<System.Type> types, ContainerBuilder builder)
 		{
-			foreach (System.Type t in types)
+			foreach (Type t in types)
 			{
 				builder.RegisterType(t).As<T>();
 			}
@@ -67,7 +67,7 @@ namespace LifeLog.UI.Common
 		/// <typeparam name="T"></typeparam>
 		/// <param name="NomeDll"></param>
 		/// <returns></returns>
-		private IEnumerable<System.Type> GetEnumerableTypes<T>(string NomeDll)
+		private IEnumerable<Type> GetEnumerableTypes<T>(string NomeDll)
 		{
 			IEnumerable<Type> ret = Directory.EnumerateFiles(Directory.GetCurrentDirectory())
 				.Where(x => x.Contains(NomeDll) && x.EndsWith(NomeDll + ".dll"))

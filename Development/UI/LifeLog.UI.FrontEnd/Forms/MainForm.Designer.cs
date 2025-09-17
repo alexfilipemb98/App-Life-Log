@@ -52,8 +52,8 @@
 			this.btsiTopMost = new DevExpress.XtraBars.BarToggleSwitchItem();
 			this.bbiPdfMerger = new DevExpress.XtraBars.BarButtonItem();
 			this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-			this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
-			this.skinPaletteRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
+			this.skinDropDownButtonItem = new DevExpress.XtraBars.SkinDropDownButtonItem();
+			this.skinPaletteRibbonGalleryBarItem = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
 			this.bsiTime = new DevExpress.XtraBars.BarStaticItem();
 			this.bsiUserMenu = new DevExpress.XtraBars.BarSubItem();
 			this.bbiLogoutUser = new DevExpress.XtraBars.BarButtonItem();
@@ -64,6 +64,9 @@
 			this.bbiWeather = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiConvertText = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiThreeSimpleRule = new DevExpress.XtraBars.BarButtonItem();
+			this.bciThemeSystem = new DevExpress.XtraBars.BarCheckItem();
+			this.bciThemeLight = new DevExpress.XtraBars.BarCheckItem();
+			this.bciThemeDark = new DevExpress.XtraBars.BarCheckItem();
 			this.rpHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.rpgHome = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -74,6 +77,7 @@
 			this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
 			this.bsiStatusLabel = new DevExpress.XtraBars.BarStaticItem();
 			this.bsiDatabase = new DevExpress.XtraBars.BarStaticItem();
@@ -88,6 +92,7 @@
 			this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+			this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
 			((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.backstageViewControl)).BeginInit();
 			this.backstageViewControl.SuspendLayout();
@@ -124,8 +129,8 @@
             this.btsiTopMost,
             this.bbiPdfMerger,
             this.barButtonItem1,
-            this.skinDropDownButtonItem1,
-            this.skinPaletteRibbonGalleryBarItem1,
+            this.skinDropDownButtonItem,
+            this.skinPaletteRibbonGalleryBarItem,
             this.bsiTime,
             this.bsiUserMenu,
             this.bbiLogoutUser,
@@ -135,13 +140,18 @@
             this.bbiPasswords,
             this.bbiWeather,
             this.bbiConvertText,
-            this.bbiThreeSimpleRule});
+            this.bbiThreeSimpleRule,
+            this.bciThemeSystem,
+            this.bciThemeLight,
+            this.bciThemeDark});
 			this.ribbon.Location = new System.Drawing.Point(0, 0);
 			this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-			this.ribbon.MaxItemId = 23;
+			this.ribbon.MaxItemId = 27;
 			this.ribbon.Name = "ribbon";
 			this.ribbon.OptionsMenuMinWidth = 385;
 			this.ribbon.OptionsSearchMenu.SearchItemPosition = DevExpress.XtraBars.Ribbon.SearchItemPosition.Caption;
+			this.ribbon.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
+            this.ribbonPageCategory1});
 			this.ribbon.PageHeaderItemLinks.Add(this.btsiTopMost);
 			this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpHome,
@@ -155,7 +165,7 @@
 			this.ribbon.Size = new System.Drawing.Size(1322, 177);
 			this.ribbon.StatusBar = this.ribbonStatusBar;
 			this.ribbon.Toolbar.ShowCustomizeItem = false;
-			this.ribbon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ribbon_ItemClickAsync);
+			this.ribbon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ribbon_ItemClick);
 			// 
 			// backstageViewControl
 			// 
@@ -329,16 +339,18 @@
 			this.barButtonItem1.Id = 9;
 			this.barButtonItem1.Name = "barButtonItem1";
 			// 
-			// skinDropDownButtonItem1
+			// skinDropDownButtonItem
 			// 
-			this.skinDropDownButtonItem1.Id = 11;
-			this.skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
+			this.skinDropDownButtonItem.AccessibleName = "Skin";
+			this.skinDropDownButtonItem.Id = 11;
+			this.skinDropDownButtonItem.Name = "skinDropDownButtonItem";
 			// 
-			// skinPaletteRibbonGalleryBarItem1
+			// skinPaletteRibbonGalleryBarItem
 			// 
-			this.skinPaletteRibbonGalleryBarItem1.Caption = "skinPaletteRibbonGalleryBarItem1";
-			this.skinPaletteRibbonGalleryBarItem1.Id = 12;
-			this.skinPaletteRibbonGalleryBarItem1.Name = "skinPaletteRibbonGalleryBarItem1";
+			this.skinPaletteRibbonGalleryBarItem.Caption = "Skin Palette";
+			this.skinPaletteRibbonGalleryBarItem.Id = 12;
+			this.skinPaletteRibbonGalleryBarItem.Name = "skinPaletteRibbonGalleryBarItem";
+			this.skinPaletteRibbonGalleryBarItem.GalleryItemCheckedChanged += new DevExpress.XtraBars.Ribbon.GalleryItemEventHandler(this.skinPaletteRibbonGalleryBarItem_GalleryItemCheckedChanged);
 			// 
 			// bsiTime
 			// 
@@ -423,6 +435,32 @@
 			this.bbiThreeSimpleRule.Name = "bbiThreeSimpleRule";
 			this.bbiThreeSimpleRule.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiThreeSimpleRule_ItemClick);
 			// 
+			// bciThemeSystem
+			// 
+			this.bciThemeSystem.BindableChecked = true;
+			this.bciThemeSystem.Caption = "System";
+			this.bciThemeSystem.Checked = true;
+			this.bciThemeSystem.Id = 24;
+			this.bciThemeSystem.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.tech_color_desktop;
+			this.bciThemeSystem.Name = "bciThemeSystem";
+			this.bciThemeSystem.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bciTheme_CheckedChanged);
+			// 
+			// bciThemeLight
+			// 
+			this.bciThemeLight.Caption = "Light";
+			this.bciThemeLight.Id = 25;
+			this.bciThemeLight.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.sun;
+			this.bciThemeLight.Name = "bciThemeLight";
+			this.bciThemeLight.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bciTheme_CheckedChanged);
+			// 
+			// bciThemeDark
+			// 
+			this.bciThemeDark.Caption = "Dark";
+			this.bciThemeDark.Id = 26;
+			this.bciThemeDark.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.moon;
+			this.bciThemeDark.Name = "bciThemeDark";
+			this.bciThemeDark.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bciTheme_CheckedChanged);
+			// 
 			// rpHome
 			// 
 			this.rpHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -485,7 +523,8 @@
 			// 
 			this.ribbonPage6.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup3,
-            this.ribbonPageGroup4});
+            this.ribbonPageGroup4,
+            this.ribbonPageGroup6});
 			this.ribbonPage6.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.Setting;
 			this.ribbonPage6.Name = "ribbonPage6";
 			this.ribbonPage6.Text = "Settings";
@@ -498,10 +537,18 @@
 			// 
 			// ribbonPageGroup4
 			// 
-			this.ribbonPageGroup4.ItemLinks.Add(this.skinDropDownButtonItem1);
-			this.ribbonPageGroup4.ItemLinks.Add(this.skinPaletteRibbonGalleryBarItem1);
+			this.ribbonPageGroup4.ItemLinks.Add(this.bciThemeSystem);
+			this.ribbonPageGroup4.ItemLinks.Add(this.bciThemeLight);
+			this.ribbonPageGroup4.ItemLinks.Add(this.bciThemeDark);
 			this.ribbonPageGroup4.Name = "ribbonPageGroup4";
 			this.ribbonPageGroup4.Text = "Theme";
+			// 
+			// ribbonPageGroup6
+			// 
+			this.ribbonPageGroup6.ItemLinks.Add(this.skinDropDownButtonItem);
+			this.ribbonPageGroup6.ItemLinks.Add(this.skinPaletteRibbonGalleryBarItem);
+			this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+			this.ribbonPageGroup6.Text = "Other Themes";
 			// 
 			// ribbonStatusBar
 			// 
@@ -576,10 +623,10 @@
 			this.navigationFrame.Size = new System.Drawing.Size(1294, 497);
 			this.navigationFrame.TabIndex = 0;
 			this.navigationFrame.Text = "navigationFrame1";
-			this.navigationFrame.SelectedPageChanged += new DevExpress.XtraBars.Navigation.SelectedPageChangedEventHandler(this.navigationFrame_SelectedPageChanged);
 			// 
 			// npHome
 			// 
+			this.npHome.Caption = "npHome";
 			this.npHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.npHome.Name = "npHome";
 			this.npHome.Size = new System.Drawing.Size(1294, 497);
@@ -622,6 +669,11 @@
 			// 
 			this.ribbonPage7.Name = "ribbonPage7";
 			this.ribbonPage7.Text = "ribbonPage7";
+			// 
+			// ribbonPageCategory1
+			// 
+			this.ribbonPageCategory1.Name = "ribbonPageCategory1";
+			this.ribbonPageCategory1.Text = "ribbonPageCategory1";
 			// 
 			// MainForm
 			// 
@@ -700,8 +752,8 @@
 		private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage7;
 		private DevExpress.XtraBars.BarButtonItem bbiSettingsApp;
 		private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-		private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
-		private DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem skinPaletteRibbonGalleryBarItem1;
+		private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem;
+		private DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem skinPaletteRibbonGalleryBarItem;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
 		private DevExpress.XtraBars.BarStaticItem bsiTime;
 		private DevExpress.XtraBars.BarSubItem bsiUserMenu;
@@ -722,5 +774,10 @@
 		private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator1;
 		private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator2;
 		private Views.Settings.AppSettingsView appSettingsView1;
+		private DevExpress.XtraBars.BarCheckItem bciThemeSystem;
+		private DevExpress.XtraBars.BarCheckItem bciThemeLight;
+		private DevExpress.XtraBars.BarCheckItem bciThemeDark;
+		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+		private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory1;
 	}
 }
