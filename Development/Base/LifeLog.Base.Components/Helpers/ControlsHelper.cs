@@ -1,4 +1,4 @@
-﻿using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Tile;
@@ -34,31 +34,31 @@ namespace LifeLog.UI.Common.Helpers
 			return null;
 		}
 
-		/// <summary>
-		/// Gets the object by row handle
-		/// </summary>
-		/// <param name="rowIndex"></param>
-		/// <returns></returns>
-		public static T GetObjectByRowHandle<T>(this GridView gridView, int? rowIndex = null) where T : class
-		{
-			if (gridView == null)
-				throw new ArgumentNullException(nameof(gridView));
-
-			int rowi = rowIndex ?? gridView.FocusedRowHandle;
-			if (rowi >= 0)
+			/// <summary>
+			/// Gets the object by row handle
+			/// </summary>
+			/// <param name="rowIndex"></param>
+			/// <returns></returns>
+			public static T GetObjectByRowHandle<T>(this GridView gridView, int? rowIndex = null) where T : class
 			{
-				object rowObject = gridView.GetRow(rowi);
+				if (gridView == null)
+					throw new ArgumentNullException(nameof(gridView));
 
-				if (rowObject is DevExpress.Data.Async.Helpers.ReadonlyThreadSafeProxyForObjectFromAnotherThread data)
+				int rowi = rowIndex ?? gridView.FocusedRowHandle;
+				if (rowi >= 0)
 				{
-					rowObject = data.OriginalRow;
+					object rowObject = gridView.GetRow(rowi);
+
+					if (rowObject is DevExpress.Data.Async.Helpers.ReadonlyThreadSafeProxyForObjectFromAnotherThread data)
+					{
+						rowObject = data.OriginalRow;
+					}
+
+					return rowObject as T;
 				}
 
-				return rowObject as T;
+				return null;
 			}
-
-			return null;
-		}
 
 		/// <summary>
 		/// Toggle password visibility  
