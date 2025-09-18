@@ -75,6 +75,7 @@
     <Compile Include="Flags\FrontModulesFlag.cs" />
     <Compile Include="Interfaces\IBaseQuery.cs" />
     <Compile Include="Interfaces\IEngineForm.cs" />
+    <Compile Include="Interfaces\INotesQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

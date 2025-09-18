@@ -1,5 +1,6 @@
 ﻿using DevExpress.LookAndFeel.Design;
 using DevExpress.UserSkins;
+using DevExpress.XtraBars.Alerter;
 using DevExpress.XtraSplashScreen;
 using LifeLog.App.Helpers;
 using LifeLog.Data.Models;
@@ -50,10 +51,18 @@ namespace LifeLog.App
 				AppSession.DbConfigs = AppHelper.GetDatabaseConfigs();
 				AppSession.DataEngine = new Data.Database.Engine(AppSession.DbConfigs);
 
+				if (AppSession.DbConfigs.EnableApi)
+				{
+					AppSession.ApiEngine = new Services.Api.Engine(AppSession.DbConfigs.ApiLink);
+					Task.Run(() => LifeLog.UI.Common.Forms.Dialog.AlertForm.Alert("API Service is enabled.", UI.Common.Forms.Dialog.AlertForm.enmType.Info));
+				}
+
 				using (AppSession.AuthForm = new AuthForm())
 				{
 					AppSession.AuthForm.Shown += (s, e) =>
+					{
 						SplashScreenManager.CloseForm(false);
+					};
 
 					do
 					{
@@ -65,7 +74,9 @@ namespace LifeLog.App
 						AppSession.Container = new AppContainer($"LifeLog.UI.{AppSession.AuthForm.AplicationInterface.ToString()}");
 
 						AppSession.Container.EngineForm.MainForm.Shown += (s, e) =>
+						{
 							SplashScreenManager.CloseForm(false);
+						};
 
 						Application.Run(AppSession.Container.EngineForm.MainForm);
 					}
@@ -80,7 +91,9 @@ namespace LifeLog.App
 			{
 				ThemeHelper.Capture();
 				AppHelper.SaveAppSetings();
+
 				AppSession.Container?.Dispose();
+				AppSession.ApiEngine?.Dispose();
 				AppSession.DataEngine?.Dispose();
 			}
 		}

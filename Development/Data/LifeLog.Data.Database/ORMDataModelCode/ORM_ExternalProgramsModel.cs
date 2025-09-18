@@ -10,7 +10,7 @@ namespace LifeLog.Data.Database.ORMDataModel
 
 	public partial class ORM_ExternalProgramsModel
 	{
-		public ORM_ExternalProgramsModel() : base(Session.DefaultSession) { }
+		public ORM_ExternalProgramsModel() : base() { }
 		public ORM_ExternalProgramsModel(Session session) : base(session) { }
 		
 		private dynamic icon;

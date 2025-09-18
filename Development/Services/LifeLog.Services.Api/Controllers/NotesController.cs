@@ -1,5 +1,9 @@
-﻿using LifeLog.Services.Api.Bases;
+﻿using LifeLog.Base.Infrastructure.Interfaces;
+using LifeLog.Data.Database.Queries;
+using LifeLog.Data.Models;
+using LifeLog.Services.Api.Bases;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -12,11 +16,15 @@ namespace LifeLog.Services.Api.Controllers
 	[RoutePrefix("notes")]
 	public class NotesController : BaseController, IDisposable
 	{
+		//PRIVATE
+		private INotesQuery<NotesModel, Guid> _Data;
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public NotesController()
+		public NotesController(INotesQuery<NotesModel, Guid> data)
 		{
+			_Data = data ?? throw new ArgumentNullException(nameof(data));
 		}
 
 		#region GET'S
@@ -30,8 +38,8 @@ namespace LifeLog.Services.Api.Controllers
 		{
 			try
 			{
-				//List<NotesModel> results = await _E ..GetAll();
-				return Content(HttpStatusCode.OK, new {});
+				(List<NotesModel> results, string message) = await _Data.GetAll();
+				return Content(HttpStatusCode.OK, new { results, message });
 			}
 			catch (Exception ex)
 			{

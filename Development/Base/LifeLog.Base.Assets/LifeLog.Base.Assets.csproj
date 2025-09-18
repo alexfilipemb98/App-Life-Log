@@ -393,6 +393,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CodeToImplement.txt" />
+    <None Include="Resources\icons8_cancel_25px.png" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\success.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\error.png" />
     <None Include="Resources\tech-color-desktop.svg" />
     <None Include="Resources\sun.svg" />
     <None Include="Resources\moon.svg" />

@@ -10,8 +10,7 @@ namespace LifeLog.Data.Database.ORMDataModel
 
 	public partial class ORM_BaseModel
 	{
-
-		public ORM_BaseModel() : base(Session.DefaultSession) { }
+		public ORM_BaseModel() : base() { }
 		public ORM_BaseModel(Session session) : base(session) { }
 
 		/// <summary>

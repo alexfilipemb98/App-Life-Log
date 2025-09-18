@@ -10,7 +10,7 @@ namespace LifeLog.Data.Database.ORMDataModel
 
 	public partial class ORM_ImagesModel
 	{
-		public ORM_ImagesModel() : base(Session.DefaultSession) { }
+		public ORM_ImagesModel() : base() { }
 		public ORM_ImagesModel(Session session) : base(session) { }
 
 		[NonPersistent]

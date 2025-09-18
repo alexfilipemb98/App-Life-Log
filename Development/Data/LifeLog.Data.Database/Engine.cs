@@ -29,66 +29,23 @@ namespace LifeLog.Data.Database
 	{
 		#region MAIN
 
-		//PROPERTIES
+		//PUBLIC
 		public string DBName { get; private set; } = "Disconected!";
 
+		//INTERNAL
 		internal static Engine Instance { get; private set; }
 		internal IDataLayer DataLayer { get; private set; }
 		internal IDbConnection Connection { get; private set; }
+
+		//PRIVATE
+		private static readonly object _lock = new object();
+		private bool _disposed;
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		/// <param fName="config"></param>
-		public Engine(DatabaseConfigModel config)
-		{
-			if (config is null)
-				throw new ArgumentException("Threes no configurations");
-
-			config.ValidateModel(out List<ValidationResult> results);
-			if (results.Count > 0)
-				throw new Base.Infrastructure.Exceptions.ValidationException(results);
-
-			if (Instance != null)
-				Instance.Dispose();
-
-			Instance = this;
-
-			string connectionString = DbHelper.GetConnection(config);
-
-			if (string.IsNullOrWhiteSpace(connectionString))
-				throw new ArgumentNullException("Connection string is inválid!");
-
-			Batteries_V2.Init();
-
-			DbHelper.SqlLiteBackUp(config);
-
-			IEnumerable<Type> assemblyTypes = Assembly.GetExecutingAssembly().GetTypes()
-					 .Where(t => t.IsClass && !t.IsAbstract && t.Namespace == "LifeLog.Data.Database.ORMDataModel");
-
-			Type[] persistentTypes = assemblyTypes
-				.Where(t => !Attribute.IsDefined(t, typeof(NonPersistentAttribute), inherit: false))
-				.ToArray();
-			Type[] nonPersistentTypes = assemblyTypes
-				 .Where(t => Attribute.IsDefined(t, typeof(NonPersistentAttribute), inherit: false))
-				.ToArray();
-
-			IDataStore provider = XpoDefault.GetConnectionProvider(connectionString, AutoCreateOption.DatabaseAndSchema);
-			ReflectionDictionary dictionary = new ReflectionDictionary();
-			dictionary.GetDataStoreSchema(persistentTypes);
-			dictionary.CollectClassInfos(nonPersistentTypes);
-
-			DbHelper.UpdateDB(provider, dictionary);
-
-			DataLayer = new ThreadSafeDataLayer(dictionary, provider);
-			XpoDefault.DataLayer = DataLayer;
-			IDataStore connectionProvider = ((DevExpress.Xpo.Helpers.BaseDataLayer)DataLayer).ConnectionProvider;
-			Connection = ((ConnectionProviderSql)connectionProvider).Connection;
-
-			DBName = config.DatabaseType == DatabaseTypeEnum.SQLLITE
-				? $"(local) {Path.GetFileNameWithoutExtension(((SqliteConnection)Connection).DataSource)}"
-				: ((SqlConnection)Connection).Database;
-		}
+		public Engine(DatabaseConfigModel config) => Inicialize(config);
 
 		#endregion
 
@@ -208,13 +165,134 @@ namespace LifeLog.Data.Database
 		/// <summary>
 		/// Dispose
 		/// </summary>
-		public void Dispose()
+		public void Dispose() => Dispose(true);
+		
+		#region PRIVATE
+
+		/// <summary>
+		/// Inicialize the database
+		/// </summary>
+		/// <param name="config"></param>
+		/// <exception cref="ArgumentException"></exception>
+		/// <exception cref="Base.Infrastructure.Exceptions.ValidationException"></exception>
+		/// <exception cref="ArgumentNullException"></exception>
+		private void Inicialize(DatabaseConfigModel config)
 		{
-			DataLayer?.Dispose();
-			Connection?.Dispose();
+			lock (_lock)
+			{
+				if (config is null)
+					throw new ArgumentException("Threes no configurations");
+
+				config.ValidateModel(out List<ValidationResult> results);
+				if (results.Count > 0)
+					throw new Base.Infrastructure.Exceptions.ValidationException(results);
+
+				Instance?.Dispose();
+
+				string connectionString = DbHelper.GetConnection(config);
+
+				if (string.IsNullOrWhiteSpace(connectionString))
+					throw new ArgumentNullException("Connection string is inválid!");
+
+				Batteries_V2.Init();
+
+				DbHelper.SqlLiteBackUp(config);
+
+				IEnumerable<Type> assemblyTypes = Assembly.GetExecutingAssembly().GetTypes()
+						 .Where(t => t.IsClass && !t.IsAbstract && t.Namespace == "LifeLog.Data.Database.ORMDataModel");
+
+				Type[] persistentTypes = assemblyTypes
+					.Where(t => !Attribute.IsDefined(t, typeof(NonPersistentAttribute), inherit: false))
+					.ToArray();
+				Type[] nonPersistentTypes = assemblyTypes
+					 .Where(t => Attribute.IsDefined(t, typeof(NonPersistentAttribute), inherit: false))
+					.ToArray();
+
+				IDataStore provider = XpoDefault.GetConnectionProvider(connectionString, AutoCreateOption.DatabaseAndSchema);
+				ReflectionDictionary dictionary = new ReflectionDictionary();
+				dictionary.GetDataStoreSchema(persistentTypes);
+				dictionary.CollectClassInfos(nonPersistentTypes);
+
+				DbHelper.UpdateDB(provider, dictionary);
+
+				DataLayer = new ThreadSafeDataLayer(dictionary, provider);
+				XpoDefault.DataLayer = DataLayer;
+				IDataStore connectionProvider = ((DevExpress.Xpo.Helpers.BaseDataLayer)DataLayer).ConnectionProvider;
+				Connection = ((ConnectionProviderSql)connectionProvider).Connection;
+				XpoDefault.Session = null;
+				DBName = config.DatabaseType == DatabaseTypeEnum.SQLLITE
+					? $"(local) {Path.GetFileNameWithoutExtension(((SqliteConnection)Connection).DataSource)}"
+					: ((SqlConnection)Connection).Database;
+
+				Instance = this;
+			}
 		}
+
+		/// <summary>
+		/// Dispose helper
+		/// </summary>
+		/// <param name="disposing"></param>
+		private void Dispose(bool disposing)
+		{
+			if (!disposing || _disposed) return;
+
+			lock (_lock)
+			{
+				if (_disposed) return; // double-check dentro do lock
+
+				try
+				{
+					// Limpa globais do XPO apenas se ainda apontarem para esta instância
+					if (ReferenceEquals(Instance, this))
+					{
+						if (ReferenceEquals(XpoDefault.DataLayer, DataLayer))
+							XpoDefault.DataLayer = null;
+
+						// Se a Session global depender do DataLayer agora nulo, liberta-a também
+						if (XpoDefault.Session != null && XpoDefault.DataLayer == null)
+							XpoDefault.Session = null;
+
+						Instance = null;
+					}
+
+					// Fecha/Liberta recursos desta instância
+					try
+					{
+						DataLayer?.Dispose(); // isto normalmente liberta o provider
+					}
+					catch { /* opcional: log */ }
+					finally
+					{
+						DataLayer = null;
+					}
+
+					if (Connection != null)
+					{
+						try
+						{
+							if (Connection.State != ConnectionState.Closed)
+								Connection.Close();
+						}
+						catch { /* opcional: log */ }
+						finally
+						{
+							Connection.Dispose();
+							Connection = null;
+						}
+					}
+				}
+				finally
+				{
+					_disposed = true;
+				}
+			}
+
+			GC.SuppressFinalize(this);
+		} 
 
 		#endregion
 	}
 
+	#endregion
 }
+

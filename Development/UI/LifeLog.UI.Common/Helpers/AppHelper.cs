@@ -36,7 +36,9 @@ namespace LifeLog.UI.Common.Helpers
 				{
 					DatabaseType = DatabaseTypeEnum.SQLLITE,
 					SQlLitePath = AppSession.SqlLiteName,
-					SqlLitePassword = "sAt34@5432€"
+					SqlLitePassword = "sAt34@5432€",
+					ApiLink = "http://localhost:9000",
+					EnableApi = false
 				};
 
 				FilesUtil.SaveFileWithEncryption(config, AppSession.ConfigDbName);

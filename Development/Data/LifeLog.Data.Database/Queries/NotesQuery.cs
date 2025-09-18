@@ -1,8 +1,9 @@
 ﻿using DevExpress.Xpo;
-using LifeLog.Data.Models;
+using LifeLog.Base.Infrastructure.Interfaces;
 using LifeLog.Data.Database.Bases;
 using LifeLog.Data.Database.Mappers;
 using LifeLog.Data.Database.ORMDataModel;
+using LifeLog.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,7 +15,7 @@ namespace LifeLog.Data.Database.Queries
 	/// <summary>
 	/// Notes data query
 	/// </summary>
-	public sealed class NotesQuery : DataQueryBase<NotesModel>
+	public sealed class NotesQuery : DataQueryBase<NotesModel>, INotesQuery<NotesModel, Guid>
 	{
 		#region BASE
 

@@ -88,6 +88,12 @@ namespace LifeLog.UI.Common.Views
 				{
 					AppHelper.StatusMessage("Settings saved successfully", true);
 					AppSession.DataEngine = new Data.Database.Engine(AppSession.DbConfigs);
+
+					if (AppSession.DbConfigs.EnableApi)
+						AppSession.ApiEngine = new Services.Api.Engine(AppSession.DbConfigs.ApiLink);
+					else
+						if (AppSession.ApiEngine != null)
+							AppSession.ApiEngine.Dispose();
 				}
 				else
 					AppHelper.StatusMessage("Error saving settings", false);
@@ -246,12 +252,13 @@ namespace LifeLog.UI.Common.Views
 		{
 			this.ValidateChildren();
 			databaseConfigModelBindingSource.EndEdit();
+
 			DatabaseConfigModel configs = databaseConfigModelBindingSource.DataSource as DatabaseConfigModel;
 
 			if (!ValidationHelper.ValidateModelAndSetError(configs, dxErrorProvider, dataLayoutControl))
 				return false;
 
-			FilesUtil.SaveFileWithEncryption(configs, AppSession.ConfigDbName);
+			AppHelper.SaveDataConfigs(configs);
 
 			AppSession.DbConfigs = configs;
 

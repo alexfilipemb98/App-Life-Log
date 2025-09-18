@@ -18,7 +18,7 @@ namespace LifeLog.UI.Common.Helpers
 		{
 			LoggerUtil.LogError(ex);
 			DialogHelper.CloseWait();
-		 	MessageBoxDialogForm.SD(MessageBoxIcon.Error,ex.TargetSite.Name, ex.TargetSite.ToString(), ex.ToString(), false);
+		 	MessageBoxDialogForm.SD(MessageBoxIcon.Error,ex.TargetSite.Name, ex?.TargetSite?.ToString(), ex.ToString(), false);
 		}
 	}
 }

@@ -56,7 +56,8 @@ namespace LifeLog.Base.Models
 
 		#region API
 
-		[DataType(DataType.Text)]
+		[DataType(DataType.Url)]
+		[Infrastructure.Attributes.RequiredIf(nameof(EnableApi), OperatorsEnum.Equal, true)]
 		public string ApiLink { get; set; }
 
 		public bool EnableApi { get; set; }

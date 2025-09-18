@@ -70,5 +70,6 @@ namespace LifeLog.UI.Common
 		/// Logged user information.
 		/// </summary>
 		public static LoggedUserModel CurrentUser { get; internal set; }
+		
 	}
 }

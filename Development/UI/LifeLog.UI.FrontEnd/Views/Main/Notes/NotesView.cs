@@ -517,6 +517,5 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Notes
 		#endregion
 
 		#endregion
-
 	}
 }

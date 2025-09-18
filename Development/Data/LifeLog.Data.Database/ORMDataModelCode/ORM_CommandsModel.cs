@@ -10,7 +10,7 @@ namespace LifeLog.Data.Database.ORMDataModel
 
 	public partial class ORM_CommandsModel
 	{
-		public ORM_CommandsModel() : base(Session.DefaultSession) { }
+		public ORM_CommandsModel() : base() { }
 		public ORM_CommandsModel(Session session) : base(session) { }
 
 		private dynamic icon;

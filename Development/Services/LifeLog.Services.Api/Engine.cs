@@ -3,45 +3,51 @@ using System;
 
 namespace LifeLog.Services.Api
 {
-    /// <summary>
-    /// Api engine
-    /// </summary>
-    public class Engine : IDisposable
-    {
-        //INTERNAL
+	///<summary>
+	///Api engine
+	///</summary>
+	public sealed class Engine : IDisposable
+	{
+		//INTERNAL
+		internal static Engine Instance { get; private set; }
 
-        internal static LifeLog.Data.Database.Engine _engine;
-        private  string _url;
+		//PRIVATE
+		private static readonly object _lock = new object();
+		private IDisposable _api;
+		private bool _disposed;
 
-        //PRIVATE
-        private IDisposable _api;
+		/// <summary>
+		/// Construtor
+		/// </summary>
+		/// <param name="url"></param>
+		public Engine(string url)
+		{
+			lock (_lock)
+			{
+				Instance?.Dispose();
+				_api = WebApp.Start<Startup>(url);
+				Instance = this;
+			}
+		}
 
-        /// <summary>
-        /// Engine Data
-        /// </summary>
-        /// <param name="url"></param>
-        public Engine(Data.Database.Engine engine)
-        {
-            _engine = engine;
-           
-        }
+		/// <summary>
+		/// Dispose
+		/// </summary>
+		public void Dispose()
+		{
+			if (_disposed) return;
+			_disposed = true;
 
-        /// <summary>
-        /// Inicialize Web api
-        /// </summary>
-        /// <param name="url"></param>
-        public void Inicialize(string url)
-        { 
-            _url = url;
-            _api = WebApp.Start<Startup>(_url);
-        }
-
-        /// <summary>
-        /// Discpose Web app
-        /// </summary>
-        public void Dispose()
-        {
-            _api.Dispose();
-        }
-    }
+			try { _api?.Dispose(); }
+			finally
+			{
+				lock (_lock)
+				{
+					if (ReferenceEquals(Instance, this))
+						Instance = null;
+				}
+				GC.SuppressFinalize(this);
+			}
+		}
+	}
 }

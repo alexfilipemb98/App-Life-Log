@@ -5,10 +5,12 @@ using DevExpress.Xpo.Metadata;
 using LifeLog.Base.DapperUtil;
 using LifeLog.Base.Infrastructure.Enums;
 using LifeLog.Base.Models;
+using LifeLog.Base.Utils;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -116,8 +118,8 @@ namespace LifeLog.Data.Database.Helpers
 		/// </summary>
 		public static void SqlLiteBackUp(DatabaseConfigModel config)
 		{
-			if (config.DatabaseType != DatabaseTypeEnum.SQLLITE 
-				|| !config.SqlLiteBackup 
+			if (config.DatabaseType != DatabaseTypeEnum.SQLLITE
+				|| !config.SqlLiteBackup
 				|| string.IsNullOrWhiteSpace(config.SQlLitePath)
 			)
 				return;

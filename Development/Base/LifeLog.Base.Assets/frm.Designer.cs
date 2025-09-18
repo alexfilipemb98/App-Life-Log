@@ -35,7 +35,7 @@
 			// pictureEdit1
 			// 
 			this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pictureEdit1.EditValue = global::LifeLog.Base.Assets.Resources.moon;
+			this.pictureEdit1.EditValue = global::LifeLog.Base.Assets.Resources.icons8_cancel_25px;
 			this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
 			this.pictureEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.pictureEdit1.Name = "pictureEdit1";

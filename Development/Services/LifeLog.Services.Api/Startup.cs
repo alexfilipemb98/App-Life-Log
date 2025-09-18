@@ -1,11 +1,17 @@
-﻿using System.Web.Http;
+﻿using Autofac;
+using Autofac.Integration.WebApi;
+using LifeLog.Base.Infrastructure.Interfaces;
+using LifeLog.Data.Database.Queries;
+using LifeLog.Data.Models;
 using Microsoft.Owin;
+using Microsoft.Owin.Cors;
 using Owin;
 using Swashbuckle.Application;
+using System;
+using System.Linq;
 using System.Net.Http.Headers;
-using Microsoft.Owin.Cors;
-using Newtonsoft.Json;
-using LifeLog.Services.Api.Helpers;
+using System.Reflection;
+using System.Web.Http;
 
 [assembly: OwinStartup(typeof(LifeLog.Services.Api.Startup))]
 
@@ -15,40 +21,57 @@ namespace LifeLog.Services.Api
 	{
 		public void Configuration(IAppBuilder app)
 		{
-			// Ativa CORS
-			app.UseCors(CorsOptions.AllowAll);
-
-			// Configuração Web API
 			HttpConfiguration config = new HttpConfiguration();
 
-			// Swagger
-			config.EnableSwagger(c =>
-			{
-				c.SingleApiVersion("v1", "LifeLog API");
-			})
-			.EnableSwaggerUi();
+			// --- Only JSON + experiência amigável no browser ---
+			config.Formatters.Remove(config.Formatters.XmlFormatter);
+			// Responder JSON mesmo quando o browser envia Accept: text/html
+			config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));
+			// (Opcional) Ajustes de serialização
+			Newtonsoft.Json.JsonSerializerSettings json = config.Formatters.JsonFormatter.SerializerSettings;
+			json.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+			json.DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat;
+			json.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Utc;
+			json.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
 
-			// Rotas
+			// --- Rotas ---
 			config.MapHttpAttributeRoutes();
 			config.Routes.MapHttpRoute(
 				name: "DefaultApi",
-				routeTemplate: "api/{controller}/{id}",
+				routeTemplate: "api/{controller}/{action}/{id}",
 				defaults: new { id = RouteParameter.Optional }
 			);
 
-			// JSON + Ignorar ciclos + Ignorar propriedades técnicas de XPO
-			System.Net.Http.Formatting.JsonMediaTypeFormatter json = config.Formatters.JsonFormatter;
-			json.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
-			json.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-			json.SerializerSettings.ContractResolver = new XpoSafeContractResolver();
+			// --- Swagger ---
+			config.EnableSwagger(c =>
+			{
+				c.SingleApiVersion("v1", "Life Log API");
+				c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+				// c.IncludeXmlComments($@"{AppDomain.CurrentDomain.BaseDirectory}\bin\LifeLog.Services.Api.xml");
+			})
+			.EnableSwaggerUi();
 
-			// Remove XML
-			config.Formatters.Remove(config.Formatters.XmlFormatter);
+			// --- Dependencies ---
+			ContainerBuilder builder = new ContainerBuilder();
 
-			// Liga Web API ao pipeline OWIN
+			// regista o NotesQuery
+			builder.RegisterType<NotesQuery>()
+				   .As<INotesQuery<NotesModel, Guid>>()
+				   .InstancePerRequest();
+
+			// regista todos os controllers do assembly
+			builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+
+			IContainer container = builder.Build();
+			config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+
+			// integra o Autofac no OWIN
+			app.UseAutofacMiddleware(container);
+			app.UseAutofacWebApi(config);
+
+			// --- OWIN pipeline: CORS antes do WebApi ---
+			app.UseCors(CorsOptions.AllowAll);
 			app.UseWebApi(config);
 		}
 	}
-
-
 }
