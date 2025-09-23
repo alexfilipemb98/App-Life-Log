@@ -263,6 +263,10 @@
       <Project>{748E1B52-8FF2-4BD0-98F7-7D76DD11E4AC}</Project>
       <Name>LifeLog.Data.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\LifeLog.Services.WeatherApi\LifeLog.Services.WeatherApi.csproj">
+      <Project>{0709ceca-c116-4b6b-a556-e696cf49096d}</Project>
+      <Name>LifeLog.Services.WeatherApi</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LifeLog.UI.Common\LifeLog.UI.Common.csproj">
       <Project>{23751C8B-AFFA-4B01-9F2F-853C517DA940}</Project>
       <Name>LifeLog.UI.Common</Name>

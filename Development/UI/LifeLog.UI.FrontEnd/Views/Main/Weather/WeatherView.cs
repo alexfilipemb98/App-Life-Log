@@ -40,6 +40,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 			try
 			{
 				dxErrorProvider.ClearErrors();
+
 				CountriesModel country = (CountriesModel)lueCountry.GetSelectedDataRow();
 				StatesModel state = (StatesModel)lueState.GetSelectedDataRow();
 				CitiesModel city = (CitiesModel)lueCity.GetSelectedDataRow();
@@ -57,39 +58,32 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 					return;
 
 				using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
+				using (Services.WeatherApi.Engine api = new Services.WeatherApi.Engine("f56b2228d2888531cedd5596dd2be12c"))
 				{
-					string url = $"https://api.openweathermap.org/data/2.5/weather?q={city.name},{state.state_code},{country.iso2}&appid=f56b2228d2888531cedd5596dd2be12c";
-					//string url = $"https://api.openweathermap.org/data/2.5/weather?q=Leiria,10,PT&appid=f56b2228d2888531cedd5596dd2be12c";
+					Services.WeatherApi.Models.RootModel data = await api.GetWeather(country.iso2, state.state_code, city.name);
 
-					using (HttpClient client = new HttpClient())
+					if (data != null)
 					{
-						HttpResponseMessage response = await client.GetAsync(url);
+						peWheatherState.Image = data.weather.First().image;
+						lcgWeatherInformationGroup.Text = $"Weather Information for - ({data.sys.country}) {data.name} is {ConversionUtil.KelvinToCelsius(data.main.temp)} ºC";
+						lblWeatherState.Text = $"{data.weather.First().main} - {data.weather.First().description}";
+						lblTime.Text = $"{ConversionUtil.UnixToDateTime(data.dt)}";
+						lblMinTemp.Text = $"{ConversionUtil.KelvinToCelsius(data.main.temp_min)} ºC";
+						lblMaxTemp.Text = $"{ConversionUtil.KelvinToCelsius(data.main.temp_max)} ºC";
+						lblHumidity.Text = $"{data.main.humidity} %";
+						lblWindData.Text = $"{ConversionUtil.MetersPerSecondToKilometersPerHour(data.wind.speed)} km\\h - {ConversionUtil.DegreesToCompassDirection(data.wind.deg)}";
+						lblCloudsData.Text = $"{data.clouds.all} %";
+						lblPressure.Text = $"{data.main.pressure} hPa";
+						lblSunrise.Text = $"{ConversionUtil.UnixToDateTime(data.sys.sunrise)}";
+						lblSunset.Text = $"{ConversionUtil.UnixToDateTime(data.sys.sunset)}";
+						
+						(string name, string utcOffset) = ConversionUtil.GetTimeZoneInfo(data.timezone);
+						lblTimezone.Text = $"{name} ({utcOffset})";
 
-						if (response.IsSuccessStatusCode)
-						{
-							string responseBody = await response.Content.ReadAsStringAsync();
-
-							JObject weatherData = JsonConvert.DeserializeObject<JObject>(responseBody);
-
-							lcgWeatherInformationGroup.Text = $"Weather Information for - {weatherData["name"]},{weatherData["sys"]?["country"]} {ConversionUtil.KelvinToCelsius(weatherData["main"]?["temp"]?.ToObject<double>() ?? 0.0)} ºC";
-
-							//			WeatherDataListObject weatherState = weatherData.Weather.FirstOrDefault();
-							//			teWeatherState.Text = $"{weatherState.Main} - {weatherState.Description}";
-										peWheatherState.Image = ImagesUtil.ImageUrlToBitmap($"http://openweathermap.org/img/wn/{((JContainer)weatherData["weather"])[0]["icon"]}@2x.png");
-							//			beMiminumTemperature.Text = $"{ConversionUtil.KelvinToCelsius(weatherData.Main.Temp_min)} ºC";
-							//			beMaximumTemperature.Text = $"{ConversionUtil.KelvinToCelsius(weatherData.Main.Temp_max)} ºC";
-							//			beWindData.Text = $"{ConversionUtil.MetersPerSecondToKilometersPerHour(weatherData.Wind.Speed)} km\\h - {ConversionUtil.DegreesToCompassDirection(weatherData.Wind.Deg)}";
-							//			beCloudsData.Text = $"{weatherData.Clouds.All} %";
-							//			bePressure.Text = $"{weatherData.Main.Pressure} hPa";
-							//			beHumidity.Text = $"{weatherData.Main.Humidity} %";
-							//			beTime.Text = $"{ConversionUtil.UnixToDateTime(weatherData.Dt)}";
-							//			(string name, string utcOffset) = ConversionUtil.GetTimeZoneInfo(weatherData.Timezone);
-							//			beTimezone.Text = $"{name} ({utcOffset})";
-							//			beSunrise.Text = $"{ConversionUtil.UnixToDateTime(weatherData.Sys.Sunrise)}";
-							//			beSunset.Text = $"{ConversionUtil.UnixToDateTime(weatherData.Sys.Sunset)}";
-							//			beCoordinates.Text = $"LAT: {weatherData.Coord.Lat}, LON: {weatherData.Coord.Lon}";
-						}
+						lblCoordinates.Text = $"LAT: {data.coord.lat}, LON: {data.coord.lon}";
 					}
+					else
+						ResetTexts();
 				}
 			}
 			catch (Exception ex)
@@ -98,30 +92,17 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 			}
 		}
 
+
+
 		#endregion
 
 		#region EDIT VALUE CHANGED
 
-
-
-		#endregion
-
-		#region FUCNTIONS
-
-		#region PUBLIC
-
-		public async Task LoadData()
-		{
-			using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
-			{
-				countriesModelBindingSource.DataSource = await Countries.Data.Countries();
-			}
-		}
-
-		#endregion
-
-		#endregion
-
+		/// <summary>
+		/// Country edit value changed
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private async void lueCountry_EditValueChanged(object sender, EventArgs e)
 		{
 			using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
@@ -141,6 +122,11 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 			}
 		}
 
+		/// <summary>
+		/// State edit value changed
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private async void lueState_EditValueChanged(object sender, EventArgs e)
 		{
 			using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
@@ -151,5 +137,52 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 					citiesModelBindingSource.DataSource = await Countries.Data.Cities();
 			}
 		}
+
+		#endregion
+
+		#region FUCNTIONS
+
+		#region PUBLIC
+
+		/// <summary>
+		/// Load data
+		/// </summary>
+		/// <returns></returns>
+		public async Task LoadData()
+		{
+			using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
+			{
+				ResetTexts();
+				countriesModelBindingSource.DataSource = await Countries.Data.Countries();
+			}
+		}
+
+		#endregion
+
+		#region PRIVATE
+
+		/// <summary>
+		/// Reset texts
+		/// </summary>
+		private void ResetTexts()
+		{
+			peWheatherState.Image = null;
+			lcgWeatherInformationGroup.Text = $"Weather Information for -";
+			lblWeatherState.ResetText();
+			lblTime.ResetText();
+			lblMinTemp.ResetText();
+			lblMaxTemp.ResetText();
+			lblHumidity.ResetText();
+			lblWindData.ResetText();
+			lblCloudsData.ResetText();
+			lblPressure.ResetText();
+			lblSunrise.ResetText();
+			lblSunset.ResetText();
+		}
+
+		#endregion
+
+		#endregion
+
 	}
 }
