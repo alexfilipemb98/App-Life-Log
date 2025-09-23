@@ -19,6 +19,8 @@ namespace Countries.Models
         public string latitude { get; set; }
         public string longitude { get; set; }
         public string wikiDataId { get; set; }
-    }
+		public string CodeName => $"{id} ({name})";
+
+	}
 
 }

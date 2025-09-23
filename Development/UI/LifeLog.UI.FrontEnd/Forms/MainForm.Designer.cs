@@ -67,6 +67,7 @@
 			this.bciThemeSystem = new DevExpress.XtraBars.BarCheckItem();
 			this.bciThemeLight = new DevExpress.XtraBars.BarCheckItem();
 			this.bciThemeDark = new DevExpress.XtraBars.BarCheckItem();
+			this.bbiTestCode = new DevExpress.XtraBars.BarButtonItem();
 			this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
 			this.rpHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.rpgHome = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -79,6 +80,7 @@
 			this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
 			this.bsiStatusLabel = new DevExpress.XtraBars.BarStaticItem();
 			this.bsiDatabase = new DevExpress.XtraBars.BarStaticItem();
@@ -93,8 +95,6 @@
 			this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-			this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-			this.bbiTestCode = new DevExpress.XtraBars.BarButtonItem();
 			((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.backstageViewControl)).BeginInit();
 			this.backstageViewControl.SuspendLayout();
@@ -464,6 +464,14 @@
 			this.bciThemeDark.Name = "bciThemeDark";
 			this.bciThemeDark.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.bciTheme_CheckedChanged);
 			// 
+			// bbiTestCode
+			// 
+			this.bbiTestCode.Caption = "Test Code";
+			this.bbiTestCode.Id = 27;
+			this.bbiTestCode.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.bo_attention;
+			this.bbiTestCode.Name = "bbiTestCode";
+			this.bbiTestCode.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTestCode_ItemClick);
+			// 
 			// ribbonPageCategory1
 			// 
 			this.ribbonPageCategory1.Name = "ribbonPageCategory1";
@@ -559,6 +567,12 @@
 			this.ribbonPageGroup6.Name = "ribbonPageGroup6";
 			this.ribbonPageGroup6.Text = "Other Themes";
 			// 
+			// ribbonPageGroup7
+			// 
+			this.ribbonPageGroup7.ItemLinks.Add(this.bbiTestCode);
+			this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+			this.ribbonPageGroup7.Text = "Test";
+			// 
 			// ribbonStatusBar
 			// 
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiStatusLabel);
@@ -635,6 +649,7 @@
 			// 
 			// npHome
 			// 
+			this.npHome.Caption = "npHome";
 			this.npHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.npHome.Name = "npHome";
 			this.npHome.Size = new System.Drawing.Size(1294, 497);
@@ -677,20 +692,6 @@
 			// 
 			this.ribbonPage7.Name = "ribbonPage7";
 			this.ribbonPage7.Text = "ribbonPage7";
-			// 
-			// ribbonPageGroup7
-			// 
-			this.ribbonPageGroup7.ItemLinks.Add(this.bbiTestCode);
-			this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-			this.ribbonPageGroup7.Text = "Test";
-			// 
-			// bbiTestCode
-			// 
-			this.bbiTestCode.Caption = "Test Code";
-			this.bbiTestCode.Id = 27;
-			this.bbiTestCode.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.bo_attention;
-			this.bbiTestCode.Name = "bbiTestCode";
-			this.bbiTestCode.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTestCode_ItemClick);
 			// 
 			// MainForm
 			// 

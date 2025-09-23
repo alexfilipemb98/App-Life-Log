@@ -51,11 +51,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Jsons\cities.json" />
-    <None Include="Jsons\countries.json" />
-    <None Include="Jsons\regions.json" />
-    <None Include="Jsons\states.json" />
-    <None Include="Jsons\subregions.json" />
+    <EmbeddedResource Include="Jsons\cities.json" />
+    <EmbeddedResource Include="Jsons\countries.json" />
+    <EmbeddedResource Include="Jsons\regions.json" />
+    <EmbeddedResource Include="Jsons\states.json" />
+    <EmbeddedResource Include="Jsons\subregions.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Base\LifeLog.Base.Infrastructure\LifeLog.Base.Infrastructure.csproj">
@@ -66,6 +66,9 @@
       <Project>{8a6700aa-97d0-4bd6-be44-72945801fb6b}</Project>
       <Name>LifeLog.Base.Utils</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\Countries.Models.CitiesModel.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

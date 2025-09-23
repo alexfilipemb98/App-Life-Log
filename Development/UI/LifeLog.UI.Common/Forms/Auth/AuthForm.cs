@@ -7,7 +7,6 @@ using LifeLog.Base.Models;
 using LifeLog.Base.Utils;
 using LifeLog.UI.Common.Helpers;
 using System;
-using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -175,6 +174,7 @@ namespace LifeLog.UI.Common.Forms.Auth
 			{
 				login.IsNew = false;
 				lciLoginUsername.Visibility = LayoutVisibility.Never;
+				lciMode.Visibility = LayoutVisibility.Always;
 				chkSignup.Checked = false;
 			}
 
@@ -182,9 +182,11 @@ namespace LifeLog.UI.Common.Forms.Auth
 			{
 				login.IsNew = true;
 				lciLoginUsername.Visibility = LayoutVisibility.Always;
+				lciMode.Visibility = LayoutVisibility.Never;
 				chkLogin.Checked = false;
 				if (!string.IsNullOrWhiteSpace(teEmail.Text) && teEmail.Text.IsValidEmail())
 					teUsername.Text = teEmail.Text.Split('@')[0];
+
 
 			}
 
@@ -274,10 +276,5 @@ namespace LifeLog.UI.Common.Forms.Auth
 		#endregion
 
 		#endregion
-
-		private void AuthForm_FormClosing(object sender, FormClosingEventArgs e)
-		{
-
-		}
 	}
 }

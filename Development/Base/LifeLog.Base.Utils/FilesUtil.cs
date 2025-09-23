@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace LifeLog.Base.Utils
 {
@@ -74,13 +75,12 @@ namespace LifeLog.Base.Utils
 		/// <typeparam name="T"></typeparam>
 		/// <param name="resourceName"></param>
 		/// <returns></returns>
-		public static T ReadAssemblyJsonFile<T>(Assembly assembly, string resourceName)
+		public static async Task<T> ReadAssemblyJsonFile<T>(Assembly assembly, string resourceName)
 		{
-			string resourse = Assembly.GetExecutingAssembly()
+			string resourse = assembly
 				.GetManifestResourceNames()
 				.FirstOrDefault(w => w.ToLower().Contains(resourceName.ToLower()));
 
-			assembly = Assembly.GetExecutingAssembly();
 			using (Stream stream = assembly.GetManifestResourceStream(resourse))
 			{
 				if (stream == null)
@@ -88,7 +88,7 @@ namespace LifeLog.Base.Utils
 
 				using (StreamReader reader = new StreamReader(stream))
 				{
-					string jsonContent = reader.ReadToEnd();
+					string jsonContent = await reader.ReadToEndAsync();
 					return JsonConvert.DeserializeObject<T>(jsonContent);
 				}
 			}

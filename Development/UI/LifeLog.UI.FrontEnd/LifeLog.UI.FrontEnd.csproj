@@ -180,6 +180,7 @@
     <Compile Include="Views\Main\Weather\WeatherView.Designer.cs">
       <DependentUpon>WeatherView.cs</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\Countries.Models.StatesModel.datasource" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\MainForm.resx">
@@ -269,7 +270,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.3</Version>
+      <Version>13.0.4</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

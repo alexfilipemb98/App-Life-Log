@@ -492,10 +492,7 @@ namespace LifeLog.UI.FrontEnd.Forms
 
 		private void bbiTestCode_ItemClick(object sender, ItemClickEventArgs e)
 		{
-			Task.Run(() =>
-			{
-				LifeLog.UI.Common.Forms.Dialog.AlertForm.Alert("API Service is enabled.", UI.Common.Forms.Dialog.AlertForm.enmType.Info);
-			});
+			
 		}
 	}
 }

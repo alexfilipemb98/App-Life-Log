@@ -54,7 +54,7 @@ namespace LifeLog.App
 				if (AppSession.DbConfigs.EnableApi)
 				{
 					AppSession.ApiEngine = new Services.Api.Engine(AppSession.DbConfigs.ApiLink);
-					Task.Run(() => LifeLog.UI.Common.Forms.Dialog.AlertForm.Alert("API Service is enabled.", UI.Common.Forms.Dialog.AlertForm.enmType.Info));
+					DialogHelper.Alert(new HiddenHostForm(), "Test code!", "", MessageBoxIcon.Information);
 				}
 
 				using (AppSession.AuthForm = new AuthForm())
@@ -98,4 +98,14 @@ namespace LifeLog.App
 			}
 		}
 	}
+	public class HiddenHostForm : Form
+	{
+		public HiddenHostForm()
+		{
+			ShowInTaskbar = false;
+			Opacity = 0;
+			WindowState = FormWindowState.Minimized;
+		}
+	}
+
 }
