@@ -76,10 +76,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 						lblPressure.Text = $"{data.main.pressure} hPa";
 						lblSunrise.Text = $"{ConversionUtil.UnixToDateTime(data.sys.sunrise)}";
 						lblSunset.Text = $"{ConversionUtil.UnixToDateTime(data.sys.sunset)}";
-						
-						(string name, string utcOffset) = ConversionUtil.GetTimeZoneInfo(data.timezone);
-						lblTimezone.Text = $"{name} ({utcOffset})";
-
+						lblTimezone.Text = TimezoneUtil.GetTimeZoneInfo(data.coord.lat, data.coord.lon, data.timezone);
 						lblCoordinates.Text = $"LAT: {data.coord.lat}, LON: {data.coord.lon}";
 					}
 					else
@@ -178,6 +175,8 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 			lblPressure.ResetText();
 			lblSunrise.ResetText();
 			lblSunset.ResetText();
+			lblTimezone.ResetText();
+			lblCoordinates.ResetText();
 		}
 
 		#endregion

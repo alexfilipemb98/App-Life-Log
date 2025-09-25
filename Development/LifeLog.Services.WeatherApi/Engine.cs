@@ -1,5 +1,6 @@
 ﻿using LifeLog.Base.Utils;
 using LifeLog.Services.WeatherApi.Models;
+using Newtonsoft.Json;
 using System;
 using System.Linq;
 using System.Net.Http;
