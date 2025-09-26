@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
@@ -12,6 +13,26 @@ namespace LifeLog.Base.Utils
 	/// </summary>
 	public static class ModelUtil
 	{
+		/// <summary>
+		/// Valida uma propriedade de um modelo e devolve a mensagem de erro (se existir).
+		/// </summary>
+		public static string GetValidationMessage<T>(this T model, string propertyName) where T : class
+		{
+			if (model == null) return null;
+
+			var property = typeof(T).GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance);
+			if (property == null) return null;
+
+			var value = property.GetValue(model);
+
+			var context = new ValidationContext(model) { MemberName = propertyName };
+			var results = new List<ValidationResult>();
+
+			bool isValid = Validator.TryValidateProperty(value, context, results);
+
+			return !isValid ? results.FirstOrDefault()?.ErrorMessage : null;
+		}
+
 		/// <summary>
 		/// Get the key of the model
 		/// </summary>

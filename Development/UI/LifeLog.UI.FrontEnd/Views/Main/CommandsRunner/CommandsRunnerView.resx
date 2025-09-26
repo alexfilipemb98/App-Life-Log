@@ -117,13 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="barManager.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="barManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </data>
-  <data name="bsCommandsList.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  </metadata>
+  <metadata name="bsCommandsList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>548, 17</value>
-  </data>
+  </metadata>
   <data name="tileView.TileHtmlTemplate.Styles" xml:space="preserve">
     <value>.cardBorderEnabled{
 	border-top: 10px solid @Question;
@@ -221,19 +220,18 @@
             &lt;/div&gt;
             &lt;div class="description no-select"&gt;
             	&lt;div class="description-line no-select"&gt;${Description}&lt;/div&gt;
-                &lt;div class="description-line no-select"&gt;&lt;b&gt;Type:&lt;/b&gt; ${Type}&lt;/div&gt;
+                &lt;div class="description-line no-select"&gt;&lt;b&gt;Date:&lt;/b&gt; ${UpdatedAt}&lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.TrayHeight" type="System.Int32, mscorlib">
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>108</value>
-  </data>
-  <data name="bsExternalPrograms.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  </metadata>
+  <metadata name="bsExternalPrograms.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>390, 17</value>
-  </data>
+  </metadata>
   <data name="htmlTemplate1.Styles" xml:space="preserve">
     <value>.contact {
 	height: 55px;
@@ -273,13 +271,10 @@
 	border-bottom: solid 2px @HighlightAlternate;
 }</value>
   </data>
-  <data name="bsCommandsEdit.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>694, 17</value>
-  </data>
-  <data name="popupMenu.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="popupMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>135, 17</value>
-  </data>
-  <data name="dxErrorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  </metadata>
+  <metadata name="dxErrorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>255, 17</value>
-  </data>
+  </metadata>
 </root>

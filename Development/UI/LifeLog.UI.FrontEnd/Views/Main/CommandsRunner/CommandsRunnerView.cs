@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Tile;
+using LifeLog.Base.Utils;
 using LifeLog.Data.Models;
 using LifeLog.UI.Common;
 using LifeLog.UI.Common.Forms.Dialog;
@@ -85,16 +86,9 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 		{
 			try
 			{
-				lcEditValues.Focus();
-				bsCommandsEdit.EndEdit();
+				this.ValidateChildren();
 
-				if (cbeProgram.GetSelectedDataRow() is ExternalProgramsModel program)
-					_crtCommands.ExternalProgram = program;
-
-				dxErrorProvider.SetError(recMain, "asdasd asd asd ");
-				_crtCommands.Command = recMain.Text;
-
-				if (!Common.Helpers.ValidationHelper.ValidateModelAndSetError(_crtCommands, dxErrorProvider, lcEditValues))
+				if (!ValidateModel())
 					return;
 
 				(bool saved, string message) = await AppSession.DataEngine.Commands.Save(_crtCommands);
@@ -136,6 +130,12 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				CommandsModel command = ControlsHelper.GetObjectByRowHandle<CommandsModel>(tileView, tileView.FocusedRowHandle);
 				if (command == null)
 					return;
+
+				if (command.ExternalProgram is null)
+				{
+					AppHelper.StatusMessage("Can't enable command, doesn't have program!", false);
+					return;
+				}
 
 				(bool state, string message) = await AppSession.DataEngine.Commands.ToggleEnabledState(command.Id);
 
@@ -590,7 +590,14 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 				navigationFrame.SelectedPage = npMain;
 
-				bsCommandsEdit.Clear();
+				cbeProgram.EditValue = null;
+				recMain.ResetText();
+				teName.ResetText();
+				teDescription.ResetText();
+				tsEnabled.Reset();
+				tsNeedsAdmin.Reset();
+
+				_crtCommands = null;
 			}
 			catch (Exception ex)
 			{
@@ -623,10 +630,12 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 
 				_crtCommands = command;
 
-				bsCommandsEdit.DataSource = _crtCommands;
-
 				cbeProgram.EditValue = command.ExternalProgram?.Id;
 				recMain.Text = command.Command;
+				teName.Text = command.Name;
+				teDescription.Text = command.Description;
+				tsEnabled.IsOn = command.IsEnabled;
+				tsNeedsAdmin.IsOn = command.NeedsAdmin;
 			}
 			catch (Exception ex)
 			{
@@ -645,6 +654,38 @@ namespace LifeLog.UI.FrontEnd.Views.Main.CommandsRunner
 				bsCommandsList.DataSource = list;
 			else
 				bsCommandsList.DataSource = list.Where(w => w.ExternalProgram?.Id == ep.Id).ToList();
+		}
+
+		/// <summary>
+		/// Validate model
+		/// </summary>
+		/// <returns></returns>
+		/// <exception cref="NotImplementedException"></exception>
+		private bool ValidateModel()
+		{
+			dxErrorProvider.ClearErrors();
+
+			_crtCommands.IsEnabled = tsEnabled.IsOn;
+			_crtCommands.NeedsAdmin = tsNeedsAdmin.IsOn;
+			_crtCommands.Command = recMain.Text;
+			_crtCommands.Name = teName.Text;
+			_crtCommands.Description = teDescription.Text;
+
+			if (cbeProgram.GetSelectedDataRow() is ExternalProgramsModel program)
+				_crtCommands.ExternalProgram = program;
+			else if (!_crtCommands.IsEnabled)
+				dxErrorProvider.SetError(cbeProgram, _crtCommands.GetValidationMessage(nameof(CommandsModel.ExternalProgram)));
+
+			if (string.IsNullOrWhiteSpace(_crtCommands.Name))
+				dxErrorProvider.SetError(teName, _crtCommands.GetValidationMessage(nameof(CommandsModel.Name)));
+
+			if (string.IsNullOrWhiteSpace(_crtCommands.Command))
+				dxErrorProvider.SetError(recMain, _crtCommands.GetValidationMessage(nameof(CommandsModel.Command)));
+
+			if (string.IsNullOrWhiteSpace(_crtCommands.Description))
+				dxErrorProvider.SetError(teDescription, _crtCommands.GetValidationMessage(nameof(CommandsModel.Description)));
+
+			return !dxErrorProvider.HasErrors;
 		}
 
 		#endregion

@@ -1,15 +1,10 @@
 ﻿using Countries.Models;
-using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraSplashScreen;
 using LifeLog.Base.Utils;
 using LifeLog.UI.Common.Helpers;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace LifeLog.UI.FrontEnd.Views.Main.Weather

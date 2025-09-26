@@ -41,9 +41,13 @@
 			this.bbiCreateFile = new DevExpress.XtraBars.BarButtonItem();
 			this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
 			this.repositoryItemSearchControl1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchControl();
+			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// barManager
@@ -94,35 +98,35 @@
 			this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControl1.Location = new System.Drawing.Point(0, 0);
 			this.barDockControl1.Manager = this.barManager;
-			this.barDockControl1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-			this.barDockControl1.Size = new System.Drawing.Size(1001, 44);
+			this.barDockControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControl1.Size = new System.Drawing.Size(858, 35);
 			// 
 			// barDockControl2
 			// 
 			this.barDockControl2.CausesValidation = false;
 			this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControl2.Location = new System.Drawing.Point(0, 629);
+			this.barDockControl2.Location = new System.Drawing.Point(0, 511);
 			this.barDockControl2.Manager = this.barManager;
-			this.barDockControl2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-			this.barDockControl2.Size = new System.Drawing.Size(1001, 0);
+			this.barDockControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControl2.Size = new System.Drawing.Size(858, 0);
 			// 
 			// barDockControl3
 			// 
 			this.barDockControl3.CausesValidation = false;
 			this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControl3.Location = new System.Drawing.Point(0, 44);
+			this.barDockControl3.Location = new System.Drawing.Point(0, 35);
 			this.barDockControl3.Manager = this.barManager;
-			this.barDockControl3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-			this.barDockControl3.Size = new System.Drawing.Size(0, 585);
+			this.barDockControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControl3.Size = new System.Drawing.Size(0, 476);
 			// 
 			// barDockControl4
 			// 
 			this.barDockControl4.CausesValidation = false;
 			this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControl4.Location = new System.Drawing.Point(1001, 44);
+			this.barDockControl4.Location = new System.Drawing.Point(858, 35);
 			this.barDockControl4.Manager = this.barManager;
-			this.barDockControl4.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-			this.barDockControl4.Size = new System.Drawing.Size(0, 585);
+			this.barDockControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.barDockControl4.Size = new System.Drawing.Size(0, 476);
 			// 
 			// bbiRunAdmin
 			// 
@@ -155,20 +159,40 @@
             new DevExpress.XtraEditors.Repository.SearchButton()});
 			this.repositoryItemSearchControl1.Name = "repositoryItemSearchControl1";
 			// 
+			// layoutControl1
+			// 
+			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.layoutControl1.Location = new System.Drawing.Point(0, 35);
+			this.layoutControl1.Name = "layoutControl1";
+			this.layoutControl1.Root = this.Root;
+			this.layoutControl1.Size = new System.Drawing.Size(858, 476);
+			this.layoutControl1.TabIndex = 4;
+			this.layoutControl1.Text = "layoutControl1";
+			// 
+			// Root
+			// 
+			this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+			this.Root.GroupBordersVisible = false;
+			this.Root.Name = "Root";
+			this.Root.Size = new System.Drawing.Size(858, 476);
+			this.Root.TextVisible = false;
+			// 
 			// AppSettingsView
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.layoutControl1);
 			this.Controls.Add(this.barDockControl3);
 			this.Controls.Add(this.barDockControl4);
 			this.Controls.Add(this.barDockControl2);
 			this.Controls.Add(this.barDockControl1);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.Name = "AppSettingsView";
-			this.Size = new System.Drawing.Size(1001, 629);
+			this.Size = new System.Drawing.Size(858, 511);
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -188,5 +212,7 @@
 		private DevExpress.XtraBars.BarButtonItem bbiCreateFile;
 		private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
 		private DevExpress.XtraEditors.Repository.RepositoryItemSearchControl repositoryItemSearchControl1;
+		private DevExpress.XtraLayout.LayoutControl layoutControl1;
+		private DevExpress.XtraLayout.LayoutControlGroup Root;
 	}
 }
