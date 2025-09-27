@@ -39,7 +39,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeLog.Data.Models", "Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeLog.Base.Assets", "Base\LifeLog.Base.Assets\LifeLog.Base.Assets.csproj", "{D5AA12CB-C4D7-4660-9F32-AE6F4D7F8B7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeLog.Services.WeatherApi", "LifeLog.Services.WeatherApi\LifeLog.Services.WeatherApi.csproj", "{0709CECA-C116-4B6B-A556-E696CF49096D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeLog.Services.WeatherApi", "Services\LifeLog.Services.WeatherApi\LifeLog.Services.WeatherApi.csproj", "{0709CECA-C116-4B6B-A556-E696CF49096D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

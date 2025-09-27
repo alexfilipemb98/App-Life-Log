@@ -58,7 +58,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Base\LifeLog.Base.Utils\LifeLog.Base.Utils.csproj">
+    <ProjectReference Include="..\..\Base\LifeLog.Base.Utils\LifeLog.Base.Utils.csproj">
       <Project>{8A6700AA-97D0-4BD6-BE44-72945801FB6B}</Project>
       <Name>LifeLog.Base.Utils</Name>
     </ProjectReference>
