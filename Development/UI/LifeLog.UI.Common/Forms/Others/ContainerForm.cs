@@ -131,6 +131,7 @@ namespace LifeLog.UI.Common.Forms.Others
 
 				ContainerForm form = new ContainerForm();
 
+				form.Text = control.Name;
 				form.Name = control.Name;
 				form.Tag = control.Name;
 				form.Size = new System.Drawing.Size((int)(AppSession.Container.EngineForm.MainForm.Width * 0.8), (int)(AppSession.Container.EngineForm.MainForm.Height * 0.8));

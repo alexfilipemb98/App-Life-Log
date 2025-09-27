@@ -34,31 +34,31 @@ namespace LifeLog.UI.Common.Helpers
 			return null;
 		}
 
-			/// <summary>
-			/// Gets the object by row handle
-			/// </summary>
-			/// <param name="rowIndex"></param>
-			/// <returns></returns>
-			public static T GetObjectByRowHandle<T>(this GridView gridView, int? rowIndex = null) where T : class
+		/// <summary>
+		/// Gets the object by row handle
+		/// </summary>
+		/// <param name="rowIndex"></param>
+		/// <returns></returns>
+		public static T GetObjectByRowHandle<T>(this GridView gridView, int? rowIndex = null) where T : class
+		{
+			if (gridView == null)
+				throw new ArgumentNullException(nameof(gridView));
+
+			int rowi = rowIndex ?? gridView.FocusedRowHandle;
+			if (rowi >= 0)
 			{
-				if (gridView == null)
-					throw new ArgumentNullException(nameof(gridView));
+				object rowObject = gridView.GetRow(rowi);
 
-				int rowi = rowIndex ?? gridView.FocusedRowHandle;
-				if (rowi >= 0)
+				if (rowObject is DevExpress.Data.Async.Helpers.ReadonlyThreadSafeProxyForObjectFromAnotherThread data)
 				{
-					object rowObject = gridView.GetRow(rowi);
-
-					if (rowObject is DevExpress.Data.Async.Helpers.ReadonlyThreadSafeProxyForObjectFromAnotherThread data)
-					{
-						rowObject = data.OriginalRow;
-					}
-
-					return rowObject as T;
+					rowObject = data.OriginalRow;
 				}
 
-				return null;
+				return rowObject as T;
 			}
+
+			return null;
+		}
 
 		/// <summary>
 		/// Toggle password visibility  
@@ -67,8 +67,9 @@ namespace LifeLog.UI.Common.Helpers
 		/// <param name="e"></param>
 		public static void ButtonTogglePassword(this ButtonEdit button, ButtonPressedEventArgs e)
 		{
+			if (e.Button.Tag?.ToString() != "SH_PASSWORD") return;
 			button.Properties.UseSystemPasswordChar = !button.Properties.UseSystemPasswordChar;
-			//e.Button.ImageOptions.SvgImage = button.Properties.UseSystemPasswordChar ? LifeLog.UI.Common..Resources.security_visibilityoff : LifeLog.UI.Resources.Properties.Resources.security_visibility;
+			e.Button.ImageOptions.SvgImage = button.Properties.UseSystemPasswordChar ? Base.Assets.Resources.security_visibilityoff : Base.Assets.Resources.security_visibility;
 		}
 
 		/// <summary>

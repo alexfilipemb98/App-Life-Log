@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthForm));
 			DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
 			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -50,7 +51,7 @@
 			this.chkLogin = new DevExpress.XtraEditors.CheckButton();
 			this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
 			this.teEmail = new DevExpress.XtraEditors.TextEdit();
-			this.loginModelBindingSource = new System.Windows.Forms.BindingSource();
+			this.loginModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.teUsername = new DevExpress.XtraEditors.TextEdit();
 			this.bePassword = new DevExpress.XtraEditors.ButtonEdit();
 			this.sbSubmit = new DevExpress.XtraEditors.SimpleButton();
@@ -73,7 +74,7 @@
 			this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.lciLoginUsername = new DevExpress.XtraLayout.LayoutControlItem();
-			this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider();
+			this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
 			this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
 			this.npAuth = new DevExpress.XtraBars.Navigation.NavigationPage();
 			this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
@@ -633,6 +634,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.IconOptions.Image = global::LifeLog.Base.Assets.Resources.icon;
 			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.MaximizeBox = false;
 			this.Name = "AuthForm";
 			this.Ribbon = this.ribbon;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

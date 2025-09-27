@@ -234,7 +234,7 @@
 			// 
 			this.tsEnableApi.AutoSizeInLayoutControl = true;
 			this.tsEnableApi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "EnableApi", true));
-			this.tsEnableApi.Location = new System.Drawing.Point(558, 275);
+			this.tsEnableApi.Location = new System.Drawing.Point(558, 333);
 			this.tsEnableApi.MenuManager = this.barManager;
 			this.tsEnableApi.Name = "tsEnableApi";
 			this.tsEnableApi.Properties.AutoWidth = true;
@@ -251,7 +251,7 @@
 			// beApiLink
 			// 
 			this.beApiLink.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "ApiLink", true));
-			this.beApiLink.Location = new System.Drawing.Point(54, 270);
+			this.beApiLink.Location = new System.Drawing.Point(54, 328);
 			this.beApiLink.MenuManager = this.barManager;
 			this.beApiLink.Name = "beApiLink";
 			editorButtonImageOptions1.SvgImage = global::LifeLog.Base.Assets.Resources.business_world;
@@ -267,7 +267,7 @@
 			// 
 			this.tsEnableBackups.AutoSizeInLayoutControl = true;
 			this.tsEnableBackups.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlLiteBackup", true));
-			this.tsEnableBackups.Location = new System.Drawing.Point(575, 79);
+			this.tsEnableBackups.Location = new System.Drawing.Point(575, 137);
 			this.tsEnableBackups.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tsEnableBackups.MenuManager = this.barManager;
 			this.tsEnableBackups.Name = "tsEnableBackups";
@@ -284,7 +284,7 @@
 			// 
 			this.cbSQLDatabase.CausesValidation = false;
 			this.cbSQLDatabase.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlDatabase", true));
-			this.cbSQLDatabase.Location = new System.Drawing.Point(69, 206);
+			this.cbSQLDatabase.Location = new System.Drawing.Point(69, 264);
 			this.cbSQLDatabase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.cbSQLDatabase.MenuManager = this.barManager;
 			this.cbSQLDatabase.Name = "cbSQLDatabase";
@@ -302,14 +302,14 @@
 			// 
 			this.beSqlPassword.CausesValidation = false;
 			this.beSqlPassword.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlPassword", true));
-			this.beSqlPassword.Location = new System.Drawing.Point(379, 170);
+			this.beSqlPassword.Location = new System.Drawing.Point(379, 228);
 			this.beSqlPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.beSqlPassword.MenuManager = this.barManager;
 			this.beSqlPassword.Name = "beSqlPassword";
 			editorButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions3.SvgImage")));
 			editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(24, 24);
 			this.beSqlPassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", "SH_PASSWORD", null, DevExpress.Utils.ToolTipAnchor.Default)});
 			this.beSqlPassword.Properties.UseSystemPasswordChar = true;
 			this.beSqlPassword.Size = new System.Drawing.Size(246, 32);
 			this.beSqlPassword.StyleController = this.dataLayoutControl;
@@ -320,7 +320,7 @@
 			// 
 			this.teSqlUsername.CausesValidation = false;
 			this.teSqlUsername.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlUsername", true));
-			this.teSqlUsername.Location = new System.Drawing.Point(69, 170);
+			this.teSqlUsername.Location = new System.Drawing.Point(69, 228);
 			this.teSqlUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.teSqlUsername.MenuManager = this.barManager;
 			this.teSqlUsername.Name = "teSqlUsername";
@@ -332,7 +332,7 @@
 			// 
 			this.bePathSqlLite.CausesValidation = false;
 			this.bePathSqlLite.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SQlLitePath", true));
-			this.bePathSqlLite.Location = new System.Drawing.Point(86, 0);
+			this.bePathSqlLite.Location = new System.Drawing.Point(86, 58);
 			this.bePathSqlLite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.bePathSqlLite.MenuManager = this.barManager;
 			this.bePathSqlLite.Name = "bePathSqlLite";
@@ -349,7 +349,7 @@
 			// 
 			this.beSqlAddress.CausesValidation = false;
 			this.beSqlAddress.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlAddress", true));
-			this.beSqlAddress.Location = new System.Drawing.Point(69, 138);
+			this.beSqlAddress.Location = new System.Drawing.Point(69, 196);
 			this.beSqlAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.beSqlAddress.MenuManager = this.barManager;
 			this.beSqlAddress.Name = "beSqlAddress";
@@ -365,7 +365,7 @@
 			// 
 			this.cbDatabaseType.CausesValidation = false;
 			this.cbDatabaseType.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "DatabaseType", true));
-			this.cbDatabaseType.Location = new System.Drawing.Point(99, -52);
+			this.cbDatabaseType.Location = new System.Drawing.Point(99, 6);
 			this.cbDatabaseType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.cbDatabaseType.MenuManager = this.barManager;
 			this.cbDatabaseType.Name = "cbDatabaseType";
@@ -383,13 +383,13 @@
 			// 
 			this.beSqlLitePassword.CausesValidation = false;
 			this.beSqlLitePassword.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlLitePassword", true));
-			this.beSqlLitePassword.Location = new System.Drawing.Point(86, 36);
+			this.beSqlLitePassword.Location = new System.Drawing.Point(86, 94);
 			this.beSqlLitePassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.beSqlLitePassword.Name = "beSqlLitePassword";
 			editorButtonImageOptions6.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions6.SvgImage")));
 			editorButtonImageOptions6.SvgImageSize = new System.Drawing.Size(24, 24);
 			this.beSqlLitePassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", "SH_PASSWORD", null, DevExpress.Utils.ToolTipAnchor.Default)});
 			this.beSqlLitePassword.Properties.UseSystemPasswordChar = true;
 			this.beSqlLitePassword.Size = new System.Drawing.Size(539, 32);
 			this.beSqlLitePassword.StyleController = this.dataLayoutControl;
@@ -400,7 +400,7 @@
 			// 
 			this.bePathSqlLiteBackup.CausesValidation = false;
 			this.bePathSqlLiteBackup.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.databaseConfigModelBindingSource, "SqlLiteBackupFolder", true));
-			this.bePathSqlLiteBackup.Location = new System.Drawing.Point(86, 72);
+			this.bePathSqlLiteBackup.Location = new System.Drawing.Point(86, 130);
 			this.bePathSqlLiteBackup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.bePathSqlLiteBackup.Name = "bePathSqlLiteBackup";
 			editorButtonImageOptions7.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions7.SvgImage")));

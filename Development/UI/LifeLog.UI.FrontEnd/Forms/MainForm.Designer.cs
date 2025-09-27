@@ -114,7 +114,7 @@
 			// ribbon
 			// 
 			this.ribbon.ApplicationButtonDropDownControl = this.backstageViewControl;
-			this.ribbon.ApplicationCaption = "Frontend";
+			this.ribbon.ApplicationCaption = "Life Log";
 			this.ribbon.ApplicationDocumentCaption = "Main";
 			this.ribbon.AutoHideEmptyItems = true;
 			this.ribbon.CaptionBarItemLinks.Add(this.bbiSettingsApp);

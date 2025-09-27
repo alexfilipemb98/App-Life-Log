@@ -68,7 +68,7 @@
 			// ribbon
 			// 
 			this.ribbon.ApplicationButtonDropDownControl = this.backstageViewControl1;
-			this.ribbon.ApplicationCaption = "Life Log Backend";
+			this.ribbon.ApplicationCaption = "Life Log";
 			this.ribbon.ApplicationDocumentCaption = "Main";
 			this.ribbon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(26, 23, 26, 23);
 			this.ribbon.ExpandCollapseItem.Id = 0;
