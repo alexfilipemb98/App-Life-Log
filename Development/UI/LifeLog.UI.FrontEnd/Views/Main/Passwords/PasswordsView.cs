@@ -1,6 +1,9 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
+using DevExpress.XtraNavBar;
+using LifeLog.Data.Models;
 using LifeLog.UI.Common.Helpers;
+using System.Collections.Generic;
 
 namespace LifeLog.UI.FrontEnd.Views.Main.Passwords
 {
@@ -10,6 +13,9 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Passwords
 	public partial class PasswordsView : XtraUserControl
 	{
 		#region MAIN
+
+		//PRIVATE
+		public List<PasswordsModel> _ListPasswords { get; set; }
 
 		/// <summary>
 		/// Constructor to initialize the view
@@ -38,6 +44,15 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Passwords
 		/// <param name="e"></param>
 		private void bbiSave_ItemClick(object sender, ItemClickEventArgs e)
 		{
+			this.ValidateChildren();
+
+			var teste = new NavBarItem();
+			teste.Tag = "teste";
+			teste.Caption = "teste";
+
+			//ngbUntilted.ItemLinks.Add(teste);
+
+			
 		}
 
 		/// <summary>

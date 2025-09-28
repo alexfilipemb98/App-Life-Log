@@ -69,7 +69,7 @@ namespace LifeLog.App
 						if (AppSession.AuthForm.ShowDialog() != DialogResult.Yes)
 							Environment.Exit(0);
 
-						SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
+						SplashScreenManager.ShowForm(new HiddenHostForm(), typeof(SplashScreenForm), true, true, false);
 
 						AppSession.Container = new AppContainer($"LifeLog.UI.{AppSession.AuthForm.AplicationInterface.ToString()}");
 
