@@ -1,4 +1,4 @@
-﻿namespace LifeLog.UI.Common.Forms.Dialog
+﻿namespace LifeLog.Base.Forms
 {
     partial class TextInputDialogForm
     {

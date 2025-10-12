@@ -66,7 +66,11 @@ namespace LifeLog.UI.FrontEnd.Views.Tools.PasswordGenerator
                         passwordsList.AppendLine(SecurityUtil.GeneratePassword(passwordLegth.Value, tsUseUCLetters.IsOn, tsUseLCLetters.IsOn, tsUseNumbers.IsOn, tsUseSpecialChars.IsOn));
                     }
                 }
-            }
+
+                lciPasswordLength.Text = $"Length ({passwordLegth.Value})";
+                lciNumPasswords.Text = $"Num. Passwords ({passwordsCount.Value})";
+
+			}
             catch (Exception ex)
             {
                 ErrorHelper.Handler(ex);

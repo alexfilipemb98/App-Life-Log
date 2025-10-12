@@ -107,6 +107,8 @@ namespace LifeLog.Data.Database.Bases
 			if (!isValid)
 				throw new Exception($"Model is not valid: {string.Join(", ", validationResults.Select(v => v.ErrorMessage))}");
 
+			await Task.CompletedTask;
+
 			return (isValid, null);
 		}
 

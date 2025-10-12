@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace LifeLog.UI.Common.Forms.Dialog
+namespace LifeLog.Base.Forms
 {
     /// <summary>
     /// EditValue input form
@@ -35,7 +35,7 @@ namespace LifeLog.UI.Common.Forms.Dialog
                 form._minLength = minLength;
                 form._maxLength = maxLength;
 
-                DialogResult result = form.ShowDialog(AppSession.Container.EngineForm.MainForm);
+                DialogResult result = form.ShowDialog();
                 text = form.teText.Text;
                 return result;
             }

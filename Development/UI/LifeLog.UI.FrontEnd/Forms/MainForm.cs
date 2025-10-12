@@ -492,7 +492,7 @@ namespace LifeLog.UI.FrontEnd.Forms
 
 		private void bbiTestCode_ItemClick(object sender, ItemClickEventArgs e)
 		{
-			
+			LifeLog.Base.Forms.QrCodeForm.ShowCode("WIFI:T:WPA;S:Vodafone-7D9753;P:Es7wFuGxeG;H:false;;", this);
 		}
 	}
 }

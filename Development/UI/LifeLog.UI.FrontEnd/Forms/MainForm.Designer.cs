@@ -68,6 +68,7 @@
 			this.bciThemeLight = new DevExpress.XtraBars.BarCheckItem();
 			this.bciThemeDark = new DevExpress.XtraBars.BarCheckItem();
 			this.bbiTestCode = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
 			this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
 			this.rpHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.rpgHome = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -146,10 +147,11 @@
             this.bciThemeSystem,
             this.bciThemeLight,
             this.bciThemeDark,
-            this.bbiTestCode});
+            this.bbiTestCode,
+            this.barButtonItem2});
 			this.ribbon.Location = new System.Drawing.Point(0, 0);
 			this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-			this.ribbon.MaxItemId = 28;
+			this.ribbon.MaxItemId = 29;
 			this.ribbon.Name = "ribbon";
 			this.ribbon.OptionsMenuMinWidth = 385;
 			this.ribbon.OptionsSearchMenu.SearchItemPosition = DevExpress.XtraBars.Ribbon.SearchItemPosition.Caption;
@@ -472,6 +474,14 @@
 			this.bbiTestCode.Name = "bbiTestCode";
 			this.bbiTestCode.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTestCode_ItemClick);
 			// 
+			// barButtonItem2
+			// 
+			this.barButtonItem2.Caption = "Code\r\nGenerator\r\n";
+			this.barButtonItem2.Id = 28;
+			this.barButtonItem2.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.barcode;
+			this.barButtonItem2.Name = "barButtonItem2";
+			this.barButtonItem2.Tag = "LifeLog.UI.FrontEnd.Views.Tools.CodesGenerator.CodesGeneratorView";
+			// 
 			// ribbonPageCategory1
 			// 
 			this.ribbonPageCategory1.Name = "ribbonPageCategory1";
@@ -525,6 +535,7 @@
 			this.ribbonPageGroup1.ItemLinks.Add(this.bbiPdfMerger);
 			this.ribbonPageGroup1.ItemLinks.Add(this.bbiGradesCalculador);
 			this.ribbonPageGroup1.ItemLinks.Add(this.bbiConvertText);
+			this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
 			this.ribbonPageGroup1.Name = "ribbonPageGroup1";
 			this.ribbonPageGroup1.Text = "Tools";
 			// 
@@ -649,7 +660,6 @@
 			// 
 			// npHome
 			// 
-			this.npHome.Caption = "npHome";
 			this.npHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.npHome.Name = "npHome";
 			this.npHome.Size = new System.Drawing.Size(1294, 497);
@@ -799,5 +809,6 @@
 		private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory1;
 		private DevExpress.XtraBars.BarButtonItem bbiTestCode;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+		private DevExpress.XtraBars.BarButtonItem barButtonItem2;
 	}
 }
