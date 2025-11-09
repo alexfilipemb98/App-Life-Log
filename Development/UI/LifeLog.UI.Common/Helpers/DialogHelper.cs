@@ -7,6 +7,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
 using LifeLog.Data.Database;
 using LifeLog.UI.Common.Forms.Loading;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -44,9 +45,18 @@ namespace LifeLog.UI.Common.Helpers
 		/// Show the wait form
 		/// </summary>
 		/// <param name="form"></param>
-		public static void ShowWait(Form form = null)
+		public static void ShowWait(Form form)
 		{
-			SplashScreenManager.ShowForm(form ?? AppSession.Container.EngineForm.MainForm, typeof(LoadingForm), true, true, false);
+			SplashScreenManager.ShowForm(form, typeof(LoadingForm), true, true, false);
+		}
+	
+		/// <summary>
+		/// Show the wait form
+		/// </summary>
+		/// <param name="form"></param>
+		public static void ShowWait()
+		{
+			SplashScreenManager.ShowForm(AppSession.Container.EngineForm.MainForm, typeof(LoadingForm), true, true, false);
 		}
 
 		/// <summary>
@@ -61,10 +71,11 @@ namespace LifeLog.UI.Common.Helpers
 
 		#region ALERT
 
-		public static void Alert(string caption, string message, MessageBoxIcon icon){
+		public static void Alert(string caption, string message, MessageBoxIcon icon)
+		{
 			Alert(AppSession.Container.EngineForm.MainForm, caption, message, icon);
 		}
-		
+
 		public static void Alert(Form owner, string caption, string message, MessageBoxIcon icon)
 		{
 			AlertControl control = new AlertControl();
@@ -200,7 +211,21 @@ namespace LifeLog.UI.Common.Helpers
 					e.HtmlPopup.Pinned = !e.HtmlPopup.Pinned;
 			};
 
-			control.Show(owner,info);
+			if (owner is null)
+			{
+				Form fakeForm = new Form();
+
+				fakeForm.StartPosition = FormStartPosition.Manual;
+				fakeForm.Location = new Point(0, 0);
+				fakeForm.Size = new Size(1, 1);
+				fakeForm.ShowInTaskbar = false;
+				fakeForm.Opacity = 0;
+				fakeForm.Show();
+
+				owner = fakeForm;
+			}
+
+			control.Show(owner, info);
 		}
 
 		#endregion

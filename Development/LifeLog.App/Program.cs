@@ -9,6 +9,7 @@ using LifeLog.UI.Common.Forms.Auth;
 using LifeLog.UI.Common.Forms.Loading;
 using LifeLog.UI.Common.Helpers;
 using System;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -54,7 +55,7 @@ namespace LifeLog.App
 				if (AppSession.DbConfigs.EnableApi)
 				{
 					AppSession.ApiEngine = new Services.Api.Engine(AppSession.DbConfigs.ApiLink);
-					DialogHelper.Alert(new HiddenHostForm(), "Test code!", "", MessageBoxIcon.Information);
+					DialogHelper.Alert(null, "Internal Api", "The internal api is enabled!", MessageBoxIcon.Information);
 				}
 
 				using (AppSession.AuthForm = new AuthForm())
@@ -69,13 +70,21 @@ namespace LifeLog.App
 						if (AppSession.AuthForm.ShowDialog() != DialogResult.Yes)
 							Environment.Exit(0);
 
-						SplashScreenManager.ShowForm(new HiddenHostForm(), typeof(SplashScreenForm), true, true, false);
+						Form fakeForm = new Form();
 
-						AppSession.Container = new AppContainer($"LifeLog.UI.{AppSession.AuthForm.AplicationInterface.ToString()}");
+						fakeForm.StartPosition = FormStartPosition.CenterScreen;
+						fakeForm.Size = new Size(1, 1);
+						fakeForm.ShowInTaskbar = false;
+						fakeForm.Opacity = 0;
+						fakeForm.Show();
+
+						DialogHelper.ShowWait(fakeForm);
+
+						AppSession.Container = new AppContainer($"LifeLog.UI.{AppSession.AuthForm.AplicationInterface}");
 
 						AppSession.Container.EngineForm.MainForm.Shown += (s, e) =>
 						{
-							SplashScreenManager.CloseForm(false);
+							DialogHelper.CloseWait();
 						};
 
 						Application.Run(AppSession.Container.EngineForm.MainForm);
@@ -98,14 +107,4 @@ namespace LifeLog.App
 			}
 		}
 	}
-	public class HiddenHostForm : Form
-	{
-		public HiddenHostForm()
-		{
-			ShowInTaskbar = false;
-			Opacity = 0;
-			WindowState = FormWindowState.Minimized;
-		}
-	}
-
 }

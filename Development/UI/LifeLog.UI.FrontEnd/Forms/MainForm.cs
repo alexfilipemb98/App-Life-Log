@@ -1,6 +1,9 @@
 ﻿using DevExpress.Data.Utils;
 using DevExpress.LookAndFeel;
+using DevExpress.Utils;
 using DevExpress.XtraBars;
+using DevExpress.XtraBars.Alerter;
+using DevExpress.XtraBars.Helpers;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
@@ -13,6 +16,7 @@ using LifeLog.UI.Common.Forms.Others;
 using LifeLog.UI.Common.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -111,6 +115,8 @@ namespace LifeLog.UI.FrontEnd.Forms
 			bciThemeLight.CheckedChanged += bciTheme_CheckedChanged;
 			bciThemeDark.CheckedChanged += bciTheme_CheckedChanged;
 			bciThemeSystem.CheckedChanged += bciTheme_CheckedChanged;
+
+			InitAccentColors();
 		}
 
 		/// <summary>
@@ -488,8 +494,34 @@ namespace LifeLog.UI.FrontEnd.Forms
 			}
 		}
 
+		/// <summary>
+		/// Initialize accent colors
+		/// </summary>
+		private void InitAccentColors()
+		{
+			SkinHelper.InitTrackWindowsAppMode(bciTrackWindowsAppMode);
+			bciTrackWindowsAppMode.SuperTip = new SuperToolTip();
+			bciTrackWindowsAppMode.SuperTip.Items.Add("This setting is available for WXI, Basic, and Bezier skins.");
+			bciTrackWindowsAppMode.SuperTip.Items[0].Appearance.FontStyleDelta = FontStyle.Bold;
+			SkinHelper.InitResetToOriginalPalette(bciOriginalPalette);
+			SkinHelper.InitTrackWindowsAccentColor(bciTrackWindowsAccentColor);
+			SkinHelper.InitCustomAccentColor(Ribbon.Manager, bbiCustomColors);
+			bbiCustomColors.SuperTip = new SuperToolTip();
+			bbiCustomColors.SuperTip.Items.Add("Custom Accent Color.");
+			bbiCustomColors.SuperTip.Items[0].Appearance.FontStyleDelta = FontStyle.Bold;
+			SkinHelper.InitCustomAccentColor2(Ribbon.Manager, bbiCustomColors2);
+			bbiCustomColors2.SuperTip = new SuperToolTip();
+			bbiCustomColors2.SuperTip.Items.Add("Custom Accent Color 2.");
+			bbiCustomColors2.SuperTip.Items[0].Appearance.FontStyleDelta = FontStyle.Bold;
+		}
+
 		#endregion
 
+		/// <summary>
+		/// Test code button
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void bbiTestCode_ItemClick(object sender, ItemClickEventArgs e)
 		{
 			LifeLog.Base.Forms.QrCodeForm.ShowCode("WIFI:T:WPA;S:Vodafone-7D9753;P:Es7wFuGxeG;H:false;;", this);

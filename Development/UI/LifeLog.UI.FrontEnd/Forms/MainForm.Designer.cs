@@ -96,6 +96,12 @@
 			this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+			this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			this.bciTrackWindowsAccentColor = new DevExpress.XtraBars.BarCheckItem();
+			this.bciTrackWindowsAppMode = new DevExpress.XtraBars.BarCheckItem();
+			this.bciOriginalPalette = new DevExpress.XtraBars.BarCheckItem();
+			this.bbiCustomColors = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiCustomColors2 = new DevExpress.XtraBars.BarButtonItem();
 			((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.backstageViewControl)).BeginInit();
 			this.backstageViewControl.SuspendLayout();
@@ -148,10 +154,15 @@
             this.bciThemeLight,
             this.bciThemeDark,
             this.bbiTestCode,
-            this.barButtonItem2});
+            this.barButtonItem2,
+            this.bciTrackWindowsAccentColor,
+            this.bciTrackWindowsAppMode,
+            this.bciOriginalPalette,
+            this.bbiCustomColors,
+            this.bbiCustomColors2});
 			this.ribbon.Location = new System.Drawing.Point(0, 0);
 			this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-			this.ribbon.MaxItemId = 29;
+			this.ribbon.MaxItemId = 34;
 			this.ribbon.Name = "ribbon";
 			this.ribbon.OptionsMenuMinWidth = 385;
 			this.ribbon.OptionsSearchMenu.SearchItemPosition = DevExpress.XtraBars.Ribbon.SearchItemPosition.Caption;
@@ -552,6 +563,7 @@
             this.ribbonPageGroup3,
             this.ribbonPageGroup4,
             this.ribbonPageGroup6,
+            this.ribbonPageGroup8,
             this.ribbonPageGroup7});
 			this.ribbonPage6.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.Setting;
 			this.ribbonPage6.Name = "ribbonPage6";
@@ -703,6 +715,51 @@
 			this.ribbonPage7.Name = "ribbonPage7";
 			this.ribbonPage7.Text = "ribbonPage7";
 			// 
+			// ribbonPageGroup8
+			// 
+			this.ribbonPageGroup8.ItemLinks.Add(this.bciTrackWindowsAppMode);
+			this.ribbonPageGroup8.ItemLinks.Add(this.bciOriginalPalette);
+			this.ribbonPageGroup8.ItemLinks.Add(this.bciTrackWindowsAccentColor);
+			this.ribbonPageGroup8.ItemLinks.Add(this.bbiCustomColors);
+			this.ribbonPageGroup8.ItemLinks.Add(this.bbiCustomColors2);
+			this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+			this.ribbonPageGroup8.Text = "Accent Colors";
+			// 
+			// bciTrackWindowsAccentColor
+			// 
+			this.bciTrackWindowsAccentColor.Caption = "System \r\nAccent \r\nColor";
+			this.bciTrackWindowsAccentColor.Id = 29;
+			this.bciTrackWindowsAccentColor.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
+			this.bciTrackWindowsAccentColor.Name = "bciTrackWindowsAccentColor";
+			// 
+			// bciTrackWindowsAppMode
+			// 
+			this.bciTrackWindowsAppMode.Caption = "Use Windows App Mode";
+			this.bciTrackWindowsAppMode.Id = 30;
+			this.bciTrackWindowsAppMode.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
+			this.bciTrackWindowsAppMode.Name = "bciTrackWindowsAppMode";
+			// 
+			// bciOriginalPalette
+			// 
+			this.bciOriginalPalette.Caption = "Original Palette";
+			this.bciOriginalPalette.Id = 31;
+			this.bciOriginalPalette.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
+			this.bciOriginalPalette.Name = "bciOriginalPalette";
+			// 
+			// bbiCustomColors
+			// 
+			this.bbiCustomColors.Caption = "Custom Color 1";
+			this.bbiCustomColors.Id = 32;
+			this.bbiCustomColors.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
+			this.bbiCustomColors.Name = "bbiCustomColors";
+			// 
+			// bbiCustomColors2
+			// 
+			this.bbiCustomColors2.Caption = "Custom Color 2";
+			this.bbiCustomColors2.Id = 33;
+			this.bbiCustomColors2.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
+			this.bbiCustomColors2.Name = "bbiCustomColors2";
+			// 
 			// MainForm
 			// 
 			this.Appearance.Options.UseFont = true;
@@ -810,5 +867,11 @@
 		private DevExpress.XtraBars.BarButtonItem bbiTestCode;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
 		private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+		private DevExpress.XtraBars.BarCheckItem bciTrackWindowsAccentColor;
+		private DevExpress.XtraBars.BarCheckItem bciTrackWindowsAppMode;
+		private DevExpress.XtraBars.BarCheckItem bciOriginalPalette;
+		private DevExpress.XtraBars.BarButtonItem bbiCustomColors;
+		private DevExpress.XtraBars.BarButtonItem bbiCustomColors2;
 	}
 }
