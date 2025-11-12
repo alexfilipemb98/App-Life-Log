@@ -43,6 +43,14 @@
 			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
 			DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
 			this.dataLayoutControl = new DevExpress.XtraDataLayout.DataLayoutControl();
+			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+			this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+			this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+			this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+			this.eciRight = new DevExpress.XtraLayout.EmptySpaceItem();
+			this.eciLeft = new DevExpress.XtraLayout.EmptySpaceItem();
+			this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+			this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
 			this.peImage = new DevExpress.XtraEditors.PictureEdit();
 			this.teFileExt = new DevExpress.XtraEditors.TextEdit();
 			this.teName = new DevExpress.XtraEditors.TextEdit();
@@ -51,25 +59,25 @@
 			this.beId = new DevExpress.XtraEditors.ButtonEdit();
 			this.teUpdatedAt = new DevExpress.XtraEditors.ButtonEdit();
 			this.teCreatedAt = new DevExpress.XtraEditors.ButtonEdit();
-			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-			this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-			this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
-			this.eciRight = new DevExpress.XtraLayout.EmptySpaceItem();
-			this.eciLeft = new DevExpress.XtraLayout.EmptySpaceItem();
 			this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
 			this.externalProgramsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
 			this.dataLayoutControl.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.eciRight)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.eciLeft)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.teFileExt.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.teName.Properties)).BeginInit();
@@ -78,22 +86,14 @@
 			((System.ComponentModel.ISupportInitialize)(this.beId.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.teUpdatedAt.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.teCreatedAt.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.eciRight)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.eciLeft)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.externalProgramsModelBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -116,6 +116,92 @@
 			this.dataLayoutControl.Size = new System.Drawing.Size(785, 544);
 			this.dataLayoutControl.TabIndex = 0;
 			this.dataLayoutControl.Text = "layoutControl1";
+			// 
+			// Root
+			// 
+			this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.False;
+			this.Root.GroupBordersVisible = false;
+			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.emptySpaceItem1,
+            this.layoutControlGroup1,
+            this.layoutControlGroup2});
+			this.Root.Name = "Root";
+			this.Root.Size = new System.Drawing.Size(785, 544);
+			this.Root.TextVisible = false;
+			// 
+			// emptySpaceItem1
+			// 
+			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 274);
+			this.emptySpaceItem1.Name = "emptySpaceItem1";
+			this.emptySpaceItem1.Size = new System.Drawing.Size(785, 270);
+			// 
+			// layoutControlGroup1
+			// 
+			this.layoutControlGroup1.ExpandButtonMode = DevExpress.Utils.Controls.ExpandButtonMode.Inverted;
+			this.layoutControlGroup1.ExpandButtonVisible = true;
+			this.layoutControlGroup1.ExpandOnDoubleClick = true;
+			this.layoutControlGroup1.GroupStyle = DevExpress.Utils.GroupStyle.Title;
+			this.layoutControlGroup1.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
+			this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem3,
+            this.layoutControlItem2,
+            this.layoutControlItem1,
+            this.layoutControlItem4,
+            this.layoutControlGroup3});
+			this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+			this.layoutControlGroup1.Name = "layoutControlGroup1";
+			this.layoutControlGroup1.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
+			this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 3;
+			this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+			this.layoutControlGroup1.Size = new System.Drawing.Size(785, 196);
+			this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+			this.layoutControlGroup1.Text = "Main Data";
+			// 
+			// layoutControlGroup3
+			// 
+			this.layoutControlGroup3.GroupBordersVisible = false;
+			this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.eciRight,
+            this.eciLeft,
+            this.layoutControlItem6});
+			this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
+			this.layoutControlGroup3.Name = "layoutControlGroup3";
+			this.layoutControlGroup3.Size = new System.Drawing.Size(785, 102);
+			// 
+			// eciRight
+			// 
+			this.eciRight.Location = new System.Drawing.Point(466, 0);
+			this.eciRight.Name = "eciRight";
+			this.eciRight.Size = new System.Drawing.Size(319, 102);
+			// 
+			// eciLeft
+			// 
+			this.eciLeft.Location = new System.Drawing.Point(0, 0);
+			this.eciLeft.Name = "eciLeft";
+			this.eciLeft.Size = new System.Drawing.Size(333, 102);
+			// 
+			// layoutControlGroup2
+			// 
+			this.layoutControlGroup2.ExpandButtonMode = DevExpress.Utils.Controls.ExpandButtonMode.Inverted;
+			this.layoutControlGroup2.ExpandButtonVisible = true;
+			this.layoutControlGroup2.GroupStyle = DevExpress.Utils.GroupStyle.Title;
+			this.layoutControlGroup2.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
+			this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem8,
+            this.layoutControlItem9,
+            this.layoutControlItem7});
+			this.layoutControlGroup2.Location = new System.Drawing.Point(0, 196);
+			this.layoutControlGroup2.Name = "layoutControlGroup2";
+			this.layoutControlGroup2.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
+			this.layoutControlGroup2.OptionsItemText.TextToControlDistance = 3;
+			this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+			this.layoutControlGroup2.Size = new System.Drawing.Size(785, 78);
+			this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 8, 0);
+			this.layoutControlGroup2.Text = "Details";
+			// 
+			// dxErrorProvider
+			// 
+			this.dxErrorProvider.ContainerControl = this;
 			// 
 			// peImage
 			// 
@@ -250,46 +336,6 @@
 			this.teCreatedAt.StyleController = this.dataLayoutControl;
 			this.teCreatedAt.TabIndex = 11;
 			// 
-			// Root
-			// 
-			this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.False;
-			this.Root.GroupBordersVisible = false;
-			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.emptySpaceItem1,
-            this.layoutControlGroup1,
-            this.layoutControlGroup2});
-			this.Root.Name = "Root";
-			this.Root.Size = new System.Drawing.Size(785, 544);
-			this.Root.TextVisible = false;
-			// 
-			// emptySpaceItem1
-			// 
-			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 274);
-			this.emptySpaceItem1.Name = "emptySpaceItem1";
-			this.emptySpaceItem1.Size = new System.Drawing.Size(785, 270);
-			// 
-			// layoutControlGroup1
-			// 
-			this.layoutControlGroup1.ExpandButtonMode = DevExpress.Utils.Controls.ExpandButtonMode.Inverted;
-			this.layoutControlGroup1.ExpandButtonVisible = true;
-			this.layoutControlGroup1.ExpandOnDoubleClick = true;
-			this.layoutControlGroup1.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-			this.layoutControlGroup1.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
-			this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3,
-            this.layoutControlItem2,
-            this.layoutControlItem1,
-            this.layoutControlItem4,
-            this.layoutControlGroup3});
-			this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-			this.layoutControlGroup1.Name = "layoutControlGroup1";
-			this.layoutControlGroup1.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
-			this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 3;
-			this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlGroup1.Size = new System.Drawing.Size(785, 196);
-			this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlGroup1.Text = "Main Data";
-			// 
 			// layoutControlItem3
 			// 
 			this.layoutControlItem3.Control = this.teName;
@@ -329,29 +375,6 @@
 			this.layoutControlItem4.TextSize = new System.Drawing.Size(35, 13);
 			this.layoutControlItem4.TextToControlDistance = 5;
 			// 
-			// layoutControlGroup3
-			// 
-			this.layoutControlGroup3.GroupBordersVisible = false;
-			this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.eciRight,
-            this.eciLeft,
-            this.layoutControlItem6});
-			this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
-			this.layoutControlGroup3.Name = "layoutControlGroup3";
-			this.layoutControlGroup3.Size = new System.Drawing.Size(785, 102);
-			// 
-			// eciRight
-			// 
-			this.eciRight.Location = new System.Drawing.Point(466, 0);
-			this.eciRight.Name = "eciRight";
-			this.eciRight.Size = new System.Drawing.Size(319, 102);
-			// 
-			// eciLeft
-			// 
-			this.eciLeft.Location = new System.Drawing.Point(0, 0);
-			this.eciLeft.Name = "eciLeft";
-			this.eciLeft.Size = new System.Drawing.Size(333, 102);
-			// 
 			// layoutControlItem6
 			// 
 			this.layoutControlItem6.AppearanceItemCaption.Options.UseTextOptions = true;
@@ -365,25 +388,6 @@
 			this.layoutControlItem6.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
 			this.layoutControlItem6.TextSize = new System.Drawing.Size(21, 13);
 			this.layoutControlItem6.TextToControlDistance = 5;
-			// 
-			// layoutControlGroup2
-			// 
-			this.layoutControlGroup2.ExpandButtonMode = DevExpress.Utils.Controls.ExpandButtonMode.Inverted;
-			this.layoutControlGroup2.ExpandButtonVisible = true;
-			this.layoutControlGroup2.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-			this.layoutControlGroup2.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
-			this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem8,
-            this.layoutControlItem9,
-            this.layoutControlItem7});
-			this.layoutControlGroup2.Location = new System.Drawing.Point(0, 196);
-			this.layoutControlGroup2.Name = "layoutControlGroup2";
-			this.layoutControlGroup2.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
-			this.layoutControlGroup2.OptionsItemText.TextToControlDistance = 3;
-			this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlGroup2.Size = new System.Drawing.Size(785, 78);
-			this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 8, 0);
-			this.layoutControlGroup2.Text = "Details";
 			// 
 			// layoutControlItem8
 			// 
@@ -412,10 +416,6 @@
 			this.layoutControlItem7.Text = "Id";
 			this.layoutControlItem7.TextSize = new System.Drawing.Size(55, 13);
 			// 
-			// dxErrorProvider
-			// 
-			this.dxErrorProvider.ContainerControl = this;
-			// 
 			// externalProgramsModelBindingSource
 			// 
 			this.externalProgramsModelBindingSource.DataSource = typeof(LifeLog.Data.Models.ExternalProgramsModel);
@@ -430,6 +430,14 @@
 			this.Size = new System.Drawing.Size(785, 544);
 			((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).EndInit();
 			this.dataLayoutControl.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.eciRight)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.eciLeft)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.teFileExt.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.teName.Properties)).EndInit();
@@ -438,22 +446,14 @@
 			((System.ComponentModel.ISupportInitialize)(this.beId.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.teUpdatedAt.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.teCreatedAt.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.eciRight)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.eciLeft)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.externalProgramsModelBindingSource)).EndInit();
 			this.ResumeLayout(false);
 

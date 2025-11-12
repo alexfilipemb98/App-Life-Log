@@ -51,6 +51,7 @@
 			this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
 			this.npMain = new DevExpress.XtraBars.Navigation.NavigationPage();
 			this.gridControl = new DevExpress.XtraGrid.GridControl();
+			this.usersModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
 			this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colCreatedAt = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,7 +66,6 @@
 			this.npEditor = new DevExpress.XtraBars.Navigation.NavigationPage();
 			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.usersModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.popupMenu)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
@@ -78,10 +78,10 @@
 			this.navigationFrame.SuspendLayout();
 			this.npMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.usersModelBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.usersModelBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// popupMenu
@@ -302,6 +302,10 @@
 			this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
 			// 
+			// usersModelBindingSource
+			// 
+			this.usersModelBindingSource.DataSource = typeof(LifeLog.Data.Models.UsersModel);
+			// 
 			// gridView
 			// 
 			this.gridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -437,10 +441,6 @@
 			this.layoutControlItem1.Size = new System.Drawing.Size(711, 377);
 			this.layoutControlItem1.TextVisible = false;
 			// 
-			// usersModelBindingSource
-			// 
-			this.usersModelBindingSource.DataSource = typeof(LifeLog.Data.Models.UsersModel);
-			// 
 			// UsersListView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,10 +465,10 @@
 			this.navigationFrame.ResumeLayout(false);
 			this.npMain.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.usersModelBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.usersModelBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
