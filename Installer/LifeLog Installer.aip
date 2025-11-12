@@ -17,10 +17,10 @@
     <ROW Property="ARPPRODUCTICON" Value="LifeLog.App.exe" Type="8"/>
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="Manufacturer" Value="AlexFilipeMB_98"/>
-    <ROW Property="ProductCode" Value="2057:{6D18AF3C-26F8-4F89-A92F-F6B01EA31DB3} 2070:{6D18AF3C-26F8-4F89-A92F-F6B01EA31DB3} " Type="16"/>
+    <ROW Property="ProductCode" Value="2057:{E2CADC47-6CAD-4433-9EA1-B1C074B50BBE} 2070:{E2CADC47-6CAD-4433-9EA1-B1C074B50BBE} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Life Log"/>
-    <ROW Property="ProductVersion" Value="1.0.2.5" Options="16"/>
+    <ROW Property="ProductVersion" Value="2025.11.11.1" Options="16"/>
     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{8ED63CD0-CE68-470D-830B-1047D3877562}"/>
@@ -89,6 +89,7 @@
     <ROW Component="LifeLog.Base.Assets.dll" ComponentId="{7BC3D0B2-FF4E-4BC2-9A98-920D8BA534C4}" Directory_="APPDIR" Attributes="0" KeyPath="LifeLog.Base.Assets.dll"/>
     <ROW Component="LifeLog.Base.Components.dll" ComponentId="{2938A656-12B2-4035-85C3-05BAC2FFE0D6}" Directory_="APPDIR" Attributes="0" KeyPath="LifeLog.Base.Components.dll"/>
     <ROW Component="LifeLog.Base.DapperUtil.dll" ComponentId="{BA71AFBD-60AC-41AF-B166-1A8CB3511C31}" Directory_="APPDIR" Attributes="0" KeyPath="LifeLog.Base.DapperUtil.dll"/>
+    <ROW Component="LifeLog.Base.Forms.dll" ComponentId="{C9182320-EB80-4E26-97F3-2224FAA8ABD2}" Directory_="APPDIR" Attributes="0" KeyPath="LifeLog.Base.Forms.dll"/>
     <ROW Component="LifeLog.Base.Infrastructure.dll" ComponentId="{F494D1F4-9088-43B4-B562-09A521220930}" Directory_="APPDIR" Attributes="0" KeyPath="LifeLog.Base.Infrastructure.dll"/>
     <ROW Component="LifeLog.Base.Models.dll" ComponentId="{DC96CB88-D773-4AE2-BDC0-9FF15C3DBBD4}" Directory_="APPDIR" Attributes="0" KeyPath="LifeLog.Base.Models.dll"/>
     <ROW Component="LifeLog.Base.Utils.dll" ComponentId="{DD8847B6-BB21-4E6E-A65B-245F7AF20510}" Directory_="APPDIR" Attributes="0" KeyPath="LifeLog.Base.Utils.dll"/>
@@ -321,6 +322,7 @@
     <ROW File="NodaTime.dll" Component_="NodaTime.dll" FileName="NodaTime.dll" Attributes="0" SourcePath="Program Files\NodaTime.dll" SelfReg="false"/>
     <ROW File="TimeZoneConverter.dll" Component_="TimeZoneConverter.dll" FileName="TIMEZO~1.DLL|TimeZoneConverter.dll" Attributes="0" SourcePath="Program Files\TimeZoneConverter.dll" SelfReg="false"/>
     <ROW File="TimeZoneNames.dll" Component_="TimeZoneNames.dll" FileName="TIMEZO~2.DLL|TimeZoneNames.dll" Attributes="0" SourcePath="Program Files\TimeZoneNames.dll" SelfReg="false"/>
+    <ROW File="LifeLog.Base.Forms.dll" Component_="LifeLog.Base.Forms.dll" FileName="LIFEL~16.DLL|LifeLog.Base.Forms.dll" Attributes="0" SourcePath="Program Files\LifeLog.Base.Forms.dll" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -595,6 +597,7 @@
     <ROW Feature_="MainFeature" Component_="NodaTime.dll"/>
     <ROW Feature_="MainFeature" Component_="TimeZoneConverter.dll"/>
     <ROW Feature_="MainFeature" Component_="TimeZoneNames.dll"/>
+    <ROW Feature_="MainFeature" Component_="LifeLog.Base.Forms.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="LifeLog.App.exe" SourcePath="Program Files\LifeLog.App.exe" Index="0"/>
@@ -706,10 +709,10 @@
     <ROW XmlAttribute="xsischemaLocation" XmlElement="swidsoftware_identification_tag" Name="xsi:schemaLocation" Flags="14" Order="3" Value="http://standards.iso.org/iso/19770/-2/2008/schema.xsd software_identification_tag.xsd"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.XmlElementComponent">
-    <ROW XmlElement="swidbuild" ParentElement="swidnumeric" Name="swid:build" Condition="1" Order="2" Flags="14" Text="2" UpdateIndexInParent="0"/>
+    <ROW XmlElement="swidbuild" ParentElement="swidnumeric" Name="swid:build" Condition="1" Order="2" Flags="14" Text="11" UpdateIndexInParent="0"/>
     <ROW XmlElement="swidentitlement_required_indicator" ParentElement="swidsoftware_identification_tag" Name="swid:entitlement_required_indicator" Condition="1" Order="0" Flags="14" Text="false" UpdateIndexInParent="0"/>
-    <ROW XmlElement="swidmajor" ParentElement="swidnumeric" Name="swid:major" Condition="1" Order="0" Flags="14" Text="1" UpdateIndexInParent="0"/>
-    <ROW XmlElement="swidminor" ParentElement="swidnumeric" Name="swid:minor" Condition="1" Order="1" Flags="14" Text="0" UpdateIndexInParent="0"/>
+    <ROW XmlElement="swidmajor" ParentElement="swidnumeric" Name="swid:major" Condition="1" Order="0" Flags="14" Text="2025" UpdateIndexInParent="0"/>
+    <ROW XmlElement="swidminor" ParentElement="swidnumeric" Name="swid:minor" Condition="1" Order="1" Flags="14" Text="11" UpdateIndexInParent="0"/>
     <ROW XmlElement="swidname" ParentElement="swidproduct_version" Name="swid:name" Condition="1" Order="0" Flags="14" Text="[ProductVersion]" UpdateIndexInParent="0"/>
     <ROW XmlElement="swidname_4" ParentElement="swidsoftware_creator" Name="swid:name" Condition="1" Order="0" Flags="14" Text="[Manufacturer]" UpdateIndexInParent="0"/>
     <ROW XmlElement="swidname_5" ParentElement="swidsoftware_licensor" Name="swid:name" Condition="1" Order="0" Flags="14" Text="[Manufacturer]" UpdateIndexInParent="0"/>
@@ -720,7 +723,7 @@
     <ROW XmlElement="swidregid" ParentElement="swidsoftware_creator" Name="swid:regid" Condition="1" Order="1" Flags="14" Text="alexfilipemb98.bss.design" UpdateIndexInParent="0"/>
     <ROW XmlElement="swidregid_3" ParentElement="swidsoftware_licensor" Name="swid:regid" Condition="1" Order="1" Flags="14" Text="alexfilipemb98.bss.design" UpdateIndexInParent="0"/>
     <ROW XmlElement="swidregid_4" ParentElement="swidtag_creator" Name="swid:regid" Condition="1" Order="1" Flags="14" Text="alexfilipemb98.bss.design" UpdateIndexInParent="0"/>
-    <ROW XmlElement="swidreview" ParentElement="swidnumeric" Name="swid:review" Condition="1" Order="3" Flags="14" Text="5" UpdateIndexInParent="0"/>
+    <ROW XmlElement="swidreview" ParentElement="swidnumeric" Name="swid:review" Condition="1" Order="3" Flags="14" Text="1" UpdateIndexInParent="0"/>
     <ROW XmlElement="swidsoftware_creator" ParentElement="swidsoftware_identification_tag" Name="swid:software_creator" Condition="1" Order="3" Flags="14" UpdateIndexInParent="0"/>
     <ROW XmlElement="swidsoftware_id" ParentElement="swidsoftware_identification_tag" Name="swid:software_id" Condition="1" Order="5" Flags="14" UpdateIndexInParent="0"/>
     <ROW XmlElement="swidsoftware_identification_tag" Name="swid:software_identification_tag" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
