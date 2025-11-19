@@ -3,8 +3,10 @@ using DevExpress.XtraSplashScreen;
 using LifeLog.Base.Utils;
 using LifeLog.UI.Common.Helpers;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace LifeLog.UI.FrontEnd.Views.Main.Weather
@@ -14,6 +16,10 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 	/// </summary>
 	public partial class WeatherView : DevExpress.XtraEditors.XtraUserControl
 	{
+		//PRIVATE
+		private CancellationTokenSource _cts;
+		private Services.WeatherApi.Engine _WeatherApi;
+
 		#region MAIN
 
 		/// <summary>
@@ -21,7 +27,19 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 		/// </summary>
 		public WeatherView() => InitializeComponent();
 
+		/// <summary>
+		/// Load event
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void WeatherView_Load(object sender, EventArgs e)
+		{
+			_WeatherApi = new Services.WeatherApi.Engine("f56b2228d2888531cedd5596dd2be12c");
+		}
+
 		#endregion
+
+		#region EVENTS
 
 		#region CLICK
 
@@ -30,61 +48,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private async void sbSearch_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				dxErrorProvider.ClearErrors();
-
-				CountriesModel country = (CountriesModel)lueCountry.GetSelectedDataRow();
-				StatesModel state = (StatesModel)lueState.GetSelectedDataRow();
-				CitiesModel city = (CitiesModel)lueCity.GetSelectedDataRow();
-
-				if (country == null)
-					dxErrorProvider.SetError(lueCountry, "Select a country");
-
-				if (state == null)
-					dxErrorProvider.SetError(lueState, "Select a state");
-
-				if (city == null)
-					dxErrorProvider.SetError(lueCity, "Select a city");
-
-				if (dxErrorProvider.HasErrors)
-					return;
-
-				using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
-				using (Services.WeatherApi.Engine api = new Services.WeatherApi.Engine("f56b2228d2888531cedd5596dd2be12c"))
-				{
-					Services.WeatherApi.Models.RootModel data = await api.GetWeather(country.iso2, state.state_code, city.name);
-
-					if (data != null)
-					{
-						peWheatherState.Image = data.weather.First().image;
-						lcgWeatherInformationGroup.Text = $"Weather Information for - ({data.sys.country}) {data.name} is {ConversionUtil.KelvinToCelsius(data.main.temp)} ºC";
-						lblWeatherState.Text = $"{data.weather.First().main} - {data.weather.First().description}";
-						lblTime.Text = $"{ConversionUtil.UnixToDateTime(data.dt)}";
-						lblMinTemp.Text = $"{ConversionUtil.KelvinToCelsius(data.main.temp_min)} ºC";
-						lblMaxTemp.Text = $"{ConversionUtil.KelvinToCelsius(data.main.temp_max)} ºC";
-						lblHumidity.Text = $"{data.main.humidity} %";
-						lblWindData.Text = $"{ConversionUtil.MetersPerSecondToKilometersPerHour(data.wind.speed)} km\\h - {ConversionUtil.DegreesToCompassDirection(data.wind.deg)}";
-						lblCloudsData.Text = $"{data.clouds.all} %";
-						lblPressure.Text = $"{data.main.pressure} hPa";
-						lblSunrise.Text = $"{ConversionUtil.UnixToDateTime(data.sys.sunrise)}";
-						lblSunset.Text = $"{ConversionUtil.UnixToDateTime(data.sys.sunset)}";
-						lblTimezone.Text = TimezoneUtil.GetTimeZoneInfo(data.coord.lat, data.coord.lon, data.timezone);
-						lblCoordinates.Text = $"LAT: {data.coord.lat}, LON: {data.coord.lon}";
-					}
-					else
-						ResetTexts();
-				}
-			}
-			catch (Exception ex)
-			{
-				ErrorHelper.Handler(ex);
-			}
-		}
-
-
+		private async void sbSearch_Click(object sender, EventArgs e) => await LoadWeatherToForm();
 
 		#endregion
 
@@ -115,20 +79,38 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 		}
 
 		/// <summary>
-		/// State edit value changed
+		/// Popup container edit edit value changed
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private async void lueState_EditValueChanged(object sender, EventArgs e)
+		private async void pceSearch_EditValueChanged(object sender, EventArgs e)
 		{
-			using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
+			try
 			{
-				if (lueState.EditValue is int id && id > 0)
-					citiesModelBindingSource.DataSource = await Countries.Data.Cities(id.ToString());
-				else
-					citiesModelBindingSource.DataSource = await Countries.Data.Cities();
+				string txt = popupContainerEdit1.Text.Trim();
+				if (txt.Length < 3)
+					return;
+
+				await LoadSugestions(txt);
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
 			}
 		}
+
+		#endregion
+
+		#region SELECTED INDEX CHANGED
+
+		/// <summary>
+		/// lcbSearch selected index changed
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private async void lcbSearch_SelectedIndexChanged(object sender, EventArgs e) => await LoadWeatherToForm();
+
+		#endregion
 
 		#endregion
 
@@ -174,9 +156,127 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 			lblCoordinates.ResetText();
 		}
 
-		#endregion
+		/// <summary>
+		/// Update search list
+		/// </summary>
+		/// <param name="locais"></param>
+		private void UpdateSearchList(List<Services.WeatherApi.Models.GeoResultModel> locais)
+		{
+			lcbSearch.BeginUpdate();
+			try
+			{
+				lcbSearch.DataSource = null;
+
+				// HTML ON
+				lcbSearch.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
+				lcbSearch.ItemHeight = 36; // um pouco mais alto para 2 linhas
+
+				// Usa o texto com HTML
+				lcbSearch.DisplayMember = "HtmlSearchName";
+				lcbSearch.DataSource = locais;
+				lcbSearch.UnSelectAll();
+			}
+			finally
+			{
+				lcbSearch.EndUpdate();
+			}
+
+			if (locais.Count > 0 && !popupContainerEdit1.IsPopupOpen)
+				popupContainerEdit1.ShowPopup();
+		}
+
+		/// <summary>
+		/// Load suggestions async
+		/// </summary>
+		/// <param name="text"></param>
+		/// <returns></returns>
+		private async Task LoadSugestions(string text)
+		{
+			using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
+			{
+				_cts?.Cancel();
+				_cts = new CancellationTokenSource();
+				CancellationToken token = _cts.Token;
+
+				try
+				{
+					CountriesModel country = (CountriesModel)lueCountry.GetSelectedDataRow();
+					if (country != null)
+						text += $", {country.iso2}";
+
+					await Task.Delay(500, token);
+
+					if (token.IsCancellationRequested) return;
+
+					List<Services.WeatherApi.Models.GeoResultModel> locations = await _WeatherApi.SearchCitiesAsync(text, token);
+					if (token.IsCancellationRequested) return;
+
+					if (!IsHandleCreated || IsDisposed)
+						return;
+
+					if (InvokeRequired)
+						Invoke(new Action(() => UpdateSearchList(locations)));
+					else
+						UpdateSearchList(locations);
+				}
+				catch (TaskCanceledException) when (token.IsCancellationRequested)
+				{
+				}
+			}
+		}
+
+		/// <summary>
+		/// Load weather to form
+		/// </summary>
+		/// <returns></returns>
+		private async Task LoadWeatherToForm()
+		{
+
+			try
+			{
+				if (!(lcbSearch.SelectedItem is Services.WeatherApi.Models.GeoResultModel sel))
+					return;
+
+				using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
+				{
+					Services.WeatherApi.Models.RootModel data = await _WeatherApi.GetWeatherByCoordinates(sel.Latitude, sel.Longitude);
+
+					if (data == null)
+						ResetTexts();
+					else
+					{
+						peWheatherState.Image = data.Weather.First().Image;
+						lcgWeatherInformationGroup.Text = $"Weather Information for - ({data.Sys.Country}) {data.Name} is {data.Main.Temp} ºC";
+						lblWeatherState.Text = $"{data.Weather.First().Main} - {data.Weather.First().Description}";
+						lblTime.Text = $"{ConversionUtil.UnixToDateTime(data.Dt)}";
+						lblMinTemp.Text = $"{data.Main.TempMin} ºC";
+						lblMaxTemp.Text = $"{data.Main.TempMax} ºC";
+						lblHumidity.Text = $"{data.Main.Humidity} %";
+						lblWindData.Text = $"{ConversionUtil.MetersPerSecondToKilometersPerHour(data.Wind.Speed)} km\\h - {ConversionUtil.DegreesToCompassDirection(data.Wind.Deg)}";
+						lblCloudsData.Text = $"{data.Clouds.All} %";
+						lblPressure.Text = $"{data.Main.Pressure} hPa";
+						lblSunrise.Text = $"{ConversionUtil.UnixToDateTime(data.Sys.Sunrise)}";
+						lblSunset.Text = $"{ConversionUtil.UnixToDateTime(data.Sys.Sunset)}";
+						lblTimezone.Text = TimezoneUtil.GetTimeZoneInfo(data.Coord.Lat, data.Coord.Lon, data.Timezone);
+						lblCoordinates.Text = $"LAT: {data.Coord.Lat}, LON: {data.Coord.Lon}";
+					}
+
+					popupContainerEdit1.ClosePopup();
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHelper.Handler(ex);
+			}
+		}
 
 		#endregion
 
+		#endregion
+
+		private void lblMinTemp_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

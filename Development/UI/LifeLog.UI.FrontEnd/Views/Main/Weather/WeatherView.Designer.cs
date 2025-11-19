@@ -31,8 +31,8 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WeatherView));
 			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-			this.lblWeatherState = new DevExpress.XtraEditors.LabelControl();
-			this.peIconCountry = new DevExpress.XtraEditors.PictureEdit();
+			this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+			this.popupContainerEdit1 = new DevExpress.XtraEditors.PopupContainerEdit();
 			this.barManager = new DevExpress.XtraBars.BarManager(this.components);
 			this.bar1 = new DevExpress.XtraBars.Bar();
 			this.bbiRefresh = new DevExpress.XtraBars.BarButtonItem();
@@ -42,10 +42,10 @@
 			this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
 			this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
 			this.repositoryItemSearchControl1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchControl();
-			this.lueCity = new LifeLog.Base.Components.LookUpEditEx();
-			this.citiesModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.lueState = new LifeLog.Base.Components.LookUpEditEx();
-			this.statesModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.pceSearch = new DevExpress.XtraEditors.PopupContainerControl();
+			this.lcbSearch = new DevExpress.XtraEditors.ListBoxControl();
+			this.lblWeatherState = new DevExpress.XtraEditors.LabelControl();
+			this.peIconCountry = new DevExpress.XtraEditors.PictureEdit();
 			this.lueCountry = new LifeLog.Base.Components.LookUpEditEx();
 			this.countriesModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.sbSearch = new DevExpress.XtraEditors.SimpleButton();
@@ -62,108 +62,87 @@
 			this.lblCoordinates = new DevExpress.XtraEditors.LabelControl();
 			this.lblTimezone = new DevExpress.XtraEditors.LabelControl();
 			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-			this.lcgWeatherInformationGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-			this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-			this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.simpleSeparator2 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.simpleSeparator3 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.simpleSeparator4 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.simpleSeparator5 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.simpleSeparator6 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.simpleSeparator7 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
-			this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-			this.simpleSeparator8 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.simpleSeparator9 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.simpleSeparator10 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.simpleSeparator11 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.simpleSeparator12 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.simpleSeparator13 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.simpleSeparator14 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.simpleSeparator15 = new DevExpress.XtraLayout.SimpleSeparator();
 			this.lcgSearchGroup = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
 			this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+			this.lcgWeatherInformationGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+			this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+			this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+			this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+			this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+			this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.citiesModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.statesModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
 			this.layoutControl1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.peIconCountry.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.popupContainerEdit1.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.lueCity.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.citiesModelBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.lueState.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.statesModelBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pceSearch)).BeginInit();
+			this.pceSearch.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.lcbSearch)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.peIconCountry.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.lueCountry.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.countriesModelBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.peWheatherState.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.lcgWeatherInformationGroup)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator4)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator5)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator6)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator7)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator8)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator9)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator10)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator11)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator12)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator13)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator14)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator15)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.lcgSearchGroup)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.lcgWeatherInformationGroup)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.citiesModelBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.statesModelBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// layoutControl1
 			// 
+			this.layoutControl1.Controls.Add(this.chartControl1);
+			this.layoutControl1.Controls.Add(this.popupContainerEdit1);
 			this.layoutControl1.Controls.Add(this.lblWeatherState);
 			this.layoutControl1.Controls.Add(this.peIconCountry);
-			this.layoutControl1.Controls.Add(this.lueCity);
-			this.layoutControl1.Controls.Add(this.lueState);
 			this.layoutControl1.Controls.Add(this.lueCountry);
 			this.layoutControl1.Controls.Add(this.sbSearch);
 			this.layoutControl1.Controls.Add(this.peWheatherState);
@@ -181,39 +160,37 @@
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.layoutControl1.Location = new System.Drawing.Point(0, 35);
 			this.layoutControl1.Name = "layoutControl1";
-			this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1164, 591, 650, 400);
+			this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1200, 244, 650, 788);
 			this.layoutControl1.Root = this.Root;
 			this.layoutControl1.Size = new System.Drawing.Size(1037, 537);
 			this.layoutControl1.TabIndex = 2;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
-			// lblWeatherState
+			// chartControl1
 			// 
-			this.lblWeatherState.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblWeatherState.Appearance.Options.UseFont = true;
-			this.lblWeatherState.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblWeatherState.Location = new System.Drawing.Point(224, 88);
-			this.lblWeatherState.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.lblWeatherState.Name = "lblWeatherState";
-			this.lblWeatherState.Size = new System.Drawing.Size(369, 40);
-			this.lblWeatherState.StyleController = this.layoutControl1;
-			this.lblWeatherState.TabIndex = 29;
-			this.lblWeatherState.Text = "Weather State";
+			this.chartControl1.Location = new System.Drawing.Point(555, 88);
+			this.chartControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.chartControl1.Name = "chartControl1";
+			this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
+			this.chartControl1.Size = new System.Drawing.Size(476, 391);
+			this.chartControl1.TabIndex = 31;
 			// 
-			// peIconCountry
+			// popupContainerEdit1
 			// 
-			this.peIconCountry.Location = new System.Drawing.Point(177, 32);
-			this.peIconCountry.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.peIconCountry.MaximumSize = new System.Drawing.Size(44, 0);
-			this.peIconCountry.MenuManager = this.barManager;
-			this.peIconCountry.MinimumSize = new System.Drawing.Size(44, 0);
-			this.peIconCountry.Name = "peIconCountry";
-			this.peIconCountry.Properties.NullText = " ";
-			this.peIconCountry.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-			this.peIconCountry.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-			this.peIconCountry.Size = new System.Drawing.Size(44, 25);
-			this.peIconCountry.StyleController = this.layoutControl1;
-			this.peIconCountry.TabIndex = 28;
+			this.popupContainerEdit1.Location = new System.Drawing.Point(320, 32);
+			this.popupContainerEdit1.MenuManager = this.barManager;
+			this.popupContainerEdit1.Name = "popupContainerEdit1";
+			this.popupContainerEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+			this.popupContainerEdit1.Properties.EditValueChangedDelay = 1000;
+			this.popupContainerEdit1.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
+			this.popupContainerEdit1.Properties.PopupControl = this.pceSearch;
+			this.popupContainerEdit1.Properties.ShowPopupCloseButton = false;
+			this.popupContainerEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+			this.popupContainerEdit1.Size = new System.Drawing.Size(200, 20);
+			this.popupContainerEdit1.StyleController = this.layoutControl1;
+			this.popupContainerEdit1.TabIndex = 30;
+			this.popupContainerEdit1.EditValueChanged += new System.EventHandler(this.pceSearch_EditValueChanged);
 			// 
 			// barManager
 			// 
@@ -303,59 +280,54 @@
             new DevExpress.XtraEditors.Repository.SearchButton()});
 			this.repositoryItemSearchControl1.Name = "repositoryItemSearchControl1";
 			// 
-			// lueCity
+			// pceSearch
 			// 
-			this.lueCity.Location = new System.Drawing.Point(485, 32);
-			this.lueCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.lueCity.MenuManager = this.barManager;
-			this.lueCity.Name = "lueCity";
-			this.lueCity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-			this.lueCity.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name", "Name", 3, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-			this.lueCity.Properties.DataSource = this.citiesModelBindingSource;
-			this.lueCity.Properties.DisplayMember = "name";
-			this.lueCity.Properties.DropDownRows = 1;
-			this.lueCity.Properties.NullText = "";
-			this.lueCity.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSearch;
-			this.lueCity.Properties.ShowFooter = false;
-			this.lueCity.Properties.ShowHeader = false;
-			this.lueCity.Properties.ValueMember = "id";
-			this.lueCity.Size = new System.Drawing.Size(145, 20);
-			this.lueCity.StyleController = this.layoutControl1;
-			this.lueCity.TabIndex = 27;
+			this.pceSearch.AutoSize = true;
+			this.pceSearch.Controls.Add(this.lcbSearch);
+			this.pceSearch.Location = new System.Drawing.Point(375, 3);
+			this.pceSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.pceSearch.Name = "pceSearch";
+			this.pceSearch.Size = new System.Drawing.Size(280, 32);
+			this.pceSearch.TabIndex = 31;
 			// 
-			// citiesModelBindingSource
+			// lcbSearch
 			// 
-			this.citiesModelBindingSource.DataSource = typeof(Countries.Models.CitiesModel);
+			this.lcbSearch.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+			this.lcbSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lcbSearch.Location = new System.Drawing.Point(0, 0);
+			this.lcbSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.lcbSearch.Name = "lcbSearch";
+			this.lcbSearch.Size = new System.Drawing.Size(280, 32);
+			this.lcbSearch.TabIndex = 32;
+			this.lcbSearch.SelectedIndexChanged += new System.EventHandler(this.lcbSearch_SelectedIndexChanged);
 			// 
-			// lueState
+			// lblWeatherState
 			// 
-			this.lueState.Location = new System.Drawing.Point(285, 32);
-			this.lueState.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.lueState.MenuManager = this.barManager;
-			this.lueState.Name = "lueState";
-			this.lueState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-			this.lueState.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name", "Name", 60, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-			this.lueState.Properties.DataSource = this.statesModelBindingSource;
-			this.lueState.Properties.DisplayMember = "name";
-			this.lueState.Properties.DropDownRows = 1;
-			this.lueState.Properties.EditValueChangedDelay = 1000;
-			this.lueState.Properties.NullText = "";
-			this.lueState.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoSearch;
-			this.lueState.Properties.ShowFooter = false;
-			this.lueState.Properties.ShowHeader = false;
-			this.lueState.Properties.ValueMember = "id";
-			this.lueState.Size = new System.Drawing.Size(145, 20);
-			this.lueState.StyleController = this.layoutControl1;
-			this.lueState.TabIndex = 26;
-			this.lueState.EditValueChanged += new System.EventHandler(this.lueState_EditValueChanged);
+			this.lblWeatherState.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblWeatherState.Appearance.Options.UseFont = true;
+			this.lblWeatherState.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+			this.lblWeatherState.Location = new System.Drawing.Point(213, 88);
+			this.lblWeatherState.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.lblWeatherState.Name = "lblWeatherState";
+			this.lblWeatherState.Size = new System.Drawing.Size(215, 30);
+			this.lblWeatherState.StyleController = this.layoutControl1;
+			this.lblWeatherState.TabIndex = 29;
+			this.lblWeatherState.Text = "Weather State";
 			// 
-			// statesModelBindingSource
+			// peIconCountry
 			// 
-			this.statesModelBindingSource.DataSource = typeof(Countries.Models.StatesModel);
+			this.peIconCountry.Location = new System.Drawing.Point(212, 32);
+			this.peIconCountry.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.peIconCountry.MaximumSize = new System.Drawing.Size(44, 0);
+			this.peIconCountry.MenuManager = this.barManager;
+			this.peIconCountry.MinimumSize = new System.Drawing.Size(44, 0);
+			this.peIconCountry.Name = "peIconCountry";
+			this.peIconCountry.Properties.NullText = " ";
+			this.peIconCountry.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+			this.peIconCountry.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+			this.peIconCountry.Size = new System.Drawing.Size(44, 25);
+			this.peIconCountry.StyleController = this.layoutControl1;
+			this.peIconCountry.TabIndex = 28;
 			// 
 			// lueCountry
 			// 
@@ -376,7 +348,7 @@
 			this.lueCountry.Properties.ShowFooter = false;
 			this.lueCountry.Properties.ShowHeader = false;
 			this.lueCountry.Properties.ValueMember = "id";
-			this.lueCountry.Size = new System.Drawing.Size(116, 20);
+			this.lueCountry.Size = new System.Drawing.Size(151, 20);
 			this.lueCountry.StyleController = this.layoutControl1;
 			this.lueCountry.TabIndex = 25;
 			this.lueCountry.EditValueChanged += new System.EventHandler(this.lueCountry_EditValueChanged);
@@ -391,7 +363,7 @@
 			this.sbSearch.Appearance.Options.UseFont = true;
 			this.sbSearch.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("sbSearch.ImageOptions.SvgImage")));
 			this.sbSearch.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
-			this.sbSearch.Location = new System.Drawing.Point(634, 32);
+			this.sbSearch.Location = new System.Drawing.Point(524, 32);
 			this.sbSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.sbSearch.Name = "sbSearch";
 			this.sbSearch.Size = new System.Drawing.Size(73, 25);
@@ -416,143 +388,144 @@
 			// 
 			// lblTime
 			// 
-			this.lblTime.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblTime.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblTime.Appearance.Options.UseFont = true;
 			this.lblTime.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblTime.Location = new System.Drawing.Point(658, 88);
+			this.lblTime.Location = new System.Drawing.Point(482, 88);
 			this.lblTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblTime.Name = "lblTime";
-			this.lblTime.Size = new System.Drawing.Size(373, 40);
+			this.lblTime.Size = new System.Drawing.Size(69, 24);
 			this.lblTime.StyleController = this.layoutControl1;
 			this.lblTime.TabIndex = 29;
 			this.lblTime.Text = "Date Time";
 			// 
 			// lblMinTemp
 			// 
-			this.lblMinTemp.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblMinTemp.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblMinTemp.Appearance.Options.UseFont = true;
 			this.lblMinTemp.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblMinTemp.Location = new System.Drawing.Point(658, 269);
+			this.lblMinTemp.Location = new System.Drawing.Point(344, 224);
 			this.lblMinTemp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblMinTemp.Name = "lblMinTemp";
-			this.lblMinTemp.Size = new System.Drawing.Size(373, 40);
+			this.lblMinTemp.Size = new System.Drawing.Size(207, 30);
 			this.lblMinTemp.StyleController = this.layoutControl1;
 			this.lblMinTemp.TabIndex = 29;
 			this.lblMinTemp.Text = "Min Temp";
+			this.lblMinTemp.Click += new System.EventHandler(this.lblMinTemp_Click);
 			// 
 			// lblMaxTemp
 			// 
-			this.lblMaxTemp.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblMaxTemp.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblMaxTemp.Appearance.Options.UseFont = true;
 			this.lblMaxTemp.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblMaxTemp.Location = new System.Drawing.Point(224, 269);
+			this.lblMaxTemp.Location = new System.Drawing.Point(213, 224);
 			this.lblMaxTemp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblMaxTemp.Name = "lblMaxTemp";
-			this.lblMaxTemp.Size = new System.Drawing.Size(369, 40);
+			this.lblMaxTemp.Size = new System.Drawing.Size(77, 30);
 			this.lblMaxTemp.StyleController = this.layoutControl1;
 			this.lblMaxTemp.TabIndex = 29;
 			this.lblMaxTemp.Text = "Max Temp";
 			// 
 			// lblHumidity
 			// 
-			this.lblHumidity.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblHumidity.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblHumidity.Appearance.Options.UseFont = true;
 			this.lblHumidity.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblHumidity.Location = new System.Drawing.Point(804, 179);
+			this.lblHumidity.Location = new System.Drawing.Point(474, 156);
 			this.lblHumidity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblHumidity.Name = "lblHumidity";
-			this.lblHumidity.Size = new System.Drawing.Size(227, 40);
+			this.lblHumidity.Size = new System.Drawing.Size(77, 30);
 			this.lblHumidity.StyleController = this.layoutControl1;
 			this.lblHumidity.TabIndex = 29;
 			this.lblHumidity.Text = "Humidity";
 			// 
 			// lblWindData
 			// 
-			this.lblWindData.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblWindData.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblWindData.Appearance.Options.UseFont = true;
 			this.lblWindData.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblWindData.Location = new System.Drawing.Point(224, 224);
+			this.lblWindData.Location = new System.Drawing.Point(213, 190);
 			this.lblWindData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblWindData.Name = "lblWindData";
-			this.lblWindData.Size = new System.Drawing.Size(807, 40);
+			this.lblWindData.Size = new System.Drawing.Size(338, 30);
 			this.lblWindData.StyleController = this.layoutControl1;
 			this.lblWindData.TabIndex = 29;
 			this.lblWindData.Text = "Wind (Km\\H) Direction";
 			// 
 			// lblCloudsData
 			// 
-			this.lblCloudsData.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblCloudsData.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblCloudsData.Appearance.Options.UseFont = true;
 			this.lblCloudsData.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblCloudsData.Location = new System.Drawing.Point(224, 179);
+			this.lblCloudsData.Location = new System.Drawing.Point(213, 156);
 			this.lblCloudsData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblCloudsData.Name = "lblCloudsData";
-			this.lblCloudsData.Size = new System.Drawing.Size(224, 40);
+			this.lblCloudsData.Size = new System.Drawing.Size(77, 30);
 			this.lblCloudsData.StyleController = this.layoutControl1;
 			this.lblCloudsData.TabIndex = 29;
 			this.lblCloudsData.Text = "Clouds";
 			// 
 			// lblPressure
 			// 
-			this.lblPressure.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblPressure.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblPressure.Appearance.Options.UseFont = true;
 			this.lblPressure.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblPressure.Location = new System.Drawing.Point(513, 179);
+			this.lblPressure.Location = new System.Drawing.Point(344, 156);
 			this.lblPressure.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblPressure.Name = "lblPressure";
-			this.lblPressure.Size = new System.Drawing.Size(226, 40);
+			this.lblPressure.Size = new System.Drawing.Size(76, 30);
 			this.lblPressure.StyleController = this.layoutControl1;
 			this.lblPressure.TabIndex = 29;
 			this.lblPressure.Text = "Pressure";
 			// 
 			// lblSunrise
 			// 
-			this.lblSunrise.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblSunrise.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblSunrise.Appearance.Options.UseFont = true;
 			this.lblSunrise.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblSunrise.Location = new System.Drawing.Point(224, 314);
+			this.lblSunrise.Location = new System.Drawing.Point(213, 258);
 			this.lblSunrise.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblSunrise.Name = "lblSunrise";
-			this.lblSunrise.Size = new System.Drawing.Size(369, 40);
+			this.lblSunrise.Size = new System.Drawing.Size(77, 30);
 			this.lblSunrise.StyleController = this.layoutControl1;
 			this.lblSunrise.TabIndex = 29;
 			this.lblSunrise.Text = "Sunrise";
 			// 
 			// lblSunset
 			// 
-			this.lblSunset.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblSunset.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblSunset.Appearance.Options.UseFont = true;
 			this.lblSunset.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblSunset.Location = new System.Drawing.Point(658, 314);
+			this.lblSunset.Location = new System.Drawing.Point(344, 258);
 			this.lblSunset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblSunset.Name = "lblSunset";
-			this.lblSunset.Size = new System.Drawing.Size(373, 40);
+			this.lblSunset.Size = new System.Drawing.Size(207, 30);
 			this.lblSunset.StyleController = this.layoutControl1;
 			this.lblSunset.TabIndex = 29;
 			this.lblSunset.Text = "Sunset";
 			// 
 			// lblCoordinates
 			// 
-			this.lblCoordinates.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblCoordinates.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblCoordinates.Appearance.Options.UseFont = true;
 			this.lblCoordinates.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblCoordinates.Location = new System.Drawing.Point(224, 359);
+			this.lblCoordinates.Location = new System.Drawing.Point(213, 292);
 			this.lblCoordinates.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblCoordinates.Name = "lblCoordinates";
-			this.lblCoordinates.Size = new System.Drawing.Size(807, 40);
+			this.lblCoordinates.Size = new System.Drawing.Size(338, 30);
 			this.lblCoordinates.StyleController = this.layoutControl1;
 			this.lblCoordinates.TabIndex = 29;
 			this.lblCoordinates.Text = "Coordinates";
 			// 
 			// lblTimezone
 			// 
-			this.lblTimezone.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblTimezone.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblTimezone.Appearance.Options.UseFont = true;
 			this.lblTimezone.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblTimezone.Location = new System.Drawing.Point(224, 133);
+			this.lblTimezone.Location = new System.Drawing.Point(213, 122);
 			this.lblTimezone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblTimezone.Name = "lblTimezone";
-			this.lblTimezone.Size = new System.Drawing.Size(807, 40);
+			this.lblTimezone.Size = new System.Drawing.Size(338, 30);
 			this.lblTimezone.StyleController = this.layoutControl1;
 			this.lblTimezone.TabIndex = 29;
 			this.lblTimezone.Text = "Timezone";
@@ -562,329 +535,13 @@
 			this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
 			this.Root.GroupBordersVisible = false;
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.lcgWeatherInformationGroup,
-            this.lcgSearchGroup});
+            this.lcgSearchGroup,
+            this.emptySpaceItem2,
+            this.lcgWeatherInformationGroup});
 			this.Root.Name = "Root";
 			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 8, 4);
 			this.Root.Size = new System.Drawing.Size(1037, 537);
 			this.Root.TextVisible = false;
-			// 
-			// lcgWeatherInformationGroup
-			// 
-			this.lcgWeatherInformationGroup.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-			this.lcgWeatherInformationGroup.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
-			this.lcgWeatherInformationGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup1,
-            this.layoutControlItem18,
-            this.layoutControlItem2,
-            this.layoutControlItem5,
-            this.layoutControlItem11,
-            this.layoutControlItem6,
-            this.layoutControlItem12,
-            this.layoutControlItem1,
-            this.layoutControlItem13,
-            this.layoutControlItem3,
-            this.layoutControlItem10,
-            this.layoutControlItem21,
-            this.layoutControlItem7,
-            this.simpleSeparator1,
-            this.simpleSeparator2,
-            this.simpleSeparator3,
-            this.simpleSeparator4,
-            this.simpleSeparator5,
-            this.simpleSeparator6,
-            this.simpleSeparator7,
-            this.emptySpaceItem5,
-            this.emptySpaceItem1,
-            this.simpleSeparator8,
-            this.simpleSeparator9,
-            this.simpleSeparator10,
-            this.simpleSeparator11,
-            this.simpleSeparator12,
-            this.simpleSeparator13,
-            this.simpleSeparator14,
-            this.simpleSeparator15});
-			this.lcgWeatherInformationGroup.Location = new System.Drawing.Point(0, 51);
-			this.lcgWeatherInformationGroup.Name = "lcgWeatherInformationGroup";
-			this.lcgWeatherInformationGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.lcgWeatherInformationGroup.Size = new System.Drawing.Size(1029, 474);
-			this.lcgWeatherInformationGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
-			this.lcgWeatherInformationGroup.Text = "Weather Information for - ";
-			// 
-			// layoutControlGroup1
-			// 
-			this.layoutControlGroup1.GroupBordersVisible = false;
-			this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem20});
-			this.layoutControlGroup1.Location = new System.Drawing.Point(592, 0);
-			this.layoutControlGroup1.Name = "layoutControlGroup1";
-			this.layoutControlGroup1.Size = new System.Drawing.Size(437, 44);
-			// 
-			// layoutControlItem20
-			// 
-			this.layoutControlItem20.Control = this.lblTime;
-			this.layoutControlItem20.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem20.CustomizationFormText = " ";
-			this.layoutControlItem20.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.time;
-			this.layoutControlItem20.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-			this.layoutControlItem20.Location = new System.Drawing.Point(0, 0);
-			this.layoutControlItem20.Name = "layoutControlItem20";
-			this.layoutControlItem20.OptionsPrint.AppearanceItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.layoutControlItem20.OptionsPrint.AppearanceItem.Options.UseFont = true;
-			this.layoutControlItem20.Size = new System.Drawing.Size(437, 44);
-			this.layoutControlItem20.Text = " ";
-			this.layoutControlItem20.TextSize = new System.Drawing.Size(48, 40);
-			// 
-			// layoutControlItem18
-			// 
-			this.layoutControlItem18.Control = this.lblWeatherState;
-			this.layoutControlItem18.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.about;
-			this.layoutControlItem18.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-			this.layoutControlItem18.Location = new System.Drawing.Point(158, 0);
-			this.layoutControlItem18.Name = "layoutControlItem18";
-			this.layoutControlItem18.Size = new System.Drawing.Size(433, 44);
-			this.layoutControlItem18.Text = " ";
-			this.layoutControlItem18.TextSize = new System.Drawing.Size(48, 40);
-			// 
-			// layoutControlItem2
-			// 
-			this.layoutControlItem2.Control = this.lblMaxTemp;
-			this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem2.CustomizationFormText = "Min. Temp";
-			this.layoutControlItem2.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.temperature_hot;
-			this.layoutControlItem2.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-			this.layoutControlItem2.Location = new System.Drawing.Point(158, 181);
-			this.layoutControlItem2.Name = "layoutControlItem2";
-			this.layoutControlItem2.Size = new System.Drawing.Size(433, 44);
-			this.layoutControlItem2.Text = " ";
-			this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 40);
-			// 
-			// layoutControlItem5
-			// 
-			this.layoutControlItem5.Control = this.peWheatherState;
-			this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
-			this.layoutControlItem5.Name = "layoutControlItem5";
-			this.layoutControlItem5.Size = new System.Drawing.Size(157, 149);
-			this.layoutControlItem5.TextVisible = false;
-			// 
-			// layoutControlItem11
-			// 
-			this.layoutControlItem11.Control = this.lblCoordinates;
-			this.layoutControlItem11.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem11.CustomizationFormText = " ";
-			this.layoutControlItem11.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.placeholder;
-			this.layoutControlItem11.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-			this.layoutControlItem11.Location = new System.Drawing.Point(158, 271);
-			this.layoutControlItem11.Name = "layoutControlItem11";
-			this.layoutControlItem11.Size = new System.Drawing.Size(871, 44);
-			this.layoutControlItem11.Text = " ";
-			this.layoutControlItem11.TextSize = new System.Drawing.Size(48, 40);
-			// 
-			// layoutControlItem6
-			// 
-			this.layoutControlItem6.Control = this.lblMinTemp;
-			this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem6.CustomizationFormText = "Min. Temp";
-			this.layoutControlItem6.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.temperature_cold;
-			this.layoutControlItem6.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-			this.layoutControlItem6.Location = new System.Drawing.Point(592, 181);
-			this.layoutControlItem6.Name = "layoutControlItem6";
-			this.layoutControlItem6.Size = new System.Drawing.Size(437, 44);
-			this.layoutControlItem6.Text = " ";
-			this.layoutControlItem6.TextSize = new System.Drawing.Size(48, 40);
-			// 
-			// layoutControlItem12
-			// 
-			this.layoutControlItem12.Control = this.lblTimezone;
-			this.layoutControlItem12.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem12.CustomizationFormText = " ";
-			this.layoutControlItem12.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.business_world;
-			this.layoutControlItem12.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-			this.layoutControlItem12.Location = new System.Drawing.Point(158, 45);
-			this.layoutControlItem12.Name = "layoutControlItem12";
-			this.layoutControlItem12.Size = new System.Drawing.Size(871, 44);
-			this.layoutControlItem12.Text = " ";
-			this.layoutControlItem12.TextSize = new System.Drawing.Size(48, 40);
-			// 
-			// layoutControlItem1
-			// 
-			this.layoutControlItem1.Control = this.lblCloudsData;
-			this.layoutControlItem1.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem1.CustomizationFormText = "Min. Temp";
-			this.layoutControlItem1.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.clouds;
-			this.layoutControlItem1.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-			this.layoutControlItem1.Location = new System.Drawing.Point(158, 91);
-			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(288, 44);
-			this.layoutControlItem1.Text = " ";
-			this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 40);
-			// 
-			// layoutControlItem13
-			// 
-			this.layoutControlItem13.Control = this.lblPressure;
-			this.layoutControlItem13.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem13.CustomizationFormText = "Min. Temp";
-			this.layoutControlItem13.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.pressure_gauge;
-			this.layoutControlItem13.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-			this.layoutControlItem13.Location = new System.Drawing.Point(447, 91);
-			this.layoutControlItem13.Name = "layoutControlItem13";
-			this.layoutControlItem13.Size = new System.Drawing.Size(290, 44);
-			this.layoutControlItem13.Text = " ";
-			this.layoutControlItem13.TextSize = new System.Drawing.Size(48, 40);
-			// 
-			// layoutControlItem3
-			// 
-			this.layoutControlItem3.Control = this.lblHumidity;
-			this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem3.CustomizationFormText = "Min. Temp";
-			this.layoutControlItem3.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.drop;
-			this.layoutControlItem3.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-			this.layoutControlItem3.Location = new System.Drawing.Point(738, 91);
-			this.layoutControlItem3.Name = "layoutControlItem3";
-			this.layoutControlItem3.Size = new System.Drawing.Size(291, 44);
-			this.layoutControlItem3.Text = " ";
-			this.layoutControlItem3.TextSize = new System.Drawing.Size(48, 40);
-			// 
-			// layoutControlItem10
-			// 
-			this.layoutControlItem10.Control = this.lblWindData;
-			this.layoutControlItem10.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem10.CustomizationFormText = "Min. Temp";
-			this.layoutControlItem10.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.wind;
-			this.layoutControlItem10.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-			this.layoutControlItem10.Location = new System.Drawing.Point(158, 136);
-			this.layoutControlItem10.Name = "layoutControlItem10";
-			this.layoutControlItem10.Size = new System.Drawing.Size(871, 44);
-			this.layoutControlItem10.Text = " ";
-			this.layoutControlItem10.TextSize = new System.Drawing.Size(48, 40);
-			// 
-			// layoutControlItem21
-			// 
-			this.layoutControlItem21.Control = this.lblSunrise;
-			this.layoutControlItem21.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem21.CustomizationFormText = "Min. Temp";
-			this.layoutControlItem21.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.sunrise;
-			this.layoutControlItem21.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-			this.layoutControlItem21.Location = new System.Drawing.Point(158, 226);
-			this.layoutControlItem21.Name = "layoutControlItem21";
-			this.layoutControlItem21.Size = new System.Drawing.Size(433, 44);
-			this.layoutControlItem21.Text = " ";
-			this.layoutControlItem21.TextSize = new System.Drawing.Size(48, 40);
-			// 
-			// layoutControlItem7
-			// 
-			this.layoutControlItem7.Control = this.lblSunset;
-			this.layoutControlItem7.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem7.CustomizationFormText = "Min. Temp";
-			this.layoutControlItem7.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.sunset;
-			this.layoutControlItem7.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-			this.layoutControlItem7.Location = new System.Drawing.Point(592, 226);
-			this.layoutControlItem7.Name = "layoutControlItem7";
-			this.layoutControlItem7.Size = new System.Drawing.Size(437, 44);
-			this.layoutControlItem7.Text = " ";
-			this.layoutControlItem7.TextSize = new System.Drawing.Size(48, 40);
-			// 
-			// simpleSeparator1
-			// 
-			this.simpleSeparator1.Location = new System.Drawing.Point(158, 446);
-			this.simpleSeparator1.Name = "simpleSeparator1";
-			this.simpleSeparator1.Size = new System.Drawing.Size(871, 1);
-			// 
-			// simpleSeparator2
-			// 
-			this.simpleSeparator2.Location = new System.Drawing.Point(158, 270);
-			this.simpleSeparator2.Name = "simpleSeparator2";
-			this.simpleSeparator2.Size = new System.Drawing.Size(871, 1);
-			// 
-			// simpleSeparator3
-			// 
-			this.simpleSeparator3.Location = new System.Drawing.Point(158, 225);
-			this.simpleSeparator3.Name = "simpleSeparator3";
-			this.simpleSeparator3.Size = new System.Drawing.Size(871, 1);
-			// 
-			// simpleSeparator4
-			// 
-			this.simpleSeparator4.Location = new System.Drawing.Point(158, 180);
-			this.simpleSeparator4.Name = "simpleSeparator4";
-			this.simpleSeparator4.Size = new System.Drawing.Size(871, 1);
-			// 
-			// simpleSeparator5
-			// 
-			this.simpleSeparator5.Location = new System.Drawing.Point(158, 135);
-			this.simpleSeparator5.Name = "simpleSeparator5";
-			this.simpleSeparator5.Size = new System.Drawing.Size(871, 1);
-			// 
-			// simpleSeparator6
-			// 
-			this.simpleSeparator6.Location = new System.Drawing.Point(158, 90);
-			this.simpleSeparator6.Name = "simpleSeparator6";
-			this.simpleSeparator6.Size = new System.Drawing.Size(871, 1);
-			// 
-			// simpleSeparator7
-			// 
-			this.simpleSeparator7.Location = new System.Drawing.Point(157, 0);
-			this.simpleSeparator7.Name = "simpleSeparator7";
-			this.simpleSeparator7.Size = new System.Drawing.Size(1, 447);
-			// 
-			// emptySpaceItem5
-			// 
-			this.emptySpaceItem5.Location = new System.Drawing.Point(158, 316);
-			this.emptySpaceItem5.Name = "emptySpaceItem5";
-			this.emptySpaceItem5.Size = new System.Drawing.Size(871, 130);
-			// 
-			// emptySpaceItem1
-			// 
-			this.emptySpaceItem1.Location = new System.Drawing.Point(0, 149);
-			this.emptySpaceItem1.Name = "emptySpaceItem1";
-			this.emptySpaceItem1.Size = new System.Drawing.Size(157, 298);
-			// 
-			// simpleSeparator8
-			// 
-			this.simpleSeparator8.Location = new System.Drawing.Point(158, 89);
-			this.simpleSeparator8.Name = "simpleSeparator8";
-			this.simpleSeparator8.Size = new System.Drawing.Size(871, 1);
-			// 
-			// simpleSeparator9
-			// 
-			this.simpleSeparator9.Location = new System.Drawing.Point(158, 44);
-			this.simpleSeparator9.Name = "simpleSeparator9";
-			this.simpleSeparator9.Size = new System.Drawing.Size(871, 1);
-			// 
-			// simpleSeparator10
-			// 
-			this.simpleSeparator10.Location = new System.Drawing.Point(158, 315);
-			this.simpleSeparator10.Name = "simpleSeparator10";
-			this.simpleSeparator10.Size = new System.Drawing.Size(871, 1);
-			// 
-			// simpleSeparator11
-			// 
-			this.simpleSeparator11.Location = new System.Drawing.Point(591, 0);
-			this.simpleSeparator11.Name = "simpleSeparator11";
-			this.simpleSeparator11.Size = new System.Drawing.Size(1, 44);
-			// 
-			// simpleSeparator12
-			// 
-			this.simpleSeparator12.Location = new System.Drawing.Point(591, 181);
-			this.simpleSeparator12.Name = "simpleSeparator12";
-			this.simpleSeparator12.Size = new System.Drawing.Size(1, 44);
-			// 
-			// simpleSeparator13
-			// 
-			this.simpleSeparator13.Location = new System.Drawing.Point(591, 226);
-			this.simpleSeparator13.Name = "simpleSeparator13";
-			this.simpleSeparator13.Size = new System.Drawing.Size(1, 44);
-			// 
-			// simpleSeparator14
-			// 
-			this.simpleSeparator14.Location = new System.Drawing.Point(737, 91);
-			this.simpleSeparator14.Name = "simpleSeparator14";
-			this.simpleSeparator14.Size = new System.Drawing.Size(1, 44);
-			// 
-			// simpleSeparator15
-			// 
-			this.simpleSeparator15.Location = new System.Drawing.Point(446, 91);
-			this.simpleSeparator15.Name = "simpleSeparator15";
-			this.simpleSeparator15.Size = new System.Drawing.Size(1, 44);
 			// 
 			// lcgSearchGroup
 			// 
@@ -897,9 +554,8 @@
             this.layoutControlItem9,
             this.emptySpaceItem4,
             this.layoutControlItem19,
-            this.layoutControlItem4,
-            this.layoutControlItem8,
-            this.layoutControlItem17});
+            this.layoutControlItem17,
+            this.layoutControlItem4});
 			this.lcgSearchGroup.Location = new System.Drawing.Point(0, 0);
 			this.lcgSearchGroup.Name = "lcgSearchGroup";
 			this.lcgSearchGroup.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
@@ -912,7 +568,7 @@
 			// layoutControlItem9
 			// 
 			this.layoutControlItem9.Control = this.sbSearch;
-			this.layoutControlItem9.Location = new System.Drawing.Point(628, 0);
+			this.layoutControlItem9.Location = new System.Drawing.Point(518, 0);
 			this.layoutControlItem9.MaxSize = new System.Drawing.Size(77, 29);
 			this.layoutControlItem9.MinSize = new System.Drawing.Size(77, 29);
 			this.layoutControlItem9.Name = "layoutControlItem9";
@@ -922,47 +578,286 @@
 			// 
 			// emptySpaceItem4
 			// 
-			this.emptySpaceItem4.Location = new System.Drawing.Point(705, 0);
+			this.emptySpaceItem4.Location = new System.Drawing.Point(595, 0);
 			this.emptySpaceItem4.Name = "emptySpaceItem4";
-			this.emptySpaceItem4.Size = new System.Drawing.Size(324, 29);
+			this.emptySpaceItem4.Size = new System.Drawing.Size(434, 29);
 			// 
 			// layoutControlItem19
 			// 
 			this.layoutControlItem19.Control = this.lueCountry;
 			this.layoutControlItem19.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem19.Name = "layoutControlItem19";
-			this.layoutControlItem19.Size = new System.Drawing.Size(171, 29);
+			this.layoutControlItem19.Size = new System.Drawing.Size(206, 29);
 			this.layoutControlItem19.Text = "Country";
 			this.layoutControlItem19.TextSize = new System.Drawing.Size(39, 13);
-			// 
-			// layoutControlItem4
-			// 
-			this.layoutControlItem4.Control = this.lueState;
-			this.layoutControlItem4.Location = new System.Drawing.Point(228, 0);
-			this.layoutControlItem4.Name = "layoutControlItem4";
-			this.layoutControlItem4.Size = new System.Drawing.Size(200, 29);
-			this.layoutControlItem4.Text = "State";
-			this.layoutControlItem4.TextSize = new System.Drawing.Size(39, 13);
-			// 
-			// layoutControlItem8
-			// 
-			this.layoutControlItem8.Control = this.lueCity;
-			this.layoutControlItem8.Location = new System.Drawing.Point(428, 0);
-			this.layoutControlItem8.Name = "layoutControlItem8";
-			this.layoutControlItem8.Size = new System.Drawing.Size(200, 29);
-			this.layoutControlItem8.Text = "City";
-			this.layoutControlItem8.TextSize = new System.Drawing.Size(39, 13);
 			// 
 			// layoutControlItem17
 			// 
 			this.layoutControlItem17.Control = this.peIconCountry;
-			this.layoutControlItem17.Location = new System.Drawing.Point(171, 0);
+			this.layoutControlItem17.Location = new System.Drawing.Point(206, 0);
 			this.layoutControlItem17.MaxSize = new System.Drawing.Size(57, 0);
 			this.layoutControlItem17.MinSize = new System.Drawing.Size(57, 21);
 			this.layoutControlItem17.Name = "layoutControlItem17";
 			this.layoutControlItem17.Size = new System.Drawing.Size(57, 29);
 			this.layoutControlItem17.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			this.layoutControlItem17.TextVisible = false;
+			// 
+			// layoutControlItem4
+			// 
+			this.layoutControlItem4.Control = this.popupContainerEdit1;
+			this.layoutControlItem4.Location = new System.Drawing.Point(263, 0);
+			this.layoutControlItem4.Name = "layoutControlItem4";
+			this.layoutControlItem4.Size = new System.Drawing.Size(255, 29);
+			this.layoutControlItem4.Text = "Place";
+			this.layoutControlItem4.TextSize = new System.Drawing.Size(39, 13);
+			// 
+			// emptySpaceItem2
+			// 
+			this.emptySpaceItem2.Location = new System.Drawing.Point(0, 473);
+			this.emptySpaceItem2.Name = "emptySpaceItem2";
+			this.emptySpaceItem2.Size = new System.Drawing.Size(1029, 52);
+			// 
+			// lcgWeatherInformationGroup
+			// 
+			this.lcgWeatherInformationGroup.GroupStyle = DevExpress.Utils.GroupStyle.Title;
+			this.lcgWeatherInformationGroup.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
+			this.lcgWeatherInformationGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem8,
+            this.layoutControlGroup2});
+			this.lcgWeatherInformationGroup.Location = new System.Drawing.Point(0, 51);
+			this.lcgWeatherInformationGroup.Name = "lcgWeatherInformationGroup";
+			this.lcgWeatherInformationGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+			this.lcgWeatherInformationGroup.Size = new System.Drawing.Size(1029, 422);
+			this.lcgWeatherInformationGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
+			this.lcgWeatherInformationGroup.Text = "Weather Information for - ";
+			// 
+			// layoutControlItem8
+			// 
+			this.layoutControlItem8.BestFitWeight = 350;
+			this.layoutControlItem8.Control = this.chartControl1;
+			this.layoutControlItem8.Location = new System.Drawing.Point(549, 0);
+			this.layoutControlItem8.Name = "layoutControlItem8";
+			this.layoutControlItem8.Size = new System.Drawing.Size(480, 395);
+			this.layoutControlItem8.TextVisible = false;
+			// 
+			// layoutControlGroup2
+			// 
+			this.layoutControlGroup2.BestFitWeight = 40;
+			this.layoutControlGroup2.GroupBordersVisible = false;
+			this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlGroup1,
+            this.emptySpaceItem3,
+            this.layoutControlItem5});
+			this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
+			this.layoutControlGroup2.Name = "layoutControlGroup2";
+			this.layoutControlGroup2.Size = new System.Drawing.Size(549, 395);
+			// 
+			// layoutControlGroup1
+			// 
+			this.layoutControlGroup1.GroupBordersVisible = false;
+			this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem12,
+            this.layoutControlItem18,
+            this.layoutControlItem1,
+            this.layoutControlItem10,
+            this.layoutControlItem2,
+            this.layoutControlItem21,
+            this.layoutControlItem11,
+            this.layoutControlItem6,
+            this.layoutControlItem13,
+            this.layoutControlItem3,
+            this.layoutControlItem20,
+            this.emptySpaceItem5,
+            this.layoutControlItem7});
+			this.layoutControlGroup1.Location = new System.Drawing.Point(157, 0);
+			this.layoutControlGroup1.Name = "layoutControlGroup1";
+			this.layoutControlGroup1.Size = new System.Drawing.Size(392, 395);
+			// 
+			// layoutControlItem12
+			// 
+			this.layoutControlItem12.Control = this.lblTimezone;
+			this.layoutControlItem12.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem12.CustomizationFormText = " ";
+			this.layoutControlItem12.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.business_world;
+			this.layoutControlItem12.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem12.Location = new System.Drawing.Point(0, 34);
+			this.layoutControlItem12.Name = "layoutControlItem12";
+			this.layoutControlItem12.Size = new System.Drawing.Size(392, 34);
+			this.layoutControlItem12.Text = " ";
+			this.layoutControlItem12.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// layoutControlItem18
+			// 
+			this.layoutControlItem18.BestFitWeight = 110;
+			this.layoutControlItem18.Control = this.lblWeatherState;
+			this.layoutControlItem18.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.about;
+			this.layoutControlItem18.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem18.Location = new System.Drawing.Point(0, 0);
+			this.layoutControlItem18.Name = "layoutControlItem18";
+			this.layoutControlItem18.Size = new System.Drawing.Size(269, 34);
+			this.layoutControlItem18.Text = " ";
+			this.layoutControlItem18.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// layoutControlItem1
+			// 
+			this.layoutControlItem1.Control = this.lblCloudsData;
+			this.layoutControlItem1.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem1.CustomizationFormText = "Min. Temp";
+			this.layoutControlItem1.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.clouds;
+			this.layoutControlItem1.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem1.Location = new System.Drawing.Point(0, 68);
+			this.layoutControlItem1.Name = "layoutControlItem1";
+			this.layoutControlItem1.Size = new System.Drawing.Size(131, 34);
+			this.layoutControlItem1.Text = " ";
+			this.layoutControlItem1.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// layoutControlItem10
+			// 
+			this.layoutControlItem10.Control = this.lblWindData;
+			this.layoutControlItem10.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem10.CustomizationFormText = "Min. Temp";
+			this.layoutControlItem10.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.wind;
+			this.layoutControlItem10.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem10.Location = new System.Drawing.Point(0, 102);
+			this.layoutControlItem10.Name = "layoutControlItem10";
+			this.layoutControlItem10.Size = new System.Drawing.Size(392, 34);
+			this.layoutControlItem10.Text = " ";
+			this.layoutControlItem10.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// layoutControlItem2
+			// 
+			this.layoutControlItem2.Control = this.lblMaxTemp;
+			this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem2.CustomizationFormText = "Min. Temp";
+			this.layoutControlItem2.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.temperature_hot;
+			this.layoutControlItem2.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem2.Location = new System.Drawing.Point(0, 136);
+			this.layoutControlItem2.Name = "layoutControlItem2";
+			this.layoutControlItem2.Size = new System.Drawing.Size(131, 34);
+			this.layoutControlItem2.Text = " ";
+			this.layoutControlItem2.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// layoutControlItem21
+			// 
+			this.layoutControlItem21.Control = this.lblSunrise;
+			this.layoutControlItem21.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem21.CustomizationFormText = "Min. Temp";
+			this.layoutControlItem21.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.sunrise;
+			this.layoutControlItem21.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem21.Location = new System.Drawing.Point(0, 170);
+			this.layoutControlItem21.Name = "layoutControlItem21";
+			this.layoutControlItem21.Size = new System.Drawing.Size(131, 34);
+			this.layoutControlItem21.Text = " ";
+			this.layoutControlItem21.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// layoutControlItem11
+			// 
+			this.layoutControlItem11.Control = this.lblCoordinates;
+			this.layoutControlItem11.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem11.CustomizationFormText = " ";
+			this.layoutControlItem11.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.placeholder;
+			this.layoutControlItem11.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem11.Location = new System.Drawing.Point(0, 204);
+			this.layoutControlItem11.Name = "layoutControlItem11";
+			this.layoutControlItem11.Size = new System.Drawing.Size(392, 34);
+			this.layoutControlItem11.Text = " ";
+			this.layoutControlItem11.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// layoutControlItem6
+			// 
+			this.layoutControlItem6.Control = this.lblMinTemp;
+			this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem6.CustomizationFormText = "Min. Temp";
+			this.layoutControlItem6.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.temperature_cold;
+			this.layoutControlItem6.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem6.Location = new System.Drawing.Point(131, 136);
+			this.layoutControlItem6.Name = "layoutControlItem6";
+			this.layoutControlItem6.Size = new System.Drawing.Size(261, 34);
+			this.layoutControlItem6.Text = " ";
+			this.layoutControlItem6.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// layoutControlItem13
+			// 
+			this.layoutControlItem13.Control = this.lblPressure;
+			this.layoutControlItem13.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem13.CustomizationFormText = "Min. Temp";
+			this.layoutControlItem13.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.pressure_gauge;
+			this.layoutControlItem13.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem13.Location = new System.Drawing.Point(131, 68);
+			this.layoutControlItem13.Name = "layoutControlItem13";
+			this.layoutControlItem13.Size = new System.Drawing.Size(130, 34);
+			this.layoutControlItem13.Text = " ";
+			this.layoutControlItem13.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// layoutControlItem3
+			// 
+			this.layoutControlItem3.Control = this.lblHumidity;
+			this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem3.CustomizationFormText = "Min. Temp";
+			this.layoutControlItem3.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.drop;
+			this.layoutControlItem3.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem3.Location = new System.Drawing.Point(261, 68);
+			this.layoutControlItem3.Name = "layoutControlItem3";
+			this.layoutControlItem3.Size = new System.Drawing.Size(131, 34);
+			this.layoutControlItem3.Text = " ";
+			this.layoutControlItem3.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// layoutControlItem20
+			// 
+			this.layoutControlItem20.BestFitWeight = 50;
+			this.layoutControlItem20.Control = this.lblTime;
+			this.layoutControlItem20.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem20.CustomizationFormText = " ";
+			this.layoutControlItem20.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.time;
+			this.layoutControlItem20.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
+			this.layoutControlItem20.Location = new System.Drawing.Point(269, 0);
+			this.layoutControlItem20.Name = "layoutControlItem20";
+			this.layoutControlItem20.OptionsPrint.AppearanceItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.layoutControlItem20.OptionsPrint.AppearanceItem.Options.UseFont = true;
+			this.layoutControlItem20.Size = new System.Drawing.Size(123, 34);
+			this.layoutControlItem20.Text = " ";
+			this.layoutControlItem20.TextSize = new System.Drawing.Size(38, 24);
+			// 
+			// emptySpaceItem5
+			// 
+			this.emptySpaceItem5.Location = new System.Drawing.Point(0, 238);
+			this.emptySpaceItem5.Name = "emptySpaceItem5";
+			this.emptySpaceItem5.Size = new System.Drawing.Size(392, 157);
+			// 
+			// layoutControlItem7
+			// 
+			this.layoutControlItem7.Control = this.lblSunset;
+			this.layoutControlItem7.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem7.CustomizationFormText = "Min. Temp";
+			this.layoutControlItem7.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.sunset;
+			this.layoutControlItem7.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem7.Location = new System.Drawing.Point(131, 170);
+			this.layoutControlItem7.Name = "layoutControlItem7";
+			this.layoutControlItem7.Size = new System.Drawing.Size(261, 34);
+			this.layoutControlItem7.Text = " ";
+			this.layoutControlItem7.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// emptySpaceItem3
+			// 
+			this.emptySpaceItem3.Location = new System.Drawing.Point(0, 149);
+			this.emptySpaceItem3.Name = "emptySpaceItem3";
+			this.emptySpaceItem3.Size = new System.Drawing.Size(157, 246);
+			// 
+			// layoutControlItem5
+			// 
+			this.layoutControlItem5.Control = this.peWheatherState;
+			this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
+			this.layoutControlItem5.Name = "layoutControlItem5";
+			this.layoutControlItem5.Size = new System.Drawing.Size(157, 149);
+			this.layoutControlItem5.TextVisible = false;
+			// 
+			// citiesModelBindingSource
+			// 
+			this.citiesModelBindingSource.DataSource = typeof(Countries.Models.CitiesModel);
+			// 
+			// statesModelBindingSource
+			// 
+			this.statesModelBindingSource.DataSource = typeof(Countries.Models.StatesModel);
 			// 
 			// dxErrorProvider
 			// 
@@ -972,6 +867,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.pceSearch);
 			this.Controls.Add(this.layoutControl1);
 			this.Controls.Add(this.barDockControl3);
 			this.Controls.Add(this.barDockControl4);
@@ -979,59 +875,50 @@
 			this.Controls.Add(this.barDockControl1);
 			this.Name = "WeatherView";
 			this.Size = new System.Drawing.Size(1037, 572);
+			this.Load += new System.EventHandler(this.WeatherView_Load);
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
 			this.layoutControl1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.peIconCountry.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.popupContainerEdit1.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.lueCity.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.citiesModelBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.lueState.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.statesModelBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pceSearch)).EndInit();
+			this.pceSearch.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.lcbSearch)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.peIconCountry.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.lueCountry.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.countriesModelBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.peWheatherState.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.lcgWeatherInformationGroup)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator4)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator5)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator6)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator7)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator8)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator9)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator10)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator11)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator12)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator13)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator14)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator15)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.lcgSearchGroup)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.lcgWeatherInformationGroup)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.citiesModelBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.statesModelBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -1050,7 +937,6 @@
         private DevExpress.XtraLayout.LayoutControlGroup lcgSearchGroup;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
 		private DevExpress.XtraBars.BarDockControl barDockControl3;
 		private DevExpress.XtraBars.BarManager barManager;
 		private DevExpress.XtraBars.Bar bar1;
@@ -1064,10 +950,6 @@
 		private Base.Components.LookUpEditEx lueCountry;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
 		private System.Windows.Forms.BindingSource statesModelBindingSource;
-		private Base.Components.LookUpEditEx lueCity;
-		private Base.Components.LookUpEditEx lueState;
-		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
 		private System.Windows.Forms.BindingSource citiesModelBindingSource;
 		private DevExpress.XtraEditors.PictureEdit peIconCountry;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
@@ -1095,21 +977,15 @@
 		private DevExpress.XtraEditors.LabelControl lblTimezone;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator1;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator2;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator3;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator4;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator5;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator6;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator7;
-		private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator8;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator9;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator10;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator11;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator12;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator13;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator14;
-		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator15;
+		private DevExpress.XtraEditors.PopupContainerEdit popupContainerEdit1;
+		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+		private DevExpress.XtraEditors.PopupContainerControl pceSearch;
+		private DevExpress.XtraEditors.ListBoxControl lcbSearch;
+		private DevExpress.XtraCharts.ChartControl chartControl1;
+		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+		private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+		private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+		private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+		private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
 	}
 }

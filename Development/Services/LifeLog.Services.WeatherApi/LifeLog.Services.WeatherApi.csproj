@@ -45,6 +45,7 @@
     <Compile Include="Engine.cs" />
     <Compile Include="Models\CloudsModel.cs" />
     <Compile Include="Models\CoordModel.cs" />
+    <Compile Include="Models\GeoResultModel.cs" />
     <Compile Include="Models\MainModel.cs" />
     <Compile Include="Models\RootModel.cs" />
     <Compile Include="Models\SysModel.cs" />

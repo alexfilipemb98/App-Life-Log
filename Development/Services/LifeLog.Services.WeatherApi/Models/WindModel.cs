@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,10 @@ namespace LifeLog.Services.WeatherApi.Models
 {
 	public class WindModel
 	{
-		public float speed { get; set; }
-		public int deg { get; set; }
+		[JsonProperty("speed")]
+		public float Speed { get; set; }
+
+		[JsonProperty("deg")]
+		public int Deg { get; set; }
 	}
 }

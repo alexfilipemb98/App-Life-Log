@@ -15,7 +15,7 @@ namespace LifeLog.Base.Utils
 		/// <summary>
 		/// Converts a string to title case.
 		/// </summary>
-		/// <param fName="text">The input string to be converted.</param>
+		/// <param fName="input">The input string to be converted.</param>
 		/// <returns>The input string converted to title case.</returns>
 		public static string ToTitleCase(this string text)
 		{
@@ -31,7 +31,7 @@ namespace LifeLog.Base.Utils
 		/// <summary>
 		/// Converts a string to sentence case (first letter uppercase, rest lowercase).
 		/// </summary>
-		/// <param fName="text">The input string to be converted.</param>
+		/// <param fName="input">The input string to be converted.</param>
 		/// <returns>The input string converted to sentence case.</returns>
 		public static string ToSentenceCase(this string text)
 		{
@@ -95,5 +95,50 @@ namespace LifeLog.Base.Utils
 
 			return new string(chars);
 		}
+
+		/// <summary>
+		/// Removes accents from the input string.
+		/// </summary>
+		/// <param name="input"></param>
+		/// <returns></returns>
+		public static string RemoveAccents(this string input)
+		{
+			if (string.IsNullOrWhiteSpace(input)) return input;
+
+			string normalized = input.Normalize(NormalizationForm.FormD);
+			StringBuilder sb = new StringBuilder();
+
+			foreach (char c in normalized)
+			{
+				UnicodeCategory unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+				if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+				{
+					sb.Append(c);
+				}
+			}
+
+			return sb.ToString().Normalize(NormalizationForm.FormC);
+		}
+
+		/// <summary>
+		/// Converts a country code to its corresponding flag emoji.
+		/// </summary>
+		/// <param name="countryCode"></param>
+		/// <returns></returns>
+		public static string ToFlagEmoji(this string countryCode)
+		{
+			if (string.IsNullOrWhiteSpace(countryCode) || countryCode.Length != 2)
+				return string.Empty;
+
+			char u1 = char.ToUpperInvariant(countryCode[0]);
+			char u2 = char.ToUpperInvariant(countryCode[1]);
+
+			const int baseCodePoint = 0x1F1E6;
+			int codePoint1 = baseCodePoint + (u1 - 'A');
+			int codePoint2 = baseCodePoint + (u2 - 'A');
+
+			return char.ConvertFromUtf32(codePoint1) + char.ConvertFromUtf32(codePoint2);
+		}
+
 	}
 }

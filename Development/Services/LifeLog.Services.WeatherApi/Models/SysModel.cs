@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,19 @@ namespace LifeLog.Services.WeatherApi.Models
 {
 	public class SysModel
 	{
-		public int type { get; set; }
-		public int id { get; set; }
-		public string country { get; set; }
-		public int sunrise { get; set; }
-		public int sunset { get; set; }
+		[JsonProperty("type")]
+		public int Type { get; set; }
+
+		[JsonProperty("id")]
+		public int Id { get; set; }
+
+		[JsonProperty("country")]
+		public string Country { get; set; }
+
+		[JsonProperty("sunrise")]
+		public int Sunrise { get; set; }
+
+		[JsonProperty("sunset")]
+		public int Sunset { get; set; }
 	}
 }

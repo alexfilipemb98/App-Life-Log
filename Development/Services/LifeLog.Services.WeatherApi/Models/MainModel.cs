@@ -1,20 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace LifeLog.Services.WeatherApi.Models
 {
+
 	public class MainModel
 	{
-		public float temp { get; set; }
-		public float feels_like { get; set; }
-		public float temp_min { get; set; }
-		public float temp_max { get; set; }
-		public int pressure { get; set; }
-		public int humidity { get; set; }
-		public int sea_level { get; set; }
-		public int grnd_level { get; set; }
+		[JsonProperty("temp")]
+		public float Temp { get; set; }
+
+		[JsonProperty("feels_like")]
+		public float FeelsLike { get; set; }
+
+		[JsonProperty("temp_min")]
+		public float TempMin { get; set; }
+
+		[JsonProperty("temp_max")]
+		public float TempMax { get; set; }
+
+		[JsonProperty("pressure")]
+		public int Pressure { get; set; }
+
+		[JsonProperty("humidity")]
+		public int Humidity { get; set; }
+
+		[JsonProperty("sea_level")]
+		public int SeaLevel { get; set; }
+
+		[JsonProperty("grnd_level")]
+		public int GroundLevel { get; set; }
 	}
+
 }

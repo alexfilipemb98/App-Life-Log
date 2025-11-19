@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace LifeLog.Services.WeatherApi.Models
 {
 	public class CoordModel
 	{
-		public float lon { get; set; }
-		public float lat { get; set; }
+		[JsonProperty("lon")]
+		public float Lon { get; set; }
+
+		[JsonProperty("lat")]
+		public float Lat { get; set; }
 	}
 
 }

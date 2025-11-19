@@ -33,7 +33,7 @@ namespace LifeLog.Base.Utils
 		/// <returns>Speed value in kilometers per hour (km/h).</returns>
 		public static double MetersPerSecondToKilometersPerHour(this double metersPerSecond)
 		{
-			return metersPerSecond * 3.6;
+			return Math.Round(metersPerSecond * 3.6, 2);
 		}
 
 		/// <summary>

@@ -1,13 +1,23 @@
-﻿using System.Drawing;
+﻿using Newtonsoft.Json;
+using System.Drawing;
 
 namespace LifeLog.Services.WeatherApi.Models
 {
 	public class WeatherModel
 	{
-		public Bitmap image;
-		public int id { get; set; }
-		public string main { get; set; }
-		public string description { get; set; }
-		public string icon { get; set; }
+		[JsonIgnore]
+		public Bitmap Image { get; set; }
+
+		[JsonProperty("id")]
+		public int Id { get; set; }
+
+		[JsonProperty("main")]
+		public string Main { get; set; }
+
+		[JsonProperty("description")]
+		public string Description { get; set; }
+
+		[JsonProperty("icon")]
+		public string Icon { get; set; }
 	}
 }
