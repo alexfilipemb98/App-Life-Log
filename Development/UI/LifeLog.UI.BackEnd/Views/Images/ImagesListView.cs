@@ -6,7 +6,6 @@ using LifeLog.UI.Common;
 using LifeLog.UI.Common.Helpers;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 

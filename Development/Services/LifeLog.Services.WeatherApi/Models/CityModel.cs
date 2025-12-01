@@ -1,30 +1,31 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LifeLog.Services.WeatherApi.Models
 {
-	public class SysModel
+	public class CityModel
 	{
-		[JsonProperty("type")]
-		public int Type { get; set; }
-
 		[JsonProperty("id")]
 		public int Id { get; set; }
 
+		[JsonProperty("name")]
+		public string Name { get; set; }
+
+		[JsonProperty("coord")]
+		public CoordModel Coord { get; set; }
+
 		[JsonProperty("country")]
 		public string Country { get; set; }
+
+		[JsonProperty("population")]
+		public int Population { get; set; }
+
+		[JsonProperty("timezone")]
+		public int Timezone { get; set; }
 
 		[JsonProperty("sunrise")]
 		public int Sunrise { get; set; }
 
 		[JsonProperty("sunset")]
 		public int Sunset { get; set; }
-
-		[JsonProperty("pod")]
-		public string Pod { get; set; }
 	}
 }

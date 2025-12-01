@@ -29,13 +29,16 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
+			DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
+			DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+			DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel2 = new DevExpress.XtraCharts.PointSeriesLabel();
+			DevExpress.XtraCharts.LineSeriesView lineSeriesView2 = new DevExpress.XtraCharts.LineSeriesView();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WeatherView));
 			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
 			this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+			this.next12HoursModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.popupContainerEdit1 = new DevExpress.XtraEditors.PopupContainerEdit();
 			this.barManager = new DevExpress.XtraBars.BarManager(this.components);
-			this.bar1 = new DevExpress.XtraBars.Bar();
-			this.bbiRefresh = new DevExpress.XtraBars.BarButtonItem();
 			this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
@@ -73,27 +76,48 @@
 			this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-			this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+			this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator2 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator3 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator4 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator5 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator6 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator7 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator8 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator9 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator10 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator11 = new DevExpress.XtraLayout.SimpleSeparator();
 			this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
 			this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+			this.simpleSeparator12 = new DevExpress.XtraLayout.SimpleSeparator();
 			this.citiesModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.statesModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+			this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+			this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+			this.riPictureEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+			this.simpleSeparator13 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator14 = new DevExpress.XtraLayout.SimpleSeparator();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
 			this.layoutControl1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(pointSeriesLabel2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(lineSeriesView2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.next12HoursModelBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.popupContainerEdit1.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
@@ -117,28 +141,45 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator4)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator6)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator7)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator8)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator9)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator10)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator11)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator12)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.citiesModelBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.statesModelBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.riPictureEdit)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator13)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator14)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// layoutControl1
 			// 
+			this.layoutControl1.Controls.Add(this.pceSearch);
 			this.layoutControl1.Controls.Add(this.chartControl1);
 			this.layoutControl1.Controls.Add(this.popupContainerEdit1);
 			this.layoutControl1.Controls.Add(this.lblWeatherState);
@@ -158,22 +199,47 @@
 			this.layoutControl1.Controls.Add(this.lblCoordinates);
 			this.layoutControl1.Controls.Add(this.lblTimezone);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 35);
+			this.layoutControl1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControl1.Name = "layoutControl1";
-			this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1200, 244, 650, 788);
+			this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(813, 432, 650, 788);
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(1037, 537);
+			this.layoutControl1.Size = new System.Drawing.Size(1037, 572);
 			this.layoutControl1.TabIndex = 2;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
 			// chartControl1
 			// 
-			this.chartControl1.Location = new System.Drawing.Point(555, 88);
+			this.chartControl1.DataSource = this.next12HoursModelBindingSource;
+			xyDiagram2.AxisX.DateTimeScaleOptions.AutoGrid = false;
+			xyDiagram2.AxisX.DateTimeScaleOptions.GridAlignment = DevExpress.XtraCharts.DateTimeGridAlignment.Hour;
+			xyDiagram2.AxisX.DateTimeScaleOptions.GridSpacing = 2D;
+			xyDiagram2.AxisX.DateTimeScaleOptions.MeasureUnit = DevExpress.XtraCharts.DateTimeMeasureUnit.Hour;
+			xyDiagram2.AxisX.Label.TextPattern = "{A:HH:mm}";
+			xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
+			xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
+			this.chartControl1.Diagram = xyDiagram2;
+			this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
+			this.chartControl1.Location = new System.Drawing.Point(557, 88);
 			this.chartControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.chartControl1.Name = "chartControl1";
-			this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-			this.chartControl1.Size = new System.Drawing.Size(476, 391);
+			series2.ArgumentDataMember = "Time";
+			series2.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
+			series2.DateTimeSummaryOptions.MeasureUnit = DevExpress.XtraCharts.DateTimeMeasureUnit.Hour;
+			series2.DateTimeSummaryOptions.MeasureUnitMultiplier = 1;
+			pointSeriesLabel2.TextPattern = "{A:HH:mm} - {V}°C";
+			series2.Label = pointSeriesLabel2;
+			series2.Name = "Series 1";
+			series2.SeriesID = 0;
+			series2.ValueDataMembersSerializable = "Temp";
+			series2.View = lineSeriesView2;
+			this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series2};
+			this.chartControl1.Size = new System.Drawing.Size(474, 270);
 			this.chartControl1.TabIndex = 31;
+			// 
+			// next12HoursModelBindingSource
+			// 
+			this.next12HoursModelBindingSource.DataSource = typeof(LifeLog.Services.WeatherApi.Models.Next24HoursModel);
 			// 
 			// popupContainerEdit1
 			// 
@@ -194,42 +260,18 @@
 			// 
 			// barManager
 			// 
-			this.barManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar1});
 			this.barManager.DockControls.Add(this.barDockControl1);
 			this.barManager.DockControls.Add(this.barDockControl2);
 			this.barManager.DockControls.Add(this.barDockControl3);
 			this.barManager.DockControls.Add(this.barDockControl4);
 			this.barManager.Form = this;
-			this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.bbiRefresh});
-			this.barManager.MainMenu = this.bar1;
-			this.barManager.MaxItemId = 11;
+			this.barManager.MaxItemId = 15;
 			this.barManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit2,
-            this.repositoryItemSearchControl1});
-			// 
-			// bar1
-			// 
-			this.bar1.BarName = "Main menu";
-			this.bar1.DockCol = 0;
-			this.bar1.DockRow = 0;
-			this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-			this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiRefresh, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
-			this.bar1.OptionsBar.DrawBorder = false;
-			this.bar1.OptionsBar.DrawDragBorder = false;
-			this.bar1.OptionsBar.MinHeight = 35;
-			this.bar1.OptionsBar.MultiLine = true;
-			this.bar1.OptionsBar.UseWholeRow = true;
-			this.bar1.Text = "Main menu";
-			// 
-			// bbiRefresh
-			// 
-			this.bbiRefresh.Caption = "Refresh";
-			this.bbiRefresh.Id = 1;
-			this.bbiRefresh.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiRefresh.ImageOptions.SvgImage")));
-			this.bbiRefresh.Name = "bbiRefresh";
+            this.repositoryItemSearchControl1,
+            this.repositoryItemTextEdit1,
+            this.repositoryItemTextEdit3,
+            this.riPictureEdit});
 			// 
 			// barDockControl1
 			// 
@@ -238,7 +280,7 @@
 			this.barDockControl1.Location = new System.Drawing.Point(0, 0);
 			this.barDockControl1.Manager = this.barManager;
 			this.barDockControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControl1.Size = new System.Drawing.Size(1037, 35);
+			this.barDockControl1.Size = new System.Drawing.Size(1037, 0);
 			// 
 			// barDockControl2
 			// 
@@ -253,19 +295,19 @@
 			// 
 			this.barDockControl3.CausesValidation = false;
 			this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControl3.Location = new System.Drawing.Point(0, 35);
+			this.barDockControl3.Location = new System.Drawing.Point(0, 0);
 			this.barDockControl3.Manager = this.barManager;
 			this.barDockControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControl3.Size = new System.Drawing.Size(0, 537);
+			this.barDockControl3.Size = new System.Drawing.Size(0, 572);
 			// 
 			// barDockControl4
 			// 
 			this.barDockControl4.CausesValidation = false;
 			this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControl4.Location = new System.Drawing.Point(1037, 35);
+			this.barDockControl4.Location = new System.Drawing.Point(1037, 0);
 			this.barDockControl4.Manager = this.barManager;
 			this.barDockControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.barDockControl4.Size = new System.Drawing.Size(0, 537);
+			this.barDockControl4.Size = new System.Drawing.Size(0, 572);
 			// 
 			// repositoryItemTextEdit2
 			// 
@@ -284,10 +326,10 @@
 			// 
 			this.pceSearch.AutoSize = true;
 			this.pceSearch.Controls.Add(this.lcbSearch);
-			this.pceSearch.Location = new System.Drawing.Point(375, 3);
+			this.pceSearch.Location = new System.Drawing.Point(551, 13);
 			this.pceSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.pceSearch.Name = "pceSearch";
-			this.pceSearch.Size = new System.Drawing.Size(280, 32);
+			this.pceSearch.Size = new System.Drawing.Size(267, 14);
 			this.pceSearch.TabIndex = 31;
 			// 
 			// lcbSearch
@@ -297,7 +339,7 @@
 			this.lcbSearch.Location = new System.Drawing.Point(0, 0);
 			this.lcbSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lcbSearch.Name = "lcbSearch";
-			this.lcbSearch.Size = new System.Drawing.Size(280, 32);
+			this.lcbSearch.Size = new System.Drawing.Size(267, 14);
 			this.lcbSearch.TabIndex = 32;
 			this.lcbSearch.SelectedIndexChanged += new System.EventHandler(this.lcbSearch_SelectedIndexChanged);
 			// 
@@ -306,10 +348,10 @@
 			this.lblWeatherState.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblWeatherState.Appearance.Options.UseFont = true;
 			this.lblWeatherState.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblWeatherState.Location = new System.Drawing.Point(213, 88);
+			this.lblWeatherState.Location = new System.Drawing.Point(214, 88);
 			this.lblWeatherState.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblWeatherState.Name = "lblWeatherState";
-			this.lblWeatherState.Size = new System.Drawing.Size(215, 30);
+			this.lblWeatherState.Size = new System.Drawing.Size(339, 30);
 			this.lblWeatherState.StyleController = this.layoutControl1;
 			this.lblWeatherState.TabIndex = 29;
 			this.lblWeatherState.Text = "Weather State";
@@ -391,10 +433,10 @@
 			this.lblTime.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblTime.Appearance.Options.UseFont = true;
 			this.lblTime.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblTime.Location = new System.Drawing.Point(482, 88);
+			this.lblTime.Location = new System.Drawing.Point(214, 123);
 			this.lblTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblTime.Name = "lblTime";
-			this.lblTime.Size = new System.Drawing.Size(69, 24);
+			this.lblTime.Size = new System.Drawing.Size(339, 24);
 			this.lblTime.StyleController = this.layoutControl1;
 			this.lblTime.TabIndex = 29;
 			this.lblTime.Text = "Date Time";
@@ -404,24 +446,23 @@
 			this.lblMinTemp.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblMinTemp.Appearance.Options.UseFont = true;
 			this.lblMinTemp.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblMinTemp.Location = new System.Drawing.Point(344, 224);
+			this.lblMinTemp.Location = new System.Drawing.Point(214, 257);
 			this.lblMinTemp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblMinTemp.Name = "lblMinTemp";
-			this.lblMinTemp.Size = new System.Drawing.Size(207, 30);
+			this.lblMinTemp.Size = new System.Drawing.Size(142, 30);
 			this.lblMinTemp.StyleController = this.layoutControl1;
 			this.lblMinTemp.TabIndex = 29;
 			this.lblMinTemp.Text = "Min Temp";
-			this.lblMinTemp.Click += new System.EventHandler(this.lblMinTemp_Click);
 			// 
 			// lblMaxTemp
 			// 
 			this.lblMaxTemp.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblMaxTemp.Appearance.Options.UseFont = true;
 			this.lblMaxTemp.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblMaxTemp.Location = new System.Drawing.Point(213, 224);
+			this.lblMaxTemp.Location = new System.Drawing.Point(411, 257);
 			this.lblMaxTemp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblMaxTemp.Name = "lblMaxTemp";
-			this.lblMaxTemp.Size = new System.Drawing.Size(77, 30);
+			this.lblMaxTemp.Size = new System.Drawing.Size(142, 30);
 			this.lblMaxTemp.StyleController = this.layoutControl1;
 			this.lblMaxTemp.TabIndex = 29;
 			this.lblMaxTemp.Text = "Max Temp";
@@ -431,10 +472,10 @@
 			this.lblHumidity.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblHumidity.Appearance.Options.UseFont = true;
 			this.lblHumidity.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblHumidity.Location = new System.Drawing.Point(474, 156);
+			this.lblHumidity.Location = new System.Drawing.Point(345, 187);
 			this.lblHumidity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblHumidity.Name = "lblHumidity";
-			this.lblHumidity.Size = new System.Drawing.Size(77, 30);
+			this.lblHumidity.Size = new System.Drawing.Size(76, 30);
 			this.lblHumidity.StyleController = this.layoutControl1;
 			this.lblHumidity.TabIndex = 29;
 			this.lblHumidity.Text = "Humidity";
@@ -444,10 +485,10 @@
 			this.lblWindData.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblWindData.Appearance.Options.UseFont = true;
 			this.lblWindData.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblWindData.Location = new System.Drawing.Point(213, 190);
+			this.lblWindData.Location = new System.Drawing.Point(214, 222);
 			this.lblWindData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblWindData.Name = "lblWindData";
-			this.lblWindData.Size = new System.Drawing.Size(338, 30);
+			this.lblWindData.Size = new System.Drawing.Size(339, 30);
 			this.lblWindData.StyleController = this.layoutControl1;
 			this.lblWindData.TabIndex = 29;
 			this.lblWindData.Text = "Wind (Km\\H) Direction";
@@ -457,10 +498,10 @@
 			this.lblCloudsData.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblCloudsData.Appearance.Options.UseFont = true;
 			this.lblCloudsData.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblCloudsData.Location = new System.Drawing.Point(213, 156);
+			this.lblCloudsData.Location = new System.Drawing.Point(214, 187);
 			this.lblCloudsData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblCloudsData.Name = "lblCloudsData";
-			this.lblCloudsData.Size = new System.Drawing.Size(77, 30);
+			this.lblCloudsData.Size = new System.Drawing.Size(76, 30);
 			this.lblCloudsData.StyleController = this.layoutControl1;
 			this.lblCloudsData.TabIndex = 29;
 			this.lblCloudsData.Text = "Clouds";
@@ -470,10 +511,10 @@
 			this.lblPressure.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblPressure.Appearance.Options.UseFont = true;
 			this.lblPressure.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblPressure.Location = new System.Drawing.Point(344, 156);
+			this.lblPressure.Location = new System.Drawing.Point(476, 187);
 			this.lblPressure.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblPressure.Name = "lblPressure";
-			this.lblPressure.Size = new System.Drawing.Size(76, 30);
+			this.lblPressure.Size = new System.Drawing.Size(77, 30);
 			this.lblPressure.StyleController = this.layoutControl1;
 			this.lblPressure.TabIndex = 29;
 			this.lblPressure.Text = "Pressure";
@@ -483,10 +524,10 @@
 			this.lblSunrise.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblSunrise.Appearance.Options.UseFont = true;
 			this.lblSunrise.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblSunrise.Location = new System.Drawing.Point(213, 258);
+			this.lblSunrise.Location = new System.Drawing.Point(214, 292);
 			this.lblSunrise.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblSunrise.Name = "lblSunrise";
-			this.lblSunrise.Size = new System.Drawing.Size(77, 30);
+			this.lblSunrise.Size = new System.Drawing.Size(142, 30);
 			this.lblSunrise.StyleController = this.layoutControl1;
 			this.lblSunrise.TabIndex = 29;
 			this.lblSunrise.Text = "Sunrise";
@@ -496,10 +537,10 @@
 			this.lblSunset.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblSunset.Appearance.Options.UseFont = true;
 			this.lblSunset.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblSunset.Location = new System.Drawing.Point(344, 258);
+			this.lblSunset.Location = new System.Drawing.Point(411, 292);
 			this.lblSunset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblSunset.Name = "lblSunset";
-			this.lblSunset.Size = new System.Drawing.Size(207, 30);
+			this.lblSunset.Size = new System.Drawing.Size(142, 30);
 			this.lblSunset.StyleController = this.layoutControl1;
 			this.lblSunset.TabIndex = 29;
 			this.lblSunset.Text = "Sunset";
@@ -509,10 +550,10 @@
 			this.lblCoordinates.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblCoordinates.Appearance.Options.UseFont = true;
 			this.lblCoordinates.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblCoordinates.Location = new System.Drawing.Point(213, 292);
+			this.lblCoordinates.Location = new System.Drawing.Point(214, 327);
 			this.lblCoordinates.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblCoordinates.Name = "lblCoordinates";
-			this.lblCoordinates.Size = new System.Drawing.Size(338, 30);
+			this.lblCoordinates.Size = new System.Drawing.Size(339, 30);
 			this.lblCoordinates.StyleController = this.layoutControl1;
 			this.lblCoordinates.TabIndex = 29;
 			this.lblCoordinates.Text = "Coordinates";
@@ -522,10 +563,10 @@
 			this.lblTimezone.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
 			this.lblTimezone.Appearance.Options.UseFont = true;
 			this.lblTimezone.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-			this.lblTimezone.Location = new System.Drawing.Point(213, 122);
+			this.lblTimezone.Location = new System.Drawing.Point(214, 152);
 			this.lblTimezone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lblTimezone.Name = "lblTimezone";
-			this.lblTimezone.Size = new System.Drawing.Size(338, 30);
+			this.lblTimezone.Size = new System.Drawing.Size(339, 30);
 			this.lblTimezone.StyleController = this.layoutControl1;
 			this.lblTimezone.TabIndex = 29;
 			this.lblTimezone.Text = "Timezone";
@@ -537,10 +578,11 @@
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lcgSearchGroup,
             this.emptySpaceItem2,
-            this.lcgWeatherInformationGroup});
+            this.lcgWeatherInformationGroup,
+            this.simpleSeparator14});
 			this.Root.Name = "Root";
 			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 8, 4);
-			this.Root.Size = new System.Drawing.Size(1037, 537);
+			this.Root.Size = new System.Drawing.Size(1037, 572);
 			this.Root.TextVisible = false;
 			// 
 			// lcgSearchGroup
@@ -613,9 +655,9 @@
 			// 
 			// emptySpaceItem2
 			// 
-			this.emptySpaceItem2.Location = new System.Drawing.Point(0, 473);
+			this.emptySpaceItem2.Location = new System.Drawing.Point(0, 353);
 			this.emptySpaceItem2.Name = "emptySpaceItem2";
-			this.emptySpaceItem2.Size = new System.Drawing.Size(1029, 52);
+			this.emptySpaceItem2.Size = new System.Drawing.Size(1029, 207);
 			// 
 			// lcgWeatherInformationGroup
 			// 
@@ -627,7 +669,7 @@
 			this.lcgWeatherInformationGroup.Location = new System.Drawing.Point(0, 51);
 			this.lcgWeatherInformationGroup.Name = "lcgWeatherInformationGroup";
 			this.lcgWeatherInformationGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.lcgWeatherInformationGroup.Size = new System.Drawing.Size(1029, 422);
+			this.lcgWeatherInformationGroup.Size = new System.Drawing.Size(1029, 301);
 			this.lcgWeatherInformationGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
 			this.lcgWeatherInformationGroup.Text = "Weather Information for - ";
 			// 
@@ -635,9 +677,9 @@
 			// 
 			this.layoutControlItem8.BestFitWeight = 350;
 			this.layoutControlItem8.Control = this.chartControl1;
-			this.layoutControlItem8.Location = new System.Drawing.Point(549, 0);
+			this.layoutControlItem8.Location = new System.Drawing.Point(551, 0);
 			this.layoutControlItem8.Name = "layoutControlItem8";
-			this.layoutControlItem8.Size = new System.Drawing.Size(480, 395);
+			this.layoutControlItem8.Size = new System.Drawing.Size(478, 274);
 			this.layoutControlItem8.TextVisible = false;
 			// 
 			// layoutControlGroup2
@@ -647,56 +689,43 @@
 			this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup1,
             this.emptySpaceItem3,
-            this.layoutControlItem5});
+            this.layoutControlItem5,
+            this.simpleSeparator12});
 			this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlGroup2.Name = "layoutControlGroup2";
-			this.layoutControlGroup2.Size = new System.Drawing.Size(549, 395);
+			this.layoutControlGroup2.Size = new System.Drawing.Size(551, 274);
 			// 
 			// layoutControlGroup1
 			// 
 			this.layoutControlGroup1.GroupBordersVisible = false;
 			this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem12,
-            this.layoutControlItem18,
             this.layoutControlItem1,
             this.layoutControlItem10,
             this.layoutControlItem2,
             this.layoutControlItem21,
             this.layoutControlItem11,
-            this.layoutControlItem6,
-            this.layoutControlItem13,
             this.layoutControlItem3,
+            this.layoutControlItem12,
+            this.layoutControlItem6,
+            this.layoutControlItem7,
+            this.layoutControlItem18,
             this.layoutControlItem20,
-            this.emptySpaceItem5,
-            this.layoutControlItem7});
-			this.layoutControlGroup1.Location = new System.Drawing.Point(157, 0);
+            this.layoutControlItem13,
+            this.simpleSeparator1,
+            this.simpleSeparator2,
+            this.simpleSeparator3,
+            this.simpleSeparator4,
+            this.simpleSeparator5,
+            this.simpleSeparator6,
+            this.simpleSeparator7,
+            this.simpleSeparator8,
+            this.simpleSeparator9,
+            this.simpleSeparator10,
+            this.simpleSeparator11,
+            this.simpleSeparator13});
+			this.layoutControlGroup1.Location = new System.Drawing.Point(158, 0);
 			this.layoutControlGroup1.Name = "layoutControlGroup1";
-			this.layoutControlGroup1.Size = new System.Drawing.Size(392, 395);
-			// 
-			// layoutControlItem12
-			// 
-			this.layoutControlItem12.Control = this.lblTimezone;
-			this.layoutControlItem12.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem12.CustomizationFormText = " ";
-			this.layoutControlItem12.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.business_world;
-			this.layoutControlItem12.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-			this.layoutControlItem12.Location = new System.Drawing.Point(0, 34);
-			this.layoutControlItem12.Name = "layoutControlItem12";
-			this.layoutControlItem12.Size = new System.Drawing.Size(392, 34);
-			this.layoutControlItem12.Text = " ";
-			this.layoutControlItem12.TextSize = new System.Drawing.Size(38, 30);
-			// 
-			// layoutControlItem18
-			// 
-			this.layoutControlItem18.BestFitWeight = 110;
-			this.layoutControlItem18.Control = this.lblWeatherState;
-			this.layoutControlItem18.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.about;
-			this.layoutControlItem18.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-			this.layoutControlItem18.Location = new System.Drawing.Point(0, 0);
-			this.layoutControlItem18.Name = "layoutControlItem18";
-			this.layoutControlItem18.Size = new System.Drawing.Size(269, 34);
-			this.layoutControlItem18.Text = " ";
-			this.layoutControlItem18.TextSize = new System.Drawing.Size(38, 30);
+			this.layoutControlGroup1.Size = new System.Drawing.Size(393, 274);
 			// 
 			// layoutControlItem1
 			// 
@@ -705,9 +734,9 @@
 			this.layoutControlItem1.CustomizationFormText = "Min. Temp";
 			this.layoutControlItem1.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.clouds;
 			this.layoutControlItem1.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-			this.layoutControlItem1.Location = new System.Drawing.Point(0, 68);
+			this.layoutControlItem1.Location = new System.Drawing.Point(0, 99);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(131, 34);
+			this.layoutControlItem1.Size = new System.Drawing.Size(130, 34);
 			this.layoutControlItem1.Text = " ";
 			this.layoutControlItem1.TextSize = new System.Drawing.Size(38, 30);
 			// 
@@ -718,9 +747,9 @@
 			this.layoutControlItem10.CustomizationFormText = "Min. Temp";
 			this.layoutControlItem10.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.wind;
 			this.layoutControlItem10.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-			this.layoutControlItem10.Location = new System.Drawing.Point(0, 102);
+			this.layoutControlItem10.Location = new System.Drawing.Point(0, 134);
 			this.layoutControlItem10.Name = "layoutControlItem10";
-			this.layoutControlItem10.Size = new System.Drawing.Size(392, 34);
+			this.layoutControlItem10.Size = new System.Drawing.Size(393, 34);
 			this.layoutControlItem10.Text = " ";
 			this.layoutControlItem10.TextSize = new System.Drawing.Size(38, 30);
 			// 
@@ -731,9 +760,9 @@
 			this.layoutControlItem2.CustomizationFormText = "Min. Temp";
 			this.layoutControlItem2.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.temperature_hot;
 			this.layoutControlItem2.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-			this.layoutControlItem2.Location = new System.Drawing.Point(0, 136);
+			this.layoutControlItem2.Location = new System.Drawing.Point(197, 169);
 			this.layoutControlItem2.Name = "layoutControlItem2";
-			this.layoutControlItem2.Size = new System.Drawing.Size(131, 34);
+			this.layoutControlItem2.Size = new System.Drawing.Size(196, 34);
 			this.layoutControlItem2.Text = " ";
 			this.layoutControlItem2.TextSize = new System.Drawing.Size(38, 30);
 			// 
@@ -744,9 +773,9 @@
 			this.layoutControlItem21.CustomizationFormText = "Min. Temp";
 			this.layoutControlItem21.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.sunrise;
 			this.layoutControlItem21.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-			this.layoutControlItem21.Location = new System.Drawing.Point(0, 170);
+			this.layoutControlItem21.Location = new System.Drawing.Point(0, 204);
 			this.layoutControlItem21.Name = "layoutControlItem21";
-			this.layoutControlItem21.Size = new System.Drawing.Size(131, 34);
+			this.layoutControlItem21.Size = new System.Drawing.Size(196, 34);
 			this.layoutControlItem21.Text = " ";
 			this.layoutControlItem21.TextSize = new System.Drawing.Size(38, 30);
 			// 
@@ -757,37 +786,11 @@
 			this.layoutControlItem11.CustomizationFormText = " ";
 			this.layoutControlItem11.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.placeholder;
 			this.layoutControlItem11.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-			this.layoutControlItem11.Location = new System.Drawing.Point(0, 204);
+			this.layoutControlItem11.Location = new System.Drawing.Point(0, 239);
 			this.layoutControlItem11.Name = "layoutControlItem11";
-			this.layoutControlItem11.Size = new System.Drawing.Size(392, 34);
+			this.layoutControlItem11.Size = new System.Drawing.Size(393, 34);
 			this.layoutControlItem11.Text = " ";
 			this.layoutControlItem11.TextSize = new System.Drawing.Size(38, 30);
-			// 
-			// layoutControlItem6
-			// 
-			this.layoutControlItem6.Control = this.lblMinTemp;
-			this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem6.CustomizationFormText = "Min. Temp";
-			this.layoutControlItem6.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.temperature_cold;
-			this.layoutControlItem6.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-			this.layoutControlItem6.Location = new System.Drawing.Point(131, 136);
-			this.layoutControlItem6.Name = "layoutControlItem6";
-			this.layoutControlItem6.Size = new System.Drawing.Size(261, 34);
-			this.layoutControlItem6.Text = " ";
-			this.layoutControlItem6.TextSize = new System.Drawing.Size(38, 30);
-			// 
-			// layoutControlItem13
-			// 
-			this.layoutControlItem13.Control = this.lblPressure;
-			this.layoutControlItem13.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem13.CustomizationFormText = "Min. Temp";
-			this.layoutControlItem13.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.pressure_gauge;
-			this.layoutControlItem13.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-			this.layoutControlItem13.Location = new System.Drawing.Point(131, 68);
-			this.layoutControlItem13.Name = "layoutControlItem13";
-			this.layoutControlItem13.Size = new System.Drawing.Size(130, 34);
-			this.layoutControlItem13.Text = " ";
-			this.layoutControlItem13.TextSize = new System.Drawing.Size(38, 30);
 			// 
 			// layoutControlItem3
 			// 
@@ -796,11 +799,62 @@
 			this.layoutControlItem3.CustomizationFormText = "Min. Temp";
 			this.layoutControlItem3.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.drop;
 			this.layoutControlItem3.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-			this.layoutControlItem3.Location = new System.Drawing.Point(261, 68);
+			this.layoutControlItem3.Location = new System.Drawing.Point(131, 99);
 			this.layoutControlItem3.Name = "layoutControlItem3";
-			this.layoutControlItem3.Size = new System.Drawing.Size(131, 34);
+			this.layoutControlItem3.Size = new System.Drawing.Size(130, 34);
 			this.layoutControlItem3.Text = " ";
 			this.layoutControlItem3.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// layoutControlItem12
+			// 
+			this.layoutControlItem12.Control = this.lblTimezone;
+			this.layoutControlItem12.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem12.CustomizationFormText = " ";
+			this.layoutControlItem12.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.business_world;
+			this.layoutControlItem12.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem12.Location = new System.Drawing.Point(0, 64);
+			this.layoutControlItem12.Name = "layoutControlItem12";
+			this.layoutControlItem12.Size = new System.Drawing.Size(393, 34);
+			this.layoutControlItem12.Text = " ";
+			this.layoutControlItem12.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// layoutControlItem6
+			// 
+			this.layoutControlItem6.Control = this.lblMinTemp;
+			this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem6.CustomizationFormText = "Min. Temp";
+			this.layoutControlItem6.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.temperature_cold;
+			this.layoutControlItem6.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem6.Location = new System.Drawing.Point(0, 169);
+			this.layoutControlItem6.Name = "layoutControlItem6";
+			this.layoutControlItem6.Size = new System.Drawing.Size(196, 34);
+			this.layoutControlItem6.Text = " ";
+			this.layoutControlItem6.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// layoutControlItem7
+			// 
+			this.layoutControlItem7.Control = this.lblSunset;
+			this.layoutControlItem7.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem7.CustomizationFormText = "Min. Temp";
+			this.layoutControlItem7.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.sunset;
+			this.layoutControlItem7.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem7.Location = new System.Drawing.Point(197, 204);
+			this.layoutControlItem7.Name = "layoutControlItem7";
+			this.layoutControlItem7.Size = new System.Drawing.Size(196, 34);
+			this.layoutControlItem7.Text = " ";
+			this.layoutControlItem7.TextSize = new System.Drawing.Size(38, 30);
+			// 
+			// layoutControlItem18
+			// 
+			this.layoutControlItem18.BestFitWeight = 110;
+			this.layoutControlItem18.Control = this.lblWeatherState;
+			this.layoutControlItem18.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.about;
+			this.layoutControlItem18.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem18.Location = new System.Drawing.Point(0, 0);
+			this.layoutControlItem18.Name = "layoutControlItem18";
+			this.layoutControlItem18.Size = new System.Drawing.Size(393, 34);
+			this.layoutControlItem18.Text = " ";
+			this.layoutControlItem18.TextSize = new System.Drawing.Size(38, 30);
 			// 
 			// layoutControlItem20
 			// 
@@ -810,38 +864,98 @@
 			this.layoutControlItem20.CustomizationFormText = " ";
 			this.layoutControlItem20.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.time;
 			this.layoutControlItem20.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
-			this.layoutControlItem20.Location = new System.Drawing.Point(269, 0);
+			this.layoutControlItem20.Location = new System.Drawing.Point(0, 35);
 			this.layoutControlItem20.Name = "layoutControlItem20";
 			this.layoutControlItem20.OptionsPrint.AppearanceItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.layoutControlItem20.OptionsPrint.AppearanceItem.Options.UseFont = true;
-			this.layoutControlItem20.Size = new System.Drawing.Size(123, 34);
+			this.layoutControlItem20.Size = new System.Drawing.Size(393, 28);
 			this.layoutControlItem20.Text = " ";
 			this.layoutControlItem20.TextSize = new System.Drawing.Size(38, 24);
 			// 
-			// emptySpaceItem5
+			// layoutControlItem13
 			// 
-			this.emptySpaceItem5.Location = new System.Drawing.Point(0, 238);
-			this.emptySpaceItem5.Name = "emptySpaceItem5";
-			this.emptySpaceItem5.Size = new System.Drawing.Size(392, 157);
+			this.layoutControlItem13.Control = this.lblPressure;
+			this.layoutControlItem13.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+			this.layoutControlItem13.CustomizationFormText = "Min. Temp";
+			this.layoutControlItem13.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.pressure_gauge;
+			this.layoutControlItem13.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+			this.layoutControlItem13.Location = new System.Drawing.Point(262, 99);
+			this.layoutControlItem13.Name = "layoutControlItem13";
+			this.layoutControlItem13.Size = new System.Drawing.Size(131, 34);
+			this.layoutControlItem13.Text = " ";
+			this.layoutControlItem13.TextSize = new System.Drawing.Size(38, 30);
 			// 
-			// layoutControlItem7
+			// simpleSeparator1
 			// 
-			this.layoutControlItem7.Control = this.lblSunset;
-			this.layoutControlItem7.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-			this.layoutControlItem7.CustomizationFormText = "Min. Temp";
-			this.layoutControlItem7.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.sunset;
-			this.layoutControlItem7.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-			this.layoutControlItem7.Location = new System.Drawing.Point(131, 170);
-			this.layoutControlItem7.Name = "layoutControlItem7";
-			this.layoutControlItem7.Size = new System.Drawing.Size(261, 34);
-			this.layoutControlItem7.Text = " ";
-			this.layoutControlItem7.TextSize = new System.Drawing.Size(38, 30);
+			this.simpleSeparator1.Location = new System.Drawing.Point(0, 133);
+			this.simpleSeparator1.Name = "simpleSeparator1";
+			this.simpleSeparator1.Size = new System.Drawing.Size(393, 1);
+			// 
+			// simpleSeparator2
+			// 
+			this.simpleSeparator2.Location = new System.Drawing.Point(0, 168);
+			this.simpleSeparator2.Name = "simpleSeparator2";
+			this.simpleSeparator2.Size = new System.Drawing.Size(393, 1);
+			// 
+			// simpleSeparator3
+			// 
+			this.simpleSeparator3.Location = new System.Drawing.Point(0, 203);
+			this.simpleSeparator3.Name = "simpleSeparator3";
+			this.simpleSeparator3.Size = new System.Drawing.Size(393, 1);
+			// 
+			// simpleSeparator4
+			// 
+			this.simpleSeparator4.Location = new System.Drawing.Point(0, 238);
+			this.simpleSeparator4.Name = "simpleSeparator4";
+			this.simpleSeparator4.Size = new System.Drawing.Size(393, 1);
+			// 
+			// simpleSeparator5
+			// 
+			this.simpleSeparator5.Location = new System.Drawing.Point(0, 98);
+			this.simpleSeparator5.Name = "simpleSeparator5";
+			this.simpleSeparator5.Size = new System.Drawing.Size(393, 1);
+			// 
+			// simpleSeparator6
+			// 
+			this.simpleSeparator6.Location = new System.Drawing.Point(0, 63);
+			this.simpleSeparator6.Name = "simpleSeparator6";
+			this.simpleSeparator6.Size = new System.Drawing.Size(393, 1);
+			// 
+			// simpleSeparator7
+			// 
+			this.simpleSeparator7.Location = new System.Drawing.Point(0, 34);
+			this.simpleSeparator7.Name = "simpleSeparator7";
+			this.simpleSeparator7.Size = new System.Drawing.Size(393, 1);
+			// 
+			// simpleSeparator8
+			// 
+			this.simpleSeparator8.Location = new System.Drawing.Point(196, 169);
+			this.simpleSeparator8.Name = "simpleSeparator8";
+			this.simpleSeparator8.Size = new System.Drawing.Size(1, 34);
+			// 
+			// simpleSeparator9
+			// 
+			this.simpleSeparator9.Location = new System.Drawing.Point(196, 204);
+			this.simpleSeparator9.Name = "simpleSeparator9";
+			this.simpleSeparator9.Size = new System.Drawing.Size(1, 34);
+			// 
+			// simpleSeparator10
+			// 
+			this.simpleSeparator10.Location = new System.Drawing.Point(261, 99);
+			this.simpleSeparator10.Name = "simpleSeparator10";
+			this.simpleSeparator10.Size = new System.Drawing.Size(1, 34);
+			// 
+			// simpleSeparator11
+			// 
+			this.simpleSeparator11.Location = new System.Drawing.Point(130, 99);
+			this.simpleSeparator11.Name = "simpleSeparator11";
+			this.simpleSeparator11.Size = new System.Drawing.Size(1, 34);
 			// 
 			// emptySpaceItem3
 			// 
 			this.emptySpaceItem3.Location = new System.Drawing.Point(0, 149);
 			this.emptySpaceItem3.Name = "emptySpaceItem3";
-			this.emptySpaceItem3.Size = new System.Drawing.Size(157, 246);
+			this.emptySpaceItem3.Size = new System.Drawing.Size(157, 125);
 			// 
 			// layoutControlItem5
 			// 
@@ -850,6 +964,12 @@
 			this.layoutControlItem5.Name = "layoutControlItem5";
 			this.layoutControlItem5.Size = new System.Drawing.Size(157, 149);
 			this.layoutControlItem5.TextVisible = false;
+			// 
+			// simpleSeparator12
+			// 
+			this.simpleSeparator12.Location = new System.Drawing.Point(157, 0);
+			this.simpleSeparator12.Name = "simpleSeparator12";
+			this.simpleSeparator12.Size = new System.Drawing.Size(1, 274);
 			// 
 			// citiesModelBindingSource
 			// 
@@ -863,11 +983,36 @@
 			// 
 			this.dxErrorProvider.ContainerControl = this;
 			// 
+			// repositoryItemTextEdit1
+			// 
+			this.repositoryItemTextEdit1.AutoHeight = false;
+			this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+			// 
+			// repositoryItemTextEdit3
+			// 
+			this.repositoryItemTextEdit3.AutoHeight = false;
+			this.repositoryItemTextEdit3.Name = "repositoryItemTextEdit3";
+			// 
+			// riPictureEdit
+			// 
+			this.riPictureEdit.Name = "riPictureEdit";
+			// 
+			// simpleSeparator13
+			// 
+			this.simpleSeparator13.Location = new System.Drawing.Point(0, 273);
+			this.simpleSeparator13.Name = "simpleSeparator13";
+			this.simpleSeparator13.Size = new System.Drawing.Size(393, 1);
+			// 
+			// simpleSeparator14
+			// 
+			this.simpleSeparator14.Location = new System.Drawing.Point(0, 352);
+			this.simpleSeparator14.Name = "simpleSeparator14";
+			this.simpleSeparator14.Size = new System.Drawing.Size(1029, 1);
+			// 
 			// WeatherView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.pceSearch);
 			this.Controls.Add(this.layoutControl1);
 			this.Controls.Add(this.barDockControl3);
 			this.Controls.Add(this.barDockControl4);
@@ -878,7 +1023,13 @@
 			this.Load += new System.EventHandler(this.WeatherView_Load);
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
 			this.layoutControl1.ResumeLayout(false);
+			this.layoutControl1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(pointSeriesLabel2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(lineSeriesView2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.next12HoursModelBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.popupContainerEdit1.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
@@ -902,24 +1053,40 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator4)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator6)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator7)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator8)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator9)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator10)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator11)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator12)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.citiesModelBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.statesModelBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.riPictureEdit)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator13)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator14)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -935,12 +1102,9 @@
         private DevExpress.XtraEditors.SimpleButton sbSearch;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraLayout.LayoutControlGroup lcgSearchGroup;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
 		private DevExpress.XtraBars.BarDockControl barDockControl3;
 		private DevExpress.XtraBars.BarManager barManager;
-		private DevExpress.XtraBars.Bar bar1;
-		private DevExpress.XtraBars.BarButtonItem bbiRefresh;
 		private DevExpress.XtraEditors.Repository.RepositoryItemSearchControl repositoryItemSearchControl1;
 		private DevExpress.XtraBars.BarDockControl barDockControl1;
 		private DevExpress.XtraBars.BarDockControl barDockControl2;
@@ -981,11 +1145,29 @@
 		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
 		private DevExpress.XtraEditors.PopupContainerControl pceSearch;
 		private DevExpress.XtraEditors.ListBoxControl lcbSearch;
-		private DevExpress.XtraCharts.ChartControl chartControl1;
-		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
 		private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
 		private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
 		private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
 		private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+		private System.Windows.Forms.BindingSource next12HoursModelBindingSource;
+		private DevExpress.XtraCharts.ChartControl chartControl1;
+		private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator1;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator2;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator3;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator4;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator5;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator6;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator7;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator8;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator9;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator10;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator11;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator12;
+		private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit riPictureEdit;
+		private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+		private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit3;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator13;
+		private DevExpress.XtraLayout.SimpleSeparator simpleSeparator14;
 	}
 }

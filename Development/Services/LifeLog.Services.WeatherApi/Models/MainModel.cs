@@ -20,14 +20,16 @@ namespace LifeLog.Services.WeatherApi.Models
 		[JsonProperty("pressure")]
 		public int Pressure { get; set; }
 
-		[JsonProperty("humidity")]
-		public int Humidity { get; set; }
-
 		[JsonProperty("sea_level")]
 		public int SeaLevel { get; set; }
 
 		[JsonProperty("grnd_level")]
-		public int GroundLevel { get; set; }
-	}
+		public int GrndLevel { get; set; }
 
+		[JsonProperty("humidity")]
+		public int Humidity { get; set; }
+
+		[JsonProperty("temp_kf")]
+		public float TempKf { get; set; }
+	}
 }

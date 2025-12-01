@@ -191,6 +191,7 @@
       <DependentUpon>WeatherView.cs</DependentUpon>
     </Compile>
     <None Include="Properties\DataSources\Countries.Models.StatesModel.datasource" />
+    <None Include="Properties\DataSources\LifeLog.Services.WeatherApi.Models.Next12HoursModel.datasource" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\MainForm.resx">

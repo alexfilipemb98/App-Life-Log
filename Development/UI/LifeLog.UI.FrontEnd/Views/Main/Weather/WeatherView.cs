@@ -1,6 +1,7 @@
 ﻿using Countries.Models;
 using DevExpress.XtraSplashScreen;
 using LifeLog.Base.Utils;
+using LifeLog.Services.WeatherApi.Models;
 using LifeLog.UI.Common.Helpers;
 using System;
 using System.Collections.Generic;
@@ -160,7 +161,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 		/// Update search list
 		/// </summary>
 		/// <param name="locais"></param>
-		private void UpdateSearchList(List<Services.WeatherApi.Models.GeoResultModel> locais)
+		private void UpdateSearchList(List<SmallMainModel> locais)
 		{
 			lcbSearch.BeginUpdate();
 			try
@@ -208,7 +209,7 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 
 					if (token.IsCancellationRequested) return;
 
-					List<Services.WeatherApi.Models.GeoResultModel> locations = await _WeatherApi.SearchCitiesAsync(text, token);
+					List<Services.WeatherApi.Models.SmallMainModel> locations = await _WeatherApi.SearchCitiesAsync(text, token);
 					if (token.IsCancellationRequested) return;
 
 					if (!IsHandleCreated || IsDisposed)
@@ -231,15 +232,15 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 		/// <returns></returns>
 		private async Task LoadWeatherToForm()
 		{
-
 			try
 			{
-				if (!(lcbSearch.SelectedItem is Services.WeatherApi.Models.GeoResultModel sel))
+				if (!(lcbSearch.SelectedItem is Services.WeatherApi.Models.SmallMainModel sel))
 					return;
 
 				using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
 				{
-					Services.WeatherApi.Models.RootModel data = await _WeatherApi.GetWeatherByCoordinates(sel.Latitude, sel.Longitude);
+					Services.WeatherApi.Models.Root.WeatherRootObjectModel data = await _WeatherApi.GetWeatherByCoordinates(sel.Lat, sel.Lon);
+					(List<DailySummaryModel> dailySummaries, List<Next24HoursModel> next12Hours) forecast = await _WeatherApi.GetForecast(sel.Lat, sel.Lon);
 
 					if (data == null)
 						ResetTexts();
@@ -261,6 +262,26 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 						lblCoordinates.Text = $"LAT: {data.Coord.Lat}, LON: {data.Coord.Lon}";
 					}
 
+					chartControl1.DataSource = forecast.next12Hours;
+
+					//DevExpress.XtraCharts.Series series = chartControl1.Series[0];
+
+					//series.ArgumentDataMember = "Time";
+					//series.ValueDataMembers.Clear();
+					//series.ValueDataMembers.AddRange("Temp");
+					//series.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
+
+					//// Mostra horas
+					//series.Label.TextPattern = "{A:HH:mm} - {V}°C";
+
+					//var diagram = chartControl1.Diagram as DevExpress.XtraCharts.XYDiagram;
+					//if (diagram != null)
+					//{
+					//	diagram.AxisX.DateTimeScaleOptions.MeasureUnit = DevExpress.XtraCharts.DateTimeMeasureUnit.Hour;
+					//	diagram.AxisX.DateTimeScaleOptions.GridAlignment = DevExpress.XtraCharts.DateTimeGridAlignment.Hour;
+					//	diagram.AxisX.Label.TextPattern = "{A:HH:mm}";
+					//}
+
 					popupContainerEdit1.ClosePopup();
 				}
 			}
@@ -273,10 +294,5 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 		#endregion
 
 		#endregion
-
-		private void lblMinTemp_Click(object sender, EventArgs e)
-		{
-
-		}
 	}
 }

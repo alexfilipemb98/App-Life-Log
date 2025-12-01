@@ -42,14 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\DailySummaryModel.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="Models\CityModel.cs" />
     <Compile Include="Models\CloudsModel.cs" />
     <Compile Include="Models\CoordModel.cs" />
-    <Compile Include="Models\GeoResultModel.cs" />
+    <Compile Include="Models\Next24HoursModel.cs" />
+    <Compile Include="Models\RainModel.cs" />
+    <Compile Include="Models\Root\ForecastRootObjectModel.cs" />
+    <Compile Include="Models\LocalNamesModel.cs" />
     <Compile Include="Models\MainModel.cs" />
-    <Compile Include="Models\RootModel.cs" />
+    <Compile Include="Models\SmallMainModel.cs" />
     <Compile Include="Models\SysModel.cs" />
     <Compile Include="Models\WeatherModel.cs" />
+    <Compile Include="Models\Root\WeatherRootObjectModel.cs" />
     <Compile Include="Models\WindModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

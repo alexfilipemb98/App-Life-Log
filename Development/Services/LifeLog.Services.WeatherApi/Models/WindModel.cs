@@ -14,5 +14,8 @@ namespace LifeLog.Services.WeatherApi.Models
 
 		[JsonProperty("deg")]
 		public int Deg { get; set; }
+
+		[JsonProperty("gust")]
+		public float Gust { get; set; }
 	}
 }
