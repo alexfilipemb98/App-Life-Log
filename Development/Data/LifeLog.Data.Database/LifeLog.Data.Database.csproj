@@ -50,6 +50,7 @@
     <Compile Include="Mappers\ExternalProgramsMapper.cs" />
     <Compile Include="Mappers\ImagesMapper.cs" />
     <Compile Include="Mappers\NotesMapper.cs" />
+    <Compile Include="Mappers\TasksMapper.cs" />
     <Compile Include="Mappers\UserAppConfigsMapper.cs" />
     <Compile Include="Mappers\UsersMapper.cs" />
     <Compile Include="Mappers\VersionsMapper.cs" />
@@ -73,6 +74,10 @@
     <Compile Include="ORMDataModelCode\ORM_NotesModel.Designer.cs">
       <DependentUpon>ORM_NotesModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="ORMDataModelCode\ORM_TasksModel.cs" />
+    <Compile Include="ORMDataModelCode\ORM_TasksModel.Designer.cs">
+      <DependentUpon>ORM_TasksModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ORMDataModelCode\ORM_UserAppConfigsModel.cs" />
     <Compile Include="ORMDataModelCode\ORM_UserAppConfigsModel.Designer.cs">
       <DependentUpon>ORM_UserAppConfigsModel.cs</DependentUpon>
@@ -90,6 +95,7 @@
     <Compile Include="Queries\ExternalProgramsQuery.cs" />
     <Compile Include="Queries\ImagesQuery.cs" />
     <Compile Include="Queries\NotesQuery.cs" />
+    <Compile Include="Queries\TasksQuery.cs" />
     <Compile Include="Queries\UserAppConfigsQuery.cs" />
     <Compile Include="Queries\UsersQuery.cs" />
     <Compile Include="Queries\VersionsQuery.cs" />
@@ -146,7 +152,6 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
   <ItemGroup>
     <Analyzer Include="C:\Program Files\DevExpress 25.1\Components\Offline Packages\devexpress.data\25.1.6\analyzers\dotnet\DevExpress.Generator.dll" Visible="false" Condition="Exists('C:\Program Files\DevExpress 25.1\Components\Offline Packages\devexpress.data\25.1.6\analyzers\dotnet\DevExpress.Generator.dll')" />
   </ItemGroup>

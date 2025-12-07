@@ -69,6 +69,12 @@
 			this.bciThemeDark = new DevExpress.XtraBars.BarCheckItem();
 			this.bbiTestCode = new DevExpress.XtraBars.BarButtonItem();
 			this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+			this.bciTrackWindowsAccentColor = new DevExpress.XtraBars.BarCheckItem();
+			this.bciTrackWindowsAppMode = new DevExpress.XtraBars.BarCheckItem();
+			this.bciOriginalPalette = new DevExpress.XtraBars.BarCheckItem();
+			this.bbiCustomColors = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiCustomColors2 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
 			this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
 			this.rpHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.rpgHome = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -81,6 +87,7 @@
 			this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
 			this.bsiStatusLabel = new DevExpress.XtraBars.BarStaticItem();
@@ -96,12 +103,7 @@
 			this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-			this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-			this.bciTrackWindowsAccentColor = new DevExpress.XtraBars.BarCheckItem();
-			this.bciTrackWindowsAppMode = new DevExpress.XtraBars.BarCheckItem();
-			this.bciOriginalPalette = new DevExpress.XtraBars.BarCheckItem();
-			this.bbiCustomColors = new DevExpress.XtraBars.BarButtonItem();
-			this.bbiCustomColors2 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
 			((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.backstageViewControl)).BeginInit();
 			this.backstageViewControl.SuspendLayout();
@@ -159,10 +161,11 @@
             this.bciTrackWindowsAppMode,
             this.bciOriginalPalette,
             this.bbiCustomColors,
-            this.bbiCustomColors2});
+            this.bbiCustomColors2,
+            this.barButtonItem4});
 			this.ribbon.Location = new System.Drawing.Point(0, 0);
 			this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-			this.ribbon.MaxItemId = 34;
+			this.ribbon.MaxItemId = 35;
 			this.ribbon.Name = "ribbon";
 			this.ribbon.OptionsMenuMinWidth = 385;
 			this.ribbon.OptionsSearchMenu.SearchItemPosition = DevExpress.XtraBars.Ribbon.SearchItemPosition.Caption;
@@ -178,7 +181,7 @@
 			this.ribbon.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
 			this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
 			this.ribbon.ShowToolbarCustomizeItem = false;
-			this.ribbon.Size = new System.Drawing.Size(1322, 177);
+			this.ribbon.Size = new System.Drawing.Size(1322, 222);
 			this.ribbon.StatusBar = this.ribbonStatusBar;
 			this.ribbon.Toolbar.ShowCustomizeItem = false;
 			this.ribbon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ribbon_ItemClick);
@@ -493,6 +496,48 @@
 			this.barButtonItem2.Name = "barButtonItem2";
 			this.barButtonItem2.Tag = "LifeLog.UI.FrontEnd.Views.Tools.CodesGenerator.CodesGeneratorView";
 			// 
+			// bciTrackWindowsAccentColor
+			// 
+			this.bciTrackWindowsAccentColor.Caption = "System \r\nAccent \r\nColor";
+			this.bciTrackWindowsAccentColor.Id = 29;
+			this.bciTrackWindowsAccentColor.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
+			this.bciTrackWindowsAccentColor.Name = "bciTrackWindowsAccentColor";
+			// 
+			// bciTrackWindowsAppMode
+			// 
+			this.bciTrackWindowsAppMode.Caption = "Use Windows App Mode";
+			this.bciTrackWindowsAppMode.Id = 30;
+			this.bciTrackWindowsAppMode.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
+			this.bciTrackWindowsAppMode.Name = "bciTrackWindowsAppMode";
+			// 
+			// bciOriginalPalette
+			// 
+			this.bciOriginalPalette.Caption = "Original Palette";
+			this.bciOriginalPalette.Id = 31;
+			this.bciOriginalPalette.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
+			this.bciOriginalPalette.Name = "bciOriginalPalette";
+			// 
+			// bbiCustomColors
+			// 
+			this.bbiCustomColors.Caption = "Custom Color 1";
+			this.bbiCustomColors.Id = 32;
+			this.bbiCustomColors.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
+			this.bbiCustomColors.Name = "bbiCustomColors";
+			// 
+			// bbiCustomColors2
+			// 
+			this.bbiCustomColors2.Caption = "Custom Color 2";
+			this.bbiCustomColors2.Id = 33;
+			this.bbiCustomColors2.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
+			this.bbiCustomColors2.Name = "bbiCustomColors2";
+			// 
+			// barButtonItem4
+			// 
+			this.barButtonItem4.Caption = "barButtonItem4";
+			this.barButtonItem4.Id = 34;
+			this.barButtonItem4.Name = "barButtonItem4";
+			this.barButtonItem4.Tag = "Main.Tasks.TasksView";
+			// 
 			// ribbonPageCategory1
 			// 
 			this.ribbonPageCategory1.Name = "ribbonPageCategory1";
@@ -512,6 +557,7 @@
 			this.rpgHome.ItemLinks.Add(this.bbiCommandsRunner);
 			this.rpgHome.ItemLinks.Add(this.bbiPasswords);
 			this.rpgHome.ItemLinks.Add(this.bbiWeather);
+			this.rpgHome.ItemLinks.Add(this.barButtonItem4);
 			this.rpgHome.Name = "rpgHome";
 			this.rpgHome.Text = "Main";
 			// 
@@ -590,6 +636,16 @@
 			this.ribbonPageGroup6.Name = "ribbonPageGroup6";
 			this.ribbonPageGroup6.Text = "Other Themes";
 			// 
+			// ribbonPageGroup8
+			// 
+			this.ribbonPageGroup8.ItemLinks.Add(this.bciTrackWindowsAppMode);
+			this.ribbonPageGroup8.ItemLinks.Add(this.bciOriginalPalette);
+			this.ribbonPageGroup8.ItemLinks.Add(this.bciTrackWindowsAccentColor);
+			this.ribbonPageGroup8.ItemLinks.Add(this.bbiCustomColors);
+			this.ribbonPageGroup8.ItemLinks.Add(this.bbiCustomColors2);
+			this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+			this.ribbonPageGroup8.Text = "Accent Colors";
+			// 
 			// ribbonPageGroup7
 			// 
 			this.ribbonPageGroup7.ItemLinks.Add(this.bbiTestCode);
@@ -603,11 +659,11 @@
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiAppVersion);
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiTime);
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiUserMenu);
-			this.ribbonStatusBar.Location = new System.Drawing.Point(0, 702);
+			this.ribbonStatusBar.Location = new System.Drawing.Point(0, 687);
 			this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.ribbonStatusBar.Name = "ribbonStatusBar";
 			this.ribbonStatusBar.Ribbon = this.ribbon;
-			this.ribbonStatusBar.Size = new System.Drawing.Size(1322, 24);
+			this.ribbonStatusBar.Size = new System.Drawing.Size(1322, 39);
 			// 
 			// bsiStatusLabel
 			// 
@@ -639,21 +695,21 @@
 			// 
 			this.layoutControl1.Controls.Add(this.panelControl1);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 177);
+			this.layoutControl1.Location = new System.Drawing.Point(0, 222);
 			this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.layoutControl1.Name = "layoutControl1";
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(1322, 525);
+			this.layoutControl1.Size = new System.Drawing.Size(1322, 465);
 			this.layoutControl1.TabIndex = 2;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
 			// panelControl1
 			// 
 			this.panelControl1.Controls.Add(this.navigationFrame);
-			this.panelControl1.Location = new System.Drawing.Point(12, 12);
+			this.panelControl1.Location = new System.Drawing.Point(16, 16);
 			this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.panelControl1.Name = "panelControl1";
-			this.panelControl1.Size = new System.Drawing.Size(1298, 501);
+			this.panelControl1.Size = new System.Drawing.Size(1290, 433);
 			this.panelControl1.TabIndex = 4;
 			// 
 			// navigationFrame
@@ -666,7 +722,7 @@
 			this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.npHome});
 			this.navigationFrame.SelectedPage = this.npHome;
-			this.navigationFrame.Size = new System.Drawing.Size(1294, 497);
+			this.navigationFrame.Size = new System.Drawing.Size(1286, 429);
 			this.navigationFrame.TabIndex = 0;
 			this.navigationFrame.Text = "navigationFrame1";
 			// 
@@ -674,7 +730,7 @@
 			// 
 			this.npHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.npHome.Name = "npHome";
-			this.npHome.Size = new System.Drawing.Size(1294, 497);
+			this.npHome.Size = new System.Drawing.Size(1286, 429);
 			// 
 			// Root
 			// 
@@ -683,7 +739,7 @@
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
 			this.Root.Name = "Root";
-			this.Root.Size = new System.Drawing.Size(1322, 525);
+			this.Root.Size = new System.Drawing.Size(1322, 465);
 			this.Root.TextVisible = false;
 			// 
 			// layoutControlItem1
@@ -691,7 +747,7 @@
 			this.layoutControlItem1.Control = this.panelControl1;
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(1302, 505);
+			this.layoutControlItem1.Size = new System.Drawing.Size(1296, 439);
 			this.layoutControlItem1.TextVisible = false;
 			// 
 			// timer
@@ -715,50 +771,13 @@
 			this.ribbonPage7.Name = "ribbonPage7";
 			this.ribbonPage7.Text = "ribbonPage7";
 			// 
-			// ribbonPageGroup8
+			// barButtonItem3
 			// 
-			this.ribbonPageGroup8.ItemLinks.Add(this.bciTrackWindowsAppMode);
-			this.ribbonPageGroup8.ItemLinks.Add(this.bciOriginalPalette);
-			this.ribbonPageGroup8.ItemLinks.Add(this.bciTrackWindowsAccentColor);
-			this.ribbonPageGroup8.ItemLinks.Add(this.bbiCustomColors);
-			this.ribbonPageGroup8.ItemLinks.Add(this.bbiCustomColors2);
-			this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-			this.ribbonPageGroup8.Text = "Accent Colors";
-			// 
-			// bciTrackWindowsAccentColor
-			// 
-			this.bciTrackWindowsAccentColor.Caption = "System \r\nAccent \r\nColor";
-			this.bciTrackWindowsAccentColor.Id = 29;
-			this.bciTrackWindowsAccentColor.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
-			this.bciTrackWindowsAccentColor.Name = "bciTrackWindowsAccentColor";
-			// 
-			// bciTrackWindowsAppMode
-			// 
-			this.bciTrackWindowsAppMode.Caption = "Use Windows App Mode";
-			this.bciTrackWindowsAppMode.Id = 30;
-			this.bciTrackWindowsAppMode.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
-			this.bciTrackWindowsAppMode.Name = "bciTrackWindowsAppMode";
-			// 
-			// bciOriginalPalette
-			// 
-			this.bciOriginalPalette.Caption = "Original Palette";
-			this.bciOriginalPalette.Id = 31;
-			this.bciOriginalPalette.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
-			this.bciOriginalPalette.Name = "bciOriginalPalette";
-			// 
-			// bbiCustomColors
-			// 
-			this.bbiCustomColors.Caption = "Custom Color 1";
-			this.bbiCustomColors.Id = 32;
-			this.bbiCustomColors.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
-			this.bbiCustomColors.Name = "bbiCustomColors";
-			// 
-			// bbiCustomColors2
-			// 
-			this.bbiCustomColors2.Caption = "Custom Color 2";
-			this.bbiCustomColors2.Id = 33;
-			this.bbiCustomColors2.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
-			this.bbiCustomColors2.Name = "bbiCustomColors2";
+			this.barButtonItem3.Caption = "Weather";
+			this.barButtonItem3.Id = 20;
+			this.barButtonItem3.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.weather;
+			this.barButtonItem3.Name = "barButtonItem3";
+			this.barButtonItem3.Tag = "Main.Weather.WeatherView";
 			// 
 			// MainForm
 			// 
@@ -873,5 +892,7 @@
 		private DevExpress.XtraBars.BarCheckItem bciOriginalPalette;
 		private DevExpress.XtraBars.BarButtonItem bbiCustomColors;
 		private DevExpress.XtraBars.BarButtonItem bbiCustomColors2;
+		private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+		private DevExpress.XtraBars.BarButtonItem barButtonItem3;
 	}
 }

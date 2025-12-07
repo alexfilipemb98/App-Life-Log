@@ -136,6 +136,12 @@
     <Compile Include="Views\Main\Passwords\PasswordsView.Designer.cs">
       <DependentUpon>PasswordsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Main\Tasks\TasksView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Main\Tasks\TasksView.Designer.cs">
+      <DependentUpon>TasksView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Settings\AppSettingsView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,6 +197,7 @@
       <DependentUpon>WeatherView.cs</DependentUpon>
     </Compile>
     <None Include="Properties\DataSources\Countries.Models.StatesModel.datasource" />
+    <None Include="Properties\DataSources\LifeLog.Data.Models.TasksModel.datasource" />
     <None Include="Properties\DataSources\LifeLog.Services.WeatherApi.Models.Next12HoursModel.datasource" />
   </ItemGroup>
   <ItemGroup>
@@ -215,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main\Passwords\PasswordsView.resx">
       <DependentUpon>PasswordsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Main\Tasks\TasksView.resx">
+      <DependentUpon>TasksView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Settings\AppSettingsView.resx">
       <DependentUpon>AppSettingsView.cs</DependentUpon>

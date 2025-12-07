@@ -62,6 +62,8 @@ namespace LifeLog.Data.Database.ORMDataModel
 		public IList<ORM_NotesModel> Notes { get { return GetList<ORM_NotesModel>(nameof(Notes)); } }
 		[Association(@"ORM_CommandsModelReferencesORM_UsersModel"), Aggregated]
 		public IList<ORM_CommandsModel> Commands { get { return GetList<ORM_CommandsModel>(nameof(Commands)); } }
+		[Association(@"ORM_TasksModelReferencesORM_UsersModel"), Aggregated]
+		public IList<ORM_TasksModel> Tasks { get { return GetList<ORM_TasksModel>(nameof(Tasks)); } }
 	}
 
 }

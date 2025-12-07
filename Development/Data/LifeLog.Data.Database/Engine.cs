@@ -18,6 +18,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace LifeLog.Data.Database
@@ -155,6 +156,18 @@ namespace LifeLog.Data.Database
 				if (_userAppConfigs == null)
 					_userAppConfigs = new UserAppConfigsQuery();
 				return _userAppConfigs;
+			}
+		}
+
+		//User App Configs
+		private TasksQuery _tasks;
+		public TasksQuery Tasks
+		{
+			get
+			{
+				if (_tasks == null)
+					_tasks = new TasksQuery();
+				return _tasks;
 			}
 		}
 

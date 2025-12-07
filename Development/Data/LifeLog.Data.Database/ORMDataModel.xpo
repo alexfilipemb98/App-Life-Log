@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataBaseObjectModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="b5d9f02a-15da-4355-9ba2-0840cb43f4e0" namespace="LifeLog.Data.Database.ORMDataModel" dataBaseShemaInfo="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" generateStoredProcedures="false" fieldNameCase="Unchanged" freezeLayout="true" collectionPropertiesType="IListCompatible" useStringInsteadChar="true" useNameOf="true" nullableBehavior="ByUnderlyingType" createdInVersion="25.1.3.0" generateJsonSerializationContractResolver="false" generateServiceCollectionExtensions="false" lastModifiedInVersion="25.1.3.0" name="ORMDataModel" xmlns="http://schemas.microsoft.com/dsltools/ORMDataModel">
+<dataBaseObjectModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="b5d9f02a-15da-4355-9ba2-0840cb43f4e0" namespace="LifeLog.Data.Database.ORMDataModel" dataBaseShemaInfo="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" generateStoredProcedures="false" fieldNameCase="Unchanged" freezeLayout="true" collectionPropertiesType="IListCompatible" useStringInsteadChar="true" useNameOf="true" nullableBehavior="ByUnderlyingType" createdInVersion="25.1.3.0" generateJsonSerializationContractResolver="false" generateServiceCollectionExtensions="false" lastModifiedInVersion="25.1.3.0" name="ORMDataModel" xmlns="http://schemas.microsoft.com/dsltools/ORMDataModel">
   <classes>
     <dataBaseObjectModelHasClasses Id="3cc556e6-9f2d-4c1a-bfad-e5a7a3aa01ed">
       <xpObject Id="1749f336-27d8-4292-ab8b-e7fdf3e12b70" name="ORM_BaseModel" baseClass="XPBaseObject" userFileName="ORM_BaseModel" designerFileName="ORM_BaseModel.Designer" className="ORM_BaseModel" virtualBaseClass="XPBaseObject" optimisticLocking="True" nonPersistent="true" virtualName="ORM_BaseModel" trackPropertiesModificationsOnRead="False" optimisticLockingBehavior="LockModified">
@@ -112,6 +112,9 @@
           <aggregation Id="44c189ed-48fe-4362-9433-a20a80137db6" sourceCollectionName="Commands" name="ORM_CommandsModelReferencesORM_UsersModel" targetFieldName="User">
             <xpObjectMoniker Id="770e524e-c3bd-49ad-8d37-123f66a4d3cb" />
           </aggregation>
+          <aggregation Id="601efd27-3305-460a-a18a-47069a34658e" sourceCollectionName="Tasks" name="ORM_TasksModelReferencesORM_UsersModel" targetFieldName="User">
+            <xpObjectMoniker Id="e464eca9-44b7-4c17-8bff-c7e30fe87886" />
+          </aggregation>
         </aggrTarget>
         <collectionFields>
           <xpObjectHasCollectionFields Id="d11e382d-aa54-4450-b16c-8d26bdb2c521">
@@ -119,6 +122,9 @@
           </xpObjectHasCollectionFields>
           <xpObjectHasCollectionFields Id="8abc5854-e06d-4bb3-adfd-176ea86914fd">
             <collectionField Id="51d1ecb3-bc2c-4203-9328-42aaa04e8e2a" name="Commands" />
+          </xpObjectHasCollectionFields>
+          <xpObjectHasCollectionFields Id="140442f3-a9e0-4d67-b29e-1d81b9a05b21">
+            <collectionField Id="5744637f-8fb3-4f3f-9680-75955f68e4cf" name="Tasks" />
           </xpObjectHasCollectionFields>
         </collectionFields>
       </xpObject>
@@ -301,6 +307,26 @@
         </fields>
         <superClass>
           <inheritance Id="3a5bf4f7-026a-4eb9-9e52-dda4c64f879e">
+            <xpObjectMoniker Id="1749f336-27d8-4292-ab8b-e7fdf3e12b70" />
+          </inheritance>
+        </superClass>
+      </xpObject>
+    </dataBaseObjectModelHasClasses>
+    <dataBaseObjectModelHasClasses Id="49dbc573-6b71-432a-a519-a858e52faa53">
+      <xpObject Id="e464eca9-44b7-4c17-8bff-c7e30fe87886" name="ORM_TasksModel" baseClass="ORM_BaseModel" userFileName="ORM_TasksModel" designerFileName="ORM_TasksModel.Designer" className="ORM_TasksModel" virtualBaseClass="ORM_BaseModel" persistent="Tasks" virtualName="ORM_TasksModel">
+        <fields>
+          <generalXpObjectHasFields Id="7ecc3c3e-fee5-48f0-b5a4-1bf01e614fd3">
+            <field Id="54a9d221-31a7-49f2-9163-e63abe2ff124" name="Description" virtualColumnType="String" dbType="NVARCHAR(350)" delayedUpdateModifiedOnly="false" size="350" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="3c4a5919-804c-4105-8648-12040d398c5c">
+            <field Id="df07470e-ab87-4416-a0d3-20b2897e4b76" name="IsDone" columnType="Boolean" virtualColumnType="Boolean" dbType="BIT" delayedUpdateModifiedOnly="false" defaultValue="Boolean#False" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="b5bff229-fb73-4ef3-9c16-fb2dc88e7e0b">
+            <field Id="30f8623f-2cfb-49bf-aabd-b16225f89618" name="User" persistent="IdUser" virtualColumnType="ORM_UsersModel" logicalType="ORM_UsersModel" dbType="UNIQUEIDENTIFIER" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+        </fields>
+        <superClass>
+          <inheritance Id="3911825a-5332-47f4-a96c-610d1cf92a2c">
             <xpObjectMoniker Id="1749f336-27d8-4292-ab8b-e7fdf3e12b70" />
           </inheritance>
         </superClass>

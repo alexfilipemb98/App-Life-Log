@@ -38,6 +38,7 @@
 			this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
 			this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
 			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+			this.pcCode = new DevExpress.XtraEditors.PanelControl();
 			this.barCodeControl = new DevExpress.XtraEditors.BarCodeControl();
 			this.cbeSymbology = new DevExpress.XtraEditors.ComboBoxEdit();
 			this.cbeCodeType = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -48,11 +49,12 @@
 			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
 			this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.pcCode = new DevExpress.XtraEditors.PanelControl();
 			this.lciCode = new DevExpress.XtraLayout.LayoutControlItem();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
 			this.layoutControl1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pcCode)).BeginInit();
+			this.pcCode.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.cbeSymbology.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.cbeCodeType.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.teTypeText.Properties)).BeginInit();
@@ -62,8 +64,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pcCode)).BeginInit();
-			this.pcCode.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.lciCode)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -112,31 +112,35 @@
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
 			this.barDockControlTop.Manager = this.barManager;
-			this.barDockControlTop.Size = new System.Drawing.Size(862, 24);
+			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.barDockControlTop.Size = new System.Drawing.Size(1006, 39);
 			// 
 			// barDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControlBottom.Location = new System.Drawing.Point(0, 608);
+			this.barDockControlBottom.Location = new System.Drawing.Point(0, 748);
 			this.barDockControlBottom.Manager = this.barManager;
-			this.barDockControlBottom.Size = new System.Drawing.Size(862, 0);
+			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.barDockControlBottom.Size = new System.Drawing.Size(1006, 0);
 			// 
 			// barDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+			this.barDockControlLeft.Location = new System.Drawing.Point(0, 39);
 			this.barDockControlLeft.Manager = this.barManager;
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 584);
+			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.barDockControlLeft.Size = new System.Drawing.Size(0, 709);
 			// 
 			// barDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(862, 24);
+			this.barDockControlRight.Location = new System.Drawing.Point(1006, 39);
 			this.barDockControlRight.Manager = this.barManager;
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 584);
+			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.barDockControlRight.Size = new System.Drawing.Size(0, 709);
 			// 
 			// layoutControl1
 			// 
@@ -145,12 +149,22 @@
 			this.layoutControl1.Controls.Add(this.cbeCodeType);
 			this.layoutControl1.Controls.Add(this.teTypeText);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 24);
+			this.layoutControl1.Location = new System.Drawing.Point(0, 39);
+			this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.layoutControl1.Name = "layoutControl1";
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(862, 584);
+			this.layoutControl1.Size = new System.Drawing.Size(1006, 709);
 			this.layoutControl1.TabIndex = 4;
 			this.layoutControl1.Text = "layoutControl1";
+			// 
+			// pcCode
+			// 
+			this.pcCode.Controls.Add(this.barCodeControl);
+			this.pcCode.Location = new System.Drawing.Point(18, 203);
+			this.pcCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pcCode.Name = "pcCode";
+			this.pcCode.Size = new System.Drawing.Size(970, 20);
+			this.pcCode.TabIndex = 9;
 			// 
 			// barCodeControl
 			// 
@@ -160,16 +174,18 @@
 			this.barCodeControl.HorizontalAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.barCodeControl.HorizontalTextAlignment = DevExpress.Utils.HorzAlignment.Center;
 			this.barCodeControl.Location = new System.Drawing.Point(2, 2);
+			this.barCodeControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.barCodeControl.Name = "barCodeControl";
-			this.barCodeControl.Padding = new System.Windows.Forms.Padding(10, 2, 10, 0);
-			this.barCodeControl.Size = new System.Drawing.Size(834, 436);
+			this.barCodeControl.Padding = new System.Windows.Forms.Padding(12, 2, 12, 0);
+			this.barCodeControl.Size = new System.Drawing.Size(966, 16);
 			this.barCodeControl.Symbology = qrCodeGenerator1;
 			this.barCodeControl.TabIndex = 6;
 			// 
 			// cbeSymbology
 			// 
 			this.cbeSymbology.EditValue = "QR CODE";
-			this.cbeSymbology.Location = new System.Drawing.Point(76, 108);
+			this.cbeSymbology.Location = new System.Drawing.Point(99, 165);
+			this.cbeSymbology.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.cbeSymbology.MenuManager = this.barManager;
 			this.cbeSymbology.Name = "cbeSymbology";
 			this.cbeSymbology.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -180,7 +196,7 @@
             "EAN 13",
             "EAN 128",
             "QR CODE"});
-			this.cbeSymbology.Size = new System.Drawing.Size(774, 20);
+			this.cbeSymbology.Size = new System.Drawing.Size(889, 30);
 			this.cbeSymbology.StyleController = this.layoutControl1;
 			this.cbeSymbology.TabIndex = 7;
 			this.cbeSymbology.SelectedIndexChanged += new System.EventHandler(this.cbeSymbology_SelectedIndexChanged);
@@ -188,7 +204,8 @@
 			// cbeCodeType
 			// 
 			this.cbeCodeType.EditValue = "TEXT";
-			this.cbeCodeType.Location = new System.Drawing.Point(76, 34);
+			this.cbeCodeType.Location = new System.Drawing.Point(99, 52);
+			this.cbeCodeType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.cbeCodeType.MenuManager = this.barManager;
 			this.cbeCodeType.Name = "cbeCodeType";
 			this.cbeCodeType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -197,17 +214,18 @@
 			this.cbeCodeType.Properties.Items.AddRange(new object[] {
             "TEXT",
             "WIFI"});
-			this.cbeCodeType.Size = new System.Drawing.Size(774, 20);
+			this.cbeCodeType.Size = new System.Drawing.Size(889, 30);
 			this.cbeCodeType.StyleController = this.layoutControl1;
 			this.cbeCodeType.TabIndex = 5;
 			this.cbeCodeType.SelectedIndexChanged += new System.EventHandler(this.cbeCodeType_SelectedIndexChanged);
 			// 
 			// teTypeText
 			// 
-			this.teTypeText.Location = new System.Drawing.Point(76, 58);
+			this.teTypeText.Location = new System.Drawing.Point(99, 90);
+			this.teTypeText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.teTypeText.MenuManager = this.barManager;
 			this.teTypeText.Name = "teTypeText";
-			this.teTypeText.Size = new System.Drawing.Size(774, 20);
+			this.teTypeText.Size = new System.Drawing.Size(889, 30);
 			this.teTypeText.StyleController = this.layoutControl1;
 			this.teTypeText.TabIndex = 4;
 			this.teTypeText.EditValueChanged += new System.EventHandler(this.teTypeText_EditValueChanged);
@@ -220,7 +238,7 @@
             this.layoutControlGroup1,
             this.layoutControlGroup2});
 			this.Root.Name = "Root";
-			this.Root.Size = new System.Drawing.Size(862, 584);
+			this.Root.Size = new System.Drawing.Size(1006, 709);
 			this.Root.TextVisible = false;
 			// 
 			// layoutControlGroup1
@@ -235,7 +253,7 @@
 			this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlGroup1.Name = "layoutControlGroup1";
 			this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlGroup1.Size = new System.Drawing.Size(842, 70);
+			this.layoutControlGroup1.Size = new System.Drawing.Size(976, 108);
 			this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
 			this.layoutControlGroup1.Text = "Main";
 			// 
@@ -244,18 +262,18 @@
 			this.layoutControlItem2.Control = this.cbeCodeType;
 			this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem2.Name = "layoutControlItem2";
-			this.layoutControlItem2.Size = new System.Drawing.Size(842, 24);
+			this.layoutControlItem2.Size = new System.Drawing.Size(976, 38);
 			this.layoutControlItem2.Text = "Type";
-			this.layoutControlItem2.TextSize = new System.Drawing.Size(52, 13);
+			this.layoutControlItem2.TextSize = new System.Drawing.Size(62, 16);
 			// 
 			// layoutControlItem1
 			// 
 			this.layoutControlItem1.Control = this.teTypeText;
-			this.layoutControlItem1.Location = new System.Drawing.Point(0, 24);
+			this.layoutControlItem1.Location = new System.Drawing.Point(0, 38);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(842, 24);
+			this.layoutControlItem1.Size = new System.Drawing.Size(976, 38);
 			this.layoutControlItem1.Text = "Text";
-			this.layoutControlItem1.TextSize = new System.Drawing.Size(52, 13);
+			this.layoutControlItem1.TextSize = new System.Drawing.Size(62, 16);
 			// 
 			// layoutControlGroup2
 			// 
@@ -263,11 +281,11 @@
 			this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem4,
             this.lciCode});
-			this.layoutControlGroup2.Location = new System.Drawing.Point(0, 70);
+			this.layoutControlGroup2.Location = new System.Drawing.Point(0, 108);
 			this.layoutControlGroup2.Name = "layoutControlGroup2";
 			this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlGroup2.Size = new System.Drawing.Size(842, 494);
-			this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 4, 0);
+			this.layoutControlGroup2.Size = new System.Drawing.Size(976, 569);
+			this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
 			this.layoutControlGroup2.Text = "Result";
 			// 
 			// layoutControlItem4
@@ -275,41 +293,36 @@
 			this.layoutControlItem4.Control = this.cbeSymbology;
 			this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem4.Name = "layoutControlItem4";
-			this.layoutControlItem4.Size = new System.Drawing.Size(842, 24);
+			this.layoutControlItem4.Size = new System.Drawing.Size(976, 38);
 			this.layoutControlItem4.Text = "Symbology";
-			this.layoutControlItem4.TextSize = new System.Drawing.Size(52, 13);
-			// 
-			// pcCode
-			// 
-			this.pcCode.Controls.Add(this.barCodeControl);
-			this.pcCode.Location = new System.Drawing.Point(12, 132);
-			this.pcCode.Name = "pcCode";
-			this.pcCode.Size = new System.Drawing.Size(838, 440);
-			this.pcCode.TabIndex = 9;
+			this.layoutControlItem4.TextSize = new System.Drawing.Size(62, 16);
 			// 
 			// lciCode
 			// 
 			this.lciCode.Control = this.pcCode;
-			this.lciCode.Location = new System.Drawing.Point(0, 24);
+			this.lciCode.Location = new System.Drawing.Point(0, 38);
 			this.lciCode.Name = "lciCode";
-			this.lciCode.Size = new System.Drawing.Size(842, 444);
+			this.lciCode.Size = new System.Drawing.Size(976, 494);
 			this.lciCode.TextVisible = false;
 			// 
 			// CodesGeneratorView
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.layoutControl1);
 			this.Controls.Add(this.barDockControlLeft);
 			this.Controls.Add(this.barDockControlRight);
 			this.Controls.Add(this.barDockControlBottom);
 			this.Controls.Add(this.barDockControlTop);
+			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.Name = "CodesGeneratorView";
-			this.Size = new System.Drawing.Size(862, 608);
+			this.Size = new System.Drawing.Size(1006, 748);
 			this.Load += new System.EventHandler(this.CodesGeneratorView_Load);
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
 			this.layoutControl1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pcCode)).EndInit();
+			this.pcCode.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.cbeSymbology.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.cbeCodeType.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.teTypeText.Properties)).EndInit();
@@ -319,8 +332,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pcCode)).EndInit();
-			this.pcCode.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.lciCode)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
