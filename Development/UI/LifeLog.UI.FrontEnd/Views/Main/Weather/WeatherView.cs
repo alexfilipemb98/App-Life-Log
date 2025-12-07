@@ -264,24 +264,6 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Weather
 
 					chartControl1.DataSource = forecast.next12Hours;
 
-					//DevExpress.XtraCharts.Series series = chartControl1.Series[0];
-
-					//series.ArgumentDataMember = "Time";
-					//series.ValueDataMembers.Clear();
-					//series.ValueDataMembers.AddRange("Temp");
-					//series.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
-
-					//// Mostra horas
-					//series.Label.TextPattern = "{A:HH:mm} - {V}°C";
-
-					//var diagram = chartControl1.Diagram as DevExpress.XtraCharts.XYDiagram;
-					//if (diagram != null)
-					//{
-					//	diagram.AxisX.DateTimeScaleOptions.MeasureUnit = DevExpress.XtraCharts.DateTimeMeasureUnit.Hour;
-					//	diagram.AxisX.DateTimeScaleOptions.GridAlignment = DevExpress.XtraCharts.DateTimeGridAlignment.Hour;
-					//	diagram.AxisX.Label.TextPattern = "{A:HH:mm}";
-					//}
-
 					popupContainerEdit1.ClosePopup();
 				}
 			}
