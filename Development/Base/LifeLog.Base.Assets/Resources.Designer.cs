@@ -1033,6 +1033,16 @@ namespace LifeLog.Base.Assets {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage task {
+            get {
+                object obj = ResourceManager.GetObject("task", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         public static DevExpress.Utils.Svg.SvgImage tech_color_desktop {
             get {
                 object obj = ResourceManager.GetObject("tech-color-desktop", resourceCulture);

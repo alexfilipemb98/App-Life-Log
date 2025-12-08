@@ -74,7 +74,7 @@
 			this.bciOriginalPalette = new DevExpress.XtraBars.BarCheckItem();
 			this.bbiCustomColors = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiCustomColors2 = new DevExpress.XtraBars.BarButtonItem();
-			this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiTasks = new DevExpress.XtraBars.BarButtonItem();
 			this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
 			this.rpHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.rpgHome = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -162,7 +162,7 @@
             this.bciOriginalPalette,
             this.bbiCustomColors,
             this.bbiCustomColors2,
-            this.barButtonItem4});
+            this.bbiTasks});
 			this.ribbon.Location = new System.Drawing.Point(0, 0);
 			this.ribbon.Margin = new System.Windows.Forms.Padding(4);
 			this.ribbon.MaxItemId = 35;
@@ -181,7 +181,7 @@
 			this.ribbon.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
 			this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
 			this.ribbon.ShowToolbarCustomizeItem = false;
-			this.ribbon.Size = new System.Drawing.Size(1322, 222);
+			this.ribbon.Size = new System.Drawing.Size(1322, 177);
 			this.ribbon.StatusBar = this.ribbonStatusBar;
 			this.ribbon.Toolbar.ShowCustomizeItem = false;
 			this.ribbon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ribbon_ItemClick);
@@ -531,12 +531,13 @@
 			this.bbiCustomColors2.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.actions_window;
 			this.bbiCustomColors2.Name = "bbiCustomColors2";
 			// 
-			// barButtonItem4
+			// bbiTasks
 			// 
-			this.barButtonItem4.Caption = "barButtonItem4";
-			this.barButtonItem4.Id = 34;
-			this.barButtonItem4.Name = "barButtonItem4";
-			this.barButtonItem4.Tag = "Main.Tasks.TasksView";
+			this.bbiTasks.Caption = "Tasks";
+			this.bbiTasks.Id = 34;
+			this.bbiTasks.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.task;
+			this.bbiTasks.Name = "bbiTasks";
+			this.bbiTasks.Tag = "Main.Tasks.TasksView";
 			// 
 			// ribbonPageCategory1
 			// 
@@ -557,7 +558,7 @@
 			this.rpgHome.ItemLinks.Add(this.bbiCommandsRunner);
 			this.rpgHome.ItemLinks.Add(this.bbiPasswords);
 			this.rpgHome.ItemLinks.Add(this.bbiWeather);
-			this.rpgHome.ItemLinks.Add(this.barButtonItem4);
+			this.rpgHome.ItemLinks.Add(this.bbiTasks);
 			this.rpgHome.Name = "rpgHome";
 			this.rpgHome.Text = "Main";
 			// 
@@ -659,11 +660,11 @@
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiAppVersion);
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiTime);
 			this.ribbonStatusBar.ItemLinks.Add(this.bsiUserMenu);
-			this.ribbonStatusBar.Location = new System.Drawing.Point(0, 687);
+			this.ribbonStatusBar.Location = new System.Drawing.Point(0, 702);
 			this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.ribbonStatusBar.Name = "ribbonStatusBar";
 			this.ribbonStatusBar.Ribbon = this.ribbon;
-			this.ribbonStatusBar.Size = new System.Drawing.Size(1322, 39);
+			this.ribbonStatusBar.Size = new System.Drawing.Size(1322, 24);
 			// 
 			// bsiStatusLabel
 			// 
@@ -695,21 +696,21 @@
 			// 
 			this.layoutControl1.Controls.Add(this.panelControl1);
 			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 222);
+			this.layoutControl1.Location = new System.Drawing.Point(0, 177);
 			this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.layoutControl1.Name = "layoutControl1";
 			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(1322, 465);
+			this.layoutControl1.Size = new System.Drawing.Size(1322, 525);
 			this.layoutControl1.TabIndex = 2;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
 			// panelControl1
 			// 
 			this.panelControl1.Controls.Add(this.navigationFrame);
-			this.panelControl1.Location = new System.Drawing.Point(16, 16);
+			this.panelControl1.Location = new System.Drawing.Point(12, 12);
 			this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.panelControl1.Name = "panelControl1";
-			this.panelControl1.Size = new System.Drawing.Size(1290, 433);
+			this.panelControl1.Size = new System.Drawing.Size(1298, 501);
 			this.panelControl1.TabIndex = 4;
 			// 
 			// navigationFrame
@@ -722,7 +723,7 @@
 			this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.npHome});
 			this.navigationFrame.SelectedPage = this.npHome;
-			this.navigationFrame.Size = new System.Drawing.Size(1286, 429);
+			this.navigationFrame.Size = new System.Drawing.Size(1294, 497);
 			this.navigationFrame.TabIndex = 0;
 			this.navigationFrame.Text = "navigationFrame1";
 			// 
@@ -730,7 +731,7 @@
 			// 
 			this.npHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.npHome.Name = "npHome";
-			this.npHome.Size = new System.Drawing.Size(1286, 429);
+			this.npHome.Size = new System.Drawing.Size(1294, 497);
 			// 
 			// Root
 			// 
@@ -739,7 +740,7 @@
 			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
 			this.Root.Name = "Root";
-			this.Root.Size = new System.Drawing.Size(1322, 465);
+			this.Root.Size = new System.Drawing.Size(1322, 525);
 			this.Root.TextVisible = false;
 			// 
 			// layoutControlItem1
@@ -747,7 +748,7 @@
 			this.layoutControlItem1.Control = this.panelControl1;
 			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
 			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(1296, 439);
+			this.layoutControlItem1.Size = new System.Drawing.Size(1302, 505);
 			this.layoutControlItem1.TextVisible = false;
 			// 
 			// timer
@@ -892,7 +893,7 @@
 		private DevExpress.XtraBars.BarCheckItem bciOriginalPalette;
 		private DevExpress.XtraBars.BarButtonItem bbiCustomColors;
 		private DevExpress.XtraBars.BarButtonItem bbiCustomColors2;
-		private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+		private DevExpress.XtraBars.BarButtonItem bbiTasks;
 		private DevExpress.XtraBars.BarButtonItem barButtonItem3;
 	}
 }

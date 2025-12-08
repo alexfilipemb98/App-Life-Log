@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
-			DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
-			DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-			DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel2 = new DevExpress.XtraCharts.PointSeriesLabel();
-			DevExpress.XtraCharts.LineSeriesView lineSeriesView2 = new DevExpress.XtraCharts.LineSeriesView();
+			DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+			DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+			DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel1 = new DevExpress.XtraCharts.PointSeriesLabel();
+			DevExpress.XtraCharts.LineSeriesView lineSeriesView1 = new DevExpress.XtraCharts.LineSeriesView();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WeatherView));
 			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+			this.pceSearch = new DevExpress.XtraEditors.PopupContainerControl();
+			this.lcbSearch = new DevExpress.XtraEditors.ListBoxControl();
 			this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
 			this.next12HoursModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.popupContainerEdit1 = new DevExpress.XtraEditors.PopupContainerEdit();
@@ -45,8 +47,9 @@
 			this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
 			this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
 			this.repositoryItemSearchControl1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchControl();
-			this.pceSearch = new DevExpress.XtraEditors.PopupContainerControl();
-			this.lcbSearch = new DevExpress.XtraEditors.ListBoxControl();
+			this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+			this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+			this.riPictureEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
 			this.lblWeatherState = new DevExpress.XtraEditors.LabelControl();
 			this.peIconCountry = new DevExpress.XtraEditors.PictureEdit();
 			this.lueCountry = new LifeLog.Base.Components.LookUpEditEx();
@@ -99,32 +102,32 @@
 			this.simpleSeparator9 = new DevExpress.XtraLayout.SimpleSeparator();
 			this.simpleSeparator10 = new DevExpress.XtraLayout.SimpleSeparator();
 			this.simpleSeparator11 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator13 = new DevExpress.XtraLayout.SimpleSeparator();
 			this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
 			this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
 			this.simpleSeparator12 = new DevExpress.XtraLayout.SimpleSeparator();
+			this.simpleSeparator14 = new DevExpress.XtraLayout.SimpleSeparator();
 			this.citiesModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.statesModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-			this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-			this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-			this.riPictureEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
-			this.simpleSeparator13 = new DevExpress.XtraLayout.SimpleSeparator();
-			this.simpleSeparator14 = new DevExpress.XtraLayout.SimpleSeparator();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
 			this.layoutControl1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pceSearch)).BeginInit();
+			this.pceSearch.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.lcbSearch)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(pointSeriesLabel2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(lineSeriesView2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.next12HoursModelBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.popupContainerEdit1.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pceSearch)).BeginInit();
-			this.pceSearch.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.lcbSearch)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.riPictureEdit)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.peIconCountry.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.lueCountry.Properties)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.countriesModelBindingSource)).BeginInit();
@@ -164,17 +167,14 @@
 			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator9)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator10)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator11)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator13)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator12)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator14)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.citiesModelBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.statesModelBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.riPictureEdit)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator13)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator14)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// layoutControl1
@@ -207,33 +207,61 @@
 			this.layoutControl1.TabIndex = 2;
 			this.layoutControl1.Text = "layoutControl1";
 			// 
+			// pceSearch
+			// 
+			this.pceSearch.AutoSize = true;
+			this.pceSearch.Controls.Add(this.lcbSearch);
+			this.pceSearch.Location = new System.Drawing.Point(551, 13);
+			this.pceSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.pceSearch.Name = "pceSearch";
+			this.pceSearch.Size = new System.Drawing.Size(267, 14);
+			this.pceSearch.TabIndex = 31;
+			// 
+			// lcbSearch
+			// 
+			this.lcbSearch.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+			this.lcbSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lcbSearch.Location = new System.Drawing.Point(0, 0);
+			this.lcbSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.lcbSearch.Name = "lcbSearch";
+			this.lcbSearch.Size = new System.Drawing.Size(267, 14);
+			this.lcbSearch.TabIndex = 32;
+			this.lcbSearch.SelectedIndexChanged += new System.EventHandler(this.lcbSearch_SelectedIndexChanged);
+			// 
 			// chartControl1
 			// 
 			this.chartControl1.DataSource = this.next12HoursModelBindingSource;
-			xyDiagram2.AxisX.DateTimeScaleOptions.AutoGrid = false;
-			xyDiagram2.AxisX.DateTimeScaleOptions.GridAlignment = DevExpress.XtraCharts.DateTimeGridAlignment.Hour;
-			xyDiagram2.AxisX.DateTimeScaleOptions.GridSpacing = 2D;
-			xyDiagram2.AxisX.DateTimeScaleOptions.MeasureUnit = DevExpress.XtraCharts.DateTimeMeasureUnit.Hour;
-			xyDiagram2.AxisX.Label.TextPattern = "{A:HH:mm}";
-			xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
-			xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
-			this.chartControl1.Diagram = xyDiagram2;
+			xyDiagram1.AxisX.DateTimeScaleOptions.AutoGrid = false;
+			xyDiagram1.AxisX.DateTimeScaleOptions.GridAlignment = DevExpress.XtraCharts.DateTimeGridAlignment.Hour;
+			xyDiagram1.AxisX.DateTimeScaleOptions.GridSpacing = 2D;
+			xyDiagram1.AxisX.DateTimeScaleOptions.MeasureUnit = DevExpress.XtraCharts.DateTimeMeasureUnit.Hour;
+			xyDiagram1.AxisX.Label.TextPattern = "{A:HH:mm}";
+			xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+			xyDiagram1.AxisY.Label.TextPattern = "{V:F2} ºC";
+			xyDiagram1.AxisY.Visibility = DevExpress.Utils.DefaultBoolean.True;
+			xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+			xyDiagram1.DefaultPane.StackedBarTotalLabel.TextPattern = "{V:F2} ºC";
+			this.chartControl1.Diagram = xyDiagram1;
 			this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
 			this.chartControl1.Location = new System.Drawing.Point(557, 88);
 			this.chartControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.chartControl1.Name = "chartControl1";
-			series2.ArgumentDataMember = "Time";
-			series2.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
-			series2.DateTimeSummaryOptions.MeasureUnit = DevExpress.XtraCharts.DateTimeMeasureUnit.Hour;
-			series2.DateTimeSummaryOptions.MeasureUnitMultiplier = 1;
-			pointSeriesLabel2.TextPattern = "{A:HH:mm} - {V}°C";
-			series2.Label = pointSeriesLabel2;
-			series2.Name = "Series 1";
-			series2.SeriesID = 0;
-			series2.ValueDataMembersSerializable = "Temp";
-			series2.View = lineSeriesView2;
+			series1.ArgumentDataMember = "Time";
+			series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
+			series1.CrosshairLabelPattern = "{A:HH:mm} : {V:F2}C";
+			series1.DateTimeSummaryOptions.MeasureUnit = DevExpress.XtraCharts.DateTimeMeasureUnit.Hour;
+			series1.DateTimeSummaryOptions.MeasureUnitMultiplier = 1;
+			pointSeriesLabel1.TextPattern = "{A:HH:mm} - {V}°C";
+			series1.Label = pointSeriesLabel1;
+			series1.Name = "Series 1";
+			series1.SeriesID = 0;
+			series1.ToolTipPointPattern = "{A:HH:mm} : {V:F2} ºC";
+			series1.ValueDataMembersSerializable = "Temp";
+			series1.View = lineSeriesView1;
 			this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
+        series1};
+			this.chartControl1.SeriesTemplate.CrosshairLabelPattern = "{A:HH:mm} : {V:F2}C";
+			this.chartControl1.SeriesTemplate.ToolTipPointPattern = "{A:HH:mm} : {V:F2}C";
 			this.chartControl1.Size = new System.Drawing.Size(474, 270);
 			this.chartControl1.TabIndex = 31;
 			// 
@@ -322,26 +350,19 @@
             new DevExpress.XtraEditors.Repository.SearchButton()});
 			this.repositoryItemSearchControl1.Name = "repositoryItemSearchControl1";
 			// 
-			// pceSearch
+			// repositoryItemTextEdit1
 			// 
-			this.pceSearch.AutoSize = true;
-			this.pceSearch.Controls.Add(this.lcbSearch);
-			this.pceSearch.Location = new System.Drawing.Point(551, 13);
-			this.pceSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.pceSearch.Name = "pceSearch";
-			this.pceSearch.Size = new System.Drawing.Size(267, 14);
-			this.pceSearch.TabIndex = 31;
+			this.repositoryItemTextEdit1.AutoHeight = false;
+			this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
 			// 
-			// lcbSearch
+			// repositoryItemTextEdit3
 			// 
-			this.lcbSearch.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-			this.lcbSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lcbSearch.Location = new System.Drawing.Point(0, 0);
-			this.lcbSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.lcbSearch.Name = "lcbSearch";
-			this.lcbSearch.Size = new System.Drawing.Size(267, 14);
-			this.lcbSearch.TabIndex = 32;
-			this.lcbSearch.SelectedIndexChanged += new System.EventHandler(this.lcbSearch_SelectedIndexChanged);
+			this.repositoryItemTextEdit3.AutoHeight = false;
+			this.repositoryItemTextEdit3.Name = "repositoryItemTextEdit3";
+			// 
+			// riPictureEdit
+			// 
+			this.riPictureEdit.Name = "riPictureEdit";
 			// 
 			// lblWeatherState
 			// 
@@ -951,6 +972,12 @@
 			this.simpleSeparator11.Name = "simpleSeparator11";
 			this.simpleSeparator11.Size = new System.Drawing.Size(1, 34);
 			// 
+			// simpleSeparator13
+			// 
+			this.simpleSeparator13.Location = new System.Drawing.Point(0, 273);
+			this.simpleSeparator13.Name = "simpleSeparator13";
+			this.simpleSeparator13.Size = new System.Drawing.Size(393, 1);
+			// 
 			// emptySpaceItem3
 			// 
 			this.emptySpaceItem3.Location = new System.Drawing.Point(0, 149);
@@ -971,6 +998,12 @@
 			this.simpleSeparator12.Name = "simpleSeparator12";
 			this.simpleSeparator12.Size = new System.Drawing.Size(1, 274);
 			// 
+			// simpleSeparator14
+			// 
+			this.simpleSeparator14.Location = new System.Drawing.Point(0, 352);
+			this.simpleSeparator14.Name = "simpleSeparator14";
+			this.simpleSeparator14.Size = new System.Drawing.Size(1029, 1);
+			// 
 			// citiesModelBindingSource
 			// 
 			this.citiesModelBindingSource.DataSource = typeof(Countries.Models.CitiesModel);
@@ -982,32 +1015,6 @@
 			// dxErrorProvider
 			// 
 			this.dxErrorProvider.ContainerControl = this;
-			// 
-			// repositoryItemTextEdit1
-			// 
-			this.repositoryItemTextEdit1.AutoHeight = false;
-			this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-			// 
-			// repositoryItemTextEdit3
-			// 
-			this.repositoryItemTextEdit3.AutoHeight = false;
-			this.repositoryItemTextEdit3.Name = "repositoryItemTextEdit3";
-			// 
-			// riPictureEdit
-			// 
-			this.riPictureEdit.Name = "riPictureEdit";
-			// 
-			// simpleSeparator13
-			// 
-			this.simpleSeparator13.Location = new System.Drawing.Point(0, 273);
-			this.simpleSeparator13.Name = "simpleSeparator13";
-			this.simpleSeparator13.Size = new System.Drawing.Size(393, 1);
-			// 
-			// simpleSeparator14
-			// 
-			this.simpleSeparator14.Location = new System.Drawing.Point(0, 352);
-			this.simpleSeparator14.Name = "simpleSeparator14";
-			this.simpleSeparator14.Size = new System.Drawing.Size(1029, 1);
 			// 
 			// WeatherView
 			// 
@@ -1024,19 +1031,22 @@
 			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
 			this.layoutControl1.ResumeLayout(false);
 			this.layoutControl1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(pointSeriesLabel2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(lineSeriesView2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pceSearch)).EndInit();
+			this.pceSearch.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.lcbSearch)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.next12HoursModelBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.popupContainerEdit1.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pceSearch)).EndInit();
-			this.pceSearch.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.lcbSearch)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.riPictureEdit)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.peIconCountry.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.lueCountry.Properties)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.countriesModelBindingSource)).EndInit();
@@ -1076,17 +1086,14 @@
 			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator9)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator10)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator11)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator13)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator12)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator14)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.citiesModelBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.statesModelBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.riPictureEdit)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator13)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.simpleSeparator14)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

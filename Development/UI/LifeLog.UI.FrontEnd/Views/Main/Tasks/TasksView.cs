@@ -1,5 +1,5 @@
 ﻿using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Tile;
+using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraSplashScreen;
 using LifeLog.Data.Models;
 using LifeLog.UI.Common;
@@ -11,28 +11,74 @@ using System.Threading.Tasks;
 
 namespace LifeLog.UI.FrontEnd.Views.Main.Tasks
 {
+	/// <summary>
+	/// Tasks View
+	/// </summary>
 	public partial class TasksView : XtraUserControl
 	{
+		#region MAIN
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		public TasksView() => InitializeComponent();
+
+		#endregion
+
+		#region EVENTS
+
+		#region CLICK
+
+		/// <summary>
+		/// Refresh button click event
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private async void bbiRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
+			{
+				await LoadData();
+			}
+		}
+
+		#endregion
+
+		#region GV TASKS
+
+		/// <summary>
+		/// Init new row event for gvTasks
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void gvTasks_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+		{
+			TasksModel cmd = gvTasks.GetObjectByRowHandle<TasksModel>(e.RowHandle);
+			if (cmd != null)
+			{
+				cmd.User = AppSession.CurrentUser;
+			}
+		}
 
 		/// <summary>
 		/// gvTasks Row Updated event
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private async void gvTasks_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
+		private async void gvTasks_RowUpdated(object sender, RowObjectEventArgs e)
 		{
 			UpdateProgressBar();
 
 			if (e.Row is TasksModel task && task != null)
 			{
 				task.User = AppSession.CurrentUser;
-				(bool saved, string message)  = await AppSession.DataEngine.Tasks.Save(task);
+				(bool saved, string message) = await AppSession.DataEngine.Tasks.Save(task);
 			}
 		}
+
+		#endregion
+
+		#endregion
 
 		#region FUNCTIONS
 
@@ -82,21 +128,5 @@ namespace LifeLog.UI.FrontEnd.Views.Main.Tasks
 
 		#endregion
 
-		private async void bbiRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-		{
-			using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
-			{
-				await LoadData();
-			}
-		}
-
-		private void gvTasks_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
-		{
-			TasksModel cmd = gvTasks.GetObjectByRowHandle<TasksModel>(e.RowHandle);
-			if (cmd !=  null)
-			{
-				cmd.User = AppSession.CurrentUser;
-			}
-		}
 	}
 }

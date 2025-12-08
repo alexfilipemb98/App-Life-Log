@@ -43,24 +43,12 @@ namespace LifeLog.UI.FrontEnd.Views.Entertainment.CoinFlip
 		/// <param name="e"></param>
 		public void CoinFlipGameView_Resize(object sender, EventArgs e)
 		{
-			int h1 = Math.Min(layoutControl.Height - 125, layoutControl.Width - 50);
-			Size size = new Size(h1, h1);
-
-			lciPeGameImage.MaxSize = size;
-			lciPeGameImage.MinSize = size;
-			lciPeGameImage.Size = size;
-
-			int widthFinal = (esiLeft.Width + esiRight.Width) / 2;
-			int wt = (esiTopLeft.Width + esiTopRight.Width) / 2;
-
-			esiLeft.Width = widthFinal;
-			esiRight.Width = widthFinal;
-
-			esiTopLeft.Width = wt;
-			esiTopRight.Width = wt;
+			RisizeGame();
 		}
 
 		#endregion
+		
+		#region EVENTS
 
 		#region ITEM CLICK
 
@@ -117,7 +105,48 @@ namespace LifeLog.UI.FrontEnd.Views.Entertainment.CoinFlip
 
 		#endregion
 
+		#endregion
+
 		#region FUNCTION
+
+		#region PUBLIC
+
+		/// <summary>
+		/// Load data
+		/// </summary>
+		public void LoadData()
+		{
+			scores[Coin.Heads] = 0;
+			scores[Coin.Tails] = 0;
+			UpdateSocreBoard();
+			RisizeGame();
+		}
+
+		#endregion
+
+		#region PRIVATE
+
+		/// <summary>
+		/// Resize the game area
+		/// </summary>
+		private void RisizeGame()
+		{
+			int h1 = Math.Min(layoutControl.Height - 125, layoutControl.Width - 50);
+			Size size = new Size(h1, h1);
+
+			lciPeGameImage.MaxSize = size;
+			lciPeGameImage.MinSize = size;
+			lciPeGameImage.Size = size;
+
+			int widthFinal = (esiLeft.Width + esiRight.Width) / 2;
+			int wt = (esiTopLeft.Width + esiTopRight.Width) / 2;
+
+			esiLeft.Width = widthFinal;
+			esiRight.Width = widthFinal;
+
+			esiTopLeft.Width = wt;
+			esiTopRight.Width = wt;
+		}
 
 		/// <summary>
 		/// Update the score board
@@ -128,6 +157,8 @@ namespace LifeLog.UI.FrontEnd.Views.Entertainment.CoinFlip
 			lcScoreTails.Text = scores[Coin.Tails].ToString();
 		}
 
+		#endregion
+		
 		#endregion
 	}
 }

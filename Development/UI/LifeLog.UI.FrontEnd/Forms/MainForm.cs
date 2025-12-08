@@ -393,6 +393,8 @@ namespace LifeLog.UI.FrontEnd.Forms
 		#endregion
 
 		#region FUNCTIONS
+		
+		#region PRIVATE
 
 		/// <summary>
 		/// Open the pages
@@ -515,6 +517,8 @@ namespace LifeLog.UI.FrontEnd.Forms
 			bbiCustomColors2.SuperTip.Items[0].Appearance.FontStyleDelta = FontStyle.Bold;
 		}
 
+		#endregion
+		
 		#endregion
 
 		/// <summary>

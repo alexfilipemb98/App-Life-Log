@@ -39,6 +39,8 @@ namespace LifeLog.UI.FrontEnd.Views.Entertainment.TicTacToe
 
 		#endregion
 
+		#region EVENTS
+
 		#region ITEM CLICK
 
 		/// <summary>
@@ -80,67 +82,37 @@ namespace LifeLog.UI.FrontEnd.Views.Entertainment.TicTacToe
 		/// <param name="e"></param>
 		public void TicTacToeGameView_Resize(object sender, EventArgs e)
 		{
-			//height for the controlls
-			int h1 = layoutControl.Height;
-			int newHeight = (h1 - 125) / 3;
-			Size size = new Size(newHeight, newHeight);
-			int wt = (esiTopLeft.Width + esiTopRight.Width) / 2;
-			int widthFinal = (esiLeft.Width + esiRight.Width) / 2;
+			GameResize();
+		}
 
-			//1
-			lciPe1_1.MaxSize = size;
-			lciPe1_1.MinSize = size;
-			lciPe1_1.Size = size;
 
-			lciPe1_2.MaxSize = size;
-			lciPe1_2.MinSize = size;
-			lciPe1_2.Size = size;
 
-			lciPe1_3.MaxSize = size;
-			lciPe1_3.MinSize = size;
-			lciPe1_3.Size = size;
+		#endregion
 
-			//2
-			lciPe2_1.MaxSize = size;
-			lciPe2_1.MinSize = size;
-			lciPe2_1.Size = size;
+		#endregion
+		
+		#region FUNCTIONS
 
-			lciPe2_2.MaxSize = size;
-			lciPe2_2.MinSize = size;
-			lciPe2_2.Size = size;
+		#region PUBLIC
 
-			lciPe2_3.MaxSize = size;
-			lciPe2_3.MinSize = size;
-			lciPe2_3.Size = size;
-
-			//3
-			lciPe3_1.MaxSize = size;
-			lciPe3_1.MinSize = size;
-			lciPe3_1.Size = size;
-
-			lciPe3_2.MaxSize = size;
-			lciPe3_2.MinSize = size;
-			lciPe3_2.Size = size;
-
-			lciPe3_3.MaxSize = size;
-			lciPe3_3.MinSize = size;
-			lciPe3_3.Size = size;
-
-			esiLeft.Width = widthFinal;
-			esiRight.Width = widthFinal;
-
-			esiTopLeft.Width = wt;
-			esiTopRight.Width = wt;
+		/// <summary>
+		/// Load data
+		/// </summary>
+		public void LoadData()
+		{
+			StartGame();
+			UpdateScores();
+			GameResize();
 		}
 
 		#endregion
 
-		#region FUNCTIONS
+		#region PRIVATE
 
 		/// <summary>
 		/// Start the game
 		/// </summary>
-		public void StartGame()
+		private void StartGame()
 		{
 			ClearGameBoard();
 			playerTurn = GetRandomPlayer();
@@ -311,6 +283,66 @@ namespace LifeLog.UI.FrontEnd.Views.Entertainment.TicTacToe
 			lcPlayerOScore.Text = scores[Player.PlayerO].ToString();
 			lcTieScore.Text = scores[Player.PlayerN].ToString();
 		}
+
+		/// <summary>
+		/// Resize the game layout
+		/// </summary>
+		private void GameResize()
+		{
+			//height for the controlls
+			int h1 = layoutControl.Height;
+			int newHeight = (h1 - 125) / 3;
+			Size size = new Size(newHeight, newHeight);
+			int wt = (esiTopLeft.Width + esiTopRight.Width) / 2;
+			int widthFinal = (esiLeft.Width + esiRight.Width) / 2;
+
+			//1
+			lciPe1_1.MaxSize = size;
+			lciPe1_1.MinSize = size;
+			lciPe1_1.Size = size;
+
+			lciPe1_2.MaxSize = size;
+			lciPe1_2.MinSize = size;
+			lciPe1_2.Size = size;
+
+			lciPe1_3.MaxSize = size;
+			lciPe1_3.MinSize = size;
+			lciPe1_3.Size = size;
+
+			//2
+			lciPe2_1.MaxSize = size;
+			lciPe2_1.MinSize = size;
+			lciPe2_1.Size = size;
+
+			lciPe2_2.MaxSize = size;
+			lciPe2_2.MinSize = size;
+			lciPe2_2.Size = size;
+
+			lciPe2_3.MaxSize = size;
+			lciPe2_3.MinSize = size;
+			lciPe2_3.Size = size;
+
+			//3
+			lciPe3_1.MaxSize = size;
+			lciPe3_1.MinSize = size;
+			lciPe3_1.Size = size;
+
+			lciPe3_2.MaxSize = size;
+			lciPe3_2.MinSize = size;
+			lciPe3_2.Size = size;
+
+			lciPe3_3.MaxSize = size;
+			lciPe3_3.MinSize = size;
+			lciPe3_3.Size = size;
+
+			esiLeft.Width = widthFinal;
+			esiRight.Width = widthFinal;
+
+			esiTopLeft.Width = wt;
+			esiTopRight.Width = wt;
+		}
+
+		#endregion
 
 		#endregion
 	}
