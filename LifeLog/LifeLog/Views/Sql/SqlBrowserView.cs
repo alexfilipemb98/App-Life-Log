@@ -4,7 +4,7 @@ using LifeLog.Helpers;
 using System.Dynamic;
 using System.Threading.Tasks;
 
-namespace LifeLog.UI.Common.Views
+namespace LifeLog.Views.Sql
 {
 	/// <summary>
 	/// SQL Browser view

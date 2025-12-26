@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Reflection;
 using static DevExpress.LookAndFeel.DXSkinColors;
 
-namespace LifeLog.UI.Common.Forms.Loading
+namespace LifeLog.Forms.Loading
 {
 	public partial class SplashScreenForm : SplashScreen
 	{

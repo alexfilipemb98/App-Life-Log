@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraWaitForm;
 
-namespace LifeLog.UI.Common.Forms.Loading
+namespace LifeLog.Forms.Loading
 {
 	public partial class LoadingForm: WaitForm
 	{

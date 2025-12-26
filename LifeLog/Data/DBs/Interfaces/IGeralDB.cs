@@ -6,7 +6,7 @@ namespace Data.DBs.Interfaces;
 
 public interface IGeralDB
 {
-	Task<List<T>> LoadSql(string sql);
+	Task<List<T>> LoadSql<T>(string sql);
 
 	Task<T?> ExecuteSql<T>(string sql);
 }

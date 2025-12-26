@@ -1,6 +1,7 @@
 ﻿using Core.Models;
 using DevExpress.Xpo.DB.Helpers;
 using DevExpress.XtraSplashScreen;
+using LifeLog.Forms;
 using LifeLog.Helpers;
 using LifeLog.UI.Common.Forms.Auth;
 using LifeLog.UI.Common.Forms.Loading;
@@ -11,6 +12,7 @@ internal static class Program
 {
 	internal static Data.Engine? DataEngine { get; set; }
 	internal static LoggedUserModel? LoggedUser { get; set; }
+	internal static AppConfigsModel? AppConfigs { get; set; }
 
 	/// <summary>
 	///  The main entry point for the application.
@@ -36,6 +38,8 @@ internal static class Program
 
 		DataEngine = new Data.Engine(configs);
 
+		AppConfigs = AppHelper.ReadAppConfigs();
+
 		using (AuthForm authForm = new())
 		{
 			authForm.Shown += (s, e) => SplashScreenManager.CloseForm(false);
@@ -44,7 +48,9 @@ internal static class Program
 				Environment.Exit(0);
 		}
 
-		Application.Run(new AuthForm());
+		MainForm mainForm = new();
+
+		Application.Run(mainForm);
 	}
 }
 

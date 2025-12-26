@@ -78,7 +78,7 @@ internal static class DbHelper
 	{
 		ServiceCollection services = new();
 
-		services.AddTransient<IServiceProvider, ServiceProvider>();
+		services.AddSingleton<IDbConnection>(connection);
 
 		services.AddTransient<IUsersDB, UsersDB>();
 		services.AddTransient<IGeralDB, GeralDB>();

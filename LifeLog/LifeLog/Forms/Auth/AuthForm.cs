@@ -9,7 +9,7 @@ using LifeLog.Helpers;
 using System.Reflection;
 using static DevExpress.LookAndFeel.DXSkinColors;
 
-namespace LifeLog.UI.Common.Forms.Auth
+namespace LifeLog.Forms.Auth
 {
 	/// <summary>
 	/// Login form
@@ -67,7 +67,10 @@ namespace LifeLog.UI.Common.Forms.Auth
 				if (string.IsNullOrWhiteSpace(email))
 					teEmail.Focus();
 				else
+				{
+					teEmail.Text = email;
 					bePassword.Focus();
+				}
 			}
 			catch (Exception ex)
 			{
@@ -161,6 +164,11 @@ namespace LifeLog.UI.Common.Forms.Auth
 				lciLoginUsername.Visibility = LayoutVisibility.Never;
 				chkSignup.Checked = false;
 				isNew = false;
+
+				if (!string.IsNullOrWhiteSpace(teEmail.Text))
+					bePassword.Focus();
+				else
+					teEmail.Focus();
 			}
 
 			if (chk == chkSignup && chkSignup.Checked)
@@ -171,6 +179,8 @@ namespace LifeLog.UI.Common.Forms.Auth
 					teUsername.Text = teEmail.Text.Split('@')[0];
 
 				isNew = true;
+
+				teUsername.Focus();
 			}
 
 			AjustFormLayout();
@@ -215,7 +225,8 @@ namespace LifeLog.UI.Common.Forms.Auth
 					if (saved)
 					{
 						MessageBox.Show("Criado");
-					}else
+					}
+					else
 						MessageBox.Show("not saved");
 
 					if (saved)
@@ -232,6 +243,8 @@ namespace LifeLog.UI.Common.Forms.Auth
 					else
 					{
 						MessageBox.Show("Logged In");
+						Program.AppConfigs!.LastEmail = user.Email;
+						AppHelper.SaveAppConfigs(Program.AppConfigs);
 						this.DialogResult = DialogResult.Yes;
 					}
 				}

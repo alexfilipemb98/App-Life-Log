@@ -1,4 +1,4 @@
-﻿namespace LifeLog.UI.Common.Forms.Auth
+﻿namespace LifeLog.Forms.Auth
 {
 	partial class AuthForm
 	{
@@ -203,7 +203,7 @@
 			// 
 			ribbonStatusBar.ItemLinks.Add(bsiAppVersion);
 			ribbonStatusBar.ItemLinks.Add(bsiDatabase);
-			ribbonStatusBar.Location = new Point(0, 298);
+			ribbonStatusBar.Location = new Point(0, 300);
 			ribbonStatusBar.Margin = new Padding(4, 2, 4, 2);
 			ribbonStatusBar.Name = "ribbonStatusBar";
 			ribbonStatusBar.Ribbon = ribbon;
@@ -224,7 +224,7 @@
 			layoutControl.Name = "layoutControl";
 			layoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new Rectangle(2129, 344, 650, 400);
 			layoutControl.Root = Root;
-			layoutControl.Size = new Size(644, 235);
+			layoutControl.Size = new Size(644, 237);
 			layoutControl.TabIndex = 4;
 			layoutControl.Text = "dataLayoutControl1";
 			// 
@@ -233,10 +233,10 @@
 			chkSignup.Appearance.Font = new Font("Tahoma", 10.25F, FontStyle.Bold);
 			chkSignup.Appearance.Options.UseFont = true;
 			chkSignup.Cursor = Cursors.Hand;
-			chkSignup.Location = new Point(181, 3);
+			chkSignup.Location = new Point(212, 3);
 			chkSignup.Margin = new Padding(3, 2, 3, 2);
 			chkSignup.Name = "chkSignup";
-			chkSignup.Size = new Size(172, 28);
+			chkSignup.Size = new Size(204, 28);
 			chkSignup.StyleController = layoutControl;
 			chkSignup.TabIndex = 12;
 			chkSignup.Text = "SIGNUP";
@@ -251,7 +251,7 @@
 			chkLogin.Location = new Point(3, 3);
 			chkLogin.Margin = new Padding(3, 2, 3, 2);
 			chkLogin.Name = "chkLogin";
-			chkLogin.Size = new Size(172, 28);
+			chkLogin.Size = new Size(203, 28);
 			chkLogin.StyleController = layoutControl;
 			chkLogin.TabIndex = 11;
 			chkLogin.Text = "LOGIN";
@@ -260,7 +260,7 @@
 			// pictureEdit1
 			// 
 			pictureEdit1.EditValue = Properties.Resources.icon;
-			pictureEdit1.Location = new Point(363, 0);
+			pictureEdit1.Location = new Point(426, 0);
 			pictureEdit1.Margin = new Padding(0);
 			pictureEdit1.MenuManager = ribbon;
 			pictureEdit1.Name = "pictureEdit1";
@@ -270,7 +270,7 @@
 			pictureEdit1.Properties.Padding = new Padding(5);
 			pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
 			pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-			pictureEdit1.Size = new Size(281, 235);
+			pictureEdit1.Size = new Size(218, 237);
 			pictureEdit1.StyleController = layoutControl;
 			pictureEdit1.TabIndex = 5;
 			// 
@@ -282,7 +282,7 @@
 			teEmail.MenuManager = ribbon;
 			teEmail.Name = "teEmail";
 			teEmail.Properties.AdvancedModeOptions.Label = "Email";
-			teEmail.Size = new Size(309, 46);
+			teEmail.Size = new Size(372, 46);
 			teEmail.StyleController = layoutControl;
 			teEmail.TabIndex = 2;
 			teEmail.KeyDown += TextEdit_KeyDown;
@@ -295,7 +295,7 @@
 			teUsername.MenuManager = ribbon;
 			teUsername.Name = "teUsername";
 			teUsername.Properties.AdvancedModeOptions.Label = "Username";
-			teUsername.Size = new Size(309, 46);
+			teUsername.Size = new Size(372, 46);
 			teUsername.StyleController = layoutControl;
 			teUsername.TabIndex = 0;
 			teUsername.KeyDown += TextEdit_KeyDown;
@@ -311,7 +311,7 @@
 			editorButtonImageOptions1.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions1.SvgImage");
 			bePassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
 			bePassword.Properties.UseSystemPasswordChar = true;
-			bePassword.Size = new Size(309, 46);
+			bePassword.Size = new Size(372, 46);
 			bePassword.StyleController = layoutControl;
 			bePassword.TabIndex = 3;
 			bePassword.ButtonClick += bePassword_ButtonClick;
@@ -324,12 +324,12 @@
 			sbSubmit.Appearance.Options.UseBackColor = true;
 			sbSubmit.Appearance.Options.UseFont = true;
 			sbSubmit.Cursor = Cursors.Hand;
-			sbSubmit.Location = new Point(122, 202);
+			sbSubmit.Location = new Point(143, 201);
 			sbSubmit.Margin = new Padding(3, 2, 3, 2);
-			sbSubmit.MaximumSize = new Size(156, 0);
-			sbSubmit.MinimumSize = new Size(156, 0);
+			sbSubmit.MaximumSize = new Size(134, 0);
+			sbSubmit.MinimumSize = new Size(134, 0);
 			sbSubmit.Name = "sbSubmit";
-			sbSubmit.Size = new Size(156, 28);
+			sbSubmit.Size = new Size(134, 28);
 			sbSubmit.StyleController = layoutControl;
 			sbSubmit.TabIndex = 4;
 			sbSubmit.Text = "ENTER";
@@ -341,7 +341,7 @@
 			Root.GroupBordersVisible = false;
 			Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { lciMain });
 			Root.Name = "Root";
-			Root.Size = new Size(644, 235);
+			Root.Size = new Size(644, 237);
 			Root.TextVisible = false;
 			// 
 			// lciMain
@@ -350,35 +350,35 @@
 			lciMain.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem5, simpleSeparator2, esiBottom, layoutControlItem8, layoutControlItem9, esiTop, layoutControlGroup2 });
 			lciMain.Location = new Point(0, 0);
 			lciMain.Name = "lciMain";
-			lciMain.Size = new Size(644, 235);
+			lciMain.Size = new Size(644, 237);
 			// 
 			// layoutControlItem5
 			// 
 			layoutControlItem5.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
 			layoutControlItem5.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
 			layoutControlItem5.Control = pictureEdit1;
-			layoutControlItem5.Location = new Point(363, 0);
-			layoutControlItem5.MaxSize = new Size(281, 0);
-			layoutControlItem5.MinSize = new Size(281, 20);
+			layoutControlItem5.Location = new Point(426, 0);
+			layoutControlItem5.MaxSize = new Size(218, 0);
+			layoutControlItem5.MinSize = new Size(218, 20);
 			layoutControlItem5.Name = "layoutControlItem5";
 			layoutControlItem5.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			layoutControlItem5.Size = new Size(281, 235);
+			layoutControlItem5.Size = new Size(218, 237);
 			layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			layoutControlItem5.TextVisible = false;
 			// 
 			// simpleSeparator2
 			// 
-			simpleSeparator2.Location = new Point(356, 0);
+			simpleSeparator2.Location = new Point(419, 0);
 			simpleSeparator2.Name = "simpleSeparator2";
-			simpleSeparator2.Size = new Size(7, 235);
+			simpleSeparator2.Size = new Size(7, 237);
 			simpleSeparator2.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 0, 0);
 			// 
 			// esiBottom
 			// 
-			esiBottom.Location = new Point(0, 233);
+			esiBottom.Location = new Point(0, 232);
 			esiBottom.MinSize = new Size(1, 1);
 			esiBottom.Name = "esiBottom";
-			esiBottom.Size = new Size(356, 2);
+			esiBottom.Size = new Size(419, 5);
 			esiBottom.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			// 
 			// layoutControlItem8
@@ -386,16 +386,16 @@
 			layoutControlItem8.Control = chkLogin;
 			layoutControlItem8.Location = new Point(0, 0);
 			layoutControlItem8.Name = "layoutControlItem8";
-			layoutControlItem8.Size = new Size(178, 34);
+			layoutControlItem8.Size = new Size(209, 34);
 			layoutControlItem8.Text = " ";
 			layoutControlItem8.TextVisible = false;
 			// 
 			// layoutControlItem9
 			// 
 			layoutControlItem9.Control = chkSignup;
-			layoutControlItem9.Location = new Point(178, 0);
+			layoutControlItem9.Location = new Point(209, 0);
 			layoutControlItem9.Name = "layoutControlItem9";
-			layoutControlItem9.Size = new Size(178, 34);
+			layoutControlItem9.Size = new Size(210, 34);
 			layoutControlItem9.TextVisible = false;
 			// 
 			// esiTop
@@ -403,7 +403,7 @@
 			esiTop.Location = new Point(0, 34);
 			esiTop.MinSize = new Size(1, 1);
 			esiTop.Name = "esiTop";
-			esiTop.Size = new Size(356, 1);
+			esiTop.Size = new Size(419, 1);
 			esiTop.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			// 
 			// layoutControlGroup2
@@ -414,7 +414,7 @@
 			layoutControlGroup2.Name = "layoutControlGroup2";
 			layoutControlGroup2.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
 			layoutControlGroup2.OptionsItemText.TextToControlDistance = 1;
-			layoutControlGroup2.Size = new Size(356, 198);
+			layoutControlGroup2.Size = new Size(419, 197);
 			// 
 			// layoutControlGroup1
 			// 
@@ -422,40 +422,40 @@
 			layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { esiBtnRight, esiBtnLeft, layoutControlItem1, emptySpaceItem1 });
 			layoutControlGroup1.Location = new Point(0, 156);
 			layoutControlGroup1.Name = "layoutControlGroup1";
-			layoutControlGroup1.Size = new Size(356, 42);
+			layoutControlGroup1.Size = new Size(419, 41);
 			layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
 			// 
 			// esiBtnRight
 			// 
-			esiBtnRight.Location = new Point(281, 8);
+			esiBtnRight.Location = new Point(280, 7);
 			esiBtnRight.MinSize = new Size(1, 1);
 			esiBtnRight.Name = "esiBtnRight";
-			esiBtnRight.Size = new Size(75, 34);
+			esiBtnRight.Size = new Size(139, 34);
 			esiBtnRight.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			// 
 			// esiBtnLeft
 			// 
-			esiBtnLeft.Location = new Point(0, 8);
+			esiBtnLeft.Location = new Point(0, 7);
 			esiBtnLeft.MinSize = new Size(1, 1);
 			esiBtnLeft.Name = "esiBtnLeft";
-			esiBtnLeft.Size = new Size(119, 34);
+			esiBtnLeft.Size = new Size(140, 34);
 			esiBtnLeft.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			// 
 			// layoutControlItem1
 			// 
 			layoutControlItem1.Control = sbSubmit;
-			layoutControlItem1.Location = new Point(119, 8);
+			layoutControlItem1.Location = new Point(140, 7);
 			layoutControlItem1.Name = "layoutControlItem1";
-			layoutControlItem1.Size = new Size(162, 34);
+			layoutControlItem1.Size = new Size(140, 34);
 			layoutControlItem1.TextVisible = false;
 			// 
 			// emptySpaceItem1
 			// 
 			emptySpaceItem1.Location = new Point(0, 0);
-			emptySpaceItem1.MaxSize = new Size(0, 8);
-			emptySpaceItem1.MinSize = new Size(9, 8);
+			emptySpaceItem1.MaxSize = new Size(0, 7);
+			emptySpaceItem1.MinSize = new Size(8, 7);
 			emptySpaceItem1.Name = "emptySpaceItem1";
-			emptySpaceItem1.Size = new Size(356, 8);
+			emptySpaceItem1.Size = new Size(419, 7);
 			emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			// 
 			// layoutControlItem2
@@ -464,7 +464,7 @@
 			layoutControlItem2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("layoutControlItem2.ImageOptions.SvgImage");
 			layoutControlItem2.Location = new Point(0, 104);
 			layoutControlItem2.Name = "layoutControlItem2";
-			layoutControlItem2.Size = new Size(356, 52);
+			layoutControlItem2.Size = new Size(419, 52);
 			layoutControlItem2.Text = " ";
 			layoutControlItem2.TextSize = new Size(40, 32);
 			// 
@@ -474,7 +474,7 @@
 			layoutControlItem4.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("layoutControlItem4.ImageOptions.SvgImage");
 			layoutControlItem4.Location = new Point(0, 52);
 			layoutControlItem4.Name = "layoutControlItem4";
-			layoutControlItem4.Size = new Size(356, 52);
+			layoutControlItem4.Size = new Size(419, 52);
 			layoutControlItem4.Text = " ";
 			layoutControlItem4.TextSize = new Size(40, 32);
 			// 
@@ -484,7 +484,7 @@
 			lciLoginUsername.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("lciLoginUsername.ImageOptions.SvgImage");
 			lciLoginUsername.Location = new Point(0, 0);
 			lciLoginUsername.Name = "lciLoginUsername";
-			lciLoginUsername.Size = new Size(356, 52);
+			lciLoginUsername.Size = new Size(419, 52);
 			lciLoginUsername.Text = " ";
 			lciLoginUsername.TextSize = new Size(40, 32);
 			lciLoginUsername.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -503,7 +503,7 @@
 			navigationFrame.Name = "navigationFrame";
 			navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] { npAuth, npDbSettings });
 			navigationFrame.SelectedPage = npAuth;
-			navigationFrame.Size = new Size(658, 249);
+			navigationFrame.Size = new Size(658, 251);
 			navigationFrame.TabIndex = 7;
 			navigationFrame.Text = "navigationFrame1";
 			// 
@@ -514,7 +514,7 @@
 			npAuth.Margin = new Padding(4, 2, 4, 2);
 			npAuth.Name = "npAuth";
 			npAuth.Padding = new Padding(5);
-			npAuth.Size = new Size(658, 249);
+			npAuth.Size = new Size(658, 251);
 			// 
 			// panelControl2
 			// 
@@ -523,7 +523,7 @@
 			panelControl2.Location = new Point(5, 5);
 			panelControl2.Margin = new Padding(4, 2, 4, 2);
 			panelControl2.Name = "panelControl2";
-			panelControl2.Size = new Size(648, 239);
+			panelControl2.Size = new Size(648, 241);
 			panelControl2.TabIndex = 12;
 			// 
 			// npDbSettings
@@ -531,20 +531,22 @@
 			npDbSettings.Caption = "npDbSettings";
 			npDbSettings.Margin = new Padding(4, 2, 4, 2);
 			npDbSettings.Name = "npDbSettings";
-			npDbSettings.Size = new Size(658, 249);
+			npDbSettings.Size = new Size(658, 251);
 			// 
 			// AuthForm
 			// 
 			Appearance.Options.UseFont = true;
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(658, 337);
+			ClientSize = new Size(658, 339);
 			Controls.Add(navigationFrame);
 			Controls.Add(ribbonStatusBar);
 			Controls.Add(ribbon);
 			FormBorderStyle = FormBorderStyle.FixedDialog;
 			Margin = new Padding(4, 2, 4, 2);
 			MaximizeBox = false;
+			MaximumSize = new Size(660, 340);
+			MinimumSize = new Size(660, 340);
 			Name = "AuthForm";
 			Ribbon = ribbon;
 			StartPosition = FormStartPosition.CenterScreen;

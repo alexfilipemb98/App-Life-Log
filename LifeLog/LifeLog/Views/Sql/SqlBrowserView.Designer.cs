@@ -1,4 +1,4 @@
-﻿namespace LifeLog.UI.Common.Views
+﻿namespace LifeLog.Views.Sql
 {
     partial class SqlBrowserView
     {

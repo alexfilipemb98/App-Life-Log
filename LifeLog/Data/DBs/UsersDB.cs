@@ -11,7 +11,6 @@ namespace Data.DBs;
 
 internal class UsersDB : IUsersDB
 {
-
 	#region AUTH
 
 	/// <summary>

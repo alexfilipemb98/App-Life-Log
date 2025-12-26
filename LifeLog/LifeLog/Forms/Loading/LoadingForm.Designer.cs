@@ -1,4 +1,4 @@
-﻿namespace LifeLog.UI.Common.Forms.Loading
+﻿namespace LifeLog.Forms.Loading
 {
     partial class LoadingForm
     {
