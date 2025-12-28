@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using Core.Utils;
+using DevExpress.XtraEditors;
 using LifeLog.Helpers;
 using System.Data;
 using System.Diagnostics;
@@ -110,10 +111,9 @@ namespace LifeLog.Views.PdfMerger
 
 				if (dxErrorProvider.HasErrors)
 				{
-					AppHelper.StatusMessage("Please correct the errors!", Color.Red);
+					MessageBox.Show("Please correct the errors!");
 					return;
 				}
-
 
 				SearchOption searchOption = tsSearchSubFolders.IsOn ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
 				List<string> pdfFiles = Directory
@@ -124,7 +124,7 @@ namespace LifeLog.Views.PdfMerger
 				richEditControl.Text += $"Merging {pdfFiles.Count} PDFs\r\n";
 
 				PdfUtil.MergeAllPdfsInDirectory(input, output, tsSearchSubFolders.IsOn);
-				AppHelper.StatusMessage("PDFs have been merged!", true);
+				MessageBox.Show("PDFs have been merged!");
 			}
 			catch (Exception ex)
 			{

@@ -1,10 +1,9 @@
 ﻿using Core.Models;
-using DevExpress.Xpo.DB.Helpers;
 using DevExpress.XtraSplashScreen;
 using LifeLog.Forms;
+using LifeLog.Forms.Auth;
+using LifeLog.Forms.Loading;
 using LifeLog.Helpers;
-using LifeLog.UI.Common.Forms.Auth;
-using LifeLog.UI.Common.Forms.Loading;
 
 namespace LifeLog;
 
@@ -13,6 +12,7 @@ internal static class Program
 	internal static Data.Engine? DataEngine { get; set; }
 	internal static LoggedUserModel? LoggedUser { get; set; }
 	internal static AppConfigsModel? AppConfigs { get; set; }
+	internal static MainForm? MainForm { get; set; }
 
 	/// <summary>
 	///  The main entry point for the application.
@@ -48,9 +48,9 @@ internal static class Program
 				Environment.Exit(0);
 		}
 
-		MainForm mainForm = new();
+		MainForm = new();
 
-		Application.Run(mainForm);
+		Application.Run(MainForm);
 	}
 }
 

@@ -55,11 +55,6 @@ namespace LifeLog.Helpers
 
 		#region ALERT
 
-		public static void Alert(string caption, string message, MessageBoxIcon icon)
-		{
-			Alert(AppSession.Container.EngineForm.MainForm, caption, message, icon);
-		}
-
 		public static void Alert(Form owner, string caption, string message, MessageBoxIcon icon)
 		{
 			AlertControl control = new AlertControl();
@@ -68,18 +63,18 @@ namespace LifeLog.Helpers
 			switch (icon)
 			{
 				case MessageBoxIcon.Error:
-					info.ImageOptions.SvgImage = Base.Assets.Resources.error_close;
+					info.ImageOptions.SvgImage = Properties.Resources.error_close;
 					break;
 				case MessageBoxIcon.Warning:
-					info.ImageOptions.SvgImage = Base.Assets.Resources.bo_attention;
+					info.ImageOptions.SvgImage = Properties.Resources.bo_attention;
 					break;
 				case MessageBoxIcon.Information:
-					info.ImageOptions.SvgImage = Base.Assets.Resources.about;
+					info.ImageOptions.SvgImage = Properties.Resources.about;
 					break;
 			}
 
 			control.HtmlImages = new SvgImageCollection {
-				{ "close", Base.Assets.Resources.del }
+				{ "close", Properties.Resources.del }
 			};
 
 			control.HtmlTemplate.Template = $@"
