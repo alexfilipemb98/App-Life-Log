@@ -1,9 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace Core.Utils
+namespace LifeLog.Core.Utils
 {
 	/// <summary>
 	/// This is class that contains security functions

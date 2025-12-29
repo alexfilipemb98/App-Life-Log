@@ -1,7 +1,7 @@
-﻿using Core.Utils;
+﻿using LifeLog.Core.Utils;
 using System.ComponentModel.DataAnnotations;
 
-namespace Core.Attributes
+namespace LifeLog.Core.Attributes
 {
 	/// <summary>
 	/// Validate email atribute

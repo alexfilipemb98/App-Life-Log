@@ -1,5 +1,5 @@
-﻿using Data.DBs;
-using Data.DBs.Interfaces;
+﻿using LifeLog.Data.DBs;
+using LifeLog.Data.DBs.Interfaces;
 using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
 using DevExpress.Xpo.Metadata;
@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Data;
 using System.Reflection;
 
-namespace Data.Helpers;
+namespace LifeLog.Data.Helpers;
 
 /// <summary>
 /// Database helper

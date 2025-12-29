@@ -1,23 +1,29 @@
-﻿using Data.DBs.Interfaces;
-using Data.Helpers;
-using System;
-using System.Collections.Generic;
+﻿using LifeLog.Data.DBs.Interfaces;
+using LifeLog.Data.Helpers;
 using System.Data;
-using System.ServiceModel.Channels;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Data.DBs;
+namespace LifeLog.Data.DBs;
 
+/// <summary>
+/// Geral data
+/// </summary>
 public class GeralDB : IGeralDB
 {
+	#region MAIN
+	
+	//PRIVATE
 	private IDbConnection _connection;
 
+	/// <summary>
+	/// Contructor
+	/// </summary>
+	/// <param name="connection"></param>
 	public GeralDB(IDbConnection connection)
 	{
 		_connection = connection;
 	}
 
+	#endregion
 	#region SQL
 
 	public async Task<List<T>> LoadSql<T>(string sql)

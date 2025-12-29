@@ -1,10 +1,7 @@
 ﻿using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 
-namespace Core.Utils
+namespace LifeLog.Core.Utils
 {
 	/// <summary>
 	/// PDF util

@@ -1,8 +1,8 @@
-﻿using Core.Enums;
-using Core.Models;
-using Core.Utils;
-using Data.DBs.Interfaces;
-using Data.Helpers;
+﻿using LifeLog.Core.Enums;
+using LifeLog.Core.Models;
+using LifeLog.Core.Utils;
+using LifeLog.Data.DBs.Interfaces;
+using LifeLog.Data.Helpers;
 using DevExpress.Xpo.DB;
 using DevExpress.Xpo.Metadata;
 using Microsoft.Data.SqlClient;
@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SQLitePCL;
 using System.Data;
 
-namespace Data;
+namespace LifeLog.Data;
 
 /// <summary>
 /// Data engine

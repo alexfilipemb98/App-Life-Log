@@ -1,10 +1,7 @@
-﻿using Core.Models;
-using Data.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LifeLog.Core.Models;
+using LifeLog.Data.DTOs;
 
-namespace Data.DBs.Interfaces;
+namespace LifeLog.Data.DBs.Interfaces;
 
 public interface IUsersDB
 {

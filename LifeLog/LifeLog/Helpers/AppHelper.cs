@@ -1,9 +1,6 @@
-﻿using Core.Models;
-using Core.Utils;
-using System;
-using System.Collections.Generic;
+﻿using LifeLog.Core.Models;
+using LifeLog.Core.Utils;
 using System.IO;
-using System.Text;
 
 namespace LifeLog.Helpers;
 

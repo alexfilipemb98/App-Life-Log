@@ -81,34 +81,5 @@ namespace LifeLog.Helpers
 		{
 			barButtonItem.Visibility = estado ? BarItemVisibility.Always : BarItemVisibility.Never;
 		}
-
-		/// <summary>
-		/// Show or hide the bar button item
-		/// </summary>
-		/// <param name="Rib"></param>
-		public static void RibbonPageVisibly(this RibbonPage Rib)
-		{
-			bool rpTableAny = Rib.Groups
-				.SelectMany(group => group.ItemLinks)
-				.Any(link => link.Item.Visibility == BarItemVisibility.Always);
-
-			Rib.Visible = rpTableAny;
-		}
-
-		/// <summary>
-		/// Create instance from name
-		/// </summary>
-		/// <param name="controlName"></param>
-		/// <returns></returns>
-		public static object CreateInstanceFromName(Assembly assembly, string controlName, string nameSpacePrefix)
-		{
-			Type controlType = assembly.GetTypes()
-				.FirstOrDefault(t =>
-					t.IsClass &&
-					t.FullName.StartsWith(nameSpacePrefix) &&
-					t.FullName.EndsWith(controlName, StringComparison.Ordinal));
-
-			return controlType != null ? Activator.CreateInstance(controlType) : null;
-		}
 	}
 }

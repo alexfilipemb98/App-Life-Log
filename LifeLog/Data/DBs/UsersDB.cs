@@ -1,13 +1,12 @@
-﻿using Core.Models;
-using Core.Utils;
-using Data.DBs.Interfaces;
-using Data.DTOs;
-using Data.Mappers;
-using Data.XPO.ORMDataModelCode;
+﻿using LifeLog.Core.Models;
+using LifeLog.Core.Utils;
+using LifeLog.Data.DBs.Interfaces;
+using LifeLog.Data.DTOs;
+using LifeLog.Data.Mappers;
+using LifeLog.Data.XPO.ORMDataModelCode;
 using DevExpress.Xpo;
-using System.Threading.Tasks;
 
-namespace Data.DBs;
+namespace LifeLog.Data.DBs;
 
 internal class UsersDB : IUsersDB
 {

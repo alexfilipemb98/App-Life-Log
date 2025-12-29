@@ -1,4 +1,4 @@
-﻿using Core.Models;
+﻿using LifeLog.Core.Models;
 using DevExpress.XtraSplashScreen;
 using LifeLog.Forms;
 using LifeLog.Forms.Auth;

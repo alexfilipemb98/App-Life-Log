@@ -22,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\Data\Data.csproj" />
+    <ProjectReference Include="..\Core\LifeLog.Core.csproj" />
+    <ProjectReference Include="..\Data\LifeLog.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>

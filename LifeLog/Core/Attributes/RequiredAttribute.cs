@@ -1,4 +1,4 @@
-﻿namespace Core.Attributes
+﻿namespace LifeLog.Core.Attributes
 {
     /// <summary>
     /// Requiered atribute with a auto message

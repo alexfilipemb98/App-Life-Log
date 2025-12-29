@@ -1,7 +1,7 @@
-﻿using Core.Enums;
+﻿using LifeLog.Core.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace Core.Attributes
+namespace LifeLog.Core.Attributes
 {
 	/// <summary>
 	/// This is an atribute that set a property to requiered if a condition

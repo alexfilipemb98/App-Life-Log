@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Attributes
+namespace LifeLog.Core.Attributes
 {
     public class RangeAttribute : System.ComponentModel.DataAnnotations.RangeAttribute
     {

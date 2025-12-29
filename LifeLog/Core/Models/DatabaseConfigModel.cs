@@ -1,9 +1,9 @@
-﻿using Core.Enums;
+﻿using LifeLog.Core.Enums;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
 using System.ComponentModel.DataAnnotations;
 
-namespace Core.Models;
+namespace LifeLog.Core.Models;
 
 /// <summary>
 /// Database config object model

@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 
-namespace Core.Enums
+namespace LifeLog.Core.Enums
 {
     /// <summary>
     /// Message Type Enum

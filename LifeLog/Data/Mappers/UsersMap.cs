@@ -1,11 +1,8 @@
-﻿using Core.Models;
-using Data.DTOs;
-using Data.XPO.ORMDataModelCode;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LifeLog.Core.Models;
+using LifeLog.Data.DTOs;
+using LifeLog.Data.XPO.ORMDataModelCode;
 
-namespace Data.Mappers;
+namespace LifeLog.Data.Mappers;
 
 internal static class UsersMap
 {

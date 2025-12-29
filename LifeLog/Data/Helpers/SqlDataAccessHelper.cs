@@ -2,7 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System.Data;
 
-namespace Data.Helpers
+namespace LifeLog.Data.Helpers
 {
 	/// <summary>
 	/// Class principal de sql management

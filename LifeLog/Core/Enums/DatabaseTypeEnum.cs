@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Core.Enums
+namespace LifeLog.Core.Enums
 {
     /// <summary>
     /// Type of connections

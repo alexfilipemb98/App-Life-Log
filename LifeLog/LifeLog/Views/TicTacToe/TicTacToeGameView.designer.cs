@@ -564,7 +564,7 @@
 			// 
 			this.bbiResetGame.Caption = "Reset Game";
 			this.bbiResetGame.Id = 0;
-			this.bbiResetGame.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.gettingstarted;
+			this.bbiResetGame.ImageOptions.SvgImage = global::LifeLog.Properties.Resources.gettingstarted;
 			this.bbiResetGame.Name = "bbiResetGame";
 			this.bbiResetGame.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
 			this.bbiResetGame.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiResetGame_ItemClick);

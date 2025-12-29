@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Core.Attributes
+namespace LifeLog.Core.Attributes
 {
     /// <summary>
     /// String lengh with a auto message

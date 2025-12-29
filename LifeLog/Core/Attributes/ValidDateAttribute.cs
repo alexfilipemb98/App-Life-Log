@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Core.Attributes
+namespace LifeLog.Core.Attributes
 {
     /// <summary>
     /// Validate date atribute

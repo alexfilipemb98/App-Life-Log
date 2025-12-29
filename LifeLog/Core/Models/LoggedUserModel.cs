@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Core.Models;
+namespace LifeLog.Core.Models;
 
 /// <summary>
 /// Logged user model

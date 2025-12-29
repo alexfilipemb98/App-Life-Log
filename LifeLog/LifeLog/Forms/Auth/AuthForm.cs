@@ -1,6 +1,6 @@
-﻿using Core.Enums;
-using Core.Models;
-using Core.Utils;
+﻿using LifeLog.Core.Enums;
+using LifeLog.Core.Models;
+using LifeLog.Core.Utils;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
@@ -245,6 +245,7 @@ namespace LifeLog.Forms.Auth
 						MessageBox.Show("Logged In");
 						Program.AppConfigs!.LastEmail = user.Email;
 						AppHelper.SaveAppConfigs(Program.AppConfigs);
+						Program.LoggedUser = user;
 						this.DialogResult = DialogResult.Yes;
 					}
 				}

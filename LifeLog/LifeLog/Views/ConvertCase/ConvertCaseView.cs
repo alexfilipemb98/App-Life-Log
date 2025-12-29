@@ -1,4 +1,4 @@
-﻿using Core.Utils;
+﻿using LifeLog.Core.Utils;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using LifeLog.Helpers;

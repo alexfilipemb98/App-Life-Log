@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.DBs.Interfaces;
+namespace LifeLog.Data.DBs.Interfaces;
 
 public interface IGeralDB
 {

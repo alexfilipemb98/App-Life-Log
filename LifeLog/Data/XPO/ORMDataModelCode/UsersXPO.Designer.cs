@@ -13,7 +13,7 @@ using DevExpress.Data.Filtering;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
-namespace Data.XPO.ORMDataModelCode
+namespace LifeLog.Data.XPO.ORMDataModelCode
 {
 
 	[Persistent(@"Users")]

@@ -116,6 +116,7 @@
 			this.panelControl1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).BeginInit();
 			this.navigationFrame.SuspendLayout();
+			this.npHome.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
 			this.SuspendLayout();
@@ -196,7 +197,7 @@
 			this.backstageViewControl.Items.Add(this.bvtiDatabaseSettings);
 			this.backstageViewControl.Items.Add(this.backstageViewItemSeparator2);
 			this.backstageViewControl.Items.Add(this.bvtiModulesSettings);
-			this.backstageViewControl.Location = new System.Drawing.Point(387, 0);
+			this.backstageViewControl.Location = new System.Drawing.Point(532, 105);
 			this.backstageViewControl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.backstageViewControl.Name = "backstageViewControl";
 			this.backstageViewControl.Office2013StyleOptions.HeaderBackColor = System.Drawing.Color.White;
@@ -421,6 +422,7 @@
 			this.bbiCommandsRunner.ImageOptions.SvgImage = global::LifeLog.Base.Assets.Resources.cli;
 			this.bbiCommandsRunner.Name = "bbiCommandsRunner";
 			this.bbiCommandsRunner.Tag = "Main.CommandsRunner.CommandsRunnerView";
+			this.bbiCommandsRunner.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCommandsRunner_ItemClick);
 			// 
 			// bbiPasswords
 			// 
@@ -729,6 +731,7 @@
 			// 
 			// npHome
 			// 
+			this.npHome.Controls.Add(this.backstageViewControl);
 			this.npHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.npHome.Name = "npHome";
 			this.npHome.Size = new System.Drawing.Size(1294, 497);
@@ -786,7 +789,6 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1322, 726);
-			this.Controls.Add(this.backstageViewControl);
 			this.Controls.Add(this.layoutControl1);
 			this.Controls.Add(this.ribbonStatusBar);
 			this.Controls.Add(this.ribbon);
@@ -812,6 +814,7 @@
 			this.panelControl1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).EndInit();
 			this.navigationFrame.ResumeLayout(false);
+			this.npHome.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
 			this.ResumeLayout(false);
