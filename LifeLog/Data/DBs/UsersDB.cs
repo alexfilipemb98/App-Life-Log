@@ -10,6 +10,18 @@ namespace LifeLog.Data.DBs;
 
 internal class UsersDB : IUsersDB
 {
+	//PRIVATE
+	private UnitOfWork _db;
+
+	/// <summary>
+	/// Constructor
+	/// </summary>
+	/// <param name="db"></param>
+	public UsersDB(UnitOfWork db)
+	{
+		_db = db;
+	}
+
 	#region AUTH
 
 	/// <summary>
@@ -23,28 +35,25 @@ internal class UsersDB : IUsersDB
 			throw new ArgumentNullException("Inválid user to register");
 
 		UsersXPO? user;
-		using (UnitOfWork db = new())
+		user = await GetUserByEmailHelper(email);
+
+		if (user != null)
+			throw new ArgumentException("Email already in use");
+
+		UsersXPO newUser = new UsersXPO(_db)
 		{
-			user = await GetUserByEmailHelper(db, email);
+			Id = Guid.NewGuid(),
+			Username = username,
+			Email = email,
+			Salt = SecurityUtil.GenerateSalt(),
+		};
 
-			if (user != null)
-				throw new ArgumentException("Email already in use");
+		newUser.Password = SecurityUtil.Sha512_EncryptPasswordWithSalt(password!, newUser.Salt);
 
-			UsersXPO newUser = new UsersXPO(db)
-			{
-				Id = Guid.NewGuid(),
-				Username = username,
-				Email = email,
-				Salt = SecurityUtil.GenerateSalt(),
-			};
+		await _db.SaveAsync(newUser);
+		await _db.CommitChangesAsync();
 
-			newUser.Password = SecurityUtil.Sha512_EncryptPasswordWithSalt(password!, newUser.Salt);
-
-			await db.SaveAsync(newUser);
-			await db.CommitChangesAsync();
-
-			return true;
-		}
+		return true;
 	}
 
 	/// <summary>
@@ -57,13 +66,10 @@ internal class UsersDB : IUsersDB
 	public async Task<LoggedUserModel?> Login(string email, string password)
 	{
 		UsersXPO? user;
-		using (UnitOfWork db = new())
-		{
-			user = await GetUserByEmailHelper(db, email);
+		user = await GetUserByEmailHelper(email);
 
-			if (user is null)
-				throw new ArgumentException("User not found");
-		}
+		if (user is null)
+			throw new ArgumentException("User not found");
 
 		if (!SecurityUtil.CompareStringEncryptedWithSalt(password, user.Password, user.Salt))
 			return null;
@@ -73,28 +79,25 @@ internal class UsersDB : IUsersDB
 
 	#endregion
 
-	#region BASE
+	#region QUERIES
 
 	public async Task<UsersDTO?> UserById(Guid id)
 	{
 		UsersXPO? user;
-		using (UnitOfWork db = new())
-		{
-			user = await db.FindObjectAsync<UsersXPO>(id);
-		}
-
+		user = await _db.FindObjectAsync<UsersXPO>(id);
 		return user.ToModel();
 	}
 
 	public async Task<UsersDTO?> UserByEmail(string email)
 	{
 		UsersXPO? user;
-		using (UnitOfWork db = new())
-		{
-			user = await GetUserByEmailHelper(db, email);
-		}
-
+		user = await GetUserByEmailHelper(email);
 		return user!.ToModel();
+	}
+
+	public async Task<bool> UserExistsById(Guid id)
+	{
+		return await _db.Query<UsersXPO>().AnyAsync(w => w.Id == id);
 	}
 
 	#endregion
@@ -107,9 +110,9 @@ internal class UsersDB : IUsersDB
 	/// <param name="db"></param>
 	/// <param name="email"></param>
 	/// <returns></returns>
-	private async Task<UsersXPO?> GetUserByEmailHelper(UnitOfWork db, string email)
+	private async Task<UsersXPO?> GetUserByEmailHelper(string email)
 	{
-		UsersXPO? user = await db.Query<UsersXPO>().FirstOrDefaultAsync(w => w.Email == email);
+		UsersXPO? user = await _db.Query<UsersXPO>().FirstOrDefaultAsync(w => w.Email == email);
 
 		return user;
 	}

@@ -5,7 +5,7 @@ using System.ComponentModel.Design;
 using System.Globalization;
 using System.Linq;
 
-namespace LifeLog.Helpers.DesignTime;
+namespace LifeLog.Components.Converters;
 
 public sealed class ViewTypeNameConverter : StringConverter
 {

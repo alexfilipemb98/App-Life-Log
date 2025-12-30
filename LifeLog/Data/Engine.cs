@@ -68,11 +68,14 @@ public class Engine
 
 	#region CONTEXT
 
-	//Auth
+	//Users
 	public IUsersDB Users => ServiceProvider.GetRequiredService<IUsersDB>();
 
 	//Geral
 	public IGeralDB Geral => ServiceProvider.GetRequiredService<IGeralDB>();
+	
+	//Notes
+	public INotesDB Notes => ServiceProvider.GetRequiredService<INotesDB>();
 
 	#endregion
 }

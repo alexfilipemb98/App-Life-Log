@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<dataBaseObjectModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="e1574d61-4e1d-4418-994e-b3761df974ae" namespace="LifeLog.Data.XPO.ORMDataModelCode" dataBaseShemaInfo="H4sIAAAAAAAEAO1WXU/bMBR9n7T/EPUZJ07jJDZKg6BlE9rGKkonXu34pkRLnCpO+vHv5/QLWmADDcELb7nnnivfYx87NzpZFLk1g0pnpep1XBt3TuLPn6IzrmFUlxWfwIVKS8uwlD5eaNnr3Nb19Nhx5vO5Pffsspo4XYxd5+bH91FyCwXv7MjZv8koU7rmKoGOWdWyomsuctDtkqt4i9wDttAlLyAea6huhj8j5w7asc5Vi8V11UDkbIJdcpDpFhhPJa8hTnmuDWkf3HG/Npm8kHHi+y4OXQ/x1GWI+MJFDBOKGOUBCyEhRljkbMi74n6ZN4XSewKehE2i1bBOxhcycu6Fe7S/iXupwPsifelLHDAPeSQARBgjiBHOUeBLj9DQfIJ8INKUO/+hsz1EZcK3Vxt6xPMCSJDgzDVqOUZC+h7ClFLX7XLqkuDZah9DN8Z8kZ/1h5s/3Pzubn6m2vOCZ/nbS6XUk1IyhqiPMSIp95AIeWLMLARPQAbCp68tdcTz+u2VpoEM3BQAYYYFItKYWfjdxNxTIMBkVwAlr610yLWel9U7XFgZUBymLEFpKIzarjQPUmAeqdQXIWVc0kDCqz7Im/iOErVTD8hhVSYr0HLW8K/1iBQPYHa+mFagtT3gNbdnXd92j6xNutdGdmDjI6vf5HVTQU9BU1c8P7KGjciz5Bssr8vfoHqCUumGPpEhxmAua+Rsl1it18/NIYBuD+Cq2e1udCpNa5Bmi01fa2jUpHvQFRTlDA6Ja/SQ2zeTXjxWyS1Xk/Y1XMXrrXmsh8jszBSqOnvn3p5oI/oKCipjr35ZFKBqvfHoA3iPPACdTcznl8xY4aBiP7cqG0AONZxqXSYZr82RbWseSawKLps8b212Brd8lpVVfLYcKwlVvszU5Ho5bX8WhxQzhDsHU3j8B7f8eNauCwAA" generateStoredProcedures="false" fieldNameCase="Unchanged" useNameOf="true" nullableBehavior="ByUnderlyingType" createdInVersion="25.1.3.0" generateJsonSerializationContractResolver="false" generateServiceCollectionExtensions="false" lastModifiedInVersion="25.1.3.0" name="ORMDataModel" xmlns="http://schemas.microsoft.com/dsltools/ORMDataModel">
+<dataBaseObjectModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="e1574d61-4e1d-4418-994e-b3761df974ae" namespace="LifeLog.Data.XPO.ORMDataModelCode" dataBaseShemaInfo="H4sIAAAAAAAEAO2Y227bOBCG7wv0HYxchxYpkiJZKC6awxbB7qZBkyxyS3JGiXZlyRDlHN5+Kdtx4zRtE6xhY4Fc2fNzCPIjh5yh8o9342pwg20om3pvhw3pzsfR+3f5vg141jWtvcLjumgG0asOH+4C7O1cd93kQ5Lc3t4Ob/mwaa+SlFKWXP75x5m/xrHdWTqXv3YmZR06W3vciaMOBvm5dRWGfsiZ/aA8Eh6kEzvG0UXA9vL0S558k5ZeR3Wvjbp2inmyMJaNh2XohYsJ2A5Hha1CdFoVl76fpyUcw8hLyahinNiCGSKkY8RQoYnRNjMKvYhgebJwXnY+aKrpuA4rAD+UY0PPMG8cHUOePDJX3H4G91rAx5ASJNDMcMJFhkQYI4gR1pJMAhdaxb8I30HG7sl/4Ow3sY7m5mkVF5xn6ImzhkVaS4kDyQnVWjOWWs1E9mLa59RFYL4qnsNbNL9F89aj+YW0R2NbVptH1ZoDgDFES0qJKCwnTlkfg9k56xEyJ/W6Uc9s1W2etMggYwUioYY6IiAGs5Opj+cUBRpIHWqxbtJTG8Jt027hwEKmqSqMJ4VykTaFeCFl8ZIqpFPaWNAZ4EYv5M9YY2ury8kX9zf6jm3kbjbKcs7AEdYvhZCCEiu4Il7xzArljKD2f383I2bGOacJFP0RRl/E0yuBKC4jvUFgPt3oVp80HW4m977t72v394Wc52VXbSHx8phbHdOKcMo1EcrExJtyTxBNrDIUSEf52lHxbgvZSEKaIfWWgNKRFFwWI5dawsFrmilQMQuvmzT+NO3mUU2K2hoFhBuqIqpMiUEtifRcokcnhF77pp42oeziQ3wLtFYyS4Uj2hkgwvNYKSNYkjLFrPHKMVg77TH0tfIWjqsWgusslhZFKiJrLK6050jikS2M8K4o9MuD+CWZZ2F/c8n7TysIp23jZ+Igmct/zb/DjA7x5uhu0mIIw0Pb2eFNKodsd7Bo3uutYTaku4ODadVNW9yrcdrFMmV3cDp1Vel/x/vz5h+s95zWwJQUoCjF+CLIk4chZuMdVLHSw9BvwNfpcnXzTxCnhkV5t5jXXDqbFivSVxw3N/jUca4+9T2wIT5ua39t66v+yTWz50vz3BzyuDITbLtyy3P7wTTyeVXYxagdj7HuwiJGv5NXnA8xlFfx729lDIUnPVbbZt0OscIOP4XQ+NL2l8JDn2caZh1OplXVh9k+XtubsmlH+/cXNWBb3Zf11fn9pE+MT13ev8uTJ5/6Rv8C+UqzxhMUAAA=" generateStoredProcedures="false" fieldNameCase="Unchanged" useNameOf="true" nullableBehavior="ByUnderlyingType" createdInVersion="25.1.3.0" generateJsonSerializationContractResolver="false" generateServiceCollectionExtensions="false" lastModifiedInVersion="25.1.3.0" name="ORMDataModel" xmlns="http://schemas.microsoft.com/dsltools/ORMDataModel">
   <classes>
     <dataBaseObjectModelHasClasses Id="30ac56b4-1367-420d-b4ed-ccad36671d82">
-      <xpObject Id="c5510713-af19-45b1-9048-98a697ec4001" name="UsersXPO" baseClass="PersistentBase" userFileName="UsersXPO" designerFileName="UsersXPO.Designer" className="UsersXPO" virtualBaseClass="PersistentBase" persistent="Users" virtualName="UsersXPO">
+      <xpObject Id="c5510713-af19-45b1-9048-98a697ec4001" name="UsersXPO" baseClass="XPBaseObject" userFileName="UsersXPO" designerFileName="UsersXPO.Designer" className="UsersXPO" virtualBaseClass="XPBaseObject" persistent="Users" virtualName="UsersXPO">
         <fields>
           <generalXpObjectHasFields Id="8746ab43-fb54-4693-bd84-b6fd1c2b4a90">
             <field Id="5d5d0693-346e-4994-94aa-65d34874aaed" name="Id" columnType="Guid" key="true" virtualColumnType="Guid" delayedUpdateModifiedOnly="false" />
@@ -18,6 +18,40 @@
           </generalXpObjectHasFields>
           <generalXpObjectHasFields Id="04069d83-54f8-4bad-953d-0e58ee781dba">
             <field Id="d6807f9c-f7bb-42d8-9613-f5b789ad86de" name="Password" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="128" />
+          </generalXpObjectHasFields>
+        </fields>
+        <aggrTarget>
+          <aggregation Id="2c88b3e8-965b-4946-98cd-74a8e68f6aa2" sourceCollectionName="Notes" name="NotesXPOReferencesUsersXPO" targetFieldName="User">
+            <xpObjectMoniker Id="97a331db-1f9c-4540-a437-c736a47b940a" />
+          </aggregation>
+        </aggrTarget>
+        <collectionFields>
+          <xpObjectHasCollectionFields Id="c69015fe-9b66-49ef-af5a-1f63ec548a19">
+            <collectionField Id="6b93d72b-1332-4c91-9238-0d923d63312c" name="Notes" />
+          </xpObjectHasCollectionFields>
+        </collectionFields>
+      </xpObject>
+    </dataBaseObjectModelHasClasses>
+    <dataBaseObjectModelHasClasses Id="3e13d908-b636-4ddf-bd63-4064da001edb">
+      <xpObject Id="97a331db-1f9c-4540-a437-c736a47b940a" name="NotesXPO" baseClass="XPBaseObject" userFileName="NotesXPO" designerFileName="NotesXPO.Designer" className="NotesXPO" virtualBaseClass="XPBaseObject" persistent="Notes" virtualName="NotesXPO">
+        <fields>
+          <generalXpObjectHasFields Id="f1492a14-c899-4d98-a0cf-b8ae29bea8be">
+            <field Id="ee69bbb8-df00-4ecf-af5d-735a339ed1c2" name="Id" columnType="Guid" key="true" isIdentity="true" virtualColumnType="Guid" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="e9c1415e-740c-4bad-a1fe-91edde4a6805">
+            <field Id="38443868-9f24-4cee-8c3e-23cf94cbff8a" name="User" persistent="IdUser" virtualColumnType="UsersXPO" logicalType="UsersXPO" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="2cc8b8e4-0a60-4276-befd-2e63e1c86ac7">
+            <field Id="32a8b187-3038-4790-b23c-ee94877d5b03" name="Title" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="30" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="60870a1d-e468-449f-aa6a-39d9970f6726">
+            <field Id="5d26e0ca-d788-4db6-a40a-3dc8067d7b7a" name="Text" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="Unlimited" isNullable="true" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="16ab355e-f309-4c70-b075-7db855fd398e">
+            <field Id="92e8a97d-3907-4d52-9e85-5c35eceb4483" name="Color" columnType="Int32" virtualColumnType="Int32" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="2395f6bd-cfe3-4be1-8d9c-20f0a3fc7fc3">
+            <field Id="9a51a04b-8b9d-4c34-9eda-2171a9c7b1d3" name="Position" columnType="Int16" virtualColumnType="Int16" delayedUpdateModifiedOnly="false" />
           </generalXpObjectHasFields>
         </fields>
       </xpObject>

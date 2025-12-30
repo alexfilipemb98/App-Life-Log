@@ -256,4 +256,25 @@
   <data name="actions_arrow1right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\actions_arrow1right.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.1, Version=25.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="inserttextbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inserttextbox.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.1, Version=25.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="extractstyle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\extractstyle.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.1, Version=25.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="attachments" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\attachments.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.1, Version=25.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="exportas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exportas.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.1, Version=25.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="import" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\import.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.1, Version=25.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="actions_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actions_add.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.1, Version=25.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="saveall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\saveall.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.1, Version=25.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
 </root>

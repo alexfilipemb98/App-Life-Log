@@ -17,7 +17,7 @@ namespace LifeLog.Data.XPO.ORMDataModelCode
 {
 
 	[Persistent(@"Users")]
-	public partial class UsersXPO : PersistentBase
+	public partial class UsersXPO : XPBaseObject
 	{
 		Guid fId;
 		[Key]
@@ -58,6 +58,8 @@ namespace LifeLog.Data.XPO.ORMDataModelCode
 			get { return fPassword; }
 			set { SetPropertyValue<string>(nameof(Password), ref fPassword, value); }
 		}
+		[Association(@"NotesXPOReferencesUsersXPO"), Aggregated]
+		public XPCollection<NotesXPO> Notes { get { return GetCollection<NotesXPO>(nameof(Notes)); } }
 	}
 
 }

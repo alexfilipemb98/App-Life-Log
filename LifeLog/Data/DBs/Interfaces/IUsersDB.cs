@@ -13,4 +13,5 @@ public interface IUsersDB
 
 	Task<UsersDTO?> UserByEmail(string email);
 
+	Task<bool> UserExistsById(Guid id);
 }

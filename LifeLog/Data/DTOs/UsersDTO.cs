@@ -14,19 +14,19 @@ public class UsersDTO
 	public Guid? Id { get; set; }
 
 	[DataType(DataType.Text)]
-	[LifeLog.Core.Attributes.Required]
-	[LifeLog.Core.Attributes.StringLength(20, MinimumLength = 5)]
+	[Core.Attributes.Required]
+	[Core.Attributes.StringLength(20, MinimumLength = 5)]
 	public string? Username { get; set; }
 
 	[DataType(DataType.EmailAddress)]
-	[LifeLog.Core.Attributes.Required]
-	[LifeLog.Core.Attributes.StringLength(256, MinimumLength = 5)]
-	[LifeLog.Core.Attributes.EmailValidator]
+	[Core.Attributes.Required]
+	[Core.Attributes.StringLength(256, MinimumLength = 5)]
+	[Core.Attributes.EmailValidator]
 	public string? Email { get; set; }
 
 	[DataType(DataType.Password)]
-	[LifeLog.Core.Attributes.Required]
-	[LifeLog.Core.Attributes.StringLength(30, MinimumLength = 3)]
+	[Core.Attributes.Required]
+	[Core.Attributes.StringLength(30, MinimumLength = 3)]
 	public string? Password { get; set; }
 
 	#endregion

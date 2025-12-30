@@ -1,6 +1,5 @@
-﻿using DevExpress.Utils.Serializing;
-using DevExpress.XtraBars;
-using LifeLog.Helpers.DesignTime;
+﻿using DevExpress.XtraBars;
+using LifeLog.Components.Converters;
 using System.ComponentModel;
 
 namespace LifeLog.Components;

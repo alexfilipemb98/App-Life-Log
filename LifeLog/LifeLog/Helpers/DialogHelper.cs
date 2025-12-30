@@ -1,6 +1,8 @@
 ﻿using DevExpress.Utils;
 using DevExpress.XtraBars.Alerter;
+using DevExpress.XtraRichEdit.Internal;
 using DevExpress.XtraSplashScreen;
+using LifeLog.Core.Utils;
 using LifeLog.Forms.Loading;
 using System.IO;
 
@@ -32,6 +34,26 @@ namespace LifeLog.Helpers
 			return path;
 		}
 
+		/// <summary>
+		/// Save a json file
+		/// </summary>
+		/// <param name="fileName"></param>
+		/// <returns></returns>
+		public static string? SaveJsonFile(string fileName)
+		{
+			using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+			{
+				saveFileDialog.Title = $"Save {fileName} as JSON";
+				saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+				saveFileDialog.DefaultExt = "json";
+				saveFileDialog.FileName = $"{fileName}.json";
+				if (saveFileDialog.ShowDialog() == DialogResult.OK)
+					return saveFileDialog.FileName;
+			}
+
+			return null;
+		}
+
 		#region WAIT FORM
 
 		/// <summary>
@@ -42,7 +64,7 @@ namespace LifeLog.Helpers
 		{
 			SplashScreenManager.ShowForm(form, typeof(LoadingForm), true, true, false);
 		}
-	
+
 		/// <summary>
 		/// Close the wait form
 		/// </summary>

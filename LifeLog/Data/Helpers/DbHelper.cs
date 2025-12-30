@@ -78,10 +78,13 @@ internal static class DbHelper
 	{
 		ServiceCollection services = new();
 
-		services.AddSingleton<IDbConnection>(connection);
+		services.AddSingleton(connection);
+
+		services.AddScoped(sp => new UnitOfWork());
 
 		services.AddTransient<IUsersDB, UsersDB>();
 		services.AddTransient<IGeralDB, GeralDB>();
+		services.AddTransient<INotesDB, NotesDB>();
 
 		return services.BuildServiceProvider();
 	}
