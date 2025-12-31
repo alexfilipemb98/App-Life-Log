@@ -1,13 +1,19 @@
 ﻿using DevExpress.Xpo;
 using LifeLog.Data.DTOs;
 using LifeLog.Data.XPO.ORMDataModelCode;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LifeLog.Data.Mappers;
+
+/// <summary>
+/// Notes mappers.
+/// </summary>
 internal static class NotesMapper
 {
+	/// <summary>
+	/// NotesXPO to NotesModel mapper.
+	/// </summary>
+	/// <param name="xPO"></param>
+	/// <returns></returns>
 	internal static NotesDTO? ToModel(this NotesXPO xPO)
 	{
 		if (xPO is null)

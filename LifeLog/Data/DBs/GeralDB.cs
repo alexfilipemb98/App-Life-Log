@@ -24,6 +24,7 @@ public class GeralDB : IGeralDB
 	}
 
 	#endregion
+
 	#region SQL
 
 	public async Task<List<T>> LoadSql<T>(string sql)

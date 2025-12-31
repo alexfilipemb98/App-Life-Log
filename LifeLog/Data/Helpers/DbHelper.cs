@@ -85,6 +85,7 @@ internal static class DbHelper
 		services.AddTransient<IUsersDB, UsersDB>();
 		services.AddTransient<IGeralDB, GeralDB>();
 		services.AddTransient<INotesDB, NotesDB>();
+		services.AddTransient<ITasksDB, TasksDB>();
 
 		return services.BuildServiceProvider();
 	}

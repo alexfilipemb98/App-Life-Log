@@ -61,6 +61,8 @@ partial class MainForm
 		bbiTestCode = new DevExpress.XtraBars.BarButtonItem();
 		btsiTopMost = new DevExpress.XtraBars.BarToggleSwitchItem();
 		bbiNotes = new LifeLog.Components.BarButtonItemEx();
+		bbiTasks = new LifeLog.Components.BarButtonItemEx();
+		bbiPasswords = new LifeLog.Components.BarButtonItemEx();
 		ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 		ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 		ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -71,16 +73,12 @@ partial class MainForm
 		ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 		ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 		ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-		ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-		ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 		ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
 		mainTimer = new System.Windows.Forms.Timer(components);
 		layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
 		panelControl1 = new DevExpress.XtraEditors.PanelControl();
 		navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
 		npDashboard = new DevExpress.XtraBars.Navigation.NavigationPage();
-		gridControl1 = new DevExpress.XtraGrid.GridControl();
-		gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
 		Root = new DevExpress.XtraLayout.LayoutControlGroup();
 		layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
 		((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
@@ -93,9 +91,6 @@ partial class MainForm
 		panelControl1.SuspendLayout();
 		((System.ComponentModel.ISupportInitialize)navigationFrame).BeginInit();
 		navigationFrame.SuspendLayout();
-		npDashboard.SuspendLayout();
-		((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
-		((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
 		((System.ComponentModel.ISupportInitialize)Root).BeginInit();
 		((System.ComponentModel.ISupportInitialize)layoutControlItem1).BeginInit();
 		SuspendLayout();
@@ -107,15 +102,15 @@ partial class MainForm
 		ribbon.ApplicationDocumentCaption = "Main";
 		ribbon.CaptionBarItemLinks.Add(bbiShowSettings);
 		ribbon.ExpandCollapseItem.Id = 0;
-		ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { bbiShowSettings, ribbon.ExpandCollapseItem, bbiCommandsRunner, skinDropDownButtonItem1, skinPaletteRibbonGalleryBarItem1, bbiPasswordGenerator, bbiPdfMerger, bbiGradesCalculador, bbiConvertText, bbiCodeGenerator, bbiRollDice, bbiTicTacToe, bbiCoinFlip, bsiTime, bsiAppVersion, bsiUserMenu, bbiLogout, bsiDatabase, bciTrackWindowsAppMode, bbiCustomColors, bbiCustomColors2, bciOriginalPalette, bciTrackWindowsAccentColor, bbiFormOut, bbiThreeSimpleRule, bbiTestCode, btsiTopMost, bbiNotes });
+		ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { bbiShowSettings, ribbon.ExpandCollapseItem, bbiCommandsRunner, skinDropDownButtonItem1, skinPaletteRibbonGalleryBarItem1, bbiPasswordGenerator, bbiPdfMerger, bbiGradesCalculador, bbiConvertText, bbiCodeGenerator, bbiRollDice, bbiTicTacToe, bbiCoinFlip, bsiTime, bsiAppVersion, bsiUserMenu, bbiLogout, bsiDatabase, bciTrackWindowsAppMode, bbiCustomColors, bbiCustomColors2, bciOriginalPalette, bciTrackWindowsAccentColor, bbiFormOut, bbiThreeSimpleRule, bbiTestCode, btsiTopMost, bbiNotes, bbiTasks, bbiPasswords });
 		ribbon.Location = new Point(0, 0);
 		ribbon.Margin = new Padding(4, 3, 4, 3);
-		ribbon.MaxItemId = 33;
+		ribbon.MaxItemId = 35;
 		ribbon.Name = "ribbon";
 		ribbon.PageHeaderItemLinks.Add(btsiTopMost);
-		ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1, ribbonPage4, ribbonPage2, ribbonPage3, ribbonPage5 });
+		ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1, ribbonPage4, ribbonPage2, ribbonPage3 });
 		ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office365;
-		ribbon.Size = new Size(1102, 170);
+		ribbon.Size = new Size(1102, 215);
 		ribbon.StatusBar = ribbonStatusBar;
 		ribbon.ItemClick += ribbon_ItemClick;
 		// 
@@ -136,18 +131,19 @@ partial class MainForm
 		// backstageViewClientControl1
 		// 
 		backstageViewClientControl1.Controls.Add(sqlBrowserView1);
-		backstageViewClientControl1.Location = new Point(185, 63);
+		backstageViewClientControl1.Location = new Point(170, 63);
+		backstageViewClientControl1.Margin = new Padding(4, 3, 4, 3);
 		backstageViewClientControl1.Name = "backstageViewClientControl1";
-		backstageViewClientControl1.Size = new Size(351, 0);
+		backstageViewClientControl1.Size = new Size(366, 0);
 		backstageViewClientControl1.TabIndex = 1;
 		// 
 		// sqlBrowserView1
 		// 
 		sqlBrowserView1.Dock = DockStyle.Fill;
 		sqlBrowserView1.Location = new Point(0, 0);
-		sqlBrowserView1.Margin = new Padding(6, 2, 6, 2);
+		sqlBrowserView1.Margin = new Padding(7, 2, 7, 2);
 		sqlBrowserView1.Name = "sqlBrowserView1";
-		sqlBrowserView1.Size = new Size(351, 0);
+		sqlBrowserView1.Size = new Size(366, 0);
 		sqlBrowserView1.TabIndex = 0;
 		// 
 		// backstageViewTabItem1
@@ -366,6 +362,22 @@ partial class MainForm
 		bbiNotes.Name = "bbiNotes";
 		bbiNotes.TargetViewTypeName = "LifeLog.Views.Notes.NotesView";
 		// 
+		// bbiTasks
+		// 
+		bbiTasks.Caption = "Tasks";
+		bbiTasks.Id = 33;
+		bbiTasks.ImageOptions.SvgImage = Properties.Resources.task;
+		bbiTasks.Name = "bbiTasks";
+		bbiTasks.TargetViewTypeName = "LifeLog.Views.tasks.TasksView";
+		// 
+		// bbiPasswords
+		// 
+		bbiPasswords.Caption = "Passwords";
+		bbiPasswords.Id = 34;
+		bbiPasswords.ImageOptions.SvgImage = Properties.Resources.security_key;
+		bbiPasswords.Name = "bbiPasswords";
+		bbiPasswords.TargetViewTypeName = "LifeLog.Views.Passwords.PasswordsView";
+		// 
 		// ribbonPage1
 		// 
 		ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1 });
@@ -378,6 +390,8 @@ partial class MainForm
 		// 
 		ribbonPageGroup1.ItemLinks.Add(bbiNotes);
 		ribbonPageGroup1.ItemLinks.Add(bbiCommandsRunner);
+		ribbonPageGroup1.ItemLinks.Add(bbiPasswords);
+		ribbonPageGroup1.ItemLinks.Add(bbiTasks);
 		ribbonPageGroup1.Name = "ribbonPageGroup1";
 		ribbonPageGroup1.Text = "Main";
 		// 
@@ -448,28 +462,17 @@ partial class MainForm
 		ribbonPageGroup6.Name = "ribbonPageGroup6";
 		ribbonPageGroup6.Text = "Test";
 		// 
-		// ribbonPage5
-		// 
-		ribbonPage5.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup7 });
-		ribbonPage5.Name = "ribbonPage5";
-		ribbonPage5.Text = "ribbonPage5";
-		// 
-		// ribbonPageGroup7
-		// 
-		ribbonPageGroup7.Name = "ribbonPageGroup7";
-		ribbonPageGroup7.Text = "ribbonPageGroup7";
-		// 
 		// ribbonStatusBar
 		// 
 		ribbonStatusBar.ItemLinks.Add(bsiDatabase);
 		ribbonStatusBar.ItemLinks.Add(bsiAppVersion);
 		ribbonStatusBar.ItemLinks.Add(bsiTime);
 		ribbonStatusBar.ItemLinks.Add(bsiUserMenu);
-		ribbonStatusBar.Location = new Point(0, 639);
+		ribbonStatusBar.Location = new Point(0, 624);
 		ribbonStatusBar.Margin = new Padding(4, 3, 4, 3);
 		ribbonStatusBar.Name = "ribbonStatusBar";
 		ribbonStatusBar.Ribbon = ribbon;
-		ribbonStatusBar.Size = new Size(1102, 24);
+		ribbonStatusBar.Size = new Size(1102, 39);
 		// 
 		// mainTimer
 		// 
@@ -481,20 +484,20 @@ partial class MainForm
 		// 
 		layoutControl1.Controls.Add(panelControl1);
 		layoutControl1.Dock = DockStyle.Fill;
-		layoutControl1.Location = new Point(0, 170);
+		layoutControl1.Location = new Point(0, 215);
 		layoutControl1.Margin = new Padding(4, 3, 4, 3);
 		layoutControl1.Name = "layoutControl1";
 		layoutControl1.Root = Root;
-		layoutControl1.Size = new Size(1102, 469);
+		layoutControl1.Size = new Size(1102, 409);
 		layoutControl1.TabIndex = 5;
 		layoutControl1.Text = "layoutControl1";
 		// 
 		// panelControl1
 		// 
 		panelControl1.Controls.Add(navigationFrame);
-		panelControl1.Location = new Point(12, 12);
+		panelControl1.Location = new Point(16, 16);
 		panelControl1.Name = "panelControl1";
-		panelControl1.Size = new Size(1078, 445);
+		panelControl1.Size = new Size(1070, 377);
 		panelControl1.TabIndex = 4;
 		// 
 		// navigationFrame
@@ -505,31 +508,15 @@ partial class MainForm
 		navigationFrame.Name = "navigationFrame";
 		navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] { npDashboard });
 		navigationFrame.SelectedPage = npDashboard;
-		navigationFrame.Size = new Size(1074, 441);
+		navigationFrame.Size = new Size(1066, 373);
 		navigationFrame.TabIndex = 0;
 		navigationFrame.Text = "navigationFrame1";
 		// 
 		// npDashboard
 		// 
 		npDashboard.Caption = "npDashboard";
-		npDashboard.Controls.Add(gridControl1);
 		npDashboard.Name = "npDashboard";
-		npDashboard.Size = new Size(1074, 441);
-		// 
-		// gridControl1
-		// 
-		gridControl1.Location = new Point(251, 168);
-		gridControl1.MainView = gridView1;
-		gridControl1.MenuManager = ribbon;
-		gridControl1.Name = "gridControl1";
-		gridControl1.Size = new Size(400, 200);
-		gridControl1.TabIndex = 0;
-		gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
-		// 
-		// gridView1
-		// 
-		gridView1.GridControl = gridControl1;
-		gridView1.Name = "gridView1";
+		npDashboard.Size = new Size(1066, 373);
 		// 
 		// Root
 		// 
@@ -537,7 +524,7 @@ partial class MainForm
 		Root.GroupBordersVisible = false;
 		Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1 });
 		Root.Name = "Root";
-		Root.Size = new Size(1102, 469);
+		Root.Size = new Size(1102, 409);
 		Root.TextVisible = false;
 		// 
 		// layoutControlItem1
@@ -545,7 +532,7 @@ partial class MainForm
 		layoutControlItem1.Control = panelControl1;
 		layoutControlItem1.Location = new Point(0, 0);
 		layoutControlItem1.Name = "layoutControlItem1";
-		layoutControlItem1.Size = new Size(1082, 449);
+		layoutControlItem1.Size = new Size(1076, 383);
 		layoutControlItem1.TextVisible = false;
 		// 
 		// MainForm
@@ -558,7 +545,6 @@ partial class MainForm
 		Controls.Add(layoutControl1);
 		Controls.Add(ribbonStatusBar);
 		Controls.Add(ribbon);
-		Font = new Font("Segoe UI", 9F);
 		Margin = new Padding(4, 3, 4, 3);
 		Name = "MainForm";
 		Ribbon = ribbon;
@@ -576,9 +562,6 @@ partial class MainForm
 		panelControl1.ResumeLayout(false);
 		((System.ComponentModel.ISupportInitialize)navigationFrame).EndInit();
 		navigationFrame.ResumeLayout(false);
-		npDashboard.ResumeLayout(false);
-		((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
-		((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
 		((System.ComponentModel.ISupportInitialize)Root).EndInit();
 		((System.ComponentModel.ISupportInitialize)layoutControlItem1).EndInit();
 		ResumeLayout(false);
@@ -637,8 +620,6 @@ partial class MainForm
 	private Views.Sql.SqlBrowserView sqlBrowserView1;
 	private DevExpress.XtraBars.Navigation.NavigationPage npDashboard;
 	private LifeLog.Components.BarButtonItemEx bbiNotes;
-	private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
-	private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
-	private DevExpress.XtraGrid.GridControl gridControl1;
-	private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+	private LifeLog.Components.BarButtonItemEx bbiTasks;
+	private LifeLog.Components.BarButtonItemEx bbiPasswords;
 }

@@ -76,6 +76,9 @@ public class Engine
 	
 	//Notes
 	public INotesDB Notes => ServiceProvider.GetRequiredService<INotesDB>();
+	
+	//Tasks
+	public ITasksDB Tasks => ServiceProvider.GetRequiredService<ITasksDB>();
 
 	#endregion
 }

@@ -60,6 +60,8 @@ namespace LifeLog.Data.XPO.ORMDataModelCode
 		}
 		[Association(@"NotesXPOReferencesUsersXPO"), Aggregated]
 		public XPCollection<NotesXPO> Notes { get { return GetCollection<NotesXPO>(nameof(Notes)); } }
+		[Association(@"TasksXPOReferencesUsersXPO"), Aggregated]
+		public XPCollection<TasksXPO> TasksXPOes { get { return GetCollection<TasksXPO>(nameof(TasksXPOes)); } }
 	}
 
 }

@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LifeLog.Data.DTOs;
 
-[Table("Motes")]
-[Description("Database model for notes")]
-public class NotesDTO
+[Table("Tasks")]
+[Description("Database model for tasks")]
+public class TasksDTO
 {
 	#region PROPERTIES
 
@@ -15,15 +15,10 @@ public class NotesDTO
 
 	[DataType(DataType.Text)]
 	[Core.Attributes.Required]
-	[Core.Attributes.StringLength(30, MinimumLength = 3)]
-	public string? Title { get; set; }
+	[Core.Attributes.StringLength(350, MinimumLength = 3)]
+	public string? Description { get; set; }
 
-	[DataType(DataType.Text)]
-	public string? Text { get; set; }
-	
-	public int Color { get; set; }
-
-	public short Position { get; set; }
+	public bool IsDone { get; set; }
 
 	#endregion
 
