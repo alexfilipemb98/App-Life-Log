@@ -168,7 +168,7 @@ partial class MainForm
 		bbiCommandsRunner.Id = 3;
 		bbiCommandsRunner.ImageOptions.SvgImage = Properties.Resources.cli;
 		bbiCommandsRunner.Name = "bbiCommandsRunner";
-		bbiCommandsRunner.TargetViewTypeName = null;
+		bbiCommandsRunner.TargetViewTypeName = "LifeLog.Views.Commands.CommandsView";
 		// 
 		// skinDropDownButtonItem1
 		// 
@@ -368,7 +368,7 @@ partial class MainForm
 		bbiTasks.Id = 33;
 		bbiTasks.ImageOptions.SvgImage = Properties.Resources.task;
 		bbiTasks.Name = "bbiTasks";
-		bbiTasks.TargetViewTypeName = "LifeLog.Views.tasks.TasksView";
+		bbiTasks.TargetViewTypeName = "LifeLog.Views.Tasks.TasksView";
 		// 
 		// bbiPasswords
 		// 

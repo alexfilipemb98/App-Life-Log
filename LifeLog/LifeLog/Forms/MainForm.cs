@@ -184,6 +184,7 @@ public partial class MainForm : RibbonForm
 
 			control.Tag = userControl;
 			control.Dock = DockStyle.Fill;
+			control.Parent = this;
 
 			NavigationPage page = new NavigationPage();
 			page.Controls.Add(control);

@@ -5,7 +5,7 @@ using LifeLog.Data.DTOs;
 using LifeLog.Helpers;
 using System.Data;
 
-namespace LifeLog.Views.tasks
+namespace LifeLog.Views.Tasks
 {
 	/// <summary>
 	/// Tasks View

@@ -35,7 +35,7 @@ partial class PictureForm
 		// pictureEdit1
 		// 
 		pictureEdit1.Dock = DockStyle.Fill;
-		pictureEdit1.EditValue = Properties.Resources.business_world;
+		pictureEdit1.EditValue = Properties.Resources.clearfilter;
 		pictureEdit1.Location = new Point(0, 0);
 		pictureEdit1.Margin = new Padding(4, 3, 4, 3);
 		pictureEdit1.Name = "pictureEdit1";

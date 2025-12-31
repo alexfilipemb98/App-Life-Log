@@ -1,4 +1,4 @@
-﻿namespace LifeLog.Views.tasks
+﻿namespace LifeLog.Views.Tasks
 {
 	partial class TasksView
 	{

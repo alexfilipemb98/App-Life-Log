@@ -80,5 +80,11 @@ public class Engine
 	//Tasks
 	public ITasksDB Tasks => ServiceProvider.GetRequiredService<ITasksDB>();
 
+	//ExternalPrograms
+	public IExternalProgramsDB ExternalPrograms => ServiceProvider.GetRequiredService<IExternalProgramsDB>();
+
+	//Commands
+	public ICommandsDB Commands => ServiceProvider.GetRequiredService<ICommandsDB>();
+
 	#endregion
 }
