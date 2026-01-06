@@ -16,7 +16,7 @@ namespace LifeLog.Helpers
 			//LoggerUtil.LogError(ex);
 			//DialogHelper.CloseWait();
 
-			XtraMessageBox.Show(ex?.TargetSite?.ToString(), ex?.TargetSite?.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			XtraMessageBox.Show(ex?.Message, ex?.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 	}
 }

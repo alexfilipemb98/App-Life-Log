@@ -68,7 +68,13 @@ namespace LifeLog.Views.Tasks
 			if (e.Row is TasksDTO task && task != null)
 			{
 				task.IdUser = Program.LoggedUser!.Id;
-				bool saved = await Program.DataEngine!.Tasks.Save(task);
+
+				(bool saved, string message) = await Program.DataEngine!.Tasks.Save(task);
+				if (!saved)
+					MessageBox.Show("Saved");
+				else
+					MessageBox.Show("Failed Saved");
+
 			}
 		}
 
@@ -85,12 +91,11 @@ namespace LifeLog.Views.Tasks
 		/// </summary>
 		public async Task LoadData()
 		{
-			List<TasksDTO?> tasksList = await Program.DataEngine!.Tasks.GetUserTasks(Program.LoggedUser!.Id);
+			(List<TasksDTO?>? tasksList, _) = await Program.DataEngine!.Tasks.GetUserTasks(Program.LoggedUser!.Id);
 
-			tasksModelBindingSource.DataSource = tasksList;
+			tasksModelBindingSource.DataSource = tasksList ?? new List<TasksDTO?>();
 
 			UpdateProgressBar();
-
 		}
 
 		#endregion

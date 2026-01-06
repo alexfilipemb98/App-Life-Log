@@ -81,6 +81,7 @@ internal static class DbHelper
 		services.AddSingleton(connection);
 
 		services.AddScoped(sp => new UnitOfWork());
+		services.AddScoped(sp => new SqlDataAccessHelper(connection));
 
 		services.AddTransient<IUsersDB, UsersDB>();
 		services.AddTransient<IGeralDB, GeralDB>();

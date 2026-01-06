@@ -1,17 +1,43 @@
 ﻿using LifeLog.Core.Models;
+using LifeLog.Data.Bases;
 using LifeLog.Data.DTOs;
 
 namespace LifeLog.Data.DBs.Interfaces;
 
-public interface IUsersDB
+/// <summary>
+/// Users DB Interface
+/// </summary>
+public interface IUsersDB : IBaseDB<UsersDTO>
 {
-	Task<bool> RegisterUser(string username, string email, string password);
+	#region AUTH
 
-	Task<LoggedUserModel?> Login(string email, string password);
+	/// <summary>
+	/// Register user
+	/// </summary>
+	/// <param name="username"></param>
+	/// <param name="email"></param>
+	/// <param name="password"></param>
+	/// <returns></returns>
+	Task<(bool, string)> RegisterUser(string username, string email, string password);
 
-	Task<UsersDTO?> UserById(Guid id);
+	/// <summary>
+	/// Login user
+	/// </summary>
+	/// <param name="email"></param>
+	/// <param name="password"></param>
+	/// <returns></returns>
+	Task<(bool, LoggedUserModel?, string)> Login(string email, string password);
 
-	Task<UsersDTO?> UserByEmail(string email);
+	#endregion
 
-	Task<bool> UserExistsById(Guid id);
+	#region QUERIES
+
+	/// <summary>
+	/// Gets user by email
+	/// </summary>
+	/// <param name="email"></param>
+	/// <returns></returns>
+	Task<(UsersDTO?, string)> UserByEmail(string email);
+
+	#endregion
 }

@@ -12,15 +12,15 @@ public class GeralDB : IGeralDB
 	#region MAIN
 	
 	//PRIVATE
-	private IDbConnection _connection;
+	private readonly SqlDataAccessHelper _sql;
 
 	/// <summary>
 	/// Contructor
 	/// </summary>
 	/// <param name="connection"></param>
-	public GeralDB(IDbConnection connection)
+	public GeralDB(SqlDataAccessHelper sql)
 	{
-		_connection = connection;
+		_sql = sql;
 	}
 
 	#endregion
@@ -29,15 +29,13 @@ public class GeralDB : IGeralDB
 
 	public async Task<List<T>> LoadSql<T>(string sql)
 	{		 
-		using SqlDataAccessHelper db = new(_connection!);
-		return await db.LoadDataListAsync<T>(sql);
+		return await _sql.LoadDataListAsync<T>(sql);
 	}
 
 
 	public async Task<T?> ExecuteSql<T>(string sql)
 	{
-		using SqlDataAccessHelper db = new(_connection);
-		return await db.ExecuteScalarAsync<T>(sql);
+		return await _sql.ExecuteScalarAsync<T>(sql);
 	}
 
 	#endregion

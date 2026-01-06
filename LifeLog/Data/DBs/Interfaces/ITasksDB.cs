@@ -1,12 +1,21 @@
-﻿using LifeLog.Data.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LifeLog.Data.Bases;
+using LifeLog.Data.DTOs;
 
 namespace LifeLog.Data.DBs.Interfaces;
 
-public interface ITasksDB
+/// <summary>
+/// Tasks DB Interface
+/// </summary>
+public interface ITasksDB : IBaseDB<TasksDTO>
 {
-	Task<List<TasksDTO?>> GetUserTasks(Guid id);
-	Task<bool> Save(TasksDTO task);
+	#region QUERIES
+
+	/// <summary>
+	/// Gets tasks for a user
+	/// </summary>
+	/// <param name="id"></param>
+	/// <returns></returns>
+	Task<(List<TasksDTO?>?, string)> GetUserTasks(Guid id);
+	
+	#endregion
 }

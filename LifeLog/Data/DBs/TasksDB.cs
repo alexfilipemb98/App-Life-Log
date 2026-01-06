@@ -1,38 +1,91 @@
 ﻿using DevExpress.Xpo;
-using DevExpress.XtraEditors.Filtering;
+using LifeLog.Data.Bases;
 using LifeLog.Data.DBs.Interfaces;
 using LifeLog.Data.DTOs;
+using LifeLog.Data.Helpers;
 using LifeLog.Data.Mappers;
 using LifeLog.Data.XPO.ORMDataModelCode;
+using System.Threading.Tasks;
 
 namespace LifeLog.Data.DBs;
 
-public class TasksDB : ITasksDB
+public class TasksDB : BaseDB<TasksDTO>, ITasksDB
 {
+	#region MAIN
 
-	private IUsersDB _userDB;
-	private UnitOfWork _db;
+	//PRIVATE
+	private readonly IUsersDB _userDB;
 
-	public TasksDB(IUsersDB usersDB, UnitOfWork db)
+	/// <summary>
+	/// Constructor
+	/// </summary>
+	/// <param name="usersDB"></param>
+	/// <param name="db"></param>
+	/// <param name="sql"></param>
+	public TasksDB(IUsersDB usersDB, UnitOfWork db, SqlDataAccessHelper sql) : base(db, sql)
 	{
 		_userDB = usersDB;
-		_db = db;
 	}
 
-	public async Task<List<TasksDTO?>> GetUserTasks(Guid idUser)
+	#endregion
+
+	#region BASE
+
+	/// <summary>
+	/// Exists task by key
+	/// </summary>
+	/// <param name="key"></param>
+	/// <returns></returns>
+	public async Task<(bool, string)> Exists(Guid key)
 	{
-		bool userexist = await _userDB.UserExistsById(idUser);
-		if (!userexist)
-			throw new ArgumentOutOfRangeException("User not found");
-
-		List<TasksDTO?> tasks = await _db.Query<TasksXPO>().Where(w => w.User.Id == idUser).Select(s => s.ToModel()).ToListAsync();
-
-		return tasks;
+		bool exists = await _db.Query<TasksXPO>().AnyAsync(w => w.Id == key);
+		return (exists, exists ? "Task exists" : "Task does not exist");
 	}
 
-	public async Task<bool> Save(TasksDTO task)
+	/// <summary>
+	/// Get task by key
+	/// </summary>
+	/// <param name="id"></param>
+	/// <returns></returns>
+	public async Task<(TasksDTO?, string)> GetByKey(Guid id)
 	{
-		TasksXPO? entity = task.ToEntity(_db);
+		TasksXPO? task;
+		task = await _db.FindObjectAsync<TasksXPO>(id);
+		bool found = task is not null;
+		return (task?.ToModel(), found ? "Task found" : "Task not found");
+	}
+
+	/// <summary>
+	/// Get all tasks
+	/// </summary>
+	/// <returns></returns>
+	public async Task<(List<TasksDTO?>?, string)> GetAll()
+	{
+		List<TasksXPO> tasks = await _db.Query<TasksXPO>().ToListAsync();
+		bool found = tasks.Count > 0;
+		List<TasksDTO?>? result = tasks.ConvertAll(u => u.ToModel());
+		return (result, found ? tasks.Count + " tasks found" : "No tasks found");
+	}
+
+	/// <summary>
+	/// Get the last dto on the database
+	/// </summary>
+	/// <returns></returns>
+	public async Task<(TasksDTO?, string)> GetLast()
+	{
+		TasksDTO? user = await base.GetLastInsert();
+		string message = user != null ? "Last task retrieved successfully" : "No task found";
+		return (user, message);
+	}
+
+	/// <summary>
+	/// Save task
+	/// </summary>
+	/// <param name="model"></param>
+	/// <returns></returns>
+	public async Task<(bool, string)> Save(TasksDTO model)
+	{
+		TasksXPO? entity = model.ToEntity(_db);
 
 		if (entity is null)
 			throw new ArgumentNullException("Tasks entity is null");
@@ -40,6 +93,60 @@ public class TasksDB : ITasksDB
 		await _db.SaveAsync(entity);
 		await _db.CommitChangesAsync();
 
-		return true;
+		(bool exists, _) = await Exists(entity.Id);
+
+		return (exists, exists ? "Task saved successfully" : "Error saving task");
 	}
+
+	/// <summary>
+	/// Duplicate task by key
+	/// </summary>
+	/// <param name="key"></param>
+	/// <returns></returns>
+	public async Task<(TasksDTO?, string)> Duplicate(Guid key)
+	{
+		TasksXPO existingTask = await _db.FindObjectAsync<TasksXPO>(key);
+		if (existingTask == null)
+			return (null, "User not found");
+		existingTask.Id = Guid.NewGuid();
+
+		await _db.SaveAsync(existingTask);
+		await _db.CommitChangesAsync();
+
+		TasksXPO? duplicateTask = await _db.FindObjectAsync<TasksXPO>(existingTask.Id);
+		bool found = duplicateTask is not null;
+
+		return (duplicateTask?.ToModel(), found ? "Task duplicated successfully" : "Error duplicating task");
+	}
+
+	/// <summary>
+	/// Delete the object by key
+	/// </summary>
+	/// <param name="key"></param>
+	/// <returns></returns>
+	public async Task<(bool, string)> Delete(Guid key)
+	{
+		throw new NotImplementedException();
+	}
+
+	#endregion
+
+	#region QUERIES
+
+	/// <summary>
+	/// Devolve all user tasks
+	/// </summary>
+	/// <param name="idUser"></param>
+	/// <returns></returns>
+	public async Task<(List<TasksDTO?>?, string)> GetUserTasks(Guid idUser)
+	{
+		(bool userexist, _) = await _userDB.Exists(idUser);
+		if (!userexist)
+			return (null, "User not found");
+
+		List<TasksDTO?> tasks = await _db.Query<TasksXPO>().Where(w => w.User.Id == idUser).Select(s => s.ToModel()).ToListAsync();
+		return (tasks, tasks.Count > 0 ? tasks.Count + " tasks found" : "No tasks found");
+	}
+
+	#endregion
 }

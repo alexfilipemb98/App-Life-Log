@@ -4,6 +4,7 @@ using LifeLog.Forms;
 using LifeLog.Forms.Auth;
 using LifeLog.Forms.Loading;
 using LifeLog.Helpers;
+using System.Threading.Tasks;
 
 namespace LifeLog;
 
@@ -18,7 +19,7 @@ internal static class Program
 	///  The main entry point for the application.
 	/// </summary>
 	[STAThread]
-	static void Main()
+	static async Task Main()
 	{
 		SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
 
@@ -49,6 +50,8 @@ internal static class Program
 		}
 
 		MainForm = new();
+
+		List<Data.DTOs.UsersDTO> teste = await DataEngine.Users.GetAll();
 
 		Application.Run(MainForm);
 	}
