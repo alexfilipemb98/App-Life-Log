@@ -5,6 +5,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <NeutralLanguage>en-GB</NeutralLanguage>
+    <Version>2026.1.0</Version>
+    <AssemblyVersion>2026.0.0.0</AssemblyVersion>
+    <FileVersion>2026.1.1.6</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
