@@ -80,6 +80,7 @@
 			npEditor = new DevExpress.XtraBars.Navigation.NavigationPage();
 			lcEditValues = new DevExpress.XtraLayout.LayoutControl();
 			cbeProgram = new LifeLog.Components.LookUpEditEx();
+			bsExternalPrograms = new BindingSource(components);
 			pcCommandText = new DevExpress.XtraEditors.PanelControl();
 			recMain = new DevExpress.XtraRichEdit.RichEditControl();
 			tsEnabled = new DevExpress.XtraEditors.ToggleSwitch();
@@ -97,7 +98,6 @@
 			Root = new DevExpress.XtraLayout.LayoutControlGroup();
 			layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
 			dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(components);
-			bsExternalPrograms = new BindingSource(components);
 			((System.ComponentModel.ISupportInitialize)barManager).BeginInit();
 			((System.ComponentModel.ISupportInitialize)repositoryItemSearchControl1).BeginInit();
 			((System.ComponentModel.ISupportInitialize)gridControl).BeginInit();
@@ -120,6 +120,7 @@
 			((System.ComponentModel.ISupportInitialize)lcEditValues).BeginInit();
 			lcEditValues.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)cbeProgram.Properties).BeginInit();
+			((System.ComponentModel.ISupportInitialize)bsExternalPrograms).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pcCommandText).BeginInit();
 			pcCommandText.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)tsEnabled.Properties).BeginInit();
@@ -137,7 +138,6 @@
 			((System.ComponentModel.ISupportInitialize)Root).BeginInit();
 			((System.ComponentModel.ISupportInitialize)layoutControlItem1).BeginInit();
 			((System.ComponentModel.ISupportInitialize)dxErrorProvider).BeginInit();
-			((System.ComponentModel.ISupportInitialize)bsExternalPrograms).BeginInit();
 			SuspendLayout();
 			// 
 			// barManager
@@ -255,7 +255,7 @@
 			// 
 			gridControl.Cursor = Cursors.Hand;
 			gridControl.DataSource = bsCommandsList;
-			gridControl.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
+			gridControl.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
 			gridControl.Location = new Point(93, 3);
 			gridControl.MainView = tileView;
 			gridControl.Margin = new Padding(0);
@@ -273,7 +273,7 @@
 			// 
 			tileView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			tileView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colExternalProgram, colName, colDescription, colType, colCommand, colIsEnabled, colId, colCreatedAt, colUpdatedAt, colEditingMode, colIcon, colIdExternalProgram });
-			tileView.DetailHeight = 309;
+			tileView.DetailHeight = 268;
 			tileView.GridControl = gridControl;
 			tileView.Name = "tileView";
 			tileView.OptionsBehavior.KeepFocusedRowOnUpdate = false;
@@ -299,88 +299,112 @@
 			// colExternalProgram
 			// 
 			colExternalProgram.FieldName = "ExternalProgram";
+			colExternalProgram.MinWidth = 17;
 			colExternalProgram.Name = "colExternalProgram";
 			colExternalProgram.Visible = true;
 			colExternalProgram.VisibleIndex = 0;
+			colExternalProgram.Width = 64;
 			// 
 			// colName
 			// 
 			colName.FieldName = "Name";
+			colName.MinWidth = 17;
 			colName.Name = "colName";
 			colName.Visible = true;
 			colName.VisibleIndex = 1;
+			colName.Width = 64;
 			// 
 			// colDescription
 			// 
 			colDescription.FieldName = "Description";
+			colDescription.MinWidth = 17;
 			colDescription.Name = "colDescription";
 			colDescription.Visible = true;
 			colDescription.VisibleIndex = 2;
+			colDescription.Width = 64;
 			// 
 			// colType
 			// 
 			colType.FieldName = "Type";
+			colType.MinWidth = 17;
 			colType.Name = "colType";
 			colType.Visible = true;
 			colType.VisibleIndex = 3;
+			colType.Width = 64;
 			// 
 			// colCommand
 			// 
 			colCommand.FieldName = "Command";
+			colCommand.MinWidth = 17;
 			colCommand.Name = "colCommand";
 			colCommand.Visible = true;
 			colCommand.VisibleIndex = 4;
+			colCommand.Width = 64;
 			// 
 			// colIsEnabled
 			// 
 			colIsEnabled.FieldName = "IsEnabled";
+			colIsEnabled.MinWidth = 17;
 			colIsEnabled.Name = "colIsEnabled";
 			colIsEnabled.Visible = true;
 			colIsEnabled.VisibleIndex = 5;
+			colIsEnabled.Width = 64;
 			// 
 			// colId
 			// 
 			colId.FieldName = "Id";
+			colId.MinWidth = 17;
 			colId.Name = "colId";
 			colId.Visible = true;
 			colId.VisibleIndex = 6;
+			colId.Width = 64;
 			// 
 			// colCreatedAt
 			// 
 			colCreatedAt.FieldName = "CreatedAt";
+			colCreatedAt.MinWidth = 17;
 			colCreatedAt.Name = "colCreatedAt";
 			colCreatedAt.Visible = true;
 			colCreatedAt.VisibleIndex = 7;
+			colCreatedAt.Width = 64;
 			// 
 			// colUpdatedAt
 			// 
 			colUpdatedAt.FieldName = "UpdatedAt";
+			colUpdatedAt.MinWidth = 17;
 			colUpdatedAt.Name = "colUpdatedAt";
 			colUpdatedAt.Visible = true;
 			colUpdatedAt.VisibleIndex = 8;
+			colUpdatedAt.Width = 64;
 			// 
 			// colEditingMode
 			// 
 			colEditingMode.FieldName = "EditingMode";
+			colEditingMode.MinWidth = 17;
 			colEditingMode.Name = "colEditingMode";
 			colEditingMode.Visible = true;
 			colEditingMode.VisibleIndex = 9;
+			colEditingMode.Width = 64;
 			// 
 			// colIcon
 			// 
 			colIcon.FieldName = "Icon";
+			colIcon.MinWidth = 17;
 			colIcon.Name = "colIcon";
 			colIcon.Visible = true;
 			colIcon.VisibleIndex = 10;
+			colIcon.Width = 64;
 			// 
 			// colIdExternalProgram
 			// 
 			colIdExternalProgram.FieldName = "IdExternalProgram";
+			colIdExternalProgram.MinWidth = 17;
 			colIdExternalProgram.Name = "colIdExternalProgram";
 			colIdExternalProgram.Visible = true;
 			colIdExternalProgram.VisibleIndex = 11;
+			colIdExternalProgram.Width = 64;
 			// 
-			// barDockControlTop
+			// barBaseDockControlTop
 			// 
 			barDockControlTop.CausesValidation = false;
 			barDockControlTop.Dock = DockStyle.Top;
@@ -389,7 +413,7 @@
 			barDockControlTop.Margin = new Padding(4, 2, 4, 2);
 			barDockControlTop.Size = new Size(1058, 44);
 			// 
-			// barDockControlBottom
+			// barBaseDockControlBottom
 			// 
 			barDockControlBottom.CausesValidation = false;
 			barDockControlBottom.Dock = DockStyle.Bottom;
@@ -398,7 +422,7 @@
 			barDockControlBottom.Margin = new Padding(4, 2, 4, 2);
 			barDockControlBottom.Size = new Size(1058, 0);
 			// 
-			// barDockControlLeft
+			// barBaseDockControlLeft
 			// 
 			barDockControlLeft.CausesValidation = false;
 			barDockControlLeft.Dock = DockStyle.Left;
@@ -407,7 +431,7 @@
 			barDockControlLeft.Margin = new Padding(4, 2, 4, 2);
 			barDockControlLeft.Size = new Size(0, 483);
 			// 
-			// barDockControlRight
+			// barBaseDockControlRight
 			// 
 			barDockControlRight.CausesValidation = false;
 			barDockControlRight.Dock = DockStyle.Right;
@@ -516,16 +540,17 @@
 			// listboxPrograms
 			// 
 			listboxPrograms.Cursor = Cursors.Hand;
+			listboxPrograms.DataSource = bsExternalPrograms;
 			listboxPrograms.DisplayMember = "Name";
 			listboxPrograms.HotTrackSelectMode = DevExpress.XtraEditors.HotTrackSelectMode.SelectItemOnClick;
 			listboxPrograms.HtmlTemplates.AddRange(new DevExpress.Utils.Html.HtmlTemplate[] { htmlTemplate1 });
-			listboxPrograms.ItemHeight = 66;
+			listboxPrograms.ItemHeight = 57;
 			listboxPrograms.Location = new Point(3, 3);
 			listboxPrograms.Margin = new Padding(0);
-			listboxPrograms.MaximumSize = new Size(84, 0);
-			listboxPrograms.MinimumSize = new Size(84, 74);
+			listboxPrograms.MaximumSize = new Size(72, 0);
+			listboxPrograms.MinimumSize = new Size(72, 64);
 			listboxPrograms.Name = "listboxPrograms";
-			listboxPrograms.Size = new Size(84, 463);
+			listboxPrograms.Size = new Size(72, 463);
 			listboxPrograms.StyleController = layoutControl2;
 			listboxPrograms.TabIndex = 1;
 			listboxPrograms.ValueMember = "Id";
@@ -569,7 +594,7 @@
 			// 
 			npEditor.Caption = "npEditor";
 			npEditor.Controls.Add(lcEditValues);
-			npEditor.Margin = new Padding(4, 2, 4, 2);
+			npEditor.Margin = new Padding(3, 2, 3, 2);
 			npEditor.Name = "npEditor";
 			npEditor.Size = new Size(1048, 469);
 			// 
@@ -606,11 +631,15 @@
 			cbeProgram.StyleController = lcEditValues;
 			cbeProgram.TabIndex = 18;
 			// 
+			// bsExternalPrograms
+			// 
+			bsExternalPrograms.DataSource = typeof(Data.DTOs.ExternalProgramsDTO);
+			// 
 			// pcCommandText
 			// 
 			pcCommandText.Controls.Add(recMain);
 			pcCommandText.Location = new Point(79, 75);
-			pcCommandText.Margin = new Padding(4, 2, 4, 2);
+			pcCommandText.Margin = new Padding(3, 2, 3, 2);
 			pcCommandText.Name = "pcCommandText";
 			pcCommandText.Size = new Size(966, 391);
 			pcCommandText.TabIndex = 17;
@@ -623,7 +652,7 @@
 			recMain.Dock = DockStyle.Fill;
 			recMain.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
 			recMain.Location = new Point(2, 2);
-			recMain.Margin = new Padding(4, 2, 4, 2);
+			recMain.Margin = new Padding(3, 2, 3, 2);
 			recMain.MenuManager = barManager;
 			recMain.Name = "recMain";
 			recMain.Options.DocumentSaveOptions.CurrentFormat = DevExpress.XtraRichEdit.DocumentFormat.PlainText;
@@ -651,7 +680,7 @@
 			// 
 			teDescription.CausesValidation = false;
 			teDescription.Location = new Point(453, 3);
-			teDescription.Margin = new Padding(4, 2, 4, 2);
+			teDescription.Margin = new Padding(3, 2, 3, 2);
 			teDescription.Name = "teDescription";
 			teDescription.Properties.MaxLength = 30;
 			teDescription.Size = new Size(592, 30);
@@ -663,7 +692,7 @@
 			// 
 			teName.CausesValidation = false;
 			teName.Location = new Point(79, 3);
-			teName.Margin = new Padding(4, 2, 4, 2);
+			teName.Margin = new Padding(3, 2, 3, 2);
 			teName.Name = "teName";
 			teName.Properties.MaxLength = 13;
 			teName.Size = new Size(292, 30);
@@ -771,7 +800,7 @@
 			layoutControlItem10.Text = "Program";
 			layoutControlItem10.TextSize = new Size(60, 15);
 			// 
-			// Root
+			// BaseRoot
 			// 
 			Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
 			Root.GroupBordersVisible = false;
@@ -793,10 +822,6 @@
 			// dxErrorProvider
 			// 
 			dxErrorProvider.ContainerControl = this;
-			// 
-			// bsExternalPrograms
-			// 
-			bsExternalPrograms.DataSource = typeof(Data.DTOs.ExternalProgramsDTO);
 			// 
 			// CommandsView
 			// 
@@ -832,6 +857,7 @@
 			((System.ComponentModel.ISupportInitialize)lcEditValues).EndInit();
 			lcEditValues.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)cbeProgram.Properties).EndInit();
+			((System.ComponentModel.ISupportInitialize)bsExternalPrograms).EndInit();
 			((System.ComponentModel.ISupportInitialize)pcCommandText).EndInit();
 			pcCommandText.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)tsEnabled.Properties).EndInit();
@@ -849,7 +875,6 @@
 			((System.ComponentModel.ISupportInitialize)Root).EndInit();
 			((System.ComponentModel.ISupportInitialize)layoutControlItem1).EndInit();
 			((System.ComponentModel.ISupportInitialize)dxErrorProvider).EndInit();
-			((System.ComponentModel.ISupportInitialize)bsExternalPrograms).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 

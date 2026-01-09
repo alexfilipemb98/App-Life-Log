@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace LifeLog.Views.Commands;
+namespace LifeLog.Views.ExternalPrograms;
 public partial class ExternalProgramsEditor : DevExpress.XtraEditors.XtraUserControl
 {
 	public ExternalProgramsEditor()

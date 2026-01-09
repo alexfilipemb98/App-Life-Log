@@ -1,6 +1,5 @@
 ﻿using LifeLog.Data.DBs.Interfaces;
 using LifeLog.Data.Helpers;
-using System.Data;
 
 namespace LifeLog.Data.DBs;
 
@@ -10,7 +9,7 @@ namespace LifeLog.Data.DBs;
 public class GeralDB : IGeralDB
 {
 	#region MAIN
-	
+
 	//PRIVATE
 	private readonly SqlDataAccessHelper _sql;
 
@@ -27,12 +26,23 @@ public class GeralDB : IGeralDB
 
 	#region SQL
 
+	/// <summary>
+	/// Load sql
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="sql"></param>
+	/// <returns></returns>
 	public async Task<List<T>> LoadSql<T>(string sql)
-	{		 
+	{
 		return await _sql.LoadDataListAsync<T>(sql);
 	}
 
-
+	/// <summary>
+	/// Execute sql
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="sql"></param>
+	/// <returns></returns>
 	public async Task<T?> ExecuteSql<T>(string sql)
 	{
 		return await _sql.ExecuteScalarAsync<T>(sql);

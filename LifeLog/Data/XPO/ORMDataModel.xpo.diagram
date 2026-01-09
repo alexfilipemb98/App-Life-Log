@@ -18,7 +18,7 @@
         <elementListCompartment Id="f4cded9c-22ba-4665-8e2a-623d44f9df56" absoluteBounds="7.6400000000000006, 2.482587890625, 1.4700000000000002, 0.2493896484375" name="Collections" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </xpObjectShape>
-    <aggregationConnector Id="918460eb-8364-435f-8a37-fb3d077c223e" edgePoints="[(2.125 : 2.54577508266195); (4.25 : 2.54577508266195); (4.25 : 3.6588818359375); (8.375 : 3.6588818359375); (8.375 : 2.8319775390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <aggregationConnector Id="918460eb-8364-435f-8a37-fb3d077c223e" edgePoints="[(2.125 : 2.54577508266195); (4.25 : 2.54577508266195); (4.25 : 3.6588818359375); (5.16666666666667 : 3.6588818359375 : JumpStart); (5.33333333333333 : 3.6588818359375 : JumpEnd); (8.375 : 3.6588818359375); (8.375 : 2.8319775390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <aggregationMoniker Id="2c88b3e8-965b-4946-98cd-74a8e68f6aa2" />
       <relativeChildShapes />
       <nodes>
@@ -39,7 +39,7 @@
         <elementListCompartment Id="44ce7816-178d-47a1-8d9b-534850c27ad2" absoluteBounds="7.265, 5.8479850260416661, 1.4700000000000002, 0.2493896484375" name="Collections" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </xpObjectShape>
-    <aggregationConnector Id="75546647-2b9a-48a4-acf5-db94e3069b31" edgePoints="[(2.125 : 3.03742974315389); (2.5 : 3.03742974315389); (2.5 : 4.76694141796875); (7.25 : 4.76694141796875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <aggregationConnector Id="75546647-2b9a-48a4-acf5-db94e3069b31" edgePoints="[(2.125 : 3.03742974315389); (2.5 : 3.03742974315389); (2.5 : 4.76694141796875); (5.16666666666667 : 4.76694141796875 : JumpStart); (5.33333333333333 : 4.76694141796875 : JumpEnd); (7.25 : 4.76694141796875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <aggregationMoniker Id="b806ef94-638c-4988-b850-7b15b86ec342" />
       <relativeChildShapes />
       <nodes>

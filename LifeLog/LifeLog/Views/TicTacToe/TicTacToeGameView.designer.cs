@@ -280,7 +280,7 @@
 			this.lcTieScore.TabIndex = 13;
 			this.lcTieScore.Text = "0";
 			// 
-			// Root
+			// BaseRoot
 			// 
 			this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
 			this.Root.GroupBordersVisible = false;
@@ -569,7 +569,7 @@
 			this.bbiResetGame.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
 			this.bbiResetGame.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiResetGame_ItemClick);
 			// 
-			// barDockControlTop
+			// barBaseDockControlTop
 			// 
 			this.barDockControlTop.CausesValidation = false;
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -577,7 +577,7 @@
 			this.barDockControlTop.Manager = this.barManager;
 			this.barDockControlTop.Size = new System.Drawing.Size(790, 24);
 			// 
-			// barDockControlBottom
+			// barBaseDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -585,7 +585,7 @@
 			this.barDockControlBottom.Manager = this.barManager;
 			this.barDockControlBottom.Size = new System.Drawing.Size(790, 0);
 			// 
-			// barDockControlLeft
+			// barBaseDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -593,7 +593,7 @@
 			this.barDockControlLeft.Manager = this.barManager;
 			this.barDockControlLeft.Size = new System.Drawing.Size(0, 508);
 			// 
-			// barDockControlRight
+			// barBaseDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;

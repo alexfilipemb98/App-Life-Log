@@ -1,4 +1,5 @@
 ﻿using DevExpress.Xpo;
+using LifeLog.Core.Utils;
 using LifeLog.Data.Bases;
 using LifeLog.Data.DBs.Interfaces;
 using LifeLog.Data.DTOs;
@@ -9,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace LifeLog.Data.DBs;
 
+/// <summary>
+/// Tasks database operations
+/// </summary>
 public class TasksDB : BaseDB<TasksDTO>, ITasksDB
 {
 	#region MAIN
@@ -73,9 +77,9 @@ public class TasksDB : BaseDB<TasksDTO>, ITasksDB
 	/// <returns></returns>
 	public async Task<(TasksDTO?, string)> GetLast()
 	{
-		TasksDTO? user = await base.GetLastInsert();
-		string message = user != null ? "Last task retrieved successfully" : "No task found";
-		return (user, message);
+		TasksDTO? task = await base.GetLastInsert();
+		string message = task != null ? "Last task retrieved successfully" : "No task found";
+		return (task, message);
 	}
 
 	/// <summary>
@@ -85,10 +89,13 @@ public class TasksDB : BaseDB<TasksDTO>, ITasksDB
 	/// <returns></returns>
 	public async Task<(bool, string)> Save(TasksDTO model)
 	{
+		if (!model.IsValid())
+			return (false, "Model is not valid");
+
 		TasksXPO? entity = model.ToEntity(_db);
 
 		if (entity is null)
-			throw new ArgumentNullException("Tasks entity is null");
+			return (false, "Tasks entity is null");
 
 		await _db.SaveAsync(entity);
 		await _db.CommitChangesAsync();
@@ -134,7 +141,7 @@ public class TasksDB : BaseDB<TasksDTO>, ITasksDB
 	#region QUERIES
 
 	/// <summary>
-	/// Devolve all user tasks
+	/// Devolve all task tasks
 	/// </summary>
 	/// <param name="idUser"></param>
 	/// <returns></returns>

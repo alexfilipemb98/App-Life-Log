@@ -225,7 +225,7 @@
 			this.bbiSave.ImageOptions.SvgImage = global::LifeLog.Properties.Resources.saveall;
 			this.bbiSave.Name = "bbiSave";
 			// 
-			// barDockControlTop
+			// barBaseDockControlTop
 			// 
 			this.barDockControlTop.CausesValidation = false;
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -234,7 +234,7 @@
 			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
 			this.barDockControlTop.Size = new System.Drawing.Size(863, 39);
 			// 
-			// barDockControlBottom
+			// barBaseDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -243,7 +243,7 @@
 			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
 			this.barDockControlBottom.Size = new System.Drawing.Size(863, 0);
 			// 
-			// barDockControlLeft
+			// barBaseDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -252,7 +252,7 @@
 			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
 			this.barDockControlLeft.Size = new System.Drawing.Size(0, 596);
 			// 
-			// barDockControlRight
+			// barBaseDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
@@ -261,7 +261,7 @@
 			this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
 			this.barDockControlRight.Size = new System.Drawing.Size(0, 596);
 			// 
-			// Root
+			// BaseRoot
 			// 
 			this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
 			this.Root.GroupBordersVisible = false;

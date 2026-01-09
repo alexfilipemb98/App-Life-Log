@@ -1,10 +1,11 @@
-﻿using LifeLog.Data.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LifeLog.Data.Bases;
+using LifeLog.Data.DTOs;
 
 namespace LifeLog.Data.DBs.Interfaces;
-public interface IExternalProgramsDB
+
+/// <summary>
+/// External Programs DB Interface
+/// </summary>
+public interface IExternalProgramsDB : IBaseDB<ExternalProgramsDTO>
 {
-	Task<List<ExternalProgramsDTO>> GetAll();
 }

@@ -84,7 +84,7 @@ namespace LifeLog.Views.Commands
 				if (!ValidateModel())
 					return;
 
-				bool saved = await Program.DataEngine!.Commands.Save(_crtCommands);
+				(bool saved, _) = await Program.DataEngine!.Commands.Save(_crtCommands);
 
 				if (saved)
 				{
@@ -137,7 +137,7 @@ namespace LifeLog.Views.Commands
 					return;
 				}
 
-				bool state = await Program.DataEngine!.Commands.ToggleEnabledState(command.Id);
+				(bool state, _) = await Program.DataEngine!.Commands.ToggleEnabledState((Guid)command.Id!);
 
 				command.IsEnabled = state;
 
@@ -206,7 +206,7 @@ namespace LifeLog.Views.Commands
 		{
 			try
 			{
-				CommandsDTO command = ControlsHelper.GetObjectByRowHandle<CommandsDTO>(tileView, tileView.FocusedRowHandle);
+				CommandsDTO? command = ControlsHelper.GetObjectByRowHandle<CommandsDTO>(tileView, tileView.FocusedRowHandle);
 				if (command == null)
 					return;
 
@@ -215,7 +215,7 @@ namespace LifeLog.Views.Commands
 
 				if (result == DialogResult.Yes)
 				{
-					bool delete = await Program.DataEngine!.Commands.Delete(command.Id);
+					(bool delete, _) = await Program.DataEngine!.Commands.Delete((Guid)command.Id!);
 					if (delete)
 					{
 						bsCommandsList.Remove(command);
@@ -255,7 +255,7 @@ namespace LifeLog.Views.Commands
 
 					if (saveFileDialog.ShowDialog() == DialogResult.OK)
 					{
-						List<CommandsDTO> commands = await Program.DataEngine.Commands.GetUserCommands(Program.LoggedUser.Id);
+						(List<CommandsDTO> commands, _) = await Program.DataEngine.Commands.GetUserCommands(Program.LoggedUser.Id);
 						JsonUtil.ExportToFile(commands, saveFileDialog.FileName, indented: true);
 
 						MessageBox.Show($"({commands.Count}) Commands exported successfuly!");
@@ -289,7 +289,7 @@ namespace LifeLog.Views.Commands
 
 						commandsJson.ForEach(w => w.IdUser = Program.LoggedUser.Id);
 
-						bool saved = await Program.DataEngine.Commands.SaveList(commandsJson);
+						(bool saved, _) = await Program.DataEngine.Commands.SaveList(commandsJson);
 
 						if (saved)
 						{
@@ -454,7 +454,7 @@ namespace LifeLog.Views.Commands
 		{
 			try
 			{
-				List<ExternalProgramsDTO> externalPrograms = await Program.DataEngine.ExternalPrograms.GetAll();
+				(List<ExternalProgramsDTO> externalPrograms,_) = await Program.DataEngine.ExternalPrograms.GetAll();
 
 				externalPrograms.Insert(0, new ExternalProgramsDTO
 				{
@@ -466,7 +466,7 @@ namespace LifeLog.Views.Commands
 
 				bsExternalPrograms.DataSource = externalPrograms;
 
-				List<CommandsDTO> commands = await Program.DataEngine.Commands.GetUserCommands(Program.LoggedUser.Id);
+				(List<CommandsDTO> commands, _) = await Program.DataEngine.Commands.GetUserCommands(Program.LoggedUser.Id);
 				_listCommands = commands;
 
 				LoadCommandsHelper();

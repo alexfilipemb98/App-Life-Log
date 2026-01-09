@@ -10,7 +10,10 @@ using LifeLog.Data.Helpers;
 
 namespace LifeLog.Data.DBs;
 
-internal class UsersDB : BaseDB<UsersDTO>, IUsersDB
+/// <summary>
+/// Users database operations
+/// </summary>
+public class UsersDB : BaseDB<UsersDTO>, IUsersDB
 {
 	#region MAIN
 

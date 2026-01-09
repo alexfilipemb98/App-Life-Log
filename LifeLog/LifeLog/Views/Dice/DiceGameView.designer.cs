@@ -213,7 +213,7 @@
 			this.peDice.StyleController = this.layoutControl;
 			this.peDice.TabIndex = 4;
 			// 
-			// Root
+			// BaseRoot
 			// 
 			this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
 			this.Root.GroupBordersVisible = false;
@@ -420,7 +420,7 @@
 			this.bbiReRoll.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
 			this.bbiReRoll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReRoll_ItemClick);
 			// 
-			// barDockControlTop
+			// barBaseDockControlTop
 			// 
 			this.barDockControlTop.CausesValidation = false;
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -429,7 +429,7 @@
 			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
 			this.barDockControlTop.Size = new System.Drawing.Size(758, 39);
 			// 
-			// barDockControlBottom
+			// barBaseDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -438,7 +438,7 @@
 			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
 			this.barDockControlBottom.Size = new System.Drawing.Size(758, 0);
 			// 
-			// barDockControlLeft
+			// barBaseDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -447,7 +447,7 @@
 			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
 			this.barDockControlLeft.Size = new System.Drawing.Size(0, 485);
 			// 
-			// barDockControlRight
+			// barBaseDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;

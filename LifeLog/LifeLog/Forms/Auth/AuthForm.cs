@@ -220,7 +220,7 @@ namespace LifeLog.Forms.Auth
 
 				if (isNew)
 				{
-					bool saved = await Program.DataEngine!.Users.RegisterUser(teUsername.Text, teEmail.Text, bePassword.Text);
+					(bool saved, _) = await Program.DataEngine!.Users.RegisterUser(teUsername.Text, teEmail.Text, bePassword.Text);
 
 					if (saved)
 					{
@@ -234,7 +234,7 @@ namespace LifeLog.Forms.Auth
 				}
 				else
 				{
-					LoggedUserModel? user = await Program.DataEngine!.Users.Login(teEmail.Text, bePassword.Text);
+					(_,LoggedUserModel? user, _) = await Program.DataEngine!.Users.Login(teEmail.Text, bePassword.Text);
 
 					if (user is null)
 					{

@@ -10,6 +10,13 @@
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
     <PackageIcon></PackageIcon>
+    <Version>2026.01</Version>
+    <AssemblyVersion>1</AssemblyVersion>
+    <FileVersion>2</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,7 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.Win.Design" Version="25.1.3" />
+    <PackageReference Include="DevExpress.Win.BonusSkins" Version="25.2.3" />
+    <PackageReference Include="DevExpress.Win.Design" Version="25.2.3" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.1" />
   </ItemGroup>
 
@@ -40,5 +48,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if /I &quot;$(ConfigurationName)&quot;==&quot;Release&quot; (&#xD;&#xA;    del /Q /F *.pdb 2&gt;nul&#xD;&#xA;    del /Q /F D*.xml 2&gt;nul&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;set &quot;CEGID_EXT=%25LOCALAPPDATA%25\Cegid\Extensions\default&quot;&#xD;&#xA;for /D %25%25D in (&quot;%25CEGID_EXT%25\*&quot;) do (&#xD;&#xA;   if exist &quot;%25%25~fD\$(TargetFileName)&quot; (&#xD;&#xA;       rd /s /q &quot;%25%25~fD&quot;&#xD;&#xA;   )&#xD;&#xA;)" />
+  </Target>
 
 </Project>

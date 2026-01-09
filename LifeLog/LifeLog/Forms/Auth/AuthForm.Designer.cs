@@ -335,7 +335,7 @@
 			sbSubmit.Text = "ENTER";
 			sbSubmit.Click += sbLogin_Click;
 			// 
-			// Root
+			// BaseRoot
 			// 
 			Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.False;
 			Root.GroupBordersVisible = false;

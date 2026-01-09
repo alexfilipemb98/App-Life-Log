@@ -1,14 +1,39 @@
-﻿using LifeLog.Data.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LifeLog.Data.Bases;
+using LifeLog.Data.DTOs;
 
 namespace LifeLog.Data.DBs.Interfaces;
-public interface ICommandsDB
+
+/// <summary>
+/// Commands DB Interface
+/// </summary>
+public interface ICommandsDB : IBaseDB<CommandsDTO>
 {
-	Task<bool> Delete(Guid? id);
-	Task<List<CommandsDTO>> GetUserCommands(Guid id);
-	Task<bool> Save(CommandsDTO crtCommands);
-	Task<bool> SaveList(List<CommandsDTO> commandsJson);
-	Task<bool> ToggleEnabledState(Guid? id);
+	#region QUERIES
+
+	/// <summary>
+	/// Devolve all user commands
+	/// </summary>
+	/// <param name="idUser"></param>
+	/// <returns></returns>
+	Task<(List<CommandsDTO?>?, string)> GetUserCommands(Guid idUser);
+
+	/// <summary>
+	/// Toggle enabled state
+	/// </summary>
+	/// <param name="id"></param>
+	/// <returns></returns>
+	Task<(bool, string)> ToggleEnabledState(Guid id);
+
+	#endregion
+
+	#region FUNCTIONS
+
+	/// <summary>
+	/// Save list of commands
+	/// </summary>
+	/// <param name="commands"></param>
+	/// <returns></returns>
+	Task<(bool, string)> SaveList(List<CommandsDTO> commands);
+
+	#endregion
 }

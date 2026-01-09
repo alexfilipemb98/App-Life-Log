@@ -122,7 +122,7 @@
 			this.bbiOpenOutput.Name = "bbiOpenOutput";
 			this.bbiOpenOutput.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiOpenOutput_ItemClick);
 			// 
-			// barDockControlTop
+			// barBaseDockControlTop
 			// 
 			this.barDockControlTop.CausesValidation = false;
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -131,7 +131,7 @@
 			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.barDockControlTop.Size = new System.Drawing.Size(514, 24);
 			// 
-			// barDockControlBottom
+			// barBaseDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -140,7 +140,7 @@
 			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.barDockControlBottom.Size = new System.Drawing.Size(514, 0);
 			// 
-			// barDockControlLeft
+			// barBaseDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -149,7 +149,7 @@
 			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.barDockControlLeft.Size = new System.Drawing.Size(0, 339);
 			// 
-			// barDockControlRight
+			// barBaseDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
@@ -231,7 +231,7 @@
 			this.bePdfsFolder.TabIndex = 4;
 			this.bePdfsFolder.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.bePdfsFolder_ButtonClick);
 			// 
-			// Root
+			// BaseRoot
 			// 
 			this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
 			this.Root.GroupBordersVisible = false;

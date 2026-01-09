@@ -200,7 +200,7 @@
 			teResult.StyleController = layoutControl1;
 			teResult.TabIndex = 6;
 			// 
-			// Root
+			// BaseRoot
 			// 
 			Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
 			Root.GroupBordersVisible = false;

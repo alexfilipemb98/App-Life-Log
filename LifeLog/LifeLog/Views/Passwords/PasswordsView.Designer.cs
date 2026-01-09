@@ -194,7 +194,7 @@
 			this.bbiReload.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiReload.ImageOptions.SvgImage")));
 			this.bbiReload.Name = "bbiReload";
 			// 
-			// barDockControlTop
+			// barBaseDockControlTop
 			// 
 			this.barDockControlTop.CausesValidation = false;
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -203,7 +203,7 @@
 			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
 			this.barDockControlTop.Size = new System.Drawing.Size(1036, 44);
 			// 
-			// barDockControlBottom
+			// barBaseDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -212,7 +212,7 @@
 			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
 			this.barDockControlBottom.Size = new System.Drawing.Size(1036, 0);
 			// 
-			// barDockControlLeft
+			// barBaseDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -221,7 +221,7 @@
 			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
 			this.barDockControlLeft.Size = new System.Drawing.Size(0, 733);
 			// 
-			// barDockControlRight
+			// barBaseDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;

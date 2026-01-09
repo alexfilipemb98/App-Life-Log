@@ -206,7 +206,7 @@
 			this.riceColorNote.ShowSystemColors = false;
 			this.riceColorNote.ShowWebColors = false;
 			// 
-			// barDockControlTop
+			// barBaseDockControlTop
 			// 
 			this.barDockControlTop.CausesValidation = false;
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -215,7 +215,7 @@
 			this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
 			this.barDockControlTop.Size = new System.Drawing.Size(923, 44);
 			// 
-			// barDockControlBottom
+			// barBaseDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -224,7 +224,7 @@
 			this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
 			this.barDockControlBottom.Size = new System.Drawing.Size(923, 0);
 			// 
-			// barDockControlLeft
+			// barBaseDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -233,7 +233,7 @@
 			this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
 			this.barDockControlLeft.Size = new System.Drawing.Size(0, 563);
 			// 
-			// barDockControlRight
+			// barBaseDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
@@ -291,7 +291,7 @@
 			this.xtraTabControl.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtraTabControl_SelectedPageChanged);
 			this.xtraTabControl.CloseButtonClick += new System.EventHandler(this.xtraTabControl_CloseButtonClick);
 			// 
-			// Root
+			// BaseRoot
 			// 
 			this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
 			this.Root.GroupBordersVisible = false;

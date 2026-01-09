@@ -19,7 +19,7 @@ internal static class Program
 	///  The main entry point for the application.
 	/// </summary>
 	[STAThread]
-	static async Task Main()
+	static void Main()
 	{
 		SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
 
@@ -50,8 +50,6 @@ internal static class Program
 		}
 
 		MainForm = new();
-
-		List<Data.DTOs.UsersDTO> teste = await DataEngine.Users.GetAll();
 
 		Application.Run(MainForm);
 	}

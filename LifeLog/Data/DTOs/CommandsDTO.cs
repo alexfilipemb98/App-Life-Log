@@ -55,6 +55,10 @@ public class CommandsDTO
 	[Core.Attributes.Required]
 	public Guid? IdUser { get; set; }
 
+	[JsonIgnore]
+	[Core.Attributes.RequiredIf(nameof(IsEnabled), OperatorsEnum.Equal, true)]
+	public Guid? IdExternalProgram => ExternalProgram?.Id;
+
 	#endregion
 
 	#region NOT MAPPED
@@ -64,5 +68,4 @@ public class CommandsDTO
 	public dynamic? Icon { get; set; }
 
 	#endregion
-
 }

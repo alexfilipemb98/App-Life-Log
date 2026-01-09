@@ -47,7 +47,7 @@ public partial class NotesView : XtraUserControl
 			note.Title = nameNote;
 			note.IdUser = Program.LoggedUser!.Id;
 
-			bool saved = await Program.DataEngine!.Notes.Save(note);
+			(bool saved, _) = await Program.DataEngine!.Notes.Save(note);
 
 			_notesList.Add(note);
 
@@ -117,7 +117,7 @@ public partial class NotesView : XtraUserControl
 
 					_notesList.AddRange(notesJson);
 
-					bool saved = await Program.DataEngine!.Notes.SaveList(notesJson);
+					(bool saved, _) = await Program.DataEngine!.Notes.SaveList(notesJson);
 
 					if (saved)
 					{
@@ -154,7 +154,7 @@ public partial class NotesView : XtraUserControl
 
 		if (page != null && result == DialogResult.Yes)
 		{
-			bool deleted  = await Program.DataEngine!.Notes.Delete(Guid.Parse(page.Tag.ToString()));
+			(bool deleted, _)  = await Program.DataEngine!.Notes.Delete(Guid.Parse(page.Tag.ToString()));
 			if (deleted)
 			{
 				_notesList.Remove(note);
@@ -346,9 +346,9 @@ public partial class NotesView : XtraUserControl
 	/// </summary>
 	public async Task LoadData()
 	{
-		List<NotesDTO> notesList = await Program.DataEngine!.Notes.GetUserNotes(Program.LoggedUser!.Id) ?? new List<NotesDTO>();
+		(List<NotesDTO?>? notesList , _) = await Program.DataEngine!.Notes.GetUserNotes(Program.LoggedUser!.Id);
 
-		_notesList = notesList;
+		_notesList = notesList ?? new List<NotesDTO>();
 
 		xtraTabControl.TabPages.Clear();
 
@@ -400,7 +400,7 @@ public partial class NotesView : XtraUserControl
 				index++;
 			}
 
-			bool saved = await Program.DataEngine!.Notes.SaveList(_notesList);
+			(bool saved, _) = await Program.DataEngine!.Notes.SaveList(_notesList);
 
 			MessageBox.Show("SAVED");
 
@@ -488,7 +488,7 @@ public partial class NotesView : XtraUserControl
 				}
 			}
 
-			bool saved = await Program.DataEngine!.Notes.Save(note);
+			(bool saved, _) = await Program.DataEngine!.Notes.Save(note);
 
 			MessageBox.Show("NOTE SAVED");
 		}

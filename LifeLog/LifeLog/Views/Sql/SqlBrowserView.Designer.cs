@@ -120,7 +120,7 @@
 			this.bbiCopyCellValue.Name = "bbiCopyCellValue";
 			this.bbiCopyCellValue.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCopyCellValue_ItemClick);
 			// 
-			// barDockControlTop
+			// barBaseDockControlTop
 			// 
 			this.barDockControlTop.CausesValidation = false;
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -128,7 +128,7 @@
 			this.barDockControlTop.Manager = this.barManager;
 			this.barDockControlTop.Size = new System.Drawing.Size(898, 44);
 			// 
-			// barDockControlBottom
+			// barBaseDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -136,7 +136,7 @@
 			this.barDockControlBottom.Manager = this.barManager;
 			this.barDockControlBottom.Size = new System.Drawing.Size(898, 0);
 			// 
-			// barDockControlLeft
+			// barBaseDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -144,7 +144,7 @@
 			this.barDockControlLeft.Manager = this.barManager;
 			this.barDockControlLeft.Size = new System.Drawing.Size(0, 513);
 			// 
-			// barDockControlRight
+			// barBaseDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
@@ -229,7 +229,7 @@
 			this.panelControl1.Size = new System.Drawing.Size(882, 109);
 			this.panelControl1.TabIndex = 5;
 			// 
-			// Root
+			// BaseRoot
 			// 
 			this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
 			this.Root.GroupBordersVisible = false;

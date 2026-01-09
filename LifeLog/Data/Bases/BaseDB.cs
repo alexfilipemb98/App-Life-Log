@@ -1,13 +1,13 @@
 ﻿using DevExpress.Xpo;
 using LifeLog.Core.Utils;
-using LifeLog.Data.DBs;
-using LifeLog.Data.DTOs;
 using LifeLog.Data.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LifeLog.Data.Bases;
+
+/// <summary>
+/// Model base database operations
+/// </summary>
+/// <typeparam name="Model"></typeparam>
 public class BaseDB<Model>
 {
 	#region MAIN

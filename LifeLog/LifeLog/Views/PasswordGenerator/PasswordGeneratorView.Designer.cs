@@ -206,7 +206,7 @@ namespace LifeLog.Views.PasswordGenerator
 			this.passwordLegth.Value = 20;
 			this.passwordLegth.EditValueChanged += new System.EventHandler(this.event_Toggled);
 			// 
-			// Root
+			// BaseRoot
 			// 
 			this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
 			this.Root.GroupBordersVisible = false;
@@ -381,7 +381,7 @@ namespace LifeLog.Views.PasswordGenerator
 			this.bbiGenPass.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
 			this.bbiGenPass.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGenPass_ItemClick);
 			// 
-			// barDockControlTop
+			// barBaseDockControlTop
 			// 
 			this.barDockControlTop.CausesValidation = false;
 			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -389,7 +389,7 @@ namespace LifeLog.Views.PasswordGenerator
 			this.barDockControlTop.Manager = this.barManager;
 			this.barDockControlTop.Size = new System.Drawing.Size(616, 24);
 			// 
-			// barDockControlBottom
+			// barBaseDockControlBottom
 			// 
 			this.barDockControlBottom.CausesValidation = false;
 			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -397,7 +397,7 @@ namespace LifeLog.Views.PasswordGenerator
 			this.barDockControlBottom.Manager = this.barManager;
 			this.barDockControlBottom.Size = new System.Drawing.Size(616, 0);
 			// 
-			// barDockControlLeft
+			// barBaseDockControlLeft
 			// 
 			this.barDockControlLeft.CausesValidation = false;
 			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -405,7 +405,7 @@ namespace LifeLog.Views.PasswordGenerator
 			this.barDockControlLeft.Manager = this.barManager;
 			this.barDockControlLeft.Size = new System.Drawing.Size(0, 331);
 			// 
-			// barDockControlRight
+			// barBaseDockControlRight
 			// 
 			this.barDockControlRight.CausesValidation = false;
 			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;

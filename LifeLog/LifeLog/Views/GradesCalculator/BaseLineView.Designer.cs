@@ -29,199 +29,185 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseLineView));
-			this.pcBase = new DevExpress.XtraEditors.PanelControl();
-			this.layoutControl = new DevExpress.XtraLayout.LayoutControl();
-			this.txtNameBase = new DevExpress.XtraEditors.TextEdit();
-			this.seGradeBase = new DevExpress.XtraEditors.SpinEdit();
-			this.seWeigthBase = new DevExpress.XtraEditors.SpinEdit();
-			this.btnRemoveBase = new DevExpress.XtraEditors.SimpleButton();
-			this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-			this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-			((System.ComponentModel.ISupportInitialize)(this.pcBase)).BeginInit();
-			this.pcBase.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControl)).BeginInit();
-			this.layoutControl.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.txtNameBase.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.seGradeBase.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.seWeigthBase.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-			this.SuspendLayout();
+			pcBase = new DevExpress.XtraEditors.PanelControl();
+			layoutControl = new DevExpress.XtraLayout.LayoutControl();
+			txtNameBase = new DevExpress.XtraEditors.TextEdit();
+			seGradeBase = new DevExpress.XtraEditors.SpinEdit();
+			seWeigthBase = new DevExpress.XtraEditors.SpinEdit();
+			btnRemoveBase = new DevExpress.XtraEditors.SimpleButton();
+			layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+			layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+			layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+			layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+			layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+			((System.ComponentModel.ISupportInitialize)pcBase).BeginInit();
+			pcBase.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)layoutControl).BeginInit();
+			layoutControl.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)txtNameBase.Properties).BeginInit();
+			((System.ComponentModel.ISupportInitialize)seGradeBase.Properties).BeginInit();
+			((System.ComponentModel.ISupportInitialize)seWeigthBase.Properties).BeginInit();
+			((System.ComponentModel.ISupportInitialize)layoutControlGroup1).BeginInit();
+			((System.ComponentModel.ISupportInitialize)layoutControlItem4).BeginInit();
+			((System.ComponentModel.ISupportInitialize)layoutControlItem2).BeginInit();
+			((System.ComponentModel.ISupportInitialize)layoutControlItem1).BeginInit();
+			((System.ComponentModel.ISupportInitialize)layoutControlItem3).BeginInit();
+			SuspendLayout();
 			// 
 			// pcBase
 			// 
-			this.pcBase.Controls.Add(this.layoutControl);
-			this.pcBase.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pcBase.Location = new System.Drawing.Point(0, 0);
-			this.pcBase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.pcBase.MaximumSize = new System.Drawing.Size(0, 46);
-			this.pcBase.MinimumSize = new System.Drawing.Size(0, 46);
-			this.pcBase.Name = "pcBase";
-			this.pcBase.Size = new System.Drawing.Size(0, 46);
-			this.pcBase.TabIndex = 7;
+			pcBase.Controls.Add(layoutControl);
+			pcBase.Dock = DockStyle.Fill;
+			pcBase.Location = new Point(0, 0);
+			pcBase.Margin = new Padding(3, 2, 3, 2);
+			pcBase.MaximumSize = new Size(0, 46);
+			pcBase.MinimumSize = new Size(0, 46);
+			pcBase.Name = "pcBase";
+			pcBase.Size = new Size(0, 46);
+			pcBase.TabIndex = 7;
 			// 
 			// layoutControl
 			// 
-			this.layoutControl.Controls.Add(this.txtNameBase);
-			this.layoutControl.Controls.Add(this.seGradeBase);
-			this.layoutControl.Controls.Add(this.seWeigthBase);
-			this.layoutControl.Controls.Add(this.btnRemoveBase);
-			this.layoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl.Location = new System.Drawing.Point(1, 2);
-			this.layoutControl.Margin = new System.Windows.Forms.Padding(0);
-			this.layoutControl.Name = "layoutControl";
-			this.layoutControl.Root = this.layoutControlGroup1;
-			this.layoutControl.Size = new System.Drawing.Size(0, 42);
-			this.layoutControl.TabIndex = 0;
-			this.layoutControl.Text = "layoutControl2";
+			layoutControl.Controls.Add(txtNameBase);
+			layoutControl.Controls.Add(seGradeBase);
+			layoutControl.Controls.Add(seWeigthBase);
+			layoutControl.Controls.Add(btnRemoveBase);
+			layoutControl.Dock = DockStyle.Fill;
+			layoutControl.Location = new Point(1, 2);
+			layoutControl.Margin = new Padding(0);
+			layoutControl.Name = "layoutControl";
+			layoutControl.Root = layoutControlGroup1;
+			layoutControl.Size = new Size(0, 42);
+			layoutControl.TabIndex = 0;
+			layoutControl.Text = "layoutControl2";
 			// 
 			// txtNameBase
 			// 
-			this.txtNameBase.Location = new System.Drawing.Point(35, 10);
-			this.txtNameBase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.txtNameBase.Name = "txtNameBase";
-			this.txtNameBase.Size = new System.Drawing.Size(50, 20);
-			this.txtNameBase.StyleController = this.layoutControl;
-			this.txtNameBase.TabIndex = 9;
+			txtNameBase.Location = new Point(37, 8);
+			txtNameBase.Margin = new Padding(3, 2, 3, 2);
+			txtNameBase.Name = "txtNameBase";
+			txtNameBase.Size = new Size(50, 28);
+			txtNameBase.StyleController = layoutControl;
+			txtNameBase.TabIndex = 9;
 			// 
 			// seGradeBase
 			// 
-			this.seGradeBase.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this.seGradeBase.Location = new System.Drawing.Point(120, 10);
-			this.seGradeBase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.seGradeBase.MaximumSize = new System.Drawing.Size(146, 0);
-			this.seGradeBase.MinimumSize = new System.Drawing.Size(146, 0);
-			this.seGradeBase.Name = "seGradeBase";
-			this.seGradeBase.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-			this.seGradeBase.Properties.EditValueChangedDelay = 1000;
-			this.seGradeBase.Size = new System.Drawing.Size(146, 20);
-			this.seGradeBase.StyleController = this.layoutControl;
-			this.seGradeBase.TabIndex = 8;
+			seGradeBase.EditValue = new decimal(new int[] { 0, 0, 0, 0 });
+			seGradeBase.Location = new Point(124, 8);
+			seGradeBase.Margin = new Padding(3, 2, 3, 2);
+			seGradeBase.MaximumSize = new Size(146, 0);
+			seGradeBase.MinimumSize = new Size(146, 0);
+			seGradeBase.Name = "seGradeBase";
+			seGradeBase.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+			seGradeBase.Properties.EditValueChangedDelay = 1000;
+			seGradeBase.Size = new Size(146, 28);
+			seGradeBase.StyleController = layoutControl;
+			seGradeBase.TabIndex = 8;
 			// 
 			// seWeigthBase
 			// 
-			this.seWeigthBase.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this.seWeigthBase.Location = new System.Drawing.Point(306, 10);
-			this.seWeigthBase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.seWeigthBase.MaximumSize = new System.Drawing.Size(146, 0);
-			this.seWeigthBase.MinimumSize = new System.Drawing.Size(146, 0);
-			this.seWeigthBase.Name = "seWeigthBase";
-			this.seWeigthBase.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-			this.seWeigthBase.Properties.EditValueChangedDelay = 1000;
-			this.seWeigthBase.Size = new System.Drawing.Size(146, 20);
-			this.seWeigthBase.StyleController = this.layoutControl;
-			this.seWeigthBase.TabIndex = 7;
+			seWeigthBase.EditValue = new decimal(new int[] { 0, 0, 0, 0 });
+			seWeigthBase.Location = new Point(312, 8);
+			seWeigthBase.Margin = new Padding(3, 2, 3, 2);
+			seWeigthBase.MaximumSize = new Size(146, 0);
+			seWeigthBase.MinimumSize = new Size(146, 0);
+			seWeigthBase.Name = "seWeigthBase";
+			seWeigthBase.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+			seWeigthBase.Properties.EditValueChangedDelay = 1000;
+			seWeigthBase.Size = new Size(146, 28);
+			seWeigthBase.StyleController = layoutControl;
+			seWeigthBase.TabIndex = 7;
 			// 
 			// btnRemoveBase
 			// 
-			this.btnRemoveBase.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveBase.ImageOptions.SvgImage")));
-			this.btnRemoveBase.ImageOptions.SvgImageSize = new System.Drawing.Size(24, 24);
-			this.btnRemoveBase.Location = new System.Drawing.Point(456, 6);
-			this.btnRemoveBase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.btnRemoveBase.MaximumSize = new System.Drawing.Size(27, 24);
-			this.btnRemoveBase.MinimumSize = new System.Drawing.Size(27, 24);
-			this.btnRemoveBase.Name = "btnRemoveBase";
-			this.btnRemoveBase.Size = new System.Drawing.Size(27, 24);
-			this.btnRemoveBase.StyleController = this.layoutControl;
-			this.btnRemoveBase.TabIndex = 6;
+			btnRemoveBase.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnRemoveBase.ImageOptions.SvgImage");
+			btnRemoveBase.ImageOptions.SvgImageSize = new Size(24, 24);
+			btnRemoveBase.Location = new Point(464, 7);
+			btnRemoveBase.Margin = new Padding(3, 2, 3, 2);
+			btnRemoveBase.MaximumSize = new Size(27, 24);
+			btnRemoveBase.MinimumSize = new Size(27, 24);
+			btnRemoveBase.Name = "btnRemoveBase";
+			btnRemoveBase.Size = new Size(27, 24);
+			btnRemoveBase.StyleController = layoutControl;
+			btnRemoveBase.TabIndex = 6;
 			// 
 			// layoutControlGroup1
 			// 
-			this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-			this.layoutControlGroup1.GroupBordersVisible = false;
-			this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem4,
-            this.layoutControlItem2,
-            this.layoutControlItem1,
-            this.layoutControlItem3});
-			this.layoutControlGroup1.Name = "layoutControlGroup1";
-			this.layoutControlGroup1.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AutoSize;
-			this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 2;
-			this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-			this.layoutControlGroup1.Size = new System.Drawing.Size(492, 40);
-			this.layoutControlGroup1.TextVisible = false;
+			layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+			layoutControlGroup1.GroupBordersVisible = false;
+			layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem4, layoutControlItem2, layoutControlItem1, layoutControlItem3 });
+			layoutControlGroup1.Name = "layoutControlGroup1";
+			layoutControlGroup1.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AutoSize;
+			layoutControlGroup1.OptionsItemText.TextToControlDistance = 2;
+			layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+			layoutControlGroup1.Size = new Size(503, 44);
+			layoutControlGroup1.TextVisible = false;
 			// 
 			// layoutControlItem4
 			// 
-			this.layoutControlItem4.BestFitWeight = 50;
-			this.layoutControlItem4.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-			this.layoutControlItem4.Control = this.btnRemoveBase;
-			this.layoutControlItem4.Location = new System.Drawing.Point(450, 0);
-			this.layoutControlItem4.Name = "layoutControlItem4";
-			this.layoutControlItem4.Size = new System.Drawing.Size(34, 32);
-			this.layoutControlItem4.TextVisible = false;
+			layoutControlItem4.BestFitWeight = 50;
+			layoutControlItem4.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+			layoutControlItem4.Control = btnRemoveBase;
+			layoutControlItem4.Location = new Point(457, 0);
+			layoutControlItem4.Name = "layoutControlItem4";
+			layoutControlItem4.Size = new Size(38, 36);
+			layoutControlItem4.TextVisible = false;
 			// 
 			// layoutControlItem2
 			// 
-			this.layoutControlItem2.BestFitWeight = 75;
-			this.layoutControlItem2.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-			this.layoutControlItem2.Control = this.seGradeBase;
-			this.layoutControlItem2.Location = new System.Drawing.Point(83, 0);
-			this.layoutControlItem2.Name = "layoutControlItem2";
-			this.layoutControlItem2.Size = new System.Drawing.Size(181, 32);
-			this.layoutControlItem2.Text = "Grade";
-			this.layoutControlItem2.TextSize = new System.Drawing.Size(29, 13);
+			layoutControlItem2.BestFitWeight = 75;
+			layoutControlItem2.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+			layoutControlItem2.Control = seGradeBase;
+			layoutControlItem2.Location = new Point(86, 0);
+			layoutControlItem2.Name = "layoutControlItem2";
+			layoutControlItem2.Size = new Size(183, 36);
+			layoutControlItem2.Text = "Grade";
+			layoutControlItem2.TextSize = new Size(29, 13);
 			// 
 			// layoutControlItem1
 			// 
-			this.layoutControlItem1.BestFitWeight = 75;
-			this.layoutControlItem1.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-			this.layoutControlItem1.Control = this.seWeigthBase;
-			this.layoutControlItem1.Location = new System.Drawing.Point(264, 0);
-			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Size = new System.Drawing.Size(186, 32);
-			this.layoutControlItem1.Text = "Weight";
-			this.layoutControlItem1.TextSize = new System.Drawing.Size(34, 13);
+			layoutControlItem1.BestFitWeight = 75;
+			layoutControlItem1.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+			layoutControlItem1.Control = seWeigthBase;
+			layoutControlItem1.Location = new Point(269, 0);
+			layoutControlItem1.Name = "layoutControlItem1";
+			layoutControlItem1.Size = new Size(188, 36);
+			layoutControlItem1.Text = "Weight";
+			layoutControlItem1.TextSize = new Size(34, 13);
 			// 
 			// layoutControlItem3
 			// 
-			this.layoutControlItem3.BestFitWeight = 150;
-			this.layoutControlItem3.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-			this.layoutControlItem3.Control = this.txtNameBase;
-			this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-			this.layoutControlItem3.Name = "layoutControlItem3";
-			this.layoutControlItem3.Size = new System.Drawing.Size(83, 32);
-			this.layoutControlItem3.Text = "Name";
-			this.layoutControlItem3.TextSize = new System.Drawing.Size(27, 13);
+			layoutControlItem3.BestFitWeight = 150;
+			layoutControlItem3.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+			layoutControlItem3.Control = txtNameBase;
+			layoutControlItem3.Location = new Point(0, 0);
+			layoutControlItem3.Name = "layoutControlItem3";
+			layoutControlItem3.Size = new Size(86, 36);
+			layoutControlItem3.Text = "Name";
+			layoutControlItem3.TextSize = new Size(28, 13);
 			// 
 			// BaseLineView
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.pcBase);
-			this.MaximumSize = new System.Drawing.Size(0, 46);
-			this.MinimumSize = new System.Drawing.Size(0, 46);
-			this.Name = "BaseLineView";
-			this.Size = new System.Drawing.Size(0, 46);
-			((System.ComponentModel.ISupportInitialize)(this.pcBase)).EndInit();
-			this.pcBase.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.layoutControl)).EndInit();
-			this.layoutControl.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.txtNameBase.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.seGradeBase.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.seWeigthBase.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-			this.ResumeLayout(false);
+			AutoScaleDimensions = new SizeF(6F, 13F);
+			AutoScaleMode = AutoScaleMode.Font;
+			Controls.Add(pcBase);
+			MaximumSize = new Size(0, 46);
+			MinimumSize = new Size(0, 46);
+			Name = "BaseLineView";
+			Size = new Size(0, 46);
+			((System.ComponentModel.ISupportInitialize)pcBase).EndInit();
+			pcBase.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)layoutControl).EndInit();
+			layoutControl.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)txtNameBase.Properties).EndInit();
+			((System.ComponentModel.ISupportInitialize)seGradeBase.Properties).EndInit();
+			((System.ComponentModel.ISupportInitialize)seWeigthBase.Properties).EndInit();
+			((System.ComponentModel.ISupportInitialize)layoutControlGroup1).EndInit();
+			((System.ComponentModel.ISupportInitialize)layoutControlItem4).EndInit();
+			((System.ComponentModel.ISupportInitialize)layoutControlItem2).EndInit();
+			((System.ComponentModel.ISupportInitialize)layoutControlItem1).EndInit();
+			((System.ComponentModel.ISupportInitialize)layoutControlItem3).EndInit();
+			ResumeLayout(false);
 
 		}
 
