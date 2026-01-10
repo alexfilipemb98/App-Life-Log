@@ -20,44 +20,43 @@ partial class PictureForm
 		base.Dispose(disposing);
 	}
 
-	#region Windows Form Designer generated code
+    #region Windows Form Designer generated code
 
-	/// <summary>
-	/// Required method for Designer support - do not modify
-	/// the contents of this method with the code editor.
-	/// </summary>
-	private void InitializeComponent()
-	{
-		pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-		((System.ComponentModel.ISupportInitialize)pictureEdit1.Properties).BeginInit();
-		SuspendLayout();
-		// 
-		// pictureEdit1
-		// 
-		pictureEdit1.Dock = DockStyle.Fill;
-		pictureEdit1.EditValue = Properties.Resources.clearfilter;
-		pictureEdit1.Location = new Point(0, 0);
-		pictureEdit1.Margin = new Padding(4, 3, 4, 3);
-		pictureEdit1.Name = "pictureEdit1";
-		pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-		pictureEdit1.Size = new Size(348, 309);
-		pictureEdit1.TabIndex = 0;
-		// 
-		// PictureForm
-		// 
-		AutoScaleDimensions = new SizeF(7F, 15F);
-		AutoScaleMode = AutoScaleMode.Font;
-		ClientSize = new Size(348, 309);
-		Controls.Add(pictureEdit1);
-		FormBorderStyle = FormBorderStyle.None;
-		Margin = new Padding(4, 3, 4, 3);
-		Name = "PictureForm";
-		Text = "PictureForm";
-		((System.ComponentModel.ISupportInitialize)pictureEdit1.Properties).EndInit();
-		ResumeLayout(false);
-	}
+    /// <summary>
+    /// Required method for Designer support - do not modify
+    /// the contents of this method with the code editor.
+    /// </summary>
+    private void InitializeComponent()
+    {
+        pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+        ((System.ComponentModel.ISupportInitialize)pictureEdit1.Properties).BeginInit();
+        SuspendLayout();
+        // 
+        // pictureEdit1
+        // 
+        pictureEdit1.Dock = DockStyle.Fill;
+        pictureEdit1.EditValue = Properties.Resources.actions_options;
+        pictureEdit1.Location = new Point(0, 0);
+        pictureEdit1.Name = "pictureEdit1";
+        pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+        pictureEdit1.Size = new Size(298, 268);
+        pictureEdit1.TabIndex = 0;
+        // 
+        // PictureForm
+        // 
+        AutoScaleDimensions = new SizeF(6F, 13F);
+        AutoScaleMode = AutoScaleMode.Font;
+        ClientSize = new Size(298, 268);
+        Controls.Add(pictureEdit1);
+        Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        FormBorderStyle = FormBorderStyle.None;
+        Name = "PictureForm";
+        Text = "PictureForm";
+        ((System.ComponentModel.ISupportInitialize)pictureEdit1.Properties).EndInit();
+        ResumeLayout(false);
+    }
 
-	#endregion
+    #endregion
 
-	private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+    private DevExpress.XtraEditors.PictureEdit pictureEdit1;
 }

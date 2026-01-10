@@ -49,7 +49,12 @@ internal static class Program
 
         DataEngine = new Data.Engine(configs);
 
-        AppConfigs = AppHelper.ReadAppConfigs();
+        ApiHost host = new();
+		_ = Task.Run(() => host.StartAsync(DataEngine.Connection ,new[] { "http://localhost:5055" }));
+
+		Application.ApplicationExit += async (_, __) => await host.DisposeAsync();
+
+		AppConfigs = AppHelper.ReadAppConfigs();
 
         using (AuthForm = new())
         {
@@ -59,11 +64,9 @@ internal static class Program
                 Environment.Exit(0);
         }
 
-		
-
 		MainForm = new();
 
         Application.Run(MainForm);
-    }
+	}
 }
 

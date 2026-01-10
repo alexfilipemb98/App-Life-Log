@@ -310,4 +310,19 @@
   <data name="topbottomrules" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\topbottomrules.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="weather" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\weather.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="game-console" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\game-console.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="exporttopdf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exporttopdf.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="bo_address" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bo_address.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="actions_options" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actions_options.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
 </root>

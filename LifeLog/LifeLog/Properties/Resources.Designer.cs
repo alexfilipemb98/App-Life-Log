@@ -143,6 +143,16 @@ namespace LifeLog.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_options {
+            get {
+                object obj = ResourceManager.GetObject("actions_options", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage actions_refresh {
             get {
                 object obj = ResourceManager.GetObject("actions_refresh", resourceCulture);
@@ -176,6 +186,16 @@ namespace LifeLog.Properties {
         internal static DevExpress.Utils.Svg.SvgImage barcode {
             get {
                 object obj = ResourceManager.GetObject("barcode", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage bo_address {
+            get {
+                object obj = ResourceManager.GetObject("bo_address", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
@@ -453,6 +473,16 @@ namespace LifeLog.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage exporttopdf {
+            get {
+                object obj = ResourceManager.GetObject("exporttopdf", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage extractstyle {
             get {
                 object obj = ResourceManager.GetObject("extractstyle", resourceCulture);
@@ -466,6 +496,16 @@ namespace LifeLog.Properties {
         internal static DevExpress.Utils.Svg.SvgImage Game {
             get {
                 object obj = ResourceManager.GetObject("Game", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage game_console {
+            get {
+                object obj = ResourceManager.GetObject("game-console", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
@@ -676,6 +716,16 @@ namespace LifeLog.Properties {
         internal static DevExpress.Utils.Svg.SvgImage undo {
             get {
                 object obj = ResourceManager.GetObject("undo", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage weather {
+            get {
+                object obj = ResourceManager.GetObject("weather", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

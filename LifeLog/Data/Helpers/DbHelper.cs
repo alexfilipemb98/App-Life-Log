@@ -12,7 +12,7 @@ namespace LifeLog.Data.Helpers;
 /// <summary>
 /// Database helper
 /// </summary>
-internal static class DbHelper
+public static class DbHelper
 {
 	/// <summary>
 	/// Update database
@@ -74,10 +74,8 @@ internal static class DbHelper
 	/// Configure
 	/// </summary>
 	/// <param name="services"></param>
-	public static ServiceProvider ConfigureServices(IDbConnection connection)
+	public static IServiceCollection ConfigureServices(this IServiceCollection services, IDbConnection connection)
 	{
-		ServiceCollection services = new();
-
 		services.AddSingleton(connection);
 
 		services.AddScoped(sp => new UnitOfWork());
@@ -90,6 +88,6 @@ internal static class DbHelper
 		services.AddTransient<ICommandsDB, CommandsDB>();
 		services.AddTransient<IExternalProgramsDB, ExternalProgramsDB>();	 
 
-		return services.BuildServiceProvider();
+		return services;
 	}
 }

@@ -8,11 +8,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
-    <PackageIcon></PackageIcon>
+    <PackageIcon>Icon.ico</PackageIcon>
     <Version>2026.1.0</Version>
     <AssemblyVersion>2026.0.0.0</AssemblyVersion>
     <FileVersion>2026.1.0.11</FileVersion>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -24,6 +24,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\Development\LifeLog.App\Icon.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DevExpress.Win.BonusSkins" Version="25.2.3" />
     <PackageReference Include="DevExpress.Win.Design" Version="25.2.3" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.1" />
@@ -32,6 +39,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Core\LifeLog.Core.csproj" />
     <ProjectReference Include="..\Data\LifeLog.Data.csproj" />
+    <ProjectReference Include="..\LifeLog.Api\LifeLog.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>

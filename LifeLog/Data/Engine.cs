@@ -1,13 +1,14 @@
-﻿using LifeLog.Core.Enums;
+﻿using DevExpress.Xpo.DB;
+using DevExpress.Xpo.Metadata;
+using LifeLog.Core.Enums;
 using LifeLog.Core.Models;
 using LifeLog.Core.Utils;
 using LifeLog.Data.DBs.Interfaces;
 using LifeLog.Data.Helpers;
-using DevExpress.Xpo.DB;
-using DevExpress.Xpo.Metadata;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.DependencyInjection;
+using PdfSharp.Charting;
 using SQLitePCL;
 using System.Data;
 
@@ -24,6 +25,8 @@ public class Engine
 
 	private static Engine? Instance;
 	private readonly IServiceProvider ServiceProvider;
+
+	public IDbConnection Connection { get; private set; }
 	public string DBName { get; private set; }
 
 	/// <summary>
@@ -53,13 +56,17 @@ public class Engine
 
 		DbHelper.UpdateDB(provider, dictionary);
 
-		IDbConnection Connection = DbHelper.ConnectDb(provider, dictionary);
+		Connection = DbHelper.ConnectDb(provider, dictionary);
 
 		DBName = configs.DatabaseType == DatabaseTypeEnum.SQLLITE
 			? $"(local) {Path.GetFileNameWithoutExtension(((SqliteConnection)Connection).DataSource)}"
 			: ((SqlConnection)Connection).Database;
 
-		ServiceProvider = DbHelper.ConfigureServices(Connection);
+		ServiceCollection services = new();
+
+		services.ConfigureServices(Connection);
+
+		ServiceProvider = services.BuildServiceProvider();
 
 		Instance = this;
 	}
@@ -73,10 +80,10 @@ public class Engine
 
 	//Geral
 	public IGeralDB Geral => ServiceProvider.GetRequiredService<IGeralDB>();
-	
+
 	//Notes
 	public INotesDB Notes => ServiceProvider.GetRequiredService<INotesDB>();
-	
+
 	//Tasks
 	public ITasksDB Tasks => ServiceProvider.GetRequiredService<ITasksDB>();
 
