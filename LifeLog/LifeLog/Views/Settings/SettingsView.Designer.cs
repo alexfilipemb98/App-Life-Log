@@ -74,9 +74,9 @@ partial class SettingsView
         // backstageViewClientControl1
         // 
         backstageViewClientControl1.Controls.Add(sqlBrowserView1);
-        backstageViewClientControl1.Location = new Point(147, 0);
+        backstageViewClientControl1.Location = new Point(170, 0);
         backstageViewClientControl1.Name = "backstageViewClientControl1";
-        backstageViewClientControl1.Size = new Size(858, 612);
+        backstageViewClientControl1.Size = new Size(835, 612);
         backstageViewClientControl1.TabIndex = 1;
         // 
         // sqlBrowserView1
@@ -85,7 +85,7 @@ partial class SettingsView
         sqlBrowserView1.Location = new Point(0, 0);
         sqlBrowserView1.Margin = new Padding(3, 2, 3, 2);
         sqlBrowserView1.Name = "sqlBrowserView1";
-        sqlBrowserView1.Size = new Size(858, 612);
+        sqlBrowserView1.Size = new Size(835, 612);
         sqlBrowserView1.TabIndex = 0;
         // 
         // backstageViewClientControl2
@@ -131,7 +131,7 @@ partial class SettingsView
         // 
         navigationPage1.Caption = "navigationPage1";
         navigationPage1.Name = "navigationPage1";
-        navigationPage1.Size = new Size(689, 541);
+        navigationPage1.Size = new Size(666, 541);
         // 
         // backstageViewClientControl3
         // 
@@ -190,6 +190,7 @@ partial class SettingsView
         Controls.Add(backstageViewControl);
         Name = "SettingsView";
         Size = new Size(1005, 612);
+        Load += SettingsView_Load;
         ((System.ComponentModel.ISupportInitialize)backstageViewControl).EndInit();
         backstageViewControl.ResumeLayout(false);
         backstageViewClientControl1.ResumeLayout(false);

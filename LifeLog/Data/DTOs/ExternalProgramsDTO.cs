@@ -48,18 +48,17 @@ public class ExternalProgramsDTO
 
 	#region NOT MAPPED
 
+	[JsonIgnore]
+	[NotMapped]
+	public bool IsImageSvg => ImageExtension == null ? false : ImageExtension.EndsWith("svg", System.StringComparison.InvariantCultureIgnoreCase);
 
 	[JsonIgnore]
 	[NotMapped]
-	public bool IsSvg => FileExtension == null ? false : FileExtension.EndsWith("svg", System.StringComparison.InvariantCultureIgnoreCase);
+	public SvgImage? SvgImage => ImageData != null && ImageData.Length > 0 && IsImageSvg ? ImagesUtil.ArrayToSvgImage(ImageData) : null;
 
 	[JsonIgnore]
 	[NotMapped]
-	public SvgImage? SvgImage => ImageData != null && ImageData.Length > 0 && IsSvg ? ImagesUtil.ArrayToSvgImage(ImageData) : null;
-
-	[JsonIgnore]
-	[NotMapped]
-	public Bitmap? BitImage => ImageData != null && ImageData.Length > 0 && !IsSvg ? ImagesUtil.ArrayToBitmap(ImageData) : null;
+	public Bitmap? BitImage => ImageData != null && ImageData.Length > 0 && !IsImageSvg ? ImagesUtil.ArrayToBitmap(ImageData) : null;
 
 	[NotMapped]
 	[JsonIgnore]
@@ -78,5 +77,6 @@ public class ExternalProgramsDTO
 			fIcon = value;
 		}
 	}
+
 	#endregion
 }

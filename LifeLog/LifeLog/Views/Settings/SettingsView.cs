@@ -12,8 +12,10 @@ namespace LifeLog.Forms;
 
 public partial class SettingsView : DevExpress.XtraEditors.XtraUserControl
 {
-    public SettingsView()
+    public SettingsView() => InitializeComponent();
+
+    private void SettingsView_Load(object sender, EventArgs e)
     {
-        InitializeComponent();
+        externalProgramsList.LoadData();
     }
 }

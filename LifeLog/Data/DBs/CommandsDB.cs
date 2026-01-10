@@ -9,6 +9,9 @@ using LifeLog.Data.XPO.ORMDataModelCode;
 
 namespace LifeLog.Data.DBs;
 
+/// <summary>
+/// Commands database operations
+/// </summary>
 public class CommandsDB : BaseDB<CommandsDTO>, ICommandsDB
 {
 	#region MAIN
