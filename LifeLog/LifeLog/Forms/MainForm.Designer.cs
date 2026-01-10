@@ -77,6 +77,7 @@ partial class MainForm
         npDashboard = new DevExpress.XtraBars.Navigation.NavigationPage();
         Root = new DevExpress.XtraLayout.LayoutControlGroup();
         layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+        bsiStatusLabel = new DevExpress.XtraBars.BarStaticItem();
         ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
         ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
         layoutControl1.SuspendLayout();
@@ -95,9 +96,9 @@ partial class MainForm
         ribbon.CaptionBarItemLinks.Add(bbiShowSettings);
         ribbon.EmptyAreaImageOptions.ImagePadding = new Padding(26);
         ribbon.ExpandCollapseItem.Id = 0;
-        ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { bbiShowSettings, ribbon.ExpandCollapseItem, bbiCommandsRunner, skinDropDownButtonItem1, skinPaletteRibbonGalleryBarItem1, bbiPasswordGenerator, bbiPdfMerger, bbiGradesCalculador, bbiConvertText, bbiCodeGenerator, bbiRollDice, bbiTicTacToe, bbiCoinFlip, bsiTime, bsiAppVersion, bsiUserMenu, bbiLogout, bsiDatabase, bciTrackWindowsAppMode, bbiCustomColors, bbiCustomColors2, bciOriginalPalette, bciTrackWindowsAccentColor, bbiFormOut, bbiThreeSimpleRule, bbiTestCode, btsiTopMost, bbiNotes, bbiTasks, bbiPasswords });
+        ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { bbiShowSettings, ribbon.ExpandCollapseItem, bbiCommandsRunner, skinDropDownButtonItem1, skinPaletteRibbonGalleryBarItem1, bbiPasswordGenerator, bbiPdfMerger, bbiGradesCalculador, bbiConvertText, bbiCodeGenerator, bbiRollDice, bbiTicTacToe, bbiCoinFlip, bsiTime, bsiAppVersion, bsiUserMenu, bbiLogout, bsiDatabase, bciTrackWindowsAppMode, bbiCustomColors, bbiCustomColors2, bciOriginalPalette, bciTrackWindowsAccentColor, bbiFormOut, bbiThreeSimpleRule, bbiTestCode, btsiTopMost, bbiNotes, bbiTasks, bbiPasswords, bsiStatusLabel });
         ribbon.Location = new Point(0, 0);
-        ribbon.MaxItemId = 35;
+        ribbon.MaxItemId = 36;
         ribbon.Name = "ribbon";
         ribbon.OptionsMenuMinWidth = 283;
         ribbon.PageHeaderItemLinks.Add(btsiTopMost);
@@ -421,6 +422,7 @@ partial class MainForm
         ribbonStatusBar.ItemLinks.Add(bsiAppVersion);
         ribbonStatusBar.ItemLinks.Add(bsiTime);
         ribbonStatusBar.ItemLinks.Add(bsiUserMenu);
+        ribbonStatusBar.ItemLinks.Add(bsiStatusLabel);
         ribbonStatusBar.Location = new Point(0, 538);
         ribbonStatusBar.Name = "ribbonStatusBar";
         ribbonStatusBar.Ribbon = ribbon;
@@ -485,6 +487,14 @@ partial class MainForm
         layoutControlItem1.Name = "layoutControlItem1";
         layoutControlItem1.Size = new Size(919, 303);
         layoutControlItem1.TextVisible = false;
+        // 
+        // bsiStatusLabel
+        // 
+        bsiStatusLabel.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+        bsiStatusLabel.Caption = "<STATUS>";
+        bsiStatusLabel.Id = 35;
+        bsiStatusLabel.ImageOptions.SvgImage = Properties.Resources.topbottomrules;
+        bsiStatusLabel.Name = "bsiStatusLabel";
         // 
         // MainForm
         // 
@@ -564,4 +574,5 @@ partial class MainForm
 	private LifeLog.Components.BarButtonItemEx bbiNotes;
 	private LifeLog.Components.BarButtonItemEx bbiTasks;
 	private LifeLog.Components.BarButtonItemEx bbiPasswords;
+    public DevExpress.XtraBars.BarStaticItem bsiStatusLabel;
 }

@@ -663,6 +663,16 @@ namespace LifeLog.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage topbottomrules {
+            get {
+                object obj = ResourceManager.GetObject("topbottomrules", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage undo {
             get {
                 object obj = ResourceManager.GetObject("undo", resourceCulture);

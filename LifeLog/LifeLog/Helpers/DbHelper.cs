@@ -12,12 +12,7 @@ internal static class DbHelper
 	{
 		DatabaseConfigModel? config;
 
-		string path = Path.Combine(Environment.MachineName, Environment.UserName);
-
-		if (!Directory.Exists(path))
-			Directory.CreateDirectory(path);
-
-		string file = Path.Combine(path, CONF_DB_FILE);
+		string file = Path.Combine(Program.UserDir!, CONF_DB_FILE);
 
 		if (File.Exists(file))
 		{
@@ -44,12 +39,7 @@ internal static class DbHelper
 	/// <param name="config"></param>
 	internal static void SaveDataConfigs(DatabaseConfigModel config)
 	{
-		string path = Path.Combine(Environment.MachineName, Environment.UserName);
-
-		if (!Directory.Exists(path))
-			Directory.CreateDirectory(path);
-
-		string file = Path.Combine(path, CONF_DB_FILE);
+		string file = Path.Combine(Program.UserDir!, CONF_DB_FILE);
 
 		FilesUtil.SaveFileWithEncryption(config, file);
 	}

@@ -29,10 +29,10 @@ partial class ExternalProgramsEditor
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
-        DevExpress.Utils.ContextButton contextButton3 = new DevExpress.Utils.ContextButton();
-        DevExpress.Utils.ContextButton contextButton4 = new DevExpress.Utils.ContextButton();
+        DevExpress.Utils.ContextButton contextButton1 = new DevExpress.Utils.ContextButton();
+        DevExpress.Utils.ContextButton contextButton2 = new DevExpress.Utils.ContextButton();
         layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-        this.txtArgs = new DevExpress.XtraEditors.TextEdit();
+        txtArgs = new DevExpress.XtraEditors.TextEdit();
         txtFileExt = new DevExpress.XtraEditors.TextEdit();
         txtPath = new DevExpress.XtraEditors.TextEdit();
         txtName = new DevExpress.XtraEditors.TextEdit();
@@ -49,7 +49,7 @@ partial class ExternalProgramsEditor
         dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(components);
         ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
         layoutControl1.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)this.txtArgs.Properties).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)txtArgs.Properties).BeginInit();
         ((System.ComponentModel.ISupportInitialize)txtFileExt.Properties).BeginInit();
         ((System.ComponentModel.ISupportInitialize)txtPath.Properties).BeginInit();
         ((System.ComponentModel.ISupportInitialize)txtName.Properties).BeginInit();
@@ -68,7 +68,7 @@ partial class ExternalProgramsEditor
         // 
         // layoutControl1
         // 
-        layoutControl1.Controls.Add(this.txtArgs);
+        layoutControl1.Controls.Add(txtArgs);
         layoutControl1.Controls.Add(txtFileExt);
         layoutControl1.Controls.Add(txtPath);
         layoutControl1.Controls.Add(txtName);
@@ -83,11 +83,11 @@ partial class ExternalProgramsEditor
         // 
         // txtArgs
         // 
-        this.txtArgs.Location = new Point(66, 234);
-        this.txtArgs.Name = "txtArgs";
-        this.txtArgs.Size = new Size(725, 28);
-        this.txtArgs.StyleController = layoutControl1;
-        this.txtArgs.TabIndex = 4;
+        txtArgs.Location = new Point(66, 234);
+        txtArgs.Name = "txtArgs";
+        txtArgs.Size = new Size(725, 28);
+        txtArgs.StyleController = layoutControl1;
+        txtArgs.TabIndex = 4;
         // 
         // txtFileExt
         // 
@@ -117,15 +117,15 @@ partial class ExternalProgramsEditor
         // 
         peIcon.Location = new Point(301, 16);
         peIcon.Name = "peIcon";
-        contextButton3.Id = new Guid("cdbf002f-e3f2-418a-b9ce-f843a8eb3116");
-        contextButton3.ImageOptionsCollection.ItemNormal.SvgImage = Properties.Resources.open2;
-        contextButton3.Name = "btnOpenFolder";
-        contextButton4.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
-        contextButton4.Id = new Guid("13bf5252-1ec0-4b3d-ba95-2412ff58d747");
-        contextButton4.ImageOptionsCollection.ItemNormal.SvgImage = Properties.Resources.del;
-        contextButton4.Name = "btnClear";
-        peIcon.Properties.ContextButtons.Add(contextButton3);
-        peIcon.Properties.ContextButtons.Add(contextButton4);
+        contextButton1.Id = new Guid("cdbf002f-e3f2-418a-b9ce-f843a8eb3116");
+        contextButton1.ImageOptionsCollection.ItemNormal.SvgImage = Properties.Resources.open2;
+        contextButton1.Name = "btnOpenFolder";
+        contextButton2.AlignmentOptions.Position = DevExpress.Utils.ContextItemPosition.Far;
+        contextButton2.Id = new Guid("13bf5252-1ec0-4b3d-ba95-2412ff58d747");
+        contextButton2.ImageOptionsCollection.ItemNormal.SvgImage = Properties.Resources.del;
+        contextButton2.Name = "btnClear";
+        peIcon.Properties.ContextButtons.Add(contextButton1);
+        peIcon.Properties.ContextButtons.Add(contextButton2);
         peIcon.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
         peIcon.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
         peIcon.Size = new Size(144, 144);
@@ -189,7 +189,7 @@ partial class ExternalProgramsEditor
         // 
         // layoutControlItem5
         // 
-        layoutControlItem5.Control = this.txtArgs;
+        layoutControlItem5.Control = txtArgs;
         layoutControlItem5.Location = new Point(0, 218);
         layoutControlItem5.Name = "layoutControlItem5";
         layoutControlItem5.Size = new Size(781, 34);
@@ -221,6 +221,7 @@ partial class ExternalProgramsEditor
         Controls.Add(layoutControl1);
         Name = "ExternalProgramsEditor";
         Size = new Size(807, 636);
+        Resize += ExternalProgramsEditor_Resize;
         ((System.ComponentModel.ISupportInitialize)layoutControl1).EndInit();
         layoutControl1.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)txtArgs.Properties).EndInit();

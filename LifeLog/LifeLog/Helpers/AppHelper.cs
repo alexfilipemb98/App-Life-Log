@@ -1,6 +1,9 @@
-﻿using LifeLog.Core.Models;
+﻿using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
+using LifeLog.Core.Models;
 using LifeLog.Core.Utils;
 using System.IO;
+using static DevExpress.LookAndFeel.DXSkinColors;
 
 namespace LifeLog.Helpers;
 
@@ -12,15 +15,11 @@ internal class AppHelper
 	/// Read app configs
 	/// </summary>
 	/// <returns></returns>
-	public static AppConfigsModel? ReadAppConfigs()
+	internal static AppConfigsModel? ReadAppConfigs()
 	{
 		AppConfigsModel? config = null;
-		string path = Path.Combine(Environment.MachineName, Environment.UserName);
 
-		if (!Directory.Exists(path))
-			Directory.CreateDirectory(path);
-
-		string file = Path.Combine(path, CONF_FILE);
+		string file = Path.Combine(Program.UserDir!, CONF_FILE);
 
 		if (File.Exists(file))
 		{
@@ -43,16 +42,40 @@ internal class AppHelper
 	/// Save app configs
 	/// </summary>
 	/// <param name="config"></param>
-	public static void SaveAppConfigs(AppConfigsModel config)
+	internal static void SaveAppConfigs(AppConfigsModel config)
 	{
-		string path = Path.Combine(Environment.MachineName, Environment.UserName);
-
-		if (!Directory.Exists(path))
-			Directory.CreateDirectory(path);
-
-		string file = Path.Combine(path, CONF_FILE);
-
+		string file = Path.Combine(Program.UserDir!, CONF_FILE);
 
 		FilesUtil.SaveToJsonFile(file, config);
 	}
+
+	/// <summary>
+	/// Show message box and status message
+	/// </summary>
+	/// <param name="message"></param>
+	/// <param name="color"></param>
+	internal static void StatusMessage(string message, Color color)
+	{
+		string caption = $"{DateTime.Now:HH:mm:ss} | {message}";
+
+		bool logged = Program.LoggedUser is not null;
+		BarStaticItem labelControll = logged ? Program.MainForm!.bsiStatusLabel : Program.AuthForm!.bsiStatusLabel;
+
+		labelControll.Caption = caption;
+		labelControll.ItemAppearance.Normal.ForeColor = color;
+	}
+
+    /// <summary>
+    /// Show message box and status message
+    /// </summary>
+    /// <param name="message"></param>
+    /// <param name="saved"></param>
+    internal static void StatusMessage(string message, bool? saved = null)
+    {
+		var color = ForeColors.ControlText;
+		if (saved.HasValue)
+			color = saved.Value ? ForeColors.Information : ForeColors.Critical;
+
+		StatusMessage(message, color);
+    }
 }

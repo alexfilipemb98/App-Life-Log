@@ -1,7 +1,7 @@
 ﻿using LifeLog.Core.Utils;
 using LifeLog.Data.DTOs;
+using LifeLog.Helpers;
 using System.IO;
-using System.Threading.Tasks;
 
 namespace LifeLog.Views.ExternalPrograms;
 
@@ -10,135 +10,183 @@ namespace LifeLog.Views.ExternalPrograms;
 /// </summary>
 public partial class ExternalProgramsEditor : DevExpress.XtraEditors.XtraUserControl
 {
+    #region MAIN
 
-	//PRIVATE
-	ExternalProgramsDTO _current;
+    //PRIVATE
+    private ExternalProgramsDTO _current;
 
-	/// <summary>
-	/// Constructor
-	/// </summary>
-	public ExternalProgramsEditor() => InitializeComponent();
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    public ExternalProgramsEditor() => InitializeComponent();
 
-	/// <summary>
-	/// Icon Context Button Click Event
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	private void peIcon_ContextButtonClick(object sender, DevExpress.Utils.ContextItemClickEventArgs e)
-	{
-		string item = e.Item.Name.ToString();
+    /// <summary>
+    /// External Programs Editor Resize Event
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void ExternalProgramsEditor_Resize(object sender, EventArgs e) => EditorResize();
 
-		switch (item)
-		{
-			case "btnOpenFolder":
-				using (OpenFileDialog openFileDialog = new())
-				{
-					openFileDialog.Title = "Open Image File";
-					openFileDialog.Filter = "Image Files|*.bmp;*.jpg;*.jpeg;*.png;*.gif;*.tiff;*.svg";
+    #endregion
 
-					if (openFileDialog.ShowDialog() != DialogResult.OK)
-						break;
+    #region EVENTS
 
-					string filePath = openFileDialog.FileName;
-					string extension = Path.GetExtension(filePath).ToLower();
-					byte[] imageData = File.ReadAllBytes(filePath);
+    #region CLICK
 
-					_current.ImageExtension = Path.GetExtension(filePath);
-					_current.ImageData = imageData;
+    /// <summary>
+    /// Icon Context Button Click Event
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void peIcon_ContextButtonClick(object sender, DevExpress.Utils.ContextItemClickEventArgs e)
+    {
+        string item = e.Item.Name.ToString();
 
-					if (_current.IsImageSvg)
-						peIcon.SvgImage = _current.SvgImage;
-					else
-						peIcon.Image = _current.BitImage;
+        switch (item)
+        {
+            case "btnOpenFolder":
+                using (OpenFileDialog openFileDialog = new())
+                {
+                    openFileDialog.Title = "Open Image File";
+                    openFileDialog.Filter = "Image Files|*.bmp;*.jpg;*.jpeg;*.png;*.gif;*.tiff;*.svg";
 
-					peIcon.Refresh();
-				}
+                    if (openFileDialog.ShowDialog() != DialogResult.OK)
+                        break;
 
-				break;
+                    string filePath = openFileDialog.FileName;
+                    string extension = Path.GetExtension(filePath).ToLower();
+                    byte[] imageData = File.ReadAllBytes(filePath);
 
-			case "btnClear":
-				peIcon.SvgImage = null;
-				peIcon.Image = null;
+                    _current.ImageExtension = Path.GetExtension(filePath);
+                    _current.ImageData = imageData;
 
-				_current.ImageData = null;
-				break;
-		}
-	}
+                    if (_current.IsImageSvg)
+                        peIcon.SvgImage = _current.SvgImage;
+                    else
+                        peIcon.Image = _current.BitImage;
 
-	public void LoadToForm(ExternalProgramsDTO? externalProgram = null)
-	{
-		EditorResize();
+                    peIcon.Refresh();
+                }
 
-		if (externalProgram is null)
-		{
-			externalProgram = new ExternalProgramsDTO();
-		}
+                break;
 
-		_current = externalProgram;
+            case "btnClear":
+                peIcon.SvgImage = null;
+                peIcon.Image = null;
 
-		txtName.Text = _current.Name;
-		txtPath.Text = _current.PathToProgram;
-		txtFileExt.Text = _current.FileExtension;
-		txtArgs.Text = _current.Arguments;
+                _current.ImageData = null;
+                break;
+        }
+    }
 
-		if (_current.IsImageSvg)
-			peIcon.SvgImage = _current.SvgImage;
-		else
-			peIcon.Image = _current.BitImage;
+    #endregion
 
-		peIcon.Refresh();
-	}
+    #endregion
 
-	public async Task<(ExternalProgramsDTO?, bool)> SaveObject()
-	{
-		if (!ValidateForm())
-			return (null, false);
+    #region FUNCTIONS
 
-		var result = LoadFromForm();
+    #region PRIVATE
 
-		(bool saved , string message) = await Program.DataEngine!.ExternalPrograms.Save(result);
+    /// <summary>
+    /// Load Data From Form
+    /// </summary>
+    /// <returns></returns>
+    private void LoadFillObj(ref ExternalProgramsDTO obj)
+    {
+        obj.Name = txtName.Text.Trim();
+        obj.PathToProgram = txtPath.Text.Trim();
+        obj.FileExtension = txtFileExt.Text.Trim();
+        obj.Arguments = txtArgs.Text.Trim();
+    }
 
-		if (!saved)
-		{
-			MessageBox.Show(message);
-			return (null, false);
-		}
+    /// <summary>
+    /// Validate Form
+    /// </summary>
+    /// <returns></returns>
+    private bool ValidateForm()
+    {
+		this.ValidateChildren();
 
-		return (result, saved);
-	}
+		ExternalProgramsDTO validateObject = _current.DeepCloneJson();
 
-	private ExternalProgramsDTO LoadFromForm()
-	{
-		_current.Name = txtName.Text.Trim();
-		_current.PathToProgram = txtPath.Text.Trim();
-		_current.FileExtension = txtFileExt.Text.Trim();
-		_current.Arguments = txtArgs.Text.Trim();
+        LoadFillObj(ref validateObject);
 
-		return _current;
-	}
+        return ControlsHelper.ValidateForm(
+            validateObject,
+            dxErrorProvider,
+            new Dictionary<string, Control>(StringComparer.Ordinal)
+            {
+                [nameof(ExternalProgramsDTO.Name)] = txtName,
+                [nameof(ExternalProgramsDTO.PathToProgram)] = txtPath,
+                [nameof(ExternalProgramsDTO.FileExtension)] = txtFileExt,
+            });
+    }
 
-	private bool ValidateForm()
-	{
-		dxErrorProvider.ClearErrors();
+    /// <summary>
+    /// Resize Editor
+    /// </summary>
+    private void EditorResize()
+    {
+        int h1 = (esiLeft.Height + esiRight.Height) / 2;
+        esiLeft.Height = h1;
+        esiRight.Height = h1;
+    }
 
-		if (string.IsNullOrWhiteSpace(txtName.Text))
-			dxErrorProvider.SetError(txtName, "Name is required.");
+    #endregion
 
-		if (string.IsNullOrWhiteSpace(txtPath.Text))
-			dxErrorProvider.SetError(txtPath, "Path is required.");
+    #region PUBLIC
 
-		if (string.IsNullOrWhiteSpace(txtFileExt.Text))
-			dxErrorProvider.SetError(txtFileExt, "File extension is required.");
+    /// <summary>
+    /// Load Data To Form
+    /// </summary>
+    /// <param name="externalProgram"></param>
+    public void LoadToForm(ExternalProgramsDTO? externalProgram = null)
+    {
+        EditorResize();
 
-		return !dxErrorProvider.HasErrors;
-	}
+        if (externalProgram is null)
+        {
+            externalProgram = new ExternalProgramsDTO();
+        }
 
-	private void EditorResize()
-	{
-		int h1 = (esiLeft.Height + esiRight.Height) / 2;
-		esiLeft.Height = h1;
-		esiRight.Height = h1;
-	}
+        _current = externalProgram;
 
+        txtName.Text = _current.Name;
+        txtPath.Text = _current.PathToProgram;
+        txtFileExt.Text = _current.FileExtension;
+        txtArgs.Text = _current.Arguments;
 
+        if (_current.IsImageSvg)
+            peIcon.SvgImage = _current.SvgImage;
+        else
+            peIcon.Image = _current.BitImage;
+
+        peIcon.Refresh();
+    }
+
+    /// <summary>
+    /// Save Object
+    /// </summary>
+    /// <returns></returns>
+    public async Task<(ExternalProgramsDTO?, bool)> SaveObject()
+    {
+        if (!ValidateForm())
+            return (null, false);
+
+        LoadFillObj(ref _current);
+
+        (bool saved, string message) = await Program.DataEngine!.ExternalPrograms.Save(_current);
+
+        if (!saved)
+        {
+            MessageBox.Show(message);
+            return (null, false);
+        }
+
+        return (_current, saved);
+    }
+
+    #endregion
+
+    #endregion
 }

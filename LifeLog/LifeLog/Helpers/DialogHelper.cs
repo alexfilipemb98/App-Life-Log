@@ -11,14 +11,14 @@ namespace LifeLog.Helpers
 	/// <summary>
 	/// Dialog Helper class
 	/// </summary>
-	public static class DialogHelper
+	internal static class DialogHelper
 	{
 		/// <summary>
 		/// Open the folder dialog
 		/// </summary>
 		/// <param name="path"></param>
 		/// <returns></returns>
-		public static string OpenFolder(string path)
+		internal static string OpenFolder(string path)
 		{
 			using (FolderBrowserDialog dialog = new FolderBrowserDialog())
 			{
@@ -39,7 +39,7 @@ namespace LifeLog.Helpers
 		/// </summary>
 		/// <param name="fileName"></param>
 		/// <returns></returns>
-		public static string? SaveJsonFile(string fileName)
+		internal static string? SaveJsonFile(string fileName)
 		{
 			using (SaveFileDialog saveFileDialog = new SaveFileDialog())
 			{
@@ -60,7 +60,7 @@ namespace LifeLog.Helpers
 		/// Show the wait form
 		/// </summary>
 		/// <param name="form"></param>
-		public static void ShowWait(Form form)
+		internal static void ShowWait(Form form)
 		{
 			SplashScreenManager.ShowForm(form, typeof(LoadingForm), true, true, false);
 		}
@@ -68,7 +68,7 @@ namespace LifeLog.Helpers
 		/// <summary>
 		/// Close the wait form
 		/// </summary>
-		public static void CloseWait()
+		internal static void CloseWait()
 		{
 			SplashScreenManager.CloseForm(false);
 		}
@@ -77,7 +77,7 @@ namespace LifeLog.Helpers
 
 		#region ALERT
 
-		public static void Alert(Form owner, string caption, string message, MessageBoxIcon icon)
+		internal static void Alert(Form owner, string caption, string message, MessageBoxIcon icon)
 		{
 			AlertControl control = new AlertControl();
 			AlertInfo info = new AlertInfo(caption, message);

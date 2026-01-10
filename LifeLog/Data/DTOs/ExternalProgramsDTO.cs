@@ -10,7 +10,7 @@ namespace LifeLog.Data.DTOs;
 
 [Table("ExternalPrograms")]
 [Description("Database model for external programs")]
-public class ExternalProgramsDTO
+public partial class ExternalProgramsDTO
 {
 	#region PROPERTIES
 

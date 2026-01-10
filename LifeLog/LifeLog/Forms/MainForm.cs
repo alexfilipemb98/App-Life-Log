@@ -33,15 +33,18 @@ public partial class MainForm : RibbonForm
     /// <param name="e"></param>
     private void MainForm_Load(object sender, EventArgs e)
     {
-        Version version = Assembly.GetExecutingAssembly().GetName()!.Version!;
+		string? fileVersion = Assembly.GetExecutingAssembly()
+	       .GetCustomAttribute<AssemblyFileVersionAttribute>()?
+	       .Version;
+
 #if DEBUG
-        bsiAppVersion.Caption = $"v{version} (DEBUG!)";
+		bsiAppVersion.Caption = $"v{fileVersion} (DEBUG!)";
         bsiAppVersion.ItemAppearance.Normal.ForeColor = ForeColors.Critical;
 #else
-		bsiAppVersion.Caption = $"v{version}";
+		bsiAppVersion.Caption = $"v{fileVersion}";
 		bsiAppVersion.ItemAppearance.Normal.ForeColor = ForeColors.Information;
 #endif
-        bsiUserMenu.Caption = Program.LoggedUser!.Username;
+		bsiUserMenu.Caption = Program.LoggedUser!.Username;
         bsiDatabase.Caption = Program.DataEngine!.DBName;
 
         navigationFrame.TransitionManager.AfterTransitionEnds += (ts, te) => DialogHelper.CloseWait();
@@ -51,6 +54,8 @@ public partial class MainForm : RibbonForm
         ribbon.ApplicationButtonDropDownControl = _settingsView.backstageViewControl;
 
         InitAccentColors();
+
+        bsiStatusLabel.Caption = "Welcome back!";
     }
 
     /// <summary>

@@ -1,12 +1,14 @@
-﻿using LifeLog.Core.Enums;
-using LifeLog.Core.Models;
-using LifeLog.Core.Utils;
-using DevExpress.XtraBars;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
 using DevExpress.XtraLayout.Utils;
+using LifeLog.Core.Enums;
+using LifeLog.Core.Models;
+using LifeLog.Core.Utils;
+using LifeLog.Data.DTOs;
 using LifeLog.Helpers;
 using System.Reflection;
+using System.Xml.Linq;
 using static DevExpress.LookAndFeel.DXSkinColors;
 
 namespace LifeLog.Forms.Auth
@@ -18,7 +20,8 @@ namespace LifeLog.Forms.Auth
 	{
 		#region MAIN
 
-		public bool isNew = false;
+		//PRIVATE
+		private LoginModel login;
 
 		/// <summary>
 		/// Constructor
@@ -42,10 +45,13 @@ namespace LifeLog.Forms.Auth
 	            bsiAppVersion.Caption = $"v{Application.ProductVersion}";
 	            bsiAppVersion.ItemAppearance.Normal.ForeColor = ForeColors.Information;
 #endif
-
 				bsiDatabase.Caption = Program.DataEngine!.DBName!;
 
 				AjustFormLayout();
+
+				login = new LoginModel();
+
+				bsiStatusLabel.Caption = "Please login to continue.";
 			}
 			catch (Exception ex)
 			{
@@ -163,7 +169,6 @@ namespace LifeLog.Forms.Auth
 			{
 				lciLoginUsername.Visibility = LayoutVisibility.Never;
 				chkSignup.Checked = false;
-				isNew = false;
 
 				if (!string.IsNullOrWhiteSpace(teEmail.Text))
 					bePassword.Focus();
@@ -177,8 +182,6 @@ namespace LifeLog.Forms.Auth
 				chkLogin.Checked = false;
 				if (!string.IsNullOrWhiteSpace(teEmail.Text) && teEmail.Text.IsValidEmail())
 					teUsername.Text = teEmail.Text.Split('@')[0];
-
-				isNew = true;
 
 				teUsername.Focus();
 			}
@@ -215,34 +218,26 @@ namespace LifeLog.Forms.Auth
 		{
 			try
 			{
-				if (!ValidateLogin())
+				if (!ValidateForm())
 					return;
 
-				if (isNew)
+				if (login.IsNewUser)
 				{
-					(bool saved, _) = await Program.DataEngine!.Users.RegisterUser(teUsername.Text, teEmail.Text, bePassword.Text);
+					(bool saved, string message) = await Program.DataEngine!.Users.RegisterUser(teUsername.Text, teEmail.Text, bePassword.Text);
 
-					if (saved)
-					{
-						MessageBox.Show("Criado");
-					}
-					else
-						MessageBox.Show("not saved");
+					AppHelper.StatusMessage(message, saved);
 
 					if (saved)
 						chkLogin.Checked = true;
 				}
 				else
 				{
-					(_,LoggedUserModel? user, _) = await Program.DataEngine!.Users.Login(teEmail.Text, bePassword.Text);
+					(bool logged, LoggedUserModel? user, string message) = await Program.DataEngine!.Users.Login(teEmail.Text, bePassword.Text);
 
-					if (user is null)
+					AppHelper.StatusMessage(message, logged);
+
+					if (user is not null && logged)
 					{
-						MessageBox.Show("not legged");
-					}
-					else
-					{
-						MessageBox.Show("Logged In");
 						Program.AppConfigs!.LastEmail = user.Email;
 						AppHelper.SaveAppConfigs(Program.AppConfigs);
 						Program.LoggedUser = user;
@@ -267,27 +262,37 @@ namespace LifeLog.Forms.Auth
 			navigationFrame.SelectedPage = npDbSettings;
 		}
 
-		private bool ValidateLogin()
+		/// <summary>
+		/// Validate form
+		/// </summary>
+		/// <returns></returns>
+		private bool ValidateForm()
 		{
 			this.ValidateChildren();
-			dxErrorProvider.ClearErrors();
 
-			if (string.IsNullOrWhiteSpace(teEmail.Text))
-				dxErrorProvider.SetError(teEmail, "Email not provided!");
-			else
-				if (!teEmail.Text.IsValidEmail())
-				dxErrorProvider.SetError(teEmail, "Email not valid!");
+			LoadFillObj(ref login);
 
-			if (string.IsNullOrWhiteSpace(bePassword.Text))
-				dxErrorProvider.SetError(teEmail, "Password not provided!");
+			return ControlsHelper.ValidateForm(
+				login,
+				dxErrorProvider,
+				new Dictionary<string, Control>(StringComparer.Ordinal)
+				{
+					[nameof(LoginModel.Username)] = teUsername,
+					[nameof(LoginModel.Email)] = teEmail,
+					[nameof(LoginModel.Password)] = bePassword,
+				});
+		}
 
-			if (isNew)
-			{
-				if (string.IsNullOrWhiteSpace(teUsername.Text))
-					dxErrorProvider.SetError(teUsername, "Username not provided!");
-			}
-
-			return !dxErrorProvider.HasErrors;
+		/// <summary>
+		/// Load Data From Form
+		/// </summary>
+		/// <returns></returns>
+		private void LoadFillObj(ref LoginModel obj)
+		{
+			obj.Username = teUsername.Text?.Trim();
+			obj.Email = teEmail.Text?.Trim();
+			obj.Password = bePassword.Text?.Trim();
+			obj.IsNewUser = chkSignup.Checked;
 		}
 
 		#endregion

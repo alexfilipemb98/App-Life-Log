@@ -1,57 +1,69 @@
-﻿using LifeLog.Core.Models;
-using DevExpress.XtraSplashScreen;
+﻿using DevExpress.XtraSplashScreen;
+using LifeLog.Core.Models;
+using LifeLog.Core.Services;
 using LifeLog.Forms;
 using LifeLog.Forms.Auth;
 using LifeLog.Forms.Loading;
 using LifeLog.Helpers;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace LifeLog;
 
 internal static class Program
 {
-	internal static Data.Engine? DataEngine { get; set; }
-	internal static LoggedUserModel? LoggedUser { get; set; }
-	internal static AppConfigsModel? AppConfigs { get; set; }
-	internal static MainForm? MainForm { get; set; }
+    internal static Data.Engine? DataEngine { get; set; }
+    internal static LoggedUserModel? LoggedUser { get; set; }
+    internal static AppConfigsModel? AppConfigs { get; set; }
+    internal static AuthForm? AuthForm { get; set; }
+    internal static MainForm? MainForm { get; set; }
+    internal static LoggerService? Logger { get; set; }
+	internal static string? UserDir { get; set; }
 
-	/// <summary>
-	///  The main entry point for the application.
-	/// </summary>
-	[STAThread]
-	static void Main()
-	{
-		SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
+    /// <summary>
+    ///  The main entry point for the application.
+    /// </summary>
+    [STAThread]
+    static void Main()
+    {
+        SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
 
-		ApplicationConfiguration.Initialize();
+        ApplicationConfiguration.Initialize();
 
+		UserDir = Path.Combine(Environment.MachineName, Environment.UserName);
+
+		if (!Directory.Exists(UserDir))
+			Directory.CreateDirectory(UserDir);
+
+        Logger = new LoggerService(UserDir);
 
 		Application.ThreadException += (s, e) =>
-				ErrorHelper.Handler(e.Exception);
+                ErrorHelper.Handler(e.Exception);
 
-		TaskScheduler.UnobservedTaskException += (s, e) =>
-		{
-			ErrorHelper.Handler(e.Exception);
-			e.SetObserved();
-		};
+        TaskScheduler.UnobservedTaskException += (s, e) =>
+        {
+            ErrorHelper.Handler(e.Exception);
+            e.SetObserved();
+        };
 
-		Core.Models.DatabaseConfigModel configs = DbHelper.GetDatabaseConfig();
+        DatabaseConfigModel configs = DbHelper.GetDatabaseConfig();
 
-		DataEngine = new Data.Engine(configs);
+        DataEngine = new Data.Engine(configs);
 
-		AppConfigs = AppHelper.ReadAppConfigs();
+        AppConfigs = AppHelper.ReadAppConfigs();
 
-		using (AuthForm authForm = new())
-		{
-			authForm.Shown += (s, e) => SplashScreenManager.CloseForm(false);
+        using (AuthForm = new())
+        {
+            AuthForm.Shown += (s, e) => SplashScreenManager.CloseForm(false);
 
-			if (authForm.ShowDialog() != DialogResult.Yes)
-				Environment.Exit(0);
-		}
+            if (AuthForm.ShowDialog() != DialogResult.Yes)
+                Environment.Exit(0);
+        }
+
+		
 
 		MainForm = new();
 
-		Application.Run(MainForm);
-	}
+        Application.Run(MainForm);
+    }
 }
 

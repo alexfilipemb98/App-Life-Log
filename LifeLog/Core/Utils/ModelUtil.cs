@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection;
 
@@ -12,7 +13,7 @@ public static class ModelUtil
 	/// <summary>
 	/// Valida uma propriedade de um modelo e devolve a mensagem de erro (se existir).
 	/// </summary>
-	public static string GetValidationMessage<T>(this T model, string propertyName) where T : class
+	public static string? GetValidationMessage<T>(this T model, string propertyName) where T : class
 	{
 		if (model == null) return null;
 
@@ -76,5 +77,17 @@ public static class ModelUtil
 
 		TableAttribute? attribute = entityType.GetCustomAttribute<TableAttribute>();
 		return attribute?.Name ?? entityType.Name;
+	}
+
+	/// <summary>
+	/// Clones the object deeply using JSON serialization.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="obj"></param>
+	/// <returns></returns>
+	public static T DeepCloneJson<T>(this T obj)
+	{
+		var json = JsonConvert.SerializeObject(obj);
+		return JsonConvert.DeserializeObject<T>(json)!;
 	}
 }

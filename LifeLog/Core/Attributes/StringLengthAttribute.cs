@@ -1,76 +1,73 @@
-﻿using System;
-using System.Linq;
+﻿namespace LifeLog.Core.Attributes;
 
-namespace LifeLog.Core.Attributes
+/// <summary>
+/// String length with an auto message
+/// </summary>
+public class StringLengthAttribute : System.ComponentModel.DataAnnotations.StringLengthAttribute
 {
+    #region MAIN
+
+    //PRIVATE
+    private int? CurrentLength { get; set; }
+
     /// <summary>
-    /// String lengh with a auto message
+    /// Constructor
     /// </summary>
-    public class StringLengthAttribute : System.ComponentModel.DataAnnotations.StringLengthAttribute
+    /// <param name="maximumLength"></param>
+    public StringLengthAttribute(int maximumLength) : base(maximumLength)
     {
-        #region MAIN
+    }
 
-        //PRIVATE
-        private int? CurrentLength { get; set; }
+    #endregion
 
-        /// <summary>
-        /// Contructor
-        /// </summary>
-        /// <param name="maximumLength"></param>
-        public StringLengthAttribute(int maximumLength) : base(maximumLength)
+    #region OVERRIDES
+
+    /// <summary>
+    /// Is Valid
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
+    public override bool IsValid(object value)
+    {
+        string? valStr = value as string;
+        int length = valStr?.Length ?? 0;
+
+        CurrentLength = length;
+
+        if (string.IsNullOrEmpty(valStr))
         {
-        }
-
-        #endregion
-
-        #region OVERRIDES
-
-        /// <summary>
-        /// Is Valid
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public override bool IsValid(object value)
-        {
-            int currentLength = value is string str ? str.Length : 0;
-
-            CurrentLength = currentLength;
-
-            if (value != null)
-            {
-                if (currentLength >= MinimumLength)
-                {
-                    return currentLength <= MaximumLength;
-                }
-                return false;
-            }
-
             return true;
         }
 
-        /// <summary>
-        /// Format error message
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        public override string FormatErrorMessage(string name)
+        if (length < MinimumLength || length > MaximumLength)
         {
-
-            if (CurrentLength.HasValue)
-            {
-                if (CurrentLength.Value < MinimumLength)
-                {
-                    return $"The '{name}' length is '{CurrentLength.Value}', must be at least '{MinimumLength}' characters!";
-                }
-                else if (CurrentLength.Value > MaximumLength)
-                {
-                    return $"The '{name}' length is '{CurrentLength.Value}', must be less or equal to '{MaximumLength}' characters!";
-                }
-            }
-
-            return $"The '{name}' length must be between '{MinimumLength}' and '{MaximumLength}' characters!";
+            return false;
         }
 
-        #endregion
+        return true;
     }
+
+    /// <summary>
+    /// Format error message
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public override string FormatErrorMessage(string name)
+    {
+        if (CurrentLength.HasValue)
+        {
+            if (CurrentLength.Value < MinimumLength)
+            {
+                return $"The '{name}' length is '{CurrentLength.Value}', must be at least '{MinimumLength}' characters!";
+            }
+            else if (CurrentLength.Value > MaximumLength)
+            {
+                return $"The '{name}' length is '{CurrentLength.Value}', must be less or equal to '{MaximumLength}' characters!";
+            }
+        }
+
+        return $"The '{name}' length must be between '{MinimumLength}' and '{MaximumLength}' characters!";
+    }
+
+    #endregion
 }
