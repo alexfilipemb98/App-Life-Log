@@ -56,7 +56,7 @@ public class CommandsDB : BaseDB<CommandsDTO>, ICommandsDB
 	public async Task<(CommandsDTO?, string)> GetByKey(Guid id)
 	{
 		CommandsXPO? command;
-		command = await _db.FindObjectAsync<CommandsXPO>(id);
+		command = await _db.GetObjectByKeyAsync<CommandsXPO>(id);
 		bool found = command is not null;
 		return (command?.ToModel(), found ? "Command found" : "Command not found");
 	}
@@ -114,7 +114,7 @@ public class CommandsDB : BaseDB<CommandsDTO>, ICommandsDB
 	/// <returns></returns>
 	public async Task<(CommandsDTO?, string)> Duplicate(Guid key)
 	{
-		CommandsXPO existingCommand = await _db.FindObjectAsync<CommandsXPO>(key);
+		CommandsXPO existingCommand = await _db.GetObjectByKeyAsync<CommandsXPO>(key);
 		if (existingCommand == null)
 			return (null, "User not found");
 
@@ -123,7 +123,7 @@ public class CommandsDB : BaseDB<CommandsDTO>, ICommandsDB
 		await _db.SaveAsync(existingCommand);
 		await _db.CommitChangesAsync();
 
-		CommandsXPO? duplicateCommand = await _db.FindObjectAsync<CommandsXPO>(existingCommand.Id);
+		CommandsXPO? duplicateCommand = await _db.GetObjectByKeyAsync<CommandsXPO>(existingCommand.Id);
 		bool found = duplicateCommand is not null;
 
 		return (duplicateCommand?.ToModel(), found ? "Command duplicated successfully" : "Error duplicating command");
@@ -136,7 +136,7 @@ public class CommandsDB : BaseDB<CommandsDTO>, ICommandsDB
 	/// <returns></returns>
 	public async Task<(bool, string)> Delete(Guid key)
 	{
-		CommandsXPO command = await _db.FindObjectAsync<CommandsXPO>(key);
+		CommandsXPO command = await _db.GetObjectByKeyAsync<CommandsXPO>(key);
 
 		command.Delete();
 
@@ -173,7 +173,7 @@ public class CommandsDB : BaseDB<CommandsDTO>, ICommandsDB
 	/// <returns></returns>
 	public async Task<(bool, string)> ToggleEnabledState(Guid id)
 	{
-		CommandsXPO? command = await _db.FindObjectAsync<CommandsXPO>(id);
+		CommandsXPO? command = await _db.GetObjectByKeyAsync<CommandsXPO>(id);
 		if (command == null)
 			return (false, "Command not found");
 		

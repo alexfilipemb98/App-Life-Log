@@ -49,7 +49,7 @@ public class UsersDB : BaseDB<UsersDTO>, IUsersDB
 	public async Task<(UsersDTO?, string)> GetByKey(Guid id)
 	{
 		UsersXPO? user;
-		user = await _db.FindObjectAsync<UsersXPO>(id);
+		user = await _db.GetObjectByKeyAsync<UsersXPO>(id);
 		bool found = user is not null;
 		return (user?.ToModel(), found ? "User found" : "User not found");
 	}
@@ -94,7 +94,7 @@ public class UsersDB : BaseDB<UsersDTO>, IUsersDB
 	/// <returns></returns>
 	public async Task<(UsersDTO?, string)> Duplicate(Guid key)
 	{
-		UsersXPO existingUser = await _db.FindObjectAsync<UsersXPO>(key);
+		UsersXPO existingUser = await _db.GetObjectByKeyAsync<UsersXPO>(key);
 		if (existingUser == null)
 			return (null, "User not found");
 		existingUser.Id = Guid.NewGuid();
@@ -102,7 +102,7 @@ public class UsersDB : BaseDB<UsersDTO>, IUsersDB
 		await _db.SaveAsync(existingUser);
 		await _db.CommitChangesAsync();
 
-		UsersXPO? duplicateUser = await _db.FindObjectAsync<UsersXPO>(existingUser.Id);
+		UsersXPO? duplicateUser = await _db.GetObjectByKeyAsync<UsersXPO>(existingUser.Id);
 		bool found = duplicateUser is not null;
 
 		return (duplicateUser?.ToModel(), found ? "User duplicated successfully" : "Error duplicating user");

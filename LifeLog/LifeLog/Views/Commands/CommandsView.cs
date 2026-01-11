@@ -20,7 +20,7 @@ namespace LifeLog.Views.Commands
 		#region MAIN
 
 		//PRIVATE
-		private CommandsDTO _crtCommands;
+		private CommandsDTO? _crtCommands;
 		private List<CommandsDTO> _listCommands;
 
 		/// <summary>
@@ -65,7 +65,7 @@ namespace LifeLog.Views.Commands
 		/// <param name="e"></param>
 		private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
 		{
-			CommandsDTO command = ControlsHelper.GetObjectByRowHandle<CommandsDTO>(tileView, tileView.FocusedRowHandle);
+			CommandsDTO? command = ControlsHelper.GetObjectByRowHandle<CommandsDTO>(tileView, tileView.FocusedRowHandle);
 			if (command != null)
 				ShowDetailView(command);
 		}
@@ -127,7 +127,7 @@ namespace LifeLog.Views.Commands
 		{
 			try
 			{
-				CommandsDTO command = ControlsHelper.GetObjectByRowHandle<CommandsDTO>(tileView, tileView.FocusedRowHandle);
+				CommandsDTO? command = ControlsHelper.GetObjectByRowHandle<CommandsDTO>(tileView, tileView.FocusedRowHandle);
 				if (command == null)
 					return;
 
@@ -255,7 +255,7 @@ namespace LifeLog.Views.Commands
 
 					if (saveFileDialog.ShowDialog() == DialogResult.OK)
 					{
-						(List<CommandsDTO> commands, _) = await Program.DataEngine.Commands.GetUserCommands(Program.LoggedUser.Id);
+						(List<CommandsDTO?>? commands, _) = await Program.DataEngine!.Commands.GetUserCommands(Program.LoggedUser.Id);
 						JsonUtil.ExportToFile(commands, saveFileDialog.FileName, indented: true);
 
 						MessageBox.Show($"({commands.Count}) Commands exported successfuly!");

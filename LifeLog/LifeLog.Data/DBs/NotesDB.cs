@@ -53,7 +53,7 @@ public class NotesDB : BaseDB<NotesDTO>, INotesDB
 	public async Task<(NotesDTO?, string)> GetByKey(Guid id)
 	{
 		NotesXPO? note;
-		note = await _db.FindObjectAsync<NotesXPO>(id);
+		note = await _db.GetObjectByKeyAsync<NotesXPO>(id);
 		bool found = note is not null;
 		return (note?.ToModel(), found ? "Note found" : "Note not found");
 	}
@@ -111,7 +111,7 @@ public class NotesDB : BaseDB<NotesDTO>, INotesDB
 	/// <returns></returns>
 	public async Task<(NotesDTO?, string)> Duplicate(Guid key)
 	{
-		NotesXPO existingNote = await _db.FindObjectAsync<NotesXPO>(key);
+		NotesXPO existingNote = await _db.GetObjectByKeyAsync<NotesXPO>(key);
 		if (existingNote == null)
 			return (null, "User not found");
 
@@ -120,7 +120,7 @@ public class NotesDB : BaseDB<NotesDTO>, INotesDB
 		await _db.SaveAsync(existingNote);
 		await _db.CommitChangesAsync();
 
-		NotesXPO? duplicateNote = await _db.FindObjectAsync<NotesXPO>(existingNote.Id);
+		NotesXPO? duplicateNote = await _db.GetObjectByKeyAsync<NotesXPO>(existingNote.Id);
 		bool found = duplicateNote is not null;
 
 		return (duplicateNote?.ToModel(), found ? "Note duplicated successfully" : "Error duplicating note");
@@ -133,7 +133,10 @@ public class NotesDB : BaseDB<NotesDTO>, INotesDB
 	/// <returns></returns>
 	public async Task<(bool, string)> Delete(Guid key)
 	{
-		NotesXPO note = await _db.FindObjectAsync<NotesXPO>(key);
+		NotesXPO note = await _db.GetObjectByKeyAsync<NotesXPO>(key);
+
+		if (note is null)
+			return (false, "Note not found");
 
 		note.Delete();
 

@@ -6,7 +6,6 @@ using LifeLog.Components;
 using LifeLog.Core.Utils;
 using LifeLog.Data.DTOs;
 using LifeLog.Helpers;
-using static DevExpress.LookAndFeel.DXSkinColors;
 
 namespace LifeLog.Views.Notes;
 
@@ -146,21 +145,32 @@ public partial class NotesView : XtraUserControl
 	/// <param name="e"></param>
 	private async void xtraTabControl_CloseButtonClick(object sender, EventArgs e)
 	{
-		XtraTabPage page = (XtraTabPage)((DevExpress.XtraTab.ViewInfo.PageEventArgs)e).Page;
+		XtraTabPage page = (XtraTabPage)((PageEventArgs)e).Page;
 
-		NotesDTO? note = _notesList.FirstOrDefault(w => w.Id == Guid.Parse(page.Tag?.ToString()));
+		string? tag = page.Tag?.ToString();
+
+		if (string.IsNullOrWhiteSpace(tag) || !Guid.TryParse(tag, out Guid noteId) || noteId == Guid.Empty)
+			return;
+
+		NotesDTO? note = _notesList.FirstOrDefault(w => w.Id == noteId);
+
+		if (note is null)
+		{
+			MessageBox.Show("Note not found!");
+			return;
+		}
 
 		DialogResult result = MessageBox.Show($"Do you really want to delete {note.Title}?", "Delete Note", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
 		if (page != null && result == DialogResult.Yes)
 		{
-			(bool deleted, _)  = await Program.DataEngine!.Notes.Delete(Guid.Parse(page.Tag.ToString()));
+			(bool deleted, string message) = await Program.DataEngine!.Notes.Delete(noteId);
 			if (deleted)
 			{
 				_notesList.Remove(note);
 				xtraTabControl.TabPages.Remove(page);
-				MessageBox.Show("NOTE DELETED!");
 			}
+			MessageBox.Show(message);
 		}
 
 		return;
@@ -346,7 +356,7 @@ public partial class NotesView : XtraUserControl
 	/// </summary>
 	public async Task LoadData()
 	{
-		(List<NotesDTO?>? notesList , _) = await Program.DataEngine!.Notes.GetUserNotes(Program.LoggedUser!.Id);
+		(List<NotesDTO?>? notesList, _) = await Program.DataEngine!.Notes.GetUserNotes(Program.LoggedUser!.Id);
 
 		_notesList = notesList ?? new List<NotesDTO>();
 

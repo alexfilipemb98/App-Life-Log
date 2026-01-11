@@ -50,7 +50,7 @@ public class ExternalProgramsDB : BaseDB<ExternalProgramsDTO>, IExternalPrograms
 	public async Task<(ExternalProgramsDTO?, string)> GetByKey(Guid id)
 	{
 		ExternalProgramsXPO? note;
-		note = await _db.FindObjectAsync<ExternalProgramsXPO>(id);
+		note = await _db.GetObjectByKeyAsync<ExternalProgramsXPO>(id);
 		bool found = note is not null;
 		return (note?.ToModel(), found ? "External program found" : "External program not found");
 	}
@@ -108,7 +108,7 @@ public class ExternalProgramsDB : BaseDB<ExternalProgramsDTO>, IExternalPrograms
 	/// <returns></returns>
 	public async Task<(ExternalProgramsDTO?, string)> Duplicate(Guid key)
 	{
-		ExternalProgramsXPO existingExternalProgram = await _db.FindObjectAsync<ExternalProgramsXPO>(key);
+		ExternalProgramsXPO existingExternalProgram = await _db.GetObjectByKeyAsync<ExternalProgramsXPO>(key);
 		if (existingExternalProgram == null)
 			return (null, "User not found");
 
@@ -117,7 +117,7 @@ public class ExternalProgramsDB : BaseDB<ExternalProgramsDTO>, IExternalPrograms
 		await _db.SaveAsync(existingExternalProgram);
 		await _db.CommitChangesAsync();
 
-		ExternalProgramsXPO? duplicateExternalProgram = await _db.FindObjectAsync<ExternalProgramsXPO>(existingExternalProgram.Id);
+		ExternalProgramsXPO? duplicateExternalProgram = await _db.GetObjectByKeyAsync<ExternalProgramsXPO>(existingExternalProgram.Id);
 		bool found = duplicateExternalProgram is not null;
 
 		return (duplicateExternalProgram?.ToModel(), found ? "Note duplicated successfully" : "Error duplicating note");
@@ -130,7 +130,7 @@ public class ExternalProgramsDB : BaseDB<ExternalProgramsDTO>, IExternalPrograms
 	/// <returns></returns>
 	public async Task<(bool, string)> Delete(Guid key)
 	{
-		ExternalProgramsXPO externalProgram = await _db.FindObjectAsync<ExternalProgramsXPO>(key);
+		ExternalProgramsXPO externalProgram = await _db.GetObjectByKeyAsync<ExternalProgramsXPO>(key);
 
 		externalProgram.Delete();
 
