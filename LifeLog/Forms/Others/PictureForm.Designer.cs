@@ -35,7 +35,7 @@ partial class PictureForm
         // pictureEdit1
         // 
         pictureEdit1.Dock = DockStyle.Fill;
-        pictureEdit1.EditValue = Properties.Resources.actions_options;
+        pictureEdit1.EditValue = Properties.Resources.placeholder;
         pictureEdit1.Location = new Point(0, 0);
         pictureEdit1.Name = "pictureEdit1";
         pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
@@ -44,6 +44,7 @@ partial class PictureForm
         // 
         // PictureForm
         // 
+        Appearance.Options.UseFont = true;
         AutoScaleDimensions = new SizeF(6F, 13F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(298, 268);

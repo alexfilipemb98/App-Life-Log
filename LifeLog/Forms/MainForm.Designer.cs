@@ -61,6 +61,7 @@ partial class MainForm
         bbiTasks = new LifeLog.Components.BarButtonItemEx();
         bbiPasswords = new LifeLog.Components.BarButtonItemEx();
         bsiStatusLabel = new DevExpress.XtraBars.BarStaticItem();
+        bbiWeather = new LifeLog.Components.BarButtonItemEx();
         ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
         ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
         ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -97,9 +98,9 @@ partial class MainForm
         ribbon.CaptionBarItemLinks.Add(bbiShowSettings);
         ribbon.EmptyAreaImageOptions.ImagePadding = new Padding(26);
         ribbon.ExpandCollapseItem.Id = 0;
-        ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { bbiShowSettings, ribbon.ExpandCollapseItem, bbiCommandsRunner, skinDropDownButtonItem1, skinPaletteRibbonGalleryBarItem1, bbiPasswordGenerator, bbiPdfMerger, bbiGradesCalculador, bbiConvertText, bbiCodeGenerator, bbiRollDice, bbiTicTacToe, bbiCoinFlip, bsiTime, bsiAppVersion, bsiUserMenu, bbiLogout, bsiDatabase, bciTrackWindowsAppMode, bbiCustomColors, bbiCustomColors2, bciOriginalPalette, bciTrackWindowsAccentColor, bbiFormOut, bbiThreeSimpleRule, bbiTestCode, btsiTopMost, bbiNotes, bbiTasks, bbiPasswords, bsiStatusLabel });
+        ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { bbiShowSettings, ribbon.ExpandCollapseItem, bbiCommandsRunner, skinDropDownButtonItem1, skinPaletteRibbonGalleryBarItem1, bbiPasswordGenerator, bbiPdfMerger, bbiGradesCalculador, bbiConvertText, bbiCodeGenerator, bbiRollDice, bbiTicTacToe, bbiCoinFlip, bsiTime, bsiAppVersion, bsiUserMenu, bbiLogout, bsiDatabase, bciTrackWindowsAppMode, bbiCustomColors, bbiCustomColors2, bciOriginalPalette, bciTrackWindowsAccentColor, bbiFormOut, bbiThreeSimpleRule, bbiTestCode, btsiTopMost, bbiNotes, bbiTasks, bbiPasswords, bsiStatusLabel, bbiWeather });
         ribbon.Location = new Point(0, 0);
-        ribbon.MaxItemId = 36;
+        ribbon.MaxItemId = 37;
         ribbon.Name = "ribbon";
         ribbon.OptionsMenuMinWidth = 283;
         ribbon.PageHeaderItemLinks.Add(btsiTopMost);
@@ -342,6 +343,14 @@ partial class MainForm
         bsiStatusLabel.Name = "bsiStatusLabel";
         bsiStatusLabel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
         // 
+        // bbiWeather
+        // 
+        bbiWeather.Caption = "Weather";
+        bbiWeather.Id = 36;
+        bbiWeather.ImageOptions.SvgImage = Properties.Resources.weather;
+        bbiWeather.Name = "bbiWeather";
+        bbiWeather.TargetViewTypeName = "LifeLog.Views.Weather.WeatherView";
+        // 
         // ribbonPage1
         // 
         ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1 });
@@ -356,6 +365,7 @@ partial class MainForm
         ribbonPageGroup1.ItemLinks.Add(bbiCommandsRunner);
         ribbonPageGroup1.ItemLinks.Add(bbiPasswords);
         ribbonPageGroup1.ItemLinks.Add(bbiTasks);
+        ribbonPageGroup1.ItemLinks.Add(bbiWeather);
         ribbonPageGroup1.Name = "ribbonPageGroup1";
         ribbonPageGroup1.Text = "Main";
         // 
@@ -578,4 +588,5 @@ partial class MainForm
 	private LifeLog.Components.BarButtonItemEx bbiTasks;
 	private LifeLog.Components.BarButtonItemEx bbiPasswords;
     public DevExpress.XtraBars.BarStaticItem bsiStatusLabel;
+    private LifeLog.Components.BarButtonItemEx bbiWeather;
 }

@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Version>2026.1.0</Version>
+    <FileVersion>2026.1.0.1</FileVersion>
+    <AssemblyVersion>2026.0.0.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Jsons\cities.json" />
+    <None Remove="Jsons\countries.json" />
+    <None Remove="Jsons\regions.json" />
+    <None Remove="Jsons\states.json" />
+    <None Remove="Jsons\subregions.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Jsons\cities.json" />
+    <EmbeddedResource Include="Jsons\countries.json" />
+    <EmbeddedResource Include="Jsons\regions.json" />
+    <EmbeddedResource Include="Jsons\states.json" />
+    <EmbeddedResource Include="Jsons\subregions.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\LifeLog.Core.Utils\LifeLog.Core.Utils.csproj" />
+  </ItemGroup>
+
+</Project>

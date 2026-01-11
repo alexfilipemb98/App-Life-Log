@@ -30,8 +30,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LifeLog.Api\LifeLog.Api.csproj" />
-    <ProjectReference Include="..\LifeLog.Data\LifeLog.Data.csproj" />
+    <ProjectReference Include="..\Data\LifeLog.Data.Coutries\LifeLog.Data.Coutries.csproj" />
+    <ProjectReference Include="..\Data\LifeLog.Data\LifeLog.Data.csproj" />
+    <ProjectReference Include="..\Services\LifeLog.Services.Api\LifeLog.Services.Api.csproj" />
+    <ProjectReference Include="..\Services\LifeLog.Services.Weather\LifeLog.Services.Weather.csproj" />
+    <ProjectReference Include="..\Services\LifeLog.Services\LifeLog.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
-using LifeLog.Data.Models;
 using LifeLog.Helpers;
+using LifeLog.Services.SqlData.Models;
 using System.Data;
 using System.Diagnostics;
 using System.Text;
