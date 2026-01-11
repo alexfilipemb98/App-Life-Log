@@ -29,6 +29,7 @@ partial class MainForm
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
         ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
         bbiShowSettings = new DevExpress.XtraBars.BarButtonItem();
         bbiCommandsRunner = new LifeLog.Components.BarButtonItemEx();
@@ -59,6 +60,7 @@ partial class MainForm
         bbiNotes = new LifeLog.Components.BarButtonItemEx();
         bbiTasks = new LifeLog.Components.BarButtonItemEx();
         bbiPasswords = new LifeLog.Components.BarButtonItemEx();
+        bsiStatusLabel = new DevExpress.XtraBars.BarStaticItem();
         ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
         ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
         ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -77,7 +79,6 @@ partial class MainForm
         npDashboard = new DevExpress.XtraBars.Navigation.NavigationPage();
         Root = new DevExpress.XtraLayout.LayoutControlGroup();
         layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-        bsiStatusLabel = new DevExpress.XtraBars.BarStaticItem();
         ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
         ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
         layoutControl1.SuspendLayout();
@@ -332,6 +333,15 @@ partial class MainForm
         bbiPasswords.Name = "bbiPasswords";
         bbiPasswords.TargetViewTypeName = "LifeLog.Views.Passwords.PasswordsView";
         // 
+        // bsiStatusLabel
+        // 
+        bsiStatusLabel.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+        bsiStatusLabel.Caption = "<STATUS>";
+        bsiStatusLabel.Id = 35;
+        bsiStatusLabel.ImageOptions.SvgImage = Properties.Resources.topbottomrules;
+        bsiStatusLabel.Name = "bsiStatusLabel";
+        bsiStatusLabel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+        // 
         // ribbonPage1
         // 
         ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup1 });
@@ -488,14 +498,6 @@ partial class MainForm
         layoutControlItem1.Size = new Size(919, 303);
         layoutControlItem1.TextVisible = false;
         // 
-        // bsiStatusLabel
-        // 
-        bsiStatusLabel.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-        bsiStatusLabel.Caption = "<STATUS>";
-        bsiStatusLabel.Id = 35;
-        bsiStatusLabel.ImageOptions.SvgImage = Properties.Resources.topbottomrules;
-        bsiStatusLabel.Name = "bsiStatusLabel";
-        // 
         // MainForm
         // 
         Appearance.Options.UseFont = true;
@@ -505,6 +507,7 @@ partial class MainForm
         Controls.Add(layoutControl1);
         Controls.Add(ribbon);
         Controls.Add(ribbonStatusBar);
+        IconOptions.Icon = (Icon)resources.GetObject("MainForm.IconOptions.Icon");
         Name = "MainForm";
         Ribbon = ribbon;
         StartPosition = FormStartPosition.CenterScreen;

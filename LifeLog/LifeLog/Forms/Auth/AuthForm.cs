@@ -37,12 +37,14 @@ namespace LifeLog.Forms.Auth
 		{
 			try
 			{
-				Version verssion = Assembly.GetExecutingAssembly().GetName()!.Version!;
+				string? fileVersion = Assembly.GetExecutingAssembly()
+				   .GetCustomAttribute<AssemblyFileVersionAttribute>()?
+				   .Version;
 #if DEBUG
-				bsiAppVersion.Caption = $"v{verssion} (DEBUG!)";
+				bsiAppVersion.Caption = $"v{fileVersion} (DEBUG!)";
 				bsiAppVersion.ItemAppearance.Normal.ForeColor = ForeColors.Critical;
 #else
-	            bsiAppVersion.Caption = $"v{Application.ProductVersion}";
+	            bsiAppVersion.Caption = $"v{fileVersion}";
 	            bsiAppVersion.ItemAppearance.Normal.ForeColor = ForeColors.Information;
 #endif
 				bsiDatabase.Caption = Program.DataEngine!.DBName!;
@@ -107,7 +109,8 @@ namespace LifeLog.Forms.Auth
 		/// <param name="e"></param>
 		private void bePassword_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
 		{
-			ControlsHelper.ButtonTogglePassword(sender as ButtonEdit, e);
+			if (sender is null) return;
+			ControlsHelper.ButtonTogglePassword((ButtonEdit)sender, e);
 		}
 
 		/// <summary>

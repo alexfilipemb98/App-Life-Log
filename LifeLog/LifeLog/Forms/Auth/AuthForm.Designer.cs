@@ -206,7 +206,7 @@
             // bsiStatusLabel
             // 
             bsiStatusLabel.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            bsiStatusLabel.Caption = "barStaticItem4";
+            bsiStatusLabel.Caption = "<STATUS>";
             bsiStatusLabel.Id = 11;
             bsiStatusLabel.ImageOptions.SvgImage = Properties.Resources.topbottomrules;
             bsiStatusLabel.ItemAppearance.Normal.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.ControlText;
@@ -275,7 +275,7 @@
             // 
             // pictureEdit1
             // 
-            pictureEdit1.EditValue = Properties.Resources.icon;
+            pictureEdit1.EditValue = Properties.Resources.Icon;
             pictureEdit1.Location = new Point(399, 0);
             pictureEdit1.Margin = new Padding(0);
             pictureEdit1.MenuManager = ribbon;
@@ -325,7 +325,7 @@
             bePassword.Name = "bePassword";
             bePassword.Properties.AdvancedModeOptions.Label = "Password";
             editorButtonImageOptions1.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editorButtonImageOptions1.SvgImage");
-            bePassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            bePassword.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "SH_PASSWORD", null, DevExpress.Utils.ToolTipAnchor.Default) });
             bePassword.Properties.UseSystemPasswordChar = true;
             bePassword.Size = new Size(345, 42);
             bePassword.StyleController = layoutControl;
@@ -559,6 +559,8 @@
             Controls.Add(ribbon);
             Controls.Add(ribbonStatusBar);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            IconOptions.Icon = (Icon)resources.GetObject("AuthForm.IconOptions.Icon");
+            IconOptions.Image = Properties.Resources.Icon;
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MaximumSize = new Size(600, 340);

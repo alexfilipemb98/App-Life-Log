@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\LifeLog.Core.csproj" />
+    <ProjectReference Include="..\LifeLog.Core\LifeLog.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

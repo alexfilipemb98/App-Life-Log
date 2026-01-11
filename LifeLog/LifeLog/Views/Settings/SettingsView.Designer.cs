@@ -39,10 +39,13 @@ partial class SettingsView
         navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
         backstageViewClientControl3 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
         backstageViewTabItem1 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-        backstageViewItemSeparator1 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
         backstageViewTabItem2 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
         backstageViewTabItem3 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
         sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(components);
+        backstageViewClientControl4 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
+        backstageViewTabItem4 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+        backstageViewItemSeparator2 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
+        modulesSettingView1 = new LifeLog.Views.Settings.ModulesSettingView();
         ((System.ComponentModel.ISupportInitialize)backstageViewControl).BeginInit();
         backstageViewControl.SuspendLayout();
         backstageViewClientControl1.SuspendLayout();
@@ -50,23 +53,26 @@ partial class SettingsView
         ((System.ComponentModel.ISupportInitialize)navigationPaneEx).BeginInit();
         navigationPaneEx.SuspendLayout();
         navigationPageExternalPrograms.SuspendLayout();
+        backstageViewClientControl4.SuspendLayout();
         SuspendLayout();
         // 
         // backstageViewControl
         // 
-        backstageViewControl.Controls.Add(backstageViewClientControl1);
         backstageViewControl.Controls.Add(backstageViewClientControl2);
+        backstageViewControl.Controls.Add(backstageViewClientControl4);
+        backstageViewControl.Controls.Add(backstageViewClientControl1);
         backstageViewControl.Controls.Add(backstageViewClientControl3);
         backstageViewControl.Dock = DockStyle.Fill;
+        backstageViewControl.Items.Add(backstageViewTabItem4);
+        backstageViewControl.Items.Add(backstageViewItemSeparator2);
         backstageViewControl.Items.Add(backstageViewTabItem1);
-        backstageViewControl.Items.Add(backstageViewItemSeparator1);
         backstageViewControl.Items.Add(backstageViewTabItem2);
         backstageViewControl.Items.Add(backstageViewTabItem3);
         backstageViewControl.LeftPaneMinWidth = 170;
         backstageViewControl.Location = new Point(0, 0);
         backstageViewControl.Name = "backstageViewControl";
-        backstageViewControl.SelectedTab = backstageViewTabItem2;
-        backstageViewControl.SelectedTabIndex = 2;
+        backstageViewControl.SelectedTab = backstageViewTabItem4;
+        backstageViewControl.SelectedTabIndex = 0;
         backstageViewControl.Size = new Size(1005, 612);
         backstageViewControl.TabIndex = 3;
         backstageViewControl.Text = "backstageViewControl1";
@@ -135,9 +141,9 @@ partial class SettingsView
         // 
         // backstageViewClientControl3
         // 
-        backstageViewClientControl3.Location = new Point(147, 0);
+        backstageViewClientControl3.Location = new Point(170, 0);
         backstageViewClientControl3.Name = "backstageViewClientControl3";
-        backstageViewClientControl3.Size = new Size(858, 612);
+        backstageViewClientControl3.Size = new Size(835, 612);
         backstageViewClientControl3.TabIndex = 3;
         // 
         // backstageViewTabItem1
@@ -149,11 +155,8 @@ partial class SettingsView
         backstageViewTabItem1.Caption = "Sql Run";
         backstageViewTabItem1.ContentControl = backstageViewClientControl1;
         backstageViewTabItem1.ImageOptions.ItemNormal.SvgImage = Properties.Resources.selectdatasource;
+        backstageViewTabItem1.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
         backstageViewTabItem1.Name = "backstageViewTabItem1";
-        // 
-        // backstageViewItemSeparator1
-        // 
-        backstageViewItemSeparator1.Name = "backstageViewItemSeparator1";
         // 
         // backstageViewTabItem2
         // 
@@ -164,8 +167,8 @@ partial class SettingsView
         backstageViewTabItem2.Caption = "Data";
         backstageViewTabItem2.ContentControl = backstageViewClientControl2;
         backstageViewTabItem2.ImageOptions.ItemNormal.SvgImage = Properties.Resources.actions_database;
+        backstageViewTabItem2.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
         backstageViewTabItem2.Name = "backstageViewTabItem2";
-        backstageViewTabItem2.Selected = true;
         // 
         // backstageViewTabItem3
         // 
@@ -177,11 +180,41 @@ partial class SettingsView
         backstageViewTabItem3.Caption = "About";
         backstageViewTabItem3.ContentControl = backstageViewClientControl3;
         backstageViewTabItem3.ImageOptions.ItemNormal.SvgImage = Properties.Resources.about;
+        backstageViewTabItem3.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
         backstageViewTabItem3.Name = "backstageViewTabItem3";
         // 
         // sqlDataSource1
         // 
         sqlDataSource1.Name = "sqlDataSource1";
+        // 
+        // backstageViewClientControl4
+        // 
+        backstageViewClientControl4.Controls.Add(modulesSettingView1);
+        backstageViewClientControl4.Location = new Point(170, 0);
+        backstageViewClientControl4.Name = "backstageViewClientControl4";
+        backstageViewClientControl4.Size = new Size(835, 612);
+        backstageViewClientControl4.TabIndex = 4;
+        // 
+        // backstageViewTabItem4
+        // 
+        backstageViewTabItem4.Caption = "Modules";
+        backstageViewTabItem4.ContentControl = backstageViewClientControl4;
+        backstageViewTabItem4.ImageOptions.ItemNormal.SvgImage = Properties.Resources.bo_security_permission_model;
+        backstageViewTabItem4.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
+        backstageViewTabItem4.Name = "backstageViewTabItem4";
+        backstageViewTabItem4.Selected = true;
+        // 
+        // backstageViewItemSeparator2
+        // 
+        backstageViewItemSeparator2.Name = "backstageViewItemSeparator2";
+        // 
+        // modulesSettingView1
+        // 
+        modulesSettingView1.Dock = DockStyle.Fill;
+        modulesSettingView1.Location = new Point(0, 0);
+        modulesSettingView1.Name = "modulesSettingView1";
+        modulesSettingView1.Size = new Size(835, 612);
+        modulesSettingView1.TabIndex = 0;
         // 
         // SettingsView
         // 
@@ -198,6 +231,7 @@ partial class SettingsView
         ((System.ComponentModel.ISupportInitialize)navigationPaneEx).EndInit();
         navigationPaneEx.ResumeLayout(false);
         navigationPageExternalPrograms.ResumeLayout(false);
+        backstageViewClientControl4.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -207,7 +241,6 @@ partial class SettingsView
     private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl2;
     private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl3;
     private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem1;
-    private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator1;
     private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem2;
     private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem3;
     private Views.Sql.SqlBrowserView sqlBrowserView1;
@@ -216,4 +249,8 @@ partial class SettingsView
     private Components.NavigationPageEx navigationPageExternalPrograms;
     private Views.ExternalPrograms.ExternalProgramsList externalProgramsList;
     private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
+    private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl4;
+    private Views.Settings.ModulesSettingView modulesSettingView1;
+    private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem4;
+    private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator2;
 }

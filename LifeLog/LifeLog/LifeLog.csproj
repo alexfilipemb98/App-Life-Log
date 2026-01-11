@@ -11,7 +11,7 @@
     <PackageIcon>Icon.ico</PackageIcon>
     <Version>2026.1.0</Version>
     <AssemblyVersion>2026.0.0.0</AssemblyVersion>
-    <FileVersion>2026.1.0.11</FileVersion>
+    <FileVersion>2026.1.0.15</FileVersion>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
@@ -24,22 +24,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\Development\LifeLog.App\Icon.ico">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="DevExpress.Win.BonusSkins" Version="25.2.3" />
     <PackageReference Include="DevExpress.Win.Design" Version="25.2.3" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\LifeLog.Core.csproj" />
-    <ProjectReference Include="..\Data\LifeLog.Data.csproj" />
     <ProjectReference Include="..\LifeLog.Api\LifeLog.Api.csproj" />
+    <ProjectReference Include="..\LifeLog.Data\LifeLog.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,6 +47,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Icon.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Resources\Icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

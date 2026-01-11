@@ -243,6 +243,16 @@ namespace LifeLog.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage bo_security_permission_model {
+            get {
+                object obj = ResourceManager.GetObject("bo_security_permission_model", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage box_out {
             get {
                 object obj = ResourceManager.GetObject("box-out", resourceCulture);
@@ -533,9 +543,9 @@ namespace LifeLog.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon {
+        internal static System.Drawing.Bitmap Icon {
             get {
-                object obj = ResourceManager.GetObject("icon", resourceCulture);
+                object obj = ResourceManager.GetObject("Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -557,6 +567,16 @@ namespace LifeLog.Properties {
             get {
                 object obj = ResourceManager.GetObject("inserttextbox", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LoginBackground {
+            get {
+                object obj = ResourceManager.GetObject("LoginBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -637,16 +657,6 @@ namespace LifeLog.Properties {
             get {
                 object obj = ResourceManager.GetObject("Setting", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap SplashScreen {
-            get {
-                object obj = ResourceManager.GetObject("SplashScreen", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
