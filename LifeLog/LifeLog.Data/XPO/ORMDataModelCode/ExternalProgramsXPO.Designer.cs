@@ -58,7 +58,6 @@ namespace LifeLog.Data.XPO.ORMDataModelCode
 			set { SetPropertyValue<string>(nameof(Arguments), ref fArguments, value); }
 		}
 		byte[] fImageData;
-		[Nullable(false)]
 		[MemberDesignTimeVisibility(true)]
 		public byte[] ImageData
 		{
@@ -67,16 +66,10 @@ namespace LifeLog.Data.XPO.ORMDataModelCode
 		}
 		string fImageExtension;
 		[Size(10)]
-		[Nullable(false)]
 		public string ImageExtension
 		{
 			get { return fImageExtension; }
 			set { SetPropertyValue<string>(nameof(ImageExtension), ref fImageExtension, value); }
-		}
-		[PersistentAlias("Contains(Upper([ImageExtension]), 'svg')")]
-		public bool IsImageSvg
-		{
-			get { return (bool)(EvaluateAlias(nameof(IsImageSvg))); }
 		}
 		[Association(@"CommandsXPOReferencesExternalProgramsXPO"), Aggregated]
 		public XPCollection<CommandsXPO> Commands { get { return GetCollection<CommandsXPO>(nameof(Commands)); } }

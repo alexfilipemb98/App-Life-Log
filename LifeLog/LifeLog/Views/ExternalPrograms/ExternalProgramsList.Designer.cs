@@ -44,6 +44,7 @@ partial class ExternalProgramsList
         colBitImage = new DevExpress.XtraGrid.Columns.GridColumn();
         colIcon = new DevExpress.XtraGrid.Columns.GridColumn();
         externalProgramsEditor = new ExternalProgramsEditor();
+        popupMenu = new DevExpress.XtraBars.PopupMenu(components);
         ((System.ComponentModel.ISupportInitialize)navigationFrameBase).BeginInit();
         navigationFrameBase.SuspendLayout();
         npListBase.SuspendLayout();
@@ -58,6 +59,7 @@ partial class ExternalProgramsList
         ((System.ComponentModel.ISupportInitialize)gridControl).BeginInit();
         ((System.ComponentModel.ISupportInitialize)externalProgramsDTOBindingSource).BeginInit();
         ((System.ComponentModel.ISupportInitialize)gridView).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)popupMenu).BeginInit();
         SuspendLayout();
         // 
         // navigationFrameBase
@@ -71,6 +73,7 @@ partial class ExternalProgramsList
         // 
         // panelControlBase
         // 
+        panelControlBase.Location = new Point(7, 11);
         panelControlBase.Size = new Size(907, 450);
         // 
         // RootBase
@@ -123,8 +126,11 @@ partial class ExternalProgramsList
         // 
         gridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
         gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colId, colName, colFileExtension, colPathToProgram, colArguments, colImageData, colImageExtension, colIsSvg, colSvgImage, colBitImage, colIcon });
+        gridView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
         gridView.GridControl = gridControl;
         gridView.Name = "gridView";
+        gridView.OptionsBehavior.Editable = false;
+        gridView.OptionsSelection.EnableAppearanceFocusedCell = false;
         gridView.OptionsView.ShowGroupPanel = false;
         gridView.OptionsView.ShowIndicator = false;
         // 
@@ -210,6 +216,12 @@ partial class ExternalProgramsList
         externalProgramsEditor.Size = new Size(903, 446);
         externalProgramsEditor.TabIndex = 0;
         // 
+        // popupMenu
+        // 
+        popupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiBaseEdit), new DevExpress.XtraBars.LinkPersistInfo(bbiBaseDelele) });
+        popupMenu.Manager = barManagerBase;
+        popupMenu.Name = "popupMenu";
+        // 
         // ExternalProgramsList
         // 
         AutoScaleDimensions = new SizeF(6F, 13F);
@@ -230,6 +242,7 @@ partial class ExternalProgramsList
         ((System.ComponentModel.ISupportInitialize)gridControl).EndInit();
         ((System.ComponentModel.ISupportInitialize)externalProgramsDTOBindingSource).EndInit();
         ((System.ComponentModel.ISupportInitialize)gridView).EndInit();
+        ((System.ComponentModel.ISupportInitialize)popupMenu).EndInit();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -251,4 +264,5 @@ partial class ExternalProgramsList
     private DevExpress.XtraGrid.Columns.GridColumn colBitImage;
     private DevExpress.XtraGrid.Columns.GridColumn colIcon;
     private ExternalProgramsEditor externalProgramsEditor;
+    private DevExpress.XtraBars.PopupMenu popupMenu;
 }

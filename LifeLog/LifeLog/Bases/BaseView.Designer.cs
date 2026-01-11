@@ -115,7 +115,7 @@
             bbiBaseEdit.Caption = "Edit";
             bbiBaseEdit.Id = 4;
             bbiBaseEdit.ImageOptions.SvgImage = Properties.Resources.actions_edit;
-            bbiBaseEdit.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Control | Keys.N);
+            bbiBaseEdit.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Control | Keys.E);
             bbiBaseEdit.Name = "bbiBaseEdit";
             bbiBaseEdit.ItemClick += bbiEdit_ItemClick;
             // 
@@ -124,6 +124,7 @@
             bbiBaseDelele.Caption = "Delete";
             bbiBaseDelele.Id = 5;
             bbiBaseDelele.ImageOptions.SvgImage = Properties.Resources.del;
+            bbiBaseDelele.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Delete);
             bbiBaseDelele.Name = "bbiBaseDelele";
             bbiBaseDelele.ItemClick += bbiDelele_ItemClick;
             // 
@@ -143,7 +144,7 @@
             bbiBaseReload.GroupIndex = 1;
             bbiBaseReload.Id = 2;
             bbiBaseReload.ImageOptions.SvgImage = Properties.Resources.actions_refresh;
-            bbiBaseReload.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Control | Keys.R);
+            bbiBaseReload.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.F5);
             bbiBaseReload.Name = "bbiBaseReload";
             bbiBaseReload.ItemClick += bbiReload_ItemClick;
             // 

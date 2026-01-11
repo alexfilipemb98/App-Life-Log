@@ -28,308 +28,349 @@
         /// </summary>
         private void InitializeComponent()
         {
-			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SqlBrowserView));
-			this.barManager = new DevExpress.XtraBars.BarManager(this.components);
-			this.bar = new DevExpress.XtraBars.Bar();
-			this.bbiExecute = new DevExpress.XtraBars.BarButtonItem();
-			this.bbiCopyCellValue = new DevExpress.XtraBars.BarButtonItem();
-			this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-			this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-			this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-			this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-			this.recSqlPromt = new DevExpress.XtraRichEdit.RichEditControl();
-			this.popupMenuSqlText = new DevExpress.XtraBars.PopupMenu(this.components);
-			this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-			this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-			this.gridControl = new DevExpress.XtraGrid.GridControl();
-			this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-			this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-			this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-			this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-			this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-			this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-			this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
-			this.popupMenuGridResults = new DevExpress.XtraBars.PopupMenu(this.components);
-			((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.popupMenuSqlText)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-			this.layoutControl1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-			this.panelControl2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-			this.panelControl1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.popupMenuGridResults)).BeginInit();
-			this.SuspendLayout();
-			// 
-			// barManager
-			// 
-			this.barManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar});
-			this.barManager.DockControls.Add(this.barDockControlTop);
-			this.barManager.DockControls.Add(this.barDockControlBottom);
-			this.barManager.DockControls.Add(this.barDockControlLeft);
-			this.barManager.DockControls.Add(this.barDockControlRight);
-			this.barManager.Form = this;
-			this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.bbiExecute,
-            this.bbiCopyCellValue});
-			this.barManager.MainMenu = this.bar;
-			this.barManager.MaxItemId = 2;
-			// 
-			// bar
-			// 
-			this.bar.BarName = "Main menu";
-			this.bar.DockCol = 0;
-			this.bar.DockRow = 0;
-			this.bar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-			this.bar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiExecute, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiCopyCellValue, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
-			this.bar.OptionsBar.AllowQuickCustomization = false;
-			this.bar.OptionsBar.DisableCustomization = true;
-			this.bar.OptionsBar.DrawBorder = false;
-			this.bar.OptionsBar.DrawDragBorder = false;
-			this.bar.OptionsBar.MinHeight = 35;
-			this.bar.OptionsBar.MultiLine = true;
-			this.bar.OptionsBar.UseWholeRow = true;
-			this.bar.Text = "Main menu";
-			// 
-			// bbiExecute
-			// 
-			this.bbiExecute.Caption = "Execute";
-			this.bbiExecute.Id = 0;
-			this.bbiExecute.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiExecute.ImageOptions.SvgImage")));
-			this.bbiExecute.Name = "bbiExecute";
-			this.bbiExecute.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiExecute_ItemClick);
-			// 
-			// bbiCopyCellValue
-			// 
-			this.bbiCopyCellValue.Caption = "Copy Cell Value";
-			this.bbiCopyCellValue.Id = 1;
-			this.bbiCopyCellValue.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiCopyCellValue.ImageOptions.SvgImage")));
-			this.bbiCopyCellValue.Name = "bbiCopyCellValue";
-			this.bbiCopyCellValue.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCopyCellValue_ItemClick);
-			// 
-			// barBaseDockControlTop
-			// 
-			this.barDockControlTop.CausesValidation = false;
-			this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-			this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-			this.barDockControlTop.Manager = this.barManager;
-			this.barDockControlTop.Size = new System.Drawing.Size(898, 44);
-			// 
-			// barBaseDockControlBottom
-			// 
-			this.barDockControlBottom.CausesValidation = false;
-			this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barDockControlBottom.Location = new System.Drawing.Point(0, 557);
-			this.barDockControlBottom.Manager = this.barManager;
-			this.barDockControlBottom.Size = new System.Drawing.Size(898, 0);
-			// 
-			// barBaseDockControlLeft
-			// 
-			this.barDockControlLeft.CausesValidation = false;
-			this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-			this.barDockControlLeft.Location = new System.Drawing.Point(0, 44);
-			this.barDockControlLeft.Manager = this.barManager;
-			this.barDockControlLeft.Size = new System.Drawing.Size(0, 513);
-			// 
-			// barBaseDockControlRight
-			// 
-			this.barDockControlRight.CausesValidation = false;
-			this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.barDockControlRight.Location = new System.Drawing.Point(898, 44);
-			this.barDockControlRight.Manager = this.barManager;
-			this.barDockControlRight.Size = new System.Drawing.Size(0, 513);
-			// 
-			// recSqlPromt
-			// 
-			this.recSqlPromt.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
-			this.recSqlPromt.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-			this.recSqlPromt.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.recSqlPromt.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
-			this.recSqlPromt.Location = new System.Drawing.Point(2, 2);
-			this.recSqlPromt.Margin = new System.Windows.Forms.Padding(0);
-			this.recSqlPromt.MenuManager = this.barManager;
-			this.recSqlPromt.Name = "recSqlPromt";
-			this.recSqlPromt.Options.DocumentSaveOptions.CurrentFormat = DevExpress.XtraRichEdit.DocumentFormat.PlainText;
-			this.recSqlPromt.Size = new System.Drawing.Size(878, 105);
-			this.recSqlPromt.TabIndex = 4;
-			this.recSqlPromt.Views.SimpleView.AdjustColorsToSkins = true;
-			// 
-			// popupMenuSqlText
-			// 
-			this.popupMenuSqlText.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiExecute)});
-			this.popupMenuSqlText.Manager = this.barManager;
-			this.popupMenuSqlText.Name = "popupMenuSqlText";
-			// 
-			// layoutControl1
-			// 
-			this.layoutControl1.Controls.Add(this.panelControl2);
-			this.layoutControl1.Controls.Add(this.panelControl1);
-			this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.layoutControl1.Location = new System.Drawing.Point(0, 44);
-			this.layoutControl1.Name = "layoutControl1";
-			this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1270, 254, 650, 400);
-			this.layoutControl1.Root = this.Root;
-			this.layoutControl1.Size = new System.Drawing.Size(898, 513);
-			this.layoutControl1.TabIndex = 4;
-			this.layoutControl1.Text = "layoutControl1";
-			// 
-			// panelControl2
-			// 
-			this.panelControl2.Controls.Add(this.gridControl);
-			this.panelControl2.Location = new System.Drawing.Point(8, 202);
-			this.panelControl2.Margin = new System.Windows.Forms.Padding(0);
-			this.panelControl2.Name = "panelControl2";
-			this.panelControl2.Size = new System.Drawing.Size(882, 303);
-			this.panelControl2.TabIndex = 6;
-			// 
-			// gridControl
-			// 
-			this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gridControl.Location = new System.Drawing.Point(2, 2);
-			this.gridControl.MainView = this.gridView;
-			this.gridControl.Margin = new System.Windows.Forms.Padding(0);
-			this.gridControl.MenuManager = this.barManager;
-			this.gridControl.Name = "gridControl";
-			this.gridControl.Size = new System.Drawing.Size(878, 299);
-			this.gridControl.TabIndex = 5;
-			this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView});
-			// 
-			// gridView
-			// 
-			this.gridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-			this.gridView.DetailHeight = 372;
-			this.gridView.GridControl = this.gridControl;
-			this.gridView.Name = "gridView";
-			this.gridView.OptionsBehavior.Editable = false;
-			this.gridView.OptionsView.ShowGroupPanel = false;
-			this.gridView.OptionsView.ShowIndicator = false;
-			this.gridView.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView_RowClick);
-			// 
-			// panelControl1
-			// 
-			this.panelControl1.Controls.Add(this.recSqlPromt);
-			this.panelControl1.Location = new System.Drawing.Point(8, 45);
-			this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
-			this.panelControl1.Name = "panelControl1";
-			this.panelControl1.Size = new System.Drawing.Size(882, 109);
-			this.panelControl1.TabIndex = 5;
-			// 
-			// BaseRoot
-			// 
-			this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-			this.Root.GroupBordersVisible = false;
-			this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup1,
-            this.layoutControlGroup2});
-			this.Root.Name = "Root";
-			this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 10, 5);
-			this.Root.Size = new System.Drawing.Size(898, 513);
-			this.Root.TextVisible = false;
-			// 
-			// layoutControlGroup1
-			// 
-			this.layoutControlGroup1.ExpandButtonMode = DevExpress.Utils.Controls.ExpandButtonMode.Inverted;
-			this.layoutControlGroup1.ExpandButtonVisible = true;
-			this.layoutControlGroup1.ExpandOnDoubleClick = true;
-			this.layoutControlGroup1.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-			this.layoutControlGroup1.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
-			this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2});
-			this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-			this.layoutControlGroup1.Name = "layoutControlGroup1";
-			this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlGroup1.Size = new System.Drawing.Size(888, 147);
-			this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlGroup1.Text = "Query Sql";
-			// 
-			// layoutControlItem2
-			// 
-			this.layoutControlItem2.Control = this.panelControl1;
-			this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-			this.layoutControlItem2.Name = "layoutControlItem2";
-			this.layoutControlItem2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlItem2.Size = new System.Drawing.Size(888, 115);
-			this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-			this.layoutControlItem2.TextVisible = false;
-			// 
-			// layoutControlGroup2
-			// 
-			this.layoutControlGroup2.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-			this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-			this.layoutControlGroup2.Location = new System.Drawing.Point(0, 147);
-			this.layoutControlGroup2.Name = "layoutControlGroup2";
-			this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlGroup2.Size = new System.Drawing.Size(888, 351);
-			this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 10, 0);
-			this.layoutControlGroup2.Text = "Results";
-			// 
-			// layoutControlItem1
-			// 
-			this.layoutControlItem1.Control = this.panelControl2;
-			this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-			this.layoutControlItem1.Name = "layoutControlItem1";
-			this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			this.layoutControlItem1.Size = new System.Drawing.Size(888, 309);
-			this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-			this.layoutControlItem1.TextVisible = false;
-			// 
-			// dxErrorProvider
-			// 
-			this.dxErrorProvider.ContainerControl = this;
-			// 
-			// popupMenuGridResults
-			// 
-			this.popupMenuGridResults.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiCopyCellValue)});
-			this.popupMenuGridResults.Manager = this.barManager;
-			this.popupMenuGridResults.Name = "popupMenuGridResults";
-			// 
-			// SqlBrowserView
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.layoutControl1);
-			this.Controls.Add(this.barDockControlLeft);
-			this.Controls.Add(this.barDockControlRight);
-			this.Controls.Add(this.barDockControlBottom);
-			this.Controls.Add(this.barDockControlTop);
-			this.Name = "SqlBrowserView";
-			this.Size = new System.Drawing.Size(898, 557);
-			((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.popupMenuSqlText)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-			this.layoutControl1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-			this.panelControl2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-			this.panelControl1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.popupMenuGridResults)).EndInit();
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SqlBrowserView));
+            barManager = new DevExpress.XtraBars.BarManager(components);
+            bar = new DevExpress.XtraBars.Bar();
+            bbiExecute = new DevExpress.XtraBars.BarButtonItem();
+            bbiStop = new DevExpress.XtraBars.BarButtonItem();
+            barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            bbiCopyCellValue = new DevExpress.XtraBars.BarButtonItem();
+            recSqlPromt = new DevExpress.XtraRichEdit.RichEditControl();
+            popupMenuSqlText = new DevExpress.XtraBars.PopupMenu(components);
+            layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            lblSqlInfo = new DevExpress.XtraEditors.LabelControl();
+            panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            gridControl = new DevExpress.XtraGrid.GridControl();
+            gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
+            layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(components);
+            popupMenuGridResults = new DevExpress.XtraBars.PopupMenu(components);
+            ((System.ComponentModel.ISupportInitialize)barManager).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)popupMenuSqlText).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
+            layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)panelControl2).BeginInit();
+            panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gridControl).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)panelControl1).BeginInit();
+            panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Root).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlGroup1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)splitterItem1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlGroup2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dxErrorProvider).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)popupMenuGridResults).BeginInit();
+            SuspendLayout();
+            // 
+            // barManager
+            // 
+            barManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] { bar });
+            barManager.DockControls.Add(barDockControlTop);
+            barManager.DockControls.Add(barDockControlBottom);
+            barManager.DockControls.Add(barDockControlLeft);
+            barManager.DockControls.Add(barDockControlRight);
+            barManager.DockWindowTabFont = new Font("Segoe UI", 9F);
+            barManager.Form = this;
+            barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] { bbiExecute, bbiCopyCellValue, bbiStop });
+            barManager.MainMenu = bar;
+            barManager.MaxItemId = 3;
+            // 
+            // bar
+            // 
+            bar.BarName = "Main menu";
+            bar.DockCol = 0;
+            bar.DockRow = 0;
+            bar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            bar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, bbiExecute, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, bbiStop, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph) });
+            bar.OptionsBar.AllowQuickCustomization = false;
+            bar.OptionsBar.DisableCustomization = true;
+            bar.OptionsBar.DrawBorder = false;
+            bar.OptionsBar.DrawDragBorder = false;
+            bar.OptionsBar.MinHeight = 35;
+            bar.OptionsBar.MultiLine = true;
+            bar.OptionsBar.UseWholeRow = true;
+            bar.Text = "Main menu";
+            // 
+            // bbiExecute
+            // 
+            bbiExecute.Caption = "Execute";
+            bbiExecute.Id = 0;
+            bbiExecute.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bbiExecute.ImageOptions.SvgImage");
+            bbiExecute.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.F5);
+            bbiExecute.Name = "bbiExecute";
+            bbiExecute.ItemClick += bbiExecute_ItemClick;
+            // 
+            // bbiStop
+            // 
+            bbiStop.Caption = "Stop";
+            bbiStop.Enabled = false;
+            bbiStop.Id = 2;
+            bbiStop.ImageOptions.SvgImage = Properties.Resources.actions_forbid;
+            bbiStop.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.F6);
+            bbiStop.Name = "bbiStop";
+            bbiStop.ItemClick += bbiStop_ItemClick;
+            // 
+            // barDockControlTop
+            // 
+            barDockControlTop.CausesValidation = false;
+            barDockControlTop.Dock = DockStyle.Top;
+            barDockControlTop.Location = new Point(0, 0);
+            barDockControlTop.Manager = barManager;
+            barDockControlTop.Margin = new Padding(3, 2, 3, 2);
+            barDockControlTop.Size = new Size(870, 44);
+            // 
+            // barDockControlBottom
+            // 
+            barDockControlBottom.CausesValidation = false;
+            barDockControlBottom.Dock = DockStyle.Bottom;
+            barDockControlBottom.Location = new Point(0, 607);
+            barDockControlBottom.Manager = barManager;
+            barDockControlBottom.Margin = new Padding(3, 2, 3, 2);
+            barDockControlBottom.Size = new Size(870, 0);
+            // 
+            // barDockControlLeft
+            // 
+            barDockControlLeft.CausesValidation = false;
+            barDockControlLeft.Dock = DockStyle.Left;
+            barDockControlLeft.Location = new Point(0, 44);
+            barDockControlLeft.Manager = barManager;
+            barDockControlLeft.Margin = new Padding(3, 2, 3, 2);
+            barDockControlLeft.Size = new Size(0, 563);
+            // 
+            // barDockControlRight
+            // 
+            barDockControlRight.CausesValidation = false;
+            barDockControlRight.Dock = DockStyle.Right;
+            barDockControlRight.Location = new Point(870, 44);
+            barDockControlRight.Manager = barManager;
+            barDockControlRight.Margin = new Padding(3, 2, 3, 2);
+            barDockControlRight.Size = new Size(0, 563);
+            // 
+            // bbiCopyCellValue
+            // 
+            bbiCopyCellValue.Caption = "Copy Cell Value";
+            bbiCopyCellValue.Id = 1;
+            bbiCopyCellValue.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("bbiCopyCellValue.ImageOptions.SvgImage");
+            bbiCopyCellValue.Name = "bbiCopyCellValue";
+            bbiCopyCellValue.ItemClick += bbiCopyCellValue_ItemClick;
+            // 
+            // recSqlPromt
+            // 
+            recSqlPromt.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            recSqlPromt.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            recSqlPromt.Dock = DockStyle.Fill;
+            recSqlPromt.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
+            recSqlPromt.Location = new Point(2, 2);
+            recSqlPromt.Margin = new Padding(0);
+            recSqlPromt.MenuManager = barManager;
+            recSqlPromt.Name = "recSqlPromt";
+            recSqlPromt.Options.DocumentSaveOptions.CurrentFormat = DevExpress.XtraRichEdit.DocumentFormat.PlainText;
+            recSqlPromt.Size = new Size(852, 106);
+            recSqlPromt.TabIndex = 4;
+            recSqlPromt.Views.SimpleView.AdjustColorsToSkins = true;
+            // 
+            // popupMenuSqlText
+            // 
+            popupMenuSqlText.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiExecute) });
+            popupMenuSqlText.Manager = barManager;
+            popupMenuSqlText.Name = "popupMenuSqlText";
+            // 
+            // layoutControl1
+            // 
+            layoutControl1.Controls.Add(lblSqlInfo);
+            layoutControl1.Controls.Add(panelControl2);
+            layoutControl1.Controls.Add(panelControl1);
+            layoutControl1.Dock = DockStyle.Fill;
+            layoutControl1.Location = new Point(0, 44);
+            layoutControl1.Margin = new Padding(3, 2, 3, 2);
+            layoutControl1.Name = "layoutControl1";
+            layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new Rectangle(447, 284, 650, 400);
+            layoutControl1.Root = Root;
+            layoutControl1.Size = new Size(870, 563);
+            layoutControl1.TabIndex = 4;
+            layoutControl1.Text = "layoutControl1";
+            // 
+            // lblSqlInfo
+            // 
+            lblSqlInfo.Appearance.FontSizeDelta = 2;
+            lblSqlInfo.Appearance.Options.UseFont = true;
+            lblSqlInfo.Location = new Point(7, 539);
+            lblSqlInfo.Name = "lblSqlInfo";
+            lblSqlInfo.Size = new Size(856, 17);
+            lblSqlInfo.StyleController = layoutControl1;
+            lblSqlInfo.TabIndex = 7;
+            // 
+            // panelControl2
+            // 
+            panelControl2.Controls.Add(gridControl);
+            panelControl2.Location = new Point(7, 204);
+            panelControl2.Margin = new Padding(0);
+            panelControl2.Name = "panelControl2";
+            panelControl2.Size = new Size(856, 330);
+            panelControl2.TabIndex = 6;
+            // 
+            // gridControl
+            // 
+            gridControl.Dock = DockStyle.Fill;
+            gridControl.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
+            gridControl.Location = new Point(2, 2);
+            gridControl.MainView = gridView;
+            gridControl.Margin = new Padding(0);
+            gridControl.MenuManager = barManager;
+            gridControl.Name = "gridControl";
+            gridControl.Size = new Size(852, 326);
+            gridControl.TabIndex = 5;
+            gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView });
+            // 
+            // gridView
+            // 
+            gridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            gridView.DetailHeight = 284;
+            gridView.GridControl = gridControl;
+            gridView.Name = "gridView";
+            gridView.OptionsBehavior.Editable = false;
+            gridView.OptionsEditForm.PopupEditFormWidth = 686;
+            gridView.OptionsView.ShowGroupPanel = false;
+            gridView.OptionsView.ShowIndicator = false;
+            gridView.RowClick += gridView_RowClick;
+            // 
+            // panelControl1
+            // 
+            panelControl1.Controls.Add(recSqlPromt);
+            panelControl1.Location = new Point(7, 42);
+            panelControl1.Margin = new Padding(0);
+            panelControl1.Name = "panelControl1";
+            panelControl1.Size = new Size(856, 110);
+            panelControl1.TabIndex = 5;
+            // 
+            // Root
+            // 
+            Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            Root.GroupBordersVisible = false;
+            Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlGroup1, splitterItem1, layoutControlItem3, layoutControlGroup2 });
+            Root.Name = "Root";
+            Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 8, 4);
+            Root.Size = new Size(870, 563);
+            Root.TextVisible = false;
+            // 
+            // layoutControlGroup1
+            // 
+            layoutControlGroup1.ExpandButtonMode = DevExpress.Utils.Controls.ExpandButtonMode.Inverted;
+            layoutControlGroup1.ExpandButtonVisible = true;
+            layoutControlGroup1.ExpandOnDoubleClick = true;
+            layoutControlGroup1.GroupStyle = DevExpress.Utils.GroupStyle.Title;
+            layoutControlGroup1.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
+            layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem2 });
+            layoutControlGroup1.Location = new Point(0, 0);
+            layoutControlGroup1.Name = "layoutControlGroup1";
+            layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            layoutControlGroup1.Size = new Size(862, 146);
+            layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            layoutControlGroup1.Text = "Query Sql";
+            // 
+            // layoutControlItem2
+            // 
+            layoutControlItem2.Control = panelControl1;
+            layoutControlItem2.Location = new Point(0, 0);
+            layoutControlItem2.Name = "layoutControlItem2";
+            layoutControlItem2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            layoutControlItem2.Size = new Size(862, 114);
+            layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 2, 2);
+            layoutControlItem2.TextVisible = false;
+            // 
+            // splitterItem1
+            // 
+            splitterItem1.Location = new Point(0, 146);
+            splitterItem1.Name = "splitterItem1";
+            splitterItem1.Size = new Size(862, 16);
+            // 
+            // layoutControlItem3
+            // 
+            layoutControlItem3.Control = lblSqlInfo;
+            layoutControlItem3.Location = new Point(0, 528);
+            layoutControlItem3.Name = "layoutControlItem3";
+            layoutControlItem3.Size = new Size(862, 23);
+            layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlGroup2
+            // 
+            layoutControlGroup2.GroupStyle = DevExpress.Utils.GroupStyle.Title;
+            layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1 });
+            layoutControlGroup2.Location = new Point(0, 162);
+            layoutControlGroup2.Name = "layoutControlGroup2";
+            layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            layoutControlGroup2.Size = new Size(862, 366);
+            layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            layoutControlGroup2.Text = "Results";
+            // 
+            // layoutControlItem1
+            // 
+            layoutControlItem1.Control = panelControl2;
+            layoutControlItem1.Location = new Point(0, 0);
+            layoutControlItem1.Name = "layoutControlItem1";
+            layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            layoutControlItem1.Size = new Size(862, 334);
+            layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 2, 2);
+            layoutControlItem1.TextVisible = false;
+            // 
+            // dxErrorProvider
+            // 
+            dxErrorProvider.ContainerControl = this;
+            // 
+            // popupMenuGridResults
+            // 
+            popupMenuGridResults.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiCopyCellValue) });
+            popupMenuGridResults.Manager = barManager;
+            popupMenuGridResults.Name = "popupMenuGridResults";
+            // 
+            // SqlBrowserView
+            // 
+            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(layoutControl1);
+            Controls.Add(barDockControlLeft);
+            Controls.Add(barDockControlRight);
+            Controls.Add(barDockControlBottom);
+            Controls.Add(barDockControlTop);
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "SqlBrowserView";
+            Size = new Size(870, 607);
+            ((System.ComponentModel.ISupportInitialize)barManager).EndInit();
+            ((System.ComponentModel.ISupportInitialize)popupMenuSqlText).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControl1).EndInit();
+            layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)panelControl2).EndInit();
+            panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)gridControl).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)panelControl1).EndInit();
+            panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)Root).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlGroup1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)splitterItem1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlGroup2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dxErrorProvider).EndInit();
+            ((System.ComponentModel.ISupportInitialize)popupMenuGridResults).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -357,5 +398,9 @@
         private DevExpress.XtraBars.PopupMenu popupMenuSqlText;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraBars.BarButtonItem bbiStop;
+        private DevExpress.XtraEditors.LabelControl lblSqlInfo;
+        private DevExpress.XtraLayout.SplitterItem splitterItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

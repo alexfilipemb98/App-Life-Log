@@ -1,11 +1,13 @@
 ﻿using LifeLog.Data.DBs.Interfaces;
 using LifeLog.Data.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LifeLog.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class NotesController : ControllerBase
 {
 	private readonly INotesDB _notes;

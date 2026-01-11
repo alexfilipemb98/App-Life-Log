@@ -1,4 +1,5 @@
 ﻿using DevExpress.Utils.Svg;
+using LifeLog.Core.Enums;
 using LifeLog.Core.Utils;
 using Newtonsoft.Json;
 using System.ComponentModel;
@@ -36,11 +37,10 @@ public partial class ExternalProgramsDTO
 	[Core.Attributes.StringLength(150)]
 	public string? Arguments { get; set; }
 
-	[Core.Attributes.Required]
 	public byte[]? ImageData { get; set; }
 
 	[DataType(DataType.Text)]
-	[Core.Attributes.Required]
+	[Core.Attributes.RequiredIf(nameof(HasImage), OperatorsEnum.Equal, true)]
 	[Core.Attributes.StringLength(10)]
 	public string? ImageExtension { get; set; }
 
@@ -54,11 +54,15 @@ public partial class ExternalProgramsDTO
 
 	[JsonIgnore]
 	[NotMapped]
-	public SvgImage? SvgImage => ImageData != null && ImageData.Length > 0 && IsImageSvg ? ImagesUtil.ArrayToSvgImage(ImageData) : null;
+	public SvgImage? SvgImage => HasImage && IsImageSvg ? ImagesUtil.ArrayToSvgImage(ImageData!) : null;
 
 	[JsonIgnore]
 	[NotMapped]
-	public Bitmap? BitImage => ImageData != null && ImageData.Length > 0 && !IsImageSvg ? ImagesUtil.ArrayToBitmap(ImageData) : null;
+	public Bitmap? BitImage => HasImage && !IsImageSvg ? ImagesUtil.ArrayToBitmap(ImageData!) : null;
+
+	[NotMapped]
+	[JsonIgnore]
+	public bool HasImage => ImageData != null && ImageData.Length > 0;
 
 	[NotMapped]
 	[JsonIgnore]
@@ -78,5 +82,5 @@ public partial class ExternalProgramsDTO
 		}
 	}
 
-	#endregion
+    #endregion
 }

@@ -7,7 +7,7 @@
     <NeutralLanguage>en-GB</NeutralLanguage>
     <Version>2026.1.0</Version>
     <AssemblyVersion>2026.0.0.0</AssemblyVersion>
-    <FileVersion>2026.1.1.10</FileVersion>
+    <FileVersion>2026.1.1.11</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

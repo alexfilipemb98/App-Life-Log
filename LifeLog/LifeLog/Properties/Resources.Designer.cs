@@ -143,6 +143,16 @@ namespace LifeLog.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_forbid {
+            get {
+                object obj = ResourceManager.GetObject("actions_forbid", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage actions_options {
             get {
                 object obj = ResourceManager.GetObject("actions_options", resourceCulture);

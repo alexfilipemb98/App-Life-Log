@@ -1,5 +1,6 @@
 ﻿using LifeLog.Data.DBs.Interfaces;
 using LifeLog.Data.Helpers;
+using LifeLog.Data.Models;
 
 namespace LifeLog.Data.DBs;
 
@@ -47,6 +48,17 @@ public class GeralDB : IGeralDB
 	{
 		return await _sql.ExecuteScalarAsync<T>(sql);
 	}
+
+	/// <summary>
+	/// Run batch
+	/// </summary>
+	/// <param name="sql"></param>
+	/// <param name="returnsRows"></param>
+	/// <param name="ct"></param>
+	/// <param name="timeout"></param>
+	/// <returns></returns>
+	public Task<SqlBatchResult> RunBatchAsync(string sql, bool returnsRows, CancellationToken ct, int? timeout = null) =>
+	   _sql.RunBatchAsync(sql, returnsRows, ct, timeout);
 
 	#endregion
 }
