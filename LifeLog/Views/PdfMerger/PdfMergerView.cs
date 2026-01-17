@@ -1,138 +1,130 @@
-﻿using LifeLog.Core.Utils;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
+using LifeLog.Core.Utils;
 using LifeLog.Helpers;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
 
-namespace LifeLog.Views.PdfMerger
+namespace LifeLog.Views.PdfMerger;
+
+/// <summary>
+/// PDF Merger View
+/// </summary>
+public partial class PdfMergerView : XtraUserControl
 {
-	/// <summary>
-	/// PDF Merger View
-	/// </summary>
-	public partial class PdfMergerView : XtraUserControl
-	{
-		#region MAIN
+    #region MAIN
 
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		public PdfMergerView() => InitializeComponent();
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    public PdfMergerView() => InitializeComponent();
 
-		#endregion
+    #endregion
 
-		#region CLICK
+    #region CLICK
 
-		/// <summary>
-		/// Open the output folder
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void bbiOpenOutput_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-		{
-			try
-			{
-				if (Directory.Exists(Path.GetDirectoryName(beOutputFolder.Text)))
-					Process.Start("explorer.exe", Path.GetDirectoryName(beOutputFolder.Text));
-			}
-			catch (Exception ex)
-			{
-				ErrorHelper.Handler(ex);
-				ErrorHelper.Handler(ex);
-			}
-		}
+    /// <summary>
+    /// Open the output folder
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void bbiOpenOutput_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+    {
+        try
+        {
+            if (Directory.Exists(Path.GetDirectoryName(beOutputFolder.Text)))
+                Process.Start("explorer.exe", Path.GetDirectoryName(beOutputFolder.Text));
+        }
+        catch (Exception ex)
+        {
+            ErrorHelper.Handler(ex);
+            ErrorHelper.Handler(ex);
+        }
+    }
 
-		/// <summary>
-		/// Handles the click event of the merge button
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void beOutputFolder_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-		{
-			try
-			{
-				SaveFileDialog saveFileDialog = new SaveFileDialog
-				{
-					Filter = "PDF files (*.pdf)|*.pdf",
-					DefaultExt = "pdf",
-					AddExtension = true,
-					Title = "Save PDF"
-				};
+    /// <summary>
+    /// Handles the click event of the merge button
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void beOutputFolder_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+    {
+        try
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "PDF files (*.pdf)|*.pdf",
+                DefaultExt = "pdf",
+                AddExtension = true,
+                Title = "Save PDF"
+            };
 
-				if (saveFileDialog.ShowDialog() == DialogResult.OK)
-					beOutputFolder.Text = saveFileDialog.FileName;
-			}
-			catch (Exception ex)
-			{
-				ErrorHelper.Handler(ex);
-			}
-		}
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                beOutputFolder.Text = saveFileDialog.FileName;
+        }
+        catch (Exception ex)
+        {
+            ErrorHelper.Handler(ex);
+        }
+    }
 
-		/// <summary>
-		/// Handles the click event of the select folder button
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void bePdfsFolder_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-		{
-			try
-			{
-				bePdfsFolder.Text = DialogHelper.OpenFolder(bePdfsFolder.Text);
-			}
-			catch (Exception ex)
-			{
-				ErrorHelper.Handler(ex);
-			}
-		}
+    /// <summary>
+    /// Handles the click event of the select folder button
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void bePdfsFolder_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+    {
+        bePdfsFolder.Text = DialogHelper.OpenFolder("Select the folder to save the merged pdf.", bePdfsFolder.Text);
+    }
 
-		/// <summary>
-		/// Process and merge the PDFs
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void bbiProcess_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-		{
-			try
-			{
-				string input = bePdfsFolder.Text;
-				string output = beOutputFolder.Text;
+    /// <summary>
+    /// Process and merge the PDFs
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void bbiProcess_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+    {
+        try
+        {
+            string input = bePdfsFolder.Text;
+            string output = beOutputFolder.Text;
 
-				dxErrorProvider.ClearErrors();
+            dxErrorProvider.ClearErrors();
 
-				if (string.IsNullOrWhiteSpace(input) || !Directory.Exists(input))
-				{
-					dxErrorProvider.SetError(bePdfsFolder, "Please select a valid folder.");
-				}
+            if (string.IsNullOrWhiteSpace(input) || !Directory.Exists(input))
+            {
+                dxErrorProvider.SetError(bePdfsFolder, "Please select a valid folder.");
+            }
 
-				if (string.IsNullOrWhiteSpace(output) || !Directory.Exists(Path.GetDirectoryName(output)))
-				{
-					dxErrorProvider.SetError(beOutputFolder, "Please select a valid folder for the output.");
-				}
+            if (string.IsNullOrWhiteSpace(output) || !Directory.Exists(Path.GetDirectoryName(output)))
+            {
+                dxErrorProvider.SetError(beOutputFolder, "Please select a valid folder for the output.");
+            }
 
-				if (dxErrorProvider.HasErrors)
-				{
-					MessageBox.Show("Please correct the errors!");
-					return;
-				}
+            if (dxErrorProvider.HasErrors)
+            {
+                MessageBox.Show("Please correct the errors!");
+                return;
+            }
 
-				SearchOption searchOption = tsSearchSubFolders.IsOn ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
-				List<string> pdfFiles = Directory
-				   .EnumerateFiles(input, "*.pdf", searchOption)
-				   .OrderBy(f => f)
-				   .ToList();
+            SearchOption searchOption = tsSearchSubFolders.IsOn ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
+            List<string> pdfFiles = Directory
+               .EnumerateFiles(input, "*.pdf", searchOption)
+               .OrderBy(f => f)
+               .ToList();
 
-				richEditControl.Text += $"Merging {pdfFiles.Count} PDFs\r\n";
+            richEditControl.Text += $"Merging {pdfFiles.Count} PDFs\r\n";
 
-				PdfUtil.MergeAllPdfsInDirectory(input, output, tsSearchSubFolders.IsOn);
-				MessageBox.Show("PDFs have been merged!");
-			}
-			catch (Exception ex)
-			{
-				ErrorHelper.Handler(ex);
-			}
-		}
+            PdfUtil.MergeAllPdfsInDirectory(input, output, tsSearchSubFolders.IsOn);
+            MessageBox.Show("PDFs have been merged!");
+        }
+        catch (Exception ex)
+        {
+            ErrorHelper.Handler(ex);
+        }
+    }
 
-		#endregion
+    #endregion
 
-	}
 }

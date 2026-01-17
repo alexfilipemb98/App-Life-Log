@@ -20,13 +20,13 @@ public class DatabaseConfigModel
 
 	[DataType(DataType.Text)]
 	[Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.SQLLITE)]
-	public string? SQlLitePath { get; set; }
+	public string? SqlLitePath { get; set; }
 
 	public bool SqlLiteBackup { get; set; }
 
 	[DataType(DataType.Text)]
 	[Attributes.RequiredIf(nameof(SqlLiteBackup), OperatorsEnum.Equal, true)]
-	public string? SqlLiteBackupFolder { get; set; }
+	public string? SqlLiteAutoBackupPath { get; set; }
 
 	[DataType(DataType.Password)]
 	[Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.SQLLITE)]
@@ -55,6 +55,16 @@ public class DatabaseConfigModel
 	[DataType(DataType.Text)]
 	[Attributes.RequiredIf(nameof(DatabaseType), OperatorsEnum.Equal, DatabaseTypeEnum.MSSQL)]
 	public string? SqlXpoProvider { get; set; }
+
+    #endregion
+
+    #region API
+
+    public bool ApiEnabled { get; set; }
+
+	[DataType(DataType.Text)]
+	[Attributes.RequiredIf(nameof(ApiEnabled), OperatorsEnum.Equal, true)]
+	public string? ApiUrl { get; set; }
 
 	#endregion
 
@@ -89,12 +99,12 @@ public class DatabaseConfigModel
 		{
 			case DatabaseTypeEnum.SQLLITE:
 
-				if (string.IsNullOrWhiteSpace(SQlLitePath))
+				if (string.IsNullOrWhiteSpace(SqlLitePath))
 					throw new Exception("SQL lite path is null");
 
 				SqliteConnectionStringBuilder connLite = new SqliteConnectionStringBuilder
 				{
-					DataSource = SQlLitePath,
+					DataSource = SqlLitePath,
 					Mode = SqliteOpenMode.ReadWriteCreate,
 					Password = SqlLitePassword,
 				};

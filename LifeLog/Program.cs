@@ -5,69 +5,79 @@ using LifeLog.Forms.Auth;
 using LifeLog.Forms.Loading;
 using LifeLog.Helpers;
 using LifeLog.Services;
-using LifeLog.Services.Api;
 using System.IO;
 
 namespace LifeLog;
 
 internal static class Program
 {
-    internal static Data.Engine? DataEngine { get; set; }
-    internal static LoggedUserModel? LoggedUser { get; set; }
-    internal static AppConfigsModel? AppConfigs { get; set; }
-    internal static AuthForm? AuthForm { get; set; }
-    internal static MainForm? MainForm { get; set; }
-    internal static LoggerService? Logger { get; set; }
-    internal static string? UserDir { get; set; }
+	internal static DatabaseConfigModel? DbConfigs { get; set; }
+	internal static Data.Engine? DataEngine { get; set; }
+	internal static Services.Api.Engine? ApiEngine { get; set; }
+	internal static LoggedUserModel? LoggedUser { get; set; }
+	internal static AppConfigsModel? AppConfigs { get; set; }
+	internal static AuthForm? AuthForm { get; private set; }
+	internal static MainForm? MainForm { get; private set; }
+	internal static LoggerService? Logger { get; private set; }
+	internal static string? UserDir { get; private set; }
 
-    /// <summary>
-    ///  The main entry point for the application.
-    /// </summary>
-    [STAThread]
-    static void Main()
-    {
-        SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
+	/// <summary>
+	///  The main entry point for the application.
+	/// </summary>
+	[STAThread]
+	static void Main()
+	{
+		SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
 
-        ApplicationConfiguration.Initialize();
+		ApplicationConfiguration.Initialize();
 
-        UserDir = Path.Combine(Environment.MachineName, Environment.UserName);
+		UserDir = Path.Combine("Machines", Environment.MachineName, Environment.UserName);
 
-        if (!Directory.Exists(UserDir))
-            Directory.CreateDirectory(UserDir);
+		if (!Directory.Exists(UserDir))
+			Directory.CreateDirectory(UserDir);
 
-        Logger = new LoggerService(UserDir);
+		Logger = new LoggerService(UserDir);
 
-        Application.ThreadException += (s, e) =>
-                ErrorHelper.Handler(e.Exception);
+		Application.ThreadException += (s, e) =>
+				ErrorHelper.Handler(e.Exception);
 
-        TaskScheduler.UnobservedTaskException += (s, e) =>
-        {
-            ErrorHelper.Handler(e.Exception);
-            e.SetObserved();
-        };
+		TaskScheduler.UnobservedTaskException += (s, e) =>
+		{
+			ErrorHelper.Handler(e.Exception);
+			e.SetObserved();
+		};
 
-        DatabaseConfigModel configs = DbHelper.GetDatabaseConfig();
+		Application.ApplicationExit += async (_, _) =>
+		{
+			if (ApiEngine is not null)
+				await ApiEngine.DisposeAsync();
 
-        DataEngine = new Data.Engine(configs);
+			if (DataEngine is not null)
+				DataEngine.Dispose();
+		};
 
-        ApiHost host = new();
-        _ = Task.Run(() => host.StartAsync(DataEngine.Connection, new[] { "http://localhost:5055" }));
+		DbConfigs = AppHelper.GetDatabaseConfig();
 
-        Application.ApplicationExit += async (_, __) => await host.DisposeAsync();
+		DataEngine = new Data.Engine(DbConfigs);
 
-        AppConfigs = AppHelper.ReadAppConfigs();
+		ApiEngine = new Services.Api.Engine();
 
-        using (AuthForm = new())
-        {
-            AuthForm.Shown += (s, e) => SplashScreenManager.CloseForm(false);
+		if (DbConfigs.ApiEnabled && !string.IsNullOrWhiteSpace(DbConfigs.ApiUrl))
+			_ = Task.Run(() => ApiEngine.StartAsync(DataEngine.Connection, DbConfigs.ApiUrl));
 
-            if (AuthForm.ShowDialog() != DialogResult.Yes)
-                Environment.Exit(0);
-        }
+		AppConfigs = AppHelper.ReadAppConfigs();
 
-        MainForm = new();
+		using (AuthForm = new())
+		{
+			AuthForm.Shown += (s, e) => SplashScreenManager.CloseForm(false);
 
-        Application.Run(MainForm);
-    }
+			if (AuthForm.ShowDialog() != DialogResult.Yes)
+				Environment.Exit(0);
+		}
+
+		MainForm = new();
+
+		Application.Run(MainForm);
+	}
 }
 

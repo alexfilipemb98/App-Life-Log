@@ -17,15 +17,14 @@ namespace LifeLog.Data;
 /// <summary>
 /// Data engine
 /// </summary>
-public class Engine
+public class Engine : IDisposable
 {
 	#region MAIN
 
-	//PUBLIC VARIABLES
-
-	private static Engine? Instance;
+	//PRIVATE
 	private readonly IServiceProvider ServiceProvider;
 
+	//PUBLIC
 	public IDbConnection Connection { get; private set; }
 	public string DBName { get; private set; }
 
@@ -67,8 +66,6 @@ public class Engine
 		services.ConfigureServices(Connection);
 
 		ServiceProvider = services.BuildServiceProvider();
-
-		Instance = this;
 	}
 
 	#endregion
@@ -92,6 +89,18 @@ public class Engine
 
 	//Commands
 	public ICommandsDB Commands => ServiceProvider.GetRequiredService<ICommandsDB>();
+
+	#endregion
+
+	#region FUNCTIONS
+
+	/// <summary>
+	/// Dispose
+	/// </summary>
+	public void Dispose()
+	{
+		Connection.Dispose();
+	}
 
 	#endregion
 }

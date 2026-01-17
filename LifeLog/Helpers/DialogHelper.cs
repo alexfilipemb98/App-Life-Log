@@ -1,105 +1,110 @@
 ﻿using DevExpress.Utils;
 using DevExpress.XtraBars.Alerter;
-using DevExpress.XtraRichEdit.Internal;
 using DevExpress.XtraSplashScreen;
-using LifeLog.Core.Utils;
 using LifeLog.Forms.Loading;
 using System.IO;
 
-namespace LifeLog.Helpers
+namespace LifeLog.Helpers;
+
+/// <summary>
+/// Dialog Helper class
+/// </summary>
+internal static class DialogHelper
 {
 	/// <summary>
-	/// Dialog Helper class
+	/// Open the folder dialog
 	/// </summary>
-	internal static class DialogHelper
+	/// <param name="path"></param>
+	/// <returns></returns>
+	internal static string? OpenFolder(string description, string? path = null)
 	{
-		/// <summary>
-		/// Open the folder dialog
-		/// </summary>
-		/// <param name="path"></param>
-		/// <returns></returns>
-		internal static string OpenFolder(string path)
+		using (FolderBrowserDialog dialog = new FolderBrowserDialog())
 		{
-			using (FolderBrowserDialog dialog = new FolderBrowserDialog())
-			{
-				dialog.Description = "Select the folder to save the merged pdf.";
+			dialog.Description = description;
 
-				if (!string.IsNullOrWhiteSpace(path) && Directory.Exists(path))
-					dialog.SelectedPath = path;
+			if (!string.IsNullOrWhiteSpace(path) && Directory.Exists(path))
+				dialog.SelectedPath = path;
 
-				if (dialog.ShowDialog() == DialogResult.OK)
-					path = dialog.SelectedPath;
-			}
-
-			return path;
+			if (dialog.ShowDialog() == DialogResult.OK)
+				path = dialog.SelectedPath;
 		}
 
-		/// <summary>
-		/// Save a json file
-		/// </summary>
-		/// <param name="fileName"></param>
-		/// <returns></returns>
-		internal static string? SaveJsonFile(string fileName)
-		{
-			using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-			{
-				saveFileDialog.Title = $"Save {fileName} as JSON";
-				saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
-				saveFileDialog.DefaultExt = "json";
-				saveFileDialog.FileName = $"{fileName}.json";
-				if (saveFileDialog.ShowDialog() == DialogResult.OK)
-					return saveFileDialog.FileName;
-			}
+		return path;
+	}
 
-			return null;
+	/// <summary>
+	/// Save a json file
+	/// </summary>
+	/// <param name="fileName"></param>
+	/// <returns></returns>
+	internal static string? SaveJsonFile(string fileName)
+	{
+		using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+		{
+			saveFileDialog.Title = $"Save {fileName} as JSON";
+			saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+			saveFileDialog.DefaultExt = "json";
+			saveFileDialog.FileName = $"{fileName}.json";
+			if (saveFileDialog.ShowDialog() == DialogResult.OK)
+				return saveFileDialog.FileName;
 		}
 
-		#region WAIT FORM
+		return null;
+	}
 
-		/// <summary>
-		/// Show the wait form
-		/// </summary>
-		/// <param name="form"></param>
-		internal static void ShowWait(Form form)
+	#region WAIT FORM
+
+	/// <summary>
+	/// Show the wait form
+	/// </summary>
+	/// <param name="form"></param>
+	internal static void ShowWait(Form? form = null)
+	{
+		SplashScreenManager.ShowForm(form ?? AppHelper.GenFakeForm(), typeof(LoadingForm), true, true, false);
+	}
+
+	/// <summary>
+	/// Close the wait form
+	/// </summary>
+	internal static void CloseWait()
+	{
+		SplashScreenManager.CloseForm(false);
+	}
+
+	#endregion
+
+	#region ALERT
+
+	/// <summary>
+	/// Alert popup
+	/// </summary>
+	/// <param name="caption"></param>
+	/// <param name="message"></param>
+	/// <param name="icon"></param>
+	/// <param name="owner"></param>
+	internal static void Alert(string caption, string message, MessageBoxIcon icon, Form? owner = null)
+	{
+		AlertControl control = new AlertControl();
+		AlertInfo info = new AlertInfo(caption, message);
+
+		switch (icon)
 		{
-			SplashScreenManager.ShowForm(form, typeof(LoadingForm), true, true, false);
+			case MessageBoxIcon.Error:
+				info.ImageOptions.SvgImage = Properties.Resources.error_close;
+				break;
+			case MessageBoxIcon.Warning:
+				info.ImageOptions.SvgImage = Properties.Resources.bo_attention;
+				break;
+			case MessageBoxIcon.Information:
+				info.ImageOptions.SvgImage = Properties.Resources.about;
+				break;
 		}
 
-		/// <summary>
-		/// Close the wait form
-		/// </summary>
-		internal static void CloseWait()
-		{
-			SplashScreenManager.CloseForm(false);
-		}
-
-		#endregion
-
-		#region ALERT
-
-		internal static void Alert(Form owner, string caption, string message, MessageBoxIcon icon)
-		{
-			AlertControl control = new AlertControl();
-			AlertInfo info = new AlertInfo(caption, message);
-
-			switch (icon)
-			{
-				case MessageBoxIcon.Error:
-					info.ImageOptions.SvgImage = Properties.Resources.error_close;
-					break;
-				case MessageBoxIcon.Warning:
-					info.ImageOptions.SvgImage = Properties.Resources.bo_attention;
-					break;
-				case MessageBoxIcon.Information:
-					info.ImageOptions.SvgImage = Properties.Resources.about;
-					break;
-			}
-
-			control.HtmlImages = new SvgImageCollection {
+		control.HtmlImages = new SvgImageCollection {
 				{ "close", Properties.Resources.del }
 			};
 
-			control.HtmlTemplate.Template = $@"
+		control.HtmlTemplate.Template = $@"
 				<div class=""container"">
 				  <div class=""popup"">
 					<div class=""stripe""></div>
@@ -120,7 +125,7 @@ namespace LifeLog.Helpers
 				  </div>
 				</div>";
 
-			control.HtmlTemplate.Styles = @"
+		control.HtmlTemplate.Styles = @"
 				.container {
 				  width: 380px;
 				  height: auto;
@@ -203,32 +208,17 @@ namespace LifeLog.Helpers
 				  height: 18px;
 				}";
 
-			control.HtmlElementMouseClick += (s, e) =>
-			{
-				if (e.ElementId == "closeButton" || e.ParentHasId("closeButton") ||
-					e.ElementId == "okButton" || e.ParentHasId("okButton"))
-					e.HtmlPopup.Close();
-				else
-					e.HtmlPopup.Pinned = !e.HtmlPopup.Pinned;
-			};
+		control.HtmlElementMouseClick += (s, e) =>
+		{
+			if (e.ElementId == "closeButton" || e.ParentHasId("closeButton") ||
+				e.ElementId == "okButton" || e.ParentHasId("okButton"))
+				e.HtmlPopup.Close();
+			else
+				e.HtmlPopup.Pinned = !e.HtmlPopup.Pinned;
+		};
 
-			if (owner is null)
-			{
-				Form fakeForm = new Form();
-
-				fakeForm.StartPosition = FormStartPosition.Manual;
-				fakeForm.Location = new Point(0, 0);
-				fakeForm.Size = new Size(1, 1);
-				fakeForm.ShowInTaskbar = false;
-				fakeForm.Opacity = 0;
-				fakeForm.Show();
-
-				owner = fakeForm;
-			}
-
-			control.Show(owner, info);
-		}
-
-		#endregion
+		control.Show(owner ?? AppHelper.GenFakeForm(), info);
 	}
+
+	#endregion
 }

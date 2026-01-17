@@ -16,6 +16,19 @@ namespace LifeLog.Data.Helpers;
 public static class DbHelper
 {
 	/// <summary>
+	/// List hte databases
+	/// </summary>
+	/// <param fName="connectionString"></param>
+	/// <returns></returns>
+	public static async Task<List<string>> GetDatabases(string connectionString)
+	{
+		using (SqlDataAccess dataAccess = new SqlDataAccess(connectionString))
+		{
+			return await dataAccess.LoadDataListAsync<string>("SELECT name FROM sys.databases WHERE name NOT IN ('master', 'tempdb', 'model', 'msdb')");
+		}
+	}
+
+	/// <summary>
 	/// Update database
 	/// </summary>
 	/// <param name="provider"></param>

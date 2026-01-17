@@ -76,6 +76,7 @@
             npAuth = new DevExpress.XtraBars.Navigation.NavigationPage();
             panelControl2 = new DevExpress.XtraEditors.PanelControl();
             npDbSettings = new DevExpress.XtraBars.Navigation.NavigationPage();
+            databaseSettingsView = new LifeLog.Views.Settings.DatabaseSettingsView();
             ((System.ComponentModel.ISupportInitialize)ribbon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControl).BeginInit();
             layoutControl.SuspendLayout();
@@ -106,6 +107,7 @@
             npAuth.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)panelControl2).BeginInit();
             panelControl2.SuspendLayout();
+            npDbSettings.SuspendLayout();
             SuspendLayout();
             // 
             // ribbonPage2
@@ -545,9 +547,19 @@
             // npDbSettings
             // 
             npDbSettings.Caption = "npDbSettings";
+            npDbSettings.Controls.Add(databaseSettingsView);
             npDbSettings.Margin = new Padding(3, 2, 3, 2);
             npDbSettings.Name = "npDbSettings";
             npDbSettings.Size = new Size(598, 257);
+            // 
+            // databaseSettingsView
+            // 
+            databaseSettingsView.Dock = DockStyle.Fill;
+            databaseSettingsView.Location = new Point(0, 0);
+            databaseSettingsView.Margin = new Padding(3, 2, 3, 2);
+            databaseSettingsView.Name = "databaseSettingsView";
+            databaseSettingsView.Size = new Size(598, 257);
+            databaseSettingsView.TabIndex = 0;
             // 
             // AuthForm
             // 
@@ -602,6 +614,7 @@
             npAuth.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)panelControl2).EndInit();
             panelControl2.ResumeLayout(false);
+            npDbSettings.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
 
@@ -649,5 +662,6 @@
 		private DevExpress.XtraLayout.EmptySpaceItem esiTop;
 		private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         public DevExpress.XtraBars.BarStaticItem bsiStatusLabel;
+        private Views.Settings.DatabaseSettingsView databaseSettingsView;
     }
 }

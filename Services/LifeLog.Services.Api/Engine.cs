@@ -9,24 +9,21 @@ using System.Data;
 
 namespace LifeLog.Services.Api;
 
-public sealed class ApiHost : IAsyncDisposable
+public sealed class Engine : IAsyncDisposable
 {
     private WebApplication? _app;
 
-    public async Task StartAsync(IDbConnection connection, string[]? urls = null)
+    public async Task StartAsync(IDbConnection connection, string url)
     {
         if (_app != null) return;
 
-        var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+        WebApplicationBuilder builder = WebApplication.CreateBuilder(new WebApplicationOptions
         {
-            ApplicationName = typeof(ApiHost).Assembly.FullName
+            ApplicationName = typeof(Engine).Assembly.FullName
         });
 
-        if (urls is { Length: > 0 })
-            builder.WebHost.UseUrls(urls);
-        else
-            builder.WebHost.UseUrls("http://localhost:5055"); // escolhe a porta
-
+		builder.WebHost.UseUrls(url);
+	
         // Controllers + NewtonsoftJson
         builder.Services.AddControllers()
             .AddNewtonsoftJson(o =>

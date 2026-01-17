@@ -105,14 +105,12 @@ public partial class ExternalProgramsEditor : DevExpress.XtraEditors.XtraUserCon
     /// <returns></returns>
     private bool ValidateForm()
     {
-		this.ValidateChildren();
+        this.ValidateChildren();
 
-		ExternalProgramsDTO validateObject = _current.DeepCloneJson();
-
-        LoadFillObj(ref validateObject);
+        LoadFillObj(ref _current);
 
         return ControlsHelper.ValidateForm(
-            validateObject,
+            _current,
             dxErrorProvider,
             new Dictionary<string, Control>(StringComparer.Ordinal)
             {
@@ -149,7 +147,7 @@ public partial class ExternalProgramsEditor : DevExpress.XtraEditors.XtraUserCon
             externalProgram = new ExternalProgramsDTO();
         }
 
-        _current = externalProgram;
+        _current = externalProgram.DeepCloneJson(); ;
 
         txtName.Text = _current.Name;
         txtPath.Text = _current.PathToProgram;

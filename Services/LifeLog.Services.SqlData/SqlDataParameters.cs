@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace LifeLog.Services.SqlData;
 
-namespace LifeLog.Services.SqlData
+/// <summary>
+/// Sql Data Parameters
+/// </summary>
+public class SqlDataParameters : Dapper.DynamicParameters
 {
-	public class SqlDataParameters : Dapper.DynamicParameters
-	{
-	}
 }
