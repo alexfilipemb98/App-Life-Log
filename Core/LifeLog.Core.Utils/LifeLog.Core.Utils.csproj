@@ -9,6 +9,10 @@
     <FileVersion>2026.1.0.1</FileVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="DevExpress.Data" Version="25.2.3" />
     <PackageReference Include="GeoTimeZone" Version="6.1.0" />

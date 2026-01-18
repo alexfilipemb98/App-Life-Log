@@ -29,63 +29,79 @@ partial class SettingsView
     private void InitializeComponent()
     {
         backstageViewControl = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
+        backstageViewClientControl5 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
+        appSettingsView1 = new LifeLog.Views.Settings.AppSettingsView();
         backstageViewClientControl4 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
         modulesSettingView1 = new LifeLog.Views.Settings.ModulesSettingView();
+        backstageViewClientControl6 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
+        databaseSettingsView = new LifeLog.Views.Settings.DatabaseSettingsView();
         backstageViewClientControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
         sqlBrowserView1 = new LifeLog.Views.Sql.SqlBrowserView();
         backstageViewClientControl2 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
         navigationPaneEx = new LifeLog.Components.NavigationPaneEx();
-        navigationPageExternalPrograms = new LifeLog.Components.NavigationPageEx();
+        npExternalPrograms = new LifeLog.Components.NavigationPageEx();
         externalProgramsList = new LifeLog.Views.ExternalPrograms.ExternalProgramsList();
-        backstageViewClientControl5 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-        appSettingsView1 = new LifeLog.Views.Settings.AppSettingsView();
         backstageViewClientControl3 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-        backstageViewTabItem5 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-        backstageViewTabItem4 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+        bvtiApp = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+        bvtiModules = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
         backstageViewItemSeparator2 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
-        backstageViewTabItem1 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-        backstageViewTabItem2 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-        backstageViewTabItem3 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-        backstageViewClientControl6 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-        backstageViewTabItem6 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
-        databaseSettingsView = new LifeLog.Views.Settings.DatabaseSettingsView();
+        bvtiDatabase = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+        bvtiSqlRun = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+        bvtiData = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+        bvtiInfo = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
         ((System.ComponentModel.ISupportInitialize)backstageViewControl).BeginInit();
         backstageViewControl.SuspendLayout();
+        backstageViewClientControl5.SuspendLayout();
         backstageViewClientControl4.SuspendLayout();
+        backstageViewClientControl6.SuspendLayout();
         backstageViewClientControl1.SuspendLayout();
         backstageViewClientControl2.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)navigationPaneEx).BeginInit();
         navigationPaneEx.SuspendLayout();
-        navigationPageExternalPrograms.SuspendLayout();
-        backstageViewClientControl5.SuspendLayout();
-        backstageViewClientControl6.SuspendLayout();
+        npExternalPrograms.SuspendLayout();
         SuspendLayout();
         // 
         // backstageViewControl
         // 
         backstageViewControl.Controls.Add(backstageViewClientControl5);
         backstageViewControl.Controls.Add(backstageViewClientControl4);
+        backstageViewControl.Controls.Add(backstageViewClientControl6);
         backstageViewControl.Controls.Add(backstageViewClientControl1);
         backstageViewControl.Controls.Add(backstageViewClientControl2);
-        backstageViewControl.Controls.Add(backstageViewClientControl6);
         backstageViewControl.Controls.Add(backstageViewClientControl3);
         backstageViewControl.Dock = DockStyle.Fill;
-        backstageViewControl.Items.Add(backstageViewTabItem5);
-        backstageViewControl.Items.Add(backstageViewTabItem4);
+        backstageViewControl.Items.Add(bvtiApp);
+        backstageViewControl.Items.Add(bvtiModules);
         backstageViewControl.Items.Add(backstageViewItemSeparator2);
-        backstageViewControl.Items.Add(backstageViewTabItem6);
-        backstageViewControl.Items.Add(backstageViewTabItem1);
-        backstageViewControl.Items.Add(backstageViewTabItem2);
-        backstageViewControl.Items.Add(backstageViewTabItem3);
+        backstageViewControl.Items.Add(bvtiDatabase);
+        backstageViewControl.Items.Add(bvtiSqlRun);
+        backstageViewControl.Items.Add(bvtiData);
+        backstageViewControl.Items.Add(bvtiInfo);
         backstageViewControl.LeftPaneMinWidth = 170;
         backstageViewControl.Location = new Point(0, 0);
         backstageViewControl.Name = "backstageViewControl";
-        backstageViewControl.SelectedTab = backstageViewTabItem6;
-        backstageViewControl.SelectedTabIndex = 3;
+        backstageViewControl.SelectedTab = bvtiData;
+        backstageViewControl.SelectedTabIndex = 5;
         backstageViewControl.Size = new Size(1005, 612);
         backstageViewControl.TabIndex = 3;
         backstageViewControl.Text = "backstageViewControl1";
         backstageViewControl.SelectedTabChanged += backstageViewControl_SelectedTabChanged;
+        // 
+        // backstageViewClientControl5
+        // 
+        backstageViewClientControl5.Controls.Add(appSettingsView1);
+        backstageViewClientControl5.Location = new Point(170, 0);
+        backstageViewClientControl5.Name = "backstageViewClientControl5";
+        backstageViewClientControl5.Size = new Size(835, 612);
+        backstageViewClientControl5.TabIndex = 5;
+        // 
+        // appSettingsView1
+        // 
+        appSettingsView1.Dock = DockStyle.Fill;
+        appSettingsView1.Location = new Point(0, 0);
+        appSettingsView1.Name = "appSettingsView1";
+        appSettingsView1.Size = new Size(835, 612);
+        appSettingsView1.TabIndex = 0;
         // 
         // backstageViewClientControl4
         // 
@@ -102,6 +118,23 @@ partial class SettingsView
         modulesSettingView1.Name = "modulesSettingView1";
         modulesSettingView1.Size = new Size(835, 612);
         modulesSettingView1.TabIndex = 0;
+        // 
+        // backstageViewClientControl6
+        // 
+        backstageViewClientControl6.Controls.Add(databaseSettingsView);
+        backstageViewClientControl6.Location = new Point(170, 0);
+        backstageViewClientControl6.Name = "backstageViewClientControl6";
+        backstageViewClientControl6.Size = new Size(835, 612);
+        backstageViewClientControl6.TabIndex = 6;
+        // 
+        // databaseSettingsView
+        // 
+        databaseSettingsView.Dock = DockStyle.Fill;
+        databaseSettingsView.Location = new Point(0, 0);
+        databaseSettingsView.Margin = new Padding(3, 2, 3, 2);
+        databaseSettingsView.Name = "databaseSettingsView";
+        databaseSettingsView.Size = new Size(835, 612);
+        databaseSettingsView.TabIndex = 0;
         // 
         // backstageViewClientControl1
         // 
@@ -130,25 +163,26 @@ partial class SettingsView
         // 
         // navigationPaneEx
         // 
-        navigationPaneEx.Controls.Add(navigationPageExternalPrograms);
+        navigationPaneEx.Controls.Add(npExternalPrograms);
         navigationPaneEx.Dock = DockStyle.Fill;
         navigationPaneEx.Location = new Point(0, 0);
         navigationPaneEx.Name = "navigationPaneEx";
-        navigationPaneEx.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] { navigationPageExternalPrograms });
+        navigationPaneEx.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] { npExternalPrograms });
         navigationPaneEx.RegularSize = new Size(858, 612);
-        navigationPaneEx.SelectedPage = navigationPageExternalPrograms;
+        navigationPaneEx.SelectedPage = npExternalPrograms;
         navigationPaneEx.Size = new Size(835, 612);
         navigationPaneEx.State = DevExpress.XtraBars.Navigation.NavigationPaneState.Expanded;
         navigationPaneEx.TabIndex = 0;
         navigationPaneEx.Text = "navigationPaneEx1";
+        navigationPaneEx.SelectedPageChanged += navigationPaneEx_SelectedPageChanged;
         // 
-        // navigationPageExternalPrograms
+        // npExternalPrograms
         // 
-        navigationPageExternalPrograms.BackgroundPadding = new Padding(0);
-        navigationPageExternalPrograms.Caption = "ExternalPrograms";
-        navigationPageExternalPrograms.Controls.Add(externalProgramsList);
-        navigationPageExternalPrograms.Name = "navigationPageExternalPrograms";
-        navigationPageExternalPrograms.Size = new Size(699, 612);
+        npExternalPrograms.BackgroundPadding = new Padding(0);
+        npExternalPrograms.Caption = "ExternalPrograms";
+        npExternalPrograms.Controls.Add(externalProgramsList);
+        npExternalPrograms.Name = "npExternalPrograms";
+        npExternalPrograms.Size = new Size(699, 612);
         // 
         // externalProgramsList
         // 
@@ -158,22 +192,6 @@ partial class SettingsView
         externalProgramsList.Size = new Size(699, 612);
         externalProgramsList.TabIndex = 0;
         // 
-        // backstageViewClientControl5
-        // 
-        backstageViewClientControl5.Controls.Add(appSettingsView1);
-        backstageViewClientControl5.Location = new Point(170, 0);
-        backstageViewClientControl5.Name = "backstageViewClientControl5";
-        backstageViewClientControl5.Size = new Size(835, 612);
-        backstageViewClientControl5.TabIndex = 5;
-        // 
-        // appSettingsView1
-        // 
-        appSettingsView1.Dock = DockStyle.Fill;
-        appSettingsView1.Location = new Point(0, 0);
-        appSettingsView1.Name = "appSettingsView1";
-        appSettingsView1.Size = new Size(835, 612);
-        appSettingsView1.TabIndex = 0;
-        // 
         // backstageViewClientControl3
         // 
         backstageViewClientControl3.Location = new Point(170, 0);
@@ -181,92 +199,75 @@ partial class SettingsView
         backstageViewClientControl3.Size = new Size(835, 612);
         backstageViewClientControl3.TabIndex = 3;
         // 
-        // backstageViewTabItem5
+        // bvtiApp
         // 
-        backstageViewTabItem5.Caption = "App";
-        backstageViewTabItem5.ContentControl = backstageViewClientControl5;
-        backstageViewTabItem5.ImageOptions.ItemNormal.SvgImage = Properties.Resources.bo_address;
-        backstageViewTabItem5.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
-        backstageViewTabItem5.Name = "backstageViewTabItem5";
+        bvtiApp.Caption = "App";
+        bvtiApp.ContentControl = backstageViewClientControl5;
+        bvtiApp.ImageOptions.ItemNormal.SvgImage = Properties.Resources.bo_address;
+        bvtiApp.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
+        bvtiApp.Name = "bvtiApp";
         // 
-        // backstageViewTabItem4
+        // bvtiModules
         // 
-        backstageViewTabItem4.Caption = "Modules";
-        backstageViewTabItem4.ContentControl = backstageViewClientControl4;
-        backstageViewTabItem4.ImageOptions.ItemNormal.SvgImage = Properties.Resources.bo_security_permission_model;
-        backstageViewTabItem4.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
-        backstageViewTabItem4.Name = "backstageViewTabItem4";
+        bvtiModules.Caption = "Modules";
+        bvtiModules.ContentControl = backstageViewClientControl4;
+        bvtiModules.ImageOptions.ItemNormal.SvgImage = Properties.Resources.bo_security_permission_model;
+        bvtiModules.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
+        bvtiModules.Name = "bvtiModules";
         // 
         // backstageViewItemSeparator2
         // 
         backstageViewItemSeparator2.Name = "backstageViewItemSeparator2";
         // 
-        // backstageViewTabItem1
+        // bvtiDatabase
         // 
-        backstageViewTabItem1.AppearanceHover.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        backstageViewTabItem1.AppearanceHover.Options.UseFont = true;
-        backstageViewTabItem1.AppearanceSelected.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        backstageViewTabItem1.AppearanceSelected.Options.UseFont = true;
-        backstageViewTabItem1.Caption = "Sql Run";
-        backstageViewTabItem1.ContentControl = backstageViewClientControl1;
-        backstageViewTabItem1.ImageOptions.ItemNormal.SvgImage = Properties.Resources.selectdatasource;
-        backstageViewTabItem1.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
-        backstageViewTabItem1.Name = "backstageViewTabItem1";
+        bvtiDatabase.AppearanceHover.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        bvtiDatabase.AppearanceHover.Options.UseFont = true;
+        bvtiDatabase.AppearanceSelected.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        bvtiDatabase.AppearanceSelected.Options.UseFont = true;
+        bvtiDatabase.Caption = "Database";
+        bvtiDatabase.ContentControl = backstageViewClientControl6;
+        bvtiDatabase.ImageOptions.ItemNormal.SvgImage = Properties.Resources.editdatasource;
+        bvtiDatabase.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
+        bvtiDatabase.Name = "bvtiDatabase";
         // 
-        // backstageViewTabItem2
+        // bvtiSqlRun
         // 
-        backstageViewTabItem2.AppearanceHover.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        backstageViewTabItem2.AppearanceHover.Options.UseFont = true;
-        backstageViewTabItem2.AppearanceSelected.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        backstageViewTabItem2.AppearanceSelected.Options.UseFont = true;
-        backstageViewTabItem2.Caption = "Data";
-        backstageViewTabItem2.ContentControl = backstageViewClientControl2;
-        backstageViewTabItem2.ImageOptions.ItemNormal.SvgImage = Properties.Resources.actions_database;
-        backstageViewTabItem2.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
-        backstageViewTabItem2.Name = "backstageViewTabItem2";
+        bvtiSqlRun.AppearanceHover.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        bvtiSqlRun.AppearanceHover.Options.UseFont = true;
+        bvtiSqlRun.AppearanceSelected.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        bvtiSqlRun.AppearanceSelected.Options.UseFont = true;
+        bvtiSqlRun.Caption = "Sql Run";
+        bvtiSqlRun.ContentControl = backstageViewClientControl1;
+        bvtiSqlRun.ImageOptions.ItemNormal.SvgImage = Properties.Resources.selectdatasource;
+        bvtiSqlRun.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
+        bvtiSqlRun.Name = "bvtiSqlRun";
         // 
-        // backstageViewTabItem3
+        // bvtiData
         // 
-        backstageViewTabItem3.Alignment = DevExpress.XtraBars.Ribbon.BackstageViewItemAlignment.Bottom;
-        backstageViewTabItem3.AppearanceHover.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        backstageViewTabItem3.AppearanceHover.Options.UseFont = true;
-        backstageViewTabItem3.AppearanceSelected.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        backstageViewTabItem3.AppearanceSelected.Options.UseFont = true;
-        backstageViewTabItem3.Caption = "About";
-        backstageViewTabItem3.ContentControl = backstageViewClientControl3;
-        backstageViewTabItem3.ImageOptions.ItemNormal.SvgImage = Properties.Resources.about;
-        backstageViewTabItem3.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
-        backstageViewTabItem3.Name = "backstageViewTabItem3";
+        bvtiData.AppearanceHover.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        bvtiData.AppearanceHover.Options.UseFont = true;
+        bvtiData.AppearanceSelected.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        bvtiData.AppearanceSelected.Options.UseFont = true;
+        bvtiData.Caption = "Data";
+        bvtiData.ContentControl = backstageViewClientControl2;
+        bvtiData.ImageOptions.ItemNormal.SvgImage = Properties.Resources.actions_database;
+        bvtiData.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
+        bvtiData.Name = "bvtiData";
+        bvtiData.Selected = true;
         // 
-        // backstageViewClientControl6
+        // bvtiInfo
         // 
-        backstageViewClientControl6.Controls.Add(databaseSettingsView);
-        backstageViewClientControl6.Location = new Point(170, 0);
-        backstageViewClientControl6.Name = "backstageViewClientControl6";
-        backstageViewClientControl6.Size = new Size(835, 612);
-        backstageViewClientControl6.TabIndex = 6;
-        // 
-        // backstageViewTabItem6
-        // 
-        backstageViewTabItem6.AppearanceHover.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        backstageViewTabItem6.AppearanceHover.Options.UseFont = true;
-        backstageViewTabItem6.AppearanceSelected.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        backstageViewTabItem6.AppearanceSelected.Options.UseFont = true;
-        backstageViewTabItem6.Caption = "Database";
-        backstageViewTabItem6.ContentControl = backstageViewClientControl6;
-        backstageViewTabItem6.ImageOptions.ItemNormal.SvgImage = Properties.Resources.editdatasource;
-        backstageViewTabItem6.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
-        backstageViewTabItem6.Name = "backstageViewTabItem6";
-        backstageViewTabItem6.Selected = true;
-        // 
-        // databaseSettingsView
-        // 
-        databaseSettingsView.Dock = DockStyle.Fill;
-        databaseSettingsView.Location = new Point(0, 0);
-        databaseSettingsView.Margin = new Padding(3, 2, 3, 2);
-        databaseSettingsView.Name = "databaseSettingsView";
-        databaseSettingsView.Size = new Size(835, 612);
-        databaseSettingsView.TabIndex = 0;
+        bvtiInfo.Alignment = DevExpress.XtraBars.Ribbon.BackstageViewItemAlignment.Bottom;
+        bvtiInfo.AppearanceHover.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        bvtiInfo.AppearanceHover.Options.UseFont = true;
+        bvtiInfo.AppearanceSelected.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        bvtiInfo.AppearanceSelected.Options.UseFont = true;
+        bvtiInfo.Caption = "About";
+        bvtiInfo.ContentControl = backstageViewClientControl3;
+        bvtiInfo.ImageOptions.ItemNormal.SvgImage = Properties.Resources.about;
+        bvtiInfo.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
+        bvtiInfo.Name = "bvtiInfo";
         // 
         // SettingsView
         // 
@@ -277,14 +278,14 @@ partial class SettingsView
         Size = new Size(1005, 612);
         ((System.ComponentModel.ISupportInitialize)backstageViewControl).EndInit();
         backstageViewControl.ResumeLayout(false);
+        backstageViewClientControl5.ResumeLayout(false);
         backstageViewClientControl4.ResumeLayout(false);
+        backstageViewClientControl6.ResumeLayout(false);
         backstageViewClientControl1.ResumeLayout(false);
         backstageViewClientControl2.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)navigationPaneEx).EndInit();
         navigationPaneEx.ResumeLayout(false);
-        navigationPageExternalPrograms.ResumeLayout(false);
-        backstageViewClientControl5.ResumeLayout(false);
-        backstageViewClientControl6.ResumeLayout(false);
+        npExternalPrograms.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -293,21 +294,21 @@ partial class SettingsView
     private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl1;
     private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl2;
     private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl3;
-    private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem1;
-    private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem2;
-    private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem3;
+    private DevExpress.XtraBars.Ribbon.BackstageViewTabItem bvtiSqlRun;
+    private DevExpress.XtraBars.Ribbon.BackstageViewTabItem bvtiData;
+    private DevExpress.XtraBars.Ribbon.BackstageViewTabItem bvtiInfo;
     private Views.Sql.SqlBrowserView sqlBrowserView1;
     private Components.NavigationPaneEx navigationPaneEx;
-    private Components.NavigationPageEx navigationPageExternalPrograms;
+    private Components.NavigationPageEx npExternalPrograms;
     private Views.ExternalPrograms.ExternalProgramsList externalProgramsList;
     private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl4;
     private Views.Settings.ModulesSettingView modulesSettingView1;
-    private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem4;
+    private DevExpress.XtraBars.Ribbon.BackstageViewTabItem bvtiModules;
     private DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator backstageViewItemSeparator2;
     private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl5;
     private Views.Settings.AppSettingsView appSettingsView1;
-    private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem5;
+    private DevExpress.XtraBars.Ribbon.BackstageViewTabItem bvtiApp;
     private DevExpress.XtraBars.Ribbon.BackstageViewClientControl backstageViewClientControl6;
-    private DevExpress.XtraBars.Ribbon.BackstageViewTabItem backstageViewTabItem6;
+    private DevExpress.XtraBars.Ribbon.BackstageViewTabItem bvtiDatabase;
     private Views.Settings.DatabaseSettingsView databaseSettingsView;
 }
