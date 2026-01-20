@@ -3,11 +3,11 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LifeLog.Data.DTOs;
+namespace LifeLog.Data.Entities;
 
 [Table("Users")]
 [Description("Database model for users")]
-public class UsersDTO
+public class UsersEntity
 {
 	#region PROPERTIES
 

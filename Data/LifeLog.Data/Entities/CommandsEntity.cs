@@ -4,11 +4,11 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LifeLog.Data.DTOs;
+namespace LifeLog.Data.Entities;
 
 [Table("Commands")]
 [Description("Database model for commands")]
-public class CommandsDTO
+public partial class CommandsEntity
 {
 	#region PROPERTIES
 
@@ -45,7 +45,7 @@ public class CommandsDTO
 
 	[JsonIgnore]
 	[Core.Attributes.RequiredIf(nameof(IsEnabled), OperatorsEnum.Equal, true)]
-	public ExternalProgramsDTO? ExternalProgram { get; set; }
+	public ExternalProgramsEntity? ExternalProgram { get; set; }
 
 	#endregion
 

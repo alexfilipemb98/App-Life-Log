@@ -2,11 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LifeLog.Data.DTOs;
+namespace LifeLog.Data.Entities;
 
 [Table("Motes")]
 [Description("Database model for notes")]
-public class NotesDTO
+public class NotesEntity
 {
 	#region PROPERTIES
 

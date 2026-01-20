@@ -7,11 +7,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
 
-namespace LifeLog.Data.DTOs;
+namespace LifeLog.Data.Entities;
 
 [Table("ExternalPrograms")]
 [Description("Database model for external programs")]
-public partial class ExternalProgramsDTO
+public partial class ExternalProgramsEntity
 {
 	#region PROPERTIES
 

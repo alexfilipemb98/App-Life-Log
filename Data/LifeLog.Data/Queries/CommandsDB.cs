@@ -1,4 +1,5 @@
 ﻿using DevExpress.Xpo;
+
 using LifeLog.Core.Utils;
 using LifeLog.Data.Bases;
 using LifeLog.Data.DBs.Interfaces;
@@ -92,7 +93,7 @@ public class CommandsDB : BaseDB<CommandsDTO>, ICommandsDB
 	/// <returns></returns>
 	public async Task<(bool, string)> Save(CommandsDTO model)
 	{
-		if(!model.IsValid())
+		if (!model.IsValid())
 			return (false, "Model is not valid");
 
 		CommandsXPO? entity = model.ToEntity(_db);
@@ -177,13 +178,13 @@ public class CommandsDB : BaseDB<CommandsDTO>, ICommandsDB
 		CommandsXPO? command = await _db.GetObjectByKeyAsync<CommandsXPO>(id);
 		if (command == null)
 			return (false, "Command not found");
-		
+
 		command.IsEnabled = !command.IsEnabled;
-		
+
 		await _db.SaveAsync(command);
 		await _db.CommitChangesAsync();
-		
-		return(command.IsEnabled, command.IsEnabled ? "Command is enabled" : "Command is disabled");
+
+		return (command.IsEnabled, command.IsEnabled ? "Command is enabled" : "Command is disabled");
 	}
 
 	#endregion

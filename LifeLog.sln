@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.1.11312.151
+VisualStudioVersion = 18.1.11312.151 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeLog", "LifeLog\LifeLog.csproj", "{35A5C061-B8AB-4BA0-8066-59687562CA60}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeLog.Services", "Services\LifeLog.Services\LifeLog.Services.csproj", "{384AB134-782E-48D6-9939-58382C3FE2E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeLog.Data.Coutries", "Data\LifeLog.Data.Coutries\LifeLog.Data.Coutries.csproj", "{3049DFA9-BC79-4614-9CBE-2EDE5C67826C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeLog.Data.XPO", "Data\LifeLog.Data.Xpo\LifeLog.Data.XPO.csproj", "{C702F483-C1CA-4515-B69E-3BD3D1A30B72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{3049DFA9-BC79-4614-9CBE-2EDE5C67826C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3049DFA9-BC79-4614-9CBE-2EDE5C67826C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3049DFA9-BC79-4614-9CBE-2EDE5C67826C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C702F483-C1CA-4515-B69E-3BD3D1A30B72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C702F483-C1CA-4515-B69E-3BD3D1A30B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C702F483-C1CA-4515-B69E-3BD3D1A30B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C702F483-C1CA-4515-B69E-3BD3D1A30B72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +88,7 @@ Global
 		{1E5272DA-6765-48A5-9590-DE087AC3EDAE} = {FD69030F-8FC0-4DFF-9501-CB9BA9CAD31A}
 		{384AB134-782E-48D6-9939-58382C3FE2E6} = {56A2ED10-18C2-4D3E-8921-DEB967AC20C5}
 		{3049DFA9-BC79-4614-9CBE-2EDE5C67826C} = {106BCB92-DA37-4D97-BF93-EC0A343BF6B1}
+		{C702F483-C1CA-4515-B69E-3BD3D1A30B72} = {106BCB92-DA37-4D97-BF93-EC0A343BF6B1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A461D8D3-6369-4918-A763-B133F1A75465}

@@ -2,11 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LifeLog.Data.DTOs;
+namespace LifeLog.Data.Entities;
 
 [Table("Tasks")]
 [Description("Database model for tasks")]
-public class TasksDTO
+public class TasksEntity
 {
 	#region PROPERTIES
 

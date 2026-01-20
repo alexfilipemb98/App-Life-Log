@@ -1,25 +1,25 @@
 ﻿using DevExpress.Xpo;
-using LifeLog.Data.DTOs;
+
 using LifeLog.Data.XPO.ORMDataModelCode;
 
-namespace LifeLog.Data.Mappers;
+namespace LifeLog.Data.Entities;
 
 /// <summary>
-/// Commnads Mapper
+/// Mapper for CommandsEntity
 /// </summary>
-internal static class CommandsMapper
+public partial class CommandsEntity
 {
 	/// <summary>
 	/// CommandsXPO to CommandsModel mapper.
 	/// </summary>
 	/// <param name="xPO"></param>
 	/// <returns></returns>
-	internal static CommandsDTO? ToModel(this CommandsXPO xPO)
+	internal static CommandsEntity? ToModel(this CommandsXPO xPO)
 	{
 		if (xPO is null)
 			return null;
 
-		CommandsDTO note = new()
+		CommandsEntity note = new()
 		{
 			Id = xPO.Id,
 			IdUser = xPO.User?.Id,
@@ -40,7 +40,7 @@ internal static class CommandsMapper
 	/// <param fName="model"></param>
 	/// <param fName="db"></param>
 	/// <returns></returns>
-	internal static CommandsXPO? ToEntity(this CommandsDTO model, UnitOfWork db)
+	internal static CommandsXPO? ToEntity(this CommandsEntity model, UnitOfWork db)
 	{
 		if (model == null) return null;
 
@@ -67,5 +67,4 @@ internal static class CommandsMapper
 
 		return entity;
 	}
-
 }
