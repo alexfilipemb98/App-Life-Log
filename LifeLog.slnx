@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/Core/">
+    <Project Path="Core/LifeLog.Core.Utils/LifeLog.Core.Utils.csproj" />
+    <Project Path="Core/LifeLog.Core/LifeLog.Core.csproj" />
+  </Folder>
+  <Folder Name="/Data/">
+    <Project Path="Data/LifeLog.Data.Coutries/LifeLog.Data.World.csproj" />
+    <Project Path="Data/LifeLog.Data.Xpo/LifeLog.Data.XPO.csproj" DisplayName="LifeLog.Data.Xpo" />
+    <Project Path="Data/LifeLog.Data/LifeLog.Data.csproj" />
+  </Folder>
+  <Folder Name="/Services/">
+    <Project Path="Services/LifeLog.Services.Api/LifeLog.Services.Api.csproj" />
+    <Project Path="Services/LifeLog.Services.SqlData/LifeLog.Services.SqlData.csproj" />
+    <Project Path="Services/LifeLog.Services.Weather/LifeLog.Services.Weather.csproj" />
+    <Project Path="Services/LifeLog.Services/LifeLog.Services.csproj" />
+  </Folder>
+  <Project Path="LifeLog/LifeLog.csproj" />
+</Solution>

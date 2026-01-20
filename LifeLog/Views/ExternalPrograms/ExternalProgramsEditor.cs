@@ -1,5 +1,5 @@
 ﻿using LifeLog.Core.Utils;
-using LifeLog.Data.DTOs;
+using LifeLog.Data.Entities;
 using LifeLog.Helpers;
 using System.IO;
 
@@ -13,7 +13,7 @@ public partial class ExternalProgramsEditor : DevExpress.XtraEditors.XtraUserCon
     #region MAIN
 
     //PRIVATE
-    private ExternalProgramsDTO _current;
+    private ExternalProgram _current;
 
     /// <summary>
     /// Constructor
@@ -91,7 +91,7 @@ public partial class ExternalProgramsEditor : DevExpress.XtraEditors.XtraUserCon
     /// Load Data From Form
     /// </summary>
     /// <returns></returns>
-    private void LoadFillObj(ref ExternalProgramsDTO obj)
+    private void LoadFillObj(ref ExternalProgram obj)
     {
         obj.Name = txtName.Text.Trim();
         obj.PathToProgram = txtPath.Text.Trim();
@@ -114,9 +114,9 @@ public partial class ExternalProgramsEditor : DevExpress.XtraEditors.XtraUserCon
             dxErrorProvider,
             new Dictionary<string, Control>(StringComparer.Ordinal)
             {
-                [nameof(ExternalProgramsDTO.Name)] = txtName,
-                [nameof(ExternalProgramsDTO.PathToProgram)] = txtPath,
-                [nameof(ExternalProgramsDTO.FileExtension)] = txtFileExt,
+                [nameof(ExternalProgram.Name)] = txtName,
+                [nameof(ExternalProgram.PathToProgram)] = txtPath,
+                [nameof(ExternalProgram.FileExtension)] = txtFileExt,
             });
     }
 
@@ -138,13 +138,13 @@ public partial class ExternalProgramsEditor : DevExpress.XtraEditors.XtraUserCon
     /// Load Data To Form
     /// </summary>
     /// <param name="externalProgram"></param>
-    public void LoadToForm(ExternalProgramsDTO? externalProgram = null)
+    public void LoadToForm(ExternalProgram? externalProgram = null)
     {
         EditorResize();
 
         if (externalProgram is null)
         {
-            externalProgram = new ExternalProgramsDTO();
+            externalProgram = new ExternalProgram();
         }
 
         _current = externalProgram.DeepCloneJson(); ;
@@ -166,7 +166,7 @@ public partial class ExternalProgramsEditor : DevExpress.XtraEditors.XtraUserCon
     /// Save Object
     /// </summary>
     /// <returns></returns>
-    public async Task<(ExternalProgramsDTO?, bool)> SaveObject()
+    public async Task<(ExternalProgram?, bool)> SaveObject()
     {
         if (!ValidateForm())
             return (null, false);

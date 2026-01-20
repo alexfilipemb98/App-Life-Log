@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Data\LifeLog.Data.Coutries\LifeLog.Data.Coutries.csproj" />
+    <ProjectReference Include="..\Data\LifeLog.Data.Coutries\LifeLog.Data.World.csproj" />
     <ProjectReference Include="..\Data\LifeLog.Data\LifeLog.Data.csproj" />
     <ProjectReference Include="..\Services\LifeLog.Services.Api\LifeLog.Services.Api.csproj" />
     <ProjectReference Include="..\Services\LifeLog.Services.Weather\LifeLog.Services.Weather.csproj" />

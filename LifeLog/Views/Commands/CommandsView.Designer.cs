@@ -267,7 +267,7 @@
 			// 
 			// bsCommandsList
 			// 
-			bsCommandsList.DataSource = typeof(Data.DTOs.CommandsDTO);
+			bsCommandsList.DataSource = typeof(Data.Entities.Command);
 			// 
 			// tileView
 			// 
@@ -633,7 +633,7 @@
 			// 
 			// bsExternalPrograms
 			// 
-			bsExternalPrograms.DataSource = typeof(Data.DTOs.ExternalProgramsDTO);
+			bsExternalPrograms.DataSource = typeof(Data.Entities.ExternalProgram);
 			// 
 			// pcCommandText
 			// 

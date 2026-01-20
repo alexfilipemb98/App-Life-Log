@@ -1,130 +1,130 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraSplashScreen;
-using LifeLog.Data.DTOs;
+using LifeLog.Data.Entities;
 using LifeLog.Helpers;
 using System.Data;
 
 namespace LifeLog.Views.Tasks
 {
-	/// <summary>
-	/// Tasks View
-	/// </summary>
-	public partial class TasksView : XtraUserControl
-	{
-		#region MAIN
+    /// <summary>
+    /// Tasks View
+    /// </summary>
+    public partial class TasksView : XtraUserControl
+    {
+        #region MAIN
 
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		public TasksView() => InitializeComponent();
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public TasksView() => InitializeComponent();
 
-		#endregion
+        #endregion
 
-		#region EVENTS
+        #region EVENTS
 
-		#region CLICK
+        #region CLICK
 
-		/// <summary>
-		/// Refresh button click event
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private async void bbiRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-		{
-			using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
-			{
-				await LoadData();
-			}
-		}
+        /// <summary>
+        /// Refresh button click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void bbiRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
+            {
+                await LoadData();
+            }
+        }
 
-		#endregion
+        #endregion
 
-		#region GV TASKS
+        #region GV TASKS
 
-		/// <summary>
-		/// Init new row event for gvTasks
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void gvTasks_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
-		{
-			TasksDTO? cmd = gvTasks.GetObjectByRowHandle<TasksDTO>(e.RowHandle);
-			if (cmd != null)
-			{
-				cmd.IdUser = Program.LoggedUser!.Id;
-			}
-		}
+        /// <summary>
+        /// Init new row event for gvTasks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void gvTasks_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        {
+            Todo? cmd = gvTasks.GetObjectByRowHandle<Todo>(e.RowHandle);
+            if (cmd != null)
+            {
+                cmd.IdUser = Program.LoggedUser!.Id;
+            }
+        }
 
-		/// <summary>
-		/// gvTasks Row Updated event
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private async void gvTasks_RowUpdated(object sender, RowObjectEventArgs e)
-		{
-			UpdateProgressBar();
+        /// <summary>
+        /// gvTasks Row Updated event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void gvTasks_RowUpdated(object sender, RowObjectEventArgs e)
+        {
+            UpdateProgressBar();
 
-			if (e.Row is TasksDTO task && task != null)
-			{
-				task.IdUser = Program.LoggedUser!.Id;
+            if (e.Row is Todo task && task != null)
+            {
+                task.IdUser = Program.LoggedUser!.Id;
 
-				(bool saved, string message) = await Program.DataEngine!.Tasks.Save(task);
-				if (!saved)
-					MessageBox.Show("Saved");
-				else
-					MessageBox.Show("Failed Saved");
+                (bool saved, string message) = await Program.DataEngine!.Tasks.Save(task);
+                if (!saved)
+                    MessageBox.Show("Saved");
+                else
+                    MessageBox.Show("Failed Saved");
 
-			}
-		}
+            }
+        }
 
-		#endregion
+        #endregion
 
-		#endregion
+        #endregion
 
-		#region FUNCTIONS
+        #region FUNCTIONS
 
-		#region PUBLIC
+        #region PUBLIC
 
-		/// <summary>
-		/// Load the data for the view
-		/// </summary>
-		public async Task LoadData()
-		{
-			(List<TasksDTO?>? tasksList, _) = await Program.DataEngine!.Tasks.GetUserTasks(Program.LoggedUser!.Id);
+        /// <summary>
+        /// Load the data for the view
+        /// </summary>
+        public async Task LoadData()
+        {
+            (List<Todo?>? tasksList, _) = await Program.DataEngine!.Tasks.GetUserTasks(Program.LoggedUser!.Id);
 
-			tasksModelBindingSource.DataSource = tasksList ?? new List<TasksDTO?>();
+            tasksModelBindingSource.DataSource = tasksList ?? new List<Todo?>();
 
-			UpdateProgressBar();
-		}
+            UpdateProgressBar();
+        }
 
-		#endregion
+        #endregion
 
-		#region PRIVATE
+        #region PRIVATE
 
-		/// <summary>
-		/// Updates the progress bar based on completed tasks
-		/// </summary>
-		private void UpdateProgressBar()
-		{
-			int totalTasks = tasksModelBindingSource.Count;
-			if (totalTasks == 0)
-			{
-				pbcTotal.Position = 0;
-				return;
-			}
+        /// <summary>
+        /// Updates the progress bar based on completed tasks
+        /// </summary>
+        private void UpdateProgressBar()
+        {
+            int totalTasks = tasksModelBindingSource.Count;
+            if (totalTasks == 0)
+            {
+                pbcTotal.Position = 0;
+                return;
+            }
 
-			int completedTasks = tasksModelBindingSource.List.Cast<TasksDTO>().Where(w => w.IsDone).Count();
+            int completedTasks = tasksModelBindingSource.List.Cast<Todo>().Where(w => w.IsDone).Count();
 
-			int progress = (int)((completedTasks / (double)totalTasks) * 100);
-			pbcTotal.Position = progress;
+            int progress = (int)((completedTasks / (double)totalTasks) * 100);
+            pbcTotal.Position = progress;
 
-			lcTextsTasks.Text = $"<b>{completedTasks} of {totalTasks}</b> ({progress}%)";
-		}
+            lcTextsTasks.Text = $"<b>{completedTasks} of {totalTasks}</b> ({progress}%)";
+        }
 
-		#endregion
+        #endregion
 
-		#endregion
+        #endregion
 
-	}
+    }
 }

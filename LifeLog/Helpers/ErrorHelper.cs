@@ -1,8 +1,4 @@
 ﻿using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.DXErrorProvider;
-using LifeLog.Core.Utils;
-using LifeLog.Data.DTOs;
-using System.ComponentModel.DataAnnotations;
 
 namespace LifeLog.Helpers
 {

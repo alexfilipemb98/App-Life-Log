@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataBaseObjectModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="e1574d61-4e1d-4418-994e-b3761df974ae" namespace="LifeLog.Data.Xpo.Model" dataBaseShemaInfo="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" generateStoredProcedures="false" fieldNameCase="Unchanged" useNameOf="true" nullableBehavior="ByUnderlyingType" createdInVersion="25.1.3.0" generateJsonSerializationContractResolver="false" generateServiceCollectionExtensions="false" lastModifiedInVersion="25.1.3.0" name="ORMDataModel" xmlns="http://schemas.microsoft.com/dsltools/ORMDataModel">
+  <classes>
+    <dataBaseObjectModelHasClasses Id="30ac56b4-1367-420d-b4ed-ccad36671d82">
+      <xpObject Id="c5510713-af19-45b1-9048-98a697ec4001" name="UserXpo" baseClass="XPBaseObject" userFileName="UserXpo" designerFileName="UserXpo.Designer" className="UserXpo" virtualBaseClass="XPBaseObject" persistent="Users" virtualName="UserXpo">
+        <fields>
+          <generalXpObjectHasFields Id="8746ab43-fb54-4693-bd84-b6fd1c2b4a90">
+            <field Id="5d5d0693-346e-4994-94aa-65d34874aaed" name="Id" columnType="Guid" key="true" virtualColumnType="Guid" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="bde85f95-2b13-46d3-bbe5-68766256a206">
+            <field Id="734336ec-ba91-49a0-bd53-0888112a8146" name="Username" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="20" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="2edfec36-b78d-45c0-8cce-7fa1434c9a93">
+            <field Id="883ddd99-8500-4fa3-b7ac-afbbaced6b58" name="Email" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="256" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="821905b3-6e1c-43bf-b942-da89c0025f1d">
+            <field Id="f6d61fee-090b-4d93-b52c-98e4e9d2be84" name="Salt" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="30" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="04069d83-54f8-4bad-953d-0e58ee781dba">
+            <field Id="d6807f9c-f7bb-42d8-9613-f5b789ad86de" name="Password" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="128" />
+          </generalXpObjectHasFields>
+        </fields>
+        <aggrTarget>
+          <aggregation Id="2c88b3e8-965b-4946-98cd-74a8e68f6aa2" sourceCollectionName="Notes" name="NotesXPOReferencesUsersXPO" targetFieldName="User">
+            <xpObjectMoniker Id="97a331db-1f9c-4540-a437-c736a47b940a" />
+          </aggregation>
+          <aggregation Id="b806ef94-638c-4988-b850-7b15b86ec342" sourceCollectionName="Tasks" name="TasksXPOReferencesUsersXPO" targetFieldName="User">
+            <xpObjectMoniker Id="db966850-202e-4f8e-ba00-8c9e1f71fe25" />
+          </aggregation>
+          <aggregation Id="d5c14af5-759f-4e4a-b86e-e6aed2a999a6" sourceCollectionName="Commands" name="CommandsXPOReferencesUsersXPO" targetFieldName="User">
+            <xpObjectMoniker Id="695aee75-ac26-4c77-a681-acc7d8b5ca0a" />
+          </aggregation>
+        </aggrTarget>
+        <collectionFields>
+          <xpObjectHasCollectionFields Id="c69015fe-9b66-49ef-af5a-1f63ec548a19">
+            <collectionField Id="6b93d72b-1332-4c91-9238-0d923d63312c" name="Notes" />
+          </xpObjectHasCollectionFields>
+          <xpObjectHasCollectionFields Id="8794ff7e-09c7-40c5-bb73-6fa9b99e5d9e">
+            <collectionField Id="d99e0942-229f-4fbe-a276-39bba8f6ae27" name="Tasks" />
+          </xpObjectHasCollectionFields>
+          <xpObjectHasCollectionFields Id="18d09359-4741-45df-bef6-3d181a548bf0">
+            <collectionField Id="dbb30b42-9c06-4495-9782-5b3859071b96" name="Commands" />
+          </xpObjectHasCollectionFields>
+        </collectionFields>
+      </xpObject>
+    </dataBaseObjectModelHasClasses>
+    <dataBaseObjectModelHasClasses Id="3e13d908-b636-4ddf-bd63-4064da001edb">
+      <xpObject Id="97a331db-1f9c-4540-a437-c736a47b940a" name="NoteXpo" baseClass="XPBaseObject" userFileName="NoteXpo" designerFileName="NoteXpo.Designer" className="NoteXpo" virtualBaseClass="XPBaseObject" persistent="Notes" virtualName="NoteXpo">
+        <fields>
+          <generalXpObjectHasFields Id="f1492a14-c899-4d98-a0cf-b8ae29bea8be">
+            <field Id="ee69bbb8-df00-4ecf-af5d-735a339ed1c2" name="Id" columnType="Guid" key="true" isIdentity="true" virtualColumnType="Guid" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="e9c1415e-740c-4bad-a1fe-91edde4a6805">
+            <field Id="38443868-9f24-4cee-8c3e-23cf94cbff8a" name="User" persistent="IdUser" virtualColumnType="UserXpo" logicalType="UserXpo" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="2cc8b8e4-0a60-4276-befd-2e63e1c86ac7">
+            <field Id="32a8b187-3038-4790-b23c-ee94877d5b03" name="Title" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="30" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="60870a1d-e468-449f-aa6a-39d9970f6726">
+            <field Id="5d26e0ca-d788-4db6-a40a-3dc8067d7b7a" name="Text" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="Unlimited" isNullable="true" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="16ab355e-f309-4c70-b075-7db855fd398e">
+            <field Id="92e8a97d-3907-4d52-9e85-5c35eceb4483" name="Color" columnType="Int32" virtualColumnType="Int32" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="2395f6bd-cfe3-4be1-8d9c-20f0a3fc7fc3">
+            <field Id="9a51a04b-8b9d-4c34-9eda-2171a9c7b1d3" name="Position" columnType="Int16" virtualColumnType="Int16" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+        </fields>
+      </xpObject>
+    </dataBaseObjectModelHasClasses>
+    <dataBaseObjectModelHasClasses Id="218613f9-475e-4414-934a-5f92693e0f3e">
+      <xpObject Id="db966850-202e-4f8e-ba00-8c9e1f71fe25" name="TodoXpo" baseClass="XPBaseObject" userFileName="TodoXpo" designerFileName="TodoXpo.Designer" className="TodoXpo" virtualBaseClass="XPBaseObject" persistent="Todo" virtualName="TodoXpo">
+        <fields>
+          <generalXpObjectHasFields Id="17c56512-836f-4307-afcf-7d5dc24ed667">
+            <field Id="113b4622-6744-4778-819d-19b7db91f1df" name="Id" columnType="Guid" key="true" isIdentity="true" virtualColumnType="Guid" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="9df44631-8de1-4391-bc8b-54f8282ff31b">
+            <field Id="c268a5da-dd10-401b-8cfd-7048302b635e" name="User" persistent="IdUser" virtualColumnType="UserXpo" logicalType="UserXpo" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="cce53e8a-dcfb-4185-b5d3-dd073eeb90f1">
+            <field Id="4d1bcce6-1b39-4b52-9f1a-678be32f90b3" name="Description" virtualColumnType="String" dbType="NVARCHAR(350)" delayedUpdateModifiedOnly="false" size="350" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="85eed44d-b258-44a3-b108-6492c42f47ac">
+            <field Id="fc2ae105-dc8d-4178-b722-915ce71925e1" name="IsDone" columnType="Boolean" virtualColumnType="Boolean" dbType="BIT" delayedUpdateModifiedOnly="false" defaultValue="Boolean#False" />
+          </generalXpObjectHasFields>
+        </fields>
+      </xpObject>
+    </dataBaseObjectModelHasClasses>
+    <dataBaseObjectModelHasClasses Id="669e9e7c-3e38-45d3-9bd9-80715c86b57f">
+      <xpObject Id="695aee75-ac26-4c77-a681-acc7d8b5ca0a" name="CommandXpo" baseClass="XPBaseObject" userFileName="CommandXpo" designerFileName="CommandXpo.Designer" className="CommandXpo" virtualBaseClass="XPBaseObject" persistent="Commands" virtualName="CommandXpo">
+        <fields>
+          <generalXpObjectHasFields Id="c8d617af-1ba2-47a0-9818-2693cac689f7">
+            <field Id="4544a419-04be-49cb-a59e-f4d4d4372b48" name="Id" columnType="Guid" key="true" isIdentity="true" virtualColumnType="Guid" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="176cfe85-ddba-4ab5-a268-036e60440907">
+            <field Id="3ecf0db8-50f9-45e6-bf61-a4c862a86cc5" name="User" persistent="IdUser" virtualColumnType="UserXpo" logicalType="UserXpo" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="59a93ab9-b2d5-407a-8dea-90a4037f0a5a">
+            <field Id="c57ef1ad-03f7-44bf-960d-d1ca82dc12c2" name="ExternalProgram" persistent="IdExternalProgram" virtualColumnType="ExternalProgramXpo" logicalType="ExternalProgramXpo" dbType="UNIQUEIDENTIFIER" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="a283bfb8-de7b-4b38-91ce-b7017088a1da">
+            <field Id="20166510-8605-4cea-8db8-74a28e599804" name="Name" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="13" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="971e7e75-3a39-4fab-9e90-8b678803fe79">
+            <field Id="a3ce61b7-4a26-46fd-bd8a-f0d3fe42fcf5" name="Description" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="30" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="f282cf4c-8534-47b3-bfee-f3d06906f8a1">
+            <field Id="a64abde2-77cf-494b-9b4e-cb11a2145ef6" name="Text" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="4000" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="91099eca-78fb-4b30-aa28-b3e6976d38f4">
+            <field Id="515b305f-5880-4db2-8033-6f4aa820fd40" name="IsEnabled" columnType="Boolean" virtualColumnType="Boolean" delayedUpdateModifiedOnly="false" defaultValue="Boolean#True" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="f71cc69f-e553-416c-bd37-dc6694e937b3">
+            <field Id="66008d80-4aa1-4bfe-8a58-282566074f99" name="NeedsAdmin" columnType="Boolean" virtualColumnType="Boolean" delayedUpdateModifiedOnly="false" defaultValue="Boolean#False" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="de2384ba-25a0-40e0-86ae-9f6e2286e99e">
+            <field Id="504eb7f1-93d6-4552-af4c-e293a81167e8" name="Position" columnType="Int16" virtualColumnType="Int16" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+        </fields>
+      </xpObject>
+    </dataBaseObjectModelHasClasses>
+    <dataBaseObjectModelHasClasses Id="bdbe4172-6025-48e6-b73b-720b737745a8">
+      <xpObject Id="db046e1d-daf0-4ecf-a0d8-488c88486214" name="ExternalProgramXpo" baseClass="XPBaseObject" userFileName="ExternalProgramXpo" designerFileName="ExternalProgramXpo.Designer" className="ExternalProgramXpo" virtualBaseClass="XPBaseObject" persistent="ExternalPrograms" virtualName="ExternalProgramXpo">
+        <fields>
+          <generalXpObjectHasFields Id="a5e6c244-0071-4355-9a20-31838bc6259e">
+            <field Id="8c6dc1fc-4e2a-4558-ad3b-af3be10b5c72" name="Id" columnType="Guid" key="true" isIdentity="true" virtualColumnType="Guid" delayedUpdateModifiedOnly="false" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="907e5ab5-341f-4aa6-aeed-462c40be014b">
+            <field Id="9211ad50-bb53-4c57-a94a-68210a81c6ee" name="Name" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="30" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="ad00d09f-88df-4982-95c2-10a4d839cccf">
+            <field Id="87540c95-609f-4aee-b8c8-e3549f529e46" name="FileExtension" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="5" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="f06da151-ccfb-4228-9784-161fb3068ce5">
+            <field Id="e259d01d-596a-47cc-b97e-02ec2903a7e2" name="PathToProgram" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="400" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="20fbd68d-afb9-44ee-a6f4-14525717320a">
+            <field Id="d60f0f5d-3c53-4e75-8dde-f8d288a4038f" name="Arguments" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="150" isNullable="true" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="54236936-372b-4f2d-9e26-ae5595405d2e">
+            <field Id="39851b14-5400-4c43-8adb-db2c244ae85b" name="ImageData" columnType="ByteArray" virtualColumnType="ByteArray" delayedUpdateModifiedOnly="false" isNullable="true" />
+          </generalXpObjectHasFields>
+          <generalXpObjectHasFields Id="02b55bb4-7ca7-43fe-9ffb-2952b94e98a9">
+            <field Id="90a780f6-cbc6-4401-986a-5e8e2b12c4a2" name="ImageExtension" virtualColumnType="String" delayedUpdateModifiedOnly="false" size="10" isNullable="true" />
+          </generalXpObjectHasFields>
+        </fields>
+        <aggrTarget>
+          <aggregation Id="8bf17546-8954-466e-8217-4b364628bb9c" sourceCollectionName="Commands" name="CommandsXPOReferencesExternalProgramsXPO" targetFieldName="ExternalProgram">
+            <xpObjectMoniker Id="695aee75-ac26-4c77-a681-acc7d8b5ca0a" />
+          </aggregation>
+        </aggrTarget>
+        <collectionFields>
+          <xpObjectHasCollectionFields Id="8f7397a9-86bc-4cff-ab4d-0e68e314ca63">
+            <collectionField Id="ddd50131-f3b0-4ee3-bbfe-fa8ab5192634" name="Commands" />
+          </xpObjectHasCollectionFields>
+        </collectionFields>
+      </xpObject>
+    </dataBaseObjectModelHasClasses>
+  </classes>
+</dataBaseObjectModel>

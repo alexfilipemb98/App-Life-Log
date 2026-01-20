@@ -1,8 +1,8 @@
-﻿using Countries.Models;
-using LifeLog.Core.Utils;
+﻿using LifeLog.Core.Utils;
+using LifeLog.Data.World.Models;
 using System.Reflection;
 
-namespace Countries;
+namespace LifeLog.Data.World;
 
 public class Data
 {
@@ -29,7 +29,7 @@ public class Data
         if (list == null)
             return new List<SubRegionsModel>();
 
-		if (!string.IsNullOrWhiteSpace(idRegion))
+        if (!string.IsNullOrWhiteSpace(idRegion))
             list = list.Where(w => w.region_id.ToString() == idRegion).ToList();
 
         return list;
@@ -48,7 +48,7 @@ public class Data
         if (list == null)
             return new List<CountriesModel>();
 
-		if (!string.IsNullOrWhiteSpace(idRegion))
+        if (!string.IsNullOrWhiteSpace(idRegion))
             list = list.Where(w => w.region_id == idRegion).ToList();
 
         if (!string.IsNullOrWhiteSpace(idSubRegion))

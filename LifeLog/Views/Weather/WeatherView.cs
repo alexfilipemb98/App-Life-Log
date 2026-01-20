@@ -1,6 +1,6 @@
-﻿using Countries.Models;
-using DevExpress.XtraSplashScreen;
+﻿using DevExpress.XtraSplashScreen;
 using LifeLog.Core.Utils;
+using LifeLog.Data.World.Models;
 using LifeLog.Helpers;
 using LifeLog.Services.Weather.Models;
 
@@ -60,14 +60,14 @@ public partial class WeatherView : DevExpress.XtraEditors.XtraUserControl
         {
             if (lueCountry.GetSelectedDataRow() is CountriesModel country && country != null)
             {
-                statesModelBindingSource.DataSource = await Countries.Data.States(country.id.ToString());
+                statesModelBindingSource.DataSource = await Data.World.Data.States(country.id.ToString());
 
                 Bitmap image = ImagesUtil.ImageUrlToBitmap($"https://flagsapi.com/{country.iso2}/flat/24.png");
                 peIconCountry.Image = image;
             }
             else
             {
-                statesModelBindingSource.DataSource = await Countries.Data.States();
+                statesModelBindingSource.DataSource = await Data.World.Data.States();
                 peIconCountry.Image = null;
             }
         }
@@ -122,7 +122,7 @@ public partial class WeatherView : DevExpress.XtraEditors.XtraUserControl
         using (IOverlaySplashScreenHandle loder = SplashScreenManager.ShowOverlayForm(this))
         {
             ResetTexts();
-            countriesModelBindingSource.DataSource = await Countries.Data.Countries();
+            countriesModelBindingSource.DataSource = await Data.World.Data.Countries();
         }
     }
 
@@ -238,7 +238,7 @@ public partial class WeatherView : DevExpress.XtraEditors.XtraUserControl
                 if (data is null)
                     return;
 
-				(List<DailySummaryModel> dailySummaries, List<Next24HoursModel> next12Hours) forecast = await _WeatherApi.GetForecast(sel.Lat, sel.Lon);
+                (List<DailySummaryModel> dailySummaries, List<Next24HoursModel> next12Hours) forecast = await _WeatherApi.GetForecast(sel.Lat, sel.Lon);
 
                 if (data == null)
                     ResetTexts();

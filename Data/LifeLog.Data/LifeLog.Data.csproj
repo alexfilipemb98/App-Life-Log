@@ -25,12 +25,7 @@
     <ProjectReference Include="..\..\Core\LifeLog.Core.Utils\LifeLog.Core.Utils.csproj" />
     <ProjectReference Include="..\..\Core\LifeLog.Core\LifeLog.Core.csproj" />
     <ProjectReference Include="..\..\Services\LifeLog.Services.SqlData\LifeLog.Services.SqlData.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="XPO\ORMDataModel.xpo.diagram">
-      <AutoGen>True</AutoGen>
-    </None>
+    <ProjectReference Include="..\LifeLog.Data.Xpo\LifeLog.Data.Xpo.csproj" />
   </ItemGroup>
 
 </Project>

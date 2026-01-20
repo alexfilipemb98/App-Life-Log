@@ -418,7 +418,7 @@
 			// 
 			// countriesModelBindingSource
 			// 
-			this.countriesModelBindingSource.DataSource = typeof(Countries.Models.CountriesModel);
+			this.countriesModelBindingSource.DataSource = typeof(Data.World.Models.CountriesModel);
 			// 
 			// sbSearch
 			// 
@@ -1006,11 +1006,11 @@
 			// 
 			// citiesModelBindingSource
 			// 
-			this.citiesModelBindingSource.DataSource = typeof(Countries.Models.CitiesModel);
+			this.citiesModelBindingSource.DataSource = typeof(Data.World.Models.CitiesModel);
 			// 
 			// statesModelBindingSource
 			// 
-			this.statesModelBindingSource.DataSource = typeof(Countries.Models.StatesModel);
+			this.statesModelBindingSource.DataSource = typeof(Data.World.Models.StatesModel);
 			// 
 			// dxErrorProvider
 			// 

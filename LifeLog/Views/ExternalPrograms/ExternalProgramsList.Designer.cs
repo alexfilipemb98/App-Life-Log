@@ -30,7 +30,7 @@ partial class ExternalProgramsList
     {
         components = new System.ComponentModel.Container();
         gridControl = new DevExpress.XtraGrid.GridControl();
-        externalProgramsDTOBindingSource = new BindingSource(components);
+        ExternalProgramBindingSource = new BindingSource(components);
         gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
         colId = new DevExpress.XtraGrid.Columns.GridColumn();
         colName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -57,7 +57,7 @@ partial class ExternalProgramsList
         ((System.ComponentModel.ISupportInitialize)layoutControlItemBase).BeginInit();
         ((System.ComponentModel.ISupportInitialize)riscBase).BeginInit();
         ((System.ComponentModel.ISupportInitialize)gridControl).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)externalProgramsDTOBindingSource).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)ExternalProgramBindingSource).BeginInit();
         ((System.ComponentModel.ISupportInitialize)gridView).BeginInit();
         ((System.ComponentModel.ISupportInitialize)popupMenu).BeginInit();
         SuspendLayout();
@@ -109,7 +109,7 @@ partial class ExternalProgramsList
         // 
         // gridControl
         // 
-        gridControl.DataSource = externalProgramsDTOBindingSource;
+        gridControl.DataSource = ExternalProgramBindingSource;
         gridControl.Dock = DockStyle.Fill;
         gridControl.Location = new Point(0, 0);
         gridControl.MainView = gridView;
@@ -118,9 +118,9 @@ partial class ExternalProgramsList
         gridControl.TabIndex = 0;
         gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView });
         // 
-        // externalProgramsDTOBindingSource
+        // ExternalProgramBindingSource
         // 
-        externalProgramsDTOBindingSource.DataSource = typeof(Data.DTOs.ExternalProgramsDTO);
+        ExternalProgramBindingSource.DataSource = typeof(Data.Entities.ExternalProgram);
         // 
         // gridView
         // 
@@ -240,7 +240,7 @@ partial class ExternalProgramsList
         ((System.ComponentModel.ISupportInitialize)layoutControlItemBase).EndInit();
         ((System.ComponentModel.ISupportInitialize)riscBase).EndInit();
         ((System.ComponentModel.ISupportInitialize)gridControl).EndInit();
-        ((System.ComponentModel.ISupportInitialize)externalProgramsDTOBindingSource).EndInit();
+        ((System.ComponentModel.ISupportInitialize)ExternalProgramBindingSource).EndInit();
         ((System.ComponentModel.ISupportInitialize)gridView).EndInit();
         ((System.ComponentModel.ISupportInitialize)popupMenu).EndInit();
         ResumeLayout(false);
@@ -251,7 +251,7 @@ partial class ExternalProgramsList
 
     private DevExpress.XtraGrid.GridControl gridControl;
 	private DevExpress.XtraGrid.Views.Grid.GridView gridView;
-    private BindingSource externalProgramsDTOBindingSource;
+    private BindingSource ExternalProgramBindingSource;
     private DevExpress.XtraGrid.Columns.GridColumn colId;
     private DevExpress.XtraGrid.Columns.GridColumn colName;
     private DevExpress.XtraGrid.Columns.GridColumn colFileExtension;

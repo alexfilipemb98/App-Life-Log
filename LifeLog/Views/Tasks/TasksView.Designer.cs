@@ -84,7 +84,7 @@
 			// 
 			// tasksModelBindingSource
 			// 
-			this.tasksModelBindingSource.DataSource = typeof(LifeLog.Data.DTOs.TasksDTO);
+			this.tasksModelBindingSource.DataSource = typeof(LifeLog.Data.Entities.Todo);
 			// 
 			// gvTasks
 			// 

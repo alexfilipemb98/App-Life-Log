@@ -3,12 +3,11 @@ using DevExpress.Xpo.Metadata;
 using LifeLog.Core.Enums;
 using LifeLog.Core.Models;
 using LifeLog.Core.Utils;
-using LifeLog.Data.DBs.Interfaces;
 using LifeLog.Data.Helpers;
+using LifeLog.Data.Interfaces;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.DependencyInjection;
-using PdfSharp.Charting;
 using SQLitePCL;
 using System.Data;
 
@@ -19,88 +18,88 @@ namespace LifeLog.Data;
 /// </summary>
 public class Engine : IDisposable
 {
-	#region MAIN
+    #region MAIN
 
-	//PRIVATE
-	private readonly IServiceProvider ServiceProvider;
+    //PRIVATE
+    private readonly IServiceProvider ServiceProvider;
 
-	//PUBLIC
-	public IDbConnection Connection { get; private set; }
-	public string DBName { get; private set; }
+    //PUBLIC
+    public IDbConnection Connection { get; private set; }
+    public string DBName { get; private set; }
 
-	/// <summary>
-	/// Constructor
-	/// </summary>
-	/// <param name="configs"></param>
-	/// <exception cref="ArgumentNullException"></exception>
-	/// <exception cref="ArgumentException"></exception>
-	public Engine(DatabaseConfigModel configs)
-	{
-		if (configs == null)
-			throw new ArgumentNullException("Configs for data base are null");
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    /// <param name="configs"></param>
+    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="ArgumentException"></exception>
+    public Engine(DatabaseConfigModel configs)
+    {
+        if (configs == null)
+            throw new ArgumentNullException("Configs for data base are null");
 
-		if (!configs.IsValid())
-			throw new ArgumentException("Configurations are not valid");
+        if (!configs.IsValid())
+            throw new ArgumentException("Configurations are not valid");
 
-		string? conn = configs.ToString();
+        string? conn = configs.ToString();
 
-		if (string.IsNullOrWhiteSpace(conn))
-			throw new ArgumentNullException("Connection string is empty!");
+        if (string.IsNullOrWhiteSpace(conn))
+            throw new ArgumentNullException("Connection string is empty!");
 
-		conn = $"XpoProvider={configs.XpoProvider()};{conn}";
+        conn = $"XpoProvider={configs.XpoProvider()};{conn}";
 
-		Batteries_V2.Init();
+        Batteries_V2.Init();
 
-		DbHelper.GenerateStore(conn, out IDataStore provider, out ReflectionDictionary dictionary);
+        DbHelper.GenerateStore(conn, out IDataStore provider, out ReflectionDictionary dictionary);
 
-		DbHelper.UpdateDB(provider, dictionary);
+        DbHelper.UpdateDB(provider, dictionary);
 
-		Connection = DbHelper.ConnectDb(provider, dictionary);
+        Connection = DbHelper.ConnectDb(provider, dictionary);
 
-		DBName = configs.DatabaseType == DatabaseTypeEnum.SQLLITE
-			? $"(local) {Path.GetFileNameWithoutExtension(((SqliteConnection)Connection).DataSource)}"
-			: ((SqlConnection)Connection).Database;
+        DBName = configs.DatabaseType == DatabaseTypeEnum.SQLLITE
+            ? $"(local) {Path.GetFileNameWithoutExtension(((SqliteConnection)Connection).DataSource)}"
+            : ((SqlConnection)Connection).Database;
 
-		ServiceCollection services = new();
+        ServiceCollection services = new();
 
-		services.ConfigureServices(Connection);
+        services.ConfigureServices(Connection);
 
-		ServiceProvider = services.BuildServiceProvider();
-	}
+        ServiceProvider = services.BuildServiceProvider();
+    }
 
-	#endregion
+    #endregion
 
-	#region CONTEXT
+    #region CONTEXT
 
-	//Users
-	public IUsersDB Users => ServiceProvider.GetRequiredService<IUsersDB>();
+    //Users
+    public IUserRepository Users => ServiceProvider.GetRequiredService<IUserRepository>();
 
-	//Geral
-	public IGeralDB Geral => ServiceProvider.GetRequiredService<IGeralDB>();
+    //Geral
+    public IDataRepository Geral => ServiceProvider.GetRequiredService<IDataRepository>();
 
-	//Notes
-	public INotesDB Notes => ServiceProvider.GetRequiredService<INotesDB>();
+    //Notes
+    public INoteRepository Notes => ServiceProvider.GetRequiredService<INoteRepository>();
 
-	//Tasks
-	public ITasksDB Tasks => ServiceProvider.GetRequiredService<ITasksDB>();
+    //Tasks
+    public ITodoRepository Tasks => ServiceProvider.GetRequiredService<ITodoRepository>();
 
-	//ExternalPrograms
-	public IExternalProgramsDB ExternalPrograms => ServiceProvider.GetRequiredService<IExternalProgramsDB>();
+    //ExternalPrograms
+    public IExternalProgramRepository ExternalPrograms => ServiceProvider.GetRequiredService<IExternalProgramRepository>();
 
-	//Commands
-	public ICommandsDB Commands => ServiceProvider.GetRequiredService<ICommandsDB>();
+    //Commands
+    public ICommandRepository Commands => ServiceProvider.GetRequiredService<ICommandRepository>();
 
-	#endregion
+    #endregion
 
-	#region FUNCTIONS
+    #region FUNCTIONS
 
-	/// <summary>
-	/// Dispose
-	/// </summary>
-	public void Dispose()
-	{
-		Connection.Dispose();
-	}
+    /// <summary>
+    /// Dispose
+    /// </summary>
+    public void Dispose()
+    {
+        Connection.Dispose();
+    }
 
-	#endregion
+    #endregion
 }

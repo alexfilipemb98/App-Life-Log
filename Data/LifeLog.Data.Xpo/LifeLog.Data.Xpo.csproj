@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ORMDataModel.xpo.diagram">
+    <None Update="Model.xpo.diagram">
       <AutoGen>True</AutoGen>
     </None>
   </ItemGroup>

@@ -1,7 +1,7 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using LifeLog.Bases;
-using LifeLog.Data.DTOs;
+using LifeLog.Data.Entities;
 
 namespace LifeLog.Views.ExternalPrograms;
 
@@ -44,7 +44,7 @@ public partial class ExternalProgramsList : BaseView
     {
         base.bbiEdit_ItemClick(sender, e);
 
-        if (gridView.GetFocusedRow() is not ExternalProgramsDTO selected)
+        if (gridView.GetFocusedRow() is not ExternalProgram selected)
             return;
 
         externalProgramsEditor.LoadToForm(selected);
@@ -57,63 +57,63 @@ public partial class ExternalProgramsList : BaseView
     /// <param name="e"></param>
     public override async void bbiReload_ItemClick(object sender, ItemClickEventArgs e) => await LoadData();
 
-	/// <summary>
-	/// Delete button click
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	public override void bbiDelele_ItemClick(object sender, ItemClickEventArgs e)
-	{
-		if (gridView.GetFocusedRow() is not ExternalProgramsDTO selected)
-			return;
-
-		DialogResult result = XtraMessageBox.Show($"Are you sure you want to delete '{selected.Name}'?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-		if (result != DialogResult.Yes)
-			return;
-	}
-
-	/// <summary>
-	/// Save button click
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	public override async void bbiSave_ItemClick(object sender, ItemClickEventArgs e)
-	{
-		(ExternalProgramsDTO? model, bool saved) = await externalProgramsEditor.SaveObject();
-
-		if (!saved)
-			return;
-
-		ExternalProgramsDTO? existing = externalProgramsDTOBindingSource.List.OfType<ExternalProgramsDTO>().FirstOrDefault(x => x.Id == model!.Id);
-
-		if (existing is not null)
-			gridView.UpdateCurrentRow();
-		else
-			externalProgramsDTOBindingSource.Add(model!);
-
-		base.bbiSave_ItemClick(sender, e);
-	}
-
-	#endregion
-
-	#endregion
-
-	#region FUNCTIONS
-
-	#region PUBLIC
-
-	/// <summary>
-	/// Load Data
-	/// </summary>
-	/// <returns></returns>
-	public async Task LoadData()
+    /// <summary>
+    /// Delete button click
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    public override void bbiDelele_ItemClick(object sender, ItemClickEventArgs e)
     {
-        (List<ExternalProgramsDTO?>? lista, _) = await Program.DataEngine!.ExternalPrograms.GetAll();
-        externalProgramsDTOBindingSource.DataSource = lista;
+        if (gridView.GetFocusedRow() is not ExternalProgram selected)
+            return;
+
+        DialogResult result = XtraMessageBox.Show($"Are you sure you want to delete '{selected.Name}'?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+        if (result != DialogResult.Yes)
+            return;
     }
 
-	#endregion
+    /// <summary>
+    /// Save button click
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    public override async void bbiSave_ItemClick(object sender, ItemClickEventArgs e)
+    {
+        (ExternalProgram? model, bool saved) = await externalProgramsEditor.SaveObject();
 
-	#endregion
+        if (!saved)
+            return;
+
+        ExternalProgram? existing = ExternalProgramBindingSource.List.OfType<ExternalProgram>().FirstOrDefault(x => x.Id == model!.Id);
+
+        if (existing is not null)
+            gridView.UpdateCurrentRow();
+        else
+            ExternalProgramBindingSource.Add(model!);
+
+        base.bbiSave_ItemClick(sender, e);
+    }
+
+    #endregion
+
+    #endregion
+
+    #region FUNCTIONS
+
+    #region PUBLIC
+
+    /// <summary>
+    /// Load Data
+    /// </summary>
+    /// <returns></returns>
+    public async Task LoadData()
+    {
+        (List<ExternalProgram?>? lista, _) = await Program.DataEngine!.ExternalPrograms.GetAll();
+        ExternalProgramBindingSource.DataSource = lista;
+    }
+
+    #endregion
+
+    #endregion
 }

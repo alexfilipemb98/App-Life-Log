@@ -1,5 +1,5 @@
-﻿using LifeLog.Data.DBs.Interfaces;
-using LifeLog.Data.DTOs;
+﻿using LifeLog.Data.Entities;
+using LifeLog.Data.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,27 +10,27 @@ namespace LifeLog.Services.Api.Controllers;
 [Authorize]
 public class NotesController : ControllerBase
 {
-	private readonly INotesDB _notes;
+    private readonly INoteRepository _notes;
 
-    public NotesController(INotesDB notes)
+    public NotesController(INoteRepository notes)
     {
         _notes = notes;
     }
 
     // GET api/notes/
     [HttpGet]
-	public async Task<ActionResult<NotesDTO>> Get()
-	{
-		(List<NotesDTO?>? notes, string message) = await _notes.GetAll();
-		return notes is null ? NotFound() : Ok(notes);
-	}
+    public async Task<ActionResult<Note>> Get()
+    {
+        (List<Note?>? notes, string message) = await _notes.GetAll();
+        return notes is null ? NotFound() : Ok(notes);
+    }
 
-	// GET api/notes/{id}
-	[HttpGet("{id:guid}")]
-	public async Task<ActionResult<NotesDTO>> Get(Guid id)
-	{
-		(NotesDTO? note, string message) = await _notes.GetByKey(id);
+    // GET api/notes/{id}
+    [HttpGet("{id:guid}")]
+    public async Task<ActionResult<Note>> Get(Guid id)
+    {
+        (Note? note, string message) = await _notes.GetByKey(id);
 
-		return note is null ? NotFound() : Ok(note);
-	}
+        return note is null ? NotFound() : Ok(note);
+    }
 }

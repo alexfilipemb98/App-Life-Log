@@ -42,33 +42,36 @@ namespace LifeLog.Core.Attributes
 		/// <param fName="value"></param>
 		/// <param fName="validationContext"></param>
 		/// <returns></returns>
-		protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+		protected override ValidationResult? IsValid(object value, ValidationContext validationContext)
 		{
 			if (validationContext == null)
 				return default;
 
-			System.Reflection.PropertyInfo otherPropertyInfo = validationContext.ObjectType.GetProperty(_otherPropertyName);
+			System.Reflection.PropertyInfo? otherPropertyInfo = validationContext.ObjectType.GetProperty(_otherPropertyName);
 
 			if (otherPropertyInfo == null)
 				return new ValidationResult($"Property {_otherPropertyName} not found.");
 
-			object otherPropertyValue = otherPropertyInfo.GetValue(validationContext.ObjectInstance);
+			object? otherPropertyValue = otherPropertyInfo.GetValue(validationContext.ObjectInstance);
+
+			if (otherPropertyInfo is null)
+				return new ValidationResult($"Property {_otherPropertyName} value is null.");
 
 			// Check if otherPropertyValue matches the condition
-			if (!MatchesCondition(otherPropertyValue, _operator, _otherPropertyValue))
+			if (!MatchesCondition(otherPropertyValue!, _operator, _otherPropertyValue))
 				return ValidationResult.Success;
 
 			// Check for null or empty string
 			if (value is string stringValue && string.IsNullOrWhiteSpace(stringValue))
-				return new ValidationResult(string.Format(ErrorMessage, validationContext.MemberName), new[] { validationContext.MemberName });
+				return new ValidationResult(string.Format(ErrorMessage!, validationContext.MemberName), [validationContext.MemberName!]);
 
 			// Check for non-null
 			if (value == null)
-				return new ValidationResult(string.Format(ErrorMessage, validationContext.MemberName), new[] { validationContext.MemberName });
+				return new ValidationResult(string.Format(ErrorMessage!, validationContext.MemberName), [validationContext.MemberName!]);
 
 			// Check for non-zero integer
 			if (value is int intValue && intValue == 0)
-				return new ValidationResult(string.Format(ErrorMessage, validationContext.MemberName), new[] { validationContext.MemberName });
+				return new ValidationResult(string.Format(ErrorMessage!, validationContext.MemberName), [validationContext.MemberName!]);
 
 			return ValidationResult.Success;
 		}

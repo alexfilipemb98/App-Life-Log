@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Countries.Models
+namespace LifeLog.Data.World.Models
 {
     public class TranslationsModel
     {
