@@ -11,8 +11,10 @@
     <PackageIcon>Icon.ico</PackageIcon>
     <Version>2026.1.0</Version>
     <AssemblyVersion>2026.0.0.0</AssemblyVersion>
-    <FileVersion>2026.1.0.18</FileVersion>
+    <FileVersion>2026.1.0.19</FileVersion>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <SignAssembly>False</SignAssembly>
+    <NeutralLanguage>en-GB</NeutralLanguage>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -30,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Data\LifeLog.Data.Coutries\LifeLog.Data.World.csproj" />
+    <ProjectReference Include="..\Data\LifeLog.Data.World\LifeLog.Data.World.csproj" />
     <ProjectReference Include="..\Data\LifeLog.Data\LifeLog.Data.csproj" />
     <ProjectReference Include="..\Services\LifeLog.Services.Api\LifeLog.Services.Api.csproj" />
     <ProjectReference Include="..\Services\LifeLog.Services.Weather\LifeLog.Services.Weather.csproj" />
@@ -64,7 +66,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if /I &quot;$(ConfigurationName)&quot;==&quot;Release&quot; (&#xD;&#xA;    del /Q /F *.pdb 2&gt;nul&#xD;&#xA;    del /Q /F D*.xml 2&gt;nul&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;set &quot;CEGID_EXT=%25LOCALAPPDATA%25\Cegid\Extensions\default&quot;&#xD;&#xA;for /D %25%25D in (&quot;%25CEGID_EXT%25\*&quot;) do (&#xD;&#xA;   if exist &quot;%25%25~fD\$(TargetFileName)&quot; (&#xD;&#xA;       rd /s /q &quot;%25%25~fD&quot;&#xD;&#xA;   )&#xD;&#xA;)" />
+    <Exec Command="if /I &quot;$(ConfigurationName)&quot;==&quot;Release&quot; (&#xD;&#xA;    del /Q /F *.pdb 2&gt;nul&#xD;&#xA;    del /Q /F D*.xml 2&gt;nul&#xD;&#xA;)" />
   </Target>
 
 </Project>

@@ -4,7 +4,7 @@
     <Project Path="Core/LifeLog.Core/LifeLog.Core.csproj" />
   </Folder>
   <Folder Name="/Data/">
-    <Project Path="Data/LifeLog.Data.Coutries/LifeLog.Data.World.csproj" />
+    <Project Path="Data/LifeLog.Data.World/LifeLog.Data.World.csproj" />
     <Project Path="Data/LifeLog.Data.Xpo/LifeLog.Data.XPO.csproj" DisplayName="LifeLog.Data.Xpo" />
     <Project Path="Data/LifeLog.Data/LifeLog.Data.csproj" />
   </Folder>
