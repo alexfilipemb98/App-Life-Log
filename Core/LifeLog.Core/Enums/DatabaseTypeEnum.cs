@@ -1,15 +1,14 @@
 ﻿using System.ComponentModel;
 
-namespace LifeLog.Core.Enums
+namespace LifeLog.Core.Enums;
+
+/// <summary>
+/// Type of connections
+/// </summary>
+public enum DatabaseTypeEnum
 {
-    /// <summary>
-    /// Type of connections
-    /// </summary>
-    public enum DatabaseTypeEnum
-    {
-        [Description("SQL LITE")]
-        SQLLITE,
-        [Description("MSSQL")]
-        MSSQL,
-    }
+    [Description("SQL LITE")]
+    SQLLITE,
+    [Description("MSSQL")]
+    MSSQL,
 }

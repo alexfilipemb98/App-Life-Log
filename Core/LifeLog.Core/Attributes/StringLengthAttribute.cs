@@ -27,7 +27,7 @@ public class StringLengthAttribute : System.ComponentModel.DataAnnotations.Strin
     /// </summary>
     /// <param name="value"></param>
     /// <returns></returns>
-    public override bool IsValid(object value)
+    public override bool IsValid(object? value)
     {
         string? valStr = value as string;
         int length = valStr?.Length ?? 0;

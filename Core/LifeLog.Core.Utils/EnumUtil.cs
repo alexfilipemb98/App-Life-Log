@@ -8,6 +8,8 @@ namespace LifeLog.Core.Utils;
 /// </summary>
 public static class EnumUtil
 {
+    #region METHODS
+
     /// <summary>
     /// Convert enum to datatable
     /// </summary>
@@ -19,11 +21,10 @@ public static class EnumUtil
         if (!enumType.IsEnum)
             throw new ArgumentException("Type must be an Enum.");
 
-        return Enum.GetValues(enumType)
+        return [.. Enum.GetValues(enumType)
                    .Cast<Enum>()
                    .Select(e => new KeyValuePair<Enum, string>(
-                       e, e.GetDescription()))
-                   .ToList();
+                       e, e.GetDescription()))];
     }
 
     /// <summary>
@@ -36,7 +37,8 @@ public static class EnumUtil
         FieldInfo? field = value.GetType().GetField(value.ToString());
         if (field == null)
             return value.ToString();
-		DescriptionAttribute? attribute = field.GetCustomAttribute<DescriptionAttribute>();
+        DescriptionAttribute? attribute = field.GetCustomAttribute<DescriptionAttribute>();
         return attribute?.Description ?? value.ToString();
     }
+    #endregion
 }

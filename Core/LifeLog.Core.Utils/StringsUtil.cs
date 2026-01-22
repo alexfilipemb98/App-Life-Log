@@ -8,12 +8,14 @@ namespace LifeLog.Core.Utils;
 /// </summary>
 public static class StringsUtil
 {
-    /// <summary>
-    /// Converts a string to title case.
-    /// </summary>
-    /// <param fName="input">The input string to be converted.</param>
-    /// <returns>The input string converted to title case.</returns>
-    public static string ToTitleCase(this string text)
+	#region METHODS
+
+	/// <summary>
+	/// Converts a string to title case.
+	/// </summary>
+	/// <param fName="input">The input string to be converted.</param>
+	/// <returns>The input string converted to title case.</returns>
+	public static string ToTitleCase(this string text)
     {
         if (string.IsNullOrEmpty(text))
             return text;
@@ -34,7 +36,7 @@ public static class StringsUtil
         if (string.IsNullOrEmpty(text))
             return text;
 
-        string[] sentences = text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+        string[] sentences = text.Split(["\r\n"], StringSplitOptions.RemoveEmptyEntries);
         string result = string.Empty;
         foreach (string sentence in sentences)
         {
@@ -102,7 +104,7 @@ public static class StringsUtil
         if (string.IsNullOrWhiteSpace(input)) return input;
 
         string normalized = input.Normalize(NormalizationForm.FormD);
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new();
 
         foreach (char c in normalized)
         {
@@ -134,6 +136,7 @@ public static class StringsUtil
         int codePoint2 = baseCodePoint + (u2 - 'A');
 
         return char.ConvertFromUtf32(codePoint1) + char.ConvertFromUtf32(codePoint2);
-    }
+    } 
 
+    #endregion
 }

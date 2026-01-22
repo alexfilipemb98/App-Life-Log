@@ -1,32 +1,30 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace LifeLog.Core.Attributes
+namespace LifeLog.Core.Attributes;
+
+/// <summary>
+/// Validate date atribute
+/// </summary>
+public class ValidDateAttribute : ValidationAttribute
 {
+    #region OVERRIDES
+
     /// <summary>
-    /// Validate date atribute
+    /// Check if the date only is valid
     /// </summary>
-    public class ValidDateAttribute : ValidationAttribute
+    /// <param name="value"></param>
+    /// <param name="validationContext"></param>
+    /// <returns></returns>
+    protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
-        #region OVERRIDES
+        if (value is not DateTime dateValue)
+            return new ValidationResult(string.Format(ErrorMessage ?? "Invalid date: {0}", value), [validationContext.MemberName ?? string.Empty]);
 
-        /// <summary>
-        /// Check if the date only is valid
-        /// </summary>
-        /// <param fName="value"></param>
-        /// <param fName="validationContext"></param>
-        /// <returns></returns>
-        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
-        {
-            if (!(value is DateTime dateValue))
-                return new ValidationResult(string.Format(ErrorMessage, value), new[] { validationContext.MemberName });
+        if (dateValue == DateTime.MinValue)
+            return new ValidationResult(string.Format(ErrorMessage ?? "Invalid date: {0}", dateValue), [validationContext.MemberName ?? string.Empty]);
 
-            if (dateValue == DateTime.MinValue)
-                return new ValidationResult(string.Format(ErrorMessage, dateValue), new[] { validationContext.MemberName });
-
-            return ValidationResult.Success;
-        }
-
-        #endregion
+        return ValidationResult.Success;
     }
+
+    #endregion
 }

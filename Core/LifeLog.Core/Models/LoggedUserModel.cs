@@ -27,5 +27,4 @@ public class LoggedUserModel
 	public string? Email { get; set; } 
 
 	#endregion
-
 }

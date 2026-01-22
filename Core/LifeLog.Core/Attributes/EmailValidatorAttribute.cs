@@ -17,17 +17,17 @@ public class EmailValidatorAttribute : ValidationAttribute
     /// <param name="value"></param>
     /// <param name="validationContext"></param>
     /// <returns></returns>
-    protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+    protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
-        if (value == null)
+        if (value is null)
             return ValidationResult.Success;
 
         if (value is string str)
         {
             if (!str.IsValidEmail())
             {
-                string memberName = validationContext?.MemberName ?? "Unknown";
-                return new ValidationResult($"Email '{str}' is not valid!", new[] { memberName });
+                string memberName = validationContext.MemberName ?? "Unknown";
+                return new ValidationResult($"Email '{str}' is not valid!", [memberName]);
             }
 
             return ValidationResult.Success;
