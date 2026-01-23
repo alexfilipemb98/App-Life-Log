@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace LifeLog.Core.Utils;
 
@@ -8,14 +9,14 @@ namespace LifeLog.Core.Utils;
 /// </summary>
 public static class StringsUtil
 {
-	#region METHODS
+    #region METHODS
 
-	/// <summary>
-	/// Converts a string to title case.
-	/// </summary>
-	/// <param fName="input">The input string to be converted.</param>
-	/// <returns>The input string converted to title case.</returns>
-	public static string ToTitleCase(this string text)
+    /// <summary>
+    /// Converts a string to title case.
+    /// </summary>
+    /// <param fName="input">The input string to be converted.</param>
+    /// <returns>The input string converted to title case.</returns>
+    public static string ToTitleCase(this string text)
     {
         if (string.IsNullOrEmpty(text))
             return text;
@@ -136,7 +137,20 @@ public static class StringsUtil
         int codePoint2 = baseCodePoint + (u2 - 'A');
 
         return char.ConvertFromUtf32(codePoint1) + char.ConvertFromUtf32(codePoint2);
-    } 
+    }
+
+    /// <summary>
+    /// Gets the substring between the first pair of parentheses using regex.
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
+    public static string? BetweenParenthesesRegex(this string s)
+    {
+        if (string.IsNullOrEmpty(s)) return null;
+
+        Match m = Regex.Match(s, @"\(([^)]*)\)");
+        return m.Success ? m.Groups[1].Value : null;
+    }
 
     #endregion
 }
