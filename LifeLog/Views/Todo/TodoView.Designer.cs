@@ -1,6 +1,6 @@
-﻿namespace LifeLog.Views.Tasks
+﻿namespace LifeLog.Views.Todo
 {
-	partial class TasksView
+	partial class TodoView
 	{
 		/// <summary> 
 		/// Required designer variable.

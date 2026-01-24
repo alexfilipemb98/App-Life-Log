@@ -8,11 +8,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
-    <PackageIcon>Icon.ico</PackageIcon>
+    <PackageIcon>Icon128.png</PackageIcon>
     <Version>2026.1.0</Version>
     <AssemblyVersion>2026.0.0.0</AssemblyVersion>
     <FileVersion>2026.1.0.19</FileVersion>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationIcon>LifeLog.ico</ApplicationIcon>
     <SignAssembly>False</SignAssembly>
     <NeutralLanguage>en-GB</NeutralLanguage>
   </PropertyGroup>
@@ -22,7 +22,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Icon.ico" />
+    <Content Include="LifeLog.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="E:\Assests\Imgs\Icon128.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -55,10 +62,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Icon.ico">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
     <None Update="Resources\Icon.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>

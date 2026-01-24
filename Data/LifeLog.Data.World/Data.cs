@@ -22,7 +22,7 @@ public class Data
     /// </summary>
     /// <param name="idRegion"></param>
     /// <returns></returns>
-    public static async Task<List<SubRegionsModel>> SubRegions(string idRegion = null)
+    public static async Task<List<SubRegionsModel>> SubRegions(string? idRegion = null)
     {
         List<SubRegionsModel>? list = await FilesUtil.ReadAssemblyJsonFile<List<SubRegionsModel>>(_Assembly, "subregions.json");
 
@@ -62,11 +62,14 @@ public class Data
     /// </summary>
     /// <param name="idCoutry"></param>
     /// <returns></returns>
-    public static async Task<List<StatesModel>> States(string idCoutry = null)
+    public static async Task<List<StatesModel>> States(string? idCoutry = null)
     {
-        List<StatesModel> list = await FilesUtil.ReadAssemblyJsonFile<List<StatesModel>>(_Assembly, "states.json");
+        List<StatesModel>? list = await FilesUtil.ReadAssemblyJsonFile<List<StatesModel>>(_Assembly, "states.json");
 
-        if (!string.IsNullOrWhiteSpace(idCoutry))
+		if (list == null)
+			return new List<StatesModel>();
+
+		if (!string.IsNullOrWhiteSpace(idCoutry))
             list = list.Where(w => w.country_id.ToString() == idCoutry).ToList();
 
         return list;
@@ -80,9 +83,12 @@ public class Data
     /// <returns></returns>
     public static async Task<List<CitiesModel>> Cities(string idState = null, string idCountry = null)
     {
-        List<CitiesModel> list = await FilesUtil.ReadAssemblyJsonFile<List<CitiesModel>>(_Assembly, "cities.json");
+        List<CitiesModel>? list = await FilesUtil.ReadAssemblyJsonFile<List<CitiesModel>>(_Assembly, "cities.json");
 
-        if (!string.IsNullOrWhiteSpace(idState))
+        if (list == null)
+            return new List<CitiesModel>();
+
+		if (!string.IsNullOrWhiteSpace(idState))
             list = list.Where(w => w.state_id.ToString() == idState).ToList();
 
         if (!string.IsNullOrWhiteSpace(idCountry))

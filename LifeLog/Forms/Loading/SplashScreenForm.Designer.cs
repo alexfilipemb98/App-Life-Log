@@ -45,7 +45,7 @@
             labelCopyright.Appearance.Options.UseForeColor = true;
             labelCopyright.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             labelCopyright.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            labelCopyright.Location = new Point(12, 269);
+            labelCopyright.Location = new Point(12, 312);
             labelCopyright.Name = "labelCopyright";
             labelCopyright.Size = new Size(236, 19);
             labelCopyright.TabIndex = 6;
@@ -66,7 +66,7 @@
             labelVersion.AppearanceHovered.Options.UseBackColor = true;
             labelVersion.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             labelVersion.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            labelVersion.Location = new Point(254, 269);
+            labelVersion.Location = new Point(272, 312);
             labelVersion.Name = "labelVersion";
             labelVersion.Size = new Size(234, 19);
             labelVersion.TabIndex = 11;
@@ -74,13 +74,13 @@
             // 
             // progressPanel
             // 
-            progressPanel.AnimationElementImage = LifeLog.Properties.Resources.WitheCircle10;
+            progressPanel.AnimationElementImage = (Image)resources.GetObject("progressPanel.AnimationElementImage");
             progressPanel.Appearance.BackColor = Color.Transparent;
             progressPanel.Appearance.Options.UseBackColor = true;
             progressPanel.BackgroundImage = LifeLog.Properties.Resources.LoginBackground;
             progressPanel.BackgroundImageLayout = ImageLayout.Stretch;
             progressPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            progressPanel.ContentAlignment = ContentAlignment.MiddleCenter;
+            progressPanel.ContentAlignment = ContentAlignment.BottomCenter;
             progressPanel.Dock = DockStyle.Fill;
             progressPanel.Location = new Point(0, 0);
             progressPanel.Margin = new Padding(0);
@@ -89,22 +89,20 @@
             progressPanel.RingAnimationDiameter = 80;
             progressPanel.ShowCaption = false;
             progressPanel.ShowDescription = false;
-            progressPanel.Size = new Size(500, 300);
+            progressPanel.Size = new Size(518, 343);
             progressPanel.TabIndex = 10;
-            progressPanel.Text = "progressPanel1";
+            progressPanel.Text = "Loading Panel";
             progressPanel.WaitAnimationType = DevExpress.Utils.Animation.WaitingAnimatorType.Ring;
             // 
             // SplashScreenForm
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(500, 300);
+            ClientSize = new Size(518, 343);
             Controls.Add(labelCopyright);
             Controls.Add(labelVersion);
             Controls.Add(progressPanel);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(500, 300);
-            MinimumSize = new Size(500, 300);
             Name = "SplashScreenForm";
             Text = "frmSplashScreen";
             Load += frmSplashScreen_Load;

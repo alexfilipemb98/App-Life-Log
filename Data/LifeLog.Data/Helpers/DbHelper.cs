@@ -22,10 +22,8 @@ public static class DbHelper
     /// <returns></returns>
     public static async Task<List<string>> GetDatabases(string connectionString)
     {
-        using (SqlDataAccess dataAccess = new SqlDataAccess(connectionString))
-        {
-            return await dataAccess.LoadDataListAsync<string>("SELECT name FROM sys.databases WHERE name NOT IN ('master', 'tempdb', 'model', 'msdb')");
-        }
+        using SqlDataAccess dataAccess = new(connectionString);
+        return await dataAccess.LoadDataListAsync<string>("SELECT name FROM sys.databases WHERE name NOT IN ('master', 'tempdb', 'model', 'msdb')");
     }
 
     /// <summary>
@@ -35,13 +33,9 @@ public static class DbHelper
     /// <param name="dictionary"></param>
     public static void UpdateDB(IDataStore provider, ReflectionDictionary dictionary)
     {
-        using (SimpleDataLayer simpleLayer = new SimpleDataLayer(dictionary, provider))
-        {
-            using (UnitOfWork uow = new UnitOfWork(simpleLayer))
-            {
-                uow.UpdateSchema();
-            }
-        }
+        using SimpleDataLayer simpleLayer = new SimpleDataLayer(dictionary, provider);
+        using UnitOfWork uow = new(simpleLayer);
+        uow.UpdateSchema();
     }
 
     /// <summary>

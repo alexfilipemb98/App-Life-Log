@@ -5,19 +5,19 @@ using LifeLog.Data.Entities;
 using LifeLog.Helpers;
 using System.Data;
 
-namespace LifeLog.Views.Tasks
+namespace LifeLog.Views.Todo
 {
     /// <summary>
     /// Tasks View
     /// </summary>
-    public partial class TasksView : XtraUserControl
+    public partial class TodoView : XtraUserControl
     {
         #region MAIN
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public TasksView() => InitializeComponent();
+        public TodoView() => InitializeComponent();
 
         #endregion
 
@@ -49,7 +49,7 @@ namespace LifeLog.Views.Tasks
         /// <param name="e"></param>
         private void gvTasks_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            Todo? cmd = gvTasks.GetObjectByRowHandle<Todo>(e.RowHandle);
+            Data.Entities.Todo? cmd = gvTasks.GetObjectByRowHandle<Data.Entities.Todo>(e.RowHandle);
             if (cmd != null)
             {
                 cmd.IdUser = Program.LoggedUser!.Id;
@@ -65,7 +65,7 @@ namespace LifeLog.Views.Tasks
         {
             UpdateProgressBar();
 
-            if (e.Row is Todo task && task != null)
+            if (e.Row is Data.Entities.Todo task && task != null)
             {
                 task.IdUser = Program.LoggedUser!.Id;
 
@@ -91,9 +91,9 @@ namespace LifeLog.Views.Tasks
         /// </summary>
         public async Task LoadData()
         {
-            (List<Todo?>? tasksList, _) = await Program.DataEngine!.Tasks.GetUserTasks(Program.LoggedUser!.Id);
+            (List<Data.Entities.Todo?>? tasksList, _) = await Program.DataEngine!.Tasks.GetUserTasks(Program.LoggedUser!.Id);
 
-            tasksModelBindingSource.DataSource = tasksList ?? new List<Todo?>();
+            tasksModelBindingSource.DataSource = tasksList ?? new List<Data.Entities.Todo?>();
 
             UpdateProgressBar();
         }
@@ -114,7 +114,7 @@ namespace LifeLog.Views.Tasks
                 return;
             }
 
-            int completedTasks = tasksModelBindingSource.List.Cast<Todo>().Where(w => w.IsDone).Count();
+            int completedTasks = tasksModelBindingSource.List.Cast<Data.Entities.Todo>().Where(w => w.IsDone).Count();
 
             int progress = (int)((completedTasks / (double)totalTasks) * 100);
             pbcTotal.Position = progress;

@@ -75,6 +75,7 @@
             ribbonControl.ItemPanelStyle = DevExpress.XtraBars.Ribbon.RibbonItemPanelStyle.Classic;
             ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] { ribbonControl.ExpandCollapseItem });
             ribbonControl.Location = new Point(0, 0);
+            ribbonControl.MaximumSize = new Size(0, 50);
             ribbonControl.MaxItemId = 8;
             ribbonControl.Name = "ribbonControl";
             ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
@@ -268,6 +269,7 @@
             FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             IconOptions.Icon = (Icon)resources.GetObject("ThreeSimpleRuleForm.IconOptions.Icon");
+            IconOptions.SvgImage = Properties.Resources.LifeLog;
             Name = "ThreeSimpleRuleForm";
             Ribbon = ribbonControl;
             StartPosition = FormStartPosition.CenterParent;

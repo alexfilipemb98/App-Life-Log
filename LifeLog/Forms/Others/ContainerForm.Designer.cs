@@ -42,8 +42,10 @@
             ribbon.ExpandCollapseItem.Id = 0;
             ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { bbiTopMost, ribbon.ExpandCollapseItem });
             ribbon.Location = new Point(0, 0);
+            ribbon.MaximumSize = new Size(0, 50);
             ribbon.MaxItemId = 3;
             ribbon.Name = "ribbon";
+            ribbon.OptionsCustomizationForm.FormIcon = (Icon)resources.GetObject("resource.FormIcon");
             ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             ribbon.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
@@ -52,7 +54,7 @@
             ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             ribbon.ShowQatLocationSelector = false;
             ribbon.ShowToolbarCustomizeItem = false;
-            ribbon.Size = new Size(753, 65);
+            ribbon.Size = new Size(753, 50);
             ribbon.Toolbar.ShowCustomizeItem = false;
             // 
             // bbiTopMost
@@ -66,20 +68,21 @@
             // 
             panelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             panelControl.Dock = DockStyle.Fill;
-            panelControl.Location = new Point(0, 65);
+            panelControl.Location = new Point(0, 50);
             panelControl.Name = "panelControl";
-            panelControl.Size = new Size(753, 331);
+            panelControl.Size = new Size(753, 346);
             panelControl.TabIndex = 2;
             // 
             // ContainerForm
             // 
+            Appearance.Options.UseFont = true;
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(753, 396);
             Controls.Add(panelControl);
             Controls.Add(ribbon);
             Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            IconOptions.Icon = (Icon)resources.GetObject("ContainerForm.IconOptions.Icon");
+            IconOptions.SvgImage = Properties.Resources.LifeLog;
             Name = "ContainerForm";
             Ribbon = ribbon;
             StartPosition = FormStartPosition.CenterParent;

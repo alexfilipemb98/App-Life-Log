@@ -87,6 +87,7 @@
             Controls.Add(ribbonControl);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             IconOptions.Icon = (Icon)resources.GetObject("QrCodeForm.IconOptions.Icon");
+            IconOptions.SvgImage = Properties.Resources.LifeLog;
             MaximizeBox = false;
             MaximumSize = new Size(200, 250);
             MinimizeBox = false;

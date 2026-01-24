@@ -151,7 +151,7 @@
             ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { bbiDatabaseSettings, ribbon.ExpandCollapseItem, bbiGoBack, bsiDatabase, bsiAppVersion, bsiStatusLabel });
             ribbon.Location = new Point(0, 0);
             ribbon.Margin = new Padding(3, 2, 3, 2);
-            ribbon.MaximumSize = new Size(0, 45);
+            ribbon.MaximumSize = new Size(0, 50);
             ribbon.MaxItemId = 12;
             ribbon.Name = "ribbon";
             ribbon.OptionsMenuMinWidth = 283;
@@ -166,7 +166,7 @@
             ribbon.ShowPageKeyTipsMode = DevExpress.XtraBars.Ribbon.ShowPageKeyTipsMode.Hide;
             ribbon.ShowQatLocationSelector = false;
             ribbon.ShowToolbarCustomizeItem = false;
-            ribbon.Size = new Size(598, 45);
+            ribbon.Size = new Size(598, 50);
             ribbon.StatusBar = ribbonStatusBar;
             ribbon.Toolbar.ShowCustomizeItem = false;
             // 
@@ -242,7 +242,7 @@
             layoutControl.Name = "layoutControl";
             layoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new Rectangle(2129, 344, 650, 400);
             layoutControl.Root = Root;
-            layoutControl.Size = new Size(586, 245);
+            layoutControl.Size = new Size(586, 240);
             layoutControl.TabIndex = 4;
             layoutControl.Text = "dataLayoutControl1";
             // 
@@ -277,7 +277,7 @@
             // 
             // pictureEdit1
             // 
-            pictureEdit1.EditValue = Properties.Resources.Icon;
+            pictureEdit1.EditValue = Properties.Resources.LifeLog;
             pictureEdit1.Location = new Point(399, 0);
             pictureEdit1.Margin = new Padding(0);
             pictureEdit1.MenuManager = ribbon;
@@ -288,14 +288,14 @@
             pictureEdit1.Properties.Padding = new Padding(5);
             pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            pictureEdit1.Size = new Size(187, 245);
+            pictureEdit1.Size = new Size(187, 240);
             pictureEdit1.StyleController = layoutControl;
             pictureEdit1.TabIndex = 5;
             // 
             // teEmail
             // 
             teEmail.CausesValidation = false;
-            teEmail.Location = new Point(44, 111);
+            teEmail.Location = new Point(44, 106);
             teEmail.Margin = new Padding(3, 2, 3, 2);
             teEmail.MenuManager = ribbon;
             teEmail.Name = "teEmail";
@@ -308,7 +308,7 @@
             // teUsername
             // 
             teUsername.CausesValidation = false;
-            teUsername.Location = new Point(44, 63);
+            teUsername.Location = new Point(44, 58);
             teUsername.Margin = new Padding(3, 2, 3, 2);
             teUsername.MenuManager = ribbon;
             teUsername.Name = "teUsername";
@@ -321,7 +321,7 @@
             // bePassword
             // 
             bePassword.CausesValidation = false;
-            bePassword.Location = new Point(44, 159);
+            bePassword.Location = new Point(44, 154);
             bePassword.Margin = new Padding(3, 2, 3, 2);
             bePassword.MenuManager = ribbon;
             bePassword.Name = "bePassword";
@@ -342,7 +342,7 @@
             sbSubmit.Appearance.Options.UseBackColor = true;
             sbSubmit.Appearance.Options.UseFont = true;
             sbSubmit.Cursor = Cursors.Hand;
-            sbSubmit.Location = new Point(134, 213);
+            sbSubmit.Location = new Point(134, 208);
             sbSubmit.Margin = new Padding(3, 2, 3, 2);
             sbSubmit.MaximumSize = new Size(115, 0);
             sbSubmit.MinimumSize = new Size(115, 0);
@@ -359,7 +359,7 @@
             Root.GroupBordersVisible = false;
             Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { lciMain });
             Root.Name = "Root";
-            Root.Size = new Size(586, 245);
+            Root.Size = new Size(586, 240);
             Root.TextVisible = false;
             // 
             // lciMain
@@ -368,7 +368,7 @@
             lciMain.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem5, simpleSeparator2, esiBottom, layoutControlItem8, layoutControlItem9, esiTop, layoutControlGroup2 });
             lciMain.Location = new Point(0, 0);
             lciMain.Name = "lciMain";
-            lciMain.Size = new Size(586, 245);
+            lciMain.Size = new Size(586, 240);
             // 
             // layoutControlItem5
             // 
@@ -380,7 +380,7 @@
             layoutControlItem5.MinSize = new Size(187, 17);
             layoutControlItem5.Name = "layoutControlItem5";
             layoutControlItem5.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            layoutControlItem5.Size = new Size(187, 245);
+            layoutControlItem5.Size = new Size(187, 240);
             layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             layoutControlItem5.TextVisible = false;
             // 
@@ -388,12 +388,12 @@
             // 
             simpleSeparator2.Location = new Point(392, 0);
             simpleSeparator2.Name = "simpleSeparator2";
-            simpleSeparator2.Size = new Size(7, 245);
+            simpleSeparator2.Size = new Size(7, 240);
             simpleSeparator2.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 0, 0);
             // 
             // esiBottom
             // 
-            esiBottom.Location = new Point(0, 244);
+            esiBottom.Location = new Point(0, 239);
             esiBottom.MinSize = new Size(1, 1);
             esiBottom.Name = "esiBottom";
             esiBottom.Size = new Size(392, 1);
@@ -421,14 +421,14 @@
             esiTop.Location = new Point(0, 34);
             esiTop.MinSize = new Size(1, 1);
             esiTop.Name = "esiTop";
-            esiTop.Size = new Size(392, 26);
+            esiTop.Size = new Size(392, 21);
             esiTop.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             // 
             // layoutControlGroup2
             // 
             layoutControlGroup2.GroupBordersVisible = false;
             layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlGroup1, layoutControlItem2, layoutControlItem4, lciLoginUsername });
-            layoutControlGroup2.Location = new Point(0, 60);
+            layoutControlGroup2.Location = new Point(0, 55);
             layoutControlGroup2.Name = "layoutControlGroup2";
             layoutControlGroup2.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignLocal;
             layoutControlGroup2.OptionsItemText.TextToControlDistance = 1;
@@ -516,12 +516,12 @@
             navigationFrame.Controls.Add(npAuth);
             navigationFrame.Controls.Add(npDbSettings);
             navigationFrame.Dock = DockStyle.Fill;
-            navigationFrame.Location = new Point(0, 45);
+            navigationFrame.Location = new Point(0, 50);
             navigationFrame.Margin = new Padding(3, 2, 3, 2);
             navigationFrame.Name = "navigationFrame";
             navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] { npAuth, npDbSettings });
             navigationFrame.SelectedPage = npAuth;
-            navigationFrame.Size = new Size(598, 257);
+            navigationFrame.Size = new Size(598, 252);
             navigationFrame.TabIndex = 7;
             navigationFrame.Text = "navigationFrame1";
             // 
@@ -532,7 +532,7 @@
             npAuth.Margin = new Padding(3, 2, 3, 2);
             npAuth.Name = "npAuth";
             npAuth.Padding = new Padding(4);
-            npAuth.Size = new Size(598, 257);
+            npAuth.Size = new Size(598, 252);
             // 
             // panelControl2
             // 
@@ -541,7 +541,7 @@
             panelControl2.Location = new Point(4, 4);
             panelControl2.Margin = new Padding(3, 2, 3, 2);
             panelControl2.Name = "panelControl2";
-            panelControl2.Size = new Size(590, 249);
+            panelControl2.Size = new Size(590, 244);
             panelControl2.TabIndex = 12;
             // 
             // npDbSettings
@@ -550,7 +550,7 @@
             npDbSettings.Controls.Add(databaseSettingsView);
             npDbSettings.Margin = new Padding(3, 2, 3, 2);
             npDbSettings.Name = "npDbSettings";
-            npDbSettings.Size = new Size(598, 257);
+            npDbSettings.Size = new Size(598, 252);
             // 
             // databaseSettingsView
             // 
@@ -558,7 +558,7 @@
             databaseSettingsView.Location = new Point(0, 0);
             databaseSettingsView.Margin = new Padding(3, 2, 3, 2);
             databaseSettingsView.Name = "databaseSettingsView";
-            databaseSettingsView.Size = new Size(598, 257);
+            databaseSettingsView.Size = new Size(598, 252);
             databaseSettingsView.TabIndex = 0;
             // 
             // AuthForm
@@ -571,8 +571,7 @@
             Controls.Add(ribbon);
             Controls.Add(ribbonStatusBar);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            IconOptions.Icon = (Icon)resources.GetObject("AuthForm.IconOptions.Icon");
-            IconOptions.Image = Properties.Resources.Icon;
+            IconOptions.SvgImage = Properties.Resources.LifeLog;
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MaximumSize = new Size(600, 340);

@@ -58,7 +58,7 @@ partial class MainForm
         bbiTestCode = new DevExpress.XtraBars.BarButtonItem();
         btsiTopMost = new DevExpress.XtraBars.BarToggleSwitchItem();
         bbiNotes = new LifeLog.Components.BarButtonItemEx();
-        bbiTasks = new LifeLog.Components.BarButtonItemEx();
+        bbiTodo = new LifeLog.Components.BarButtonItemEx();
         bbiPasswords = new LifeLog.Components.BarButtonItemEx();
         bsiStatusLabel = new DevExpress.XtraBars.BarStaticItem();
         bbiWeather = new LifeLog.Components.BarButtonItemEx();
@@ -98,7 +98,7 @@ partial class MainForm
         ribbon.CaptionBarItemLinks.Add(bbiShowSettings);
         ribbon.EmptyAreaImageOptions.ImagePadding = new Padding(26);
         ribbon.ExpandCollapseItem.Id = 0;
-        ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { bbiShowSettings, ribbon.ExpandCollapseItem, bbiCommandsRunner, skinDropDownButtonItem1, skinPaletteRibbonGalleryBarItem1, bbiPasswordGenerator, bbiPdfMerger, bbiGradesCalculador, bbiConvertText, bbiCodeGenerator, bbiRollDice, bbiTicTacToe, bbiCoinFlip, bsiTime, bsiAppVersion, bsiUserMenu, bbiLogout, bsiDatabase, bciTrackWindowsAppMode, bbiCustomColors, bbiCustomColors2, bciOriginalPalette, bciTrackWindowsAccentColor, bbiFormOut, bbiThreeSimpleRule, bbiTestCode, btsiTopMost, bbiNotes, bbiTasks, bbiPasswords, bsiStatusLabel, bbiWeather });
+        ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] { bbiShowSettings, ribbon.ExpandCollapseItem, bbiCommandsRunner, skinDropDownButtonItem1, skinPaletteRibbonGalleryBarItem1, bbiPasswordGenerator, bbiPdfMerger, bbiGradesCalculador, bbiConvertText, bbiCodeGenerator, bbiRollDice, bbiTicTacToe, bbiCoinFlip, bsiTime, bsiAppVersion, bsiUserMenu, bbiLogout, bsiDatabase, bciTrackWindowsAppMode, bbiCustomColors, bbiCustomColors2, bciOriginalPalette, bciTrackWindowsAccentColor, bbiFormOut, bbiThreeSimpleRule, bbiTestCode, btsiTopMost, bbiNotes, bbiTodo, bbiPasswords, bsiStatusLabel, bbiWeather });
         ribbon.Location = new Point(0, 0);
         ribbon.MaxItemId = 37;
         ribbon.Name = "ribbon";
@@ -318,13 +318,13 @@ partial class MainForm
         bbiNotes.Name = "bbiNotes";
         bbiNotes.TargetViewTypeName = "LifeLog.Views.Notes.NotesView";
         // 
-        // bbiTasks
+        // bbiTodo
         // 
-        bbiTasks.Caption = "Tasks";
-        bbiTasks.Id = 33;
-        bbiTasks.ImageOptions.SvgImage = Properties.Resources.task;
-        bbiTasks.Name = "bbiTasks";
-        bbiTasks.TargetViewTypeName = "LifeLog.Views.Tasks.TasksView";
+        bbiTodo.Caption = "Todo";
+        bbiTodo.Id = 33;
+        bbiTodo.ImageOptions.SvgImage = Properties.Resources.task;
+        bbiTodo.Name = "bbiTodo";
+        bbiTodo.TargetViewTypeName = "LifeLog.Views.Todo.TodoView";
         // 
         // bbiPasswords
         // 
@@ -364,7 +364,7 @@ partial class MainForm
         ribbonPageGroup1.ItemLinks.Add(bbiNotes);
         ribbonPageGroup1.ItemLinks.Add(bbiCommandsRunner);
         ribbonPageGroup1.ItemLinks.Add(bbiPasswords);
-        ribbonPageGroup1.ItemLinks.Add(bbiTasks);
+        ribbonPageGroup1.ItemLinks.Add(bbiTodo);
         ribbonPageGroup1.ItemLinks.Add(bbiWeather);
         ribbonPageGroup1.Name = "ribbonPageGroup1";
         ribbonPageGroup1.Text = "Main";
@@ -518,6 +518,7 @@ partial class MainForm
         Controls.Add(ribbon);
         Controls.Add(ribbonStatusBar);
         IconOptions.Icon = (Icon)resources.GetObject("MainForm.IconOptions.Icon");
+        IconOptions.SvgImage = Properties.Resources.LifeLog;
         Name = "MainForm";
         Ribbon = ribbon;
         StartPosition = FormStartPosition.CenterScreen;
@@ -585,7 +586,7 @@ partial class MainForm
 	private DevExpress.XtraBars.BarToggleSwitchItem btsiTopMost;
 	private DevExpress.XtraBars.Navigation.NavigationPage npDashboard;
 	private LifeLog.Components.BarButtonItemEx bbiNotes;
-	private LifeLog.Components.BarButtonItemEx bbiTasks;
+	private LifeLog.Components.BarButtonItemEx bbiTodo;
 	private LifeLog.Components.BarButtonItemEx bbiPasswords;
     public DevExpress.XtraBars.BarStaticItem bsiStatusLabel;
     private LifeLog.Components.BarButtonItemEx bbiWeather;

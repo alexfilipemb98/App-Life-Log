@@ -33,18 +33,18 @@ public partial class MainForm : RibbonForm
     /// <param name="e"></param>
     private void MainForm_Load(object sender, EventArgs e)
     {
-		string? fileVersion = Assembly.GetExecutingAssembly()
-	       .GetCustomAttribute<AssemblyFileVersionAttribute>()?
-	       .Version;
+        string? fileVersion = Assembly.GetExecutingAssembly()
+           .GetCustomAttribute<AssemblyFileVersionAttribute>()?
+           .Version;
 
 #if DEBUG
 		bsiAppVersion.Caption = $"v{fileVersion} (DEBUG!)";
         bsiAppVersion.ItemAppearance.Normal.ForeColor = ForeColors.Critical;
 #else
-		bsiAppVersion.Caption = $"v{fileVersion}";
-		bsiAppVersion.ItemAppearance.Normal.ForeColor = ForeColors.Information;
+        bsiAppVersion.Caption = $"v{fileVersion}";
+        bsiAppVersion.ItemAppearance.Normal.ForeColor = ForeColors.Information;
 #endif
-		bsiUserMenu.Caption = Program.LoggedUser!.Username;
+        bsiUserMenu.Caption = Program.LoggedUser!.Username;
         bsiDatabase.Caption = Program.DataEngine!.DBName;
 
         navigationFrame.TransitionManager.AfterTransitionEnds += (ts, te) => DialogHelper.CloseWait();

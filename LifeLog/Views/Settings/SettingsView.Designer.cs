@@ -80,8 +80,8 @@ partial class SettingsView
         backstageViewControl.LeftPaneMinWidth = 170;
         backstageViewControl.Location = new Point(0, 0);
         backstageViewControl.Name = "backstageViewControl";
-        backstageViewControl.SelectedTab = bvtiData;
-        backstageViewControl.SelectedTabIndex = 5;
+        backstageViewControl.SelectedTab = bvtiDatabase;
+        backstageViewControl.SelectedTabIndex = 3;
         backstageViewControl.Size = new Size(1005, 612);
         backstageViewControl.TabIndex = 3;
         backstageViewControl.Text = "backstageViewControl1";
@@ -230,6 +230,7 @@ partial class SettingsView
         bvtiDatabase.ImageOptions.ItemNormal.SvgImage = Properties.Resources.editdatasource;
         bvtiDatabase.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
         bvtiDatabase.Name = "bvtiDatabase";
+        bvtiDatabase.Selected = true;
         // 
         // bvtiSqlRun
         // 
@@ -254,7 +255,6 @@ partial class SettingsView
         bvtiData.ImageOptions.ItemNormal.SvgImage = Properties.Resources.actions_database;
         bvtiData.ImageOptions.ItemNormal.SvgImageSize = new Size(24, 24);
         bvtiData.Name = "bvtiData";
-        bvtiData.Selected = true;
         // 
         // bvtiInfo
         // 

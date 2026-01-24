@@ -62,7 +62,7 @@ public partial class WeatherView : DevExpress.XtraEditors.XtraUserControl
             {
                 statesModelBindingSource.DataSource = await Data.World.Data.States(country.id.ToString());
 
-                Bitmap image = ImagesUtil.ImageUrlToBitmap($"https://flagsapi.com/{country.iso2}/flat/24.png");
+                Bitmap image = await ImagesUtil.ImageUrlToBitmapAsync($"https://flagsapi.com/{country.iso2}/flat/24.png");
                 peIconCountry.Image = image;
             }
             else

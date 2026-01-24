@@ -54,8 +54,7 @@ internal static class Program
                 if (ApiEngine is not null)
                     await ApiEngine.DisposeAsync();
 
-                if (DataEngine is not null)
-                    DataEngine.Dispose();
+                DataEngine?.Dispose();
             };
 
             DbConfigs = AppHelper.GetDatabaseConfig();
