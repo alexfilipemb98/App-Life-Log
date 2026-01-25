@@ -7,6 +7,7 @@ using LifeLog.Data.Helpers;
 using LifeLog.Helpers;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace LifeLog.Views.Settings;
 
@@ -182,9 +183,18 @@ public partial class DatabaseSettingsView : XtraUserControl
         else
             dxErrorProvider.SetError(beApiLink, string.Empty);
 
-        if (!string.IsNullOrWhiteSpace(apiLink))
-            System.Diagnostics.Process.Start(apiLink);
-    }
+		if (!string.IsNullOrWhiteSpace(apiLink))
+		{
+			if (Uri.TryCreate(apiLink, UriKind.Absolute, out var uri))
+			{
+				Process.Start(new ProcessStartInfo
+				{
+					FileName = uri.ToString(),
+					UseShellExecute = true
+				});
+			}
+		}
+	}
 
     #endregion
 

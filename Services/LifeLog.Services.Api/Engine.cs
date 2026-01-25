@@ -1,5 +1,5 @@
 ﻿using LifeLog.Data.Helpers;
-using LifeLog.Services.Api.JWT;
+using LifeLog.Services.Api.Jwt;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,6 +22,13 @@ namespace LifeLog.Services.Api;
 /// </summary>
 public sealed class Engine : IAsyncDisposable
 {
+    //CONSTANTS
+    internal const string JwtKey = "hLzKwn1m05QHwzfKX651u831J2dPnTGmuIXbcol3cBYDx4GMp1";
+	internal const string JwtIssuer = "Web_Api";
+	internal const string JwtAudience = "Web_Api_Clients";
+	internal const int JwtRefreshTokenDays = 7;
+	internal const int JwtAccessTokenMinutes = 15;
+
 	#region MAIN
 
 	//PRIVATE
@@ -41,16 +48,11 @@ public sealed class Engine : IAsyncDisposable
             ApplicationName = typeof(Engine).Assembly.FullName
         });
 
-        // Configure JWT settings
-        string jwtKey = "hLzKwn1m05QHwzfKX651u831J2dPnTGmuIXbcol3cBYDx4GMp1";
-        string jwtIssuer = "Web_Api";
-        string jwtAudience = "Web_Api_Clients";
-
 		// Configure URL
 		builder.WebHost.UseUrls(url);
 
         // Configure services
-        ConfigureServices(builder.Services, jwtKey, jwtIssuer, jwtAudience, connection);
+        ConfigureServices(builder.Services, JwtKey, JwtIssuer, JwtAudience, connection);
 
         // Build application
         _app = builder.Build();

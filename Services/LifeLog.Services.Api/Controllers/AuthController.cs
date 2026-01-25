@@ -1,11 +1,11 @@
 ﻿using LifeLog.Core.Models;
 using LifeLog.Data.Interfaces;
-using LifeLog.Services.Api.JWT;
+using LifeLog.Services.Api.Jwt;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using static LifeLog.Services.Api.JWT.TokenService;
+using static LifeLog.Services.Api.Jwt.TokenService;
 
 namespace LifeLog.Services.Api.Controllers;
 
@@ -55,11 +55,10 @@ public class AuthController : ControllerBase
 		if (user is null)
 			return Unauthorized("Email ou password inválidos.");
 
-		(string? access, int expiresIn) = _tokens.CreateAccessToken(user.Id.ToString(), model!.Email!,"User");
+		(string? access, int expiresIn) = _tokens.CreateAccessToken(user.Id.ToString(), model!.Email!, "User");
 
 		string refresh = _tokens.CreateRefreshToken();
-		int days = int.Parse("7");
-		DateTime refreshExp = DateTime.UtcNow.AddDays(days);
+		DateTime refreshExp = DateTime.UtcNow.AddDays(Engine.JwtRefreshTokenDays);
 
 		_refreshStore.Save(refresh, user.Id.ToString(), refreshExp);
 
@@ -85,22 +84,21 @@ public class AuthController : ControllerBase
 
 		_refreshStore.Revoke(req.RefreshToken);
 
-		(Data.Entities.User? user, string message)  = await _userDB.GetByKey(uId);
+		(Data.Entities.User? user, string message) = await _userDB.GetByKey(uId);
 
 		if (user is null)
-			return Unauthorized("Não autorizado!");
+			return Unauthorized("Not Authorized!");
 
 		string role = "Admin";
 
 		(string? access, int expiresIn) = _tokens.CreateAccessToken(user.Id.ToString()!, user.Email!, role);
 
 		if (string.IsNullOrWhiteSpace(access))
-			return Unauthorized("Não autorizado!");
+			return Unauthorized("Not Authorized!");
 
 		string newRefresh = _tokens.CreateRefreshToken();
-		int days = int.Parse("7");
 
-		_refreshStore.Save(newRefresh, user.Id.ToString()!, DateTime.UtcNow.AddDays(days));
+		_refreshStore.Save(newRefresh, user.Id.ToString()!, DateTime.UtcNow.AddDays(Engine.JwtRefreshTokenDays));
 
 		return Ok(new TokenResponse(access, newRefresh, expiresIn));
 	}
@@ -116,9 +114,16 @@ public class AuthController : ControllerBase
 	[HttpGet]
 	public IActionResult Me()
 	{
+		if (User.Identity is null)
+			return Unauthorized("Not Authorized!");
+
+
+		if (!User.Identity.IsAuthenticated)
+			return Unauthorized("Not Authenticated!");
+
 		return Ok(new
 		{
-			User = User.Identity?.Name,
+			User = User.Identity.Name,
 			Claims = User.Claims.Select(c => new { c.Type, c.Value })
 		});
 	}

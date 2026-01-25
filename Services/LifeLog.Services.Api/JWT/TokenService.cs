@@ -5,7 +5,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace LifeLog.Services.Api.JWT;
+namespace LifeLog.Services.Api.Jwt;
 
 public class TokenService : ITokenService
 {
@@ -17,12 +17,6 @@ public class TokenService : ITokenService
 
     public (string token, int expiresInSeconds) CreateAccessToken(string userId, string email, string role)
     {
-        var jwt = _cfg.GetSection("Jwt");
-        var key = jwt["Key"]!;
-        var issuer = jwt["Issuer"]!;
-        var audience = jwt["Audience"]!;
-        var minutes = int.Parse(jwt["AccessTokenMinutes"] ?? "15");
-
         var claims = new List<Claim>
         {
             new(JwtRegisteredClaimNames.Sub, userId),
@@ -32,20 +26,20 @@ public class TokenService : ITokenService
             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         };
 
-        var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+        var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Engine.JwtKey));
         var creds = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256);
 
-        var expires = DateTime.UtcNow.AddMinutes(minutes);
+        var expires = DateTime.UtcNow.AddMinutes(Engine.JwtAccessTokenMinutes);
 
         var token = new JwtSecurityToken(
-            issuer: issuer,
-            audience: audience,
+            issuer: Engine.JwtIssuer,
+            audience: Engine.JwtAudience,
             claims: claims,
             expires: expires,
             signingCredentials: creds);
 
         string? jwtString = new JwtSecurityTokenHandler().WriteToken(token);
-        return (jwtString, minutes * 60);
+        return (jwtString, Engine.JwtAccessTokenMinutes * 60);
     }
 
     public string CreateRefreshToken()
