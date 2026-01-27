@@ -10,6 +10,7 @@
   </Folder>
   <Folder Name="/Services/">
     <Project Path="Services/LifeLog.Services.Api/LifeLog.Services.Api.csproj" />
+    <Project Path="Services/LifeLog.Services.JsonApi/LifeLog.Services.JsonApi.csproj" Id="2485f871-c0c4-4924-a97a-b5b8de9c6dd4" />
     <Project Path="Services/LifeLog.Services.SqlData/LifeLog.Services.SqlData.csproj" />
     <Project Path="Services/LifeLog.Services.Weather/LifeLog.Services.Weather.csproj" />
     <Project Path="Services/LifeLog.Services/LifeLog.Services.csproj" />

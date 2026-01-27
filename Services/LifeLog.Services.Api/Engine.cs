@@ -3,7 +3,6 @@ using LifeLog.Services.Api.Jwt;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
@@ -24,15 +23,15 @@ public sealed class Engine : IAsyncDisposable
 {
     //CONSTANTS
     internal const string JwtKey = "hLzKwn1m05QHwzfKX651u831J2dPnTGmuIXbcol3cBYDx4GMp1";
-	internal const string JwtIssuer = "Web_Api";
-	internal const string JwtAudience = "Web_Api_Clients";
-	internal const int JwtRefreshTokenDays = 7;
-	internal const int JwtAccessTokenMinutes = 15;
+    internal const string JwtIssuer = "Web_Api";
+    internal const string JwtAudience = "Web_Api_Clients";
+    internal const int JwtRefreshTokenDays = 7;
+    internal const int JwtAccessTokenMinutes = 15;
 
-	#region MAIN
+    #region MAIN
 
-	//PRIVATE
-	private WebApplication? _app;
+    //PRIVATE
+    private WebApplication? _app;
 
     /// <summary>
     /// Starts the web application asynchronously
@@ -48,8 +47,8 @@ public sealed class Engine : IAsyncDisposable
             ApplicationName = typeof(Engine).Assembly.FullName
         });
 
-		// Configure URL
-		builder.WebHost.UseUrls(url);
+        // Configure URL
+        builder.WebHost.UseUrls(url);
 
         // Configure services
         ConfigureServices(builder.Services, JwtKey, JwtIssuer, JwtAudience, connection);
@@ -80,7 +79,7 @@ public sealed class Engine : IAsyncDisposable
     public async ValueTask DisposeAsync() => await StopAsync();
 
     #endregion
-    
+
     #region FUNCTIONS
 
     /// <summary>
