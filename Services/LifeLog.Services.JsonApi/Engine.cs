@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace LifeLog.Services.Api;
+namespace LifeLog.Services.JsonApi;
 
 /// <summary>
 /// Web API engine for managing the application lifecycle
@@ -41,7 +41,7 @@ public sealed class Engine : IAsyncDisposable
 
         _app.UseCors("AllowAll");
 
-        _app.MapGet("/json", async () =>
+        _app.MapGet("/", async () =>
         {
             if (!File.Exists(jsonFile))
                 return Results.NotFound("File not found");

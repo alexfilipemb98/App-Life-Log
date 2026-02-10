@@ -171,41 +171,41 @@ public partial class DatabaseSettingsView : XtraUserControl
     /// <param name="sender"></param>
     /// <param name="e"></param>
     private void beApiLink_ButtonClick(object sender, ButtonPressedEventArgs e)
-    {
+	{
 
-        string apiLink = beApiLink.Text;
+		string apiLink = beApiLink.Text;
 
-        if (!apiLink.IsValidUrl())
-        {
-            dxErrorProvider.SetError(beApiLink, "The URL is not valid");
-            return;
-        }
-        else
-            dxErrorProvider.SetError(beApiLink, string.Empty);
-
-		if (!string.IsNullOrWhiteSpace(apiLink))
+		if (!apiLink.IsValidUrl())
 		{
-			if (Uri.TryCreate(apiLink, UriKind.Absolute, out var uri))
-			{
-				Process.Start(new ProcessStartInfo
-				{
-					FileName = uri.ToString(),
-					UseShellExecute = true
-				});
-			}
+			dxErrorProvider.SetError(beApiLink, "The URL is not valid");
+			return;
 		}
+		else
+			dxErrorProvider.SetError(beApiLink, string.Empty);
+
+		if (string.IsNullOrWhiteSpace(apiLink))
+			return;
+		
+        if (!Uri.TryCreate(apiLink, UriKind.Absolute, out Uri? uri))
+			return;
+		
+        Process.Start(new ProcessStartInfo
+		{
+			FileName = uri.ToString(),
+			UseShellExecute = true
+		});
 	}
 
-    #endregion
+	#endregion
 
-    #region SELECTED INDEX CHANGED
+	#region SELECTED INDEX CHANGED
 
-    /// <summary>
-    /// Selected index changed to changed from remote to sql
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private void cbDatabaseType_SelectedIndexChanged(object sender, EventArgs e)
+	/// <summary>
+	/// Selected index changed to changed from remote to sql
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void cbDatabaseType_SelectedIndexChanged(object sender, EventArgs e)
     {
         switch ((DatabaseTypeEnum)cbDatabaseType.SelectedIndex)
         {

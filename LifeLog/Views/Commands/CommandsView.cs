@@ -245,21 +245,16 @@ namespace LifeLog.Views.Commands
         {
             try
             {
-                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-                {
-                    saveFileDialog.Title = "Save commands as JSON";
-                    saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
-                    saveFileDialog.DefaultExt = "json";
-                    saveFileDialog.FileName = "commands.json";
+                string? fileName = DialogHelper.SaveJsonFile("commands");
+                if (string.IsNullOrWhiteSpace(fileName))
+                    return;
 
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        (List<Command?>? commands, _) = await Program.DataEngine!.Commands.GetUserCommands(Program.LoggedUser.Id);
-                        JsonUtil.ExportToFile(commands, saveFileDialog.FileName, indented: true);
+                DialogHelper.SaveJsonFile("commands");
 
-                        MessageBox.Show($"({commands.Count}) Commands exported successfuly!");
-                    }
-                }
+                (List<Command?>? commands, _) = await Program.DataEngine!.Commands.GetUserCommands(Program.LoggedUser!.Id);
+                JsonUtil.ExportToFile(commands, fileName, indented: true);
+
+                MessageBox.Show($"({commands!.Count}) Commands exported successfuly!");
             }
             catch (Exception ex)
             {
@@ -276,29 +271,30 @@ namespace LifeLog.Views.Commands
         {
             try
             {
-                using (var openFileDialog = new OpenFileDialog())
+                using OpenFileDialog openFileDialog = new();
+                openFileDialog.Title = "Open commands JSON";
+                openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+                openFileDialog.DefaultExt = "json";
+
+                if (openFileDialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                List<Command>? commandsJson = JsonUtil.ImportFromFile<List<Command>>(openFileDialog.FileName);
+
+                if (commandsJson == null || commandsJson.Count == 0)
+                    return;
+
+                commandsJson.ForEach(w => w.IdUser = Program.LoggedUser.Id);
+
+                (bool saved, _) = await Program.DataEngine!.Commands.SaveList(commandsJson);
+
+                if (saved)
                 {
-                    openFileDialog.Title = "Open commands JSON";
-                    openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
-                    openFileDialog.DefaultExt = "json";
-
-                    if (openFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        List<Command> commandsJson = JsonUtil.ImportFromFile<List<Command>>(openFileDialog.FileName);
-
-                        commandsJson.ForEach(w => w.IdUser = Program.LoggedUser.Id);
-
-                        (bool saved, _) = await Program.DataEngine.Commands.SaveList(commandsJson);
-
-                        if (saved)
-                        {
-                            foreach (var command in commandsJson)
-                                bsCommandsList.Add(command);
-                        }
-
-                        MessageBox.Show($"({commandsJson.Count}) Commands {(saved ? "imported successfuly" : "not imported")}!");
-                    }
+                    foreach (var command in commandsJson)
+                        bsCommandsList.Add(command);
                 }
+
+                MessageBox.Show($"({commandsJson.Count}) Commands {(saved ? "imported successfuly" : "not imported")}!");
             }
             catch (Exception ex)
             {

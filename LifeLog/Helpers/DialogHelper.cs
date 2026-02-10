@@ -1,6 +1,7 @@
 ﻿using DevExpress.Utils;
 using DevExpress.XtraBars.Alerter;
 using DevExpress.XtraSplashScreen;
+using LifeLog.Core.Utils;
 using LifeLog.Forms.Loading;
 using System.IO;
 
@@ -39,18 +40,33 @@ internal static class DialogHelper
 	/// <returns></returns>
 	internal static string? SaveJsonFile(string fileName)
 	{
-		using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-		{
-			saveFileDialog.Title = $"Save {fileName} as JSON";
-			saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
-			saveFileDialog.DefaultExt = "json";
-			saveFileDialog.FileName = $"{fileName}.json";
-			if (saveFileDialog.ShowDialog() == DialogResult.OK)
-				return saveFileDialog.FileName;
-		}
+        using SaveFileDialog saveFileDialog = new();
+        saveFileDialog.Title = $"Save {fileName} as JSON";
+        saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+        saveFileDialog.DefaultExt = "json";
+        saveFileDialog.FileName = $"{fileName}.json";
+        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            return saveFileDialog.FileName;
 
-		return null;
+        return null;
 	}
+
+	/// <summary>
+	/// Open json file
+	/// </summary>
+	/// <returns></returns>
+	internal static string? OpenJsonFile()
+	{
+        using OpenFileDialog openFileDialog = new();
+        openFileDialog.Title = "Open json file";
+        openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+        openFileDialog.DefaultExt = "json";
+
+        if (openFileDialog.ShowDialog() == DialogResult.OK)
+            return openFileDialog.FileName;
+
+        return null;
+    }
 
 	#region WAIT FORM
 

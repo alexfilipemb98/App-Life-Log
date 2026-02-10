@@ -11,79 +11,79 @@ namespace LifeLog;
 
 internal static class Program
 {
-    internal static DatabaseConfigModel? DbConfigs { get; set; }
-    internal static Data.Engine? DataEngine { get; set; }
-    internal static Services.Api.Engine? ApiEngine { get; set; }
-    internal static LoggedUserModel? LoggedUser { get; set; }
-    internal static AppConfigsModel? AppConfigs { get; set; }
-    internal static AuthForm? AuthForm { get; private set; }
-    internal static MainForm? MainForm { get; private set; }
-    internal static LoggerService? Logger { get; private set; }
-    internal static string? UserDir { get; private set; }
+	internal static DatabaseConfigModel? DbConfigs { get; set; }
+	internal static Data.Engine? DataEngine { get; set; }
+	internal static Services.Api.Engine? ApiEngine { get; set; }
+	internal static LoggedUserModel? LoggedUser { get; set; }
+	internal static AppConfigsModel? AppConfigs { get; set; }
+	internal static AuthForm? AuthForm { get; private set; }
+	internal static MainForm? MainForm { get; private set; }
+	internal static LoggerService? Logger { get; private set; }
+	internal static string? UserDir { get; private set; }
 
-    /// <summary>
-    ///  The main entry point for the application.
-    /// </summary>
-    [STAThread]
-    static void Main()
-    {
-        try
-        {
-            SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
+	/// <summary>
+	///  The main entry point for the application.
+	/// </summary>
+	[STAThread]
+	static void Main()
+	{
+		try
+		{
+			SplashScreenManager.ShowForm(typeof(SplashScreenForm), true, true);
 
-            ApplicationConfiguration.Initialize();
+			ApplicationConfiguration.Initialize();
 
-            UserDir = Path.Combine("Machines", Environment.MachineName, Environment.UserName);
+			UserDir = Path.Combine("Machines", Environment.MachineName, Environment.UserName);
 
-            if (!Directory.Exists(UserDir))
-                Directory.CreateDirectory(UserDir);
+			if (!Directory.Exists(UserDir))
+				Directory.CreateDirectory(UserDir);
 
-            Logger = new LoggerService(UserDir);
+			Logger = new LoggerService(UserDir);
 
-            Application.ThreadException += (s, e) =>
-                    ErrorHelper.Handler(e.Exception);
+			Application.ThreadException += (s, e) =>
+					ErrorHelper.Handler(e.Exception);
 
-            TaskScheduler.UnobservedTaskException += (s, e) =>
-            {
-                ErrorHelper.Handler(e.Exception);
-                e.SetObserved();
-            };
+			TaskScheduler.UnobservedTaskException += (s, e) =>
+			{
+				ErrorHelper.Handler(e.Exception);
+				e.SetObserved();
+			};
 
-            Application.ApplicationExit += async (_, _) =>
-            {
-                if (ApiEngine is not null)
-                    await ApiEngine.DisposeAsync();
+			Application.ApplicationExit += async (_, _) =>
+			{
+				if (ApiEngine is not null)
+					await ApiEngine.DisposeAsync();
 
-                DataEngine?.Dispose();
-            };
+				DataEngine?.Dispose();
+			};
 
-            DbConfigs = AppHelper.GetDatabaseConfig();
+			DbConfigs = AppHelper.GetDatabaseConfig();
 
-            DataEngine = new Data.Engine(DbConfigs);
+			DataEngine = new Data.Engine(DbConfigs);
 
-            ApiEngine = new Services.Api.Engine();
+			ApiEngine = new Services.Api.Engine();
 
-            if (DbConfigs.ApiEnabled && !string.IsNullOrWhiteSpace(DbConfigs.ApiUrl))
-                _ = Task.Run(() => ApiEngine.StartAsync(DataEngine.Connection, DbConfigs.ApiUrl));
+			if (DbConfigs.ApiEnabled && !string.IsNullOrWhiteSpace(DbConfigs.ApiUrl))
+				Task.Run(() => ApiEngine.StartAsync(DataEngine.Connection, DbConfigs.ApiUrl));
 
-            AppConfigs = AppHelper.ReadAppConfigs();
+			AppConfigs = AppHelper.ReadAppConfigs();
 
-            using (AuthForm = new())
-            {
-                AuthForm.Shown += (s, e) => SplashScreenManager.CloseForm(false);
+			using (AuthForm = new())
+			{
+				AuthForm.Shown += (s, e) => SplashScreenManager.CloseForm(false);
 
-                if (AuthForm.ShowDialog() != DialogResult.Yes)
-                    Environment.Exit(0);
-            }
+				if (AuthForm.ShowDialog() != DialogResult.Yes)
+					Environment.Exit(0);
+			}
 
-            MainForm = new();
+			MainForm = new();
 
-            Application.Run(MainForm);
-        }
-        catch (Exception ex)
-        {
-            ErrorHelper.Handler(ex);
-        }
-    }
+			Application.Run(MainForm);
+		}
+		catch (Exception ex)
+		{
+			ErrorHelper.Handler(ex);
+		}
+	}
 }
 

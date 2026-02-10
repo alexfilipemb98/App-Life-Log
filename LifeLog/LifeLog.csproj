@@ -34,6 +34,7 @@
     <ProjectReference Include="..\Data\LifeLog.Data.World\LifeLog.Data.World.csproj" />
     <ProjectReference Include="..\Data\LifeLog.Data\LifeLog.Data.csproj" />
     <ProjectReference Include="..\Services\LifeLog.Services.Api\LifeLog.Services.Api.csproj" />
+    <ProjectReference Include="..\Services\LifeLog.Services.JsonApi\LifeLog.Services.JsonApi.csproj" />
     <ProjectReference Include="..\Services\LifeLog.Services.Weather\LifeLog.Services.Weather.csproj" />
     <ProjectReference Include="..\Services\LifeLog.Services\LifeLog.Services.csproj" />
   </ItemGroup>

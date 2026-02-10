@@ -1,5 +1,6 @@
-﻿using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraSplashScreen;
+﻿using DevExpress.XtraBars.Navigation;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
 using LifeLog.Components;
 
 namespace LifeLog.Forms;
@@ -7,14 +8,14 @@ namespace LifeLog.Forms;
 /// <summary>
 /// Settings View
 /// </summary>
-public partial class SettingsView : DevExpress.XtraEditors.XtraUserControl
+public partial class SettingsView : XtraUserControl
 {
 	/// <summary>
 	/// Constructor
 	/// </summary>
 	public SettingsView() => InitializeComponent();
 
-	private async void backstageViewControl_SelectedTabChanged(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
+	private async void backstageViewControl_SelectedTabChanged(object sender, BackstageViewItemEventArgs e)
 	{
 		string? name = e.Item?.Name;
 
@@ -29,7 +30,7 @@ public partial class SettingsView : DevExpress.XtraEditors.XtraUserControl
 		}
 	}
 
-	private async void navigationPaneEx_SelectedPageChanged(object sender, DevExpress.XtraBars.Navigation.SelectedPageChangedEventArgs e)
+	private async void navigationPaneEx_SelectedPageChanged(object sender, SelectedPageChangedEventArgs e)
 	{
 		string name = ((NavigationPageEx)e.Page).Name;
 
