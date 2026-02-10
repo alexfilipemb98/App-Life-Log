@@ -26,16 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="E:\Assests\Imgs\Icon128.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="DevExpress.Win.BonusSkins" Version="25.2.3" />
     <PackageReference Include="DevExpress.Win.Design" Version="25.2.3" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>
