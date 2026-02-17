@@ -1,6 +1,6 @@
 ﻿using LifeLog.Core.Models;
 using LifeLog.Data.Entities;
-using LifeLog.Data.Xpo.Model;
+using LifeLog.Data.Xpo.ModelCode;
 
 namespace LifeLog.Data.Mappers;
 

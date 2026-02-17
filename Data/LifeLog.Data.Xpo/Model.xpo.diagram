@@ -18,7 +18,7 @@
         <elementListCompartment Id="f4cded9c-22ba-4665-8e2a-623d44f9df56" absoluteBounds="7.6400000000000006, 2.482587890625, 1.4700000000000002, 0.2493896484375" name="Collections" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </xpObjectShape>
-    <aggregationConnector Id="918460eb-8364-435f-8a37-fb3d077c223e" edgePoints="[(2.125 : 2.10829020182292); (4.25 : 2.10829020182292); (4.25 : 3.6588818359375); (5.16666666666667 : 3.6588818359375 : JumpStart); (5.33333333333333 : 3.6588818359375 : JumpEnd); (8.375 : 3.6588818359375); (8.375 : 2.8319775390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <aggregationConnector Id="918460eb-8364-435f-8a37-fb3d077c223e" edgePoints="[(2.125 : 2.10829020182292); (4.25 : 2.10829020182292); (4.25 : 3.6588818359375); (8.375 : 3.6588818359375); (8.375 : 2.8319775390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <aggregationMoniker Id="2c88b3e8-965b-4946-98cd-74a8e68f6aa2" />
       <relativeChildShapes />
       <nodes>

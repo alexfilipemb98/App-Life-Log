@@ -9,11 +9,11 @@
     <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
     <PackageIcon>Icon128.png</PackageIcon>
-    <Version>2026.1.0</Version>
+    <Version>2026.2.0</Version>
     <AssemblyVersion>2026.0.0.0</AssemblyVersion>
-    <FileVersion>2026.1.0.19</FileVersion>
+    <FileVersion>2026.2.0.1</FileVersion>
     <ApplicationIcon>LifeLog.ico</ApplicationIcon>
-    <SignAssembly>False</SignAssembly>
+    <SignAssembly>True</SignAssembly>
     <NeutralLanguage>en-GB</NeutralLanguage>
   </PropertyGroup>
 

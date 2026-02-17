@@ -5,7 +5,7 @@ using DevExpress.Data.Filtering;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
-namespace LifeLog.Data.Xpo.Model
+namespace LifeLog.Data.Xpo.ModelCode
 {
 
 	public partial class TodoXpo

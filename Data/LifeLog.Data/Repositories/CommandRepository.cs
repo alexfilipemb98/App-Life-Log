@@ -3,7 +3,7 @@ using LifeLog.Core.Utils;
 using LifeLog.Data.Entities;
 using LifeLog.Data.Interfaces;
 using LifeLog.Data.Mappers;
-using LifeLog.Data.Xpo.Model;
+using LifeLog.Data.Xpo.ModelCode;
 using LifeLog.Services.SqlData;
 
 namespace LifeLog.Data.Repositories;
