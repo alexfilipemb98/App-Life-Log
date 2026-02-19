@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Core/">
+    <Project Path="Core/LifeLog.Core/LifeLog.Core.csproj" />
+  </Folder>
+  <Project Path="LifeLog/LifeLog.csproj">
+    <Platform Project="x64" />
+    <Deploy />
+  </Project>
+</Solution>

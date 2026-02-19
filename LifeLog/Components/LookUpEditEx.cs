@@ -38,21 +38,21 @@ namespace LifeLog.Components
 		/// <param name="sender"></param>
 		private static void CheckDataSouce(object sender)
 		{
-			if (sender is LookUpEdit lp)
-			{
-				object ds = lp.Properties.DataSource;
-				int cnt = 0;
+			if (sender is not LookUpEdit lp)
+				return;
+			
+			object ds = lp.Properties.DataSource;
+			int cnt = 0;
 
-				if (ds is IListSource ls)             // DataTable, BindingSource, etc.
-					ds = ls.GetList();
+			if (ds is IListSource ls)             // DataTable, BindingSource, etc.
+				ds = ls.GetList();
 
-				if (ds is ICollection col)            // IList, List<T>, BindingList<T>, DataView, etc.
-					cnt = col.Count;
-				else if (ds is IEnumerable en)        // Qualquer outra sequência enumerável
-					cnt = en.Cast<object>().Count();
+			if (ds is ICollection col)            // IList, List<T>, BindingList<T>, DataView, etc.
+				cnt = col.Count;
+			else if (ds is IEnumerable en)        // Qualquer outra sequência enumerável
+				cnt = en.Cast<object>().Count();
 
-				lp.Properties.DropDownRows = Math.Min(7, Math.Max(0, cnt));
-			}
+			lp.Properties.DropDownRows = Math.Min(7, Math.Max(0, cnt));
 		}
 	}
 }

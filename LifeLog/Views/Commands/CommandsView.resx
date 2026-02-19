@@ -234,41 +234,47 @@
   </metadata>
   <data name="htmlTemplate1.Styles" xml:space="preserve">
     <value>.contact {
-	height: 55px;
-	display: flex;
-	flex-direction: row;
-	align-content: center;
-	justify-content: center;
-	vertical-align: middle;
-	align-items: stretch;
-	background-color: @Window;
-	color: @WindowText;
-	cursor: pointer;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: @Window;
+    position: relative; /* Necessário para posicionar a linha de seleção */
+    cursor: pointer;
 }
 
 .contact:hover {
-	background-color: @Highlight;
+    background-color: @Highlight;
 }
+
+/* O Avatar centralizado */
 .contact-avatar {
-	padding: 4px;
-	width: 50px;
-	height: 50px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .photo {
-	width: 48px;
-	height: 48px;
-	object-fit:contain;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
 }
 
+/* A Linha de Seleção: Fina e Elegante */
 .selection {
-	border-top: solid 1px @Window;
-	border-bottom: solid 1px @WindowText/0.1;
+    height: 1px; /* Espessura de 1 pixel real */
+    background-color: rgba(0, 0, 0, 0.08); /* Cor sutil (ajuste conforme seu @WindowText) */
+    margin: 0 12px; /* Não encosta nas bordas laterais */
 }
 
+/* Quando selecionado: a linha ganha destaque */
 :root:select .selection {
-	border-top: solid 0px @Window;
-	border-bottom: solid 2px @HighlightAlternate;
+    height: 2px;
+    background-color: @HighlightAlternate;
+    margin: 0; /* Ocupa tudo quando selecionado, se desejar */
 }</value>
   </data>
   <metadata name="popupMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

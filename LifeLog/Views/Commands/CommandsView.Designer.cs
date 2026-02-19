@@ -73,6 +73,7 @@
 			npMain = new DevExpress.XtraBars.Navigation.NavigationPage();
 			layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
 			listboxPrograms = new DevExpress.XtraEditors.ListBoxControl();
+			bsExternalPrograms = new BindingSource(components);
 			htmlTemplate1 = new DevExpress.Utils.Html.HtmlTemplate();
 			layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
 			layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -80,7 +81,6 @@
 			npEditor = new DevExpress.XtraBars.Navigation.NavigationPage();
 			lcEditValues = new DevExpress.XtraLayout.LayoutControl();
 			cbeProgram = new LifeLog.Components.LookUpEditEx();
-			bsExternalPrograms = new BindingSource(components);
 			pcCommandText = new DevExpress.XtraEditors.PanelControl();
 			recMain = new DevExpress.XtraRichEdit.RichEditControl();
 			tsEnabled = new DevExpress.XtraEditors.ToggleSwitch();
@@ -113,6 +113,7 @@
 			((System.ComponentModel.ISupportInitialize)layoutControl2).BeginInit();
 			layoutControl2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)listboxPrograms).BeginInit();
+			((System.ComponentModel.ISupportInitialize)bsExternalPrograms).BeginInit();
 			((System.ComponentModel.ISupportInitialize)layoutControlGroup1).BeginInit();
 			((System.ComponentModel.ISupportInitialize)layoutControlItem2).BeginInit();
 			((System.ComponentModel.ISupportInitialize)layoutControlItem3).BeginInit();
@@ -120,7 +121,6 @@
 			((System.ComponentModel.ISupportInitialize)lcEditValues).BeginInit();
 			lcEditValues.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)cbeProgram.Properties).BeginInit();
-			((System.ComponentModel.ISupportInitialize)bsExternalPrograms).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pcCommandText).BeginInit();
 			pcCommandText.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)tsEnabled.Properties).BeginInit();
@@ -147,6 +147,7 @@
 			barManager.DockControls.Add(barDockControlBottom);
 			barManager.DockControls.Add(barDockControlLeft);
 			barManager.DockControls.Add(barDockControlRight);
+			barManager.DockWindowTabFont = new Font("Segoe UI", 9F);
 			barManager.Form = this;
 			barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] { bbiNew, bbiRefresh, bbiBack, bbiEdit, bbiSave, bbiDelete, bbiRunAdmin, bbiEnable, bbiSearch, bbiCreateFile, bbiImport, barSubItem1, bbiExport, bstiShowDisabledCommands });
 			barManager.MainMenu = bar;
@@ -256,12 +257,12 @@
 			gridControl.Cursor = Cursors.Hand;
 			gridControl.DataSource = bsCommandsList;
 			gridControl.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
-			gridControl.Location = new Point(93, 3);
+			gridControl.Location = new Point(80, 3);
 			gridControl.MainView = tileView;
 			gridControl.Margin = new Padding(0);
 			gridControl.MenuManager = barManager;
 			gridControl.Name = "gridControl";
-			gridControl.Size = new Size(952, 463);
+			gridControl.Size = new Size(816, 395);
 			gridControl.TabIndex = 0;
 			gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { tileView });
 			// 
@@ -273,7 +274,7 @@
 			// 
 			tileView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			tileView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colExternalProgram, colName, colDescription, colType, colCommand, colIsEnabled, colId, colCreatedAt, colUpdatedAt, colEditingMode, colIcon, colIdExternalProgram });
-			tileView.DetailHeight = 268;
+			tileView.DetailHeight = 232;
 			tileView.GridControl = gridControl;
 			tileView.Name = "tileView";
 			tileView.OptionsBehavior.KeepFocusedRowOnUpdate = false;
@@ -299,146 +300,146 @@
 			// colExternalProgram
 			// 
 			colExternalProgram.FieldName = "ExternalProgram";
-			colExternalProgram.MinWidth = 17;
+			colExternalProgram.MinWidth = 15;
 			colExternalProgram.Name = "colExternalProgram";
 			colExternalProgram.Visible = true;
 			colExternalProgram.VisibleIndex = 0;
-			colExternalProgram.Width = 64;
+			colExternalProgram.Width = 55;
 			// 
 			// colName
 			// 
 			colName.FieldName = "Name";
-			colName.MinWidth = 17;
+			colName.MinWidth = 15;
 			colName.Name = "colName";
 			colName.Visible = true;
 			colName.VisibleIndex = 1;
-			colName.Width = 64;
+			colName.Width = 55;
 			// 
 			// colDescription
 			// 
 			colDescription.FieldName = "Description";
-			colDescription.MinWidth = 17;
+			colDescription.MinWidth = 15;
 			colDescription.Name = "colDescription";
 			colDescription.Visible = true;
 			colDescription.VisibleIndex = 2;
-			colDescription.Width = 64;
+			colDescription.Width = 55;
 			// 
 			// colType
 			// 
 			colType.FieldName = "Type";
-			colType.MinWidth = 17;
+			colType.MinWidth = 15;
 			colType.Name = "colType";
 			colType.Visible = true;
 			colType.VisibleIndex = 3;
-			colType.Width = 64;
+			colType.Width = 55;
 			// 
 			// colCommand
 			// 
 			colCommand.FieldName = "Command";
-			colCommand.MinWidth = 17;
+			colCommand.MinWidth = 15;
 			colCommand.Name = "colCommand";
 			colCommand.Visible = true;
 			colCommand.VisibleIndex = 4;
-			colCommand.Width = 64;
+			colCommand.Width = 55;
 			// 
 			// colIsEnabled
 			// 
 			colIsEnabled.FieldName = "IsEnabled";
-			colIsEnabled.MinWidth = 17;
+			colIsEnabled.MinWidth = 15;
 			colIsEnabled.Name = "colIsEnabled";
 			colIsEnabled.Visible = true;
 			colIsEnabled.VisibleIndex = 5;
-			colIsEnabled.Width = 64;
+			colIsEnabled.Width = 55;
 			// 
 			// colId
 			// 
 			colId.FieldName = "Id";
-			colId.MinWidth = 17;
+			colId.MinWidth = 15;
 			colId.Name = "colId";
 			colId.Visible = true;
 			colId.VisibleIndex = 6;
-			colId.Width = 64;
+			colId.Width = 55;
 			// 
 			// colCreatedAt
 			// 
 			colCreatedAt.FieldName = "CreatedAt";
-			colCreatedAt.MinWidth = 17;
+			colCreatedAt.MinWidth = 15;
 			colCreatedAt.Name = "colCreatedAt";
 			colCreatedAt.Visible = true;
 			colCreatedAt.VisibleIndex = 7;
-			colCreatedAt.Width = 64;
+			colCreatedAt.Width = 55;
 			// 
 			// colUpdatedAt
 			// 
 			colUpdatedAt.FieldName = "UpdatedAt";
-			colUpdatedAt.MinWidth = 17;
+			colUpdatedAt.MinWidth = 15;
 			colUpdatedAt.Name = "colUpdatedAt";
 			colUpdatedAt.Visible = true;
 			colUpdatedAt.VisibleIndex = 8;
-			colUpdatedAt.Width = 64;
+			colUpdatedAt.Width = 55;
 			// 
 			// colEditingMode
 			// 
 			colEditingMode.FieldName = "EditingMode";
-			colEditingMode.MinWidth = 17;
+			colEditingMode.MinWidth = 15;
 			colEditingMode.Name = "colEditingMode";
 			colEditingMode.Visible = true;
 			colEditingMode.VisibleIndex = 9;
-			colEditingMode.Width = 64;
+			colEditingMode.Width = 55;
 			// 
 			// colIcon
 			// 
 			colIcon.FieldName = "Icon";
-			colIcon.MinWidth = 17;
+			colIcon.MinWidth = 15;
 			colIcon.Name = "colIcon";
 			colIcon.Visible = true;
 			colIcon.VisibleIndex = 10;
-			colIcon.Width = 64;
+			colIcon.Width = 55;
 			// 
 			// colIdExternalProgram
 			// 
 			colIdExternalProgram.FieldName = "IdExternalProgram";
-			colIdExternalProgram.MinWidth = 17;
+			colIdExternalProgram.MinWidth = 15;
 			colIdExternalProgram.Name = "colIdExternalProgram";
 			colIdExternalProgram.Visible = true;
 			colIdExternalProgram.VisibleIndex = 11;
-			colIdExternalProgram.Width = 64;
+			colIdExternalProgram.Width = 55;
 			// 
-			// barBaseDockControlTop
+			// barDockControlTop
 			// 
 			barDockControlTop.CausesValidation = false;
 			barDockControlTop.Dock = DockStyle.Top;
 			barDockControlTop.Location = new Point(0, 0);
 			barDockControlTop.Manager = barManager;
-			barDockControlTop.Margin = new Padding(4, 2, 4, 2);
-			barDockControlTop.Size = new Size(1058, 44);
+			barDockControlTop.Margin = new Padding(3, 2, 3, 2);
+			barDockControlTop.Size = new Size(907, 44);
 			// 
-			// barBaseDockControlBottom
+			// barDockControlBottom
 			// 
 			barDockControlBottom.CausesValidation = false;
 			barDockControlBottom.Dock = DockStyle.Bottom;
-			barDockControlBottom.Location = new Point(0, 527);
+			barDockControlBottom.Location = new Point(0, 457);
 			barDockControlBottom.Manager = barManager;
-			barDockControlBottom.Margin = new Padding(4, 2, 4, 2);
-			barDockControlBottom.Size = new Size(1058, 0);
+			barDockControlBottom.Margin = new Padding(3, 2, 3, 2);
+			barDockControlBottom.Size = new Size(907, 0);
 			// 
-			// barBaseDockControlLeft
+			// barDockControlLeft
 			// 
 			barDockControlLeft.CausesValidation = false;
 			barDockControlLeft.Dock = DockStyle.Left;
 			barDockControlLeft.Location = new Point(0, 44);
 			barDockControlLeft.Manager = barManager;
-			barDockControlLeft.Margin = new Padding(4, 2, 4, 2);
-			barDockControlLeft.Size = new Size(0, 483);
+			barDockControlLeft.Margin = new Padding(3, 2, 3, 2);
+			barDockControlLeft.Size = new Size(0, 413);
 			// 
-			// barBaseDockControlRight
+			// barDockControlRight
 			// 
 			barDockControlRight.CausesValidation = false;
 			barDockControlRight.Dock = DockStyle.Right;
-			barDockControlRight.Location = new Point(1058, 44);
+			barDockControlRight.Location = new Point(907, 44);
 			barDockControlRight.Manager = barManager;
-			barDockControlRight.Margin = new Padding(4, 2, 4, 2);
-			barDockControlRight.Size = new Size(0, 483);
+			barDockControlRight.Margin = new Padding(3, 2, 3, 2);
+			barDockControlRight.Size = new Size(0, 413);
 			// 
 			// bbiEdit
 			// 
@@ -496,10 +497,10 @@
 			layoutControl1.Controls.Add(navigationFrame);
 			layoutControl1.Dock = DockStyle.Fill;
 			layoutControl1.Location = new Point(0, 44);
-			layoutControl1.Margin = new Padding(4, 2, 4, 2);
+			layoutControl1.Margin = new Padding(3, 2, 3, 2);
 			layoutControl1.Name = "layoutControl1";
 			layoutControl1.Root = Root;
-			layoutControl1.Size = new Size(1058, 483);
+			layoutControl1.Size = new Size(907, 413);
 			layoutControl1.TabIndex = 5;
 			layoutControl1.Text = "layoutControl1";
 			// 
@@ -507,12 +508,12 @@
 			// 
 			navigationFrame.Controls.Add(npMain);
 			navigationFrame.Controls.Add(npEditor);
-			navigationFrame.Location = new Point(5, 9);
+			navigationFrame.Location = new Point(4, 8);
 			navigationFrame.Margin = new Padding(0);
 			navigationFrame.Name = "navigationFrame";
 			navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] { npMain, npEditor });
 			navigationFrame.SelectedPage = npMain;
-			navigationFrame.Size = new Size(1048, 469);
+			navigationFrame.Size = new Size(899, 401);
 			navigationFrame.TabIndex = 4;
 			navigationFrame.Text = "navigationFrame1";
 			// 
@@ -522,7 +523,7 @@
 			npMain.Controls.Add(layoutControl2);
 			npMain.Margin = new Padding(0);
 			npMain.Name = "npMain";
-			npMain.Size = new Size(1048, 469);
+			npMain.Size = new Size(899, 401);
 			// 
 			// layoutControl2
 			// 
@@ -530,10 +531,10 @@
 			layoutControl2.Controls.Add(listboxPrograms);
 			layoutControl2.Dock = DockStyle.Fill;
 			layoutControl2.Location = new Point(0, 0);
-			layoutControl2.Margin = new Padding(4, 2, 4, 2);
+			layoutControl2.Margin = new Padding(3, 2, 3, 2);
 			layoutControl2.Name = "layoutControl2";
 			layoutControl2.Root = layoutControlGroup1;
-			layoutControl2.Size = new Size(1048, 469);
+			layoutControl2.Size = new Size(899, 401);
 			layoutControl2.TabIndex = 2;
 			layoutControl2.Text = "layoutControl2";
 			// 
@@ -544,17 +545,21 @@
 			listboxPrograms.DisplayMember = "Name";
 			listboxPrograms.HotTrackSelectMode = DevExpress.XtraEditors.HotTrackSelectMode.SelectItemOnClick;
 			listboxPrograms.HtmlTemplates.AddRange(new DevExpress.Utils.Html.HtmlTemplate[] { htmlTemplate1 });
-			listboxPrograms.ItemHeight = 57;
+			listboxPrograms.ItemHeight = 50;
 			listboxPrograms.Location = new Point(3, 3);
 			listboxPrograms.Margin = new Padding(0);
-			listboxPrograms.MaximumSize = new Size(72, 0);
-			listboxPrograms.MinimumSize = new Size(72, 64);
+			listboxPrograms.MaximumSize = new Size(62, 0);
+			listboxPrograms.MinimumSize = new Size(62, 55);
 			listboxPrograms.Name = "listboxPrograms";
-			listboxPrograms.Size = new Size(72, 463);
+			listboxPrograms.Size = new Size(62, 395);
 			listboxPrograms.StyleController = layoutControl2;
 			listboxPrograms.TabIndex = 1;
 			listboxPrograms.ValueMember = "Id";
 			listboxPrograms.SelectedValueChanged += listboxPrograms_SelectedValueChanged;
+			// 
+			// bsExternalPrograms
+			// 
+			bsExternalPrograms.DataSource = typeof(Data.Entities.ExternalProgram);
 			// 
 			// htmlTemplate1
 			// 
@@ -568,26 +573,26 @@
 			layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem2, layoutControlItem3 });
 			layoutControlGroup1.Name = "layoutControlGroup1";
 			layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			layoutControlGroup1.Size = new Size(1048, 469);
+			layoutControlGroup1.Size = new Size(899, 401);
 			layoutControlGroup1.TextVisible = false;
 			// 
 			// layoutControlItem2
 			// 
 			layoutControlItem2.Control = listboxPrograms;
 			layoutControlItem2.Location = new Point(0, 0);
-			layoutControlItem2.MaxSize = new Size(90, 0);
-			layoutControlItem2.MinSize = new Size(90, 88);
+			layoutControlItem2.MaxSize = new Size(77, 0);
+			layoutControlItem2.MinSize = new Size(77, 76);
 			layoutControlItem2.Name = "layoutControlItem2";
-			layoutControlItem2.Size = new Size(90, 469);
+			layoutControlItem2.Size = new Size(77, 401);
 			layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
 			layoutControlItem2.TextVisible = false;
 			// 
 			// layoutControlItem3
 			// 
 			layoutControlItem3.Control = gridControl;
-			layoutControlItem3.Location = new Point(90, 0);
+			layoutControlItem3.Location = new Point(77, 0);
 			layoutControlItem3.Name = "layoutControlItem3";
-			layoutControlItem3.Size = new Size(958, 469);
+			layoutControlItem3.Size = new Size(822, 401);
 			layoutControlItem3.TextVisible = false;
 			// 
 			// npEditor
@@ -596,7 +601,7 @@
 			npEditor.Controls.Add(lcEditValues);
 			npEditor.Margin = new Padding(3, 2, 3, 2);
 			npEditor.Name = "npEditor";
-			npEditor.Size = new Size(1048, 469);
+			npEditor.Size = new Size(899, 401);
 			// 
 			// lcEditValues
 			// 
@@ -608,40 +613,37 @@
 			lcEditValues.Controls.Add(tsNeedsAdmin);
 			lcEditValues.Dock = DockStyle.Fill;
 			lcEditValues.Location = new Point(0, 0);
-			lcEditValues.Margin = new Padding(4, 2, 4, 2);
+			lcEditValues.Margin = new Padding(3, 2, 3, 2);
 			lcEditValues.Name = "lcEditValues";
 			lcEditValues.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new Rectangle(1240, 284, 650, 400);
 			lcEditValues.Root = layoutControlGroup2;
-			lcEditValues.Size = new Size(1048, 469);
+			lcEditValues.Size = new Size(899, 401);
 			lcEditValues.TabIndex = 2;
 			lcEditValues.Text = "layoutControl1";
 			// 
 			// cbeProgram
 			// 
-			cbeProgram.Location = new Point(79, 39);
+			cbeProgram.Location = new Point(72, 37);
 			cbeProgram.MenuManager = barManager;
 			cbeProgram.Name = "cbeProgram";
 			cbeProgram.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+			cbeProgram.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ImageData", "Image Data", 40, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name", 120, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default), new DevExpress.XtraEditors.Controls.LookUpColumnInfo("FileExtension", "File Extension", 50, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default) });
 			cbeProgram.Properties.DataSource = bsExternalPrograms;
 			cbeProgram.Properties.DisplayMember = "Name";
 			cbeProgram.Properties.DropDownRows = 1;
 			cbeProgram.Properties.NullText = "";
 			cbeProgram.Properties.ValueMember = "Id";
-			cbeProgram.Size = new Size(437, 30);
+			cbeProgram.Size = new Size(370, 28);
 			cbeProgram.StyleController = lcEditValues;
 			cbeProgram.TabIndex = 18;
-			// 
-			// bsExternalPrograms
-			// 
-			bsExternalPrograms.DataSource = typeof(Data.Entities.ExternalProgram);
 			// 
 			// pcCommandText
 			// 
 			pcCommandText.Controls.Add(recMain);
-			pcCommandText.Location = new Point(79, 75);
+			pcCommandText.Location = new Point(72, 71);
 			pcCommandText.Margin = new Padding(3, 2, 3, 2);
 			pcCommandText.Name = "pcCommandText";
-			pcCommandText.Size = new Size(966, 391);
+			pcCommandText.Size = new Size(824, 327);
 			pcCommandText.TabIndex = 17;
 			// 
 			// recMain
@@ -657,7 +659,7 @@
 			recMain.Name = "recMain";
 			recMain.Options.DocumentSaveOptions.CurrentFormat = DevExpress.XtraRichEdit.DocumentFormat.PlainText;
 			recMain.Options.Printing.PrintPreviewFormKind = DevExpress.XtraRichEdit.PrintPreviewFormKind.Bars;
-			recMain.Size = new Size(962, 387);
+			recMain.Size = new Size(820, 323);
 			recMain.TabIndex = 1;
 			recMain.Tag = "Command";
 			recMain.Views.SimpleView.AdjustColorsToSkins = true;
@@ -666,24 +668,24 @@
 			// 
 			tsEnabled.AutoSizeInLayoutControl = true;
 			tsEnabled.CausesValidation = false;
-			tsEnabled.Location = new Point(988, 42);
-			tsEnabled.Margin = new Padding(4, 2, 4, 2);
+			tsEnabled.Location = new Point(849, 39);
+			tsEnabled.Margin = new Padding(3, 2, 3, 2);
 			tsEnabled.Name = "tsEnabled";
 			tsEnabled.Properties.OffText = "Off";
 			tsEnabled.Properties.OnText = "On";
 			tsEnabled.Properties.ShowText = false;
-			tsEnabled.Size = new Size(57, 24);
+			tsEnabled.Size = new Size(47, 24);
 			tsEnabled.StyleController = lcEditValues;
 			tsEnabled.TabIndex = 15;
 			// 
 			// teDescription
 			// 
 			teDescription.CausesValidation = false;
-			teDescription.Location = new Point(453, 3);
+			teDescription.Location = new Point(393, 3);
 			teDescription.Margin = new Padding(3, 2, 3, 2);
 			teDescription.Name = "teDescription";
 			teDescription.Properties.MaxLength = 30;
-			teDescription.Size = new Size(592, 30);
+			teDescription.Size = new Size(503, 28);
 			teDescription.StyleController = lcEditValues;
 			teDescription.TabIndex = 5;
 			teDescription.Tag = "Description";
@@ -691,11 +693,11 @@
 			// teName
 			// 
 			teName.CausesValidation = false;
-			teName.Location = new Point(79, 3);
+			teName.Location = new Point(72, 3);
 			teName.Margin = new Padding(3, 2, 3, 2);
 			teName.Name = "teName";
 			teName.Properties.MaxLength = 13;
-			teName.Size = new Size(292, 30);
+			teName.Size = new Size(246, 28);
 			teName.StyleController = lcEditValues;
 			teName.TabIndex = 4;
 			teName.Tag = "Name";
@@ -704,13 +706,13 @@
 			// 
 			tsNeedsAdmin.AutoSizeInLayoutControl = true;
 			tsNeedsAdmin.CausesValidation = false;
-			tsNeedsAdmin.Location = new Point(878, 42);
-			tsNeedsAdmin.Margin = new Padding(4, 2, 4, 2);
+			tsNeedsAdmin.Location = new Point(752, 39);
+			tsNeedsAdmin.Margin = new Padding(3, 2, 3, 2);
 			tsNeedsAdmin.Name = "tsNeedsAdmin";
 			tsNeedsAdmin.Properties.OffText = "Off";
 			tsNeedsAdmin.Properties.OnText = "On";
 			tsNeedsAdmin.Properties.ShowText = false;
-			tsNeedsAdmin.Size = new Size(57, 24);
+			tsNeedsAdmin.Size = new Size(47, 24);
 			tsNeedsAdmin.StyleController = lcEditValues;
 			tsNeedsAdmin.TabIndex = 15;
 			// 
@@ -720,7 +722,7 @@
 			layoutControlGroup2.GroupBordersVisible = false;
 			layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem4, layoutControlItem5, layoutControlItem8, emptySpaceItem2, layoutControlItem6, layoutControlItem9, layoutControlItem10 });
 			layoutControlGroup2.Name = "Root";
-			layoutControlGroup2.Size = new Size(1048, 469);
+			layoutControlGroup2.Size = new Size(899, 401);
 			layoutControlGroup2.TextVisible = false;
 			// 
 			// layoutControlItem4
@@ -729,19 +731,19 @@
 			layoutControlItem4.Control = teName;
 			layoutControlItem4.Location = new Point(0, 0);
 			layoutControlItem4.Name = "layoutControlItem1";
-			layoutControlItem4.Size = new Size(374, 36);
+			layoutControlItem4.Size = new Size(321, 34);
 			layoutControlItem4.Text = "Name";
-			layoutControlItem4.TextSize = new Size(60, 15);
+			layoutControlItem4.TextSize = new Size(53, 13);
 			// 
 			// layoutControlItem5
 			// 
 			layoutControlItem5.BestFitWeight = 90;
 			layoutControlItem5.Control = teDescription;
-			layoutControlItem5.Location = new Point(374, 0);
+			layoutControlItem5.Location = new Point(321, 0);
 			layoutControlItem5.Name = "layoutControlItem2";
-			layoutControlItem5.Size = new Size(674, 36);
+			layoutControlItem5.Size = new Size(578, 34);
 			layoutControlItem5.Text = "Description";
-			layoutControlItem5.TextSize = new Size(60, 15);
+			layoutControlItem5.TextSize = new Size(53, 13);
 			// 
 			// layoutControlItem8
 			// 
@@ -750,17 +752,17 @@
 			layoutControlItem8.Control = pcCommandText;
 			layoutControlItem8.ImageOptions.Alignment = ContentAlignment.TopRight;
 			layoutControlItem8.ImageOptions.SvgImageSize = new Size(15, 15);
-			layoutControlItem8.Location = new Point(0, 72);
+			layoutControlItem8.Location = new Point(0, 68);
 			layoutControlItem8.Name = "layoutControlItem5";
-			layoutControlItem8.Size = new Size(1048, 397);
+			layoutControlItem8.Size = new Size(899, 333);
 			layoutControlItem8.Text = "Command";
-			layoutControlItem8.TextSize = new Size(60, 15);
+			layoutControlItem8.TextSize = new Size(53, 13);
 			// 
 			// emptySpaceItem2
 			// 
-			emptySpaceItem2.Location = new Point(519, 36);
+			emptySpaceItem2.Location = new Point(445, 34);
 			emptySpaceItem2.Name = "emptySpaceItem2";
-			emptySpaceItem2.Size = new Size(279, 36);
+			emptySpaceItem2.Size = new Size(236, 34);
 			// 
 			// layoutControlItem6
 			// 
@@ -768,12 +770,12 @@
 			layoutControlItem6.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
 			layoutControlItem6.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
 			layoutControlItem6.Control = tsEnabled;
-			layoutControlItem6.Location = new Point(938, 36);
+			layoutControlItem6.Location = new Point(802, 34);
 			layoutControlItem6.Name = "layoutControlItem4";
-			layoutControlItem6.Size = new Size(110, 36);
+			layoutControlItem6.Size = new Size(97, 34);
 			layoutControlItem6.Text = "Enabled";
 			layoutControlItem6.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
-			layoutControlItem6.TextSize = new Size(42, 15);
+			layoutControlItem6.TextSize = new Size(39, 13);
 			layoutControlItem6.TextToControlDistance = 5;
 			// 
 			// layoutControlItem9
@@ -783,31 +785,31 @@
 			layoutControlItem9.Control = tsNeedsAdmin;
 			layoutControlItem9.ControlAlignment = ContentAlignment.TopLeft;
 			layoutControlItem9.CustomizationFormText = "Enabled";
-			layoutControlItem9.Location = new Point(798, 36);
+			layoutControlItem9.Location = new Point(681, 34);
 			layoutControlItem9.Name = "layoutControlItem9";
-			layoutControlItem9.Size = new Size(140, 36);
+			layoutControlItem9.Size = new Size(121, 34);
 			layoutControlItem9.Text = "Needs Admin";
 			layoutControlItem9.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
-			layoutControlItem9.TextSize = new Size(72, 15);
+			layoutControlItem9.TextSize = new Size(63, 13);
 			layoutControlItem9.TextToControlDistance = 5;
 			// 
 			// layoutControlItem10
 			// 
 			layoutControlItem10.Control = cbeProgram;
-			layoutControlItem10.Location = new Point(0, 36);
+			layoutControlItem10.Location = new Point(0, 34);
 			layoutControlItem10.Name = "layoutControlItem10";
-			layoutControlItem10.Size = new Size(519, 36);
+			layoutControlItem10.Size = new Size(445, 34);
 			layoutControlItem10.Text = "Program";
-			layoutControlItem10.TextSize = new Size(60, 15);
+			layoutControlItem10.TextSize = new Size(53, 13);
 			// 
-			// BaseRoot
+			// Root
 			// 
 			Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
 			Root.GroupBordersVisible = false;
 			Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1 });
 			Root.Name = "Root";
-			Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 9, 5);
-			Root.Size = new Size(1058, 483);
+			Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 8, 4);
+			Root.Size = new Size(907, 413);
 			Root.TextVisible = false;
 			// 
 			// layoutControlItem1
@@ -816,7 +818,7 @@
 			layoutControlItem1.Location = new Point(0, 0);
 			layoutControlItem1.Name = "layoutControlItem1";
 			layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-			layoutControlItem1.Size = new Size(1048, 469);
+			layoutControlItem1.Size = new Size(899, 401);
 			layoutControlItem1.TextVisible = false;
 			// 
 			// dxErrorProvider
@@ -825,16 +827,16 @@
 			// 
 			// CommandsView
 			// 
-			AutoScaleDimensions = new SizeF(7F, 15F);
+			AutoScaleDimensions = new SizeF(6F, 13F);
 			AutoScaleMode = AutoScaleMode.Font;
 			Controls.Add(layoutControl1);
 			Controls.Add(barDockControlLeft);
 			Controls.Add(barDockControlRight);
 			Controls.Add(barDockControlBottom);
 			Controls.Add(barDockControlTop);
-			Margin = new Padding(4, 2, 4, 2);
+			Margin = new Padding(3, 2, 3, 2);
 			Name = "CommandsView";
-			Size = new Size(1058, 527);
+			Size = new Size(907, 457);
 			((System.ComponentModel.ISupportInitialize)barManager).EndInit();
 			((System.ComponentModel.ISupportInitialize)repositoryItemSearchControl1).EndInit();
 			((System.ComponentModel.ISupportInitialize)gridControl).EndInit();
@@ -850,6 +852,7 @@
 			((System.ComponentModel.ISupportInitialize)layoutControl2).EndInit();
 			layoutControl2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)listboxPrograms).EndInit();
+			((System.ComponentModel.ISupportInitialize)bsExternalPrograms).EndInit();
 			((System.ComponentModel.ISupportInitialize)layoutControlGroup1).EndInit();
 			((System.ComponentModel.ISupportInitialize)layoutControlItem2).EndInit();
 			((System.ComponentModel.ISupportInitialize)layoutControlItem3).EndInit();
@@ -857,7 +860,6 @@
 			((System.ComponentModel.ISupportInitialize)lcEditValues).EndInit();
 			lcEditValues.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)cbeProgram.Properties).EndInit();
-			((System.ComponentModel.ISupportInitialize)bsExternalPrograms).EndInit();
 			((System.ComponentModel.ISupportInitialize)pcCommandText).EndInit();
 			pcCommandText.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)tsEnabled.Properties).EndInit();

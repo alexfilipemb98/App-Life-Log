@@ -11,7 +11,7 @@
     <PackageIcon>Icon128.png</PackageIcon>
     <Version>2026.2.0</Version>
     <AssemblyVersion>2026.0.0.0</AssemblyVersion>
-    <FileVersion>2026.2.0.1</FileVersion>
+    <FileVersion>2026.2.0.3</FileVersion>
     <ApplicationIcon>LifeLog.ico</ApplicationIcon>
     <SignAssembly>True</SignAssembly>
     <NeutralLanguage>en-GB</NeutralLanguage>

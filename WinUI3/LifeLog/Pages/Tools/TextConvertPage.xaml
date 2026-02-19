@@ -1,0 +1,120 @@
+<Page
+    x:Class="LifeLogApp.Pages.Tools.TextConvertPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Padding="24,16" Background="Transparent" BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,0,0,1">
+            <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                <FontIcon Glyph="&#xE74C;" FontFamily="Segoe Fluent Icons" FontSize="14" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                <TextBlock Text="Tools" FontSize="14" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                <FontIcon Glyph="&#xE76C;" FontFamily="Segoe Fluent Icons" FontSize="10" Foreground="{ThemeResource TextFillColorDisabledBrush}" Margin="4,2,4,0"/>
+
+                <Border Background="{ThemeResource SystemAccentColorLight3}" CornerRadius="4" Padding="6,4">
+                    <FontIcon Glyph="&#xE8D2;" FontFamily="Segoe Fluent Icons" FontSize="14" Foreground="{ThemeResource SystemAccentColor}"/>
+                </Border>
+                <TextBlock Text="Text Converter" FontSize="16" FontWeight="SemiBold" Foreground="{ThemeResource TextFillColorPrimaryBrush}" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Padding="0,0,16,0">
+            <StackPanel MaxWidth="900" HorizontalAlignment="Center" VerticalAlignment="Top" Spacing="24" Margin="24,32,24,40">
+
+                <StackPanel Spacing="8">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <TextBlock Text="Original Text" FontWeight="SemiBold" Foreground="{ThemeResource TextFillColorPrimaryBrush}" FontSize="14"/>
+                        <Button x:Name="ClearInputBtn" Click="ClearBtn_Click" Background="Transparent" BorderThickness="0" Padding="8,4" CornerRadius="4" ToolTipService.ToolTip="Clear Input">
+                            <StackPanel Orientation="Horizontal" Spacing="6">
+                                <FontIcon Glyph="&#xE74D;" FontFamily="Segoe Fluent Icons" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}"/>
+                                <TextBlock Text="Clear" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+                    <TextBox x:Name="InputTextBox" 
+                             PlaceholderText="Type or paste your text here to begin conversion..." 
+                             AcceptsReturn="True" 
+                             TextWrapping="Wrap" 
+                             MinHeight="180" 
+                             CornerRadius="8"
+                             Padding="12,12,12,40" />
+                </StackPanel>
+
+                <Border Background="{ThemeResource LayerFillColorAltBrush}" 
+                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" 
+                        BorderThickness="1" 
+                        CornerRadius="8" 
+                        Padding="8">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                            <Button x:Name="UpperBtn" Click="UpperBtn_Click" CornerRadius="6" Height="36" Padding="12,0" ToolTipService.ToolTip="Convert to UPPERCASE">
+                                <TextBlock Text="UPPERCASE" FontWeight="Medium" FontSize="13"/>
+                            </Button>
+                            <Button x:Name="LowerBtn" Click="LowerBtn_Click" CornerRadius="6" Height="36" Padding="12,0" ToolTipService.ToolTip="Convert to lowercase">
+                                <TextBlock Text="lowercase" FontWeight="Medium" FontSize="13"/>
+                            </Button>
+                            <Button x:Name="TitleBtn" Click="TitleBtn_Click" CornerRadius="6" Height="36" Padding="12,0" ToolTipService.ToolTip="Convert to Title Case">
+                                <TextBlock Text="Title Case" FontWeight="Medium" FontSize="13"/>
+                            </Button>
+                            <Button x:Name="SentenceBtn" Click="SentenceBtn_Click" CornerRadius="6" Height="36" Padding="12,0" ToolTipService.ToolTip="Convert to Sentence case">
+                                <TextBlock Text="Sentence case" FontWeight="Medium" FontSize="13"/>
+                            </Button>
+                        </StackPanel>
+
+                        <Rectangle Grid.Column="1" Width="1" Height="24" Fill="{ThemeResource DividerStrokeColorDefaultBrush}" Margin="16,0" VerticalAlignment="Center"/>
+
+                        <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                            <Button x:Name="AlternatingBtn" Click="AlternatingBtn_Click" CornerRadius="6" Height="36" Padding="12,0" ToolTipService.ToolTip="Convert to aLtErNaTiNg CaSe">
+                                <TextBlock Text="aLtErNaTiNg" FontWeight="Medium" FontSize="13"/>
+                            </Button>
+                            <Button x:Name="InverseBtn" Click="InverseBtn_Click" CornerRadius="6" Height="36" Padding="12,0" ToolTipService.ToolTip="Convert to iNVERSE cASE">
+                                <TextBlock Text="iNVERSE" FontWeight="Medium" FontSize="13"/>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <StackPanel Spacing="8">
+                    <Grid>
+                        <TextBlock Text="Converted Result" FontWeight="SemiBold" Foreground="{ThemeResource TextFillColorPrimaryBrush}" FontSize="14" VerticalAlignment="Center"/>
+
+                        <Button x:Name="CopyBtn" Click="CopyBtn_Click" HorizontalAlignment="Right" Style="{StaticResource AccentButtonStyle}" CornerRadius="6" Height="32" Padding="12,0">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <FontIcon Glyph="&#xE8C8;" FontFamily="Segoe Fluent Icons" FontSize="14"/>
+                                <TextBlock Text="Copy Result" FontSize="13" FontWeight="Medium"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+
+                    <TextBox x:Name="OutputTextBox" 
+                             IsReadOnly="True" 
+                             AcceptsReturn="True" 
+                             TextWrapping="Wrap" 
+                             MinHeight="180" 
+                             CornerRadius="8" 
+                             Padding="12"
+                             Background="{ThemeResource ControlFillColorDefaultBrush}"
+                             BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                             BorderThickness="1"/>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
