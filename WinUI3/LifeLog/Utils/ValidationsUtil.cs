@@ -1,7 +1,7 @@
 using System;
 using System.Text.RegularExpressions;
 
-namespace LifeLog.Core.Utils;
+namespace LifeLog.Utils;
 
 /// <summary>
 /// Validation

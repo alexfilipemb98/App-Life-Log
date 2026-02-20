@@ -1,71 +1,65 @@
+using LifeLog.Utils;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.ApplicationModel.DataTransfer;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace LifeLogApp.Pages.Tools
+namespace LifeLog.Pages.Tools;
+
+/// <summary>
+/// An empty page that can be used on its own or navigated to within a Frame.
+/// </summary>
+public sealed partial class TextConvertPage : Page
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class TextConvertPage : Page
+    public TextConvertPage()
     {
-        public TextConvertPage()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
 
-        private void ClearBtn_Click(object sender, RoutedEventArgs e)
-        {
+    private void ClearBtn_Click(object sender, RoutedEventArgs e)
+    {
+        InputTextBox.Text = string.Empty;
+    }
 
-        }
+    private void UpperBtn_Click(object sender, RoutedEventArgs e)
+    {
+        OutputTextBox.Text = InputTextBox.Text.ToUpper();
+    }
 
-        private void UpperBtn_Click(object sender, RoutedEventArgs e)
-        {
+    private void LowerBtn_Click(object sender, RoutedEventArgs e)
+    {
+        OutputTextBox.Text = InputTextBox.Text.ToLower();
+    }
 
-        }
+    private void TitleBtn_Click(object sender, RoutedEventArgs e)
+    {
+        OutputTextBox.Text = InputTextBox.Text.ToTitleCase();
+    }
 
-        private void LowerBtn_Click(object sender, RoutedEventArgs e)
-        {
+    private void SentenceBtn_Click(object sender, RoutedEventArgs e)
+    {
+        OutputTextBox.Text = InputTextBox.Text.ToSentenceCase();
+    }
 
-        }
+    private void AlternatingBtn_Click(object sender, RoutedEventArgs e)
+    {
+         OutputTextBox.Text = InputTextBox.Text.ToAlternativeCase();
+    }
 
-        private void TitleBtn_Click(object sender, RoutedEventArgs e)
-        {
+    private void InverseBtn_Click(object sender, RoutedEventArgs e)
+    {
+        OutputTextBox.Text = InputTextBox.Text.InvertCase();
+    }
 
-        }
+    private void CopyBtn_Click(object sender, RoutedEventArgs e)
+    {
+        if (string.IsNullOrEmpty(OutputTextBox.Text))
+            return;
 
-        private void SentenceBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void AlternatingBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void InverseBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void CopyBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        var dataPackage = new DataPackage();
+        dataPackage.SetText(OutputTextBox.Text);
+        Clipboard.SetContent(dataPackage);
     }
 }

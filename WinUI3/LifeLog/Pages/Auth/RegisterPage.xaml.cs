@@ -4,7 +4,7 @@ using Microsoft.UI.Xaml.Media.Animation;
 using System;
 using System.Threading.Tasks;
 
-namespace LifeLogApp.Pages.Auth
+namespace LifeLog.Pages.Auth
 {
     public sealed partial class RegisterPage : Page
     {

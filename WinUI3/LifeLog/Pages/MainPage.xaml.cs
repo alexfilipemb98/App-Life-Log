@@ -1,7 +1,11 @@
-﻿using LifeLogApp.Pages.Tools;
+using LifeLog.Pages.Tools;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-namespace LifeLogApp.Pages;
+
+// To learn more about WinUI, the WinUI project structure,
+// and more about our project templates, see: http://aka.ms/winui-project-info.
+
+namespace LifeLog.Pages;
 
 /// <summary>
 /// Main page
@@ -43,17 +47,23 @@ public sealed partial class MainPage : Page
         NavigationViewItem? selectedItem = (NavigationViewItem)args.SelectedItem;
         if (selectedItem is null)
             return;
-      
+
         string? page = selectedItem.Tag?.ToString();
 
         if (string.IsNullOrWhiteSpace(page))
             return;
 
+        PlaceholderText.Visibility = Visibility.Collapsed;
+
         switch (page)
         {
+            // Tools
+
             case "TxtConvert":
-                PlaceholderText.Visibility = Visibility.Collapsed;
                 ContentFrame.Navigate(typeof(TextConvertPage));
+                break;
+            case "Grades":
+                ContentFrame.Content = new GradesControll();
                 break;
 
             default:

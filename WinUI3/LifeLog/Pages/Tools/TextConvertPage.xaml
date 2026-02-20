@@ -1,5 +1,5 @@
 <Page
-    x:Class="LifeLogApp.Pages.Tools.TextConvertPage"
+    x:Class="LifeLog.Pages.Tools.TextConvertPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -30,10 +30,10 @@
             <StackPanel MaxWidth="900" HorizontalAlignment="Center" VerticalAlignment="Top" Spacing="24" Margin="24,32,24,40">
 
                 <StackPanel Spacing="8">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Spacing="6">
                         <TextBlock Text="Original Text" FontWeight="SemiBold" Foreground="{ThemeResource TextFillColorPrimaryBrush}" FontSize="14"/>
                         <Button x:Name="ClearInputBtn" Click="ClearBtn_Click" Background="Transparent" BorderThickness="0" Padding="8,4" CornerRadius="4" ToolTipService.ToolTip="Clear Input">
-                            <StackPanel Orientation="Horizontal" Spacing="6">
+                            <StackPanel Orientation="Horizontal" Spacing="3">
                                 <FontIcon Glyph="&#xE74D;" FontFamily="Segoe Fluent Icons" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}"/>
                                 <TextBlock Text="Clear" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}"/>
                             </StackPanel>

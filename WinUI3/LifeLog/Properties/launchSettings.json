@@ -1,9 +1,9 @@
 {
   "profiles": {
-    "LifeLogApp (Package)": {
+    "LifeLog (Package)": {
       "commandName": "MsixPackage"
     },
-    "LifeLogApp (Unpackaged)": {
+    "LifeLog (Unpackaged)": {
       "commandName": "Project"
     }
   }

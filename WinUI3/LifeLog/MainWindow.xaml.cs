@@ -1,21 +1,19 @@
-using LifeLogApp.Pages.Auth;
+using LifeLog.Pages.Auth;
 using Microsoft.UI.Composition.SystemBackdrops;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
-
-
-namespace LifeLogApp;
+namespace LifeLog;
 
 /// <summary>
-/// Main window
+/// Main window of the application
 /// </summary>
 public sealed partial class MainWindow : Window
 {
-    public static MainWindow Instance { get; internal set; }
+    public static MainWindow? Instance { get; internal set; }
 
     /// <summary>
-    /// Constructor
+    /// Constructor for the main window, initializes the UI and sets up the Mica backdrop
     /// </summary>
     public MainWindow()
     {
@@ -33,7 +31,8 @@ public sealed partial class MainWindow : Window
         this.AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
 
         RootFrame.Navigate(typeof(LoginPage));
+
     }
 
-   
+
 }
