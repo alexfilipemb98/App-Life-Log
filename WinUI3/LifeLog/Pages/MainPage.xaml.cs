@@ -1,9 +1,8 @@
-using LifeLog.Pages.Tools;
+using LifeLog.Views.Tools;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
+using System;
+using System.Collections.Generic;
 
 namespace LifeLog.Pages;
 
@@ -12,6 +11,9 @@ namespace LifeLog.Pages;
 /// </summary>
 public sealed partial class MainPage : Page
 {
+    // Cache de UserControls para evitar recriar instâncias
+    private readonly Dictionary<string, UserControl> _controlCache = new();
+
     /// <summary>
     /// Constructor
     /// </summary>
@@ -41,6 +43,7 @@ public sealed partial class MainPage : Page
         if (args.IsSettingsSelected)
         {
             PlaceholderText.Visibility = Visibility.Visible;
+            ContentFrame.Content = null;
             return;
         }
 
@@ -58,12 +61,11 @@ public sealed partial class MainPage : Page
         switch (page)
         {
             // Tools
-
             case "TxtConvert":
-                ContentFrame.Navigate(typeof(TextConvertPage));
+                ContentFrame.Content = GetOrCreateControl("TxtConvert", () => new TextConvertView());
                 break;
             case "Grades":
-                ContentFrame.Content = new GradesControll();
+                ContentFrame.Content = GetOrCreateControl("Grades", () => new GradesView());
                 break;
 
             default:
@@ -72,6 +74,20 @@ public sealed partial class MainPage : Page
                 ContentFrame.Content = null;
                 break;
         }
+    }
+
+    /// <summary>
+    /// Gets a cached control or creates a new one if it doesn't exist
+    /// </summary>
+    private UserControl GetOrCreateControl(string key, Func<UserControl> factory)
+    {
+        if (!_controlCache.TryGetValue(key, out UserControl? control))
+        {
+            control = factory();
+            _controlCache[key] = control;
+        }
+
+        return control;
     }
 
     private void TopMostToggle_Toggled(object sender, RoutedEventArgs e)

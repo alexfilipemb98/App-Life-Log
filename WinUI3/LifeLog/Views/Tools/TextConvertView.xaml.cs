@@ -3,17 +3,12 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Windows.ApplicationModel.DataTransfer;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace LifeLog.Pages.Tools;
+namespace LifeLog.Views.Tools;
 
-/// <summary>
-/// An empty page that can be used on its own or navigated to within a Frame.
-/// </summary>
-public sealed partial class TextConvertPage : Page
+public sealed partial class TextConvertView : UserControl
 {
-    public TextConvertPage()
+    public TextConvertView()
     {
         InitializeComponent();
     }
@@ -45,7 +40,7 @@ public sealed partial class TextConvertPage : Page
 
     private void AlternatingBtn_Click(object sender, RoutedEventArgs e)
     {
-         OutputTextBox.Text = InputTextBox.Text.ToAlternativeCase();
+        OutputTextBox.Text = InputTextBox.Text.ToAlternativeCase();
     }
 
     private void InverseBtn_Click(object sender, RoutedEventArgs e)
