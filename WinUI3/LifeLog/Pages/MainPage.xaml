@@ -33,7 +33,7 @@
 
             <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
                 <FontIcon Glyph="&#xECAD;" FontFamily="Segoe Fluent Icons" FontSize="18" Foreground="{ThemeResource SystemAccentColor}"/>
-                <TextBlock Text="LifeLog" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+                <TextBlock Text="Life Log" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="16" VerticalAlignment="Center" HorizontalAlignment="Right">
@@ -79,7 +79,7 @@
             </NavigationView.AutoSuggestBox>
 
             <NavigationView.MenuItems>
-                <NavigationViewItem Content="Home" Tag="Home">
+                <NavigationViewItem Content="Home" IsExpanded="True" AllowFocusOnInteraction="False" SelectsOnInvoked="False">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE80F;" FontFamily="{ThemeResource SymbolThemeFontFamily}"/>
                     </NavigationViewItem.Icon>
@@ -112,7 +112,7 @@
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
 
-                <NavigationViewItem Content="Games" Tag="Games">
+                <NavigationViewItem Content="Games" IsExpanded="True"  SelectsOnInvoked="False">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE7FC;" FontFamily="{ThemeResource SymbolThemeFontFamily}"/>
                     </NavigationViewItem.Icon>
@@ -135,12 +135,11 @@
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
 
-                <NavigationViewItem Content="Tools" Tag="Tools">
+                <NavigationViewItem Content="Tools" IsExpanded="True"  SelectsOnInvoked="False">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE74C;" FontFamily="{ThemeResource SymbolThemeFontFamily}"/>
                     </NavigationViewItem.Icon>
                     <NavigationViewItem.MenuItems>
-                        <NavigationViewItemHeader Content="Utilities"/>
                         <NavigationViewItem Content="Passwords Gen" Tag="PasswordGen">
                             <NavigationViewItem.Icon>
                                 <FontIcon Glyph="&#xE8D7;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="#0EA5E9"/>
@@ -171,13 +170,6 @@
                                 <FontIcon Glyph="&#xE9A1;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="#D97706"/>
                             </NavigationViewItem.Icon>
                         </NavigationViewItem>
-
-                        <NavigationViewItemHeader Content="Functions"/>
-                        <NavigationViewItem Content="Form Out" Tag="FormOut">
-                            <NavigationViewItem.Icon>
-                                <FontIcon Glyph="&#xE72D;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="#EAB308"/>
-                            </NavigationViewItem.Icon>
-                        </NavigationViewItem>
                         <NavigationViewItem Content="Rule of 3" Tag="RuleOf3">
                             <NavigationViewItem.Icon>
                                 <FontIcon Glyph="&#xE8CB;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="#10B981"/>
@@ -196,12 +188,49 @@
             </NavigationView.FooterMenuItems>
 
             <Grid>
-                <Frame x:Name="ContentFrame" Padding="0">
+                <Border x:Name="LoadingOverlay" 
+                    Background="{ThemeResource LayerFillColorDefaultBrush}" 
+                    Visibility="Collapsed" 
+                    CornerRadius="12">
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="16">
-                        <FontIcon Glyph="&#xE736;" FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="64" Foreground="{ThemeResource TextFillColorDisabledBrush}"/>
-                        <TextBlock x:Name="PlaceholderText" Text="Select a tool from the menu to get started." Foreground="{ThemeResource TextFillColorSecondaryBrush}" FontSize="16" FontWeight="Medium" HorizontalAlignment="Center"/>
+                        <ProgressRing IsActive="True" Width="48" Height="48" Foreground="{ThemeResource SystemAccentColor}"/>
+                        <TextBlock Text="Loading workspace..." Foreground="{ThemeResource TextFillColorSecondaryBrush}" FontWeight="Medium" HorizontalAlignment="Center"/>
                     </StackPanel>
-                </Frame>
+                </Border>
+                <StackPanel Name="HomePanel" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="24">
+
+                    <StackPanel.ChildrenTransitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition FromVerticalOffset="40" IsStaggeringEnabled="True"/>
+                        </TransitionCollection>
+                    </StackPanel.ChildrenTransitions>
+
+                    <Border Width="120" Height="120" CornerRadius="60" HorizontalAlignment="Center" Margin="0,0,0,8">
+                        <Border.Background>
+                            <SolidColorBrush Color="{ThemeResource SystemAccentColor}" Opacity="0.1"/>
+                        </Border.Background>
+
+                        <FontIcon Glyph="&#xE74C;" FontFamily="Segoe Fluent Icons" FontSize="48" Foreground="{ThemeResource SystemAccentColor}"/>
+                    </Border>
+
+                    <StackPanel Spacing="8" HorizontalAlignment="Center">
+                        <TextBlock Text="Welcome to LifeLog" 
+                               FontSize="28" 
+                               FontWeight="Bold" 
+                               Foreground="{ThemeResource TextFillColorPrimaryBrush}" 
+                               HorizontalAlignment="Center"/>
+
+                        <TextBlock
+                           Text="Select a tool from the sidebar menu to get started." 
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}" 
+                           FontSize="15" 
+                           HorizontalAlignment="Center"/>   
+                    </StackPanel>
+
+                    <Border Height="4" Width="40" CornerRadius="2" Background="{ThemeResource SystemAccentColor}" Opacity="0.5" HorizontalAlignment="Center" Margin="0,12,0,0"/>
+
+                </StackPanel>
+                <Frame x:Name="ContentFrame" Padding="0"></Frame>
             </Grid>
         </NavigationView>
 

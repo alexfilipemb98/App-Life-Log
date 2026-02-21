@@ -11,7 +11,6 @@ public sealed partial class GradesView : UserControl
 {
     public ObservableCollection<GradeItem> Grades { get; set; } = new ObservableCollection<GradeItem>();
 
-
     public GradesView()
     {
         InitializeComponent();
@@ -20,6 +19,25 @@ public sealed partial class GradesView : UserControl
 
         AddRow();
     }
+
+
+    private void AddRowBtn_Click(object sender, RoutedEventArgs e) => AddRow();
+
+    private void DeleteRow_Click(object sender, RoutedEventArgs e)
+    {
+        // Descobre qual o item que clic�mos para apagar
+        var btn = sender as Button;
+        var item = btn?.DataContext as GradeItem;
+
+        if (item != null)
+        {
+            Grades.Remove(item);
+            CalculateFinalGrade();
+        }
+    }
+
+    #region FUNCTIONS
+
 
     private void AddRow()
     {
@@ -32,6 +50,9 @@ public sealed partial class GradesView : UserControl
         CalculateFinalGrade();
     }
 
+    /// <summary>
+    /// Calculate the grades
+    /// </summary>
     private void CalculateFinalGrade()
     {
         if (Grades == null || !Grades.Any())
@@ -72,18 +93,5 @@ public sealed partial class GradesView : UserControl
         }
     }
 
-    private void AddRowBtn_Click(object sender, RoutedEventArgs e) => AddRow();
-
-    private void DeleteRow_Click(object sender, RoutedEventArgs e)
-    {
-        // Descobre qual o item que clic�mos para apagar
-        var btn = sender as Button;
-        var item = btn?.DataContext as GradeItem;
-
-        if (item != null)
-        {
-            Grades.Remove(item);
-            CalculateFinalGrade();
-        }
-    }
+    #endregion
 }

@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace LifeLog.Pages;
 
@@ -13,6 +14,7 @@ public sealed partial class MainPage : Page
 {
     // Cache de UserControls para evitar recriar instâncias
     private readonly Dictionary<string, UserControl> _controlCache = new();
+    private bool _isNavigating = false;
 
     /// <summary>
     /// Constructor
@@ -38,41 +40,65 @@ public sealed partial class MainPage : Page
         }
     }
 
-    private void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+    private async void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
     {
-        if (args.IsSettingsSelected)
-        {
-            PlaceholderText.Visibility = Visibility.Visible;
-            ContentFrame.Content = null;
-            return;
-        }
-
         NavigationViewItem? selectedItem = (NavigationViewItem)args.SelectedItem;
         if (selectedItem is null)
             return;
 
         string? page = selectedItem.Tag?.ToString();
-
         if (string.IsNullOrWhiteSpace(page))
             return;
 
-        PlaceholderText.Visibility = Visibility.Collapsed;
+        if (_isNavigating) return;
+        _isNavigating = true;
 
-        switch (page)
+        LoadingOverlay.Visibility = Visibility.Visible;
+        HomePanel.Visibility = Visibility.Collapsed;
+        ContentFrame.Visibility = Visibility.Collapsed;
+
+        await Task.Delay(250);
+
+        try
         {
-            // Tools
-            case "TxtConvert":
-                ContentFrame.Content = GetOrCreateControl("TxtConvert", () => new TextConvertView());
-                break;
-            case "Grades":
-                ContentFrame.Content = GetOrCreateControl("Grades", () => new GradesView());
-                break;
-
-            default:
-                PlaceholderText.Visibility = Visibility.Visible;
-                PlaceholderText.Text = $"'{selectedItem.Content}' does not exist.";
+            if (args.IsSettingsSelected)
+            {
+                HomePanel.Visibility = Visibility.Visible;
                 ContentFrame.Content = null;
-                break;
+                return;
+            }
+
+            switch (page)
+            {
+                case "TxtConvert":
+                    ContentFrame.Content = GetOrCreateControl("TxtConvert", () => new TextConvertView());
+                    break;
+
+                case "Grades":
+                    ContentFrame.Content = GetOrCreateControl("Grades", () => new GradesView());
+                    break;
+
+                case "RuleOf3":
+                    ContentFrame.Content = GetOrCreateControl("RuleOf3", () => new RuleOfThreeView());
+                    break;
+
+                case "PasswordGen":
+                    ContentFrame.Content = GetOrCreateControl("PasswordGen", () => new PassGeneratorView());
+                    break;
+
+                default:
+                    HomePanel.Visibility = Visibility.Visible;
+                    ContentFrame.Content = null;
+                    break;
+            }
+
+            if (ContentFrame.Content != null)
+                ContentFrame.Visibility = Visibility.Visible;
+        }
+        finally
+        {
+            LoadingOverlay.Visibility = Visibility.Collapsed;
+            _isNavigating = false;
         }
     }
 
