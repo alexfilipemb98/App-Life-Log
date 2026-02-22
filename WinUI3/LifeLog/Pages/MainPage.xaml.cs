@@ -3,9 +3,13 @@ using Microsoft.UI;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
+using Windows.ApplicationModel;
 using WinRT.Interop;
 
 namespace LifeLog.Pages;
@@ -15,8 +19,12 @@ namespace LifeLog.Pages;
 /// </summary>
 public sealed partial class MainPage : Page
 {
-    private readonly Dictionary<string, UserControl> _controlCache = new();
+    #region MAIN
+
+    private static MainPage? Instance = null;
+    private Dictionary<string, UserControl> _controlCache = new();
     private bool _isNavigating = false;
+    private DispatcherTimer mainTimer;
 
     /// <summary>
     /// Constructor
@@ -25,8 +33,41 @@ public sealed partial class MainPage : Page
     {
         InitializeComponent();
 
-        MainWindow.Instance!.SetTitleBar(AppTitleBar);
+        Instance = this;
+        MainWindow.SetTitleBarEx(AppTitleBar);
+
+        mainTimer = new DispatcherTimer();
+        mainTimer.Interval = TimeSpan.FromSeconds(1);
+        mainTimer.Tick += MainTimer_Tick;
+        mainTimer.Start();
+
+        string? fileVersion = Assembly.GetExecutingAssembly()
+           .GetCustomAttribute<AssemblyFileVersionAttribute>()?.Version;
+
+#if DEBUG
+        VersionAppLabel.Text = $"v{fileVersion} (DEBUG!)";
+        VersionAppLabel.Foreground = new SolidColorBrush(Colors.Red);
+#else
+        VersionAppLabel.Text = $"v{fileVersion}";
+        VersionAppLabel.Foreground = (Brush)Application.Current.Resources["TextFillColorSecondaryBrush"];
+#endif
+
     }
+
+    /// <summary>
+    /// Main timer tick
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void MainTimer_Tick(object? sender, object e)
+    {
+        DateTimeLabel.Text = $"{DateTime.Now:dd/MM/yyyy HH:mm:ss}";
+    }
+
+    #endregion
+
+
+
 
     private void ThemeToggleButton_Click(object sender, RoutedEventArgs e)
     {
@@ -114,8 +155,12 @@ public sealed partial class MainPage : Page
 
     private void TopMostToggle_Toggled(object sender, RoutedEventArgs e)
     {
-        MainWindow.Instance!.SetTopMost(TopMostToggle.IsOn);
+        MainWindow.SetTopMost(TopMostToggle.IsOn);
     }
+
+    #region FUNCTIONS
+
+    #region PRIVATE
 
     /// <summary>
     /// Gets a cached control or creates a new one if it doesn't exist
@@ -130,5 +175,22 @@ public sealed partial class MainPage : Page
 
         return control;
     }
- 
+
+    #endregion
+
+    #region PUBLIC
+
+    public static void SetStatusMsg(string message)
+    {
+        Instance!.TextStatus.Text = message;
+    }
+
+    #endregion
+
+    #endregion
+
+    private void Page_Loaded(object sender, RoutedEventArgs e)
+    {
+
+    }
 }

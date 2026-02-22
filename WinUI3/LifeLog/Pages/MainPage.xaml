@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -238,7 +239,7 @@
             <Grid>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
                     <FontIcon Glyph="&#xE90A;" FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="12" Foreground="{ThemeResource SystemAccentColor}" VerticalAlignment="Center"/>
-                    <TextBlock Text="System Online" FontSize="12" FontWeight="Medium" Foreground="{ThemeResource TextFillColorPrimaryBrush}" VerticalAlignment="Center" Margin="0,1,0,0"/>
+                    <TextBlock Name="TextStatus" Text="System Online" FontSize="12" FontWeight="Medium" Foreground="{ThemeResource TextFillColorPrimaryBrush}" VerticalAlignment="Center" Margin="0,1,0,0"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Spacing="24">
@@ -248,8 +249,23 @@
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Spacing="6" VerticalAlignment="Center">
+                        <FontIcon Glyph="&#xEC92;" 
+                            FontFamily="{ThemeResource SymbolThemeFontFamily}" 
+                            FontSize="12" 
+                            Foreground="#0EA5E9" 
+                            VerticalAlignment="Center"/>
+
+                        <TextBlock x:Name="DateTimeLabel" 
+                           Text="00/00/0000 00:00:00" 
+                           FontSize="12" 
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}" 
+                           VerticalAlignment="Center" 
+                           Margin="0,1,0,0"/>   
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" Spacing="6" VerticalAlignment="Center">
                         <FontIcon Glyph="&#xE946;" FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="12" Foreground="#0EA5E9" VerticalAlignment="Center"/>
-                        <TextBlock Text="v2026.2.0.3" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" VerticalAlignment="Center" Margin="0,1,0,0"/>
+                        <TextBlock Name="VersionAppLabel" Text="v2026.2.0.3" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" VerticalAlignment="Center" Margin="0,1,0,0"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Spacing="6" Padding="8,4" Background="{ThemeResource ControlFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="6" VerticalAlignment="Center">
