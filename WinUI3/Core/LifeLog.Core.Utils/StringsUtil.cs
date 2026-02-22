@@ -3,15 +3,15 @@ using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace LifeLog.Utils;
+namespace LifeLog.Core.Utils;
 
 /// <summary>
-/// Strings utility class providing various string manipulation methods.
+/// String manipulation utility functions, such as case conversion, accent removal, and flag emoji generation. This class provides static methods to assist with common string processing tasks in the application.
 /// </summary>
 public static class StringsUtil
 {
     /// <summary>
-    /// Converts a string to title case.
+    /// Converts a string to title case (first letter of each word uppercase, rest lowercase).
     /// </summary>
     /// <param fName="input">The input string to be converted.</param>
     /// <returns>The input string converted to title case.</returns>

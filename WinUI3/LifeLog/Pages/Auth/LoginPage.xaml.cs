@@ -1,4 +1,4 @@
-﻿using LifeLog.Utils;
+﻿using LifeLog.Core.Utils;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
@@ -19,10 +19,8 @@ public sealed partial class LoginPage : Page
 #endif
     }
 
-    // ---- Caps Lock Detection ----
     private void CheckCapsLock()
     {
-        // Verifica o estado do teclado na thread atual
         var state = Microsoft.UI.Input.InputKeyboardSource.GetKeyStateForCurrentThread(Windows.System.VirtualKey.CapitalLock);
         bool isCapsLockOn = state.HasFlag(Windows.UI.Core.CoreVirtualKeyStates.Locked);
 

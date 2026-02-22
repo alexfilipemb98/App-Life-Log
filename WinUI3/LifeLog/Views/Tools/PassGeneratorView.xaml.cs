@@ -1,3 +1,4 @@
+using LifeLog.Core.Utils;
 using LifeLog.Items;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -10,7 +11,9 @@ using Windows.ApplicationModel.DataTransfer;
 namespace LifeLog.Views.Tools;
 
 /// <summary>
-/// Password generation 
+/// Password generator view that allows users to create random passwords based on selected criteria such as length, character types, and exclusion of ambiguous characters. 
+/// The view provides options to copy generated passwords to the clipboard and clear the list of generated passwords. 
+/// It utilizes the SecurityUtil class for password generation logic and the PasswordItem class to represent individual password entries in the UI.
 /// </summary>
 public sealed partial class PassGeneratorView : UserControl
 {
@@ -38,7 +41,7 @@ public sealed partial class PassGeneratorView : UserControl
     {
         if (_generatedPasswords.Count <= 0)
             return;
-        
+
         string allPasswords = string.Join(Environment.NewLine, _generatedPasswords.Select(p => p.Password));
 
         DataPackage? dataPackage = new DataPackage();
@@ -82,7 +85,7 @@ public sealed partial class PassGeneratorView : UserControl
             }
         }
     }
-    
+
     private void ClearBtn_Click(object sender, RoutedEventArgs e)
     {
         _generatedPasswords.Clear();
@@ -92,7 +95,7 @@ public sealed partial class PassGeneratorView : UserControl
         }
         ResetCopyButton();
     }
-    
+
     private void GenerateBtn_Click(object sender, RoutedEventArgs e)
     {
         bool useUpper = ToggleUpperCase.IsOn;
@@ -114,7 +117,7 @@ public sealed partial class PassGeneratorView : UserControl
 
         for (int i = 0; i < count; i++)
         {
-            string pwd = GenerateSinglePassword(length, useUpper, useLower, useNumbers, useSymbols, excludeAmbiguous);
+            string pwd = SecurityUtil.GeneratePassword(length, useUpper, useLower, useNumbers, useSymbols, excludeAmbiguous);
 
             _generatedPasswords.Add(new PasswordItem
             {
@@ -129,78 +132,25 @@ public sealed partial class PassGeneratorView : UserControl
         ResetCopyButton();
     }
 
-    private string GenerateSinglePassword(int length, bool useUpper, bool useLower, bool useNumbers, bool useSymbols, bool excludeAmbiguous)
-    {
-        string upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        string lowerChars = "abcdefghijklmnopqrstuvwxyz";
-        string numberChars = "0123456789";
-        string symbolChars = "!@#$%^&*()_-+=[{]};:>|./?";
-        string ambiguousChars = "il1Lo0O";
 
-        if (excludeAmbiguous)
-        {
-            upperChars = new string(upperChars.Where(c => !ambiguousChars.Contains(c)).ToArray());
-            lowerChars = new string(lowerChars.Where(c => !ambiguousChars.Contains(c)).ToArray());
-            numberChars = new string(numberChars.Where(c => !ambiguousChars.Contains(c)).ToArray());
-            symbolChars = new string(symbolChars.Where(c => !ambiguousChars.Contains(c)).ToArray());
-        }
+    #region FUNCTIONS
 
-
-
-
-
-
-
-
-
-        List<char> password = new List<char>();
-        string fullPool = "";
-
-        if (useUpper && upperChars.Length > 0)
-        {
-            password.Add(upperChars[Random.Shared.Next(upperChars.Length)]);
-            fullPool += upperChars;
-        }
-        if (useLower && lowerChars.Length > 0)
-        {
-            password.Add(lowerChars[Random.Shared.Next(lowerChars.Length)]);
-            fullPool += lowerChars;
-        }
-        if (useNumbers && numberChars.Length > 0)
-        {
-            password.Add(numberChars[Random.Shared.Next(numberChars.Length)]);
-            fullPool += numberChars;
-        }
-        if (useSymbols && symbolChars.Length > 0)
-        {
-            password.Add(symbolChars[Random.Shared.Next(symbolChars.Length)]);
-            fullPool += symbolChars;
-        }
-
-        // Preenche o resto do tamanho da password com caracteres aleatórios da pool global
-        while (password.Count < length)
-        {
-            password.Add(fullPool[Random.Shared.Next(fullPool.Length)]);
-        }
-
-        // Baralha os caracteres para que os "obrigatórios" não fiquem sempre no início
-        return new string(password.OrderBy(x => Random.Shared.Next()).ToArray());
-    }
-
+    /// <summary>
+    /// Resets the copy button to its default state with the "Copy all" text and the copy icon.
+    /// </summary>
     private void ResetCopyButton()
     {
-        if (CopyBtn != null)
+        CopyBtn?.Content = new StackPanel
         {
-            CopyBtn.Content = new StackPanel
+            Orientation = Orientation.Horizontal,
+            Spacing = 6,
+            Children =
             {
-                Orientation = Orientation.Horizontal,
-                Spacing = 6,
-                Children =
-                {
-                    new FontIcon { Glyph = "\uE8C8", FontSize = 14 },
-                    new TextBlock { Text = "Copy all", FontSize = 12 }
-                }
-            };
-        }
+                new FontIcon { Glyph = "\uE8C8", FontSize = 14 },
+                new TextBlock { Text = "Copy all", FontSize = 12 }
+            }
+        };
     }
+
+    #endregion
 }

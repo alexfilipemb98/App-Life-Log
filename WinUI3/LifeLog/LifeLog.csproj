@@ -16,6 +16,7 @@
   <ItemGroup>
     <None Remove="Pages\MainPage.xaml" />
     <None Remove="Views\Tools\PassGeneratorView.xaml" />
+    <None Remove="Views\Tools\PdfMergeView.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,6 +44,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7705" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260209005" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\LifeLog.Core.Utils\LifeLog.Core.Utils.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Tools\PdfMergeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Tools\PassGeneratorView.xaml">
@@ -75,6 +84,8 @@
     <PublishReadyToRun Condition="'$(Configuration)' != 'Debug'">True</PublishReadyToRun>
     <PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
     <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
+    <Version>2026.2.0</Version>
+    <FileVersion>2026.2.0.5</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <DebugType>none</DebugType>

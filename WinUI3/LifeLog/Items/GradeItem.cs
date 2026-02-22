@@ -5,7 +5,6 @@ namespace LifeLog.Items;
 
 public class GradeItem : INotifyPropertyChanged
 {
-    // Inicializar com valores padr�o para evitar avisos de nulabilidade
     private string _name = "New Assessment";
     private double _grade = 0;
     private double _weight = 0;

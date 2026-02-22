@@ -1,18 +1,20 @@
 using LifeLog.Views.Tools;
+using Microsoft.UI;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using WinRT.Interop;
 
 namespace LifeLog.Pages;
 
 /// <summary>
-/// Main page
+/// Main page 
 /// </summary>
 public sealed partial class MainPage : Page
 {
-    // Cache de UserControls para evitar recriar instâncias
     private readonly Dictionary<string, UserControl> _controlCache = new();
     private bool _isNavigating = false;
 
@@ -23,7 +25,7 @@ public sealed partial class MainPage : Page
     {
         InitializeComponent();
 
-        MainWindow.Instance.SetTitleBar(AppTitleBar);
+        MainWindow.Instance!.SetTitleBar(AppTitleBar);
     }
 
     private void ThemeToggleButton_Click(object sender, RoutedEventArgs e)
@@ -70,6 +72,8 @@ public sealed partial class MainPage : Page
 
             switch (page)
             {
+                #region TOOLS
+
                 case "TxtConvert":
                     ContentFrame.Content = GetOrCreateControl("TxtConvert", () => new TextConvertView());
                     break;
@@ -85,6 +89,12 @@ public sealed partial class MainPage : Page
                 case "PasswordGen":
                     ContentFrame.Content = GetOrCreateControl("PasswordGen", () => new PassGeneratorView());
                     break;
+
+                case "PdfMerge":
+                    ContentFrame.Content = GetOrCreateControl("PdfMerge", () => new PdfMergeView());
+                    break;
+
+                #endregion
 
                 default:
                     HomePanel.Visibility = Visibility.Visible;
@@ -102,6 +112,11 @@ public sealed partial class MainPage : Page
         }
     }
 
+    private void TopMostToggle_Toggled(object sender, RoutedEventArgs e)
+    {
+        MainWindow.Instance!.SetTopMost(TopMostToggle.IsOn);
+    }
+
     /// <summary>
     /// Gets a cached control or creates a new one if it doesn't exist
     /// </summary>
@@ -115,9 +130,5 @@ public sealed partial class MainPage : Page
 
         return control;
     }
-
-    private void TopMostToggle_Toggled(object sender, RoutedEventArgs e)
-    {
-
-    }
+ 
 }
