@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Page
     x:Class="LifeLog.Pages.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -5,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -161,7 +161,7 @@
                                 <FontIcon Glyph="&#xE8D2;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="#10B981"/>
                             </NavigationViewItem.Icon>
                         </NavigationViewItem>
-                        <NavigationViewItem Content="Code Gen" Tag="CodeGen">
+                        <NavigationViewItem Content="QrCode Gen" Tag="QrCodeGen">
                             <NavigationViewItem.Icon>
                                 <FontIcon Glyph="&#xE943;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="#F59E0B"/>
                             </NavigationViewItem.Icon>

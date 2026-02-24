@@ -1,16 +1,12 @@
 using LifeLog.Views.Tools;
 using Microsoft.UI;
-using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Threading;
 using System.Threading.Tasks;
-using Windows.ApplicationModel;
-using WinRT.Interop;
 
 namespace LifeLog.Pages;
 
@@ -21,6 +17,7 @@ public sealed partial class MainPage : Page
 {
     #region MAIN
 
+    //PRIVATE FIELDS
     private static MainPage? Instance = null;
     private Dictionary<string, UserControl> _controlCache = new();
     private bool _isNavigating = false;
@@ -135,6 +132,10 @@ public sealed partial class MainPage : Page
                     ContentFrame.Content = GetOrCreateControl("PdfMerge", () => new PdfMergeView());
                     break;
 
+                case "QrCodeGen":
+                    ContentFrame.Content = GetOrCreateControl("QrCodeGen", () => new QrCodeGenView());
+                    break;
+
                 #endregion
 
                 default:
@@ -180,6 +181,10 @@ public sealed partial class MainPage : Page
 
     #region PUBLIC
 
+    /// <summary>
+    /// Sets the status message
+    /// </summary>
+    /// <param name="message"></param>
     public static void SetStatusMsg(string message)
     {
         Instance!.TextStatus.Text = message;
@@ -188,9 +193,4 @@ public sealed partial class MainPage : Page
     #endregion
 
     #endregion
-
-    private void Page_Loaded(object sender, RoutedEventArgs e)
-    {
-
-    }
 }
