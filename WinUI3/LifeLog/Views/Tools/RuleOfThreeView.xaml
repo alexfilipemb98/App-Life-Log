@@ -19,7 +19,6 @@
                 <FontIcon Glyph="&#xE74C;" FontFamily="Segoe Fluent Icons" FontSize="14" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                 <TextBlock Text="Tools" FontSize="14" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                 <FontIcon Glyph="&#xE76C;" FontFamily="Segoe Fluent Icons" FontSize="10" Foreground="{ThemeResource TextFillColorDisabledBrush}" Margin="4,2,4,0"/>
-
                 <Border Background="{ThemeResource SystemAccentColorLight3}" CornerRadius="4" Padding="6,4">
                     <FontIcon Glyph="&#xE8CB;" FontFamily="Segoe Fluent Icons" FontSize="14" Foreground="{ThemeResource SystemAccentColor}"/>
                 </Border>
@@ -28,7 +27,7 @@
         </Border>
 
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Padding="0,0,16,0">
-            <StackPanel MaxWidth="700" HorizontalAlignment="Center" VerticalAlignment="Top" Spacing="32" Margin="24,48,24,64">
+            <StackPanel MaxWidth="800" HorizontalAlignment="Center" VerticalAlignment="Top" Spacing="32" Margin="24,48,24,64">
 
                 <StackPanel.ChildrenTransitions>
                     <TransitionCollection>
@@ -36,89 +35,169 @@
                     </TransitionCollection>
                 </StackPanel.ChildrenTransitions>
 
-                <TextBlock Text="Fill in three values to calculate the fourth (X)." 
-                           HorizontalAlignment="Center" 
+                <TextBlock Text="Fill in three values to calculate the fourth (X)."
+                           HorizontalAlignment="Center"
                            FontSize="15"
                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
 
-                <Border Background="{ThemeResource LayerFillColorAltBrush}" 
-                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" 
-                        BorderThickness="1" 
-                        CornerRadius="16" 
-                        Padding="40">
+                <Border Background="{ThemeResource LayerFillColorAltBrush}"
+                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="16"
+                        Padding="40,36">
 
-                    <Grid RowSpacing="32" ColumnSpacing="24">
+                    <Grid RowSpacing="10" ColumnSpacing="20">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" MinWidth="180"/>
                             <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" MinWidth="180"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
-                        <TextBox x:Name="ValueA" Grid.Row="0" Grid.Column="0" 
-                                 Header="Value A" PlaceholderText="e.g. 100" 
-                                 TextChanged="Calculate_TextChanged" 
-                                 CornerRadius="8" InputScope="Number"/>
+                        <!-- Row 0: Labels -->
+                        <TextBlock Grid.Row="0" Grid.Column="0"
+                                   Text="Value A" FontSize="12" FontWeight="SemiBold"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   Margin="2,0,0,0"/>
+                        <TextBlock Grid.Row="0" Grid.Column="2"
+                                   Text="Value B" FontSize="12" FontWeight="SemiBold"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   Margin="2,0,0,0"/>
 
-                        <FontIcon Grid.Row="0" Grid.Column="1" 
-                                  Glyph="&#xE72A;" FontFamily="Segoe Fluent Icons" 
-                                  VerticalAlignment="Bottom" Margin="0,0,0,10" 
-                                  Foreground="{ThemeResource TextFillColorDisabledBrush}"/>
+                        <!-- Row 1: TextBoxes + Arrow -->
+                        <TextBox x:Name="ValueA"
+                                 Grid.Row="1" Grid.Column="0"
+                                 PlaceholderText="e.g. 100"
+                                 TextChanged="Calculate_TextChanged"
+                                 CornerRadius="8"
+                                 InputScope="Number"
+                                 FontSize="15"
+                                 TextAlignment="Left"
+                                 BorderThickness="1"/>
 
-                        <TextBox x:Name="ValueB" Grid.Row="0" Grid.Column="2" 
-                                 Header="is to Value B" PlaceholderText="e.g. 50" 
-                                 TextChanged="Calculate_TextChanged" 
-                                 CornerRadius="8" InputScope="Number"/>
+                        <Border Grid.Row="1" Grid.Column="1"
+                                Background="{ThemeResource LayerFillColorDefaultBrush}"
+                                CornerRadius="10"
+                                Padding="12"
+                                VerticalAlignment="Center">
+                            <FontIcon Glyph="&#xE72A;"
+                                      FontFamily="Segoe Fluent Icons"
+                                      FontSize="16"
+                                      Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        </Border>
 
-                        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="16" Opacity="0.6">
-                            <Border Height="1" Width="100" Background="{ThemeResource DividerStrokeColorDefaultBrush}" VerticalAlignment="Center"/>
-                            <TextBlock Text="AS" FontSize="12" FontWeight="Bold" CharacterSpacing="50" Foreground="{ThemeResource TextFillColorTertiaryBrush}" VerticalAlignment="Center"/>
-                            <Border Height="1" Width="100" Background="{ThemeResource DividerStrokeColorDefaultBrush}" VerticalAlignment="Center"/>
-                        </StackPanel>
+                        <TextBox x:Name="ValueB"
+                                 Grid.Row="1" Grid.Column="2"
+                                 PlaceholderText="e.g. 50"
+                                 TextChanged="Calculate_TextChanged"
+                                 CornerRadius="8"
+                                 InputScope="Number"
+                                 FontSize="15"
+                                 TextAlignment="Left"
+                                 BorderThickness="1"/>
 
-                        <TextBox x:Name="ValueC" Grid.Row="2" Grid.Column="0" 
-                                 Header="Value C" PlaceholderText="e.g. 200" 
-                                 TextChanged="Calculate_TextChanged" 
-                                 CornerRadius="8" InputScope="Number"/>
-
-                        <FontIcon Grid.Row="2" Grid.Column="1" 
-                                  Glyph="&#xE72A;" FontFamily="Segoe Fluent Icons" 
-                                  VerticalAlignment="Bottom" Margin="0,0,0,10" 
-                                  Foreground="{ThemeResource SystemAccentColor}"/>
-
-                        <StackPanel Grid.Row="2" Grid.Column="2" Spacing="6" VerticalAlignment="Bottom">
-                            <TextBlock Text="Result (X)" FontSize="12" FontWeight="SemiBold" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="2,0,0,0"/>
-                            <Border CornerRadius="8" Height="36" BorderThickness="1" BorderBrush="{ThemeResource SystemAccentColorDark1}">
-                                <Border.Background>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                        <GradientStop Color="{ThemeResource SystemAccentColor}" Offset="0.0"/>
-                                        <GradientStop Color="{ThemeResource SystemAccentColorDark2}" Offset="1.0"/>
-                                    </LinearGradientBrush>
-                                </Border.Background>
-                                <TextBlock x:Name="ResultLabel" Text="?" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                        <!-- Row 2: AS divider -->
+                        <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+                                    Orientation="Horizontal" HorizontalAlignment="Center"
+                                    Spacing="16" Opacity="0.5">
+                            <Border Height="1" Width="120" Background="{ThemeResource DividerStrokeColorDefaultBrush}" VerticalAlignment="Center" CornerRadius="1"/>
+                            <Border Background="{ThemeResource LayerFillColorDefaultBrush}" CornerRadius="6" Padding="12,6">
+                                <TextBlock Text="AS" FontSize="11" FontWeight="Bold" CharacterSpacing="60" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                             </Border>
+                            <Border Height="1" Width="120" Background="{ThemeResource DividerStrokeColorDefaultBrush}" VerticalAlignment="Center" CornerRadius="1"/>
                         </StackPanel>
+
+                        <!-- Row 3: Labels -->
+                        <TextBlock Grid.Row="3" Grid.Column="0"
+                                   Text="Value C" FontSize="12" FontWeight="SemiBold"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   Margin="2,0,0,0"/>
+                        <TextBlock Grid.Row="3" Grid.Column="2"
+                                   Text="Result (X)" FontSize="12" FontWeight="SemiBold"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   Margin="2,0,0,0"/>
+
+                        <!-- Row 4: TextBox + Arrow + Result -->
+                        <TextBox x:Name="ValueC"
+                                 Grid.Row="4" Grid.Column="0"
+                                 PlaceholderText="e.g. 200"
+                                 TextChanged="Calculate_TextChanged"
+                                 CornerRadius="8"
+                                 InputScope="Number"
+                                 FontSize="15"
+                                 TextAlignment="Left"
+                                 BorderThickness="1"/>
+
+                        <Border Grid.Row="4" Grid.Column="1"
+                                Background="{ThemeResource SystemAccentColorLight3}"
+                                CornerRadius="10"
+                                Padding="12"
+                                VerticalAlignment="Center">
+                            <FontIcon Glyph="&#xE72A;"
+                                      FontFamily="Segoe Fluent Icons"
+                                      FontSize="16"
+                                      Foreground="{ThemeResource SystemAccentColor}"/>
+                        </Border>
+
+                        <Border Grid.Row="4" Grid.Column="2"
+                                CornerRadius="8"
+                                BorderThickness="1"
+                                BorderBrush="{ThemeResource SystemAccentColor}">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="{ThemeResource SystemAccentColor}" Offset="0.0"/>
+                                    <GradientStop Color="{ThemeResource SystemAccentColorDark1}" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock x:Name="ResultLabel"
+                                       Text="?"
+                                       Foreground="White"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="18"
+                                       Margin="0,10"/>
+                        </Border>
+
                     </Grid>
                 </Border>
 
-                <Grid Width="300" HorizontalAlignment="Center">
+                <Grid Width="340" HorizontalAlignment="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="CopyResultBtn" Grid.Column="0" HorizontalAlignment="Stretch" Margin="0,0,12,0" Click="CopyResultBtn_Click" Style="{StaticResource AccentButtonStyle}" CornerRadius="8" Height="40">
+                    <Button x:Name="CopyResultBtn"
+                            Grid.Column="0"
+                            HorizontalAlignment="Stretch"
+                            Margin="0,0,12,0"
+                            Click="CopyResultBtn_Click"
+                            Style="{StaticResource AccentButtonStyle}"
+                            CornerRadius="8"
+                            Height="44">
                         <StackPanel Orientation="Horizontal" Spacing="8">
                             <FontIcon Glyph="&#xE8C8;" FontFamily="Segoe Fluent Icons" FontSize="14"/>
-                            <TextBlock Text="Copy Result" FontWeight="Medium"/>
+                            <TextBlock Text="Copy Result" FontWeight="SemiBold" FontSize="14"/>
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="ClearBtn" Grid.Column="1" Click="ClearBtn_Click" CornerRadius="8" Background="Transparent" BorderThickness="1" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" Height="40" Width="44" ToolTipService.ToolTip="Clear all values">
+                    <Button x:Name="ClearBtn"
+                            Grid.Column="1"
+                            Click="ClearBtn_Click"
+                            CornerRadius="8"
+                            Background="Transparent"
+                            BorderThickness="1"
+                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                            Height="44"
+                            Width="48"
+                            ToolTipService.ToolTip="Clear all values">
                         <FontIcon Glyph="&#xE74D;" FontFamily="Segoe Fluent Icons" FontSize="14" Foreground="{ThemeResource SystemFillColorCriticalBrush}"/>
                     </Button>
                 </Grid>
