@@ -48,10 +48,8 @@ public sealed partial class QrCodeGenView : UserControl
     {
         string payloadText = "";
 
-        // Pega no tipo selecionado
         string selectedType = (TypeSelector.SelectedItem as RadioButton)?.Tag.ToString();
 
-        // Constrói o conteúdo do QR Code consoante o tipo
         switch (selectedType)
         {
             case "Link":
@@ -69,7 +67,6 @@ public sealed partial class QrCodeGenView : UserControl
             case "WiFi":
                 if (string.IsNullOrWhiteSpace(WifiSSID.Text)) return;
 
-                // Descobre o tipo de encriptação
                 PayloadGenerator.WiFi.Authentication auth = PayloadGenerator.WiFi.Authentication.WPA;
                 if (WifiEncryption.SelectedIndex == 1) auth = PayloadGenerator.WiFi.Authentication.WEP;
                 if (WifiEncryption.SelectedIndex == 2) auth = PayloadGenerator.WiFi.Authentication.nopass;

@@ -1,0 +1,3 @@
+# Ensure publish profiles are tracked in source control
+!LifeLog/Properties/PublishProfiles/
+!LifeLog/Properties/PublishProfiles/*.pubxml
