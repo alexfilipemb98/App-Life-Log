@@ -1,47 +1,46 @@
 ﻿using Microsoft.UI.Xaml;
 using System;
 using System.Threading.Tasks;
-using Windows.Storage.Pickers; // Namespace correto para WinRT Pickers
+using Windows.Storage.Pickers;
 
-namespace LifeLog.Helpers
+namespace LifeLog.Helpers;
+
+internal static class DialogHelper
 {
-    internal static class DialogHelper
+
+    internal static async Task<string> SelectFolderAsync(string currentPath)
     {
-    
-        internal static async Task<string> SelectFolderAsync(string currentPath)
-        {
-            FolderPicker folderPicker = new FolderPicker();
+        FolderPicker folderPicker = new FolderPicker();
 
-            Window? window = (Application.Current as App)?.m_window;
-            if (window == null) return currentPath;
+        Window? window = (Application.Current as App)?.m_window;
+        if (window == null) return currentPath;
 
-            IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
-            WinRT.Interop.InitializeWithWindow.Initialize(folderPicker, hWnd);
+        IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
+        WinRT.Interop.InitializeWithWindow.Initialize(folderPicker, hWnd);
 
-            folderPicker.SuggestedStartLocation = PickerLocationId.ComputerFolder;
-            folderPicker.FileTypeFilter.Add("*");
+        folderPicker.SuggestedStartLocation = PickerLocationId.ComputerFolder;
+        folderPicker.FileTypeFilter.Add("*");
 
-            Windows.Storage.StorageFolder? folder = await folderPicker.PickSingleFolderAsync();
+        Windows.Storage.StorageFolder? folder = await folderPicker.PickSingleFolderAsync();
 
-            return folder != null ? folder.Path : currentPath;
-        }
+        return folder != null ? folder.Path : currentPath;
+    }
 
-      
-        internal static async Task<string> SaveFileAsync(string defaultName, string extensionLabel, string extension)
-        {
-            FileSavePicker savePicker = new FileSavePicker();
+  
+    internal static async Task<string> SaveFileAsync(string defaultName, string extensionLabel, string extension)
+    {
+        FileSavePicker savePicker = new FileSavePicker();
 
-            Window? window = (Application.Current as App)?.m_window;
-            if (window == null) return string.Empty;
+        Window? window = (Application.Current as App)?.m_window;
+        if (window == null) return string.Empty;
 
-            IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
-            WinRT.Interop.InitializeWithWindow.Initialize(savePicker, hWnd);
+        IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
+        WinRT.Interop.InitializeWithWindow.Initialize(savePicker, hWnd);
 
-            savePicker.SuggestedFileName = defaultName;
-            savePicker.FileTypeChoices.Add(extensionLabel, new System.Collections.Generic.List<string>() { extension });
+        savePicker.SuggestedFileName = defaultName;
+        savePicker.FileTypeChoices.Add(extensionLabel, new System.Collections.Generic.List<string>() { extension });
 
-            Windows.Storage.StorageFile? file = await savePicker.PickSaveFileAsync();
-            return file != null ? file.Path : string.Empty;
-        }
+        Windows.Storage.StorageFile? file = await savePicker.PickSaveFileAsync();
+        return file != null ? file.Path : string.Empty;
     }
 }

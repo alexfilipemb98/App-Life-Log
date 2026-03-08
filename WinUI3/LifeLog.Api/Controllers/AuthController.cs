@@ -4,6 +4,8 @@ using LifeLog.Services.Api.Jwt;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 using static LifeLog.Services.Api.Jwt.TokenService;
 
 namespace LifeLog.Services.Api.Controllers;

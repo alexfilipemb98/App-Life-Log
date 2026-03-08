@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace LifeLog.Items;
+namespace LifeLog.Core.Items;
 
 public class GradeItem : INotifyPropertyChanged
 {

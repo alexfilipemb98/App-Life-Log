@@ -1,4 +1,4 @@
-using LifeLog.Core.Utils;
+using LifeLog.Core.Utils.Utils;
 using LifeLog.Helpers;
 using LifeLog.Pages;
 using Microsoft.UI.Xaml;

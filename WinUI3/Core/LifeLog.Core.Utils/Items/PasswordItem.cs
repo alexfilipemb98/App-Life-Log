@@ -1,4 +1,4 @@
-﻿namespace LifeLog.Items;
+﻿namespace LifeLog.Core.Items;
 
 public class PasswordItem
 {

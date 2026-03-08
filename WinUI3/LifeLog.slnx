@@ -4,9 +4,8 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Folder Name="/Core/">
-    <Project Path="Core/LifeLog.Core.Utils/LifeLog.Core.Utils.csproj" Id="b533e2c2-eee3-4080-9b16-334258ed3d2f" />
-  </Folder>
+  <Project Path="Core/LifeLog.Core.Utils/LifeLog.Core.csproj" Id="b533e2c2-eee3-4080-9b16-334258ed3d2f" />
+  <Project Path="LifeLog.Api/LifeLog.Api.csproj" Id="021e32d3-3d43-4b55-ac0a-ae403d3e3238" />
   <Project Path="LifeLog/LifeLog.csproj">
     <Platform Solution="*|ARM64" Project="ARM64" />
     <Platform Solution="*|x64" Project="x64" />
