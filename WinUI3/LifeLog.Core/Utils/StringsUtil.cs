@@ -143,7 +143,7 @@ public static class StringsUtil
     /// </summary>
     /// <param name="s"></param>
     /// <returns></returns>
-    public static string? BetweenParenthesesRegex(this string s)
+    public static string BetweenParenthesesRegex(this string s)
     {
         if (string.IsNullOrEmpty(s)) return null;
 

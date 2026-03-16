@@ -97,7 +97,9 @@
     <PackageReference Include="QRCoder" Version="1.7.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\LifeLog.Core.Utils\LifeLog.Core.csproj" />
+    <ProjectReference Include="..\LifeLog.Api\LifeLog.Api.csproj" />
+    <ProjectReference Include="..\LifeLog.Core\LifeLog.Core.csproj" />
+    <ProjectReference Include="..\LifeLog.Data\LifeLog.Data.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Tools\QrCodeGenView.xaml">
