@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace LifeLog.Core.Interfaces;
 
-namespace LifeLog.Core.Interfaces;
-
-public interface IUserRepo
+public interface IUserRepo : IBaseRepo<Entities.User>
 {
+	
 }
