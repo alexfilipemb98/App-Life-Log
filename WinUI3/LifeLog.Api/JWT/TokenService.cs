@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -10,10 +12,10 @@ namespace LifeLog.Services.Api.Jwt;
 public class TokenService : ITokenService
 {
     private readonly IConfiguration _cfg;
+
     public TokenService(IConfiguration cfg) => _cfg = cfg;
 
     public record TokenResponse(string AccessToken, string RefreshToken, int ExpiresInSeconds);
-
 
     public (string token, int expiresInSeconds) CreateAccessToken(string userId, string email, string role)
     {
@@ -38,13 +40,13 @@ public class TokenService : ITokenService
             expires: expires,
             signingCredentials: creds);
 
-        string? jwtString = new JwtSecurityTokenHandler().WriteToken(token);
+        var jwtString = new JwtSecurityTokenHandler().WriteToken(token);
         return (jwtString, Engine.JwtAccessTokenMinutes * 60);
     }
 
     public string CreateRefreshToken()
     {
-        byte[]? bytes = RandomNumberGenerator.GetBytes(64);
+        var bytes = RandomNumberGenerator.GetBytes(64);
         return Convert.ToBase64String(bytes);
     }
 }

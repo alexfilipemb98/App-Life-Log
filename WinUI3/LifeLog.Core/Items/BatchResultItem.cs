@@ -25,7 +25,7 @@ public sealed class BatchResultItem
 	/// <summary>
 	/// Gets the returned rows, where each row is a key/value map of column name to value.
 	/// </summary>
-	public List<Dictionary<string, object?>> Rows { get; init; } = new();
+	public List<Dictionary<string, object>> Rows { get; init; } = new();
 
 	/// <summary>
 	/// Gets the number of affected rows for non-query operations (for example, INSERT/UPDATE/DELETE).

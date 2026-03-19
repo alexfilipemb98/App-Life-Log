@@ -1,5 +1,5 @@
-using LifeLog.Core.Utils.Utils;
-using LifeLog.Items;
+using LifeLog.Core.Items;
+using LifeLog.Core.Utils;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;

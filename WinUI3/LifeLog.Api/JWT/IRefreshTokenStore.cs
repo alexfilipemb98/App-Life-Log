@@ -1,4 +1,6 @@
-﻿namespace LifeLog.Services.Api.Jwt;
+﻿using System;
+
+namespace LifeLog.Services.Api.Jwt;
 
 public interface IRefreshTokenStore
 {

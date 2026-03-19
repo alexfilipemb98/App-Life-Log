@@ -16,7 +16,6 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.UI.WebUI;
 
 namespace LifeLog.Services.Api;
 
@@ -149,7 +148,7 @@ public sealed class Engine : IAsyncDisposable
         ConfigureSwagger(services);
 
         // Configure database services
-        services.ConfigureServices(connection);
+        //services.ConfigureServices(connection);
 
         // Add authorization
         services.AddAuthorization();

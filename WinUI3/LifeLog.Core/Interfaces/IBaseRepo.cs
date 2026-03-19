@@ -39,7 +39,7 @@ public interface IBaseRepo<TModel>
 	/// <item><description><c>string</c>: operation message or error details.</description></item>
 	/// </list>
 	/// </returns>
-	Task<(TModel?, string)> GetByKey(Guid key);
+	Task<(TModel, string)> GetByKey(Guid key);
 
 	/// <summary>
 	/// Gets all entities.
@@ -51,7 +51,7 @@ public interface IBaseRepo<TModel>
 	/// <item><description><c>string</c>: operation message or error details.</description></item>
 	/// </list>
 	/// </returns>
-	Task<(List<TModel?>?, string)> GetAll();
+	Task<(List<TModel>, string)> GetAll();
 
 	/// <summary>
 	/// Gets the last inserted entity.
@@ -63,7 +63,7 @@ public interface IBaseRepo<TModel>
 	/// <item><description><c>string</c>: operation message or error details.</description></item>
 	/// </list>
 	/// </returns>
-	Task<(TModel?, string)> GetLast();
+	Task<(TModel, string)> GetLast();
 
 	/// <summary>
 	/// Saves the provided entity.
@@ -89,7 +89,7 @@ public interface IBaseRepo<TModel>
 	/// <item><description><c>string</c>: operation message or error details.</description></item>
 	/// </list>
 	/// </returns>
-	Task<(TModel?, string?)> Duplicate(Guid key);
+	Task<(TModel, string)> Duplicate(Guid key);
 
 	/// <summary>
 	/// Deletes an entity by key.

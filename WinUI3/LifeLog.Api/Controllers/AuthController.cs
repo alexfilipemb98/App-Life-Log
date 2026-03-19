@@ -1,10 +1,12 @@
-﻿using LifeLog.Core.Models;
-using LifeLog.Data.Interfaces;
+﻿using LifeLog.Core.Entities;
+using LifeLog.Core.Interfaces;
+using LifeLog.Core.Models;
 using LifeLog.Services.Api.Jwt;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using static LifeLog.Services.Api.Jwt.TokenService;
 
@@ -22,14 +24,14 @@ public class AuthController : ControllerBase
     //PRIVATE
     private readonly ITokenService _tokens;
     private readonly IRefreshTokenStore _refreshStore;
-    private readonly IUserRepository _userDB;
+    private readonly IUserRepo _userDB;
 
     /// <summary>
     /// Construtor
     /// </summary>
     /// <param name="tokens"></param>
     /// <param name="refreshStore"></param>
-    public AuthController(ITokenService tokens, IRefreshTokenStore refreshStore, IUserRepository userDB)
+    public AuthController(ITokenService tokens, IRefreshTokenStore refreshStore, IUserRepo userDB)
     {
         _tokens = tokens;
         _refreshStore = refreshStore;
@@ -85,7 +87,7 @@ public class AuthController : ControllerBase
 
         _refreshStore.Revoke(req.RefreshToken);
 
-        (Data.Entities.User? user, string message) = await _userDB.GetByKey(uId);
+        (User? user, string message) = await _userDB.GetByKey(uId);
 
         if (user is null)
             return Unauthorized("Not Authorized!");

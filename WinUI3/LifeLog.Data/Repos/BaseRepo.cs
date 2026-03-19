@@ -1,48 +1,46 @@
-﻿using LifeLog.Core.Interfaces;
+﻿using LifeLog.Core.Utils;
 using LifeLog.Data.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using LifeLog.Services.SqlData;
 using System.Threading.Tasks;
 
 namespace LifeLog.Data.Repos;
 
 internal class BaseRepo<Entity>
 {
-	#region MAIN
+    #region MAIN
 
-	//PRIVATE
+    //PRIVATE
 
-	protected readonly DbContext _db;
-	protected readonly SqlDataAccess _sql;
+    protected readonly DbContext _db;
+    protected readonly SqlDataAccess _sql;
 
-	/// <summary>
-	/// Constructor
-	/// </summary>
-	/// <param name="db"></param>
-	public BaseRepository(DbContext db, SqlDataAccess sql)
-	{
-		_db = db;
-		_sql = sql;
-	}
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    /// <param name="db"></param>
+    public BaseRepo(DbContext db, SqlDataAccess sql)
+    {
+        _db = db;
+        _sql = sql;
+    }
 
-	#endregion
+    #endregion
 
-	/// <summary>
-	/// TABLE NAME
-	/// </summary>
-	public string TableName => typeof(Model).GetTableName();
+    /// <summary>
+    /// TABLE NAME
+    /// </summary>
+    public string TableName => typeof(Entity).GetTableName();
 
-	/// <summary>
-	/// Get's the last insert object
-	/// </summary>
-	/// <returns></returns>
-	public async Task<Model?> GetLastInsert()
-	{
-		if (string.IsNullOrEmpty(TableName))
-			return default;
+    /// <summary>
+    /// Get's the last insert object
+    /// </summary>
+    /// <returns></returns>
+    public async Task<Entity?> GetLastInsert()
+    {
+        if (string.IsNullOrEmpty(TableName))
+            return default;
 
-		string sql = @$"
+        string sql = @$"
 			DECLARE @total int = (SELECT COUNT(*) FROM {TableName} WITH(NOLOCK));
 			DECLARE @skip int = CASE WHEN @total > 0 THEN @total - 1 ELSE 0 END;
 
@@ -52,6 +50,6 @@ internal class BaseRepo<Entity>
 			OFFSET @skip ROWS 
 			FETCH NEXT 1 ROWS ONLY;";
 
-		return await _sql.GetValueAsync<Model>(sql);
-	}
+        return await _sql.GetValueAsync<Entity>(sql);
+    }
 }

@@ -1,4 +1,4 @@
-using LifeLog.Core.Utils.Utils;
+using LifeLog.Core.Utils;
 using LifeLog.Helpers;
 using LifeLog.Pages;
 using Microsoft.UI.Xaml;
@@ -9,16 +9,12 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Windows.Storage.Pickers;
 
 namespace LifeLog.Views.Tools
 {
     public sealed partial class PdfMergeView : UserControl
     {
-        public PdfMergeView()
-        {
-            InitializeComponent();
-        }
+        public PdfMergeView() => InitializeComponent();
 
         private async void BrowseSourceBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -87,7 +83,7 @@ namespace LifeLog.Views.Tools
         /// Shows an error message in the InfoBar
         /// </summary>
         /// <param name="message">The error message to display</param>
-        private void ShowErrorMessage(string message = null)
+        private void ShowErrorMessage(string? message = null)
         {
             if (string.IsNullOrWhiteSpace(message))
             {
@@ -150,7 +146,7 @@ namespace LifeLog.Views.Tools
                 return false;
             }
 
-            string outputDir = Path.GetDirectoryName(output);
+            string? outputDir = Path.GetDirectoryName(output);
             if (!string.IsNullOrEmpty(outputDir) && !Directory.Exists(outputDir))
             {
                 ShowErrorMessage("The output folder does not exist. Please check the path and try again.");

@@ -110,6 +110,14 @@ public sealed partial class MainPage : Page
 
             switch (page)
             {
+                #region GAMES
+
+                case "CoinFlip":
+                    ContentFrame.Content = GetOrCreateControl("CoinFlip", () => new CoinFlipView());
+                    break;
+
+                #endregion
+
                 #region TOOLS
 
                 case "TxtConvert":

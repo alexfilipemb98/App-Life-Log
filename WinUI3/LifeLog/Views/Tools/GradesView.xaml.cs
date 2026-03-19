@@ -1,4 +1,4 @@
-﻿using LifeLog.Core.Utils.Items;
+﻿using LifeLog.Core.Items;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
@@ -14,7 +14,7 @@ public sealed partial class GradesView : UserControl
     public GradesView()
     {
         InitializeComponent();
-        
+
         GradesList.ItemsSource = Grades;
 
         AddRow();
