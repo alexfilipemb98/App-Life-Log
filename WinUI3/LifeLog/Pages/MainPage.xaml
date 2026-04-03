@@ -176,6 +176,11 @@
                                 <FontIcon Glyph="&#xE8CB;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="#10B981"/>
                             </NavigationViewItem.Icon>
                         </NavigationViewItem>
+                        <NavigationViewItem Content="Ghost Writer" Tag="AutoTyper">
+                            <NavigationViewItem.Icon>
+                                <FontIcon Glyph="&#xE765;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="#22C55E"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
             </NavigationView.MenuItems>

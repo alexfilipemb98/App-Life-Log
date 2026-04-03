@@ -144,6 +144,10 @@ public sealed partial class MainPage : Page
                     ContentFrame.Content = GetOrCreateControl("QrCodeGen", () => new QrCodeGenView());
                     break;
 
+                case "AutoTyper":
+                    ContentFrame.Content = GetOrCreateControl("AutoTyper", () => new AutoTyperView());
+                    break;
+
                 #endregion
 
                 default:
