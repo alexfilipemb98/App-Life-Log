@@ -94,10 +94,10 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="InputSimulator" Version="1.0.4" />
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7705" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.1721" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260317003" />
     <PackageReference Include="QRCoder" Version="1.7.0" />
+    <PackageReference Include="WindowsInput" Version="6.4.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LifeLog.Api\LifeLog.Api.csproj" />
@@ -157,8 +157,8 @@
     <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">False</PublishTrimmed>
     <WindowsAppSDKSelfContained Condition="'$(Configuration)' != 'Debug'">true</WindowsAppSDKSelfContained>
     <SatelliteResourceLanguages>en;en-US</SatelliteResourceLanguages>
-    <Version>2026.2.0</Version>
-    <FileVersion>2026.2.0.8</FileVersion>
+    <Version>2026.3.0</Version>
+    <FileVersion>2026.3.0.1</FileVersion>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ApplicationIcon>LifeLog.ico</ApplicationIcon>
   </PropertyGroup>
