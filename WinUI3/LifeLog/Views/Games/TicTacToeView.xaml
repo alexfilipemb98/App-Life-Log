@@ -1,0 +1,157 @@
+<UserControl
+    x:Class="LifeLog.Views.Games.TicTacToeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Padding="24,16" Background="Transparent" BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}" BorderThickness="0,0,0,1">
+            <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                <FontIcon Glyph="&#xE7FC;" FontFamily="Segoe Fluent Icons" FontSize="14" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                <TextBlock Text="Games" FontSize="14" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                <FontIcon Glyph="&#xE76C;" FontFamily="Segoe Fluent Icons" FontSize="10" Foreground="{ThemeResource TextFillColorDisabledBrush}" Margin="4,2,4,0"/>
+                
+                <Border Background="{ThemeResource SystemAccentColorLight3}" CornerRadius="4" Padding="6,4">
+                    <FontIcon Glyph="&#xECE7;" FontFamily="Segoe Fluent Icons" FontSize="14" Foreground="{ThemeResource SystemAccentColor}"/>
+                </Border>
+                <TextBlock Text="Tic-Tac-Toe" FontSize="16" FontWeight="SemiBold" Foreground="{ThemeResource TextFillColorPrimaryBrush}" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Padding="0,0,16,0">
+            <Grid HorizontalAlignment="Center" Margin="24,40,24,64" ColumnSpacing="40">
+                
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup>
+                        <VisualState x:Name="WideState">
+                            <VisualState.StateTriggers>
+                                <AdaptiveTrigger MinWindowWidth="800"/>
+                            </VisualState.StateTriggers>
+                        </VisualState>
+                        <VisualState x:Name="NarrowState">
+                            <VisualState.StateTriggers>
+                                <AdaptiveTrigger MinWindowWidth="0"/>
+                            </VisualState.StateTriggers>
+                            <VisualState.Setters>
+                                <Setter Target="ScorePanel.(Grid.Column)" Value="0"/>
+                                <Setter Target="ScorePanel.(Grid.Row)" Value="1"/>
+                                <Setter Target="ScorePanel.Margin" Value="0,32,0,0"/>
+                                <Setter Target="ScorePanel.Width" Value="380"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="0" Grid.Row="0" Width="380" Spacing="24" VerticalAlignment="Top">
+                    <StackPanel.ChildrenTransitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition FromVerticalOffset="30" IsStaggeringEnabled="True"/>
+                        </TransitionCollection>
+                    </StackPanel.ChildrenTransitions>
+
+                    <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" 
+                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" 
+                            BorderThickness="1" CornerRadius="16" Padding="32">
+                        
+                        <Grid x:Name="BoardGrid" Width="300" Height="300" RowSpacing="8" ColumnSpacing="8" HorizontalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button x:Name="Cell0" Grid.Row="0" Grid.Column="0" Tag="0" Click="Cell_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48" FontWeight="Black" CornerRadius="12" Background="{ThemeResource LayerFillColorAltBrush}"/>
+                            <Button x:Name="Cell1" Grid.Row="0" Grid.Column="1" Tag="1" Click="Cell_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48" FontWeight="Black" CornerRadius="12" Background="{ThemeResource LayerFillColorAltBrush}"/>
+                            <Button x:Name="Cell2" Grid.Row="0" Grid.Column="2" Tag="2" Click="Cell_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48" FontWeight="Black" CornerRadius="12" Background="{ThemeResource LayerFillColorAltBrush}"/>
+                            
+                            <Button x:Name="Cell3" Grid.Row="1" Grid.Column="0" Tag="3" Click="Cell_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48" FontWeight="Black" CornerRadius="12" Background="{ThemeResource LayerFillColorAltBrush}"/>
+                            <Button x:Name="Cell4" Grid.Row="1" Grid.Column="1" Tag="4" Click="Cell_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48" FontWeight="Black" CornerRadius="12" Background="{ThemeResource LayerFillColorAltBrush}"/>
+                            <Button x:Name="Cell5" Grid.Row="1" Grid.Column="2" Tag="5" Click="Cell_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48" FontWeight="Black" CornerRadius="12" Background="{ThemeResource LayerFillColorAltBrush}"/>
+                            
+                            <Button x:Name="Cell6" Grid.Row="2" Grid.Column="0" Tag="6" Click="Cell_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48" FontWeight="Black" CornerRadius="12" Background="{ThemeResource LayerFillColorAltBrush}"/>
+                            <Button x:Name="Cell7" Grid.Row="2" Grid.Column="1" Tag="7" Click="Cell_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48" FontWeight="Black" CornerRadius="12" Background="{ThemeResource LayerFillColorAltBrush}"/>
+                            <Button x:Name="Cell8" Grid.Row="2" Grid.Column="2" Tag="8" Click="Cell_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48" FontWeight="Black" CornerRadius="12" Background="{ThemeResource LayerFillColorAltBrush}"/>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel x:Name="ScorePanel" Grid.Column="1" Grid.Row="0" Width="300" Spacing="24" VerticalAlignment="Top">
+                    <StackPanel.ChildrenTransitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition FromVerticalOffset="40" IsStaggeringEnabled="True"/>
+                        </TransitionCollection>
+                    </StackPanel.ChildrenTransitions>
+
+                    <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" 
+                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" 
+                            BorderThickness="1" CornerRadius="16" Padding="24">
+                        <StackPanel Spacing="16" HorizontalAlignment="Center">
+                            <TextBlock Text="GAME STATUS" FontSize="12" FontWeight="Black" Foreground="{ThemeResource TextFillColorSecondaryBrush}" CharacterSpacing="100" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="StatusText" Text="Player X's Turn" FontSize="20" FontWeight="Bold" Foreground="{ThemeResource SystemAccentColor}" HorizontalAlignment="Center"/>
+                            
+                            <Button Click="RestartBtn_Click" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Stretch" Height="40" CornerRadius="8" Margin="0,8,0,0">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <FontIcon Glyph="&#xE72C;" FontFamily="Segoe Fluent Icons" FontSize="14"/>
+                                    <TextBlock Text="Play Again" FontWeight="Medium"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Background="{ThemeResource LayerFillColorAltBrush}" 
+                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" 
+                            BorderThickness="1" CornerRadius="16" Padding="24">
+                        <StackPanel Spacing="16">
+                            <TextBlock Text="SCOREBOARD" FontSize="12" FontWeight="Black" Foreground="{ThemeResource TextFillColorSecondaryBrush}" CharacterSpacing="100" HorizontalAlignment="Center"/>
+                            
+                            <Grid Margin="0,8,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0" Spacing="4" HorizontalAlignment="Center">
+                                    <TextBlock Text="X" FontSize="24" FontWeight="Black" Foreground="{ThemeResource SystemAccentColor}" HorizontalAlignment="Center"/>
+                                    <TextBlock x:Name="ScoreXText" Text="0" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1" Spacing="4" HorizontalAlignment="Center">
+                                    <TextBlock Text="DRAWS" FontSize="12" FontWeight="Bold" Foreground="{ThemeResource TextFillColorSecondaryBrush}" HorizontalAlignment="Center" Margin="0,8,0,0"/>
+                                    <TextBlock x:Name="ScoreDrawText" Text="0" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2" Spacing="4" HorizontalAlignment="Center">
+                                    <TextBlock Text="O" FontSize="24" FontWeight="Black" Foreground="#F97316" HorizontalAlignment="Center"/>
+                                    <TextBlock x:Name="ScoreOText" Text="0" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

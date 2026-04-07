@@ -65,6 +65,8 @@
     <None Remove="Assets\Wide310x150Logo.scale-125.png" />
     <None Remove="Pages\MainPage.xaml" />
     <None Remove="Views\Games\CoinFlipView.xaml" />
+    <None Remove="Views\Games\RollDiceView.xaml" />
+    <None Remove="Views\Games\TicTacToeView.xaml" />
     <None Remove="Views\Tools\AutoTyperView.xaml" />
     <None Remove="Views\Tools\PassGeneratorView.xaml" />
     <None Remove="Views\Tools\PdfMergeView.xaml" />
@@ -103,6 +105,16 @@
     <ProjectReference Include="..\LifeLog.Api\LifeLog.Api.csproj" />
     <ProjectReference Include="..\LifeLog.Core\LifeLog.Core.csproj" />
     <ProjectReference Include="..\LifeLog.Data\LifeLog.Data.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Games\TicTacToeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Games\RollDiceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Tools\AutoTyperView.xaml">

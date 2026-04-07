@@ -14,7 +14,7 @@ namespace LifeLog;
 /// </summary>
 public sealed partial class MainWindow : Window
 {
-    private static MainWindow Instance = null;
+    private static MainWindow? Instance = null;
 
     /// <summary>
     /// Constructor for the main window, initializes the UI and sets up the Mica backdrop
@@ -48,7 +48,7 @@ public sealed partial class MainWindow : Window
     /// customization.</param>
     public static void SetTitleBarEx(UIElement element)
     {
-        Instance.SetTitleBar(element);
+        Instance!.SetTitleBar(element);
     }
 
     /// <summary>

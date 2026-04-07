@@ -1,3 +1,4 @@
+using LifeLog.Views.Games;
 using LifeLog.Views.Tools;
 using Microsoft.UI;
 using Microsoft.UI.Xaml;
@@ -63,9 +64,13 @@ public sealed partial class MainPage : Page
 
     #endregion
 
-
-
-
+    /// <summary>
+    /// Changes the theme of the application between light and dark, and updates the theme icon accordingly. 
+    /// The current theme is determined by the ActualTheme property, and the RequestedTheme property is set to switch to the opposite theme. 
+    /// The ThemeIcon's Glyph is updated to reflect the new theme (light or dark) after the change is made.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void ThemeToggleButton_Click(object sender, RoutedEventArgs e)
     {
         if (this.ActualTheme == ElementTheme.Dark)
@@ -114,6 +119,14 @@ public sealed partial class MainPage : Page
 
                 case "CoinFlip":
                     ContentFrame.Content = GetOrCreateControl("CoinFlip", () => new CoinFlipView());
+                    break;
+
+                case "RollDice":
+                    ContentFrame.Content = GetOrCreateControl("RollDice", () => new RollDiceView());
+                    break;
+
+                case "TicTacToe":
+                    ContentFrame.Content = GetOrCreateControl("TicTacToe", () => new TicTacToeView());
                     break;
 
                 #endregion
