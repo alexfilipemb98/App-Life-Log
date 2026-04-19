@@ -1,4 +1,5 @@
 using LifeLog.Views.Games;
+using LifeLog.Views.Main;
 using LifeLog.Views.Tools;
 using Microsoft.UI;
 using Microsoft.UI.Xaml;
@@ -115,6 +116,14 @@ public sealed partial class MainPage : Page
 
             switch (page)
             {
+                #region MAIN
+
+                case "Notes":
+                    ContentFrame.Content = GetOrCreateControl("Notes", () => new NotesView());
+                    break; 
+
+                #endregion
+
                 #region GAMES
 
                 case "CoinFlip":
