@@ -120,7 +120,11 @@ public sealed partial class MainPage : Page
 
                 case "Notes":
                     ContentFrame.Content = GetOrCreateControl("Notes", () => new NotesView());
-                    break; 
+                    break;
+
+                case "Weather":
+                    ContentFrame.Content = GetOrCreateControl("Weather", () => new WeatherView());
+                    break;
 
                 #endregion
 
