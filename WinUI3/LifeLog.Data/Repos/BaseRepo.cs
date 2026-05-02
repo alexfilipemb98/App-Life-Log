@@ -11,14 +11,14 @@ internal class BaseRepo<Entity>
 
     //PRIVATE
 
-    protected readonly DbContext _db;
+    protected readonly AppDbContext _db;
     protected readonly SqlDataAccess _sql;
 
     /// <summary>
     /// Constructor
     /// </summary>
     /// <param name="db"></param>
-    public BaseRepo(DbContext db, SqlDataAccess sql)
+    public BaseRepo(AppDbContext db, SqlDataAccess sql)
     {
         _db = db;
         _sql = sql;

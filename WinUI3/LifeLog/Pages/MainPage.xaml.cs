@@ -8,7 +8,10 @@ using Microsoft.UI.Xaml.Media;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Linq;
 using System.Threading.Tasks;
+using LifeLog.Helpers;
+using LifeLog.Pages.Auth;
 
 namespace LifeLog.Pages;
 
@@ -24,6 +27,7 @@ public sealed partial class MainPage : Page
     private Dictionary<string, UserControl> _controlCache = new();
     private bool _isNavigating = false;
     private DispatcherTimer mainTimer;
+    private readonly List<NavigationViewItem> _navigationItems = new();
 
     /// <summary>
     /// Constructor
@@ -40,6 +44,8 @@ public sealed partial class MainPage : Page
         mainTimer.Tick += MainTimer_Tick;
         mainTimer.Start();
 
+        CacheNavigationItems();
+
         string? fileVersion = Assembly.GetExecutingAssembly()
            .GetCustomAttribute<AssemblyFileVersionAttribute>()?.Version;
 
@@ -51,6 +57,65 @@ public sealed partial class MainPage : Page
         VersionAppLabel.Foreground = (Brush)Application.Current.Resources["TextFillColorSecondaryBrush"];
 #endif
 
+        UsernameLabel.Text = $"Hello, {AppHelper.LoggedUser?.Username ?? "User"}!";
+    }
+
+    private void CacheNavigationItems()
+    {
+        _navigationItems.Clear();
+        AddNavigationItems(NavView.MenuItems);
+        AddNavigationItems(NavView.FooterMenuItems);
+    }
+
+    private void AddNavigationItems(IList<object> items)
+    {
+        foreach (var item in items)
+        {
+            if (item is not NavigationViewItem navigationItem)
+            {
+                continue;
+            }
+
+            _navigationItems.Add(navigationItem);
+
+            if (navigationItem.MenuItems.Count > 0)
+            {
+                AddNavigationItems(navigationItem.MenuItems);
+            }
+        }
+    }
+
+    private async void Profile_Click(object sender, RoutedEventArgs e)
+    {
+        var dialog = new ContentDialog
+        {
+            XamlRoot = XamlRoot,
+            Title = "Perfil",
+            Content = $"Utilizador: {AppHelper.LoggedUser?.Username ?? "User"}",
+            CloseButtonText = "Fechar"
+        };
+
+        await dialog.ShowAsync();
+    }
+
+    private void Logout_Click(object sender, RoutedEventArgs e)
+    {
+        ClearSessionState();
+
+        MainWindow.NavigateTo(typeof(LoginPage));
+    }
+
+    private void ClearSessionState()
+    {
+        AppHelper.LoggedUser = null;
+
+        mainTimer.Stop();
+        mainTimer.Tick -= MainTimer_Tick;
+
+        _controlCache.Clear();
+        _navigationItems.Clear();
+        _isNavigating = false;
+        Instance = null;
     }
 
     /// <summary>
@@ -195,6 +260,100 @@ public sealed partial class MainPage : Page
     private void TopMostToggle_Toggled(object sender, RoutedEventArgs e)
     {
         MainWindow.SetTopMost(TopMostToggle.IsOn);
+    }
+
+    private void NavSearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+    {
+        if (args.Reason != AutoSuggestionBoxTextChangeReason.UserInput)
+        {
+            return;
+        }
+
+        var query = sender.Text;
+        FilterNavigationItems(query);
+
+        if (string.IsNullOrWhiteSpace(query))
+        {
+            sender.ItemsSource = null;
+            return;
+        }
+
+        var suggestions = _navigationItems
+            .Where(item => item.MenuItems.Count == 0)
+            .Select(item => item.Content?.ToString())
+            .Where(content => !string.IsNullOrWhiteSpace(content) && content.Contains(query, StringComparison.OrdinalIgnoreCase))
+            .Distinct()
+            .ToList();
+
+        sender.ItemsSource = suggestions;
+    }
+
+    private void NavSearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+    {
+        var query = args.ChosenSuggestion?.ToString() ?? sender.Text;
+        if (string.IsNullOrWhiteSpace(query))
+        {
+            return;
+        }
+
+        var match = _navigationItems.FirstOrDefault(item
+            => item.MenuItems.Count == 0
+            && string.Equals(item.Content?.ToString(), query, StringComparison.OrdinalIgnoreCase));
+
+        if (match is null)
+        {
+            return;
+        }
+
+        NavView.SelectedItem = match;
+        FilterNavigationItems(string.Empty);
+        sender.Text = string.Empty;
+        sender.ItemsSource = null;
+    }
+
+    private void FilterNavigationItems(string query)
+    {
+        var hasQuery = !string.IsNullOrWhiteSpace(query);
+
+        foreach (var item in _navigationItems)
+        {
+            if (item.MenuItems.Count > 0)
+            {
+                continue;
+            }
+
+            var content = item.Content?.ToString() ?? string.Empty;
+            item.Visibility = !hasQuery || content.Contains(query, StringComparison.OrdinalIgnoreCase)
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+        }
+
+        foreach (var item in _navigationItems)
+        {
+            if (item.MenuItems.Count == 0)
+            {
+                continue;
+            }
+
+            var anyVisible = false;
+            foreach (var child in item.MenuItems)
+            {
+                if (child is NavigationViewItem childItem && childItem.Visibility == Visibility.Visible)
+                {
+                    anyVisible = true;
+                    break;
+                }
+            }
+
+            item.Visibility = !hasQuery || anyVisible
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+
+            if (hasQuery)
+            {
+                item.IsExpanded = anyVisible;
+            }
+        }
     }
 
     #region FUNCTIONS

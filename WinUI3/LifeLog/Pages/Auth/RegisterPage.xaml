@@ -79,9 +79,35 @@
                     <TextBox x:Name="EmailBox" Header="Email" PlaceholderText="your@email.com" InputScope="EmailNameOrAddress" TextChanged="ValidateInputs" KeyDown="Input_KeyDown" CornerRadius="8"/>
 
                     <StackPanel Spacing="4">
-                        <PasswordBox x:Name="PassBox" Header="Password" PlaceholderText="????????????????????????" PasswordChanged="ValidateInputs" 
-                                     PasswordRevealMode="Visible" GotFocus="PassBox_GotFocus" LostFocus="PassBox_LostFocus" KeyDown="PassBox_KeyDown" CornerRadius="8"/>
-                        <TextBlock x:Name="CapsLockWarning" Text="?????? Caps Lock is ON" Foreground="{ThemeResource SystemFillColorCautionBrush}" FontSize="12" Visibility="Collapsed" Margin="2,0,0,0" FontWeight="Medium"/>
+                        <TextBlock Text="Palavra-passe" FontSize="14" Foreground="{ThemeResource TextFillColorPrimaryBrush}" Margin="0,0,0,4"/>
+                        <Grid>
+                            <PasswordBox x:Name="PassBox" 
+                                         PlaceholderText="Digite a palavra-passe" 
+                                         PasswordChanged="ValidateInputs" 
+                                         PasswordRevealMode="Hidden" 
+                                         GotFocus="PassBox_GotFocus" 
+                                         LostFocus="PassBox_LostFocus" 
+                                         KeyDown="PassBox_KeyDown" 
+                                         CornerRadius="8" 
+                                         Padding="12,8,44,8" 
+                                         VerticalAlignment="Center"/>
+
+                            <ToggleButton x:Name="PassRevealToggle" 
+                                          HorizontalAlignment="Right" 
+                                          VerticalAlignment="Center" 
+                                          Margin="0,0,6,0" 
+                                          Width="34" Height="34" 
+                                          Padding="0"
+                                          CornerRadius="6"
+                                          Background="Transparent" 
+                                          BorderThickness="0" 
+                                          Checked="PassRevealToggle_Checked" 
+                                          Unchecked="PassRevealToggle_Unchecked"
+                                          ToolTipService.ToolTip="Mostrar palavra-passe">
+                                <FontIcon Glyph="&#xE890;" FontFamily="Segoe Fluent Icons" FontSize="16" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                            </ToggleButton>
+                        </Grid>
+                        <TextBlock x:Name="CapsLockWarning" Text="Caps Lock está ativado" Foreground="{ThemeResource SystemFillColorCautionBrush}" FontSize="12" Visibility="Collapsed" Margin="2,0,0,0" FontWeight="Medium"/>
                     </StackPanel>
 
                     <TextBlock x:Name="ErrorMessage" Text="Invalid input." Foreground="{ThemeResource SystemFillColorCriticalBrush}" FontSize="12" Visibility="Collapsed" Margin="2,0,0,0" FontWeight="SemiBold"/>

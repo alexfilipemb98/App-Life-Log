@@ -1,3 +1,4 @@
+using LifeLog.Helpers;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
@@ -57,6 +58,16 @@ namespace LifeLog.Pages.Auth
             }
         }
 
+    private void PassRevealToggle_Checked(object sender, RoutedEventArgs e)
+    {
+        PassBox.PasswordRevealMode = PasswordRevealMode.Visible;
+    }
+
+    private void PassRevealToggle_Unchecked(object sender, RoutedEventArgs e)
+    {
+        PassBox.PasswordRevealMode = PasswordRevealMode.Hidden;
+    }
+
         // ---- Validation Logic ----
         private void ValidateInputs(object sender, object e)
         {
@@ -113,13 +124,31 @@ namespace LifeLog.Pages.Auth
             // Entra em estado de carregamento
             SetLoadingState(true);
 
+            Core.Models.RegisterModel? register = new LifeLog.Core.Models.RegisterModel
+            {
+                Username = UsernameBox.Text,
+                Email = EmailBox.Text,
+                Password = PassBox.Password
+            };
+
+            (bool registered, string message) result = await AppHelper.DataEngine!.Users.Register(register);
+
+
             // SIMULAÇÃO de requisição à API para registar o utilizador
             await Task.Delay(2000);
 
-            // Se o registo for bem sucedido, normalmente navegas para a página principal ou de login
-            // Frame.Navigate(typeof(LoginPage));
+
+            if (!result.registered)
+            {
+                TriggerErrorShake(result.message);
+                SetLoadingState(false);
+                return;
+            }
 
             SetLoadingState(false);
+
+            // Se o registo for bem sucedido, normalmente navegas para a página principal ou de login
+            Frame.Navigate(typeof(LoginPage));
         }
 
         private void SetLoadingState(bool isLoading)

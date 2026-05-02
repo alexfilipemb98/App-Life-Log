@@ -4,11 +4,15 @@ using System.ComponentModel.DataAnnotations;
 namespace LifeLog.Core.Models;
 
 /// <summary>
-/// Login Model
+/// Register Model
 /// </summary>
-public class LoginModel
+public class RegisterModel
 {
     #region PROPERTIES
+
+    [DataType(DataType.Text)]
+    [Attributes.StringLength(20, MinimumLength = 5)]
+    public required string Username { get; set; }
 
     [DataType(DataType.EmailAddress)]
     [Attributes.Required]

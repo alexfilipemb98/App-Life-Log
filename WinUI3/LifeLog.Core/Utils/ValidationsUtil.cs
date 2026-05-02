@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace LifeLog.Core.Utils;
@@ -37,4 +40,50 @@ public static partial class ValidationsUtil
         return Uri.TryCreate(url, UriKind.Absolute, out var uriResult)
                && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
     }
+
+    /// <summary>
+	/// Validate model
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="model"></param>
+	/// <param name="validationResults"></param>
+	/// <returns></returns>
+	public static bool ValidateModel<T>(this T model, out List<ValidationResult> validationResults)
+    {
+        if (model == null)
+        {
+            validationResults = new List<ValidationResult>
+            {
+                new("Model is null")
+            };
+            return false;
+        }
+
+        ValidationContext validationContext = new(model);
+        validationResults = [];
+        bool isValid = Validator.TryValidateObject(model, validationContext, validationResults, true);
+        return isValid;
+    }
+
+    /// <summary>
+    /// Is model valid
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="model"></param>
+    /// <returns></returns>
+    public static bool IsValid<T>(this T model, out string message)
+    {
+        bool valid = ValidateModel(model, out List<ValidationResult> validationResults);
+        message = string.Join(Environment.NewLine, validationResults.Select(vr => vr.ErrorMessage));
+        return valid;
+    }
+
+    /// <summary>
+    /// Is model valid
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="model"></param>
+    /// <returns></returns>
+    public static bool IsValid<T>(this T model) =>
+        ValidateModel(model, out _);
 }

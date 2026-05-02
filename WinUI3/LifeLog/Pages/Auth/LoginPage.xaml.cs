@@ -1,4 +1,6 @@
-﻿using LifeLog.Core.Utils;
+﻿using LifeLog.Core.Models;
+using LifeLog.Core.Utils;
+using LifeLog.Helpers;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
@@ -42,6 +44,26 @@ public sealed partial class LoginPage : Page
         {
             // Se sim, chama o método do botão de Sign In diretamente
             SignIn_Click(this, new RoutedEventArgs());
+        }
+    }
+
+    // Quando clicas no olho (Botão ativado)
+    private void PassRevealToggle_Checked(object sender, RoutedEventArgs e)
+    {
+        if (PassBox != null)
+        {
+            // Muda o modo para Visível (mostra as letras)
+            PassBox.PasswordRevealMode = PasswordRevealMode.Visible;
+        }
+    }
+
+    // Quando voltas a clicar no olho (Botão desativado)
+    private void PassRevealToggle_Unchecked(object sender, RoutedEventArgs e)
+    {
+        if (PassBox != null)
+        {
+            // Muda o modo para Escondido (volta às bolinhas)
+            PassBox.PasswordRevealMode = PasswordRevealMode.Hidden;
         }
     }
 
@@ -90,7 +112,24 @@ public sealed partial class LoginPage : Page
 
         SetLoadingState(true);
 
-        await Task.Delay(500);
+        var loginUser = new LoginModel
+        {
+            Email = EmailBox.Text,
+            Password = PassBox.Password
+        };
+
+        (bool logged, LoggedUserModel? user, string message) result = await AppHelper.DataEngine!.Users.Login(loginUser);
+
+        await Task.Delay(250);
+
+        if (!result.logged)
+        {
+            SetLoadingState(false);
+            TriggerErrorShake(result.message);
+            return;
+        }
+
+        AppHelper.LoggedUser = result.user;
 
         this.Frame.Navigate(typeof(MainPage));
     }

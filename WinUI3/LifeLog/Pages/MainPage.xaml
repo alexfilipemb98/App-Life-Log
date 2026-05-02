@@ -71,12 +71,12 @@
                         IsSettingsVisible="False" 
                         PaneDisplayMode="Left"
                         IsPaneOpen="True"
-                        IsPaneToggleButtonVisible="False"
+                        IsPaneToggleButtonVisible="True"
                         SelectionChanged="NavView_SelectionChanged"
                         Background="Transparent">
 
             <NavigationView.AutoSuggestBox>
-                <AutoSuggestBox PlaceholderText="Search anything..." QueryIcon="Find"/>
+                <AutoSuggestBox x:Name="NavSearchBox" PlaceholderText="Search anything..." QueryIcon="Find" TextChanged="NavSearchBox_TextChanged" QuerySubmitted="NavSearchBox_QuerySubmitted"/>
             </NavigationView.AutoSuggestBox>
 
             <NavigationView.MenuItems>
@@ -273,10 +273,18 @@
                         <TextBlock Name="VersionAppLabel" Text="v2026.2.0.3" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" VerticalAlignment="Center" Margin="0,1,0,0"/>
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" Spacing="6" Padding="8,4" Background="{ThemeResource ControlFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="6" VerticalAlignment="Center">
-                        <FontIcon Glyph="&#xE77B;" FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="12" Foreground="#10B981" VerticalAlignment="Center"/>
-                        <TextBlock Text="alexandre.bertolo" FontSize="12" FontWeight="Bold" Foreground="{ThemeResource TextFillColorPrimaryBrush}" VerticalAlignment="Center" Margin="0,1,0,0"/>
-                    </StackPanel>
+                    <Button x:Name="UserMenuButton" Padding="0" Background="Transparent" BorderThickness="0" VerticalAlignment="Center">
+                        <Button.Flyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem Text="Profile" Click="Profile_Click" />
+                                <MenuFlyoutItem Text="Logout" Click="Logout_Click" />
+                            </MenuFlyout>
+                        </Button.Flyout>
+                        <StackPanel Orientation="Horizontal" Spacing="6" Padding="8,4" Background="{ThemeResource ControlFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="6" VerticalAlignment="Center">
+                            <FontIcon Glyph="&#xE77B;" FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="12" Foreground="#10B981" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="UsernameLabel" Text="alexandre.bertolo" FontSize="12" FontWeight="Bold" Foreground="{ThemeResource TextFillColorPrimaryBrush}" VerticalAlignment="Center" Margin="0,1,0,0"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
             </Grid>
         </Border>

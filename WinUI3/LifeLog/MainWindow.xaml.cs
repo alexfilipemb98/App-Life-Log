@@ -1,3 +1,4 @@
+using LifeLog.Helpers;
 using LifeLog.Pages.Auth;
 using Microsoft.UI;
 using Microsoft.UI.Composition.SystemBackdrops;
@@ -25,6 +26,8 @@ public sealed partial class MainWindow : Window
 
         Instance = this;
 
+        Closed += (_, _) => AppHelper.DataEngine?.Dispose();
+
         SystemBackdrop = new MicaBackdrop
         {
             Kind = MicaKind.BaseAlt
@@ -37,6 +40,7 @@ public sealed partial class MainWindow : Window
         RootFrame.Navigate(typeof(LoginPage));
     }
     
+
     #region FUNCTIONS
 
     /// <summary>
@@ -63,6 +67,11 @@ public sealed partial class MainWindow : Window
 
         if (appWindow.Presenter is OverlappedPresenter presenter)
             presenter.IsAlwaysOnTop = topMost;
+    }
+
+    public static void NavigateTo(Type pageType)
+    {
+        Instance?.RootFrame.Navigate(pageType);
     }
 
     #endregion

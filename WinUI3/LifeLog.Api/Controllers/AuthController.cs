@@ -53,7 +53,7 @@ public class AuthController : ControllerBase
         if (model is null || !ModelState.IsValid)
             return ValidationProblem(ModelState);
 
-        (bool logged, LoggedUserModel? user, string message) = await _userDB.Login(model.Email!, model.Password!);
+        (bool logged, LoggedUserModel? user, string message) = await _userDB.Login(model);
 
         if (user is null)
             return Unauthorized("Email ou password inválidos.");
