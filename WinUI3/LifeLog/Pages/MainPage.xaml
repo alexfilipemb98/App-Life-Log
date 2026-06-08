@@ -9,6 +9,49 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="DesktopState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1200"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TopBarGrid.Margin" Value="20,0,190,0"/>
+                        <Setter Target="TopMostLabel.Visibility" Value="Visible"/>
+                        <Setter Target="StatusRightPanel.Visibility" Value="Visible"/>
+                        <Setter Target="MiniStatusPanel.Visibility" Value="Collapsed"/>
+                        <Setter Target="NavView.IsPaneToggleButtonVisible" Value="True"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="TabletState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TopBarGrid.Margin" Value="16,0,110,0"/>
+                        <Setter Target="TopMostLabel.Visibility" Value="Collapsed"/>
+                        <Setter Target="StatusRightPanel.Visibility" Value="Visible"/>
+                        <Setter Target="MiniStatusPanel.Visibility" Value="Collapsed"/>
+                        <Setter Target="NavView.IsPaneToggleButtonVisible" Value="True"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="CompactState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TopBarGrid.Margin" Value="12,0,16,0"/>
+                        <Setter Target="TopMostLabel.Visibility" Value="Collapsed"/>
+                        <Setter Target="StatusRightPanel.Visibility" Value="Collapsed"/>
+                        <Setter Target="MiniStatusPanel.Visibility" Value="Visible"/>
+                        <Setter Target="NavView.IsPaneToggleButtonVisible" Value="True"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <!--<Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Color="{ThemeResource SystemAccentColorLight2}" Offset="0.0" />
@@ -23,7 +66,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Margin="20,0,190,0" Background="Transparent">
+        <Grid x:Name="TopBarGrid" Grid.Row="0" Margin="20,0,190,0" Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" MinWidth="150"/>
                 <ColumnDefinition Width="*"/>
@@ -59,7 +102,7 @@
                 <Rectangle Width="1" Height="16" Fill="{ThemeResource DividerStrokeColorDefaultBrush}" VerticalAlignment="Center" />
 
                 <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
-                    <TextBlock Text="Always on Top" FontSize="12" VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                    <TextBlock x:Name="TopMostLabel" Text="Always on Top" FontSize="12" VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                     <ToggleSwitch x:Name="TopMostToggle" Toggled="TopMostToggle_Toggled" OffContent="" OnContent="" MinHeight="0" MinWidth="0" Margin="0" VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
@@ -69,7 +112,9 @@
                         Grid.Row="1" 
                         IsBackButtonVisible="Collapsed" 
                         IsSettingsVisible="False" 
-                        PaneDisplayMode="Left"
+                        PaneDisplayMode="Auto"
+                        CompactPaneLength="56"
+                        OpenPaneLength="300"
                         IsPaneOpen="True"
                         IsPaneToggleButtonVisible="True"
                         SelectionChanged="NavView_SelectionChanged"
@@ -247,7 +292,7 @@
                     <TextBlock Name="TextStatus" Text="System Online" FontSize="12" FontWeight="Medium" Foreground="{ThemeResource TextFillColorPrimaryBrush}" VerticalAlignment="Center" Margin="0,1,0,0"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Spacing="24">
+                <StackPanel x:Name="StatusRightPanel" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Spacing="24">
                     <StackPanel Orientation="Horizontal" Spacing="6" VerticalAlignment="Center">
                         <FontIcon Glyph="&#xE8D5;" FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="12" Foreground="#D97706" VerticalAlignment="Center"/>
                         <TextBlock Text="Local DB Active" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" VerticalAlignment="Center" Margin="0,1,0,0"/>
@@ -285,6 +330,11 @@
                             <TextBlock x:Name="UsernameLabel" Text="alexandre.bertolo" FontSize="12" FontWeight="Bold" Foreground="{ThemeResource TextFillColorPrimaryBrush}" VerticalAlignment="Center" Margin="0,1,0,0"/>
                         </StackPanel>
                     </Button>
+                </StackPanel>
+
+                <StackPanel x:Name="MiniStatusPanel" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Spacing="8" Visibility="Collapsed">
+                    <FontIcon Glyph="&#xEC92;" FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="12" Foreground="#0EA5E9" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="MiniDateTimeLabel" Text="00:00:00" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" VerticalAlignment="Center"/>
                 </StackPanel>
             </Grid>
         </Border>

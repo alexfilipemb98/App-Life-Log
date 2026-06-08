@@ -126,6 +126,7 @@ public sealed partial class MainPage : Page
     private void MainTimer_Tick(object? sender, object e)
     {
         DateTimeLabel.Text = $"{DateTime.Now:dd/MM/yyyy HH:mm:ss}";
+        MiniDateTimeLabel.Text = $"{DateTime.Now:HH:mm:ss}";
     }
 
     #endregion
